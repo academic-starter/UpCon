@@ -1,0 +1,1435 @@
+{
+  "matches": [
+    {
+      "src": "primitive_type [1032,1039]",
+      "dest": "primitive_type [2395,2402]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns the ceiling of the division of two numbers.      *      * This differs from standard division with `/` in that it rounds up instead      * of rounding down.      */ [822,1010]",
+      "dest": "comment: /**      * @dev Muldiv operation overflow.      */ [222,272]"
+    },
+    {
+      "src": "type_name [680,687]",
+      "dest": "type_name [2791,2798]"
+    },
+    {
+      "src": "primitive_type [680,687]",
+      "dest": "primitive_type [2791,2798]"
+    },
+    {
+      "src": "state_mutability [711,715]",
+      "dest": "state_mutability [2822,2826]"
+    },
+    {
+      "src": "returns: returns [1068,1075]",
+      "dest": "returns: returns [2431,2438]"
+    },
+    {
+      "src": "type_name [1032,1039]",
+      "dest": "type_name [2395,2402]"
+    },
+    {
+      "src": "type_name [328,335]",
+      "dest": "type_name [3210,3217]"
+    },
+    {
+      "src": "identifier: a [789,790]",
+      "dest": "identifier: a [2900,2901]"
+    },
+    {
+      "src": "parameter [1043,1052]",
+      "dest": "parameter [2406,2415]"
+    },
+    {
+      "src": "return_type_definition [319,336]",
+      "dest": "return_type_definition [3201,3218]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [103,105]",
+      "dest": "solidity_version_comparison_operator [118,120]"
+    },
+    {
+      "src": "uint256: uint256 [1043,1050]",
+      "dest": "uint256: uint256 [2406,2413]"
+    },
+    {
+      "src": "): ) [732,733]",
+      "dest": "): ) [2843,2844]"
+    },
+    {
+      "src": "?: ? [536,537]",
+      "dest": "?: ? [2647,2648]"
+    },
+    {
+      "src": "pragma: pragma [88,94]",
+      "dest": "pragma: pragma [103,109]"
+    },
+    {
+      "src": "identifier: b [793,794]",
+      "dest": "identifier: b [2904,2905]"
+    },
+    {
+      "src": "(: ( [724,725]",
+      "dest": "(: ( [2835,2836]"
+    },
+    {
+      "src": "primitive_type [283,290]",
+      "dest": "primitive_type [3165,3172]"
+    },
+    {
+      "src": "function_definition [270,375]",
+      "dest": "function_definition [3148,3479]"
+    },
+    {
+      "src": "return_type_definition [1068,1085]",
+      "dest": "return_type_definition [2431,2448]"
+    },
+    {
+      "src": "function: function [270,278]",
+      "dest": "function: function [3148,3156]"
+    },
+    {
+      "src": "function_definition [663,816]",
+      "dest": "function_definition [2774,2927]"
+    },
+    {
+      "src": "function_body [337,375]",
+      "dest": "function_body [3219,3479]"
+    },
+    {
+      "src": "parenthesized_expression [798,805]",
+      "dest": "parenthesized_expression [2909,2916]"
+    },
+    {
+      "src": "parameter [283,292]",
+      "dest": "parameter [3165,3174]"
+    },
+    {
+      "src": "state_mutability [314,318]",
+      "dest": "state_mutability [3196,3200]"
+    },
+    {
+      "src": "returns: returns [716,723]",
+      "dest": "returns: returns [2827,2834]"
+    },
+    {
+      "src": "primitive_type [294,301]",
+      "dest": "primitive_type [3176,3183]"
+    },
+    {
+      "src": "identifier: a [1174,1175]",
+      "dest": "identifier: a [1978,1979]"
+    },
+    {
+      "src": "pragma_directive [88,111]",
+      "dest": "pragma_directive [103,127]"
+    },
+    {
+      "src": "parameter [294,303]",
+      "dest": "parameter [3176,3185]"
+    },
+    {
+      "src": "identifier: a [291,292]",
+      "dest": "identifier: a [3173,3174]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns the largest of two numbers.      */ [206,265]",
+      "dest": "comment: /**      * @dev Returns the largest of two numbers.      */ [2318,2377]"
+    },
+    {
+      "src": "binary_expression [788,809]",
+      "dest": "binary_expression [2899,2920]"
+    },
+    {
+      "src": "identifier: b [1051,1052]",
+      "dest": "identifier: b [2414,2415]"
+    },
+    {
+      "src": "&: & [791,792]",
+      "dest": "&: & [2902,2903]"
+    },
+    {
+      "src": "uint256: uint256 [283,290]",
+      "dest": "uint256: uint256 [3165,3172]"
+    },
+    {
+      "src": "primitive_type [504,511]",
+      "dest": "primitive_type [2615,2622]"
+    },
+    {
+      "src": "parameter [680,689]",
+      "dest": "parameter [2791,2800]"
+    },
+    {
+      "src": "): ) [794,795]",
+      "dest": "): ) [2905,2906]"
+    },
+    {
+      "src": "(: ( [798,799]",
+      "dest": "(: ( [2909,2910]"
+    },
+    {
+      "src": "library_declaration [187,1211]",
+      "dest": "library_declaration [203,15113]"
+    },
+    {
+      "src": "parameter [328,335]",
+      "dest": "parameter [3210,3217]"
+    },
+    {
+      "src": "source_file [0,1212]",
+      "dest": "source_file [0,15114]"
+    },
+    {
+      "src": "binary_expression [1174,1179]",
+      "dest": "binary_expression [1978,1983]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns the average of two numbers. The result is rounded towards      * zero.      */ [556,658]",
+      "dest": "comment: /**      * @dev Returns the average of two numbers. The result is rounded towards      * zero.      */ [2667,2769]"
+    },
+    {
+      "src": "/: / [806,807]",
+      "dest": "/: / [2917,2918]"
+    },
+    {
+      "src": "parameter [691,700]",
+      "dest": "parameter [2802,2811]"
+    },
+    {
+      "src": "primitive_type [470,477]",
+      "dest": "primitive_type [2581,2588]"
+    },
+    {
+      "src": "return_type_definition [495,512]",
+      "dest": "return_type_definition [2606,2623]"
+    },
+    {
+      "src": "identifier: b [1178,1179]",
+      "dest": "identifier: b [1982,1983]"
+    },
+    {
+      "src": "): ) [479,480]",
+      "dest": "): ) [2590,2591]"
+    },
+    {
+      "src": "return_statement [781,810]",
+      "dest": "return_statement [2892,2921]"
+    },
+    {
+      "src": "{: { [513,514]",
+      "dest": "{: { [2624,2625]"
+    },
+    {
+      "src": "<: < [532,533]",
+      "dest": "<: < [2643,2644]"
+    },
+    {
+      "src": "(: ( [788,789]",
+      "dest": "(: ( [2899,2900]"
+    },
+    {
+      "src": "uint256: uint256 [691,698]",
+      "dest": "uint256: uint256 [2802,2809]"
+    },
+    {
+      "src": "comment: // OpenZeppelin Contracts v4.3.2 (utils/math/Math.sol) [32,86]",
+      "dest": "comment: // OpenZeppelin Contracts (last updated v5.0.0) (utils/math/Math.sol) [32,101]"
+    },
+    {
+      "src": "type_name [459,466]",
+      "dest": "type_name [2570,2577]"
+    },
+    {
+      "src": "comment: /**  * @dev Standard math utilities missing in the Solidity language.  */ [113,186]",
+      "dest": "comment: /**  * @dev Standard math utilities missing in the Solidity language.  */ [129,202]"
+    },
+    {
+      "src": "pure: pure [490,494]",
+      "dest": "pure: pure [2601,2605]"
+    },
+    {
+      "src": "primitive_type [1077,1084]",
+      "dest": "primitive_type [2440,2447]"
+    },
+    {
+      "src": "identifier: b [542,543]",
+      "dest": "identifier: b [2653,2654]"
+    },
+    {
+      "src": "return: return [347,353]",
+      "dest": "return: return [3437,3443]"
+    },
+    {
+      "src": "identifier: b [803,804]",
+      "dest": "identifier: b [2914,2915]"
+    },
+    {
+      "src": "identifier: a [688,689]",
+      "dest": "identifier: a [2799,2800]"
+    },
+    {
+      "src": ",: , [689,690]",
+      "dest": ",: , [2800,2801]"
+    },
+    {
+      "src": "(: ( [458,459]",
+      "dest": "(: ( [2569,2570]"
+    },
+    {
+      "src": "function_body [734,816]",
+      "dest": "function_body [2845,2927]"
+    },
+    {
+      "src": "): ) [511,512]",
+      "dest": "): ) [2622,2623]"
+    },
+    {
+      "src": "comment: // (a + b) / 2 can overflow. [744,772]",
+      "dest": "comment: // (a + b) / 2 can overflow. [2855,2883]"
+    },
+    {
+      "src": ",: , [468,469]",
+      "dest": ",: , [2579,2580]"
+    },
+    {
+      "src": "(: ( [282,283]",
+      "dest": "(: ( [3164,3165]"
+    },
+    {
+      "src": "return_statement [1167,1203]",
+      "dest": "return_statement [2459,2480]"
+    },
+    {
+      "src": "type_name [470,477]",
+      "dest": "type_name [2581,2588]"
+    },
+    {
+      "src": "function: function [663,671]",
+      "dest": "function: function [2774,2782]"
+    },
+    {
+      "src": "pure: pure [1063,1067]",
+      "dest": "pure: pure [2426,2430]"
+    },
+    {
+      "src": "}: } [1208,1209]",
+      "dest": "}: } [2485,2486]"
+    },
+    {
+      "src": "pure: pure [314,318]",
+      "dest": "pure: pure [3196,3200]"
+    },
+    {
+      "src": "primitive_type [725,732]",
+      "dest": "primitive_type [2836,2843]"
+    },
+    {
+      "src": "identifier: max [279,282]",
+      "dest": "identifier: ceilDiv [3157,3164]"
+    },
+    {
+      "src": "return: return [1167,1173]",
+      "dest": "return: return [2459,2465]"
+    },
+    {
+      "src": "state_mutability [1063,1067]",
+      "dest": "state_mutability [2426,2430]"
+    },
+    {
+      "src": "uint256: uint256 [459,466]",
+      "dest": "uint256: uint256 [2570,2577]"
+    },
+    {
+      "src": "internal: internal [1054,1062]",
+      "dest": "internal: internal [2417,2425]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: MIT [0,31]",
+      "dest": "comment: // SPDX-License-Identifier: MIT [0,31]"
+    },
+    {
+      "src": "identifier: average [672,679]",
+      "dest": "identifier: average [2783,2790]"
+    },
+    {
+      "src": "primitive_type [1043,1050]",
+      "dest": "primitive_type [2406,2413]"
+    },
+    {
+      "src": "parameter [459,468]",
+      "dest": "parameter [2570,2579]"
+    },
+    {
+      "src": "parameter [504,511]",
+      "dest": "parameter [2615,2622]"
+    },
+    {
+      "src": "identifier: a [530,531]",
+      "dest": "identifier: a [2641,2642]"
+    },
+    {
+      "src": "function_definition [1015,1209]",
+      "dest": "function_definition [2382,2486]"
+    },
+    {
+      "src": "%: % [1185,1186]",
+      "dest": "%: % [2291,2292]"
+    },
+    {
+      "src": "identifier: a [467,468]",
+      "dest": "identifier: a [2578,2579]"
+    },
+    {
+      "src": "return: return [523,529]",
+      "dest": "return: return [2634,2640]"
+    },
+    {
+      "src": "return: return [781,787]",
+      "dest": "return: return [2892,2898]"
+    },
+    {
+      "src": "type_name [691,698]",
+      "dest": "type_name [2802,2809]"
+    },
+    {
+      "src": "solidity_version: 0.8.0 [105,110]",
+      "dest": "solidity_version: 0.8.20 [120,126]"
+    },
+    {
+      "src": "binary_expression [799,804]",
+      "dest": "binary_expression [2910,2915]"
+    },
+    {
+      "src": ",: , [292,293]",
+      "dest": ",: , [3174,3175]"
+    },
+    {
+      "src": "identifier: b [699,700]",
+      "dest": "identifier: b [2810,2811]"
+    },
+    {
+      "src": "type_name [283,290]",
+      "dest": "type_name [3165,3172]"
+    },
+    {
+      "src": "^: ^ [801,802]",
+      "dest": "^: ^ [2912,2913]"
+    },
+    {
+      "src": "}: } [1210,1211]",
+      "dest": "}: } [15112,15113]"
+    },
+    {
+      "src": "state_mutability [490,494]",
+      "dest": "state_mutability [2601,2605]"
+    },
+    {
+      "src": "number_literal: 2 [808,809]",
+      "dest": "number_literal: 2 [2919,2920]"
+    },
+    {
+      "src": "binary_expression [1183,1188]",
+      "dest": "binary_expression [2289,2294]"
+    },
+    {
+      "src": "solidity: solidity [95,103]",
+      "dest": "solidity: solidity [110,118]"
+    },
+    {
+      "src": "binary_expression [798,809]",
+      "dest": "binary_expression [2909,2920]"
+    },
+    {
+      "src": "function_body [1086,1209]",
+      "dest": "function_body [2449,2486]"
+    },
+    {
+      "src": "{: { [1086,1087]",
+      "dest": "{: { [2449,2450]"
+    },
+    {
+      "src": "return_type_definition [716,733]",
+      "dest": "return_type_definition [2827,2844]"
+    },
+    {
+      "src": "parameter [725,732]",
+      "dest": "parameter [2836,2843]"
+    },
+    {
+      "src": ":: : [540,541]",
+      "dest": ":: : [2651,2652]"
+    },
+    {
+      "src": "function_definition [446,550]",
+      "dest": "function_definition [2557,2661]"
+    },
+    {
+      "src": "}: } [374,375]",
+      "dest": "}: } [3478,3479]"
+    },
+    {
+      "src": "solidity_pragma_token [95,110]",
+      "dest": "solidity_pragma_token [110,126]"
+    },
+    {
+      "src": "uint256: uint256 [1032,1039]",
+      "dest": "uint256: uint256 [2395,2402]"
+    },
+    {
+      "src": "function: function [1015,1023]",
+      "dest": "function: function [2382,2390]"
+    },
+    {
+      "src": "internal: internal [702,710]",
+      "dest": "internal: internal [2813,2821]"
+    },
+    {
+      "src": "identifier: ceilDiv [1024,1031]",
+      "dest": "identifier: max [2391,2394]"
+    },
+    {
+      "src": "identifier: b [478,479]",
+      "dest": "identifier: b [2589,2590]"
+    },
+    {
+      "src": "pure: pure [711,715]",
+      "dest": "pure: pure [2822,2826]"
+    },
+    {
+      "src": "identifier: min [455,458]",
+      "dest": "identifier: min [2566,2569]"
+    },
+    {
+      "src": "uint256: uint256 [504,511]",
+      "dest": "uint256: uint256 [2615,2622]"
+    },
+    {
+      "src": "identifier: a [1040,1041]",
+      "dest": "identifier: a [2403,2404]"
+    },
+    {
+      "src": "): ) [804,805]",
+      "dest": "): ) [2915,2916]"
+    },
+    {
+      "src": "type_name [725,732]",
+      "dest": "type_name [2836,2843]"
+    },
+    {
+      "src": "visibility [702,710]",
+      "dest": "visibility [2813,2821]"
+    },
+    {
+      "src": "parameter [470,479]",
+      "dest": "parameter [2581,2590]"
+    },
+    {
+      "src": "type_name [1077,1084]",
+      "dest": "type_name [2440,2447]"
+    },
+    {
+      "src": "type_name [504,511]",
+      "dest": "type_name [2615,2622]"
+    },
+    {
+      "src": "identifier: a [1183,1184]",
+      "dest": "identifier: a [2289,2290]"
+    },
+    {
+      "src": "(: ( [1031,1032]",
+      "dest": "(: ( [2394,2395]"
+    },
+    {
+      "src": "primitive_type [691,698]",
+      "dest": "primitive_type [2802,2809]"
+    },
+    {
+      "src": "visibility [305,313]",
+      "dest": "visibility [3187,3195]"
+    },
+    {
+      "src": "uint256: uint256 [294,301]",
+      "dest": "uint256: uint256 [3176,3183]"
+    },
+    {
+      "src": "+: + [796,797]",
+      "dest": "+: + [2907,2908]"
+    },
+    {
+      "src": "): ) [1084,1085]",
+      "dest": "): ) [2447,2448]"
+    },
+    {
+      "src": "type_name [1043,1050]",
+      "dest": "type_name [2406,2413]"
+    },
+    {
+      "src": "}: } [549,550]",
+      "dest": "}: } [2660,2661]"
+    },
+    {
+      "src": "internal: internal [305,313]",
+      "dest": "internal: internal [3187,3195]"
+    },
+    {
+      "src": "visibility [481,489]",
+      "dest": "visibility [2592,2600]"
+    },
+    {
+      "src": "internal: internal [481,489]",
+      "dest": "internal: internal [2592,2600]"
+    },
+    {
+      "src": ",: , [1041,1042]",
+      "dest": ",: , [2404,2405]"
+    },
+    {
+      "src": "identifier: a [799,800]",
+      "dest": "identifier: a [2910,2911]"
+    },
+    {
+      "src": "{: { [200,201]",
+      "dest": "{: { [216,217]"
+    },
+    {
+      "src": "ternary_expression [530,543]",
+      "dest": "ternary_expression [2641,2654]"
+    },
+    {
+      "src": "(: ( [503,504]",
+      "dest": "(: ( [2614,2615]"
+    },
+    {
+      "src": "^:  ^ [103,105]",
+      "dest": "^:  ^ [118,120]"
+    },
+    {
+      "src": "uint256: uint256 [725,732]",
+      "dest": "uint256: uint256 [2836,2843]"
+    },
+    {
+      "src": ":: : [365,366]",
+      "dest": ":: : [3455,3456]"
+    },
+    {
+      "src": "return_statement [347,369]",
+      "dest": "return_statement [3437,3473]"
+    },
+    {
+      "src": "(: ( [679,680]",
+      "dest": "(: ( [2790,2791]"
+    },
+    {
+      "src": "binary_expression [530,535]",
+      "dest": "binary_expression [2641,2646]"
+    },
+    {
+      "src": "return_statement [523,544]",
+      "dest": "return_statement [2634,2655]"
+    },
+    {
+      "src": "identifier: b [534,535]",
+      "dest": "identifier: b [2645,2646]"
+    },
+    {
+      "src": "parameter [1077,1084]",
+      "dest": "parameter [2440,2447]"
+    },
+    {
+      "src": "(: ( [1076,1077]",
+      "dest": "(: ( [2439,2440]"
+    },
+    {
+      "src": "): ) [303,304]",
+      "dest": "): ) [3185,3186]"
+    },
+    {
+      "src": "uint256: uint256 [328,335]",
+      "dest": "uint256: uint256 [3210,3217]"
+    },
+    {
+      "src": "(: ( [327,328]",
+      "dest": "(: ( [3209,3210]"
+    },
+    {
+      "src": "visibility [1054,1062]",
+      "dest": "visibility [2417,2425]"
+    },
+    {
+      "src": "identifier: Math [195,199]",
+      "dest": "identifier: Math [211,215]"
+    },
+    {
+      "src": "returns: returns [319,326]",
+      "dest": "returns: returns [3201,3208]"
+    },
+    {
+      "src": "primitive_type [459,466]",
+      "dest": "primitive_type [2570,2577]"
+    },
+    {
+      "src": "{: { [337,338]",
+      "dest": "{: { [3219,3220]"
+    },
+    {
+      "src": "?: ? [361,362]",
+      "dest": "?: ? [3451,3452]"
+    },
+    {
+      "src": "): ) [700,701]",
+      "dest": "): ) [2811,2812]"
+    },
+    {
+      "src": "identifier: a [538,539]",
+      "dest": "identifier: a [2649,2650]"
+    },
+    {
+      "src": "uint256: uint256 [680,687]",
+      "dest": "uint256: uint256 [2791,2798]"
+    },
+    {
+      "src": "identifier: b [302,303]",
+      "dest": "identifier: b [3184,3185]"
+    },
+    {
+      "src": "primitive_type [328,335]",
+      "dest": "primitive_type [3210,3217]"
+    },
+    {
+      "src": "ternary_expression [354,368]",
+      "dest": "ternary_expression [3444,3472]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns the smallest of two numbers.      */ [381,441]",
+      "dest": "comment: /**      * @dev Returns the smallest of two numbers.      */ [2492,2552]"
+    },
+    {
+      "src": "returns: returns [495,502]",
+      "dest": "returns: returns [2606,2613]"
+    },
+    {
+      "src": "): ) [1052,1053]",
+      "dest": "): ) [2415,2416]"
+    },
+    {
+      "src": "uint256: uint256 [470,477]",
+      "dest": "uint256: uint256 [2581,2588]"
+    },
+    {
+      "src": "type_name [294,301]",
+      "dest": "type_name [3176,3183]"
+    },
+    {
+      "src": "binary_expression [789,794]",
+      "dest": "binary_expression [2900,2905]"
+    },
+    {
+      "src": "{: { [734,735]",
+      "dest": "{: { [2845,2846]"
+    },
+    {
+      "src": "library: library [187,194]",
+      "dest": "library: library [203,210]"
+    },
+    {
+      "src": "function_body [513,550]",
+      "dest": "function_body [2624,2661]"
+    },
+    {
+      "src": "identifier: b [1187,1188]",
+      "dest": "identifier: b [2293,2294]"
+    },
+    {
+      "src": "}: } [815,816]",
+      "dest": "}: } [2926,2927]"
+    },
+    {
+      "src": "uint256: uint256 [1077,1084]",
+      "dest": "uint256: uint256 [2440,2447]"
+    },
+    {
+      "src": "parenthesized_expression [788,795]",
+      "dest": "parenthesized_expression [2899,2906]"
+    },
+    {
+      "src": "contract_body [200,1211]",
+      "dest": "contract_body [216,15113]"
+    },
+    {
+      "src": "): ) [335,336]",
+      "dest": "): ) [3217,3218]"
+    },
+    {
+      "src": "parameter [1032,1041]",
+      "dest": "parameter [2395,2404]"
+    },
+    {
+      "src": "function: function [446,454]",
+      "dest": "function: function [2557,2565]"
+    },
+    {
+      "src": "/: / [1176,1177]",
+      "dest": "/: / [1980,1981]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "comment: // OpenZeppelin Contracts v4.3.2 (utils/math/Math.sol) [32,86]",
+      "label": "// OpenZeppelin Contracts (last updated v5.0.0) (utils/math/Math.sol)"
+    },
+    {
+      "action": "move-tree",
+      "tree": "comment: /**      * @dev Returns the ceiling of the division of two numbers.      *      * This differs from standard division with `/` in that it rounds up instead      * of rounding down.      */ [822,1010]",
+      "parent": "contract_body [216,15113]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "function_definition [1015,1209]",
+      "parent": "contract_body [216,15113]",
+      "at": 3
+    },
+    {
+      "action": "move-tree",
+      "tree": "function_definition [270,375]",
+      "parent": "contract_body [216,15113]",
+      "at": 8
+    },
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.8.0 [105,110]",
+      "label": "0.8.20"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Returns the ceiling of the division of two numbers.      *      * This differs from standard division with `/` in that it rounds up instead      * of rounding down.      */ [822,1010]",
+      "label": "/**      * @dev Muldiv operation overflow.      */"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "error_declaration [277,306]",
+      "parent": "contract_body [216,15113]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "enum_declaration [312,481]",
+      "parent": "contract_body [216,15113]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Returns the addition of two unsigned integers, with an overflow flag.      */ [487,580]",
+      "parent": "contract_body [216,15113]",
+      "at": 4
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [585,801]",
+      "parent": "contract_body [216,15113]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Returns the subtraction of two unsigned integers, with an overflow flag.      */ [807,903]",
+      "parent": "contract_body [216,15113]",
+      "at": 6
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [908,1097]",
+      "parent": "contract_body [216,15113]",
+      "at": 7
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Returns the multiplication of two unsigned integers, with an overflow flag.      */ [1103,1202]",
+      "parent": "contract_body [216,15113]",
+      "at": 8
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [1207,1700]",
+      "parent": "contract_body [216,15113]",
+      "at": 9
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Returns the division of two unsigned integers, with a division by zero flag.      */ [1706,1806]",
+      "parent": "contract_body [216,15113]",
+      "at": 10
+    },
+    {
+      "action": "insert-node",
+      "tree": "function_definition [1811,2001]",
+      "parent": "contract_body [216,15113]",
+      "at": 11
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.      */ [2007,2117]",
+      "parent": "contract_body [216,15113]",
+      "at": 12
+    },
+    {
+      "action": "insert-node",
+      "tree": "function_definition [2122,2312]",
+      "parent": "contract_body [216,15113]",
+      "at": 13
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Returns the ceiling of the division of two numbers.      *      * This differs from standard division with `/` in that it rounds towards infinity instead      * of rounding towards zero.      */ [2933,3143]",
+      "parent": "contract_body [216,15113]",
+      "at": 20
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @notice Calculates floor(x * y / denominator) with full precision. Throws if result overflows a uint256 or      * denominator == 0.      * @dev Original credit to Remco Bloemen under MIT license (https://xn--2-umb.com/21/muldiv) with further edits by      * Uniswap Labs also under MIT license.      */ [3485,3798]",
+      "parent": "contract_body [216,15113]",
+      "at": 22
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [3803,7919]",
+      "parent": "contract_body [216,15113]",
+      "at": 23
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @notice Calculates x * y / denominator with full precision, following the selected rounding direction.      */ [7925,8046]",
+      "parent": "contract_body [216,15113]",
+      "at": 24
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [8051,8353]",
+      "parent": "contract_body [216,15113]",
+      "at": 25
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Returns the square root of a number. If the number is not a perfect square, the value is rounded      * towards zero.      *      * Inspired by Henry S. Warren, Jr.'s \"Hacker's Delight\" (Chapter 11).      */ [8359,8582]",
+      "parent": "contract_body [216,15113]",
+      "at": 26
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [8587,10225]",
+      "parent": "contract_body [216,15113]",
+      "at": 27
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @notice Calculates sqrt(a), following the selected rounding direction.      */ [10231,10320]",
+      "parent": "contract_body [216,15113]",
+      "at": 28
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [10325,10565]",
+      "parent": "contract_body [216,15113]",
+      "at": 29
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Return the log in base 2 of a positive value rounded towards zero.      * Returns 0 if given 0.      */ [10571,10690]",
+      "parent": "contract_body [216,15113]",
+      "at": 30
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [10695,11678]",
+      "parent": "contract_body [216,15113]",
+      "at": 31
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Return the log in base 2, following the selected rounding direction, of a positive value.      * Returns 0 if given 0.      */ [11684,11826]",
+      "parent": "contract_body [216,15113]",
+      "at": 32
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [11831,12079]",
+      "parent": "contract_body [216,15113]",
+      "at": 33
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Return the log in base 10 of a positive value rounded towards zero.      * Returns 0 if given 0.      */ [12085,12205]",
+      "parent": "contract_body [216,15113]",
+      "at": 34
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [12210,13126]",
+      "parent": "contract_body [216,15113]",
+      "at": 35
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Return the log in base 10, following the selected rounding direction, of a positive value.      * Returns 0 if given 0.      */ [13132,13275]",
+      "parent": "contract_body [216,15113]",
+      "at": 36
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [13280,13531]",
+      "parent": "contract_body [216,15113]",
+      "at": 37
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Return the log in base 256 of a positive value rounded towards zero.      * Returns 0 if given 0.      *      * Adding one to the result gives the number of pairs of hex symbols needed to represent `value` as a hex string.      */ [13537,13783]",
+      "parent": "contract_body [216,15113]",
+      "at": 38
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [13788,14451]",
+      "parent": "contract_body [216,15113]",
+      "at": 39
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Return the log in base 256, following the selected rounding direction, of a positive value.      * Returns 0 if given 0.      */ [14457,14601]",
+      "parent": "contract_body [216,15113]",
+      "at": 40
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [14606,14865]",
+      "parent": "contract_body [216,15113]",
+      "at": 41
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Returns whether a provided rounding mode is considered rounding up for unsigned integers.      */ [14871,14984]",
+      "parent": "contract_body [216,15113]",
+      "at": 42
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [14989,15111]",
+      "parent": "contract_body [216,15113]",
+      "at": 43
+    },
+    {
+      "action": "insert-node",
+      "tree": "function: function [1811,1819]",
+      "parent": "function_definition [1811,2001]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: tryDiv [1820,1826]",
+      "parent": "function_definition [1811,2001]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [1826,1827]",
+      "parent": "function_definition [1811,2001]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "parameter [1827,1836]",
+      "parent": "function_definition [1811,2001]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [1836,1837]",
+      "parent": "function_definition [1811,2001]",
+      "at": 4
+    },
+    {
+      "action": "insert-tree",
+      "tree": "parameter [1838,1847]",
+      "parent": "function_definition [1811,2001]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [1847,1848]",
+      "parent": "function_definition [1811,2001]",
+      "at": 6
+    },
+    {
+      "action": "insert-tree",
+      "tree": "visibility [1849,1857]",
+      "parent": "function_definition [1811,2001]",
+      "at": 7
+    },
+    {
+      "action": "insert-tree",
+      "tree": "state_mutability [1858,1862]",
+      "parent": "function_definition [1811,2001]",
+      "at": 8
+    },
+    {
+      "action": "insert-tree",
+      "tree": "return_type_definition [1863,1886]",
+      "parent": "function_definition [1811,2001]",
+      "at": 9
+    },
+    {
+      "action": "insert-node",
+      "tree": "function_body [1887,2001]",
+      "parent": "function_definition [1811,2001]",
+      "at": 10
+    },
+    {
+      "action": "insert-node",
+      "tree": "function: function [2122,2130]",
+      "parent": "function_definition [2122,2312]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: tryMod [2131,2137]",
+      "parent": "function_definition [2122,2312]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [2137,2138]",
+      "parent": "function_definition [2122,2312]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "parameter [2138,2147]",
+      "parent": "function_definition [2122,2312]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [2147,2148]",
+      "parent": "function_definition [2122,2312]",
+      "at": 4
+    },
+    {
+      "action": "insert-tree",
+      "tree": "parameter [2149,2158]",
+      "parent": "function_definition [2122,2312]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [2158,2159]",
+      "parent": "function_definition [2122,2312]",
+      "at": 6
+    },
+    {
+      "action": "insert-tree",
+      "tree": "visibility [2160,2168]",
+      "parent": "function_definition [2122,2312]",
+      "at": 7
+    },
+    {
+      "action": "insert-tree",
+      "tree": "state_mutability [2169,2173]",
+      "parent": "function_definition [2122,2312]",
+      "at": 8
+    },
+    {
+      "action": "insert-tree",
+      "tree": "return_type_definition [2174,2197]",
+      "parent": "function_definition [2122,2312]",
+      "at": 9
+    },
+    {
+      "action": "insert-node",
+      "tree": "function_body [2198,2312]",
+      "parent": "function_definition [2122,2312]",
+      "at": 10
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: ceilDiv [1024,1031]",
+      "label": "max"
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: max [279,282]",
+      "label": "ceilDiv"
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [1887,1888]",
+      "parent": "function_body [1887,2001]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "block_statement [1897,1995]",
+      "parent": "function_body [1887,2001]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [2000,2001]",
+      "parent": "function_body [1887,2001]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [2198,2199]",
+      "parent": "function_body [2198,2312]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "block_statement [2208,2306]",
+      "parent": "function_body [2198,2312]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [2311,2312]",
+      "parent": "function_body [2198,2312]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "if_statement [3229,3356]",
+      "parent": "function_body [3219,3479]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // (a + b - 1) / b can overflow on addition, so we distribute. [3366,3428]",
+      "parent": "function_body [3219,3479]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [1907,1908]",
+      "parent": "block_statement [1897,1995]",
+      "at": 0
+    },
+    {
+      "action": "insert-tree",
+      "tree": "if_statement [1921,1951]",
+      "parent": "block_statement [1897,1995]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "return_statement [1964,1985]",
+      "parent": "block_statement [1897,1995]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [1994,1995]",
+      "parent": "block_statement [1897,1995]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [2218,2219]",
+      "parent": "block_statement [2208,2306]",
+      "at": 0
+    },
+    {
+      "action": "insert-tree",
+      "tree": "if_statement [2232,2262]",
+      "parent": "block_statement [2208,2306]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "return_statement [2275,2296]",
+      "parent": "block_statement [2208,2306]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [2305,2306]",
+      "parent": "block_statement [2208,2306]",
+      "at": 3
+    },
+    {
+      "action": "insert-tree",
+      "tree": "ternary_expression [2466,2479]",
+      "parent": "return_statement [2459,2480]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "return: return [1964,1970]",
+      "parent": "return_statement [1964,1985]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "tuple_expression [1971,1984]",
+      "parent": "return_statement [1964,1985]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "return: return [2275,2281]",
+      "parent": "return_statement [2275,2296]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "tuple_expression [2282,2295]",
+      "parent": "return_statement [2275,2296]",
+      "at": 1
+    },
+    {
+      "action": "insert-tree",
+      "tree": "binary_expression [3444,3450]",
+      "parent": "ternary_expression [3444,3472]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "number_literal: 0 [3453,3454]",
+      "parent": "ternary_expression [3444,3472]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "binary_expression [3457,3472]",
+      "parent": "ternary_expression [3444,3472]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [1971,1972]",
+      "parent": "tuple_expression [1971,1984]",
+      "at": 0
+    },
+    {
+      "action": "insert-tree",
+      "tree": "boolean_literal [1972,1976]",
+      "parent": "tuple_expression [1971,1984]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [1976,1977]",
+      "parent": "tuple_expression [1971,1984]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "binary_expression [1174,1179]",
+      "parent": "tuple_expression [1971,1984]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [1983,1984]",
+      "parent": "tuple_expression [1971,1984]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [2282,2283]",
+      "parent": "tuple_expression [2282,2295]",
+      "at": 0
+    },
+    {
+      "action": "insert-tree",
+      "tree": "boolean_literal [2283,2287]",
+      "parent": "tuple_expression [2282,2295]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [2287,2288]",
+      "parent": "tuple_expression [2282,2295]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "binary_expression [1183,1188]",
+      "parent": "tuple_expression [2282,2295]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [2294,2295]",
+      "parent": "tuple_expression [2282,2295]",
+      "at": 4
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: // (a + b - 1) / b can overflow on addition, so we distribute. [1096,1158]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "+: + [1180,1181]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [1182,1183]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "==: == [1189,1191]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "number_literal: 0 [1192,1193]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "binary_expression [1183,1193]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "?: ? [1194,1195]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "number_literal: 0 [1196,1197]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ":: : [1198,1199]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "number_literal: 1 [1200,1201]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "ternary_expression [1183,1201]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [1201,1202]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "parenthesized_expression [1182,1202]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "binary_expression [1174,1202]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "binary_expression [354,360]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: a [363,364]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: b [367,368]"
+    }
+  ]
+}

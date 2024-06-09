@@ -1,0 +1,549 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>CEther.sol</h5><pre class="pre-scrollable">pragma solidity ^0.5.16;
+
+import "./CToken.sol";
+
+<span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="source_file/comment"><span class="cupd">/**
+ * @title Compound's CEther Contract
+ * @notice CToken which wraps Ether
+ * @dev This contract should not to be deployed on its own; instead, dep</span>l<span class="cupd">o</span>y:
+ *<span class="cupd"> 1) `CEtherDelegator` (proxy contract) and `CEtherDelegate` (logic/implementation contract).</span>
+ * 2) `CEtherImmutable` to deploy without the proxy storage pattern<span class="cupd">.
+ * @author Compou</span>nd
+ */</span>
+contract CEther is CToken, CEtherInterface {
+    <span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-2" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice Initialize the new money market
+     * @param comptroller_ The address of the Comptroller
+     * @param interestRateModel_ The address of the interest rate model
+     * @pa</span>r<span class="cupd">a</span>m i<span class="cupd">n</span>itialExchangeRateMantissa_ The initial exchange rate, scaled by 1e18
+     * <span class="cupd">@</span>para<span class="cupd">m name_ ERC-20 name of this token
+     * @param symbol_ ERC-20 symbol of this token</span>
+     * @param decimals_ ERC-20 decimal precision of this token
+     */</span>
+    function initialize(ComptrollerInterface comptroller_,
+                        InterestRateModel interestRateModel_,
+                        <span class="marker" id="mapping-3"></span><span class="token del" data-title="function_definition/parameter">uint initialExchangeRateMantissa_</span><span class="marker" id="mapping-4"></span><span class="token mv" id="move-src-3" data-title="function_definition/,">,</span>
+                        string memory name_<span class="marker" id="mapping-5"></span><span class="token mv" id="move-src-4" data-title="function_definition/,">,</span>
+                        string memory symbol_<span class="marker" id="mapping-6"></span><span class="token mv" id="move-src-5" data-title="function_definition/,">,</span>
+                        <span class="marker" id="mapping-7"></span><span class="token del" data-title="function_definition/parameter"><span class="marker" id="mapping-8"></span><span class="token mv" id="move-src-6" data-title="parameter/type_name">uint8</span> decimals_</span><span class="marker" id="mapping-9"></span><span class="token del" data-title="function_definition/,">,</span>
+                        uint256 reserveFactorMantissa_<span class="marker" id="mapping-10"></span><span class="token del" data-title="function_definition/,">,</span>
+                        uint256 adminFeeMantissa_) public {
+        // CToken initialize does the bulk of the work
+        super.initialize(comptroller_, interestRateModel_, initialExchangeRateMantissa_, name_, symbol_, decimals_, reserveFactorMantissa_, adminFeeMantissa_);
+    }
+
+    /*** User Interface ***/
+
+    /**
+     * @notice Sender supplies assets into the market and receives cTokens in exchange
+     * @dev Reverts upon any failure
+     */
+    function mint() external payable {
+        (uint err,) = mintInternal(msg.value);
+        requireNoError(err, "mint failed");
+    }
+
+    /**
+     * @notice Sender redeems cTokens in exchange for the underlying asset
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @param redeemTokens The number of cTokens to redeem into underlying
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function redeem(uint redeemTokens) external returns (uint) {
+        return redeemInternal(redeemTokens);
+    }
+
+    /**
+     * @notice Sender redeems cTokens in exchange for a specified amount of underlying asset
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @param redeemAmount The amount of underlying to redeem
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function redeemUnderlying(uint redeemAmount) external returns (uint) {
+        return redeemUnderlyingInternal(redeemAmount);
+    }
+
+    /**
+      * @notice Sender borrows assets from the protocol to their own address
+      * @param borrowAmount The amount of the underlying asset to borrow
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function borrow(uint borrowAmount) external returns (uint) {
+        return borrowInternal(borrowAmount);
+    }
+
+    /**
+     * @notice Sender repays their own borrow
+     * @dev Reverts upon any failure
+     */
+    function repayBorrow() external payable {
+        (uint err,) = repayBorrowInternal(msg.value);
+        requireNoError(err, "repayBorrow failed");
+    }
+
+    /**
+     * @notice Sender repays a borrow belonging to borrower
+     * @dev Reverts upon any failure
+     * @param borrower the account with the debt being payed off
+     */
+    function repayBorrowBehalf(address borrower) external payable {
+        (uint err,) = repayBorrowBehalfInternal(borrower, msg.value);
+        requireNoError(err, "repayBorrowBehalf failed");
+    }
+
+    /**
+     * @notice The sender liquidates the borrowers collateral.
+     *  The collateral seized is transferred to the liquidator.
+     * @dev Reverts upon any failure
+     * @param borrower The borrower of this cToken to be liquidated
+     * @param cTokenCollateral The market in which to seize collateral from the borrower
+     */
+    function liquidateBorrow(address borrower, CToken cTokenCollateral) external payable {
+        (uint err,) = liquidateBorrowInternal(borrower, msg.value, cTokenCollateral);
+        requireNoError(err, "liquidateBorrow failed");
+    }
+
+    /**
+     * @notice Send Ether to CEther to mint
+     */
+    function () external payable {
+        (uint err,) = mintInternal(msg.value);
+        requireNoError(err, "mint failed");
+    }
+
+    /*** Safe Token ***/
+
+    /**
+     * @notice Gets balance of this contract in terms of Ether, before this message
+     * @dev This excludes the value of the current message, if any
+     * @return The quantity of Ether owned by this contract
+     */
+    function getCashPrior() internal view returns (uint) {
+        (MathError err, uint startingBalance) = subUInt(address(this).balance, msg.value);
+        require(err == MathError.NO_ERROR);
+        return startingBalance;
+    }
+
+    /**
+     * @notice Perform the actual transfer in, which is a no-op
+     * @param from Address sending the Ether
+     * @param amount Amount of Ether being sent
+     * @return The actual amount of Ether transferred
+     */
+    function doTransferIn(address from, uint amount) internal returns (uint) {
+        // Sanity checks
+        require(msg.sender == from, "sender mismatch");
+        require(msg.value == amount, "value mismatch");
+        return amount;
+    }
+
+    function doTransferOut(address payable to, uint amount) internal {
+        // Send the Ether and revert on failure
+        (bool success, ) = to.call.value(amount)("");
+        require(success, "doTransferOut failed");
+    }
+
+    function requireNoError(uint errCode, string memory message) internal pure {
+        if (errCode == uint(Error.NO_ERROR)) {
+            return;
+        }
+
+        bytes memory fullMessage = new bytes(bytes(message).length + <span class="marker" id="mapping-11"></span><span class="token upd" id="move-src-7" data-title="binary_expression/number_literal">5</span>);
+        uint i;
+
+        for (i = 0; i &lt; bytes(message).length; i++) {
+            fullMessage[i] = bytes(message)[i];
+        }
+
+        fullMessage[i+0] = byte(uint8(32));
+        fullMessage[i+1] = byte(uint8(40));
+        <span class="marker" id="mapping-12"></span><span class="token mv" id="move-src-8" data-title="assignment_expression/array_access">fullMessage[i+2]</span> = byte(uint8(48 + ( <span class="marker" id="mapping-13"></span><span class="token mv" id="move-src-9" data-title="parenthesized_expression/binary_expression">errCode / 10</span> )));
+        <span class="marker" id="mapping-14"></span><span class="token mv" id="move-src-10" data-title="assignment_expression/array_access">fullMessage[i+3]</span> = byte(uint8(48 + ( errCode % 10 )));
+        <span class="marker" id="mapping-15"></span><span class="token mv" id="move-src-11" data-title="assignment_expression/array_access">fullMessage[i+4]</span> = byte(uint8(41));
+
+        require(errCode == uint(Error.NO_ERROR), string(fullMessage));
+    }
+}
+</pre></div><div class="col-6"><h5>CEther.sol</h5><pre class="pre-scrollable">pragma solidity ^0.5.16;
+
+import "./CToken.sol";
+
+<span class="marker" id="mapping-16"></span><span class="token upd" id="move-dst-1" data-title="source_file/comment"><span class="cupd">/**
+ * @title Compound's CEther Contract
+ * @notice CToken which wraps Ether
+ * @dev This contract should not to be deployed on its own; instead, dep</span><span class="cupd">l</span><span class="cupd">oy `CEtherDelegator` (proxy contract) and `CEtherDelegate` (logic/implementation contract).</span><span class="cupd">
+ * @author Compound</span>
+ */</span>
+contract CEther is CToken, CEtherInterface {
+    <span class="marker" id="mapping-17"></span><span class="token upd" id="move-dst-2" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice Initialize the new money market
+     * @param comptroller_ The address of the Comptroller
+     * @param interestRateModel_ The address of the interest rate model
+     * @pa</span><span class="cupd">r</span><span class="cupd">a</span><span class="cupd">m</span><span class="cupd"> name_ ERC-20 name of this token
+     * @param symbol_ ERC-20 symbol of this token
+</span>     */</span>
+    function initialize(ComptrollerInterface comptroller_,
+                        InterestRateModel interestRateModel_,
+                        string memory name_<span class="marker" id="mapping-18"></span><span class="token mv" id="move-dst-3" data-title="function_definition/,">,</span>
+                        string memory symbol_<span class="marker" id="mapping-19"></span><span class="token mv" id="move-dst-4" data-title="function_definition/,">,</span>
+                        uint256 reserveFactorMantissa_<span class="marker" id="mapping-20"></span><span class="token mv" id="move-dst-5" data-title="function_definition/,">,</span>
+                        uint256 adminFeeMantissa_) public {
+        // CToken initialize does the bulk of the work
+        <span class="marker" id="mapping-21"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 initialExchangeRateMantissa_ = 0.2e18;</span>
+        <span class="marker" id="mapping-22"></span><span class="token add" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-23"></span><span class="token add" data-title="variable_declaration_statement/variable_declaration"><span class="marker" id="mapping-24"></span><span class="token mv" id="move-dst-6" data-title="variable_declaration/type_name">uint8</span> decimals_</span> = 18;</span>
+        super.initialize(comptroller_, interestRateModel_, initialExchangeRateMantissa_, name_, symbol_, decimals_, reserveFactorMantissa_, adminFeeMantissa_);
+    }
+
+    /*** User Interface ***/
+
+    /**
+     * @notice Sender supplies assets into the market and receives cTokens in exchange
+     * @dev Reverts upon any failure
+     */
+    function mint() external payable {
+        (uint err,) = mintInternal(msg.value);
+        requireNoError(err, "mint failed");
+    }
+
+    /**
+     * @notice Sender redeems cTokens in exchange for the underlying asset
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @param redeemTokens The number of cTokens to redeem into underlying
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function redeem(uint redeemTokens) external returns (uint) {
+        return redeemInternal(redeemTokens);
+    }
+
+    /**
+     * @notice Sender redeems cTokens in exchange for a specified amount of underlying asset
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @param redeemAmount The amount of underlying to redeem
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function redeemUnderlying(uint redeemAmount) external returns (uint) {
+        return redeemUnderlyingInternal(redeemAmount);
+    }
+
+    /**
+      * @notice Sender borrows assets from the protocol to their own address
+      * @param borrowAmount The amount of the underlying asset to borrow
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function borrow(uint borrowAmount) external returns (uint) {
+        return borrowInternal(borrowAmount);
+    }
+
+    /**
+     * @notice Sender repays their own borrow
+     * @dev Reverts upon any failure
+     */
+    function repayBorrow() external payable {
+        (uint err,) = repayBorrowInternal(msg.value);
+        requireNoError(err, "repayBorrow failed");
+    }
+
+    /**
+     * @notice Sender repays a borrow belonging to borrower
+     * @dev Reverts upon any failure
+     * @param borrower the account with the debt being payed off
+     */
+    function repayBorrowBehalf(address borrower) external payable {
+        (uint err,) = repayBorrowBehalfInternal(borrower, msg.value);
+        requireNoError(err, "repayBorrowBehalf failed");
+    }
+
+    /**
+     * @notice The sender liquidates the borrowers collateral.
+     *  The collateral seized is transferred to the liquidator.
+     * @dev Reverts upon any failure
+     * @param borrower The borrower of this cToken to be liquidated
+     * @param cTokenCollateral The market in which to seize collateral from the borrower
+     */
+    function liquidateBorrow(address borrower, CToken cTokenCollateral) external payable {
+        (uint err,) = liquidateBorrowInternal(borrower, msg.value, cTokenCollateral);
+        requireNoError(err, "liquidateBorrow failed");
+    }
+
+    /**
+     * @notice Send Ether to CEther to mint
+     */
+    function () external payable {
+        (uint err,) = mintInternal(msg.value);
+        requireNoError(err, "mint failed");
+    }
+
+    /*** Safe Token ***/
+
+    /**
+     * @notice Gets balance of this contract in terms of Ether, before this message
+     * @dev This excludes the value of the current message, if any
+     * @return The quantity of Ether owned by this contract
+     */
+    function getCashPrior() internal view returns (uint) {
+        (MathError err, uint startingBalance) = subUInt(address(this).balance, msg.value);
+        require(err == MathError.NO_ERROR);
+        return startingBalance;
+    }
+
+    /**
+     * @notice Perform the actual transfer in, which is a no-op
+     * @param from Address sending the Ether
+     * @param amount Amount of Ether being sent
+     * @return The actual amount of Ether transferred
+     */
+    function doTransferIn(address from, uint amount) internal returns (uint) {
+        // Sanity checks
+        require(msg.sender == from, "sender mismatch");
+        require(msg.value == amount, "value mismatch");
+        return amount;
+    }
+
+    function doTransferOut(address payable to, uint amount) internal {
+        // Send the Ether and revert on failure
+        (bool success, ) = to.call.value(amount)("");
+        require(success, "doTransferOut failed");
+    }
+
+    function requireNoError(uint errCode, string memory message) internal pure {
+        if (errCode == uint(Error.NO_ERROR)) {
+            return;
+        }
+
+        bytes memory fullMessage = new bytes(bytes(message).length + <span class="marker" id="mapping-25"></span><span class="token upd" id="move-dst-7" data-title="binary_expression/number_literal">7</span>);
+        uint i;
+
+        for (i = 0; i &lt; bytes(message).length; i++) {
+            fullMessage[i] = bytes(message)[i];
+        }
+
+        fullMessage[i+0] = byte(uint8(32));
+        fullMessage[i+1] = byte(uint8(40));
+        <span class="marker" id="mapping-26"></span><span class="token add" data-title="function_body/expression_statement"><span class="marker" id="mapping-27"></span><span class="token add" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-28"></span><span class="token mv" id="move-dst-8" data-title="assignment_expression/array_access">fullMessage[i+2]</span> = <span class="marker" id="mapping-29"></span><span class="token add" data-title="assignment_expression/type_cast_expression">byte(uint8(48 + ( errCode / 1000 )))</span></span>;</span>
+        <span class="marker" id="mapping-30"></span><span class="token add" data-title="function_body/expression_statement"><span class="marker" id="mapping-31"></span><span class="token add" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-32"></span><span class="token mv" id="move-dst-10" data-title="assignment_expression/array_access">fullMessage[i+3]</span> = <span class="marker" id="mapping-33"></span><span class="token add" data-title="assignment_expression/type_cast_expression">byte(uint8(48 + ( errCode / 100 % 10 )))</span></span>;</span>
+        <span class="marker" id="mapping-34"></span><span class="token mv" id="move-dst-11" data-title="assignment_expression/array_access">fullMessage[i+4]</span> = byte(uint8(48 + ( <span class="marker" id="mapping-35"></span><span class="token add" data-title="parenthesized_expression/binary_expression"><span class="marker" id="mapping-36"></span><span class="token mv" id="move-dst-9" data-title="binary_expression/binary_expression">errCode / 10</span> % 10</span> )));
+        <span class="marker" id="mapping-37"></span><span class="token add" data-title="assignment_expression/array_access">fullMessage[i+5]</span> = byte(uint8(48 + ( errCode % 10 )));
+        <span class="marker" id="mapping-38"></span><span class="token add" data-title="assignment_expression/array_access">fullMessage[i+6]</span> = byte(uint8(41));
+
+        require(errCode == uint(Error.NO_ERROR), string(fullMessage));
+    }
+}
+</pre></div></div></div></body></html>

@@ -1,0 +1,940 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>IStaking.sol</h5><pre class="pre-scrollable">// SPDX-License-Identifier: GPL-3.0-or-later
+
+// ██████████████     ▐████▌     ██████████████
+// ██████████████     ▐████▌     ██████████████
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+// ██████████████     ▐████▌     ██████████████
+// ██████████████     ▐████▌     ██████████████
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+
+pragma solidity ^<span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.8.</span>0</span>;
+
+/// @title Interface of Threshold Network staking contract
+/// @notice The staking contract enables T owners to have their wallets offline
+<span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-2" data-title="source_file/comment"><span class="cupd">///         and their stake managed by </span><span class="cupd">providers on their behalf.</span> All off-chain</span>
+<span class="marker" id="mapping-3"></span><span class="token upd" id="move-src-3" data-title="source_file/comment"><span class="cupd">///         </span>cl<span class="cupd">i</span>e<span class="cupd">n</span>t<span class="cupd"> </span>s<span class="cupd">o</span>f<span class="cupd">t</span>w<span class="cupd">a</span>r<span class="cupd">e</span><span class="cupd"> </span>sh<span class="cupd">o</span>ul<span class="cupd">d</span><span class="cupd"> </span>b<span class="cupd">e</span> <span class="cupd">a</span>ble <span class="cupd">to</span><span class="cupd"> r</span>un<span class="cupd"> </span>wit<span class="cupd">h</span>out<span class="cupd"> </span>exp<span class="cupd">o</span>sing <span class="cupd">p</span><span class="cupd">r</span><span class="cupd">o</span>vider’s
+<span class="marker" id="mapping-4"></span><span class="token upd" id="move-src-4" data-title="source_file/comment"><span class="cupd">/</span>//         </span>p<span class="cupd">r</span>ivat<span class="cupd">e</span> key a<span class="cupd">n</span>d <span class="cupd">s</span>hou<span class="cupd">l</span>d<span class="cupd"> </span>n<span class="cupd">o</span>t<span class="cupd"> r</span>eq<span class="cupd">u</span><span class="cupd">i</span>re<span class="cupd"> </span><span class="cupd">a</span><span class="cupd">n</span>y<span class="cupd"> </span><span class="cupd">o</span><span class="cupd">w</span>n<span class="cupd">e</span>r’s<span class="cupd"> </span>key<span class="cupd">s a</span><span class="cupd">t</span> all.
+<span class="marker" id="mapping-5"></span><span class="token upd" id="move-src-5" data-title="source_file/comment"><span class="cupd">/</span>//         </span>T<span class="cupd">he stak</span>e delegat<span class="cupd">i</span>o<span class="cupd">n</span><span class="cupd"> </span><span class="cupd">o</span>pt<span class="cupd">i</span>miz<span class="cupd">e</span>s<span class="cupd"> </span><span class="cupd">the </span>ne<span class="cupd">t</span>wo<span class="cupd">r</span>k<span class="cupd"> </span><span class="cupd">t</span>hr<span class="cupd">o</span><span class="cupd">u</span><span class="cupd">g</span>hput<span class="cupd"> </span>wi<span class="cupd">th</span>out</span>
+<span class="marker" id="mapping-6"></span><span class="token upd" id="move-src-6" data-title="source_file/comment"><span class="cupd">///         </span>compromi<span class="cupd">s</span><span class="cupd">ing </span><span class="cupd">t</span><span class="cupd">h</span>e<span class="cupd"> </span>se<span class="cupd">c</span>ur<span class="cupd">i</span><span class="cupd">t</span>y<span class="cupd"> </span><span class="cupd">of</span> <span class="cupd">t</span>h<span class="cupd">e </span><span class="cupd">o</span>wn<span class="cupd">e</span>rs’<span class="cupd"> </span>st<span class="cupd">a</span>ke.
+i</span>nterface IStaking {
+    enum StakeType {
+        NU,
+        KEEP,
+        T
+    }
+
+    //
+    //
+    // Delegating a stake
+    //
+    //
+
+    /// @notice Creates a delegation with `msg.sender` owner with the given
+    <span class="marker" id="mapping-7"></span><span class="token upd" id="move-src-7" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">provider, beneficiary, and authorizer. Transfers the</span> given</span>
+    <span class="marker" id="mapping-8"></span><span class="token upd" id="move-src-8" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">amount of T to the staking contract.</span></span>
+    /// @dev The owner of the delegation needs to have the amount approved to
+    ///      transfer to the staking contract.
+    function stake(
+        address stakingProvider,
+        address payable beneficiary,
+        address authorizer,
+        uint96 amount
+    ) external;
+
+    <span class="marker" id="mapping-9"></span><span class="token mv" id="move-src-9" data-title="contract_body/comment"><span class="marker" id="mapping-10"></span><span class="token upd" id="move-src-10" data-title="contract_body/comment"><span class="cupd">/// @notice </span>Copi<span class="cupd">e</span><span class="cupd">s</span><span class="cupd"> </span>d<span class="cupd">e</span>leg<span class="cupd">a</span><span class="cupd">t</span><span class="cupd">i</span><span class="cupd">on </span><span class="cupd">f</span>rom<span class="cupd"> the </span>l<span class="cupd">e</span>gacy<span class="cupd"> </span>KEEP <span class="cupd">staking </span>c<span class="cupd">o</span>nt<span class="cupd">r</span>act<span class="cupd"> </span>to T</span></span>
+    <span class="marker" id="mapping-11"></span><span class="token mv" id="move-src-11" data-title="contract_body/comment"><span class="marker" id="mapping-12"></span><span class="token upd" id="move-src-12" data-title="contract_body/comment"><span class="cupd">///         </span>s<span class="cupd">t</span>ak<span class="cupd">i</span><span class="cupd">n</span>g<span class="cupd"> </span><span class="cupd">c</span>ontr<span class="cupd">a</span>c<span class="cupd">t</span>. N<span class="cupd">o</span><span class="cupd"> </span><span class="cupd">t</span>ok<span class="cupd">e</span>ns<span class="cupd"> </span>ar<span class="cupd">e</span><span class="cupd"> </span>tr<span class="cupd">a</span><span class="cupd">n</span>sferred<span class="cupd">. Ca</span>ches<span class="cupd"> </span>th<span class="cupd">e </span><span class="cupd">a</span>ctive</span></span>
+    <span class="marker" id="mapping-13"></span><span class="token mv" id="move-src-13" data-title="contract_body/comment"><span class="marker" id="mapping-14"></span><span class="token upd" id="move-src-14" data-title="contract_body/comment"><span class="cupd">///         </span>s<span class="cupd">t</span>ak<span class="cupd">e a</span>mo<span class="cupd">u</span>n<span class="cupd">t</span><span class="cupd"> f</span><span class="cupd">r</span>om<span class="cupd"> </span>KEEP<span class="cupd"> staking </span>c<span class="cupd">o</span>nt<span class="cupd">r</span>act. Can be called by</span></span>
+    <span class="marker" id="mapping-15"></span><span class="token mv" id="move-src-15" data-title="contract_body/comment"><span class="marker" id="mapping-16"></span><span class="token upd" id="move-src-16" data-title="contract_body/comment"><span class="cupd">/// </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd">a</span>nyone.</span></span>
+    <span class="marker" id="mapping-17"></span><span class="token del" data-title="contract_body/function_definition">function stakeKeep(address stakingProvider) external;</span>
+
+    <span class="marker" id="mapping-18"></span><span class="token mv" id="move-src-17" data-title="contract_body/comment"><span class="marker" id="mapping-19"></span><span class="token upd" id="move-src-18" data-title="contract_body/comment"><span class="cupd">/// </span>@n<span class="cupd">o</span>t<span class="cupd">i</span>c<span class="cupd">e</span><span class="cupd"> </span>C<span class="cupd">o</span>p<span class="cupd">i</span><span class="cupd">e</span>s<span class="cupd"> </span>de<span class="cupd">l</span>eg<span class="cupd">ation </span>from<span class="cupd"> the </span>l<span class="cupd">e</span>gacy<span class="cupd"> </span>NU st<span class="cupd">a</span>king c<span class="cupd">o</span><span class="cupd">nt</span>ract to T</span></span>
+    <span class="marker" id="mapping-20"></span><span class="token mv" id="move-src-19" data-title="contract_body/comment"><span class="marker" id="mapping-21"></span><span class="token upd" id="move-src-20" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">staking </span>c<span class="cupd">o</span>nt<span class="cupd">r</span>act,<span class="cupd"> a</span>ddi<span class="cupd">t</span><span class="cupd">i</span>onally<span class="cupd"> </span>appo<span class="cupd">i</span>n<span class="cupd">t</span>ing<span class="cupd"> </span>b<span class="cupd">en</span>ef<span class="cupd">i</span>ciary and</span></span>
+    <span class="marker" id="mapping-22"></span><span class="token mv" id="move-src-21" data-title="contract_body/comment"><span class="marker" id="mapping-23"></span><span class="token upd" id="move-src-22" data-title="contract_body/comment"><span class="cupd">///         authoriz</span><span class="cupd">e</span><span class="cupd">r</span> rol<span class="cupd">e</span><span class="cupd">s</span>. Cach<span class="cupd">e</span>s<span class="cupd"> </span><span class="cupd">the </span>amou<span class="cupd">n</span>t<span class="cupd"> stak</span>ed <span class="cupd">in</span><span class="cupd"> </span>NU<span class="cupd"> </span>st<span class="cupd">a</span>king</span></span>
+    <span class="marker" id="mapping-24"></span><span class="token mv" id="move-src-23" data-title="contract_body/comment"><span class="marker" id="mapping-25"></span><span class="token upd" id="move-src-24" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">c</span>ontr<span class="cupd">a</span>c<span class="cupd">t</span>. Can be called <span class="cupd">on</span>ly<span class="cupd"> </span>by<span class="cupd"> the </span>origin<span class="cupd">a</span><span class="cupd">l</span> deleg<span class="cupd">ation </span><span class="cupd">o</span>wne<span class="cupd">r</span>.</span></span>
+    <span class="marker" id="mapping-26"></span><span class="token del" data-title="contract_body/function_definition">function stakeNu(
+        address stakingProvider,
+        address payable beneficiary,
+        address authorizer
+    ) external;</span>
+
+    <span class="marker" id="mapping-27"></span><span class="token mv" id="move-src-25" data-title="contract_body/comment"><span class="marker" id="mapping-28"></span><span class="token upd" id="move-src-26" data-title="contract_body/comment"><span class="cupd">/// </span>@no<span class="cupd">ti</span>ce<span class="cupd"> </span>R<span class="cupd">e</span>fre<span class="cupd">s</span>h<span class="cupd"> </span>Keep<span class="cupd"> </span>st<span class="cupd">a</span>k<span class="cupd">e</span><span class="cupd"> </span><span class="cupd">o</span>wne<span class="cupd">r</span>.<span class="cupd"> </span>Can b<span class="cupd">e</span> called o<span class="cupd">n</span>ly<span class="cupd"> </span>by <span class="cupd">the </span><span class="cupd">o</span>ld owner.</span></span>
+    <span class="marker" id="mapping-29"></span><span class="token del" data-title="contract_body/function_definition">function refreshKeepStakeOwner(address stakingProvider) external;</span>
+
+    /// @notice Allows the Governance to set the minimum required stake amount.
+    ///         This amount is required to protect against griefing the staking
+    ///         contract and individual applications are allowed to require
+    ///         higher minimum stakes if necessary.
+    function setMinimumStakeAmount(uint96 amount) external;
+
+    //
+    //
+    // Authorizing an application
+    //
+    //
+
+    /// @notice Allows the Governance to approve the particular application
+    ///         before individual stake authorizers are able to authorize it.
+    function approveApplication(address application) external;
+
+    <span class="marker" id="mapping-30"></span><span class="token mv" id="move-src-27" data-title="contract_body/comment"><span class="marker" id="mapping-31"></span><span class="token upd" id="move-src-28" data-title="contract_body/comment"><span class="cupd">/// </span>@notice<span class="cupd"> </span>Increases<span class="cupd"> </span>the<span class="cupd"> </span>authorization<span class="cupd"> </span>of<span class="cupd"> </span>the<span class="cupd"> </span>given<span class="cupd"> </span>p<span class="cupd">r</span>o<span class="cupd">v</span>id<span class="cupd">er</span> for the given</span></span>
+    <span class="marker" id="mapping-32"></span><span class="token mv" id="move-src-29" data-title="contract_body/comment"><span class="marker" id="mapping-33"></span><span class="token upd" id="move-src-30" data-title="contract_body/comment"><span class="cupd">/// </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span>   <span class="cupd">a</span>ppl<span class="cupd">i</span>c<span class="cupd">ation</span><span class="cupd"> </span>by<span class="cupd"> the given </span>amoun<span class="cupd">t</span>. C<span class="cupd">a</span><span class="cupd">n</span> only be called by the given</span></span>
+    <span class="marker" id="mapping-34"></span><span class="token mv" id="move-src-31" data-title="contract_body/comment"><span class="marker" id="mapping-35"></span><span class="token upd" id="move-src-32" data-title="contract_body/comment"><span class="cupd">///         provider</span>’<span class="cupd">s </span><span class="cupd">a</span><span class="cupd">uthorize</span>r.
+ </span></span>   /// @dev Calls `authorizationIncreased(address stakingProvider, uint256 amount)`
+    ///      on the given application to notify the application about
+    ///      authorization change. See `IApplication`.
+    function increaseAuthorization(
+        address stakingProvider,
+        address application,
+        uint96 amount
+    ) external;
+
+    <span class="marker" id="mapping-36"></span><span class="token mv" id="move-src-33" data-title="contract_body/comment"><span class="marker" id="mapping-37"></span><span class="token upd" id="move-src-34" data-title="contract_body/comment"><span class="cupd">/// </span>@not<span class="cupd">i</span>c<span class="cupd">e</span><span class="cupd"> </span>Reque<span class="cupd">st</span>s<span class="cupd"> </span><span class="cupd">de</span>c<span class="cupd">r</span>ea<span class="cupd">s</span>e<span class="cupd"> </span>of the <span class="cupd">authoriz</span>ation fo<span class="cupd">r</span><span class="cupd"> </span>th<span class="cupd">e</span> g<span class="cupd">i</span>v<span class="cupd">e</span>n<span class="cupd"> p</span>rovid<span class="cupd">e</span>r on</span></span>
+    <span class="marker" id="mapping-38"></span><span class="token mv" id="move-src-35" data-title="contract_body/comment"><span class="marker" id="mapping-39"></span><span class="token upd" id="move-src-36" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">th</span><span class="cupd">e</span><span class="cupd"> </span><span class="cupd">given </span><span class="cupd">a</span>ppl<span class="cupd">i</span>catio<span class="cupd">n</span><span class="cupd"> </span>by the <span class="cupd">provide</span>d<span class="cupd"> a</span>mount.</span></span>
+    ///         It may not change the authorized amount immediatelly. When
+    ///         it happens depends on the application. Can only be called by the
+    <span class="marker" id="mapping-40"></span><span class="token mv" id="move-src-37" data-title="contract_body/comment"><span class="marker" id="mapping-41"></span><span class="token upd" id="move-src-38" data-title="contract_body/comment"><span class="cupd">///         </span>given provider’s <span class="cupd">a</span>uthorizer. Overwrites <span class="cupd">p</span>end<span class="cupd">i</span>ng <span class="cupd">a</span>u<span class="cupd">t</span>hor<span class="cupd">i</span>zati<span class="cupd">on</span>
+ </span></span>   <span class="marker" id="mapping-42"></span><span class="token mv" id="move-src-39" data-title="contract_body/comment"><span class="marker" id="mapping-43"></span><span class="token upd" id="move-src-40" data-title="contract_body/comment"><span class="cupd">///         decrease </span><span class="cupd">for th</span>e<span class="cupd"> </span>g<span class="cupd">i</span>ve<span class="cupd">n</span><span class="cupd"> provider</span> and application.</span></span>
+    /// @dev Calls `authorizationDecreaseRequested(address stakingProvider, uint256 amount)`
+    ///      on the given application. See `IApplication`.
+    function requestAuthorizationDecrease(
+        address stakingProvider,
+        address application,
+        uint96 amount
+    ) external;
+
+    <span class="marker" id="mapping-44"></span><span class="token mv" id="move-src-41" data-title="contract_body/comment"><span class="marker" id="mapping-45"></span><span class="token upd" id="move-src-42" data-title="contract_body/comment"><span class="cupd">/// @notice </span>R<span class="cupd">e</span>ques<span class="cupd">ts </span>d<span class="cupd">e</span>cre<span class="cupd">a</span>s<span class="cupd">e</span><span class="cupd"> of a</span><span class="cupd">l</span>l author<span class="cupd">i</span>z<span class="cupd">ations </span>f<span class="cupd">o</span>r<span class="cupd"> </span><span class="cupd">t</span>he g<span class="cupd">i</span>ve<span class="cupd">n</span><span class="cupd"> provider </span>on</span></span>
+    <span class="marker" id="mapping-46"></span><span class="token mv" id="move-src-43" data-title="contract_body/comment"><span class="marker" id="mapping-47"></span><span class="token upd" id="move-src-44" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">th</span><span class="cupd">e</span><span class="cupd"> </span>a<span class="cupd">p</span>pli<span class="cupd">c</span><span class="cupd">a</span>t<span class="cupd">i</span>o<span class="cupd">ns</span><span class="cupd"> </span>by<span class="cupd"> </span>a<span class="cupd">l</span>l <span class="cupd">a</span>ut<span class="cupd">h</span>or<span class="cupd">i</span>zed<span class="cupd"> </span>amo<span class="cupd">u</span>nt.</span></span>
+    ///         It may not change the authorized amount immediatelly. When
+    ///         it happens depends on the application. Can only be called by the
+    <span class="marker" id="mapping-48"></span><span class="token mv" id="move-src-45" data-title="contract_body/comment"><span class="marker" id="mapping-49"></span><span class="token upd" id="move-src-46" data-title="contract_body/comment"><span class="cupd">/// </span>        g<span class="cupd">i</span>v<span class="cupd">e</span><span class="cupd">n</span> p<span class="cupd">r</span>ovid<span class="cupd">e</span>r’<span class="cupd">s</span><span class="cupd"> </span><span class="cupd">a</span><span class="cupd">u</span><span class="cupd">t</span><span class="cupd">h</span>oriz<span class="cupd">e</span>r.<span class="cupd"> </span>Ov<span class="cupd">e</span><span class="cupd">r</span>wri<span class="cupd">t</span><span class="cupd">e</span>s<span class="cupd"> </span>p<span class="cupd">en</span>d<span class="cupd">ing </span>auth<span class="cupd">o</span>rization
+ </span></span>   <span class="marker" id="mapping-50"></span><span class="token mv" id="move-src-47" data-title="contract_body/comment"><span class="marker" id="mapping-51"></span><span class="token upd" id="move-src-48" data-title="contract_body/comment"><span class="cupd">///         </span>de<span class="cupd">crease</span><span class="cupd"> f</span>o<span class="cupd">r</span><span class="cupd"> the</span><span class="cupd"> </span>giv<span class="cupd">e</span><span class="cupd">n</span><span class="cupd"> </span>prov<span class="cupd">i</span>d<span class="cupd">e</span>r<span class="cupd"> a</span>n<span class="cupd">d</span><span class="cupd"> </span>application.</span></span>
+    /// @dev Calls `authorizationDecreaseRequested(address stakingProvider, uint256 amount)`
+    ///      for each authorized application. See `IApplication`.
+    function requestAuthorizationDecrease(address stakingProvider) external;
+
+    /// @notice Called by the application at its discretion to approve the
+    ///         previously requested authorization decrease request. Can only be
+    ///         called by the application that was previously requested to
+    <span class="marker" id="mapping-52"></span><span class="token mv" id="move-src-49" data-title="contract_body/comment"><span class="marker" id="mapping-53"></span><span class="token upd" id="move-src-50" data-title="contract_body/comment"><span class="cupd">///         </span>decre<span class="cupd">a</span>se<span class="cupd"> </span>the <span class="cupd">authoriz</span><span class="cupd">a</span><span class="cupd">tion</span> for that provider.</span></span>
+    ///         Returns resulting authorized amount for the application.
+    function approveAuthorizationDecrease(address stakingProvider)
+        external
+        returns (uint96);
+
+    /// @notice Decreases the authorization for the given `stakingProvider` on
+    ///         the given disabled `application`, for all authorized amount.
+    ///         Can be called by anyone.
+    function forceDecreaseAuthorization(
+        address stakingProvider,
+        address application
+    ) external;
+
+    /// @notice Pauses the given application’s eligibility to slash stakes.
+    ///         Besides that stakers can't change authorization to the application.
+    ///         Can be called only by the Panic Button of the particular
+    ///         application. The paused application can not slash stakes until
+    ///         it is approved again by the Governance using `approveApplication`
+    ///         function. Should be used only in case of an emergency.
+    function pauseApplication(address application) external;
+
+    /// @notice Disables the given application. The disabled application can't
+    ///         slash stakers. Also stakers can't increase authorization to that
+    ///         application but can decrease without waiting by calling
+    ///         `requestAuthorizationDecrease` at any moment. Can be called only
+    ///         by the governance. The disabled application can't be approved
+    ///         again. Should be used only in case of an emergency.
+    function disableApplication(address application) external;
+
+    /// @notice Sets the Panic Button role for the given application to the
+    ///         provided address. Can only be called by the Governance. If the
+    ///         Panic Button for the given application should be disabled, the
+    ///         role address should be set to 0x0 address.
+    function setPanicButton(address application, address panicButton) external;
+
+    <span class="marker" id="mapping-54"></span><span class="token mv" id="move-src-51" data-title="contract_body/comment"><span class="marker" id="mapping-55"></span><span class="token upd" id="move-src-52" data-title="contract_body/comment"><span class="cupd">/// @notice </span>S<span class="cupd">e</span>ts<span class="cupd"> </span>the m<span class="cupd">a</span>xim<span class="cupd">u</span>m <span class="cupd">n</span>umb<span class="cupd">e</span>r<span class="cupd"> </span>o<span class="cupd">f</span> app<span class="cupd">l</span>ic<span class="cupd">a</span><span class="cupd">t</span>io<span class="cupd">n</span>s<span class="cupd"> </span>on<span class="cupd">e </span><span class="cupd">p</span>rovid<span class="cupd">e</span>r<span class="cupd"> </span>c<span class="cupd">a</span>n</span></span>
+    <span class="marker" id="mapping-56"></span><span class="token mv" id="move-src-53" data-title="contract_body/comment"><span class="marker" id="mapping-57"></span><span class="token upd" id="move-src-54" data-title="contract_body/comment"><span class="cupd">///         </span>au<span class="cupd">t</span>h<span class="cupd">o</span>r<span class="cupd">i</span>z<span class="cupd">e</span>.<span class="cupd"> </span>Us<span class="cupd">ed to </span>p<span class="cupd">r</span>ot<span class="cupd">e</span>ct<span class="cupd"> a</span>gains<span class="cupd">t</span> D<span class="cupd">o</span>S<span class="cupd">i</span>ng<span class="cupd"> </span>s<span class="cupd">l</span><span class="cupd">a</span>sh<span class="cupd">i</span><span class="cupd">n</span>g queue.</span></span>
+    ///         Can only be called by the Governance.
+    function setAuthorizationCeiling(uint256 ceiling) external;
+
+    //
+    //
+    // Stake top-up
+    //
+    //
+
+    <span class="marker" id="mapping-58"></span><span class="token mv" id="move-src-55" data-title="contract_body/comment"><span class="marker" id="mapping-59"></span><span class="token upd" id="move-src-56" data-title="contract_body/comment"><span class="cupd">/// </span>@no<span class="cupd">t</span>ic<span class="cupd">e </span>Increa<span class="cupd">s</span>es <span class="cupd">t</span>h<span class="cupd">e amount</span><span class="cupd"> </span>of<span class="cupd"> </span>th<span class="cupd">e </span>st<span class="cupd">a</span>k<span class="cupd">e</span><span class="cupd"> </span>f<span class="cupd">o</span>r<span class="cupd"> </span><span class="cupd">the </span><span class="cupd">g</span><span class="cupd">i</span>ven provider.</span></span>
+    <span class="marker" id="mapping-60"></span><span class="token mv" id="move-src-57" data-title="contract_body/comment"><span class="marker" id="mapping-61"></span><span class="token upd" id="move-src-58" data-title="contract_body/comment"><span class="cupd">///         </span>Ca<span class="cupd">n</span> b<span class="cupd">e</span><span class="cupd"> </span>called <span class="cupd">o</span>nly<span class="cupd"> </span>by <span class="cupd">the </span>ow<span class="cupd">n</span>er<span class="cupd"> </span>or <span class="cupd">provider.</span></span></span>
+    /// @dev The sender of this transaction needs to have the amount approved to
+    ///      transfer to the staking contract.
+    function topUp(address stakingProvider, uint96 amount) external;
+
+    <span class="marker" id="mapping-62"></span><span class="token mv" id="move-src-59" data-title="contract_body/comment"><span class="marker" id="mapping-63"></span><span class="token upd" id="move-src-60" data-title="contract_body/comment"><span class="cupd">/// </span>@noti<span class="cupd">c</span><span class="cupd">e</span><span class="cupd"> </span>Pr<span class="cupd">o</span>paga<span class="cupd">t</span><span class="cupd">e</span>s<span class="cupd"> </span>inform<span class="cupd">ation </span>ab<span class="cupd">o</span>u<span class="cupd">t</span><span class="cupd"> stak</span>e<span class="cupd"> </span>to<span class="cupd">p</span>-up f<span class="cupd">ro</span>m the legacy KEEP</span></span>
+    <span class="marker" id="mapping-64"></span><span class="token mv" id="move-src-61" data-title="contract_body/comment"><span class="marker" id="mapping-65"></span><span class="token upd" id="move-src-62" data-title="contract_body/comment"><span class="cupd">/// </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span>   st<span class="cupd">a</span>king c<span class="cupd">o</span><span class="cupd">nt</span>ract<span class="cupd"> </span>t<span class="cupd">o</span><span class="cupd"> T </span>s<span class="cupd">t</span><span class="cupd">a</span>k<span class="cupd">i</span>ng<span class="cupd"> c</span>ontr<span class="cupd">ac</span>t.<span class="cupd"> </span>Can<span class="cupd"> </span>b<span class="cupd">e </span>ca<span class="cupd">l</span>l<span class="cupd">e</span>d only by</span></span>
+    <span class="marker" id="mapping-66"></span><span class="token mv" id="move-src-63" data-title="contract_body/comment"><span class="marker" id="mapping-67"></span><span class="token upd" id="move-src-64" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">t</span>he<span class="cupd"> </span><span class="cupd">o</span>w<span class="cupd">n</span><span class="cupd">e</span><span class="cupd">r</span><span class="cupd"> </span>o<span class="cupd">r</span><span class="cupd"> </span>prov<span class="cupd">i</span>der.</span></span>
+    function <span class="marker" id="mapping-68"></span><span class="token upd" id="move-src-65" data-title="function_definition/identifier"><span class="cupd">to</span>pUpK<span class="cupd">e</span>ep</span>(address stakingProvider) external;
+
+    <span class="marker" id="mapping-69"></span><span class="token mv" id="move-src-66" data-title="contract_body/comment"><span class="marker" id="mapping-70"></span><span class="token upd" id="move-src-67" data-title="contract_body/comment"><span class="cupd">/// </span>@notice<span class="cupd"> </span>Prop<span class="cupd">a</span>ga<span class="cupd">t</span>es inf<span class="cupd">or</span>m<span class="cupd">ation </span><span class="cupd">a</span>bout<span class="cupd"> </span>s<span class="cupd">t</span>ak<span class="cupd">e </span>top-<span class="cupd">u</span>p<span class="cupd"> </span><span class="cupd">f</span><span class="cupd">r</span>o<span class="cupd">m</span><span class="cupd"> </span>the <span class="cupd">legacy NU</span></span></span>
+    <span class="marker" id="mapping-71"></span><span class="token mv" id="move-src-68" data-title="contract_body/comment"><span class="marker" id="mapping-72"></span><span class="token upd" id="move-src-69" data-title="contract_body/comment"><span class="cupd">///         </span>st<span class="cupd">a</span>ki<span class="cupd">n</span>g<span class="cupd"> </span>co<span class="cupd">n</span>tr<span class="cupd">a</span>c<span class="cupd">t</span><span class="cupd"> </span><span class="cupd">t</span><span class="cupd">o</span><span class="cupd"> </span>T<span class="cupd"> staking </span>c<span class="cupd">o</span>nt<span class="cupd">r</span>act.<span class="cupd"> </span>Can<span class="cupd"> </span>b<span class="cupd">e </span>c<span class="cupd">a</span>ll<span class="cupd">ed</span> only by</span></span>
+    <span class="marker" id="mapping-73"></span><span class="token mv" id="move-src-70" data-title="contract_body/comment"><span class="marker" id="mapping-74"></span><span class="token upd" id="move-src-71" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">t</span><span class="cupd">h</span><span class="cupd">e</span><span class="cupd"> </span>ow<span class="cupd">n</span><span class="cupd">e</span>r<span class="cupd"> </span><span class="cupd">o</span>r<span class="cupd"> </span>provi<span class="cupd">de</span>r.</span></span>
+    <span class="marker" id="mapping-75"></span><span class="token del" data-title="contract_body/function_definition">function topUpNu(address stakingProvider) external;</span>
+
+    //
+    //
+    // Undelegating a stake (unstaking)
+    //
+    //
+
+    /// @notice Reduces the liquid T stake amount by the provided amount and
+    ///         withdraws T to the owner. Reverts if there is at least one
+    ///         authorization higher than the sum of the legacy stake and
+    ///         remaining liquid T stake or if the unstake amount is higher than
+    <span class="marker" id="mapping-76"></span><span class="token mv" id="move-src-72" data-title="contract_body/comment"><span class="marker" id="mapping-77"></span><span class="token upd" id="move-src-73" data-title="contract_body/comment"><span class="cupd">///         the l</span>iquid<span class="cupd"> </span>T<span class="cupd"> stake </span><span class="cupd">a</span>mou<span class="cupd">n</span>t.<span class="cupd"> </span>Can <span class="cupd">be </span>c<span class="cupd">a</span><span class="cupd">ll</span>ed<span class="cupd"> o</span>n<span class="cupd">l</span><span class="cupd">y </span>by <span class="cupd">t</span>h<span class="cupd">e</span><span class="cupd"> o</span>wner or</span></span>
+    <span class="marker" id="mapping-78"></span><span class="token mv" id="move-src-74" data-title="contract_body/comment"><span class="marker" id="mapping-79"></span><span class="token upd" id="move-src-75" data-title="contract_body/comment"><span class="cupd">///         </span>p<span class="cupd">r</span><span class="cupd">o</span>vider.</span></span>
+    function unstakeT(address stakingProvider, uint96 amount) external;
+
+    /// @notice Sets the legacy KEEP staking contract active stake amount cached
+    ///         in T staking contract to 0. Reverts if the amount of liquid T
+    ///         staked in T staking contract is lower than the highest
+    ///         application authorization. This function allows to unstake from
+    ///         KEEP staking contract and still being able to operate in T
+    ///         network and earning rewards based on the liquid T staked. Can be
+    <span class="marker" id="mapping-80"></span><span class="token mv" id="move-src-76" data-title="contract_body/comment"><span class="marker" id="mapping-81"></span><span class="token upd" id="move-src-77" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">c</span><span class="cupd">a</span><span class="cupd">l</span>l<span class="cupd">e</span>d<span class="cupd"> </span>on<span class="cupd">l</span>y<span class="cupd"> b</span>y th<span class="cupd">e</span><span class="cupd"> </span>de<span class="cupd">le</span>ga<span class="cupd">t</span>i<span class="cupd">o</span>n<span class="cupd"> o</span>wn<span class="cupd">er</span> <span class="cupd">a</span>nd<span class="cupd"> </span>provider.</span></span>
+    function unstakeKeep(address stakingProvider) external;
+
+    <span class="marker" id="mapping-82"></span><span class="token upd" id="move-src-78" data-title="contract_body/comment"><span class="cupd">/// </span>@<span class="cupd">n</span><span class="cupd">o</span>tice<span class="cupd"> </span>Re<span class="cupd">d</span>uc<span class="cupd">e</span>s<span class="cupd"> </span>c<span class="cupd">a</span>che<span class="cupd">d</span><span class="cupd"> </span>leg<span class="cupd">a</span>cy NU <span class="cupd">s</span>tak<span class="cupd">e</span><span class="cupd"> </span>am<span class="cupd">o</span>u<span class="cupd">n</span>t<span class="cupd"> </span>by <span class="cupd">the </span>pro<span class="cupd">v</span>id<span class="cupd">e</span>d<span class="cupd"> </span><span class="cupd">a</span>mount.</span>
+    <span class="marker" id="mapping-83"></span><span class="token upd" id="move-src-79" data-title="contract_body/comment"><span class="cupd">///         </span>R<span class="cupd">e</span>v<span class="cupd">e</span>rts<span class="cupd"> </span>if<span class="cupd"> </span><span class="cupd">the</span>re<span class="cupd"> </span>i<span class="cupd">s</span> <span class="cupd">a</span>t l<span class="cupd">e</span>ast<span class="cupd"> o</span><span class="cupd">ne</span><span class="cupd"> </span>auth<span class="cupd">or</span>iza<span class="cupd">t</span>ion <span class="cupd">h</span>igh<span class="cupd">e</span>r<span class="cupd"> </span><span class="cupd">t</span>h<span class="cupd">a</span><span class="cupd">n</span><span class="cupd"> </span>the</span>
+    <span class="marker" id="mapping-84"></span><span class="token mv" id="move-src-80" data-title="contract_body/comment"><span class="marker" id="mapping-85"></span><span class="token upd" id="move-src-81" data-title="contract_body/comment"><span class="cupd">///         </span>sum<span class="cupd"> </span>of<span class="cupd"> </span>r<span class="cupd">e</span>mai<span class="cupd">n</span>ing <span class="cupd">l</span>egac<span class="cupd">y </span>NU<span class="cupd"> </span>s<span class="cupd">t</span>ak<span class="cupd">e </span>an<span class="cupd">d</span> <span class="cupd">l</span><span class="cupd">i</span>quid<span class="cupd"> </span>T stak<span class="cupd">e</span><span class="cupd"> </span>f<span class="cupd">or th</span>at</span></span>
+    <span class="marker" id="mapping-86"></span><span class="token mv" id="move-src-82" data-title="contract_body/comment"><span class="marker" id="mapping-87"></span><span class="token upd" id="move-src-83" data-title="contract_body/comment"><span class="cupd">///         provider</span> or if the untaked amount is higher than the cached</span></span>
+    <span class="marker" id="mapping-88"></span><span class="token mv" id="move-src-84" data-title="contract_body/comment"><span class="marker" id="mapping-89"></span><span class="token upd" id="move-src-85" data-title="contract_body/comment"><span class="cupd">///         </span>l<span class="cupd">e</span>gacy<span class="cupd"> stak</span><span class="cupd">e</span><span class="cupd"> </span><span class="cupd">a</span>m<span class="cupd">o</span>u<span class="cupd">n</span>t.<span class="cupd"> </span>If<span class="cupd"> </span>su<span class="cupd">c</span>c<span class="cupd">e</span>e<span class="cupd">d</span>ed,<span class="cupd"> </span><span class="cupd">the </span>le<span class="cupd">g</span>acy NU stak<span class="cupd">e</span> c<span class="cupd">an</span> be</span></span>
+    <span class="marker" id="mapping-90"></span><span class="token mv" id="move-src-86" data-title="contract_body/comment"><span class="marker" id="mapping-91"></span><span class="token upd" id="move-src-87" data-title="contract_body/comment"><span class="cupd">/// </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span>     <span class="cupd">p</span>a<span class="cupd">r</span>t<span class="cupd">i</span>ally o<span class="cupd">r</span><span class="cupd"> </span>fully undelega<span class="cupd">t</span>ed <span class="cupd">o</span>n<span class="cupd"> the </span><span class="cupd">l</span>eg<span class="cupd">a</span>cy <span class="cupd">s</span>tak<span class="cupd">ing </span>c<span class="cupd">on</span><span class="cupd">t</span>ract.</span></span>
+    <span class="marker" id="mapping-92"></span><span class="token mv" id="move-src-88" data-title="contract_body/comment"><span class="marker" id="mapping-93"></span><span class="token upd" id="move-src-89" data-title="contract_body/comment"><span class="cupd">///         </span>This f<span class="cupd">un</span>c<span class="cupd">t</span>ion<span class="cupd"> </span><span class="cupd">a</span>llow<span class="cupd">s</span> t<span class="cupd">o</span><span class="cupd"> </span>un<span class="cupd">s</span>t<span class="cupd">a</span>k<span class="cupd">e</span><span class="cupd"> from </span>NU<span class="cupd"> </span>s<span class="cupd">t</span><span class="cupd">a</span>ki<span class="cupd">n</span>g<span class="cupd"> </span>c<span class="cupd">on</span>tract and</span></span>
+    <span class="marker" id="mapping-94"></span><span class="token mv" id="move-src-90" data-title="contract_body/comment"><span class="marker" id="mapping-95"></span><span class="token upd" id="move-src-91" data-title="contract_body/comment"><span class="cupd">///         </span>sti<span class="cupd">ll</span><span class="cupd"> b</span>eing<span class="cupd"> a</span>b<span class="cupd">l</span>e <span class="cupd">t</span><span class="cupd">o</span><span class="cupd"> </span><span class="cupd">o</span>pe<span class="cupd">r</span>at<span class="cupd">e</span><span class="cupd"> </span>in T netw<span class="cupd">or</span>k<span class="cupd"> a</span>nd<span class="cupd"> </span>e<span class="cupd">a</span>rn<span class="cupd">ing </span><span class="cupd">r</span><span class="cupd">e</span>wa<span class="cupd">r</span>ds</span></span>
+    <span class="marker" id="mapping-96"></span><span class="token mv" id="move-src-92" data-title="contract_body/comment"><span class="marker" id="mapping-97"></span><span class="token upd" id="move-src-93" data-title="contract_body/comment"><span class="cupd">///         </span>based on <span class="cupd">the </span>liquid T st<span class="cupd">a</span>ked. C<span class="cupd">a</span>n be called only by the</span></span>
+    <span class="marker" id="mapping-98"></span><span class="token mv" id="move-src-94" data-title="contract_body/comment"><span class="marker" id="mapping-99"></span><span class="token upd" id="move-src-95" data-title="contract_body/comment"><span class="cupd">/// </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span>  de<span class="cupd">l</span>eg<span class="cupd">a</span>t<span class="cupd">i</span>o<span class="cupd">n</span><span class="cupd"> </span>own<span class="cupd">e</span>r<span class="cupd"> a</span><span class="cupd">n</span>d<span class="cupd"> </span>prov<span class="cupd">i</span>der.</span></span>
+    function unstakeNu(address stakingProvider<span class="marker" id="mapping-100"></span><span class="token del" data-title="function_definition/,">,</span> <span class="marker" id="mapping-101"></span><span class="token del" data-title="function_definition/parameter">uint96 amount</span>) external;
+
+    /// @notice Sets cached legacy stake amount to 0, sets the liquid T stake
+    ///         amount to 0 and withdraws all liquid T from the stake to the
+    ///         owner. Reverts if there is at least one non-zero authorization.
+    <span class="marker" id="mapping-102"></span><span class="token mv" id="move-src-96" data-title="contract_body/comment"><span class="marker" id="mapping-103"></span><span class="token upd" id="move-src-97" data-title="contract_body/comment"><span class="cupd">///         </span>C<span class="cupd">a</span><span class="cupd">n</span><span class="cupd"> </span>b<span class="cupd">e </span>call<span class="cupd">e</span>d<span class="cupd"> </span>on<span class="cupd">l</span>y<span class="cupd"> </span>by th<span class="cupd">e</span><span class="cupd"> </span>d<span class="cupd">e</span>leg<span class="cupd">a</span>tion<span class="cupd"> </span>own<span class="cupd">er </span><span class="cupd">a</span>nd<span class="cupd"> </span>provider.</span></span>
+    function unstakeAll(address stakingProvider) external;
+
+    //
+    //
+    // Keeping information in sync
+    //
+    //
+
+    <span class="marker" id="mapping-104"></span><span class="token mv" id="move-src-98" data-title="contract_body/comment"><span class="marker" id="mapping-105"></span><span class="token upd" id="move-src-99" data-title="contract_body/comment"><span class="cupd">/// </span>@n<span class="cupd">o</span>t<span class="cupd">i</span>c<span class="cupd">e</span><span class="cupd"> </span>N<span class="cupd">o</span><span class="cupd">tifie</span><span class="cupd">s </span>abou<span class="cupd">t</span> th<span class="cupd">e</span> di<span class="cupd">s</span>c<span class="cupd">r</span>ep<span class="cupd">an</span>c<span class="cupd">y be</span>tween<span class="cupd"> </span>lega<span class="cupd">c</span>y KEEP <span class="cupd">a</span>ctiv<span class="cupd">e</span> stake</span></span>
+    <span class="marker" id="mapping-106"></span><span class="token mv" id="move-src-100" data-title="contract_body/comment"><span class="marker" id="mapping-107"></span><span class="token upd" id="move-src-101" data-title="contract_body/comment"><span class="cupd">///         a</span><span class="cupd">n</span>d<span class="cupd"> </span>the <span class="cupd">a</span>mo<span class="cupd">u</span>n<span class="cupd">t</span> cac<span class="cupd">h</span><span class="cupd">ed </span>in<span class="cupd"> </span>T<span class="cupd"> staking </span>c<span class="cupd">o</span>nt<span class="cupd">r</span>act. Sla<span class="cupd">s</span>hes<span class="cupd"> </span><span class="cupd">the </span>p<span class="cupd">r</span>ovider</span></span>
+    <span class="marker" id="mapping-108"></span><span class="token mv" id="move-src-102" data-title="contract_body/comment"><span class="marker" id="mapping-109"></span><span class="token upd" id="move-src-103" data-title="contract_body/comment"><span class="cupd">/// </span>        <span class="cupd">i</span>n <span class="cupd">c</span>as<span class="cupd">e </span><span class="cupd">t</span><span class="cupd">he a</span>mo<span class="cupd">u</span>n<span class="cupd">t</span> cac<span class="cupd">h</span><span class="cupd">ed </span>i<span class="cupd">s</span> high<span class="cupd">e</span>r<span class="cupd"> </span>th<span class="cupd">a</span><span class="cupd">n</span><span class="cupd"> </span><span class="cupd">the </span>ac<span class="cupd">t</span>u<span class="cupd">a</span>l<span class="cupd"> </span>act<span class="cupd">i</span>v<span class="cupd">e</span> stake</span></span>
+    <span class="marker" id="mapping-110"></span><span class="token mv" id="move-src-104" data-title="contract_body/comment"><span class="marker" id="mapping-111"></span><span class="token upd" id="move-src-105" data-title="contract_body/comment"><span class="cupd">///         </span>amoun<span class="cupd">t</span><span class="cupd"> </span>in KEEP st<span class="cupd">a</span>k<span class="cupd">i</span>ng <span class="cupd">c</span>ontr<span class="cupd">a</span>c<span class="cupd">t</span>. Needs to update author<span class="cupd">i</span>zati<span class="cupd">on</span>s</span></span>
+    <span class="marker" id="mapping-112"></span><span class="token mv" id="move-src-106" data-title="contract_body/comment"><span class="marker" id="mapping-113"></span><span class="token upd" id="move-src-107" data-title="contract_body/comment"><span class="cupd">/// </span>        <span class="cupd">o</span>f all affe<span class="cupd">c</span>t<span class="cupd">e</span>d<span class="cupd"> </span>applica<span class="cupd">t</span>io<span class="cupd">ns </span><span class="cupd">a</span>nd<span class="cupd"> </span>execu<span class="cupd">t</span>e <span class="cupd">a</span><span class="cupd">n</span><span class="cupd"> </span><span class="cupd">i</span>nvolun<span class="cupd">ta</span>ry</span></span>
+    <span class="marker" id="mapping-114"></span><span class="token mv" id="move-src-108" data-title="contract_body/comment"><span class="marker" id="mapping-115"></span><span class="token upd" id="move-src-109" data-title="contract_body/comment"><span class="cupd">/// </span><span class="cupd">    </span><span class="cupd"> </span>   <span class="cupd">al</span>locat<span class="cupd">i</span>on<span class="cupd"> </span>decrea<span class="cupd">se</span><span class="cupd"> </span>on <span class="cupd">a</span>ll affec<span class="cupd">t</span>ed<span class="cupd"> </span>applicati<span class="cupd">o</span>n<span class="cupd">s</span>.<span class="cupd"> </span>Ca<span class="cupd">n</span> be <span class="cupd">c</span>alled</span></span>
+    <span class="marker" id="mapping-116"></span><span class="token mv" id="move-src-110" data-title="contract_body/comment"><span class="marker" id="mapping-117"></span><span class="token upd" id="move-src-111" data-title="contract_body/comment"><span class="cupd">/// </span>        by a<span class="cupd">n</span>y<span class="cupd">o</span>ne, no<span class="cupd">ti</span>fi<span class="cupd">e</span>r<span class="cupd"> </span><span class="cupd">r</span>eceive<span class="cupd">s a</span> <span class="cupd">re</span>w<span class="cupd">a</span>rd.</span></span>
+    <span class="marker" id="mapping-118"></span><span class="token del" data-title="contract_body/function_definition">function notifyKeepStakeDiscrepancy(address stakingProvider) external;</span>
+
+    <span class="marker" id="mapping-119"></span><span class="token mv" id="move-src-112" data-title="contract_body/comment"><span class="marker" id="mapping-120"></span><span class="token upd" id="move-src-113" data-title="contract_body/comment"><span class="cupd">/// @notice </span>No<span class="cupd">t</span>ifie<span class="cupd">s </span><span class="cupd">a</span>b<span class="cupd">ou</span><span class="cupd">t </span><span class="cupd">the </span>di<span class="cupd">s</span>cre<span class="cupd">p</span>ancy b<span class="cupd">e</span>tween lega<span class="cupd">c</span>y NU act<span class="cupd">i</span>v<span class="cupd">e</span><span class="cupd"> stak</span>e</span></span>
+    <span class="marker" id="mapping-121"></span><span class="token mv" id="move-src-114" data-title="contract_body/comment"><span class="marker" id="mapping-122"></span><span class="token upd" id="move-src-115" data-title="contract_body/comment"><span class="cupd">///         </span>and<span class="cupd"> the </span>amount <span class="cupd">c</span>ach<span class="cupd">ed </span>in T <span class="cupd">staking </span>c<span class="cupd">o</span>nt<span class="cupd">r</span>act.<span class="cupd"> </span>Sl<span class="cupd">a</span>sh<span class="cupd">es</span> the</span></span>
+    <span class="marker" id="mapping-123"></span><span class="token mv" id="move-src-116" data-title="contract_body/comment"><span class="marker" id="mapping-124"></span><span class="token upd" id="move-src-117" data-title="contract_body/comment"><span class="cupd">/// </span>        pr<span class="cupd">o</span>v<span class="cupd">i</span>d<span class="cupd">e</span><span class="cupd">r</span><span class="cupd"> </span><span class="cupd">in</span><span class="cupd"> </span>ca<span class="cupd">s</span><span class="cupd">e </span><span class="cupd">t</span>h<span class="cupd">e </span>am<span class="cupd">o</span>unt<span class="cupd"> </span>cached<span class="cupd"> </span>is<span class="cupd"> </span>highe<span class="cupd">r </span>tha<span class="cupd">n </span>the actual</span></span>
+    <span class="marker" id="mapping-125"></span><span class="token mv" id="move-src-118" data-title="contract_body/comment"><span class="marker" id="mapping-126"></span><span class="token upd" id="move-src-119" data-title="contract_body/comment"><span class="cupd">///         </span>activ<span class="cupd">e</span> stake a<span class="cupd">m</span>ount <span class="cupd">in</span> NU s<span class="cupd">t</span>ak<span class="cupd">i</span>ng c<span class="cupd">on</span>tract. Needs to update</span></span>
+    <span class="marker" id="mapping-127"></span><span class="token mv" id="move-src-120" data-title="contract_body/comment"><span class="marker" id="mapping-128"></span><span class="token upd" id="move-src-121" data-title="contract_body/comment"><span class="cupd">/// </span><span class="cupd"> </span>       auth<span class="cupd">or</span>izations<span class="cupd"> </span>of <span class="cupd">a</span><span class="cupd">l</span>l<span class="cupd"> </span>aff<span class="cupd">e</span>c<span class="cupd">t</span><span class="cupd">e</span>d<span class="cupd"> </span>appl<span class="cupd">i</span>c<span class="cupd">a</span>t<span class="cupd">i</span>o<span class="cupd">n</span>s<span class="cupd"> </span>an<span class="cupd">d</span> <span class="cupd">e</span>xecute<span class="cupd"> </span>an</span></span>
+    <span class="marker" id="mapping-129"></span><span class="token mv" id="move-src-122" data-title="contract_body/comment"><span class="marker" id="mapping-130"></span><span class="token upd" id="move-src-123" data-title="contract_body/comment"><span class="cupd">///      </span>   involun<span class="cupd">t</span><span class="cupd">a</span>ry<span class="cupd"> </span><span class="cupd">a</span>llocat<span class="cupd">i</span>o<span class="cupd">n</span><span class="cupd"> </span><span class="cupd">de</span>c<span class="cupd">r</span>ease<span class="cupd"> </span>on all aff<span class="cupd">e</span>c<span class="cupd">t</span>ed applicatio<span class="cupd">ns</span>.</span></span>
+    <span class="marker" id="mapping-131"></span><span class="token mv" id="move-src-124" data-title="contract_body/comment"><span class="marker" id="mapping-132"></span><span class="token upd" id="move-src-125" data-title="contract_body/comment"><span class="cupd">///         </span>Ca<span class="cupd">n </span>be<span class="cupd"> </span>called<span class="cupd"> </span>by<span class="cupd"> </span><span class="cupd">a</span>nyone,<span class="cupd"> </span>notifier<span class="cupd"> </span>receives<span class="cupd"> </span>a reward.</span></span>
+    <span class="marker" id="mapping-133"></span><span class="token mv" id="move-src-126" data-title="contract_body/function_definition">function <span class="marker" id="mapping-134"></span><span class="token upd" id="move-src-127" data-title="function_definition/identifier">no<span class="cupd">t</span>ifyN<span class="cupd">u</span>S<span class="cupd">t</span>akeDis<span class="cupd">cre</span>pancy</span>(address stakingProvider) external;</span>
+
+    <span class="marker" id="mapping-135"></span><span class="token mv" id="move-src-128" data-title="contract_body/comment"><span class="marker" id="mapping-136"></span><span class="token upd" id="move-src-129" data-title="contract_body/comment"><span class="cupd">/// </span>@notice<span class="cupd"> </span>Sets<span class="cupd"> </span>the<span class="cupd"> </span>penalty<span class="cupd"> </span>amount<span class="cupd"> </span>for<span class="cupd"> </span>stake<span class="cupd"> </span>d<span class="cupd">i</span>screpa<span class="cupd">n</span>cy<span class="cupd"> </span><span class="cupd">a</span>nd reward</span></span>
+    <span class="marker" id="mapping-137"></span><span class="token mv" id="move-src-130" data-title="contract_body/comment"><span class="marker" id="mapping-138"></span><span class="token upd" id="move-src-131" data-title="contract_body/comment"><span class="cupd">///         </span>multiplier<span class="cupd"> </span>for<span class="cupd"> </span>report<span class="cupd">in</span>g<span class="cupd"> </span>it.<span class="cupd"> </span><span class="cupd">T</span>he<span class="cupd"> </span>pen<span class="cupd">a</span>lty<span class="cupd"> </span>is<span class="cupd"> </span>seized from the</span></span>
+    <span class="marker" id="mapping-139"></span><span class="token mv" id="move-src-132" data-title="contract_body/comment"><span class="marker" id="mapping-140"></span><span class="token upd" id="move-src-133" data-title="contract_body/comment"><span class="cupd">///      </span><span class="cupd"> </span>  provi<span class="cupd">d</span>er<span class="cupd"> a</span>cc<span class="cupd">ount</span>,<span class="cupd"> </span>and 5% <span class="cupd">of the </span>penalty,<span class="cupd"> s</span>c<span class="cupd">a</span>l<span class="cupd">e</span>d<span class="cupd"> </span>b<span class="cupd">y</span><span class="cupd"> </span><span class="cupd">th</span>e</span></span>
+    <span class="marker" id="mapping-141"></span><span class="token del" data-title="contract_body/comment">///         multiplier, is given to the notifier. The rest of the tokens are</span>
+    <span class="marker" id="mapping-142"></span><span class="token del" data-title="contract_body/comment">///         burned. Can only be called by the Governance. See `seize` function.</span>
+    <span class="marker" id="mapping-143"></span><span class="token del" data-title="contract_body/function_definition">function setStakeDiscrepancyPenalty(
+        uint96 penalty,
+        uint256 rewardMultiplier
+    ) external;</span>
+
+    /// @notice Sets reward in T tokens for notification of misbehaviour
+    <span class="marker" id="mapping-144"></span><span class="token del" data-title="contract_body/comment">///         of one provider. Can only be called by the governance.</span>
+    function setNotificationReward(uint96 reward) external;
+
+    /// @notice Transfer some amount of T tokens as reward for notifications
+    ///         of misbehaviour
+    function pushNotificationReward(uint96 reward) external;
+
+    /// @notice Withdraw some amount of T tokens from notifiers treasury.
+    ///         Can only be called by the governance.
+    function withdrawNotificationReward(address recipient, uint96 amount)
+        external;
+
+    <span class="marker" id="mapping-145"></span><span class="token del" data-title="contract_body/comment">/// @notice Adds providers to the slashing queue along with the amount that</span>
+    <span class="marker" id="mapping-146"></span><span class="token del" data-title="contract_body/comment">///         should be slashed from each one of them. Can only be called by</span>
+    <span class="marker" id="mapping-147"></span><span class="token del" data-title="contract_body/comment">///         application authorized for all providers in the array.</span>
+    function slash(uint96 amount, address[] memory stakingProviders) external;
+
+    <span class="marker" id="mapping-148"></span><span class="token del" data-title="contract_body/comment">/// @notice Adds providers to the slashing queue along with the amount.</span>
+    <span class="marker" id="mapping-149"></span><span class="token del" data-title="contract_body/comment">///         The notifier will receive reward per each provider from</span>
+    <span class="marker" id="mapping-150"></span><span class="token del" data-title="contract_body/comment">///         notifiers treasury. Can only be called by application</span>
+    <span class="marker" id="mapping-151"></span><span class="token del" data-title="contract_body/comment">///         authorized for all providers in the array.</span>
+    function seize(
+        uint96 amount,
+        uint256 rewardMultipier,
+        address notifier,
+        address[] memory stakingProviders
+    ) external;
+
+    /// @notice Takes the given number of queued slashing operations and
+    ///         processes them. Receives 5% of the slashed amount.
+    ///         Executes `involuntaryAllocationDecrease` function on each
+    ///         affected application.
+    function processSlashing(uint256 count) external;
+
+    //
+    //
+    // Auxiliary functions
+    //
+    //
+
+    <span class="marker" id="mapping-152"></span><span class="token del" data-title="contract_body/comment">/// @notice Returns the authorized stake amount of the provider for the</span>
+    <span class="marker" id="mapping-153"></span><span class="token del" data-title="contract_body/comment">///         application.</span>
+    function authorizedStake(address stakingProvider, address application)
+        external
+        view
+        returns (uint96);
+
+    /// @notice Returns staked amount of T, Keep and Nu for the specified
+    ///         staking provider.
+    /// @dev    All values are in T denomination
+    function stakes(address stakingProvider)
+        external
+        view
+        returns (
+            uint96 tStake,
+            uint96 keepInTStake,
+            uint96 nuInTStake
+        );
+
+    <span class="marker" id="mapping-154"></span><span class="token del" data-title="contract_body/comment">/// @notice Returns start staking timestamp for T/NU stake.</span>
+    <span class="marker" id="mapping-155"></span><span class="token del" data-title="contract_body/comment">/// @dev    This value is set at most once, and only when a stake is created</span>
+    <span class="marker" id="mapping-156"></span><span class="token del" data-title="contract_body/comment">///         with T or NU tokens. If a stake is created from a legacy KEEP</span>
+    <span class="marker" id="mapping-157"></span><span class="token del" data-title="contract_body/comment">///         stake, this value will remain as zero</span>
+    function getStartStakingTimestamp(address stakingProvider)
+        external
+        view
+        returns (uint256);
+
+    <span class="marker" id="mapping-158"></span><span class="token del" data-title="contract_body/comment">/// @notice Returns staked amount of NU for the specified provider</span>
+    function stakedNu(address stakingProvider) external view returns (uint256);
+
+    /// @notice Gets the stake owner, the beneficiary and the authorizer
+    <span class="marker" id="mapping-159"></span><span class="token del" data-title="contract_body/comment">///         for the specified provider address.</span>
+    /// @return owner Stake owner address.
+    /// @return beneficiary Beneficiary address.
+    /// @return authorizer Authorizer address.
+    function rolesOf(address stakingProvider)
+        external
+        view
+        returns (
+            address owner,
+            address payable beneficiary,
+            address authorizer
+        );
+
+    /// @notice Returns length of application array
+    function getApplicationsLength() external view returns (uint256);
+
+    /// @notice Returns length of slashing queue
+    function getSlashingQueueLength() external view returns (uint256);
+
+    <span class="marker" id="mapping-160"></span><span class="token del" data-title="contract_body/comment">/// @notice Returns minimum possible stake for T, KEEP or NU in T denomination</span>
+    <span class="marker" id="mapping-161"></span><span class="token del" data-title="contract_body/comment">/// @dev For example, suppose the given provider has 10 T, 20 T worth</span>
+    ///      of KEEP, and 30 T worth of NU all staked, and the maximum
+    ///      application authorization is 40 T, then `getMinStaked` for
+    <span class="marker" id="mapping-162"></span><span class="token del" data-title="contract_body/comment">///      that provider returns:</span>
+    ///          * 0 T if KEEP stake type specified i.e.
+    <span class="marker" id="mapping-163"></span><span class="token del" data-title="contract_body/comment">///            min = 40 T max - (10 T + 30 T worth of NU) = 0 T</span>
+    ///          * 10 T if NU stake type specified i.e.
+    <span class="marker" id="mapping-164"></span><span class="token del" data-title="contract_body/comment">///            min = 40 T max - (10 T + 20 T worth of KEEP) = 10 T</span>
+    ///          * 0 T if T stake type specified i.e.
+    <span class="marker" id="mapping-165"></span><span class="token del" data-title="contract_body/comment">///            min = 40 T max - (20 T worth of KEEP + 30 T worth of NU) &lt; 0 T</span>
+    ///      In other words, the minimum stake amount for the specified
+    ///      stake type is the minimum amount of stake of the given type
+    ///      needed to satisfy the maximum application authorization given
+    <span class="marker" id="mapping-166"></span><span class="token del" data-title="contract_body/comment">///      the staked amounts of the other stake types for that provider.</span>
+    function getMinStaked(address stakingProvider, StakeType stakeTypes)
+        external
+        view
+        returns (uint96);
+
+    /// @notice Returns available amount to authorize for the specified application
+    function getAvailableToAuthorize(
+        address stakingProvider,
+        address application
+    ) external view returns (uint96);
+}
+</pre></div><div class="col-6"><h5>IStaking.sol</h5><pre class="pre-scrollable">// SPDX-License-Identifier: GPL-3.0-or-later
+
+// ██████████████     ▐████▌     ██████████████
+// ██████████████     ▐████▌     ██████████████
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+// ██████████████     ▐████▌     ██████████████
+// ██████████████     ▐████▌     ██████████████
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+//               ▐████▌    ▐████▌
+
+pragma solidity ^<span class="marker" id="mapping-167"></span><span class="token upd" id="move-dst-1" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.8.</span>9</span>;
+
+/// @title Interface of Threshold Network staking contract
+/// @notice The staking contract enables T owners to have their wallets offline
+<span class="marker" id="mapping-168"></span><span class="token upd" id="move-dst-2" data-title="source_file/comment"><span class="cupd">///         and their stake managed by </span>staking <span class="cupd">providers on their behalf.</span></span>
+<span class="marker" id="mapping-169"></span><span class="token upd" id="move-dst-3" data-title="source_file/comment"><span class="cupd">///         </span>The stak<span class="cupd">i</span><span class="cupd">n</span>g<span class="cupd"> </span>c<span class="cupd">o</span>n<span class="cupd">t</span>r<span class="cupd">a</span>ct do<span class="cupd">e</span>s<span class="cupd"> </span>n<span class="cupd">o</span>t <span class="cupd">d</span>efine<span class="cupd"> </span>op<span class="cupd">e</span>r<span class="cupd">a</span><span class="cupd">to</span>r<span class="cupd"> r</span>ole.<span class="cupd"> </span>T<span class="cupd">h</span>e<span class="cupd"> </span><span class="cupd">o</span><span class="cupd">p</span>e<span class="cupd">r</span>at<span class="cupd">o</span>r</span>
+<span class="marker" id="mapping-170"></span><span class="token upd" id="move-dst-4" data-title="source_file/comment"><span class="cupd">///         </span><span class="cupd">r</span><span class="cupd">e</span>spo<span class="cupd">n</span><span class="cupd">s</span>ib<span class="cupd">l</span>e<span class="cupd"> </span>f<span class="cupd">o</span>r<span class="cupd"> r</span><span class="cupd">u</span>nn<span class="cupd">i</span>ng<span class="cupd"> </span>off-ch<span class="cupd">a</span>i<span class="cupd">n</span><span class="cupd"> </span>client s<span class="cupd">o</span>ft<span class="cupd">w</span>ar<span class="cupd">e</span><span class="cupd"> </span>i<span class="cupd">s a</span>ppoin<span class="cupd">t</span>ed by</span>
+<span class="marker" id="mapping-171"></span><span class="token upd" id="move-dst-5" data-title="source_file/comment"><span class="cupd">///         </span>t<span class="cupd">he stak</span><span class="cupd">i</span><span class="cupd">n</span>g<span class="cupd"> </span>pr<span class="cupd">o</span>v<span class="cupd">i</span>d<span class="cupd">e</span>r<span class="cupd"> </span>in <span class="cupd">the </span>par<span class="cupd">t</span>icula<span class="cupd">r</span><span class="cupd"> </span>applica<span class="cupd">t</span>i<span class="cupd">o</span>n <span class="cupd">u</span>tilizin<span class="cupd">g</span><span class="cupd"> </span><span class="cupd">th</span>e</span>
+<span class="marker" id="mapping-172"></span><span class="token upd" id="move-dst-6" data-title="source_file/comment"><span class="cupd">///         </span><span class="cupd">s</span>tak<span class="cupd">ing </span>con<span class="cupd">t</span>ract. All off-c<span class="cupd">h</span>ain<span class="cupd"> </span><span class="cupd">c</span>l<span class="cupd">i</span>en<span class="cupd">t</span><span class="cupd"> </span>s<span class="cupd">of</span><span class="cupd">t</span>war<span class="cupd">e </span>sh<span class="cupd">o</span>uld b<span class="cupd">e</span><span class="cupd"> </span><span class="cupd">a</span>ble</span>
+<span class="marker" id="mapping-173"></span><span class="token add" data-title="source_file/comment">///         to run without exposing operator's or staking provider’s private
+<span class="marker" id="mapping-174"></span><span class="token add" data-title="source_file/comment">/</span>//         key and should not require any owner’s keys at all. The stake
+<span class="marker" id="mapping-175"></span><span class="token add" data-title="source_file/comment">/</span>//         delegation optimizes the network throughput without compromising the</span>
+<span class="marker" id="mapping-176"></span><span class="token add" data-title="source_file/comment">///         security of the owners’ stake.
+i</span>nterface IStaking {
+    enum StakeType {
+        NU,
+        KEEP,
+        T
+    }
+
+    //
+    //
+    // Delegating a stake
+    //
+    //
+
+    /// @notice Creates a delegation with `msg.sender` owner with the given
+    <span class="marker" id="mapping-177"></span><span class="token upd" id="move-dst-7" data-title="contract_body/comment"><span class="cupd">///         </span>staking <span class="cupd">provider, beneficiary, and authorizer. Transfers the</span></span>
+    <span class="marker" id="mapping-178"></span><span class="token upd" id="move-dst-8" data-title="contract_body/comment"><span class="cupd">///         </span>given <span class="cupd">amount of T to the staking contract.</span></span>
+    /// @dev The owner of the delegation needs to have the amount approved to
+    ///      transfer to the staking contract.
+    function stake(
+        address stakingProvider,
+        address payable beneficiary,
+        address authorizer,
+        uint96 amount
+    ) external;
+
+    /// @notice Allows the Governance to set the minimum required stake amount.
+    ///         This amount is required to protect against griefing the staking
+    ///         contract and individual applications are allowed to require
+    ///         higher minimum stakes if necessary.
+    function setMinimumStakeAmount(uint96 amount) external;
+
+    //
+    //
+    // Authorizing an application
+    //
+    //
+
+    /// @notice Allows the Governance to approve the particular application
+    ///         before individual stake authorizers are able to authorize it.
+    function approveApplication(address application) external;
+
+    <span class="marker" id="mapping-179"></span><span class="token mv" id="move-dst-10" data-title="contract_body/comment"><span class="marker" id="mapping-180"></span><span class="token upd" id="move-dst-10" data-title="contract_body/comment"><span class="cupd">/// @notice </span>Incr<span class="cupd">e</span>a<span class="cupd">s</span>es<span class="cupd"> </span>th<span class="cupd">e</span> <span class="cupd">a</span>u<span class="cupd">t</span>hor<span class="cupd">i</span>zati<span class="cupd">on </span>o<span class="cupd">f</span><span class="cupd"> the </span>giv<span class="cupd">e</span>n<span class="cupd"> </span><span class="cupd">staking </span>pr<span class="cupd">o</span>vide<span class="cupd">r</span><span class="cupd"> </span>for</span></span>
+    <span class="marker" id="mapping-181"></span><span class="token mv" id="move-dst-12" data-title="contract_body/comment"><span class="marker" id="mapping-182"></span><span class="token upd" id="move-dst-12" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">t</span>he g<span class="cupd">i</span>ve<span class="cupd">n</span><span class="cupd"> </span>appli<span class="cupd">c</span><span class="cupd">a</span><span class="cupd">t</span>i<span class="cupd">o</span>n<span class="cupd"> </span>by <span class="cupd">t</span>h<span class="cupd">e</span><span class="cupd"> </span>giv<span class="cupd">e</span>n<span class="cupd"> </span><span class="cupd">a</span>mou<span class="cupd">n</span>t<span class="cupd">. Ca</span>n<span class="cupd"> </span>only b<span class="cupd">e </span>c<span class="cupd">a</span>lled by</span></span>
+    <span class="marker" id="mapping-183"></span><span class="token mv" id="move-dst-14" data-title="contract_body/comment"><span class="marker" id="mapping-184"></span><span class="token upd" id="move-dst-14" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">t</span>h<span class="cupd">e a</span><span class="cupd">u</span><span class="cupd">t</span>horizer<span class="cupd"> f</span>o<span class="cupd">r</span><span class="cupd"> </span>that<span class="cupd"> staking </span>pr<span class="cupd">o</span>vide<span class="cupd">r</span>.</span></span>
+    /// @dev Calls `authorizationIncreased(address stakingProvider, uint256 amount)`
+    ///      on the given application to notify the application about
+    ///      authorization change. See `IApplication`.
+    function increaseAuthorization(
+        address stakingProvider,
+        address application,
+        uint96 amount
+    ) external;
+
+    <span class="marker" id="mapping-185"></span><span class="token mv" id="move-dst-16" data-title="contract_body/comment"><span class="marker" id="mapping-186"></span><span class="token upd" id="move-dst-16" data-title="contract_body/comment"><span class="cupd">/// </span>@notice<span class="cupd"> </span>Requests<span class="cupd"> </span>decrease<span class="cupd"> </span>of<span class="cupd"> </span>the<span class="cupd"> </span>authorization<span class="cupd"> </span>for<span class="cupd"> </span>the<span class="cupd"> </span>given st<span class="cupd">a</span>king</span></span>
+    <span class="marker" id="mapping-187"></span><span class="token mv" id="move-dst-18" data-title="contract_body/comment"><span class="marker" id="mapping-188"></span><span class="token upd" id="move-dst-18" data-title="contract_body/comment"><span class="cupd">/// </span>        pr<span class="cupd">o</span>v<span class="cupd">i</span>d<span class="cupd">e</span>r<span class="cupd"> </span><span class="cupd">o</span>n the g<span class="cupd">i</span>v<span class="cupd">e</span>n<span class="cupd"> </span>app<span class="cupd">l</span>ic<span class="cupd">ation </span>by<span class="cupd"> the </span>provid<span class="cupd">e</span>d<span class="cupd"> </span><span class="cupd">a</span>m<span class="cupd">o</span>u<span class="cupd">nt</span>.</span></span>
+    ///         It may not change the authorized amount immediatelly. When
+    ///         it happens depends on the application. Can only be called by the
+    <span class="marker" id="mapping-189"></span><span class="token mv" id="move-dst-20" data-title="contract_body/comment"><span class="marker" id="mapping-190"></span><span class="token upd" id="move-dst-20" data-title="contract_body/comment"><span class="cupd">///         </span>given <span class="cupd">staking </span>pr<span class="cupd">o</span>vide<span class="cupd">r</span>’s<span class="cupd"> a</span>u<span class="cupd">t</span>hor<span class="cupd">i</span>zer.<span class="cupd"> </span>Overwr<span class="cupd">i</span><span class="cupd">t</span>es<span class="cupd"> </span>p<span class="cupd">en</span>d<span class="cupd">i</span>ng
+ </span></span>   <span class="marker" id="mapping-191"></span><span class="token mv" id="move-dst-22" data-title="contract_body/comment"><span class="marker" id="mapping-192"></span><span class="token upd" id="move-dst-22" data-title="contract_body/comment"><span class="cupd">///         authoriz</span>ation d<span class="cupd">e</span>c<span class="cupd">r</span><span class="cupd">e</span>a<span class="cupd">s</span><span class="cupd">e</span><span class="cupd"> </span>for <span class="cupd">the </span>give<span class="cupd">n</span><span class="cupd"> stak</span><span class="cupd">in</span>g<span class="cupd"> </span>provider<span class="cupd"> </span><span class="cupd">a</span>nd</span></span>
+    <span class="marker" id="mapping-193"></span><span class="token mv" id="move-dst-24" data-title="contract_body/comment"><span class="marker" id="mapping-194"></span><span class="token upd" id="move-dst-24" data-title="contract_body/comment"><span class="cupd">///         </span>appli<span class="cupd">c</span><span class="cupd">a</span><span class="cupd">t</span>i<span class="cupd">on</span><span class="cupd"> </span>if<span class="cupd"> the </span><span class="cupd">a</span>pp<span class="cupd">l</span>ic<span class="cupd">ation </span>agrees f<span class="cupd">o</span><span class="cupd">r</span> that. If the</span></span>
+    <span class="marker" id="mapping-195"></span><span class="token mv" id="move-dst-26" data-title="contract_body/comment"><span class="marker" id="mapping-196"></span><span class="token upd" id="move-dst-26" data-title="contract_body/comment"><span class="cupd">/// </span>        applica<span class="cupd">ti</span>on<span class="cupd"> </span>do<span class="cupd">e</span><span class="cupd">s</span><span class="cupd"> </span>not<span class="cupd"> </span><span class="cupd">a</span>gr<span class="cupd">e</span>e<span class="cupd"> </span>f<span class="cupd">o</span><span class="cupd">r</span><span class="cupd"> </span>ov<span class="cupd">e</span>rwriti<span class="cupd">n</span>g,<span class="cupd"> </span><span class="cupd">the </span>functi<span class="cupd">o</span>n</span></span>
+    <span class="marker" id="mapping-197"></span><span class="token mv" id="move-dst-28" data-title="contract_body/comment"><span class="marker" id="mapping-198"></span><span class="token upd" id="move-dst-28" data-title="contract_body/comment"><span class="cupd">/// </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span> <span class="cupd">r</span>e<span class="cupd">v</span><span class="cupd">er</span>ts.</span></span>
+    /// @dev Calls `authorizationDecreaseRequested(address stakingProvider, uint256 amount)`
+    ///      on the given application. See `IApplication`.
+    function requestAuthorizationDecrease(
+        address stakingProvider,
+        address application,
+        uint96 amount
+    ) external;
+
+    <span class="marker" id="mapping-199"></span><span class="token mv" id="move-dst-30" data-title="contract_body/comment"><span class="marker" id="mapping-200"></span><span class="token upd" id="move-dst-30" data-title="contract_body/comment"><span class="cupd">/// </span>@notice<span class="cupd"> </span>Requests<span class="cupd"> </span>decrease<span class="cupd"> </span>of<span class="cupd"> </span>all<span class="cupd"> </span><span class="cupd">a</span>uthor<span class="cupd">i</span>z<span class="cupd">ation</span>s<span class="cupd"> </span>for<span class="cupd"> the given </span>s<span class="cupd">t</span><span class="cupd">a</span>ki<span class="cupd">n</span>g</span></span>
+    <span class="marker" id="mapping-201"></span><span class="token mv" id="move-dst-32" data-title="contract_body/comment"><span class="marker" id="mapping-202"></span><span class="token upd" id="move-dst-32" data-title="contract_body/comment"><span class="cupd">///         provider</span> on all application<span class="cupd">s </span>by <span class="cupd">a</span>ll a<span class="cupd">uthorize</span>d amount.</span></span>
+    ///         It may not change the authorized amount immediatelly. When
+    ///         it happens depends on the application. Can only be called by the
+    <span class="marker" id="mapping-203"></span><span class="token mv" id="move-dst-34" data-title="contract_body/comment"><span class="marker" id="mapping-204"></span><span class="token upd" id="move-dst-34" data-title="contract_body/comment"><span class="cupd">/// </span>        g<span class="cupd">i</span>v<span class="cupd">e</span>n<span class="cupd"> </span><span class="cupd">st</span>aking<span class="cupd"> </span>provi<span class="cupd">de</span><span class="cupd">r</span>’<span class="cupd">s</span><span class="cupd"> </span><span class="cupd">authoriz</span>e<span class="cupd">r</span>.<span class="cupd"> </span>Ov<span class="cupd">e</span>rwr<span class="cupd">i</span>t<span class="cupd">e</span>s<span class="cupd"> p</span><span class="cupd">e</span>nding
+ </span></span>   <span class="marker" id="mapping-205"></span><span class="token mv" id="move-dst-36" data-title="contract_body/comment"><span class="marker" id="mapping-206"></span><span class="token upd" id="move-dst-36" data-title="contract_body/comment"><span class="cupd">///         </span>au<span class="cupd">th</span>orization d<span class="cupd">e</span>crease<span class="cupd"> </span>for the <span class="cupd">given </span>st<span class="cupd">a</span>k<span class="cupd">i</span><span class="cupd">n</span>g<span class="cupd"> </span><span class="cupd">provide</span>r<span class="cupd"> a</span>nd</span></span>
+    <span class="marker" id="mapping-207"></span><span class="token mv" id="move-dst-38" data-title="contract_body/comment"><span class="marker" id="mapping-208"></span><span class="token upd" id="move-dst-38" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">a</span><span class="cupd">p</span>pl<span class="cupd">i</span>c<span class="cupd">a</span><span class="cupd">t</span><span class="cupd">i</span><span class="cupd">on</span>.</span></span>
+    /// @dev Calls `authorizationDecreaseRequested(address stakingProvider, uint256 amount)`
+    ///      for each authorized application. See `IApplication`.
+    function requestAuthorizationDecrease(address stakingProvider) external;
+
+    /// @notice Called by the application at its discretion to approve the
+    ///         previously requested authorization decrease request. Can only be
+    ///         called by the application that was previously requested to
+    <span class="marker" id="mapping-209"></span><span class="token mv" id="move-dst-40" data-title="contract_body/comment"><span class="marker" id="mapping-210"></span><span class="token upd" id="move-dst-40" data-title="contract_body/comment"><span class="cupd">///         decrease </span>the authorization <span class="cupd">for th</span>at<span class="cupd"> </span>stak<span class="cupd">i</span><span class="cupd">n</span>g<span class="cupd"> provider</span>.</span></span>
+    ///         Returns resulting authorized amount for the application.
+    function approveAuthorizationDecrease(address stakingProvider)
+        external
+        returns (uint96);
+
+    /// @notice Decreases the authorization for the given `stakingProvider` on
+    ///         the given disabled `application`, for all authorized amount.
+    ///         Can be called by anyone.
+    function forceDecreaseAuthorization(
+        address stakingProvider,
+        address application
+    ) external;
+
+    /// @notice Pauses the given application’s eligibility to slash stakes.
+    ///         Besides that stakers can't change authorization to the application.
+    ///         Can be called only by the Panic Button of the particular
+    ///         application. The paused application can not slash stakes until
+    ///         it is approved again by the Governance using `approveApplication`
+    ///         function. Should be used only in case of an emergency.
+    function pauseApplication(address application) external;
+
+    /// @notice Disables the given application. The disabled application can't
+    ///         slash stakers. Also stakers can't increase authorization to that
+    ///         application but can decrease without waiting by calling
+    ///         `requestAuthorizationDecrease` at any moment. Can be called only
+    ///         by the governance. The disabled application can't be approved
+    ///         again. Should be used only in case of an emergency.
+    function disableApplication(address application) external;
+
+    /// @notice Sets the Panic Button role for the given application to the
+    ///         provided address. Can only be called by the Governance. If the
+    ///         Panic Button for the given application should be disabled, the
+    ///         role address should be set to 0x0 address.
+    function setPanicButton(address application, address panicButton) external;
+
+    <span class="marker" id="mapping-211"></span><span class="token mv" id="move-dst-42" data-title="contract_body/comment"><span class="marker" id="mapping-212"></span><span class="token upd" id="move-dst-42" data-title="contract_body/comment"><span class="cupd">/// @notice </span>S<span class="cupd">e</span><span class="cupd">ts </span>th<span class="cupd">e</span> m<span class="cupd">a</span>ximum numb<span class="cupd">e</span>r<span class="cupd"> of a</span>pp<span class="cupd">l</span><span class="cupd">i</span>c<span class="cupd">ations </span><span class="cupd">o</span>ne<span class="cupd"> </span>s<span class="cupd">t</span>ak<span class="cupd">i</span><span class="cupd">n</span>g<span class="cupd"> provider </span>can</span></span>
+    <span class="marker" id="mapping-213"></span><span class="token mv" id="move-dst-44" data-title="contract_body/comment"><span class="marker" id="mapping-214"></span><span class="token upd" id="move-dst-44" data-title="contract_body/comment"><span class="cupd">///         </span>have au<span class="cupd">th</span>oriz<span class="cupd">e</span>d.<span class="cupd"> </span>Used to <span class="cupd">p</span>rote<span class="cupd">c</span>t <span class="cupd">a</span>ga<span class="cupd">i</span><span class="cupd">ns</span>t<span class="cupd"> </span>DoSing<span class="cupd"> </span>s<span class="cupd">l</span><span class="cupd">a</span>s<span class="cupd">h</span><span class="cupd">i</span>ng<span class="cupd"> </span>q<span class="cupd">u</span>eue.</span></span>
+    ///         Can only be called by the Governance.
+    function setAuthorizationCeiling(uint256 ceiling) external;
+
+    //
+    //
+    // Stake top-up
+    //
+    //
+
+    <span class="marker" id="mapping-215"></span><span class="token mv" id="move-dst-46" data-title="contract_body/comment"><span class="marker" id="mapping-216"></span><span class="token upd" id="move-dst-46" data-title="contract_body/comment"><span class="cupd">/// </span>@not<span class="cupd">i</span>c<span class="cupd">e</span> I<span class="cupd">n</span>c<span class="cupd">r</span><span class="cupd">e</span>a<span class="cupd">s</span>es<span class="cupd"> </span>the <span class="cupd">a</span>mo<span class="cupd">u</span>n<span class="cupd">t</span> of t<span class="cupd">h</span><span class="cupd">e</span><span class="cupd"> </span>stak<span class="cupd">e</span> fo<span class="cupd">r</span> <span class="cupd">t</span>h<span class="cupd">e</span><span class="cupd"> </span>giv<span class="cupd">en</span> stak<span class="cupd">ing </span>pr<span class="cupd">o</span>vider.</span></span>
+    <span class="marker" id="mapping-217"></span><span class="token mv" id="move-dst-48" data-title="contract_body/comment"><span class="marker" id="mapping-218"></span><span class="token upd" id="move-dst-48" data-title="contract_body/comment"><span class="cupd">///         </span>If `autoIn<span class="cupd">crease</span>`<span class="cupd"> f</span>lag is t<span class="cupd">r</span>ue<span class="cupd"> the</span>n<span class="cupd"> </span>th<span class="cupd">e</span> amou<span class="cupd">n</span>t<span class="cupd"> </span>w<span class="cupd">i</span>ll b<span class="cupd">e</span><span class="cupd"> a</span><span class="cupd">d</span>ded<span class="cupd"> </span>for</span></span>
+    <span class="marker" id="mapping-219"></span><span class="token mv" id="move-dst-50" data-title="contract_body/comment"><span class="marker" id="mapping-220"></span><span class="token upd" id="move-dst-50" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">a</span>ll<span class="cupd"> </span><span class="cupd">authoriz</span>ed <span class="cupd">a</span>pplica<span class="cupd">tion</span>s.</span></span>
+    /// @dev The sender of this transaction needs to have the amount approved to
+    ///      transfer to the staking contract.
+    function topUp(address stakingProvider, uint96 amount) external;
+
+    <span class="marker" id="mapping-221"></span><span class="token mv" id="move-dst-52" data-title="contract_body/comment"><span class="marker" id="mapping-222"></span><span class="token upd" id="move-dst-52" data-title="contract_body/comment"><span class="cupd">/// @notice </span>Toggl<span class="cupd">e</span><span class="cupd"> </span>`<span class="cupd">a</span><span class="cupd">u</span>toI<span class="cupd">n</span>cr<span class="cupd">e</span>ase`<span class="cupd"> </span><span class="cupd">f</span><span class="cupd">l</span><span class="cupd">a</span>g. If <span class="cupd">t</span>rue the<span class="cupd">n</span><span class="cupd"> </span>th<span class="cupd">e </span>com<span class="cupd">p</span>l<span class="cupd">e</span>te<span class="cupd"> </span><span class="cupd">a</span>mount</span></span>
+    <span class="marker" id="mapping-223"></span><span class="token mv" id="move-dst-54" data-title="contract_body/comment"><span class="marker" id="mapping-224"></span><span class="token upd" id="move-dst-54" data-title="contract_body/comment"><span class="cupd">///         </span>in <span class="cupd">t</span><span class="cupd">o</span>p-up w<span class="cupd">i</span>ll b<span class="cupd">e</span><span class="cupd"> </span>add<span class="cupd">ed to </span>al<span class="cupd">r</span><span class="cupd">e</span>ady<span class="cupd"> a</span>u<span class="cupd">t</span>h<span class="cupd">o</span>r<span class="cupd">i</span>zed<span class="cupd"> </span>app<span class="cupd">l</span>ic<span class="cupd">a</span>t<span class="cupd">i</span>o<span class="cupd">n</span>s.</span></span>
+    function <span class="marker" id="mapping-225"></span><span class="token upd" id="move-dst-65" data-title="function_definition/identifier"><span class="cupd">to</span>ggl<span class="cupd">e</span>AutoAuthorizationIncrease</span>(address stakingProvider) external;
+
+    //
+    //
+    // Undelegating a stake (unstaking)
+    //
+    //
+
+    /// @notice Reduces the liquid T stake amount by the provided amount and
+    ///         withdraws T to the owner. Reverts if there is at least one
+    ///         authorization higher than the sum of the legacy stake and
+    ///         remaining liquid T stake or if the unstake amount is higher than
+    <span class="marker" id="mapping-226"></span><span class="token mv" id="move-dst-56" data-title="contract_body/comment"><span class="marker" id="mapping-227"></span><span class="token upd" id="move-dst-56" data-title="contract_body/comment"><span class="cupd">/// </span>        <span class="cupd">t</span>h<span class="cupd">e </span>liquid T <span class="cupd">s</span><span class="cupd">t</span>ak<span class="cupd">e amount</span>.<span class="cupd"> </span>Can<span class="cupd"> </span>b<span class="cupd">e </span>c<span class="cupd">a</span>ll<span class="cupd">e</span>d<span class="cupd"> </span><span class="cupd">o</span>nly<span class="cupd"> </span>by <span class="cupd">the </span>dele<span class="cupd">g</span>at<span class="cupd">i</span>on</span></span>
+    <span class="marker" id="mapping-228"></span><span class="token mv" id="move-dst-58" data-title="contract_body/comment"><span class="marker" id="mapping-229"></span><span class="token upd" id="move-dst-58" data-title="contract_body/comment"><span class="cupd">///         </span>ow<span class="cupd">n</span><span class="cupd">e</span>r<span class="cupd"> </span><span class="cupd">o</span>r<span class="cupd"> </span><span class="cupd">the </span>staki<span class="cupd">n</span>g<span class="cupd"> </span><span class="cupd">provider.</span></span></span>
+    function unstakeT(address stakingProvider, uint96 amount) external;
+
+    /// @notice Sets the legacy KEEP staking contract active stake amount cached
+    ///         in T staking contract to 0. Reverts if the amount of liquid T
+    ///         staked in T staking contract is lower than the highest
+    ///         application authorization. This function allows to unstake from
+    ///         KEEP staking contract and still being able to operate in T
+    ///         network and earning rewards based on the liquid T staked. Can be
+    <span class="marker" id="mapping-230"></span><span class="token mv" id="move-dst-60" data-title="contract_body/comment"><span class="marker" id="mapping-231"></span><span class="token upd" id="move-dst-60" data-title="contract_body/comment"><span class="cupd">/// </span>        <span class="cupd">c</span>all<span class="cupd">e</span>d<span class="cupd"> </span><span class="cupd">o</span>nly by <span class="cupd">t</span>h<span class="cupd">e</span><span class="cupd"> </span>deleg<span class="cupd">ation </span><span class="cupd">o</span>wner or <span class="cupd">t</span>he<span class="cupd"> stak</span>ing<span class="cupd"> </span><span class="cupd">p</span><span class="cupd">ro</span>vider.</span></span>
+    function unstakeKeep(address stakingProvider) external;
+
+    <span class="marker" id="mapping-232"></span><span class="token mv" id="move-dst-62" data-title="contract_body/comment"><span class="marker" id="mapping-233"></span><span class="token upd" id="move-dst-62" data-title="contract_body/comment"><span class="cupd">/// </span>@notice<span class="cupd"> </span>Sets<span class="cupd"> </span>to<span class="cupd"> </span>0<span class="cupd"> </span>the<span class="cupd"> </span><span class="cupd">a</span>m<span class="cupd">o</span>u<span class="cupd">nt</span><span class="cupd"> </span><span class="cupd">o</span>f<span class="cupd"> T </span><span class="cupd">t</span>h<span class="cupd">a</span>t <span class="cupd">i</span>s<span class="cupd"> c</span><span class="cupd">ac</span>hed<span class="cupd"> </span>from<span class="cupd"> </span>th<span class="cupd">e </span><span class="cupd">l</span><span class="cupd">e</span>gacy</span></span>
+    <span class="marker" id="mapping-234"></span><span class="token mv" id="move-dst-64" data-title="contract_body/comment"><span class="marker" id="mapping-235"></span><span class="token upd" id="move-dst-64" data-title="contract_body/comment"><span class="cupd">///         </span>NU s<span class="cupd">t</span>aking<span class="cupd"> </span>c<span class="cupd">o</span><span class="cupd">n</span>tract. R<span class="cupd">e</span>ve<span class="cupd">r</span>ts<span class="cupd"> </span>if the<span class="cupd">r</span>e<span class="cupd"> </span><span class="cupd">i</span>s at least one</span></span>
+    <span class="marker" id="mapping-236"></span><span class="token mv" id="move-dst-67" data-title="contract_body/comment"><span class="marker" id="mapping-237"></span><span class="token upd" id="move-dst-67" data-title="contract_body/comment"><span class="cupd">/// </span><span class="cupd"> </span>       <span class="cupd">a</span>u<span class="cupd">t</span>h<span class="cupd">or</span>iz<span class="cupd">ation </span>higher th<span class="cupd">a</span>n<span class="cupd"> </span><span class="cupd">t</span>h<span class="cupd">e </span>s<span class="cupd">u</span>m<span class="cupd"> </span>o<span class="cupd">f</span> <span class="cupd">r</span>e<span class="cupd">m</span>aining<span class="cupd"> </span><span class="cupd">legacy NU</span> stake</span></span>
+    <span class="marker" id="mapping-238"></span><span class="token mv" id="move-dst-69" data-title="contract_body/comment"><span class="marker" id="mapping-239"></span><span class="token upd" id="move-dst-69" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">a</span><span class="cupd">n</span>d<span class="cupd"> </span><span class="cupd">n</span><span class="cupd">a</span><span class="cupd">t</span>ive<span class="cupd"> </span>T s<span class="cupd">t</span>ake f<span class="cupd">o</span>r<span class="cupd"> </span>that<span class="cupd"> staking </span>pr<span class="cupd">o</span>vide<span class="cupd">r</span><span class="cupd"> </span>or<span class="cupd"> </span>if th<span class="cupd">e </span>unst<span class="cupd">a</span>k<span class="cupd">ed</span></span></span>
+    <span class="marker" id="mapping-240"></span><span class="token mv" id="move-dst-71" data-title="contract_body/comment"><span class="marker" id="mapping-241"></span><span class="token upd" id="move-dst-71" data-title="contract_body/comment"><span class="cupd">///         </span>amoun<span class="cupd">t</span> is <span class="cupd">h</span>igh<span class="cupd">e</span>r<span class="cupd"> </span>tha<span class="cupd">n</span> th<span class="cupd">e</span><span class="cupd"> </span>cached legacy stake am<span class="cupd">o</span>unt.<span class="cupd"> </span>If succee<span class="cupd">de</span>d,</span></span>
+    <span class="marker" id="mapping-242"></span><span class="token mv" id="move-dst-73" data-title="contract_body/comment"><span class="marker" id="mapping-243"></span><span class="token upd" id="move-dst-73" data-title="contract_body/comment"><span class="cupd">///         the l</span>egacy<span class="cupd"> </span>NU<span class="cupd"> stake </span>c<span class="cupd">a</span><span class="cupd">n</span><span class="cupd"> </span><span class="cupd">be </span>p<span class="cupd">a</span>rtia<span class="cupd">ll</span>y<span class="cupd"> o</span>r fu<span class="cupd">l</span>l<span class="cupd">y </span>undelega<span class="cupd">t</span><span class="cupd">e</span>d<span class="cupd"> o</span>n</span></span>
+    <span class="marker" id="mapping-244"></span><span class="token mv" id="move-dst-75" data-title="contract_body/comment"><span class="marker" id="mapping-245"></span><span class="token upd" id="move-dst-75" data-title="contract_body/comment"><span class="cupd">///         </span>the legacy NU staking cont<span class="cupd">r</span>act. This functi<span class="cupd">o</span>n allows to unstake</span></span>
+    <span class="marker" id="mapping-246"></span><span class="token mv" id="move-dst-77" data-title="contract_body/comment"><span class="marker" id="mapping-247"></span><span class="token upd" id="move-dst-77" data-title="contract_body/comment"><span class="cupd">///         </span>from NU staking <span class="cupd">c</span>ontr<span class="cupd">a</span>ct whi<span class="cupd">l</span><span class="cupd">e</span><span class="cupd"> </span>sti<span class="cupd">l</span>l<span class="cupd"> b</span><span class="cupd">e</span>ing<span class="cupd"> </span>ab<span class="cupd">le</span> <span class="cupd">t</span><span class="cupd">o</span><span class="cupd"> o</span>p<span class="cupd">er</span><span class="cupd">a</span>te<span class="cupd"> </span>in</span></span>
+    <span class="marker" id="mapping-248"></span><span class="token upd" id="move-dst-78" data-title="contract_body/comment"><span class="cupd">/// </span>        T <span class="cupd">n</span>etw<span class="cupd">o</span>rk<span class="cupd"> </span>an<span class="cupd">d</span> <span class="cupd">e</span>arning<span class="cupd"> </span>rew<span class="cupd">a</span>r<span class="cupd">d</span>s<span class="cupd"> </span>b<span class="cupd">a</span><span class="cupd">s</span><span class="cupd">e</span>d<span class="cupd"> </span><span class="cupd">o</span><span class="cupd">n</span><span class="cupd"> </span><span class="cupd">the </span>nati<span class="cupd">v</span><span class="cupd">e</span><span class="cupd"> </span>T st<span class="cupd">a</span>ked.</span>
+    <span class="marker" id="mapping-249"></span><span class="token upd" id="move-dst-79" data-title="contract_body/comment"><span class="cupd">///         </span>Can b<span class="cupd">e</span> call<span class="cupd">e</span>d<span class="cupd"> </span>only<span class="cupd"> </span>by <span class="cupd">the</span><span class="cupd"> </span><span class="cupd">s</span>t<span class="cupd">a</span>k<span class="cupd">e</span><span class="cupd"> o</span>w<span class="cupd">ne</span>r<span class="cupd"> </span><span class="cupd">or</span> <span class="cupd">t</span><span class="cupd">h</span><span class="cupd">e</span><span class="cupd"> </span>s<span class="cupd">t</span><span class="cupd">a</span>ki<span class="cupd">n</span>g<span class="cupd"> </span>provider.</span>
+    function unstakeNu(address stakingProvider) external;
+
+    /// @notice Sets cached legacy stake amount to 0, sets the liquid T stake
+    ///         amount to 0 and withdraws all liquid T from the stake to the
+    ///         owner. Reverts if there is at least one non-zero authorization.
+    <span class="marker" id="mapping-250"></span><span class="token mv" id="move-dst-81" data-title="contract_body/comment"><span class="marker" id="mapping-251"></span><span class="token upd" id="move-dst-81" data-title="contract_body/comment"><span class="cupd">///         </span>Can<span class="cupd"> </span>be<span class="cupd"> </span>call<span class="cupd">e</span>d o<span class="cupd">n</span><span class="cupd">l</span><span class="cupd">y </span>by<span class="cupd"> </span><span class="cupd">t</span>h<span class="cupd">e </span><span class="cupd">d</span>e<span class="cupd">l</span>egat<span class="cupd">i</span>on<span class="cupd"> </span>own<span class="cupd">e</span>r<span class="cupd"> </span><span class="cupd">or th</span>e staking</span></span>
+    <span class="marker" id="mapping-252"></span><span class="token mv" id="move-dst-83" data-title="contract_body/comment"><span class="marker" id="mapping-253"></span><span class="token upd" id="move-dst-83" data-title="contract_body/comment"><span class="cupd">///         provider</span>.</span></span>
+    function unstakeAll(address stakingProvider) external;
+
+    //
+    //
+    // Keeping information in sync
+    //
+    //
+
+    /// @notice Sets reward in T tokens for notification of misbehaviour
+    <span class="marker" id="mapping-254"></span><span class="token mv" id="move-dst-85" data-title="contract_body/comment"><span class="marker" id="mapping-255"></span><span class="token upd" id="move-dst-85" data-title="contract_body/comment"><span class="cupd">///         </span>of on<span class="cupd">e</span><span class="cupd"> stak</span>ing provid<span class="cupd">e</span>r.<span class="cupd"> </span>C<span class="cupd">a</span>n <span class="cupd">o</span><span class="cupd">n</span>ly<span class="cupd"> </span>be<span class="cupd"> </span><span class="cupd">c</span>all<span class="cupd">e</span><span class="cupd">d</span><span class="cupd"> </span>by <span class="cupd">the </span><span class="cupd">g</span>ov<span class="cupd">e</span>rn<span class="cupd">an</span>ce.</span></span>
+    function setNotificationReward(uint96 reward) external;
+
+    /// @notice Transfer some amount of T tokens as reward for notifications
+    ///         of misbehaviour
+    function pushNotificationReward(uint96 reward) external;
+
+    /// @notice Withdraw some amount of T tokens from notifiers treasury.
+    ///         Can only be called by the governance.
+    function withdrawNotificationReward(address recipient, uint96 amount)
+        external;
+
+    <span class="marker" id="mapping-256"></span><span class="token mv" id="move-dst-87" data-title="contract_body/comment"><span class="marker" id="mapping-257"></span><span class="token upd" id="move-dst-87" data-title="contract_body/comment"><span class="cupd">/// </span>@notice<span class="cupd"> </span>Adds<span class="cupd"> </span>staking<span class="cupd"> </span><span class="cupd">p</span><span class="cupd">r</span>ov<span class="cupd">i</span>de<span class="cupd">r</span>s<span class="cupd"> </span><span class="cupd">t</span><span class="cupd">o</span><span class="cupd"> the </span>s<span class="cupd">l</span><span class="cupd">a</span><span class="cupd">s</span>h<span class="cupd">ing </span>queue al<span class="cupd">on</span>g wi<span class="cupd">t</span>h the</span></span>
+    <span class="marker" id="mapping-258"></span><span class="token mv" id="move-dst-89" data-title="contract_body/comment"><span class="marker" id="mapping-259"></span><span class="token upd" id="move-dst-89" data-title="contract_body/comment"><span class="cupd">///         </span>amo<span class="cupd">un</span><span class="cupd">t</span><span class="cupd"> </span>th<span class="cupd">a</span>t <span class="cupd">s</span>h<span class="cupd">o</span>uld<span class="cupd"> </span>be <span class="cupd">s</span>l<span class="cupd">a</span>sh<span class="cupd">e</span>d<span class="cupd"> from </span>each<span class="cupd"> </span>one of <span class="cupd">t</span>hem. C<span class="cupd">a</span><span class="cupd">n</span><span class="cupd"> </span><span class="cupd">on</span>ly be</span></span>
+    <span class="marker" id="mapping-260"></span><span class="token mv" id="move-dst-91" data-title="contract_body/comment"><span class="marker" id="mapping-261"></span><span class="token upd" id="move-dst-91" data-title="contract_body/comment"><span class="cupd">///         </span>ca<span class="cupd">ll</span>ed<span class="cupd"> b</span>y<span class="cupd"> a</span>pp<span class="cupd">l</span>ica<span class="cupd">t</span>i<span class="cupd">o</span>n<span class="cupd"> </span>auth<span class="cupd">o</span><span class="cupd">r</span>iz<span class="cupd">e</span>d<span class="cupd"> </span>f<span class="cupd">or</span><span class="cupd"> a</span>ll<span class="cupd"> </span>st<span class="cupd">a</span>k<span class="cupd">ing </span>p<span class="cupd">r</span>ovid<span class="cupd">e</span><span class="cupd">r</span>s in</span></span>
+    <span class="marker" id="mapping-262"></span><span class="token mv" id="move-dst-93" data-title="contract_body/comment"><span class="marker" id="mapping-263"></span><span class="token upd" id="move-dst-93" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">the </span><span class="cupd">a</span>rr<span class="cupd">a</span>y.</span></span>
+    function slash(uint96 amount, address[] memory stakingProviders) external;
+
+    <span class="marker" id="mapping-264"></span><span class="token mv" id="move-dst-95" data-title="contract_body/comment"><span class="marker" id="mapping-265"></span><span class="token upd" id="move-dst-95" data-title="contract_body/comment"><span class="cupd">/// </span>@notice<span class="cupd"> </span>Adds<span class="cupd"> </span>staking<span class="cupd"> </span>providers<span class="cupd"> </span>to<span class="cupd"> </span>the<span class="cupd"> </span>s<span class="cupd">l</span><span class="cupd">a</span>sh<span class="cupd">i</span><span class="cupd">n</span>g<span class="cupd"> </span>qu<span class="cupd">e</span>ue<span class="cupd"> a</span>lo<span class="cupd">n</span>g<span class="cupd"> </span>w<span class="cupd">i</span>th the</span></span>
+    <span class="marker" id="mapping-266"></span><span class="token mv" id="move-dst-97" data-title="contract_body/comment"><span class="marker" id="mapping-267"></span><span class="token upd" id="move-dst-97" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">a</span>mou<span class="cupd">n</span>t.<span class="cupd"> </span>Th<span class="cupd">e </span>notifi<span class="cupd">e</span>r<span class="cupd"> </span>wi<span class="cupd">l</span>l<span class="cupd"> </span>r<span class="cupd">e</span>ceive<span class="cupd"> </span>r<span class="cupd">e</span>w<span class="cupd">a</span>rd<span class="cupd"> </span>p<span class="cupd">er </span>e<span class="cupd">a</span>ch<span class="cupd"> </span>staking</span></span>
+    <span class="marker" id="mapping-268"></span><span class="token mv" id="move-dst-99" data-title="contract_body/comment"><span class="marker" id="mapping-269"></span><span class="token upd" id="move-dst-99" data-title="contract_body/comment"><span class="cupd">/// </span>        pr<span class="cupd">o</span>v<span class="cupd">i</span>d<span class="cupd">e</span>r<span class="cupd"> </span>fr<span class="cupd">o</span>m no<span class="cupd">tifie</span>r<span class="cupd">s </span><span class="cupd">t</span>r<span class="cupd">e</span>a<span class="cupd">s</span>u<span class="cupd">r</span>y. C<span class="cupd">an</span> onl<span class="cupd">y be</span><span class="cupd"> </span><span class="cupd">c</span><span class="cupd">a</span>ll<span class="cupd">e</span>d by</span></span>
+    <span class="marker" id="mapping-270"></span><span class="token mv" id="move-dst-101" data-title="contract_body/comment"><span class="marker" id="mapping-271"></span><span class="token upd" id="move-dst-101" data-title="contract_body/comment"><span class="cupd">///         a</span>pplicatio<span class="cupd">n</span><span class="cupd"> </span><span class="cupd">a</span><span class="cupd">u</span><span class="cupd">t</span><span class="cupd">h</span>oriz<span class="cupd">ed </span>for<span class="cupd"> </span>all<span class="cupd"> staking </span>pr<span class="cupd">o</span>vide<span class="cupd">r</span><span class="cupd">s</span><span class="cupd"> </span>in <span class="cupd">the </span>a<span class="cupd">r</span>ray.</span></span>
+    function seize(
+        uint96 amount,
+        uint256 rewardMultipier,
+        address notifier,
+        address[] memory stakingProviders
+    ) external;
+
+    /// @notice Takes the given number of queued slashing operations and
+    ///         processes them. Receives 5% of the slashed amount.
+    ///         Executes `involuntaryAllocationDecrease` function on each
+    ///         affected application.
+    function processSlashing(uint256 count) external;
+
+    //
+    //
+    // Auxiliary functions
+    //
+    //
+
+    <span class="marker" id="mapping-272"></span><span class="token mv" id="move-dst-103" data-title="contract_body/comment"><span class="marker" id="mapping-273"></span><span class="token upd" id="move-dst-103" data-title="contract_body/comment"><span class="cupd">/// </span>@not<span class="cupd">i</span><span class="cupd">c</span><span class="cupd">e </span>Re<span class="cupd">t</span>urns t<span class="cupd">he a</span><span class="cupd">u</span><span class="cupd">t</span><span class="cupd">h</span>oriz<span class="cupd">ed </span><span class="cupd">s</span>tak<span class="cupd">e</span><span class="cupd"> </span><span class="cupd">a</span>mou<span class="cupd">n</span>t<span class="cupd"> </span>of <span class="cupd">the </span>s<span class="cupd">t</span><span class="cupd">a</span>king<span class="cupd"> </span>prov<span class="cupd">i</span>d<span class="cupd">e</span>r for</span></span>
+    <span class="marker" id="mapping-274"></span><span class="token mv" id="move-dst-105" data-title="contract_body/comment"><span class="marker" id="mapping-275"></span><span class="token upd" id="move-dst-105" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd">t</span>he<span class="cupd"> </span><span class="cupd">a</span>ppl<span class="cupd">i</span><span class="cupd">c</span><span class="cupd">a</span><span class="cupd">t</span><span class="cupd">i</span><span class="cupd">on</span>.</span></span>
+    function authorizedStake(address stakingProvider, address application)
+        external
+        view
+        returns (uint96);
+
+    /// @notice Returns staked amount of T, Keep and Nu for the specified
+    ///         staking provider.
+    /// @dev    All values are in T denomination
+    function stakes(address stakingProvider)
+        external
+        view
+        returns (
+            uint96 tStake,
+            uint96 keepInTStake,
+            uint96 nuInTStake
+        );
+
+    <span class="marker" id="mapping-276"></span><span class="token mv" id="move-dst-107" data-title="contract_body/comment"><span class="marker" id="mapping-277"></span><span class="token upd" id="move-dst-107" data-title="contract_body/comment"><span class="cupd">/// </span>@n<span class="cupd">o</span>ti<span class="cupd">c</span><span class="cupd">e</span><span class="cupd"> </span>Re<span class="cupd">t</span>ur<span class="cupd">ns </span>st<span class="cupd">a</span>rt<span class="cupd"> </span>s<span class="cupd">t</span><span class="cupd">a</span>ki<span class="cupd">n</span>g<span class="cupd"> </span>t<span class="cupd">i</span>mes<span class="cupd">ta</span>mp.</span></span>
+    <span class="marker" id="mapping-278"></span><span class="token mv" id="move-dst-109" data-title="contract_body/comment"><span class="marker" id="mapping-279"></span><span class="token upd" id="move-dst-109" data-title="contract_body/comment"><span class="cupd">/// </span>@dev<span class="cupd">    </span>This<span class="cupd"> </span>v<span class="cupd">al</span>ue <span class="cupd">i</span>s<span class="cupd"> </span><span class="cupd">se</span>t<span class="cupd"> </span><span class="cupd">a</span><span class="cupd">t</span><span class="cupd"> </span>m<span class="cupd">o</span><span class="cupd">s</span>t<span class="cupd"> </span>o<span class="cupd">n</span><span class="cupd">c</span>e.</span></span>
+    function getStartStakingTimestamp(address stakingProvider)
+        external
+        view
+        returns (uint256);
+
+    <span class="marker" id="mapping-280"></span><span class="token mv" id="move-dst-111" data-title="contract_body/comment"><span class="marker" id="mapping-281"></span><span class="token upd" id="move-dst-111" data-title="contract_body/comment"><span class="cupd">/// </span>@<span class="cupd">n</span><span class="cupd">o</span><span class="cupd">ti</span>c<span class="cupd">e</span><span class="cupd"> </span>Retu<span class="cupd">r</span>n<span class="cupd">s a</span>uto-inc<span class="cupd">re</span><span class="cupd">a</span>se flag.</span></span>
+    <span class="marker" id="mapping-282"></span><span class="token mv" id="move-dst-126" data-title="contract_body/function_definition">function <span class="marker" id="mapping-283"></span><span class="token upd" id="move-dst-127" data-title="function_definition/identifier">ge<span class="cupd">t</span>A<span class="cupd">u</span><span class="cupd">t</span>oIn<span class="cupd">cre</span>aseFlag</span>(address stakingProvider)
+        external
+        <span class="marker" id="mapping-284"></span><span class="token add" data-title="function_definition/state_mutability">view</span>
+        <span class="marker" id="mapping-285"></span><span class="token add" data-title="function_definition/return_type_definition">returns (bool)</span>;</span>
+
+    <span class="marker" id="mapping-286"></span><span class="token mv" id="move-dst-113" data-title="contract_body/comment"><span class="marker" id="mapping-287"></span><span class="token upd" id="move-dst-113" data-title="contract_body/comment"><span class="cupd">/// @notice </span>Re<span class="cupd">t</span>urn<span class="cupd">s </span>st<span class="cupd">a</span>ked am<span class="cupd">ou</span>n<span class="cupd">t </span>of NU for <span class="cupd">the </span><span class="cupd">s</span><span class="cupd">p</span><span class="cupd">e</span><span class="cupd">c</span><span class="cupd">i</span>fi<span class="cupd">e</span>d<span class="cupd"> stak</span>ing provider.</span></span>
+    function stakedNu(address stakingProvider) external view returns (uint256);
+
+    /// @notice Gets the stake owner, the beneficiary and the authorizer
+    <span class="marker" id="mapping-288"></span><span class="token mv" id="move-dst-115" data-title="contract_body/comment"><span class="marker" id="mapping-289"></span><span class="token upd" id="move-dst-115" data-title="contract_body/comment"><span class="cupd">///         </span>for<span class="cupd"> the </span>spe<span class="cupd">c</span>ifi<span class="cupd">ed </span><span class="cupd">staking </span>pr<span class="cupd">o</span>vide<span class="cupd">r</span><span class="cupd"> </span><span class="cupd">a</span>ddr<span class="cupd">es</span>s.</span></span>
+    /// @return owner Stake owner address.
+    /// @return beneficiary Beneficiary address.
+    /// @return authorizer Authorizer address.
+    function rolesOf(address stakingProvider)
+        external
+        view
+        returns (
+            address owner,
+            address payable beneficiary,
+            address authorizer
+        );
+
+    /// @notice Returns length of application array
+    function getApplicationsLength() external view returns (uint256);
+
+    /// @notice Returns length of slashing queue
+    function getSlashingQueueLength() external view returns (uint256);
+
+    <span class="marker" id="mapping-290"></span><span class="token mv" id="move-dst-117" data-title="contract_body/comment"><span class="marker" id="mapping-291"></span><span class="token upd" id="move-dst-117" data-title="contract_body/comment"><span class="cupd">/// </span>@n<span class="cupd">o</span>t<span class="cupd">i</span>c<span class="cupd">e</span> Retu<span class="cupd">r</span>ns<span class="cupd"> </span>m<span class="cupd">in</span>imum<span class="cupd"> </span>po<span class="cupd">s</span>sibl<span class="cupd">e </span>s<span class="cupd">t</span>ak<span class="cupd">e </span>f<span class="cupd">o</span>r<span class="cupd"> </span>T,<span class="cupd"> </span>KEEP<span class="cupd"> </span>o<span class="cupd">r </span>NU i<span class="cupd">n </span>T</span></span>
+    <span class="marker" id="mapping-292"></span><span class="token mv" id="move-dst-119" data-title="contract_body/comment"><span class="marker" id="mapping-293"></span><span class="token upd" id="move-dst-119" data-title="contract_body/comment"><span class="cupd">///         </span>d<span class="cupd">e</span>no<span class="cupd">m</span><span class="cupd">in</span>a<span class="cupd">t</span><span class="cupd">i</span><span class="cupd">on</span>.</span></span>
+    <span class="marker" id="mapping-294"></span><span class="token mv" id="move-dst-121" data-title="contract_body/comment"><span class="marker" id="mapping-295"></span><span class="token upd" id="move-dst-121" data-title="contract_body/comment"><span class="cupd">/// </span>@dev<span class="cupd"> </span>F<span class="cupd">or</span><span class="cupd"> </span>ex<span class="cupd">a</span>mp<span class="cupd">l</span>e,<span class="cupd"> </span>suppos<span class="cupd">e</span> <span class="cupd">t</span>h<span class="cupd">e</span><span class="cupd"> </span>g<span class="cupd">i</span>ven st<span class="cupd">a</span>k<span class="cupd">i</span><span class="cupd">n</span>g<span class="cupd"> </span>provi<span class="cupd">d</span><span class="cupd">e</span>r<span class="cupd"> </span>has 10 T, 20 T worth</span></span>
+    ///      of KEEP, and 30 T worth of NU all staked, and the maximum
+    ///      application authorization is 40 T, then `getMinStaked` for
+    <span class="marker" id="mapping-296"></span><span class="token mv" id="move-dst-123" data-title="contract_body/comment"><span class="marker" id="mapping-297"></span><span class="token upd" id="move-dst-123" data-title="contract_body/comment"><span class="cupd">///      </span><span class="cupd">t</span>h<span class="cupd">a</span>t<span class="cupd"> </span>st<span class="cupd">a</span>k<span class="cupd">i</span><span class="cupd">n</span>g<span class="cupd"> </span>provi<span class="cupd">de</span><span class="cupd">r</span><span class="cupd"> </span>r<span class="cupd">e</span><span class="cupd">t</span>ur<span class="cupd">ns</span>:</span></span>
+    ///          * 0 T if KEEP stake type specified i.e.
+    <span class="marker" id="mapping-298"></span><span class="token mv" id="move-dst-125" data-title="contract_body/comment"><span class="marker" id="mapping-299"></span><span class="token upd" id="move-dst-125" data-title="contract_body/comment"><span class="cupd">///         </span>   mi<span class="cupd">n </span>=<span class="cupd"> </span>40<span class="cupd"> </span>T<span class="cupd"> </span>m<span class="cupd">a</span>x<span class="cupd"> </span>-<span class="cupd"> </span>(10<span class="cupd"> </span>T) = 30 T</span></span>
+    ///          * 10 T if NU stake type specified i.e.
+    <span class="marker" id="mapping-300"></span><span class="token mv" id="move-dst-129" data-title="contract_body/comment"><span class="marker" id="mapping-301"></span><span class="token upd" id="move-dst-129" data-title="contract_body/comment"><span class="cupd">/// </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span>    m<span class="cupd">i</span><span class="cupd">n</span><span class="cupd"> </span>= 40 T m<span class="cupd">a</span>x - (10 T) = 30 T</span></span>
+    ///          * 0 T if T stake type specified i.e.
+    <span class="marker" id="mapping-302"></span><span class="token mv" id="move-dst-131" data-title="contract_body/comment"><span class="marker" id="mapping-303"></span><span class="token upd" id="move-dst-131" data-title="contract_body/comment"><span class="cupd">///         </span><span class="cupd"> </span><span class="cupd"> </span> m<span class="cupd">in</span><span class="cupd"> </span>=<span class="cupd"> </span>40 <span class="cupd">T</span><span class="cupd"> </span>m<span class="cupd">a</span>x<span class="cupd"> </span>=<span class="cupd"> </span>40 T</span></span>
+    ///      In other words, the minimum stake amount for the specified
+    ///      stake type is the minimum amount of stake of the given type
+    ///      needed to satisfy the maximum application authorization given
+    <span class="marker" id="mapping-304"></span><span class="token mv" id="move-dst-133" data-title="contract_body/comment"><span class="marker" id="mapping-305"></span><span class="token upd" id="move-dst-133" data-title="contract_body/comment"><span class="cupd">///      </span>the<span class="cupd"> </span>stake<span class="cupd">d</span><span class="cupd"> a</span>m<span class="cupd">ount</span>s<span class="cupd"> </span><span class="cupd">of the </span>T<span class="cupd"> s</span>t<span class="cupd">a</span>k<span class="cupd">e</span><span class="cupd"> </span>t<span class="cupd">y</span>pes<span class="cupd"> </span>for <span class="cupd">th</span>at staking provider.</span></span>
+    function getMinStaked(address stakingProvider, StakeType stakeTypes)
+        external
+        view
+        returns (uint96);
+
+    /// @notice Returns available amount to authorize for the specified application
+    function getAvailableToAuthorize(
+        address stakingProvider,
+        address application
+    ) external view returns (uint96);
+}
+</pre></div></div></div></body></html>

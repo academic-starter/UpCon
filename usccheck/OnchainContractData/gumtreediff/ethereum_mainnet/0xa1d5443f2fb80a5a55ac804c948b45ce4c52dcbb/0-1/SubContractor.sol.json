@@ -1,0 +1,313 @@
+{
+  "matches": [
+    {
+      "src": "import: import [662,668]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "bytes4: bytes4 [1231,1237]",
+      "dest": "bytes4: bytes4 [1231,1237]"
+    },
+    {
+      "src": "calldata: calldata [754,762]",
+      "dest": "calldata: calldata [754,762]"
+    },
+    {
+      "src": "identifier: data [763,767]",
+      "dest": "identifier: data [763,767]"
+    },
+    {
+      "src": "): ) [1206,1207]",
+      "dest": "): ) [1206,1207]"
+    },
+    {
+      "src": "]: ] [1238,1239]",
+      "dest": "]: ] [1238,1239]"
+    },
+    {
+      "src": "function: function [784,792]",
+      "dest": "function: function [784,792]"
+    },
+    {
+      "src": "view: view [820,824]",
+      "dest": "view: view [820,824]"
+    },
+    {
+      "src": "source_file [0,1251]",
+      "dest": "source_file [0,1251]"
+    },
+    {
+      "src": "[: [ [1237,1238]",
+      "dest": "[: [ [1237,1238]"
+    },
+    {
+      "src": "return_type_definition [1222,1247]",
+      "dest": "return_type_definition [1222,1247]"
+    },
+    {
+      "src": "): ) [809,810]",
+      "dest": "): ) [809,810]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "memory: memory [1240,1246]",
+      "dest": "memory: memory [1240,1246]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "): ) [841,842]",
+      "dest": "): ) [841,842]"
+    },
+    {
+      "src": "function_definition [784,843]",
+      "dest": "function_definition [784,843]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "type_name [1231,1237]",
+      "dest": "type_name [1231,1237]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "user_defined_type [713,721]",
+      "dest": "user_defined_type [713,721]"
+    },
+    {
+      "src": "primitive_type [748,753]",
+      "dest": "primitive_type [748,753]"
+    },
+    {
+      "src": "(: ( [1205,1206]",
+      "dest": "(: ( [1205,1206]"
+    },
+    {
+      "src": "contract_body [722,1250]",
+      "dest": "contract_body [722,1250]"
+    },
+    {
+      "src": "comment: /*       Returns an array with selectors for validation.       These selectors are the critical ones for maintaining self custody and anti censorship.       During the upgrade process, as part of the sub-contract validation, the MainDispatcher       validates that the selectos are mapped to the correct sub-contract.     */ [849,1173]",
+      "dest": "comment: /*       Returns an array with selectors for validation.       These selectors are the critical ones for maintaining self custody and anti censorship.       During the upgrade process, as part of the sub-contract validation, the MainDispatcher       validates that the selectos are mapped to the correct sub-contract.     */ [849,1173]"
+    },
+    {
+      "src": "state_mutability [1217,1221]",
+      "dest": "state_mutability [1217,1221]"
+    },
+    {
+      "src": "identifier: Identity [713,721]",
+      "dest": "identifier: Identity [713,721]"
+    },
+    {
+      "src": "(: ( [808,809]",
+      "dest": "(: ( [808,809]"
+    },
+    {
+      "src": "(: ( [1230,1231]",
+      "dest": "(: ( [1230,1231]"
+    },
+    {
+      "src": "interface: interface [686,695]",
+      "dest": "interface: interface [686,695]"
+    },
+    {
+      "src": "identifier: SubContractor [696,709]",
+      "dest": "identifier: SubContractor [696,709]"
+    },
+    {
+      "src": "returns: returns [825,832]",
+      "dest": "returns: returns [825,832]"
+    },
+    {
+      "src": "parameter [834,841]",
+      "dest": "parameter [834,841]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "type_name [834,841]",
+      "dest": "type_name [834,841]"
+    },
+    {
+      "src": "function: function [728,736]",
+      "dest": "function: function [728,736]"
+    },
+    {
+      "src": "\": \" [682,683]",
+      "dest": "\": \" [682,683]"
+    },
+    {
+      "src": "string [669,683]",
+      "dest": "string [669,683]"
+    },
+    {
+      "src": "state_mutability [820,824]",
+      "dest": "state_mutability [820,824]"
+    },
+    {
+      "src": "): ) [1246,1247]",
+      "dest": "): ) [1246,1247]"
+    },
+    {
+      "src": "visibility [769,777]",
+      "dest": "visibility [769,777]"
+    },
+    {
+      "src": "external: external [769,777]",
+      "dest": "external: external [769,777]"
+    },
+    {
+      "src": "function_definition [1178,1248]",
+      "dest": "function_definition [1178,1248]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "is: is [710,712]",
+      "dest": "is: is [710,712]"
+    },
+    {
+      "src": "visibility [811,819]",
+      "dest": "visibility [811,819]"
+    },
+    {
+      "src": "return_type_definition [825,842]",
+      "dest": "return_type_definition [825,842]"
+    },
+    {
+      "src": "identifier: validatedSelectors [1187,1205]",
+      "dest": "identifier: validatedSelectors [1187,1205]"
+    },
+    {
+      "src": "primitive_type [1231,1237]",
+      "dest": "primitive_type [1231,1237]"
+    },
+    {
+      "src": "): ) [767,768]",
+      "dest": "): ) [767,768]"
+    },
+    {
+      "src": "}: } [1249,1250]",
+      "dest": "}: } [1249,1250]"
+    },
+    {
+      "src": "primitive_type [834,841]",
+      "dest": "primitive_type [834,841]"
+    },
+    {
+      "src": "(: ( [833,834]",
+      "dest": "(: ( [833,834]"
+    },
+    {
+      "src": "\": \" [669,670]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "identifier: initialize [737,747]",
+      "dest": "identifier: initialize [737,747]"
+    },
+    {
+      "src": "inheritance_specifier [713,721]",
+      "dest": "inheritance_specifier [713,721]"
+    },
+    {
+      "src": "external: external [811,819]",
+      "dest": "external: external [811,819]"
+    },
+    {
+      "src": "parameter [748,767]",
+      "dest": "parameter [748,767]"
+    },
+    {
+      "src": "pure: pure [1217,1221]",
+      "dest": "pure: pure [1217,1221]"
+    },
+    {
+      "src": "uint256: uint256 [834,841]",
+      "dest": "uint256: uint256 [834,841]"
+    },
+    {
+      "src": "(: ( [747,748]",
+      "dest": "(: ( [747,748]"
+    },
+    {
+      "src": "function: function [1178,1186]",
+      "dest": "function: function [1178,1186]"
+    },
+    {
+      "src": "interface_declaration [686,1250]",
+      "dest": "interface_declaration [686,1250]"
+    },
+    {
+      "src": "visibility [1208,1216]",
+      "dest": "visibility [1208,1216]"
+    },
+    {
+      "src": "type_name [748,753]",
+      "dest": "type_name [748,753]"
+    },
+    {
+      "src": "returns: returns [1222,1229]",
+      "dest": "returns: returns [1222,1229]"
+    },
+    {
+      "src": "import_directive [662,684]",
+      "dest": "import_directive [662,684]"
+    },
+    {
+      "src": "external: external [1208,1216]",
+      "dest": "external: external [1208,1216]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "bytes: bytes [748,753]",
+      "dest": "bytes: bytes [748,753]"
+    },
+    {
+      "src": "identifier: initializerSize [793,808]",
+      "dest": "identifier: initializerSize [793,808]"
+    },
+    {
+      "src": "{: { [722,723]",
+      "dest": "{: { [722,723]"
+    },
+    {
+      "src": "parameter [1231,1246]",
+      "dest": "parameter [1231,1246]"
+    },
+    {
+      "src": "type_name [1231,1239]",
+      "dest": "type_name [1231,1239]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "function_definition [728,778]",
+      "dest": "function_definition [728,778]"
+    }
+  ],
+  "actions": []
+}

@@ -1,0 +1,398 @@
+{
+  "matches": [
+    {
+      "src": "return_type_definition [1003,1020]",
+      "dest": "return_type_definition [407,424]"
+    },
+    {
+      "src": "virtual: virtual [1156,1163]",
+      "dest": "virtual: virtual [560,567]"
+    },
+    {
+      "src": "bytes: bytes [1207,1212]",
+      "dest": "bytes: bytes [611,616]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [40,46]"
+    },
+    {
+      "src": "identifier: isInitialized [1036,1049]",
+      "dest": "identifier: isInitialized [440,453]"
+    },
+    {
+      "src": "(: ( [1299,1300]",
+      "dest": "(: ( [703,704]"
+    },
+    {
+      "src": "bytes: bytes [1300,1305]",
+      "dest": "bytes: bytes [704,709]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [57,63]"
+    },
+    {
+      "src": "function: function [1027,1035]",
+      "dest": "function: function [431,439]"
+    },
+    {
+      "src": "primitive_type [1207,1212]",
+      "dest": "primitive_type [611,616]"
+    },
+    {
+      "src": "): ) [979,980]",
+      "dest": "): ) [383,384]"
+    },
+    {
+      "src": "function_definition [1095,1164]",
+      "dest": "function_definition [499,568]"
+    },
+    {
+      "src": "): ) [1019,1020]",
+      "dest": "): ) [423,424]"
+    },
+    {
+      "src": "identifier: data [1315,1319]",
+      "dest": "identifier: data [719,723]"
+    },
+    {
+      "src": "pure: pure [1151,1155]",
+      "dest": "pure: pure [555,559]"
+    },
+    {
+      "src": "(: ( [978,979]",
+      "dest": "(: ( [382,383]"
+    },
+    {
+      "src": "bool: bool [1083,1087]",
+      "dest": "bool: bool [487,491]"
+    },
+    {
+      "src": "parameter [1300,1319]",
+      "dest": "parameter [704,723]"
+    },
+    {
+      "src": "identifier: numOfSubContracts [961,978]",
+      "dest": "identifier: numOfSubContracts [365,382]"
+    },
+    {
+      "src": "function: function [952,960]",
+      "dest": "function: function [356,364]"
+    },
+    {
+      "src": "internal: internal [1321,1329]",
+      "dest": "internal: internal [725,733]"
+    },
+    {
+      "src": "function_definition [952,1021]",
+      "dest": "function_definition [356,425]"
+    },
+    {
+      "src": "uint256: uint256 [1012,1019]",
+      "dest": "uint256: uint256 [416,423]"
+    },
+    {
+      "src": "internal: internal [1142,1150]",
+      "dest": "internal: internal [546,554]"
+    },
+    {
+      "src": "pure: pure [990,994]",
+      "dest": "pure: pure [394,398]"
+    },
+    {
+      "src": "contract_body [946,1340]",
+      "dest": "contract_body [350,744]"
+    },
+    {
+      "src": "(: ( [1082,1083]",
+      "dest": "(: ( [486,487]"
+    },
+    {
+      "src": "type_name [1121,1126]",
+      "dest": "type_name [525,530]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [47,63]"
+    },
+    {
+      "src": "type_name [1207,1212]",
+      "dest": "type_name [611,616]"
+    },
+    {
+      "src": "comment: /**   Interface for contract initialization.   The functions it exposes are the app specific parts of the contract initialization,   and are called by the ProxySupport contract that implement the generic part of behind-proxy   initialization. */ [662,907]",
+      "dest": "comment: /**   Interface for contract initialization.   The functions it exposes are the app specific parts of the contract initialization,   and are called by the ProxySupport contract that implement the generic part of behind-proxy   initialization. */ [66,311]"
+    },
+    {
+      "src": "identifier: data [1136,1140]",
+      "dest": "identifier: data [540,544]"
+    },
+    {
+      "src": "identifier: validateInitData [1104,1120]",
+      "dest": "identifier: validateInitData [508,524]"
+    },
+    {
+      "src": "function_definition [1267,1338]",
+      "dest": "function_definition [671,742]"
+    },
+    {
+      "src": "calldata: calldata [1306,1314]",
+      "dest": "calldata: calldata [710,718]"
+    },
+    {
+      "src": "(: ( [1049,1050]",
+      "dest": "(: ( [453,454]"
+    },
+    {
+      "src": "identifier: processSubContractAddresses [1179,1206]",
+      "dest": "identifier: processSubContractAddresses [583,610]"
+    },
+    {
+      "src": "): ) [1050,1051]",
+      "dest": "): ) [454,455]"
+    },
+    {
+      "src": "): ) [1140,1141]",
+      "dest": "): ) [544,545]"
+    },
+    {
+      "src": "visibility [1244,1252]",
+      "dest": "visibility [648,656]"
+    },
+    {
+      "src": "primitive_type [1300,1305]",
+      "dest": "primitive_type [704,709]"
+    },
+    {
+      "src": "abstract: abstract [908,916]",
+      "dest": "abstract: abstract [312,320]"
+    },
+    {
+      "src": "internal: internal [981,989]",
+      "dest": "internal: internal [385,393]"
+    },
+    {
+      "src": "virtual: virtual [1066,1073]",
+      "dest": "virtual: virtual [470,477]"
+    },
+    {
+      "src": "function_definition [1170,1261]",
+      "dest": "function_definition [574,665]"
+    },
+    {
+      "src": "internal: internal [1244,1252]",
+      "dest": "internal: internal [648,656]"
+    },
+    {
+      "src": "returns: returns [1074,1081]",
+      "dest": "returns: returns [478,485]"
+    },
+    {
+      "src": "state_mutability [990,994]",
+      "dest": "state_mutability [394,398]"
+    },
+    {
+      "src": "): ) [1242,1243]",
+      "dest": "): ) [646,647]"
+    },
+    {
+      "src": "internal: internal [1052,1060]",
+      "dest": "internal: internal [456,464]"
+    },
+    {
+      "src": "primitive_type [1121,1126]",
+      "dest": "primitive_type [525,530]"
+    },
+    {
+      "src": "contract_declaration [908,1340]",
+      "dest": "contract_declaration [312,744]"
+    },
+    {
+      "src": "source_file [0,1341]",
+      "dest": "source_file [0,745]"
+    },
+    {
+      "src": "{: { [946,947]",
+      "dest": "{: { [350,351]"
+    },
+    {
+      "src": "visibility [1142,1150]",
+      "dest": "visibility [546,554]"
+    },
+    {
+      "src": "): ) [1087,1088]",
+      "dest": "): ) [491,492]"
+    },
+    {
+      "src": "virtual: virtual [995,1002]",
+      "dest": "virtual: virtual [399,406]"
+    },
+    {
+      "src": "view: view [1061,1065]",
+      "dest": "view: view [465,469]"
+    },
+    {
+      "src": "visibility [1052,1060]",
+      "dest": "visibility [456,464]"
+    },
+    {
+      "src": "state_mutability [1151,1155]",
+      "dest": "state_mutability [555,559]"
+    },
+    {
+      "src": "function_definition [1027,1089]",
+      "dest": "function_definition [431,493]"
+    },
+    {
+      "src": "identifier: initializeContractState [1276,1299]",
+      "dest": "identifier: initializeContractState [680,703]"
+    },
+    {
+      "src": "parameter [1083,1087]",
+      "dest": "parameter [487,491]"
+    },
+    {
+      "src": "function: function [1095,1103]",
+      "dest": "function: function [499,507]"
+    },
+    {
+      "src": "): ) [1319,1320]",
+      "dest": "): ) [723,724]"
+    },
+    {
+      "src": "primitive_type [1012,1019]",
+      "dest": "primitive_type [416,423]"
+    },
+    {
+      "src": "type_name [1300,1305]",
+      "dest": "type_name [704,709]"
+    },
+    {
+      "src": "visibility [1321,1329]",
+      "dest": "visibility [725,733]"
+    },
+    {
+      "src": "(: ( [1011,1012]",
+      "dest": "(: ( [415,416]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [55,57]"
+    },
+    {
+      "src": "parameter [1121,1140]",
+      "dest": "parameter [525,544]"
+    },
+    {
+      "src": "return_type_definition [1074,1088]",
+      "dest": "return_type_definition [478,492]"
+    },
+    {
+      "src": "parameter [1012,1019]",
+      "dest": "parameter [416,423]"
+    },
+    {
+      "src": "virtual: virtual [1330,1337]",
+      "dest": "virtual: virtual [734,741]"
+    },
+    {
+      "src": "function: function [1170,1178]",
+      "dest": "function: function [574,582]"
+    },
+    {
+      "src": "}: } [1339,1340]",
+      "dest": "}: } [743,744]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [47,55]"
+    },
+    {
+      "src": "(: ( [1120,1121]",
+      "dest": "(: ( [524,525]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [55,57]"
+    },
+    {
+      "src": "calldata: calldata [1127,1135]",
+      "dest": "calldata: calldata [531,539]"
+    },
+    {
+      "src": "type_name [1083,1087]",
+      "dest": "type_name [487,491]"
+    },
+    {
+      "src": "virtual: virtual [1253,1260]",
+      "dest": "virtual: virtual [657,664]"
+    },
+    {
+      "src": "parameter [1207,1242]",
+      "dest": "parameter [611,646]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [40,64]"
+    },
+    {
+      "src": "returns: returns [1003,1010]",
+      "dest": "returns: returns [407,414]"
+    },
+    {
+      "src": "contract: contract [917,925]",
+      "dest": "contract: contract [321,329]"
+    },
+    {
+      "src": "type_name [1012,1019]",
+      "dest": "type_name [416,423]"
+    },
+    {
+      "src": "visibility [981,989]",
+      "dest": "visibility [385,393]"
+    },
+    {
+      "src": "identifier: subContractAddresses [1222,1242]",
+      "dest": "identifier: subContractAddresses [626,646]"
+    },
+    {
+      "src": "state_mutability [1061,1065]",
+      "dest": "state_mutability [465,469]"
+    },
+    {
+      "src": "bytes: bytes [1121,1126]",
+      "dest": "bytes: bytes [525,530]"
+    },
+    {
+      "src": "function: function [1267,1275]",
+      "dest": "function: function [671,679]"
+    },
+    {
+      "src": "calldata: calldata [1213,1221]",
+      "dest": "calldata: calldata [617,625]"
+    },
+    {
+      "src": "(: ( [1206,1207]",
+      "dest": "(: ( [610,611]"
+    },
+    {
+      "src": "identifier: ContractInitializer [926,945]",
+      "dest": "identifier: ContractInitializer [330,349]"
+    },
+    {
+      "src": "primitive_type [1083,1087]",
+      "dest": "primitive_type [487,491]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "delete-node",
+      "tree": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    }
+  ]
+}

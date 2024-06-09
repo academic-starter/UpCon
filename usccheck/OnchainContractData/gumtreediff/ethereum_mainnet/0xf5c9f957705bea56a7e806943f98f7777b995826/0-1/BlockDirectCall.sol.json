@@ -1,0 +1,593 @@
+{
+  "matches": [
+    {
+      "src": "contract_declaration [1066,1838]",
+      "dest": "contract_declaration [1066,1850]"
+    },
+    {
+      "src": "sload: sload [1716,1721]",
+      "dest": "sload: sload [1728,1733]"
+    },
+    {
+      "src": "variable_declaration_statement [1307,1378]",
+      "dest": "variable_declaration_statement [1307,1378]"
+    },
+    {
+      "src": "}: } [1818,1819]",
+      "dest": "}: } [1830,1831]"
+    },
+    {
+      "src": "variable_declaration [1307,1319]",
+      "dest": "variable_declaration [1307,1319]"
+    },
+    {
+      "src": "call_expression [1366,1375]",
+      "dest": "call_expression [1366,1375]"
+    },
+    {
+      "src": "=: = [1320,1321]",
+      "dest": "=: = [1320,1321]"
+    },
+    {
+      "src": "identifier: abi [1332,1335]",
+      "dest": "identifier: abi [1332,1335]"
+    },
+    {
+      "src": "{: { [1434,1435]",
+      "dest": "{: { [1434,1435]"
+    },
+    {
+      "src": "): ) [1376,1377]",
+      "dest": "): ) [1376,1377]"
+    },
+    {
+      "src": "(: ( [1331,1332]",
+      "dest": "(: ( [1331,1332]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "yul_evm_builtin [1448,1454]",
+      "dest": "yul_evm_builtin [1448,1454]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "(: ( [1761,1762]",
+      "dest": "(: ( [1773,1774]"
+    },
+    {
+      "src": "yul_identifier [1455,1459]",
+      "dest": "yul_identifier [1455,1459]"
+    },
+    {
+      "src": "identifier: slot [1411,1415]",
+      "dest": "identifier: slot [1411,1415]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "bytes32: bytes32 [1106,1113]",
+      "dest": "bytes32: bytes32 [1106,1113]"
+    },
+    {
+      "src": "bytes32: bytes32 [1621,1628]",
+      "dest": "bytes32: bytes32 [1633,1640]"
+    },
+    {
+      "src": "identifier: block [1349,1354]",
+      "dest": "identifier: block [1349,1354]"
+    },
+    {
+      "src": "primitive_type [1585,1592]",
+      "dest": "primitive_type [1597,1604]"
+    },
+    {
+      "src": "immutable: immutable [1114,1123]",
+      "dest": "immutable: immutable [1114,1123]"
+    },
+    {
+      "src": "assignment_expression [1387,1415]",
+      "dest": "assignment_expression [1387,1415]"
+    },
+    {
+      "src": "state_variable_declaration [1106,1146]",
+      "dest": "state_variable_declaration [1106,1146]"
+    },
+    {
+      "src": "identifier: encode [1336,1342]",
+      "dest": "identifier: encode [1336,1342]"
+    },
+    {
+      "src": "call_argument [1343,1347]",
+      "dest": "call_argument [1343,1347]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "identifier: this [1343,1347]",
+      "dest": "identifier: this [1343,1347]"
+    },
+    {
+      "src": "{: { [1515,1516]",
+      "dest": "{: { [1515,1516]"
+    },
+    {
+      "src": "comment: // Prevent too many local variables in stack. [1527,1572]",
+      "dest": "comment: // Prevent too many local variables in stack. [1539,1584]"
+    },
+    {
+      "src": "): ) [1463,1464]",
+      "dest": "): ) [1463,1464]"
+    },
+    {
+      "src": "identifier: BlockDirectCall [1084,1099]",
+      "dest": "identifier: BlockDirectCall [1084,1099]"
+    },
+    {
+      "src": "abstract: abstract [1066,1074]",
+      "dest": "abstract: abstract [1066,1074]"
+    },
+    {
+      "src": "member_expression [1332,1342]",
+      "dest": "member_expression [1332,1342]"
+    },
+    {
+      "src": "modifier_definition [1486,1836]",
+      "dest": "modifier_definition [1486,1848]"
+    },
+    {
+      "src": "function_body [1515,1836]",
+      "dest": "function_body [1515,1848]"
+    },
+    {
+      "src": "identifier: notCalledDirectly [1495,1512]",
+      "dest": "identifier: notCalledDirectly [1495,1512]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "type_name [1106,1113]",
+      "dest": "type_name [1106,1113]"
+    },
+    {
+      "src": "}: } [1740,1741]",
+      "dest": "}: } [1752,1753]"
+    },
+    {
+      "src": ".: . [1335,1336]",
+      "dest": ".: . [1335,1336]"
+    },
+    {
+      "src": "yul_path [1698,1712]",
+      "dest": "yul_path [1710,1724]"
+    },
+    {
+      "src": "assembly_statement [1425,1474]",
+      "dest": "assembly_statement [1425,1474]"
+    },
+    {
+      "src": "string_literal [1783,1807]",
+      "dest": "string_literal [1795,1819]"
+    },
+    {
+      "src": "(: ( [1454,1455]",
+      "dest": "(: ( [1454,1455]"
+    },
+    {
+      "src": ",: , [1347,1348]",
+      "dest": ",: , [1347,1348]"
+    },
+    {
+      "src": "(: ( [1342,1343]",
+      "dest": "(: ( [1342,1343]"
+    },
+    {
+      "src": "variable_declaration [1585,1607]",
+      "dest": "variable_declaration [1597,1619]"
+    },
+    {
+      "src": "call_expression [1332,1376]",
+      "dest": "call_expression [1332,1376]"
+    },
+    {
+      "src": "yul_path [1722,1726]",
+      "dest": "yul_path [1734,1738]"
+    },
+    {
+      "src": "block_statement [1525,1819]",
+      "dest": "block_statement [1525,1831]"
+    },
+    {
+      "src": "): ) [1193,1194]",
+      "dest": "): ) [1193,1194]"
+    },
+    {
+      "src": "assembly: assembly [1671,1679]",
+      "dest": "assembly: assembly [1683,1691]"
+    },
+    {
+      "src": ",: , [1781,1782]",
+      "dest": ",: , [1793,1794]"
+    },
+    {
+      "src": "contract_body [1100,1838]",
+      "dest": "contract_body [1100,1850]"
+    },
+    {
+      "src": "identifier: gasleft [1366,1373]",
+      "dest": "identifier: gasleft [1366,1373]"
+    },
+    {
+      "src": "expression_statement [1387,1416]",
+      "dest": "expression_statement [1387,1416]"
+    },
+    {
+      "src": "comment: /*   This contract provides means to block direct call of an external function.   A derived contract (e.g. MainDispatcherBase) should decorate sensitive functions with the   notCalledDirectly modifier, thereby preventing it from being called directly, and allowing only calling   using delegate_call.    This Guard contract uses pseudo-random slot, So each deployed contract would have its own guard. */ [662,1065]",
+      "dest": "comment: /*   This contract provides means to block direct call of an external function.   A derived contract (e.g. MainDispatcherBase) should decorate sensitive functions with the   notCalledDirectly modifier, thereby preventing it from being called directly, and allowing only calling   using delegate_call.    This Guard contract uses pseudo-random slot, So each deployed contract would have its own guard. */ [662,1065]"
+    },
+    {
+      "src": "call_argument [1783,1807]",
+      "dest": "call_argument [1795,1819]"
+    },
+    {
+      "src": "comment: // The slot is pseudo-random to allow hierarchy of contracts with guarded functions. [1214,1298]",
+      "dest": "comment: // The slot is pseudo-random to allow hierarchy of contracts with guarded functions. [1214,1298]"
+    },
+    {
+      "src": "call_expression [1322,1377]",
+      "dest": "call_expression [1322,1377]"
+    },
+    {
+      "src": "comment: // NOLINT naming-convention. [1147,1175]",
+      "dest": "comment: // NOLINT naming-convention. [1147,1175]"
+    },
+    {
+      "src": "(: ( [1512,1513]",
+      "dest": "(: ( [1512,1513]"
+    },
+    {
+      "src": "identifier: UNIQUE_SAFEGUARD_SLOT [1387,1408]",
+      "dest": "identifier: UNIQUE_SAFEGUARD_SLOT [1387,1408]"
+    },
+    {
+      "src": "=: = [1409,1410]",
+      "dest": "=: = [1409,1410]"
+    },
+    {
+      "src": "assembly: assembly [1425,1433]",
+      "dest": "assembly: assembly [1425,1433]"
+    },
+    {
+      "src": "call_expression [1754,1808]",
+      "dest": "call_expression [1766,1820]"
+    },
+    {
+      "src": "identifier: require [1754,1761]",
+      "dest": "identifier: require [1766,1773]"
+    },
+    {
+      "src": "yul_function_call [1448,1464]",
+      "dest": "yul_function_call [1448,1464]"
+    },
+    {
+      "src": "source_file [0,1839]",
+      "dest": "source_file [0,1851]"
+    },
+    {
+      "src": "assembly_statement [1671,1741]",
+      "dest": "assembly_statement [1683,1753]"
+    },
+    {
+      "src": "expression_statement [1828,1830]",
+      "dest": "expression_statement [1840,1842]"
+    },
+    {
+      "src": "=: = [1634,1635]",
+      "dest": "=: = [1646,1647]"
+    },
+    {
+      "src": "==: == [1777,1779]",
+      "dest": "==: == [1789,1791]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "}: } [1473,1474]",
+      "dest": "}: } [1473,1474]"
+    },
+    {
+      "src": "member_expression [1349,1364]",
+      "dest": "member_expression [1349,1364]"
+    },
+    {
+      "src": "variable_declaration_statement [1621,1658]",
+      "dest": "variable_declaration_statement [1633,1670]"
+    },
+    {
+      "src": "yul_path [1455,1459]",
+      "dest": "yul_path [1455,1459]"
+    },
+    {
+      "src": "identifier: slot [1315,1319]",
+      "dest": "identifier: slot [1315,1319]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "identifier: slot [1629,1633]",
+      "dest": "identifier: slot [1641,1645]"
+    },
+    {
+      "src": "identifier: slot [1722,1726]",
+      "dest": "identifier: slot [1734,1738]"
+    },
+    {
+      "src": "binary_expression [1762,1781]",
+      "dest": "binary_expression [1774,1793]"
+    },
+    {
+      "src": "{: { [1204,1205]",
+      "dest": "{: { [1204,1205]"
+    },
+    {
+      "src": "identifier: _ [1828,1829]",
+      "dest": "identifier: _ [1840,1841]"
+    },
+    {
+      "src": "primitive_type [1621,1628]",
+      "dest": "primitive_type [1633,1640]"
+    },
+    {
+      "src": "expression_statement [1754,1809]",
+      "dest": "expression_statement [1766,1821]"
+    },
+    {
+      "src": "call_argument [1366,1375]",
+      "dest": "call_argument [1366,1375]"
+    },
+    {
+      "src": "modifier: modifier [1486,1494]",
+      "dest": "modifier: modifier [1486,1494]"
+    },
+    {
+      "src": "\": \" [1806,1807]",
+      "dest": "\": \" [1818,1819]"
+    },
+    {
+      "src": "identifier: UNIQUE_SAFEGUARD_SLOT [1124,1145]",
+      "dest": "identifier: UNIQUE_SAFEGUARD_SLOT [1124,1145]"
+    },
+    {
+      "src": "): ) [1807,1808]",
+      "dest": "): ) [1819,1820]"
+    },
+    {
+      "src": "{: { [1525,1526]",
+      "dest": "{: { [1525,1526]"
+    },
+    {
+      "src": "}: } [1837,1838]",
+      "dest": "}: } [1849,1850]"
+    },
+    {
+      "src": "): ) [1374,1375]",
+      "dest": "): ) [1374,1375]"
+    },
+    {
+      "src": "identifier: keccak256 [1322,1331]",
+      "dest": "identifier: keccak256 [1322,1331]"
+    },
+    {
+      "src": "}: } [1479,1480]",
+      "dest": "}: } [1479,1480]"
+    },
+    {
+      "src": ":=: := [1713,1715]",
+      "dest": ":=: := [1725,1727]"
+    },
+    {
+      "src": "type_name [1585,1592]",
+      "dest": "type_name [1597,1604]"
+    },
+    {
+      "src": "{: { [1100,1101]",
+      "dest": "{: { [1100,1101]"
+    },
+    {
+      "src": "call_argument [1762,1781]",
+      "dest": "call_argument [1774,1793]"
+    },
+    {
+      "src": "variable_declaration_statement [1585,1608]",
+      "dest": "variable_declaration_statement [1597,1620]"
+    },
+    {
+      "src": "constructor: constructor [1180,1191]",
+      "dest": "constructor: constructor [1181,1192]"
+    },
+    {
+      "src": "type_name [1621,1628]",
+      "dest": "type_name [1633,1640]"
+    },
+    {
+      "src": "sstore: sstore [1448,1454]",
+      "dest": "sstore: sstore [1448,1454]"
+    },
+    {
+      "src": "primitive_type [1307,1314]",
+      "dest": "primitive_type [1307,1314]"
+    },
+    {
+      "src": "yul_function_call [1716,1727]",
+      "dest": "yul_function_call [1728,1739]"
+    },
+    {
+      "src": "bytes32: bytes32 [1307,1314]",
+      "dest": "bytes32: bytes32 [1307,1314]"
+    },
+    {
+      "src": "yul_identifier [1698,1712]",
+      "dest": "yul_identifier [1710,1724]"
+    },
+    {
+      "src": ".: . [1354,1355]",
+      "dest": ".: . [1354,1355]"
+    },
+    {
+      "src": "string [1783,1807]",
+      "dest": "string [1795,1819]"
+    },
+    {
+      "src": "call_argument [1332,1376]",
+      "dest": "call_argument [1332,1376]"
+    },
+    {
+      "src": ",: , [1364,1365]",
+      "dest": ",: , [1364,1365]"
+    },
+    {
+      "src": "{: { [1680,1681]",
+      "dest": "{: { [1692,1693]"
+    },
+    {
+      "src": "type_name [1307,1314]",
+      "dest": "type_name [1307,1314]"
+    },
+    {
+      "src": "(: ( [1721,1722]",
+      "dest": "(: ( [1733,1734]"
+    },
+    {
+      "src": "identifier: safeGuardValue [1762,1776]",
+      "dest": "identifier: safeGuardValue [1774,1788]"
+    },
+    {
+      "src": "variable_declaration [1621,1633]",
+      "dest": "variable_declaration [1633,1645]"
+    },
+    {
+      "src": "contract: contract [1075,1083]",
+      "dest": "contract: contract [1075,1083]"
+    },
+    {
+      "src": "(: ( [1191,1192]",
+      "dest": "(: ( [1192,1193]"
+    },
+    {
+      "src": ",: , [1459,1460]",
+      "dest": ",: , [1459,1460]"
+    },
+    {
+      "src": "): ) [1726,1727]",
+      "dest": "): ) [1738,1739]"
+    },
+    {
+      "src": "primitive_type [1106,1113]",
+      "dest": "primitive_type [1106,1113]"
+    },
+    {
+      "src": "yul_identifier [1722,1726]",
+      "dest": "yul_identifier [1734,1738]"
+    },
+    {
+      "src": "internal: internal [1195,1203]",
+      "dest": "internal: internal [1195,1203]"
+    },
+    {
+      "src": "): ) [1375,1376]",
+      "dest": "): ) [1375,1376]"
+    },
+    {
+      "src": "identifier: safeGuardValue [1593,1607]",
+      "dest": "identifier: safeGuardValue [1605,1619]"
+    },
+    {
+      "src": "call_argument [1349,1364]",
+      "dest": "call_argument [1349,1364]"
+    },
+    {
+      "src": "identifier: timestamp [1355,1364]",
+      "dest": "identifier: timestamp [1355,1364]"
+    },
+    {
+      "src": "): ) [1513,1514]",
+      "dest": "): ) [1513,1514]"
+    },
+    {
+      "src": "yul_evm_builtin [1716,1721]",
+      "dest": "yul_evm_builtin [1728,1733]"
+    },
+    {
+      "src": "\": \" [1783,1784]",
+      "dest": "\": \" [1795,1796]"
+    },
+    {
+      "src": "identifier: slot [1455,1459]",
+      "dest": "identifier: slot [1455,1459]"
+    },
+    {
+      "src": "function_body [1204,1480]",
+      "dest": "function_body [1204,1480]"
+    },
+    {
+      "src": "uint256: uint256 [1585,1592]",
+      "dest": "uint256: uint256 [1597,1604]"
+    },
+    {
+      "src": "(: ( [1373,1374]",
+      "dest": "(: ( [1373,1374]"
+    },
+    {
+      "src": "yul_decimal_number: 42 [1461,1463]",
+      "dest": "yul_decimal_number: 42 [1461,1463]"
+    },
+    {
+      "src": "identifier: UNIQUE_SAFEGUARD_SLOT [1636,1657]",
+      "dest": "identifier: UNIQUE_SAFEGUARD_SLOT [1648,1669]"
+    },
+    {
+      "src": "solidity_version: 0.6.11 [653,659]",
+      "dest": "solidity_version: 0.6.11 [653,659]"
+    },
+    {
+      "src": "identifier: safeGuardValue [1698,1712]",
+      "dest": "identifier: safeGuardValue [1710,1724]"
+    },
+    {
+      "src": "number_literal: 0 [1780,1781]",
+      "dest": "number_literal: 0 [1792,1793]"
+    },
+    {
+      "src": "}: } [1835,1836]",
+      "dest": "}: } [1847,1848]"
+    },
+    {
+      "src": "yul_assignment [1698,1727]",
+      "dest": "yul_assignment [1710,1739]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "constructor_definition [1180,1480]",
+      "dest": "constructor_definition [1181,1480]"
+    }
+  ],
+  "actions": []
+}

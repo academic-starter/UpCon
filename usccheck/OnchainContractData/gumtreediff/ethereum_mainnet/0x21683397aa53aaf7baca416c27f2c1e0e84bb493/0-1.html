@@ -1,0 +1,3061 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>0xe5b58d53caabc455a4ea1ad6a9ea48bca0e42c7a.etherscan.io-WhitelistedToken.sol</h5><pre class="pre-scrollable">pragma solidity ^0.4.24;
+
+/**
+ * @title SafeMath
+ * @dev Math operations with safety checks that throw on error
+ */
+library SafeMath {
+
+  /**
+  * @dev Multiplies two numbers, throws on overflow.
+  */
+  function mul(uint256 a, uint256 b) internal pure returns (uint256 c) {
+    // Gas optimization: this is cheaper than asserting 'a' not being zero, but the
+    // benefit is lost if 'b' is also tested.
+    // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+    if (a == 0) {
+      return 0;
+    }
+
+    c = a * b;
+    assert(c / a == b);
+    return c;
+  }
+
+  /**
+  * @dev Integer division of two numbers, truncating the quotient.
+  */
+  function div(uint256 a, uint256 b) internal pure returns (uint256) {
+    // assert(b &gt; 0); // Solidity automatically throws when dividing by 0
+    // uint256 c = a / b;
+    // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+    return a / b;
+  }
+
+  /**
+  * @dev Subtracts two numbers, throws on overflow (i.e. if subtrahend is greater than minuend).
+  */
+  function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+    assert(b &lt;= a);
+    return a - b;
+  }
+
+  /**
+  * @dev Adds two numbers, throws on overflow.
+  */
+  function add(uint256 a, uint256 b) internal pure returns (uint256 c) {
+    c = a + b;
+    assert(c &gt;= a);
+    return c;
+  }
+}
+
+/**
+ * @title Ownable
+ * @dev The Ownable contract has an owner address, and provides basic authorization control
+ * functions, this simplifies the implementation of "user permissions". This adds two-phase
+ * ownership control to OpenZeppelin's Ownable class. In this model, the original owner 
+ * designates a new owner but does not actually transfer ownership. The new owner then accepts 
+ * ownership and completes the transfer.
+ */
+contract Ownable {
+  address public owner;
+  address public pendingOwner;
+
+
+  event OwnershipTransferred(
+    address indexed previousOwner,
+    address indexed newOwner
+  );
+
+
+  /**
+   * @dev The Ownable constructor sets the original `owner` of the contract to the sender
+   * account.
+   */
+  constructor() public {
+    owner = msg.sender;
+    pendingOwner = address(0);
+  }
+
+  /**
+   * @dev Throws if called by any account other than the owner.
+   */
+  modifier onlyOwner() {
+    require(msg.sender == owner);
+    _;
+  }
+
+  /**
+   * @dev Throws if called by any account other than the owner.
+   */
+  modifier onlyPendingOwner() {
+    require(msg.sender == pendingOwner);
+    _;
+  }
+
+  /**
+   * @dev Allows the current owner to transfer control of the contract to a newOwner.
+   * @param _newOwner The address to transfer ownership to.
+   */
+  function transferOwnership(address _newOwner) public onlyOwner {
+    require(_newOwner != address(0));
+    pendingOwner = _newOwner;
+  }
+
+  /**
+   * @dev Allows the pendingOwner address to finalize the transfer.
+   */
+  function claimOwnership() onlyPendingOwner public {
+    emit OwnershipTransferred(owner, pendingOwner);
+    owner = pendingOwner;
+    pendingOwner = address(0);
+  }
+
+
+}
+
+/**
+ * Utility library of inline functions on addresses
+ */
+library AddressUtils {
+
+  /**
+   * Returns whether the target address is a contract
+   * @dev This function will return false if invoked during the constructor of a contract,
+   * as the code is not actually created until after the constructor finishes.
+   * @param addr address to check
+   * @return whether the target address is a contract
+   */
+  function isContract(address addr) internal view returns (bool) {
+    uint256 size;
+    // XXX Currently there is no better way to check if there is a contract in an address
+    // than to check the size of the code at that address.
+    // See https://ethereum.stackexchange.com/a/14016/36603
+    // for more details about how this works.
+    // TODO Check this again before the Serenity release, because all addresses will be
+    // contracts then.
+    // solium-disable-next-line security/no-inline-assembly
+    assembly { size := extcodesize(addr) }
+    return size &gt; 0;
+  }
+
+}
+
+/**
+* @title PermissionedTokenStorage
+* @notice a PermissionedTokenStorage is constructed by setting Regulator, BalanceSheet, and AllowanceSheet locations.
+* Once the storages are set, they cannot be changed.
+*/
+contract PermissionedTokenStorage is Ownable {
+    using SafeMath for uint256;
+
+    /**
+        Storage
+    */
+    mapping (address =&gt; mapping (address =&gt; uint256)) public allowances;
+    mapping (address =&gt; uint256) public balances;
+    uint256 public totalSupply;
+
+    function addAllowance(address _tokenHolder, address _spender, uint256 _value) public onlyOwner {
+        allowances[_tokenHolder][_spender] = allowances[_tokenHolder][_spender].add(_value);
+    }
+
+    function subAllowance(address _tokenHolder, address _spender, uint256 _value) public onlyOwner {
+        allowances[_tokenHolder][_spender] = allowances[_tokenHolder][_spender].sub(_value);
+    }
+
+    function setAllowance(address _tokenHolder, address _spender, uint256 _value) public onlyOwner {
+        allowances[_tokenHolder][_spender] = _value;
+    }
+
+    function addBalance(address _addr, uint256 _value) public onlyOwner {
+        balances[_addr] = balances[_addr].add(_value);
+    }
+
+    function subBalance(address _addr, uint256 _value) public onlyOwner {
+        balances[_addr] = balances[_addr].sub(_value);
+    }
+
+    function setBalance(address _addr, uint256 _value) public onlyOwner {
+        balances[_addr] = _value;
+    }
+
+    function addTotalSupply(uint256 _value) public onlyOwner {
+        totalSupply = totalSupply.add(_value);
+    }
+
+    function subTotalSupply(uint256 _value) public onlyOwner {
+        totalSupply = totalSupply.sub(_value);
+    }
+
+    function setTotalSupply(uint256 _value) public onlyOwner {
+        totalSupply = _value;
+    }
+
+}
+
+/**
+ * @title ERC20Basic
+ * @dev Simpler version of ERC20 interface
+ * See https://github.com/ethereum/EIPs/issues/179
+ */
+contract ERC20Basic {
+  function totalSupply() public view returns (uint256);
+  function balanceOf(address who) public view returns (uint256);
+  function transfer(address to, uint256 value) public returns (bool);
+  event Transfer(address indexed from, address indexed to, uint256 value);
+}
+
+/**
+ * @title ERC20 interface
+ * @dev see https://github.com/ethereum/EIPs/issues/20
+ */
+contract ERC20 is ERC20Basic {
+  function allowance(address owner, address spender)
+    public view returns (uint256);
+
+  function transferFrom(address from, address to, uint256 value)
+    public returns (bool);
+
+  function approve(address spender, uint256 value) public returns (bool);
+  event Approval(
+    address indexed owner,
+    address indexed spender,
+    uint256 value
+  );
+}
+
+/**
+* @title Lockable
+* @dev Base contract which allows children to lock certain methods from being called by clients.
+* Locked methods are deemed unsafe by default, but must be implemented in children functionality to adhere by
+* some inherited standard, for example. 
+*/
+
+contract Lockable is Ownable {
+
+	// Events
+	event Unlocked();
+	event Locked();
+
+	// Fields
+	bool public isMethodEnabled = false;
+
+	// Modifiers
+	/**
+	* @dev Modifier that disables functions by default unless they are explicitly enabled
+	*/
+	modifier whenUnlocked() {
+		require(isMethodEnabled);
+		_;
+	}
+
+	// Methods
+	/**
+	* @dev called by the owner to enable method
+	*/
+	function unlock() onlyOwner public {
+		isMethodEnabled = true;
+		emit Unlocked();
+	}
+
+	/**
+	* @dev called by the owner to disable method, back to normal state
+	*/
+	function lock() onlyOwner public {
+		isMethodEnabled = false;
+		emit Locked();
+	}
+
+}
+
+/**
+ * @title Pausable
+ * @dev Base contract which allows children to implement an emergency stop mechanism. Identical to OpenZeppelin version
+ * except that it uses local Ownable contract
+ */
+contract Pausable is Ownable {
+  event Pause();
+  event Unpause();
+
+  bool public paused = false;
+
+
+  /**
+   * @dev Modifier to make a function callable only when the contract is not paused.
+   */
+  modifier whenNotPaused() {
+    require(!paused);
+    _;
+  }
+
+  /**
+   * @dev Modifier to make a function callable only when the contract is paused.
+   */
+  modifier whenPaused() {
+    require(paused);
+    _;
+  }
+
+  /**
+   * @dev called by the owner to pause, triggers stopped state
+   */
+  function pause() onlyOwner whenNotPaused public {
+    paused = true;
+    emit Pause();
+  }
+
+  /**
+   * @dev called by the owner to unpause, returns to normal state
+   */
+  function unpause() onlyOwner whenPaused public {
+    paused = false;
+    emit Unpause();
+  }
+}
+
+/**
+*
+* @dev Stores permissions and validators and provides setter and getter methods. 
+* Permissions determine which methods users have access to call. Validators
+* are able to mutate permissions at the Regulator level.
+*
+*/
+contract RegulatorStorage is Ownable {
+    
+    /** 
+        Structs 
+    */
+
+    /* Contains metadata about a permission to execute a particular method signature. */
+    struct Permission {
+        string name; // A one-word description for the permission. e.g. "canMint"
+        string description; // A longer description for the permission. e.g. "Allows user to mint tokens."
+        string contract_name; // e.g. "PermissionedToken"
+        bool active; // Permissions can be turned on or off by regulator
+    }
+
+    /** 
+        Constants: stores method signatures. These are potential permissions that a user can have, 
+        and each permission gives the user the ability to call the associated PermissionedToken method signature
+    */
+    bytes4 public constant MINT_SIG = bytes4(keccak256("mint(address,uint256)"));
+    bytes4 public constant MINT_CUSD_SIG = bytes4(keccak256("mintCUSD(address,uint256)"));
+    <span class="marker" id="mapping-1"></span><span class="token del" data-title="contract_body/state_variable_declaration">bytes4 public constant CONVERT_WT_SIG = bytes4(keccak256("convertWT(uint256)"));</span>
+    <span class="marker" id="mapping-2"></span><span class="token del" data-title="contract_body/state_variable_declaration">bytes4 public constant BURN_SIG = bytes4(keccak256("burn(uint256)"));</span>
+    <span class="marker" id="mapping-3"></span><span class="token del" data-title="contract_body/state_variable_declaration">bytes4 public constant CONVERT_CARBON_DOLLAR_SIG = bytes4(keccak256("convertCarbonDollar(address,uint256)"));</span>
+    <span class="marker" id="mapping-4"></span><span class="token del" data-title="contract_body/state_variable_declaration">bytes4 public constant BURN_CARBON_DOLLAR_SIG = bytes4(keccak256("burnCarbonDollar(address,uint256)"));</span>
+    bytes4 public constant DESTROY_BLACKLISTED_TOKENS_SIG = bytes4(keccak256("destroyBlacklistedTokens(address,uint256)"));
+    bytes4 public constant APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG = bytes4(keccak256("approveBlacklistedAddressSpender(address)"));
+    bytes4 public constant BLACKLISTED_SIG = bytes4(keccak256("blacklisted()"));
+
+    /** 
+        Mappings 
+    */
+
+    /* each method signature maps to a Permission */
+    mapping (bytes4 =&gt; Permission) public permissions;
+    /* list of validators, either active or inactive */
+    mapping (address =&gt; bool) public validators;
+    /* each user can be given access to a given method signature */
+    mapping (address =&gt; mapping (bytes4 =&gt; bool)) public userPermissions;
+
+    /** 
+        Events 
+    */
+    event PermissionAdded(bytes4 methodsignature);
+    event PermissionRemoved(bytes4 methodsignature);
+    event ValidatorAdded(address indexed validator);
+    event ValidatorRemoved(address indexed validator);
+
+    /** 
+        Modifiers 
+    */
+    /**
+    * @notice Throws if called by any account that does not have access to set attributes
+    */
+    modifier onlyValidator() {
+        require (isValidator(msg.sender), "Sender must be validator");
+        _;
+    }
+
+    /**
+    * @notice Sets a permission within the list of permissions.
+    * @param _methodsignature Signature of the method that this permission controls.
+    * @param _permissionName A "slug" name for this permission (e.g. "canMint").
+    * @param _permissionDescription A lengthier description for this permission (e.g. "Allows user to mint tokens").
+    * @param _contractName Name of the contract that the method belongs to.
+    */
+    function addPermission(
+        bytes4 _methodsignature, 
+        string _permissionName, 
+        string _permissionDescription, 
+        string _contractName) public onlyValidator { 
+        Permission memory p = Permission(_permissionName, _permissionDescription, _contractName, true);
+        permissions[_methodsignature] = p;
+        emit PermissionAdded(_methodsignature);
+    }
+
+    /**
+    * @notice Removes a permission the list of permissions.
+    * @param _methodsignature Signature of the method that this permission controls.
+    */
+    function removePermission(bytes4 _methodsignature) public onlyValidator {
+        permissions[_methodsignature].active = false;
+        emit PermissionRemoved(_methodsignature);
+    }
+    
+    /**
+    * @notice Sets a permission in the list of permissions that a user has.
+    * @param _methodsignature Signature of the method that this permission controls.
+    */
+    function setUserPermission(address _who, bytes4 _methodsignature) public onlyValidator {
+        require(permissions[_methodsignature].active, "Permission being set must be for a valid method signature");
+        userPermissions[_who][_methodsignature] = true;
+    }
+
+    /**
+    * @notice Removes a permission from the list of permissions that a user has.
+    * @param _methodsignature Signature of the method that this permission controls.
+    */
+    function removeUserPermission(address _who, bytes4 _methodsignature) public onlyValidator {
+        require(permissions[_methodsignature].active, "Permission being removed must be for a valid method signature");
+        userPermissions[_who][_methodsignature] = false;
+    }
+
+    /**
+    * @notice add a Validator
+    * @param _validator Address of validator to add
+    */
+    function addValidator(address _validator) public onlyOwner {
+        validators[_validator] = true;
+        emit ValidatorAdded(_validator);
+    }
+
+    /**
+    * @notice remove a Validator
+    * @param _validator Address of validator to remove
+    */
+    function removeValidator(address _validator) public onlyOwner {
+        validators[_validator] = false;
+        emit ValidatorRemoved(_validator);
+    }
+
+    /**
+    * @notice does validator exist?
+    * @return true if yes, false if no
+    **/
+    function isValidator(address _validator) public view returns (bool) {
+        return validators[_validator];
+    }
+
+    /**
+    * @notice does permission exist?
+    * @return true if yes, false if no
+    **/
+    function isPermission(bytes4 _methodsignature) public view returns (bool) {
+        return permissions[_methodsignature].active;
+    }
+
+    /**
+    * @notice get Permission structure
+    * @param _methodsignature request to retrieve the Permission struct for this methodsignature
+    * @return Permission
+    **/
+    function getPermission(bytes4 _methodsignature) public view returns 
+        (string name, 
+         string description, 
+         string contract_name,
+         bool active) {
+        return (permissions[_methodsignature].name,
+                permissions[_methodsignature].description,
+                permissions[_methodsignature].contract_name,
+                permissions[_methodsignature].active);
+    }
+
+    /**
+    * @notice does permission exist?
+    * @return true if yes, false if no
+    **/
+    function hasUserPermission(address _who, bytes4 _methodsignature) public view returns (bool) {
+        return userPermissions[_who][_methodsignature];
+    }
+}
+
+/**
+ * @title Regulator
+ * @dev Regulator can be configured to meet relevant securities regulations, KYC policies
+ * AML requirements, tax laws, and more. The Regulator ensures that the PermissionedToken
+ * makes compliant transfers possible. Contains the userPermissions necessary
+ * for regulatory compliance.
+ *
+ */
+contract Regulator is RegulatorStorage {
+    
+    /** 
+        Modifiers 
+    */
+    /**
+    * @notice Throws if called by any account that does not have access to set attributes
+    */
+    modifier onlyValidator() {
+        require (isValidator(msg.sender), "Sender must be validator");
+        _;
+    }
+
+    /** 
+        Events 
+    */
+    <span class="marker" id="mapping-5"></span><span class="token mv" id="move-src-1" data-title="contract_body/event_definition">event <span class="marker" id="mapping-6"></span><span class="token upd" id="move-src-2" data-title="event_definition/identifier"><span class="cupd">Log</span>Whit<span class="cupd">e</span><span class="cupd">l</span><span class="cupd">istedUser</span></span>(address indexed who);</span>
+    event LogBlacklistedUser(address indexed who);
+    <span class="marker" id="mapping-7"></span><span class="token del" data-title="contract_body/event_definition">event LogNonlistedUser(address indexed who);</span>
+    event LogSetMinter(address indexed who);
+    event LogRemovedMinter(address indexed who);
+    event LogSetBlacklistDestroyer(address indexed who);
+    event LogRemovedBlacklistDestroyer(address indexed who);
+    event LogSetBlacklistSpender(address indexed who);
+    event LogRemovedBlacklistSpender(address indexed who);
+
+    /**
+    * @notice Sets the necessary permissions for a user to mint tokens.
+    * @param _who The address of the account that we are setting permissions for.
+    */
+    function setMinter(address _who) public onlyValidator {
+        _setMinter(_who);
+    }
+
+    /**
+    * @notice Removes the necessary permissions for a user to mint tokens.
+    * @param _who The address of the account that we are removing permissions for.
+    */
+    function removeMinter(address _who) public onlyValidator {
+        _removeMinter(_who);
+    }
+
+    /**
+    * @notice Sets the necessary permissions for a user to spend tokens from a blacklisted account.
+    * @param _who The address of the account that we are setting permissions for.
+    */
+    function setBlacklistSpender(address _who) public onlyValidator {
+        require(isPermission(APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG), "Blacklist spending not supported by token");
+        setUserPermission(_who, APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG);
+        emit LogSetBlacklistSpender(_who);
+    }
+    
+    /**
+    * @notice Removes the necessary permissions for a user to spend tokens from a blacklisted account.
+    * @param _who The address of the account that we are removing permissions for.
+    */
+    function removeBlacklistSpender(address _who) public onlyValidator {
+        require(isPermission(APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG), "Blacklist spending not supported by token");
+        removeUserPermission(_who, APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG);
+        emit LogRemovedBlacklistSpender(_who);
+    }
+
+    /**
+    * @notice Sets the necessary permissions for a user to destroy tokens from a blacklisted account.
+    * @param _who The address of the account that we are setting permissions for.
+    */
+    function setBlacklistDestroyer(address _who) public onlyValidator {
+        require(isPermission(DESTROY_BLACKLISTED_TOKENS_SIG), "Blacklist token destruction not supported by token");
+        setUserPermission(_who, DESTROY_BLACKLISTED_TOKENS_SIG);
+        emit LogSetBlacklistDestroyer(_who);
+    }
+    
+
+    /**
+    * @notice Removes the necessary permissions for a user to destroy tokens from a blacklisted account.
+    * @param _who The address of the account that we are removing permissions for.
+    */
+    function removeBlacklistDestroyer(address _who) public onlyValidator {
+        require(isPermission(DESTROY_BLACKLISTED_TOKENS_SIG), "Blacklist token destruction not supported by token");
+        removeUserPermission(_who, DESTROY_BLACKLISTED_TOKENS_SIG);
+        emit LogRemovedBlacklistDestroyer(_who);
+    }
+
+    <span class="marker" id="mapping-8"></span><span class="token mv" id="move-src-3" data-title="contract_body/comment"><span class="marker" id="mapping-9"></span><span class="token upd" id="move-src-4" data-title="contract_body/comment"><span class="cupd">/**
+    * @notice</span> <span class="cupd">S</span>e<span class="cupd">ts the necessary permissions for a </span>"w<span class="cupd">h</span><span class="cupd">it</span><span class="cupd">e</span><span class="cupd">liste</span>d<span class="cupd">" use</span><span class="cupd">r.
+    * @param _who The address of the account that we ar</span>e se<span class="cupd">tting permissions for.
+   </span> */</span></span>
+    <span class="marker" id="mapping-10"></span><span class="token mv" id="move-src-5" data-title="contract_body/function_definition">function <span class="marker" id="mapping-11"></span><span class="token upd" id="move-src-6" data-title="function_definition/identifier">s<span class="cupd">e</span>tWhit<span class="cupd">e</span><span class="cupd">l</span><span class="cupd">istedUser</span></span>(address _who) public onlyValidator {
+        <span class="marker" id="mapping-12"></span><span class="token upd" id="move-src-7" data-title="call_expression/identifier"><span class="cupd">_</span>s<span class="cupd">e</span>tWhit<span class="cupd">e</span><span class="cupd">l</span><span class="cupd">istedUser</span></span>(_who);
+    }</span>
+
+    /**
+    * @notice Sets the necessary permissions for a "blacklisted" user. A blacklisted user has their accounts
+    * frozen; they cannot transfer, burn, or withdraw any tokens.
+    * @param _who The address of the account that we are setting permissions for.
+    */
+    function setBlacklistedUser(address _who) public onlyValidator {
+        _setBlacklistedUser(_who);
+    }
+
+    <span class="marker" id="mapping-13"></span><span class="token del" data-title="contract_body/comment">/**
+    * @notice Sets the necessary permissions for a "nonlisted" user. Nonlisted users can trade tokens,
+    * but cannot burn them (and therefore cannot convert them into fiat.)
+    * @param _who The address of the account that we are setting permissions for.
+    */</span>
+    <span class="marker" id="mapping-14"></span><span class="token del" data-title="contract_body/function_definition">function setNonlistedUser(address _who) public onlyValidator {
+        _setNonlistedUser(_who);
+    }</span>
+
+    <span class="marker" id="mapping-15"></span><span class="token del" data-title="contract_body/comment">/** Returns whether or not a user is whitelisted.
+     * @param _who The address of the account in question.
+     * @return `true` if the user is whitelisted, `false` otherwise.
+     */</span>
+    <span class="marker" id="mapping-16"></span><span class="token mv" id="move-src-8" data-title="contract_body/function_definition">function <span class="marker" id="mapping-17"></span><span class="token upd" id="move-src-9" data-title="function_definition/identifier"><span class="cupd">is</span>White<span class="cupd">l</span><span class="cupd">istedUser</span></span>(address _who) public view returns (bool) {
+        return (<span class="marker" id="mapping-18"></span><span class="token del" data-title="parenthesized_expression/binary_expression">hasUserPermission(_who, BURN_SIG) &amp;&amp; !hasUserPermission(_who, BLACKLISTED_SIG)</span>);
+    }</span>
+
+    /** Returns whether or not a user is blacklisted.
+     * @param _who The address of the account in question.
+     * @return `true` if the user is blacklisted, `false` otherwise.
+     */
+    <span class="marker" id="mapping-19"></span><span class="token del" data-title="contract_body/function_definition">function isBlacklistedUser(address _who) public view returns (bool) {
+        return (!hasUserPermission(_who, BURN_SIG) &amp;&amp; hasUserPermission(_who, BLACKLISTED_SIG));
+    }</span>
+
+    <span class="marker" id="mapping-20"></span><span class="token del" data-title="contract_body/comment">/** Returns whether or not a user is nonlisted.
+     * @param _who The address of the account in question.
+     * @return `true` if the user is nonlisted, `false` otherwise.
+     */</span>
+    <span class="marker" id="mapping-21"></span><span class="token del" data-title="contract_body/function_definition">function isNonlistedUser(address _who) public view returns (bool) {
+        return (!hasUserPermission(_who, BURN_SIG) &amp;&amp; !hasUserPermission(_who, BLACKLISTED_SIG));
+    }</span>
+
+    /** Returns whether or not a user is a blacklist spender.
+     * @param _who The address of the account in question.
+     * @return `true` if the user is a blacklist spender, `false` otherwise.
+     */
+    function isBlacklistSpender(address _who) public view returns (bool) {
+        return hasUserPermission(_who, APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG);
+    }
+
+    /** Returns whether or not a user is a blacklist destroyer.
+     * @param _who The address of the account in question.
+     * @return `true` if the user is a blacklist destroyer, `false` otherwise.
+     */
+    function isBlacklistDestroyer(address _who) public view returns (bool) {
+        return hasUserPermission(_who, DESTROY_BLACKLISTED_TOKENS_SIG);
+    }
+
+    /** Returns whether or not a user is a minter.
+     * @param _who The address of the account in question.
+     * @return `true` if the user is a minter, `false` otherwise.
+     */
+    function isMinter(address _who) public view returns (bool) {
+        return <span class="marker" id="mapping-22"></span><span class="token mv" id="move-src-10" data-title="return_statement/call_expression">hasUserPermission(_who, MINT_SIG)</span>;
+    }
+
+    /** Internal Functions **/
+
+    function _setMinter(address _who) internal {
+        require(isPermission(MINT_SIG), "Minting not supported by token");
+        setUserPermission(_who, MINT_SIG);
+        emit LogSetMinter(_who);
+    }
+
+    function _removeMinter(address _who) internal {
+        require(isPermission(MINT_SIG), "Minting not supported by token");
+        removeUserPermission(_who, MINT_SIG);
+        emit LogRemovedMinter(_who);
+    }
+
+    <span class="marker" id="mapping-23"></span><span class="token mv" id="move-src-11" data-title="contract_body/function_definition">function <span class="marker" id="mapping-24"></span><span class="token upd" id="move-src-12" data-title="function_definition/identifier"><span class="cupd">_</span>s<span class="cupd">e</span>tN<span class="cupd">o</span>n<span class="cupd">l</span><span class="cupd">istedUser</span></span>(address _who) internal {
+        <span class="marker" id="mapping-25"></span><span class="token del" data-title="function_body/expression_statement">require(isPermission(BURN_SIG), "Burn method not supported by token");</span>
+        require(isPermission(BLACKLISTED_SIG), "Self-destruct method not supported by token");
+        <span class="marker" id="mapping-26"></span><span class="token del" data-title="function_body/expression_statement">removeUserPermission(_who, BURN_SIG);</span>
+        removeUserPermission(_who, BLACKLISTED_SIG);
+        emit <span class="marker" id="mapping-27"></span><span class="token upd" id="move-src-13" data-title="emit_statement/identifier"><span class="cupd">Log</span>N<span class="cupd">o</span>n<span class="cupd">l</span><span class="cupd">istedUser</span></span>(_who);
+    }</span>
+
+    function _setBlacklistedUser(address _who) internal {
+        <span class="marker" id="mapping-28"></span><span class="token del" data-title="function_body/expression_statement">require(isPermission(BURN_SIG), "Burn method not supported by token");</span>
+        require(isPermission(BLACKLISTED_SIG), "Self-destruct method not supported by token");
+        <span class="marker" id="mapping-29"></span><span class="token del" data-title="function_body/expression_statement">removeUserPermission(_who, BURN_SIG);</span>
+        setUserPermission(_who, BLACKLISTED_SIG);
+        emit LogBlacklistedUser(_who);
+    }
+
+    <span class="marker" id="mapping-30"></span><span class="token del" data-title="contract_body/function_definition">function _setWhitelistedUser(<span class="marker" id="mapping-31"></span><span class="token del" data-title="function_definition/parameter">address _who</span>) <span class="marker" id="mapping-32"></span><span class="token mv" id="move-src-14" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-33"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-34"></span><span class="token mv" id="move-src-15" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-35"></span><span class="token del" data-title="call_argument/call_expression">isPermission(BURN_SIG)</span>, "Burn method not supported by token");</span>
+        <span class="marker" id="mapping-36"></span><span class="token del" data-title="function_body/expression_statement">require(isPermission(BLACKLISTED_SIG), "Self-destruct method not supported by token");</span>
+        <span class="marker" id="mapping-37"></span><span class="token del" data-title="function_body/expression_statement">setUserPermission(_who, BURN_SIG);</span>
+        <span class="marker" id="mapping-38"></span><span class="token del" data-title="function_body/expression_statement">removeUserPermission(_who, BLACKLISTED_SIG);</span>
+        <span class="marker" id="mapping-39"></span><span class="token del" data-title="function_body/emit_statement">emit LogWhitelistedUser(_who);</span>
+    }</span></span>
+}
+
+/**
+* @title PermissionedToken
+* @notice A permissioned token that enables transfers, withdrawals, and deposits to occur 
+* if and only if it is approved by an on-chain Regulator service. PermissionedToken is an
+* ERC-20 smart contract representing ownership of securities and overrides the
+* transfer, burn, and mint methods to check with the Regulator.
+*/
+contract PermissionedToken is ERC20, Pausable, Lockable {
+    using SafeMath for uint256;
+
+    /** Events */
+    event DestroyedBlacklistedTokens(address indexed account, uint256 amount);
+    event ApprovedBlacklistedAddressSpender(address indexed owner, address indexed spender, uint256 value);
+    event Mint(address indexed to, uint256 value);
+    event Burn(address indexed burner, uint256 value);
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+    event ChangedRegulator(address indexed oldRegulator, address indexed newRegulator );
+
+    PermissionedTokenStorage public tokenStorage;
+    Regulator public regulator;
+
+    /**
+    * @dev create a new PermissionedToken with a brand new data storage
+    **/
+    constructor (address _regulator) public {
+        regulator = Regulator(_regulator);
+        tokenStorage = new PermissionedTokenStorage();
+    }
+
+    /** Modifiers **/
+
+    /** @notice Modifier that allows function access to be restricted based on
+    * whether the regulator allows the message sender to execute that function.
+    **/
+    modifier requiresPermission() {
+        require (regulator.hasUserPermission(msg.sender, msg.sig), "User does not have permission to execute function");
+        _;
+    }
+
+    /** @notice Modifier that checks whether or not a transferFrom operation can
+    * succeed with the given _from and _to address. See transferFrom()'s documentation for
+    * more details.
+    **/
+    modifier transferFromConditionsRequired(address _from, address _to) {
+        require(!regulator.isBlacklistedUser(_to), "Recipient cannot be blacklisted");
+        
+        // If the origin user is blacklisted, the transaction can only succeed if 
+        // the message sender is a user that has been approved to transfer 
+        // blacklisted tokens out of this address.
+        bool is_origin_blacklisted = regulator.isBlacklistedUser(_from);
+
+        // Is the message sender a person with the ability to transfer tokens out of a blacklisted account?
+        bool sender_can_spend_from_blacklisted_address = regulator.isBlacklistSpender(msg.sender);
+        require(!is_origin_blacklisted || sender_can_spend_from_blacklisted_address, "Origin cannot be blacklisted if spender is not an approved blacklist spender");
+        _;
+    }
+
+    <span class="marker" id="mapping-40"></span><span class="token mv" id="move-src-16" data-title="contract_body/comment"><span class="marker" id="mapping-41"></span><span class="token upd" id="move-src-17" data-title="contract_body/comment"><span class="cupd">/** </span><span class="cupd">@notice </span>M<span class="cupd">o</span>d<span class="cupd">i</span><span class="cupd">f</span><span class="cupd">i</span><span class="cupd">e</span><span class="cupd">r</span><span class="cupd"> </span><span class="cupd">t</span><span class="cupd">ha</span><span class="cupd">t</span><span class="cupd"> </span>c<span class="cupd">h</span><span class="cupd">e</span><span class="cupd">c</span>k<span class="cupd">s</span><span class="cupd"> w</span><span class="cupd">h</span>e<span class="cupd">the</span><span class="cupd">r</span> a <span class="cupd">u</span><span class="cupd">s</span><span class="cupd">er</span> <span class="cupd">is</span><span class="cupd"> </span><span class="cupd">wh</span><span class="cupd">i</span><span class="cupd">t</span>el<span class="cupd">i</span>sted<span class="cupd">.
+   </span> <span class="cupd"> * @param </span>_use<span class="cupd">r The address of the</span> u<span class="cupd">s</span><span class="cupd">er</span><span class="cupd"> </span>t<span class="cupd">o</span> <span class="cupd">ch</span>e<span class="cupd">c</span>k<span class="cupd">.</span><span class="cupd"></span><span class="cupd">
+  </span><span class="cupd"> </span> **/</span></span>
+    <span class="marker" id="mapping-42"></span><span class="token del" data-title="contract_body/modifier_definition">modifier userWhitelisted(<span class="marker" id="mapping-43"></span><span class="token mv" id="move-src-18" data-title="modifier_definition/parameter">address <span class="marker" id="mapping-44"></span><span class="token upd" id="move-src-19" data-title="parameter/identifier"><span class="cupd">_</span>u<span class="cupd">s</span>er</span></span>) <span class="marker" id="mapping-45"></span><span class="token del" data-title="modifier_definition/function_body">{
+        require(regulator.isWhitelistedUser(_user), "User must be whitelisted");
+        _;
+    }</span></span>
+
+    /** @notice Modifier that checks whether a user is blacklisted.
+     * @param _user The address of the user to check.
+    **/
+    modifier userBlacklisted(address _user) {
+        require(regulator.isBlacklistedUser(_user), "User must be blacklisted");
+        _;
+    }
+
+    /** @notice Modifier that checks whether a user is not blacklisted.
+     * @param _user The address of the user to check.
+    **/
+    modifier userNotBlacklisted(address _user) {
+        require(!regulator.isBlacklistedUser(_user), "User must not be blacklisted");
+        _;
+    }
+
+    /** Functions **/
+
+    <span class="marker" id="mapping-46"></span><span class="token mv" id="move-src-20" data-title="contract_body/comment"><span class="marker" id="mapping-47"></span><span class="token upd" id="move-src-21" data-title="contract_body/comment"><span class="cupd">/**
+    * @notice</span> Allows u<span class="cupd">s</span>er <span class="cupd">t</span>o mint if they h<span class="cupd">ave</span> th<span class="cupd">e</span> ap<span class="cupd">pr</span>opriate pe<span class="cupd">r</span>missions<span class="cupd">.</span> <span class="cupd">U</span>ser gener<span class="cupd">a</span>l<span class="cupd">ly
+    </span>*<span class="cupd"> </span>h<span class="cupd">a</span><span class="cupd">s</span> <span class="cupd">t</span>o<span class="cupd"> b</span>e <span class="cupd">s</span><span class="cupd">o</span>me <span class="cupd">s</span>o<span class="cupd">rt o</span>f<span class="cupd"> c</span><span class="cupd">e</span>ntraliz<span class="cupd">e</span>d<span class="cupd"> </span>aut<span class="cupd">h</span>orit<span class="cupd">y.
+    </span>*<span class="cupd"> </span>@dev <span class="cupd">S</span>ho<span class="cupd">u</span>ld be access-<span class="cupd">re</span>str<span class="cupd">i</span>c<span class="cupd">t</span>e<span class="cupd">d</span> w<span class="cupd">i</span>th the '<span class="cupd">r</span>eq<span class="cupd">ui</span>resPe<span class="cupd">r</span>mission' m<span class="cupd">o</span>difier when <span class="cupd">i</span>mplementi<span class="cupd">n</span>g.
+    <span class="cupd">*</span> @p<span class="cupd">a</span>ram _to <span class="cupd">T</span>he a<span class="cupd">d</span>dress o<span class="cupd">f</span><span class="cupd"> </span>the <span class="cupd">r</span>ece<span class="cupd">i</span>ver
+    * @param<span class="cupd"> _</span>amount <span class="cupd">T</span>he<span class="cupd"> </span>num<span class="cupd">b</span><span class="cupd">e</span>r of t<span class="cupd">o</span>ke<span class="cupd">n</span>s to<span class="cupd"> m</span>int<span class="cupd">
+</span>    */</span></span>
+    function mint(address _to, uint256 _amount) public requiresPermission whenNotPaused {
+        _mint(_to, _amount);
+    }
+
+    <span class="marker" id="mapping-48"></span><span class="token del" data-title="contract_body/comment">/**
+    * @notice Allows user to mint if they have the appropriate permissions. User generally
+    * is just a "whitelisted" user (i.e. a user registered with the fiat gateway.)
+    * @dev Should be access-restricted with the 'requiresPermission' modifier when implementing.
+    * @param _amount The number of tokens to burn
+    * @return `true` if successful and `false` if unsuccessful
+    */</span>
+    function burn(uint256 _amount) <span class="marker" id="mapping-49"></span><span class="token mv" id="move-src-22" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-50"></span><span class="token upd" id="move-src-23" data-title="modifier_invocation/identifier">req<span class="cupd">u</span>ire<span class="cupd">s</span>P<span class="cupd">er</span>m<span class="cupd">is</span>sion</span> whenNotPaused {
+        _burn(msg.sender, _amount);
+    }
+
+    /**
+    * @notice Implements ERC-20 standard approve function. Locked or disabled by default to protect against
+    * double spend attacks. To modify allowances, clients should call safer increase/decreaseApproval methods.
+    * Upon construction, all calls to approve() will revert unless this contract owner explicitly unlocks approve()
+    */
+    function approve(address _spender, uint256 _value) 
+    public userNotBlacklisted(_spender) userNotBlacklisted(msg.sender) whenNotPaused whenUnlocked returns (bool) {
+        tokenStorage.setAllowance(msg.sender, _spender, _value);
+        emit Approval(msg.sender, _spender, _value);
+        return true;
+    }
+
+    /**
+     * @dev Increase the amount of tokens that an owner allowed to a spender.
+     * @notice increaseApproval should be used instead of approve when the user's allowance
+     * is greater than 0. Using increaseApproval protects against potential double-spend attacks
+     * by moving the check of whether the user has spent their allowance to the time that the transaction 
+     * is mined, removing the user's ability to double-spend
+     * @param _spender The address which will spend the funds.
+     * @param _addedValue The amount of tokens to increase the allowance by.
+     */
+    function increaseApproval(address _spender, uint256 _addedValue) 
+    public userNotBlacklisted(_spender) userNotBlacklisted(msg.sender) whenNotPaused returns (bool) {
+        _increaseApproval(_spender, _addedValue, msg.sender);
+        return true;
+    }
+
+    /**
+     * @dev Decrease the amount of tokens that an owner allowed to a spender.
+     * @notice decreaseApproval should be used instead of approve when the user's allowance
+     * is greater than 0. Using decreaseApproval protects against potential double-spend attacks
+     * by moving the check of whether the user has spent their allowance to the time that the transaction 
+     * is mined, removing the user's ability to double-spend
+     * @param _spender The address which will spend the funds.
+     * @param _subtractedValue The amount of tokens to decrease the allowance by.
+     */
+    function decreaseApproval(address _spender, uint256 _subtractedValue) 
+    public userNotBlacklisted(_spender) userNotBlacklisted(msg.sender) whenNotPaused returns (bool) {
+        _decreaseApproval(_spender, _subtractedValue, msg.sender);
+        return true;
+    }
+
+    /**
+    * @notice Destroy the tokens owned by a blacklisted account. This function can generally
+    * only be called by a central authority.
+    * @dev Should be access-restricted with the 'requiresPermission' modifier when implementing.
+    * @param _who Account to destroy tokens from. Must be a blacklisted account.
+    */
+    function destroyBlacklistedTokens(address _who, uint256 _amount) public userBlacklisted(_who) whenNotPaused requiresPermission {
+        tokenStorage.subBalance(_who, _amount);
+        tokenStorage.subTotalSupply(_amount);
+        emit DestroyedBlacklistedTokens(_who, _amount);
+    }
+    /**
+    * @notice Allows a central authority to approve themselves as a spender on a blacklisted account.
+    * By default, the allowance is set to the balance of the blacklisted account, so that the
+    * authority has full control over the account balance.
+    * @dev Should be access-restricted with the 'requiresPermission' modifier when implementing.
+    * @param _blacklistedAccount The blacklisted account.
+    */
+    function approveBlacklistedAddressSpender(address _blacklistedAccount) 
+    public userBlacklisted(_blacklistedAccount) whenNotPaused requiresPermission {
+        tokenStorage.setAllowance(_blacklistedAccount, msg.sender, balanceOf(_blacklistedAccount));
+        emit ApprovedBlacklistedAddressSpender(_blacklistedAccount, msg.sender, balanceOf(_blacklistedAccount));
+    }
+
+    /**
+    * @notice Initiates a "send" operation towards another user. See `transferFrom` for details.
+    * @param _to The address of the receiver. This user must not be blacklisted, or else the tranfer
+    * will fail.
+    * @param _amount The number of tokens to transfer
+    *
+    * @return `true` if successful 
+    */
+    function transfer(address _to, uint256 _amount) public userNotBlacklisted(_to) userNotBlacklisted(msg.sender) whenNotPaused returns (bool) <span class="marker" id="mapping-51"></span><span class="token mv" id="move-src-24" data-title="function_definition/function_body">{
+        require(_to != address(0),"to address cannot be 0x0");
+        <span class="marker" id="mapping-52"></span><span class="token mv" id="move-src-25" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-53"></span><span class="token del" data-title="call_argument/binary_expression">_amount &lt;= balanceOf(msg.sender)</span>,"not enough balance to transfer");</span>
+
+        <span class="marker" id="mapping-54"></span><span class="token mv" id="move-src-26" data-title="function_body/expression_statement"><span class="marker" id="mapping-55"></span><span class="token del" data-title="call_expression/member_expression">tokenStorage.subBalance</span>(<span class="marker" id="mapping-56"></span><span class="token mv" id="move-src-27" data-title="call_expression/call_argument">msg.sender</span>, _amount);</span>
+        <span class="marker" id="mapping-57"></span><span class="token del" data-title="function_body/expression_statement">tokenStorage.addBalance(_to, _amount);</span>
+        <span class="marker" id="mapping-58"></span><span class="token del" data-title="function_body/emit_statement">emit Transfer(<span class="marker" id="mapping-59"></span><span class="token del" data-title="emit_statement/call_argument">msg.sender</span>, <span class="marker" id="mapping-60"></span><span class="token mv" id="move-src-28" data-title="emit_statement/call_argument">_to</span>, <span class="marker" id="mapping-61"></span><span class="token mv" id="move-src-29" data-title="emit_statement/call_argument">_amount</span>);</span>
+        <span class="marker" id="mapping-62"></span><span class="token mv" id="move-src-30" data-title="function_body/return_statement">return true;</span>
+    }</span>
+
+    /**
+    * @notice Initiates a transfer operation between address `_from` and `_to`. Requires that the
+    * message sender is an approved spender on the _from account.
+    * @dev When implemented, it should use the transferFromConditionsRequired() modifier.
+    * @param _to The address of the recipient. This address must not be blacklisted.
+    * @param _from The address of the origin of funds. This address _could_ be blacklisted, because
+    * a regulator may want to transfer tokens out of a blacklisted account, for example.
+    * In order to do so, the regulator would have to add themselves as an approved spender
+    * on the account via `addBlacklistAddressSpender()`, and would then be able to transfer tokens out of it.
+    * @param _amount The number of tokens to transfer
+    * @return `true` if successful 
+    */
+    <span class="marker" id="mapping-63"></span><span class="token mv" id="move-src-31" data-title="contract_body/function_definition">function <span class="marker" id="mapping-64"></span><span class="token upd" id="move-src-32" data-title="function_definition/identifier"><span class="cupd">transfer</span>From</span>(<span class="marker" id="mapping-65"></span><span class="token mv" id="move-src-33" data-title="function_definition/parameter">address _from</span><span class="marker" id="mapping-66"></span><span class="token mv" id="move-src-34" data-title="function_definition/,">,</span> address _to, uint256 _amount) 
+    <span class="marker" id="mapping-67"></span><span class="token mv" id="move-src-35" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-68"></span><span class="token mv" id="move-src-36" data-title="function_definition/modifier_invocation">whenNotPaused</span> <span class="marker" id="mapping-69"></span><span class="token mv" id="move-src-37" data-title="function_definition/modifier_invocation">transferFromConditionsRequired(_from, _to)</span> <span class="marker" id="mapping-70"></span><span class="token mv" id="move-src-38" data-title="function_definition/return_type_definition">returns (bool)</span> {
+        <span class="marker" id="mapping-71"></span><span class="token mv" id="move-src-39" data-title="function_body/expression_statement">require(_amount &lt;= allowance(_from, msg.sender),"not enough allowance to transfer");</span>
+        require(_to != address(0),"to address cannot be 0x0");
+        require(_amount &lt;= balanceOf(_from),"not enough balance to transfer");
+        
+        <span class="marker" id="mapping-72"></span><span class="token mv" id="move-src-40" data-title="function_body/expression_statement">tokenStorage.subAllowance(_from, msg.sender, _amount);</span>
+        tokenStorage.addBalance(_to, _amount);
+        tokenStorage.subBalance(_from, _amount);
+        emit Transfer(_from, _to, _amount);
+        <span class="marker" id="mapping-73"></span><span class="token mv" id="move-src-41" data-title="function_body/return_statement">return true;</span>
+    }</span>
+
+    /**
+    *
+    * @dev Only the token owner can change its regulator
+    * @param _newRegulator the new Regulator for this token
+    *
+    */
+    function setRegulator(address _newRegulator) public onlyOwner {
+        require(_newRegulator != address(regulator), "Must be a new regulator");
+        require(AddressUtils.isContract(_newRegulator), "Cannot set a regulator storage to a non-contract address");
+        address old = address(regulator);
+        regulator = Regulator(_newRegulator);
+        emit ChangedRegulator(old, _newRegulator);
+    }
+
+    /**
+    * @notice If a user is blacklisted, they will have the permission to 
+    * execute this dummy function. This function effectively acts as a marker 
+    * to indicate that a user is blacklisted. We include this function to be consistent with our
+    * invariant that every possible userPermission (listed in Regulator) enables access to a single 
+    * PermissionedToken function. Thus, the 'BLACKLISTED' permission gives access to this function
+    * @return `true` if successful
+    */
+    function blacklisted() public view requiresPermission returns (bool) {
+        return true;
+    }
+
+    /**
+    * ERC20 standard functions
+    */
+    function allowance(address owner, address spender) public view returns (uint256) {
+        return tokenStorage.allowances(owner, spender);
+    }
+
+    function totalSupply() public view returns (uint256) {
+        return tokenStorage.totalSupply();
+    }
+
+    function balanceOf(address _addr) public view returns (uint256) {
+        return tokenStorage.balances(_addr);
+    }
+
+
+    /** Internal functions **/
+    
+    function _decreaseApproval(address _spender, uint256 _subtractedValue, address _tokenHolder) internal {
+        uint256 oldValue = allowance(_tokenHolder, _spender);
+        if (_subtractedValue &gt; oldValue) {
+            tokenStorage.setAllowance(_tokenHolder, _spender, 0);
+        } else {
+            tokenStorage.subAllowance(_tokenHolder, _spender, _subtractedValue);
+        }
+        emit Approval(_tokenHolder, _spender, allowance(_tokenHolder, _spender));
+    }
+
+    function _increaseApproval(address _spender, uint256 _addedValue, address _tokenHolder) internal {
+        tokenStorage.addAllowance(_tokenHolder, _spender, _addedValue);
+        emit Approval(_tokenHolder, _spender, allowance(_tokenHolder, _spender));
+    }
+
+    function _burn(address _tokensOf, uint256 _amount) internal {
+        require(_amount &lt;= balanceOf(_tokensOf),"not enough balance to burn");
+        // no need to require value &lt;= totalSupply, since that would imply the
+        // sender's balance is greater than the totalSupply, which *should* be an assertion failure
+        tokenStorage.subBalance(_tokensOf, _amount);
+        tokenStorage.subTotalSupply(_amount);
+        emit Burn(_tokensOf, _amount);
+        emit Transfer(_tokensOf, address(0), _amount);
+    }
+
+    function _mint(address _to, uint256 _amount) internal <span class="marker" id="mapping-74"></span><span class="token del" data-title="function_definition/modifier_invocation">userWhitelisted(_to)</span> <span class="marker" id="mapping-75"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-76"></span><span class="token mv" id="move-src-42" data-title="function_body/expression_statement">tokenStorage.addTotalSupply(_amount);</span>
+        <span class="marker" id="mapping-77"></span><span class="token mv" id="move-src-43" data-title="function_body/expression_statement">tokenStorage.addBalance(_to, _amount);</span>
+        <span class="marker" id="mapping-78"></span><span class="token mv" id="move-src-44" data-title="function_body/emit_statement">emit Mint(_to, _amount);</span>
+        <span class="marker" id="mapping-79"></span><span class="token mv" id="move-src-45" data-title="function_body/emit_statement">emit Transfer(address(0), _to, _amount);</span>
+    }</span>
+
+}
+
+/**
+* @title CarbonDollarStorage
+* @notice Contains necessary storage contracts for CarbonDollar (FeeSheet and StablecoinWhitelist).
+*/
+contract CarbonDollarStorage is Ownable {
+    using SafeMath for uint256;
+
+    /** 
+        Mappings
+    */
+    /* fees for withdrawing to stablecoin, in tenths of a percent) */
+    mapping (address =&gt; uint256) public fees;
+    /** @dev Units for fees are always in a tenth of a percent */
+    uint256 public defaultFee;
+    /* is the token address referring to a stablecoin/whitelisted token? */
+    mapping (address =&gt; bool) public whitelist;
+
+
+    /** 
+        Events
+    */
+    event DefaultFeeChanged(uint256 oldFee, uint256 newFee);
+    event FeeChanged(address indexed stablecoin, uint256 oldFee, uint256 newFee);
+    event FeeRemoved(address indexed stablecoin, uint256 oldFee);
+    event StablecoinAdded(address indexed stablecoin);
+    event StablecoinRemoved(address indexed stablecoin);
+
+    /** @notice Sets the default fee for burning CarbonDollar into a whitelisted stablecoin.
+        @param _fee The default fee.
+    */
+    function setDefaultFee(uint256 _fee) public onlyOwner {
+        uint256 oldFee = defaultFee;
+        defaultFee = _fee;
+        if (oldFee != defaultFee)
+            emit DefaultFeeChanged(oldFee, _fee);
+    }
+    
+    /** @notice Set a fee for burning CarbonDollar into a stablecoin.
+        @param _stablecoin Address of a whitelisted stablecoin.
+        @param _fee the fee.
+    */
+    function setFee(address _stablecoin, uint256 _fee) public onlyOwner {
+        uint256 oldFee = fees[_stablecoin];
+        fees[_stablecoin] = _fee;
+        if (oldFee != _fee)
+            emit FeeChanged(_stablecoin, oldFee, _fee);
+    }
+
+    /** @notice Remove the fee for burning CarbonDollar into a particular kind of stablecoin.
+        @param _stablecoin Address of stablecoin.
+    */
+    function removeFee(address _stablecoin) public onlyOwner {
+        uint256 oldFee = fees[_stablecoin];
+        fees[_stablecoin] = 0;
+        if (oldFee != 0)
+            emit FeeRemoved(_stablecoin, oldFee);
+    }
+
+    /** @notice Add a token to the whitelist.
+        @param _stablecoin Address of the new stablecoin.
+    */
+    function addStablecoin(address _stablecoin) public onlyOwner {
+        whitelist[_stablecoin] = true;
+        emit StablecoinAdded(_stablecoin);
+    }
+
+    /** @notice Removes a token from the whitelist.
+        @param _stablecoin Address of the ex-stablecoin.
+    */
+    function removeStablecoin(address _stablecoin) public onlyOwner {
+        whitelist[_stablecoin] = false;
+        emit StablecoinRemoved(_stablecoin);
+    }
+
+
+    /**
+     * @notice Compute the fee that will be charged on a "burn" operation.
+     * @param _amount The amount that will be traded.
+     * @param _stablecoin The stablecoin whose fee will be used.
+     */
+    function computeStablecoinFee(uint256 _amount, address _stablecoin) public view returns (uint256) {
+        uint256 fee = fees[_stablecoin];
+        return computeFee(_amount, fee);
+    }
+
+    /**
+     * @notice Compute the fee that will be charged on a "burn" operation.
+     * @param _amount The amount that will be traded.
+     * @param _fee The fee that will be charged, in tenths of a percent.
+     */
+    function computeFee(uint256 _amount, uint256 _fee) public pure returns (uint256) {
+        return _amount.mul(_fee).div(1000);
+    }
+}
+
+<span class="marker" id="mapping-80"></span><span class="token del" data-title="source_file/comment">/**
+ * @title WhitelistedTokenRegulator
+ * @dev WhitelistedTokenRegulator is a type of Regulator that modifies its definitions of
+ * what constitutes a "whitelisted/nonlisted/blacklisted" user. A WhitelistedToken
+ * provides a user the additional ability to convert from a whtielisted stablecoin into the
+ * meta-token CUSD, or mint CUSD directly through a specific WT.
+ *
+ */</span>
+<span class="marker" id="mapping-81"></span><span class="token del" data-title="source_file/contract_declaration">contract WhitelistedTokenRegulator is <span class="marker" id="mapping-82"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">Regulator</span> <span class="marker" id="mapping-83"></span><span class="token del" data-title="contract_declaration/contract_body">{
+
+    <span class="marker" id="mapping-84"></span><span class="token del" data-title="contract_body/function_definition">function isMinter(<span class="marker" id="mapping-85"></span><span class="token del" data-title="function_definition/parameter">address _who</span>) <span class="marker" id="mapping-86"></span><span class="token del" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-87"></span><span class="token del" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-88"></span><span class="token del" data-title="function_definition/return_type_definition">returns (bool)</span> <span class="marker" id="mapping-89"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-90"></span><span class="token del" data-title="function_body/return_statement">return <span class="marker" id="mapping-91"></span><span class="token mv" id="move-src-46" data-title="return_statement/parenthesized_expression">(<span class="marker" id="mapping-92"></span><span class="token del" data-title="binary_expression/call_expression">super.isMinter(_who)</span> &amp;&amp; hasUserPermission(_who, MINT_CUSD_SIG))</span>;</span>
+    }</span></span>
+
+    // Getters
+
+    <span class="marker" id="mapping-93"></span><span class="token del" data-title="contract_body/function_definition">function isWhitelistedUser(address _who) public view returns (bool) {
+        return (hasUserPermission(_who, CONVERT_WT_SIG) &amp;&amp; super.isWhitelistedUser(_who));
+    }</span>
+
+    <span class="marker" id="mapping-94"></span><span class="token del" data-title="contract_body/function_definition">function isBlacklistedUser(address _who) public view returns (bool) {
+        return (!hasUserPermission(_who, CONVERT_WT_SIG) &amp;&amp; super.isBlacklistedUser(_who));
+    }</span>
+
+    <span class="marker" id="mapping-95"></span><span class="token del" data-title="contract_body/function_definition">function isNonlistedUser(address _who) public view returns (bool) {
+        return (!hasUserPermission(_who, CONVERT_WT_SIG) &amp;&amp; super.isNonlistedUser(_who));
+    }</span>   
+
+    /** Internal functions **/
+
+    // A WT minter should have option to either mint directly into CUSD via mintCUSD(), or
+    // mint the WT via an ordinary mint() 
+    <span class="marker" id="mapping-96"></span><span class="token del" data-title="contract_body/function_definition">function _setMinter(<span class="marker" id="mapping-97"></span><span class="token del" data-title="function_definition/parameter">address _who</span>) <span class="marker" id="mapping-98"></span><span class="token del" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-99"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-100"></span><span class="token mv" id="move-src-47" data-title="function_body/expression_statement">require(isPermission(MINT_CUSD_SIG), "Minting to CUSD not supported by token");</span>
+        <span class="marker" id="mapping-101"></span><span class="token mv" id="move-src-48" data-title="function_body/expression_statement">setUserPermission(_who, MINT_CUSD_SIG);</span>
+        <span class="marker" id="mapping-102"></span><span class="token del" data-title="function_body/expression_statement">super._setMinter(_who);</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-103"></span><span class="token del" data-title="contract_body/function_definition">function _removeMinter(<span class="marker" id="mapping-104"></span><span class="token del" data-title="function_definition/parameter">address _who</span>) <span class="marker" id="mapping-105"></span><span class="token del" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-106"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-107"></span><span class="token mv" id="move-src-49" data-title="function_body/expression_statement">require(isPermission(MINT_CUSD_SIG), "Minting to CUSD not supported by token");</span>
+        <span class="marker" id="mapping-108"></span><span class="token mv" id="move-src-50" data-title="function_body/expression_statement">removeUserPermission(_who, MINT_CUSD_SIG);</span>
+        <span class="marker" id="mapping-109"></span><span class="token del" data-title="function_body/expression_statement">super._removeMinter(_who);</span>
+    }</span></span>
+
+    // Setters
+
+    // A WT whitelisted user should gain ability to convert their WT into CUSD. They can also burn their WT, as a
+    // PermissionedToken whitelisted user can do
+    <span class="marker" id="mapping-110"></span><span class="token del" data-title="contract_body/function_definition">function _setWhitelistedUser(address _who) internal {
+        require(isPermission(CONVERT_WT_SIG), "Converting to CUSD not supported by token");
+        setUserPermission(_who, CONVERT_WT_SIG);
+        super._setWhitelistedUser(_who);
+    }</span>
+
+    <span class="marker" id="mapping-111"></span><span class="token del" data-title="contract_body/function_definition">function _setBlacklistedUser(address _who) internal {
+        require(isPermission(CONVERT_WT_SIG), "Converting to CUSD not supported by token");
+        removeUserPermission(_who, CONVERT_WT_SIG);
+        super._setBlacklistedUser(_who);
+    }</span>
+
+    <span class="marker" id="mapping-112"></span><span class="token del" data-title="contract_body/function_definition">function _setNonlistedUser(address _who) internal {
+        require(isPermission(CONVERT_WT_SIG), "Converting to CUSD not supported by token");
+        removeUserPermission(_who, CONVERT_WT_SIG);
+        super._setNonlistedUser(_who);
+    }</span>
+
+}</span></span>
+
+<span class="marker" id="mapping-113"></span><span class="token del" data-title="source_file/comment">/**
+* @title WhitelistedToken
+* @notice A WhitelistedToken can be converted into CUSD and vice versa. Converting a WT into a CUSD
+* is the only way for a user to obtain CUSD. This is a permissioned token, so users have to be 
+* whitelisted before they can do any mint/burn/convert operation.
+*/</span>
+<span class="marker" id="mapping-114"></span><span class="token mv" id="move-src-51" data-title="source_file/contract_declaration">contract WhitelistedToken is PermissionedToken {
+
+
+    address public cusdAddress;
+
+    /**
+        Events
+     */
+    event CUSDAddressChanged(address indexed oldCUSD, address indexed newCUSD);
+    event MintedToCUSD(address indexed user, uint256 amount);
+    event ConvertedToCUSD(address indexed user, uint256 amount);
+
+    /**
+    * @notice Constructor sets the regulator contract and the address of the
+    * CarbonUSD meta-token contract. The latter is necessary in order to make transactions
+    * with the CarbonDollar smart contract.
+    */
+    constructor(address _regulator, address _cusd) public PermissionedToken(_regulator) {
+
+        // base class fields
+        regulator = <span class="marker" id="mapping-115"></span><span class="token upd" id="move-src-52" data-title="call_expression/identifier">WhitelistedToken<span class="cupd">Regulator</span></span>(_regulator);
+
+        cusdAddress = _cusd;
+
+    }
+
+    /**
+    * @notice Mints CarbonUSD for the user. Stores the WT0 that backs the CarbonUSD
+    * into the CarbonUSD contract's escrow account.
+    * @param _to The address of the receiver
+    * @param _amount The number of CarbonTokens to mint to user
+    */
+    function mintCUSD(address _to, uint256 _amount) public requiresPermission whenNotPaused <span class="marker" id="mapping-116"></span><span class="token upd" id="move-src-53" data-title="modifier_invocation/identifier"><span class="cupd">user</span>Whi<span class="cupd">t</span>e<span class="cupd">l</span><span class="cupd">isted</span></span>(_to) {
+        return _mintCUSD(_to, _amount);
+    }
+
+    /**
+    * @notice Converts WT0 to CarbonUSD for the user. Stores the WT0 that backs the CarbonUSD
+    * into the CarbonUSD contract's escrow account.
+    * @param _amount The number of Whitelisted tokens to convert
+    */
+    function convertWT(uint256 _amount) public <span class="marker" id="mapping-117"></span><span class="token upd" id="move-src-54" data-title="modifier_invocation/identifier">req<span class="cupd">u</span>ire<span class="cupd">s</span>P<span class="cupd">er</span>m<span class="cupd">is</span>sion</span> whenNotPaused {
+        require(balanceOf(msg.sender) &gt;= _amount, "Conversion amount should be less than balance");
+        _burn(msg.sender, _amount);
+        _mintCUSD(msg.sender, _amount);
+        emit ConvertedToCUSD(msg.sender, _amount);
+    }
+
+    /**
+     * @notice Change the cusd address.
+     * @param _cusd the cusd address.
+     */
+    function setCUSDAddress(address _cusd) public onlyOwner {
+        require(_cusd != address(cusdAddress), "Must be a new cusd address");
+        require(AddressUtils.isContract(_cusd), "Must be an actual contract");
+        address oldCUSD = address(cusdAddress);
+        cusdAddress = _cusd;
+        emit CUSDAddressChanged(oldCUSD, _cusd);
+    }
+
+    function _mintCUSD(address _to, uint256 _amount) internal {
+        require(_to != cusdAddress, "Cannot mint to CarbonUSD contract"); // This is to prevent Carbon Labs from printing money out of thin air!
+        CarbonDollar(cusdAddress).mint(_to, _amount);
+        _mint(cusdAddress, _amount);
+        emit MintedToCUSD(_to, _amount);
+    }
+}</span>
+
+<span class="marker" id="mapping-118"></span><span class="token del" data-title="source_file/comment">/**
+ * @title CarbonDollarRegulator
+ * @dev CarbonDollarRegulator is a type of Regulator that modifies its definitions of
+ * what constitutes a "whitelisted/nonlisted/blacklisted" user. A CarbonDollar
+ * provides a user the additional ability to convert from CUSD into a whtielisted stablecoin
+ *
+ */</span>
+<span class="marker" id="mapping-119"></span><span class="token del" data-title="source_file/contract_declaration">contract CarbonDollarRegulator is <span class="marker" id="mapping-120"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">Regulator</span> <span class="marker" id="mapping-121"></span><span class="token del" data-title="contract_declaration/contract_body">{
+
+    // Getters
+    <span class="marker" id="mapping-122"></span><span class="token del" data-title="contract_body/function_definition">function isWhitelistedUser(address _who) public view returns(bool) {
+        return (hasUserPermission(_who, CONVERT_CARBON_DOLLAR_SIG) 
+        &amp;&amp; hasUserPermission(_who, BURN_CARBON_DOLLAR_SIG) 
+        &amp;&amp; !hasUserPermission(_who, BLACKLISTED_SIG));
+    }</span>
+
+    <span class="marker" id="mapping-123"></span><span class="token del" data-title="contract_body/function_definition">function isBlacklistedUser(<span class="marker" id="mapping-124"></span><span class="token del" data-title="function_definition/parameter">address _who</span>) <span class="marker" id="mapping-125"></span><span class="token del" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-126"></span><span class="token del" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-127"></span><span class="token del" data-title="function_definition/return_type_definition">returns(bool)</span> <span class="marker" id="mapping-128"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-129"></span><span class="token del" data-title="function_body/return_statement">return <span class="marker" id="mapping-130"></span><span class="token del" data-title="return_statement/parenthesized_expression">(<span class="marker" id="mapping-131"></span><span class="token del" data-title="parenthesized_expression/binary_expression"><span class="marker" id="mapping-132"></span><span class="token del" data-title="binary_expression/binary_expression">!hasUserPermission(_who, CONVERT_CARBON_DOLLAR_SIG) 
+        &amp;&amp; !hasUserPermission(_who, BURN_CARBON_DOLLAR_SIG)</span> 
+        &amp;&amp; <span class="marker" id="mapping-133"></span><span class="token mv" id="move-src-55" data-title="binary_expression/call_expression">hasUserPermission(_who, BLACKLISTED_SIG)</span></span>)</span>;</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-134"></span><span class="token del" data-title="contract_body/function_definition">function isNonlistedUser(address _who) public view returns(bool) {
+        return (!hasUserPermission(_who, CONVERT_CARBON_DOLLAR_SIG) 
+        &amp;&amp; !hasUserPermission(_who, BURN_CARBON_DOLLAR_SIG) 
+        &amp;&amp; !hasUserPermission(_who, BLACKLISTED_SIG));
+    }</span>
+
+    /** Internal functions **/
+    
+    // Setters: CarbonDollarRegulator overrides the definitions of whitelisted, nonlisted, and blacklisted setUserPermission
+
+    // CarbonDollar whitelisted users burn CUSD into a WhitelistedToken. Unlike PermissionedToken 
+    // whitelisted users, CarbonDollar whitelisted users cannot burn ordinary CUSD without converting into WT
+    <span class="marker" id="mapping-135"></span><span class="token del" data-title="contract_body/function_definition">function _setWhitelistedUser(address _who) internal {
+        require(isPermission(CONVERT_CARBON_DOLLAR_SIG), "Converting CUSD not supported");
+        require(isPermission(BURN_CARBON_DOLLAR_SIG), "Burning CUSD not supported");
+        require(isPermission(BLACKLISTED_SIG), "Blacklisting not supported");
+        setUserPermission(_who, CONVERT_CARBON_DOLLAR_SIG);
+        setUserPermission(_who, BURN_CARBON_DOLLAR_SIG);
+        removeUserPermission(_who, BLACKLISTED_SIG);
+        emit LogWhitelistedUser(_who);
+    }</span>
+
+    <span class="marker" id="mapping-136"></span><span class="token del" data-title="contract_body/function_definition">function _setBlacklistedUser(address _who) internal {
+        require(isPermission(CONVERT_CARBON_DOLLAR_SIG), "Converting CUSD not supported");
+        require(isPermission(BURN_CARBON_DOLLAR_SIG), "Burning CUSD not supported");
+        require(isPermission(BLACKLISTED_SIG), "Blacklisting not supported");
+        removeUserPermission(_who, CONVERT_CARBON_DOLLAR_SIG);
+        removeUserPermission(_who, BURN_CARBON_DOLLAR_SIG);
+        setUserPermission(_who, BLACKLISTED_SIG);
+        emit LogBlacklistedUser(_who);
+    }</span>
+
+    <span class="marker" id="mapping-137"></span><span class="token del" data-title="contract_body/function_definition">function _setNonlistedUser(address _who) internal {
+        require(isPermission(CONVERT_CARBON_DOLLAR_SIG), "Converting CUSD not supported");
+        require(isPermission(BURN_CARBON_DOLLAR_SIG), "Burning CUSD not supported");
+        require(isPermission(BLACKLISTED_SIG), "Blacklisting not supported");
+        removeUserPermission(_who, CONVERT_CARBON_DOLLAR_SIG);
+        removeUserPermission(_who, BURN_CARBON_DOLLAR_SIG);
+        removeUserPermission(_who, BLACKLISTED_SIG);
+        emit LogNonlistedUser(_who);
+    }</span>
+}</span></span>
+
+/**
+* @title CarbonDollar
+* @notice The main functionality for the CarbonUSD metatoken. (CarbonUSD is just a proxy
+* that implements this contract's functionality.) This is a permissioned token, so users have to be 
+* whitelisted before they can do any mint/burn/convert operation. Every CarbonDollar token is backed by one
+* whitelisted stablecoin credited to the balance of this contract address.
+*/
+contract CarbonDollar is PermissionedToken {
+    
+    // Events
+
+    event ConvertedToWT(address indexed user, uint256 amount);
+    event BurnedCUSD(address indexed user, uint256 feedAmount, uint256 chargedFee);
+    
+    /**
+        Modifiers
+    */
+    modifier requiresWhitelistedToken() {
+        require(isWhitelisted(msg.sender), "Sender must be a whitelisted token contract");
+        _;
+    }
+
+    CarbonDollarStorage public tokenStorage_CD;
+
+    /** CONSTRUCTOR
+    * @dev Passes along arguments to base class.
+    */
+    constructor(address _regulator) public PermissionedToken(_regulator) {
+
+        // base class override
+        regulator = <span class="marker" id="mapping-138"></span><span class="token upd" id="move-src-56" data-title="call_expression/identifier">CarbonDollar<span class="cupd">Regulator</span></span>(_regulator);
+
+        tokenStorage_CD = new CarbonDollarStorage();
+    }
+
+    /**
+     * @notice Add new stablecoin to whitelist.
+     * @param _stablecoin Address of stablecoin contract.
+     */
+    function listToken(address _stablecoin) public onlyOwner whenNotPaused {
+        tokenStorage_CD.addStablecoin(_stablecoin); 
+    }
+
+    /**
+     * @notice Remove existing stablecoin from whitelist.
+     * @param _stablecoin Address of stablecoin contract.
+     */
+    function unlistToken(address _stablecoin) public onlyOwner whenNotPaused {
+        tokenStorage_CD.removeStablecoin(_stablecoin);
+    }
+
+    /**
+     * @notice Change fees associated with going from CarbonUSD to a particular stablecoin.
+     * @param stablecoin Address of the stablecoin contract.
+     * @param _newFee The new fee rate to set, in tenths of a percent. 
+     */
+    function setFee(address stablecoin, uint256 _newFee) public onlyOwner whenNotPaused {
+        require(isWhitelisted(stablecoin), "Stablecoin must be whitelisted prior to setting conversion fee");
+        tokenStorage_CD.setFee(stablecoin, _newFee);
+    }
+
+    /**
+     * @notice Remove fees associated with going from CarbonUSD to a particular stablecoin.
+     * The default fee still may apply.
+     * @param stablecoin Address of the stablecoin contract.
+     */
+    function removeFee(address stablecoin) public onlyOwner whenNotPaused {
+        require(isWhitelisted(stablecoin), "Stablecoin must be whitelisted prior to setting conversion fee");
+       tokenStorage_CD.removeFee(stablecoin);
+    }
+
+    /**
+     * @notice Change the default fee associated with going from CarbonUSD to a WhitelistedToken.
+     * This fee amount is used if the fee for a WhitelistedToken is not specified.
+     * @param _newFee The new fee rate to set, in tenths of a percent.
+     */
+    function setDefaultFee(uint256 _newFee) public onlyOwner whenNotPaused {
+        tokenStorage_CD.setDefaultFee(_newFee);
+    }
+
+    /**
+     * @notice Mints CUSD on behalf of a user. Note the use of the "requiresWhitelistedToken"
+     * modifier; this means that minting authority does not belong to any personal account; 
+     * only whitelisted token contracts can call this function. The intended functionality is that the only
+     * way to mint CUSD is for the user to actually burn a whitelisted token to convert into CUSD
+     * @param _to User to send CUSD to
+     * @param _amount Amount of CarbonUSD to mint.
+     */
+    function mint(address _to, uint256 _amount) public requiresWhitelistedToken whenNotPaused {
+        _mint(_to, _amount);
+    }
+
+    /**
+     * @notice user can convert CarbonUSD umbrella token into a whitelisted stablecoin. 
+     * @param stablecoin represents the type of coin the users wishes to receive for burning carbonUSD
+     * @param _amount Amount of CarbonUSD to convert.
+     * we credit the user's account at the sender address with the _amount minus the percentage fee we want to charge.
+     */
+    function convertCarbonDollar(address stablecoin, uint256 _amount) public <span class="marker" id="mapping-139"></span><span class="token upd" id="move-src-57" data-title="modifier_invocation/identifier">req<span class="cupd">u</span>ire<span class="cupd">s</span>P<span class="cupd">er</span>m<span class="cupd">is</span>sion</span> whenNotPaused  {
+        require(isWhitelisted(stablecoin), "Stablecoin must be whitelisted prior to setting conversion fee");
+        WhitelistedToken whitelisted = WhitelistedToken(stablecoin);
+        require(whitelisted.balanceOf(address(this)) &gt;= _amount, "Carbon escrow account in WT0 doesn't have enough tokens for burning");
+ 
+        // Send back WT0 to calling user, but with a fee reduction.
+        // Transfer this fee into the whitelisted token's CarbonDollar account (this contract's address)
+        uint256 chargedFee = tokenStorage_CD.computeFee(_amount, computeFeeRate(stablecoin));
+        uint256 feedAmount = _amount.sub(chargedFee);
+        _burn(msg.sender, _amount);
+        require(whitelisted.transfer(msg.sender, feedAmount));
+        whitelisted.burn(chargedFee);
+        _mint(address(this), chargedFee);
+        emit ConvertedToWT(msg.sender, _amount);
+    }
+
+     /**
+     * @notice burns CarbonDollar and an equal amount of whitelisted stablecoin from the CarbonDollar address
+     * @param stablecoin Represents the stablecoin whose fee will be charged.
+     * @param _amount Amount of CarbonUSD to burn.
+     */
+    <span class="marker" id="mapping-140"></span><span class="token mv" id="move-src-58" data-title="contract_body/function_definition">function <span class="marker" id="mapping-141"></span><span class="token upd" id="move-src-59" data-title="function_definition/identifier"><span class="cupd">burnCarbonDollar</span></span>(<span class="marker" id="mapping-142"></span><span class="token mv" id="move-src-60" data-title="function_definition/parameter">address stablecoin</span>, uint256 _amount) <span class="marker" id="mapping-143"></span><span class="token mv" id="move-src-61" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-144"></span><span class="token del" data-title="function_definition/modifier_invocation">requiresPermission</span> <span class="marker" id="mapping-145"></span><span class="token mv" id="move-src-62" data-title="function_definition/modifier_invocation">whenNotPaused</span> {
+        <span class="marker" id="mapping-146"></span><span class="token mv" id="move-src-63" data-title="function_body/expression_statement"><span class="marker" id="mapping-147"></span><span class="token upd" id="move-src-64" data-title="call_expression/identifier">req<span class="cupd">u</span>ire</span>(<span class="marker" id="mapping-148"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-149"></span><span class="token del" data-title="call_argument/call_expression">isWhitelisted(<span class="marker" id="mapping-150"></span><span class="token mv" id="move-src-65" data-title="call_expression/call_argument">stablecoin</span>)</span></span>, <span class="marker" id="mapping-151"></span><span class="token del" data-title="call_expression/call_argument">"Stablecoin must be whitelisted prior to setting conversion fee"</span>);</span>
+        WhitelistedToken whitelisted = WhitelistedToken(<span class="marker" id="mapping-152"></span><span class="token upd" id="move-src-66" data-title="call_argument/identifier"><span class="cupd">stablecoin</span></span>);
+        require(whitelisted.balanceOf(address(this)) &gt;= _amount, "Carbon escrow account in WT0 doesn't have enough tokens for burning");
+ 
+        // Burn user's CUSD, but with a fee reduction.
+        uint256 chargedFee = tokenStorage_CD.computeFee(_amount, computeFeeRate(<span class="marker" id="mapping-153"></span><span class="token upd" id="move-src-67" data-title="call_argument/identifier"><span class="cupd">stablecoin</span></span>));
+        uint256 feedAmount = _amount.sub(chargedFee);
+        <span class="marker" id="mapping-154"></span><span class="token mv" id="move-src-68" data-title="function_body/expression_statement"><span class="marker" id="mapping-155"></span><span class="token upd" id="move-src-69" data-title="call_expression/identifier"><span class="cupd">_burn</span></span>(msg.sender, _amount);</span>
+        whitelisted.burn(_amount);
+        _mint(address(this), chargedFee);
+        emit BurnedCUSD(<span class="marker" id="mapping-156"></span><span class="token del" data-title="call_argument/member_expression">msg.sender</span>, feedAmount, chargedFee); // Whitelisted trust account should send user feedAmount USD
+    }</span>
+
+    /** 
+    * @notice release collected CUSD fees to owner 
+    * @param _amount Amount of CUSD to release
+    * @return `true` if successful 
+    */
+    function releaseCarbonDollar(uint256 _amount) public onlyOwner returns (bool) {
+        require(_amount &lt;= balanceOf(address(this)),"not enough balance to transfer");
+
+        tokenStorage.subBalance(address(this), _amount);
+        tokenStorage.addBalance(msg.sender, _amount);
+        emit Transfer(address(this), msg.sender, _amount);
+        return true;
+    }
+
+    /** Computes fee percentage associated with burning into a particular stablecoin.
+     * @param stablecoin The stablecoin whose fee will be charged. Precondition: is a whitelisted
+     * stablecoin.
+     * @return The fee that will be charged. If the stablecoin's fee is not set, the default
+     * fee is returned.
+     */
+    function computeFeeRate(address stablecoin) public view returns (uint256 feeRate) {
+        if (getFee(stablecoin) &gt; 0) 
+            feeRate = getFee(stablecoin);
+        else
+            feeRate = getDefaultFee();
+    }
+
+    /**
+    * @notice Check if whitelisted token is whitelisted
+    * @return bool true if whitelisted, false if not
+    **/
+    function isWhitelisted(address _stablecoin) public view returns (bool) {
+        return tokenStorage_CD.whitelist(_stablecoin);
+    }
+
+    /**
+     * @notice Get the fee associated with going from CarbonUSD to a specific WhitelistedToken.
+     * @param stablecoin The stablecoin whose fee is being checked.
+     * @return The fee associated with the stablecoin.
+     */
+    function getFee(address stablecoin) public view returns (uint256) {
+        return tokenStorage_CD.fees(stablecoin);
+    }
+
+    /**
+     * @notice Get the default fee associated with going from CarbonUSD to a specific WhitelistedToken.
+     * @return The default fee for stablecoin trades.
+     */
+    function getDefaultFee() public view returns (uint256) {
+        return tokenStorage_CD.defaultFee();
+    }
+
+    <span class="marker" id="mapping-157"></span><span class="token mv" id="move-src-70" data-title="contract_body/function_definition">function <span class="marker" id="mapping-158"></span><span class="token upd" id="move-src-71" data-title="function_definition/identifier">_mint</span>(<span class="marker" id="mapping-159"></span><span class="token mv" id="move-src-72" data-title="function_definition/parameter">address _to</span>, <span class="marker" id="mapping-160"></span><span class="token mv" id="move-src-73" data-title="function_definition/parameter">uint256 _amount</span>) <span class="marker" id="mapping-161"></span><span class="token mv" id="move-src-74" data-title="function_definition/visibility">internal</span> {
+        <span class="marker" id="mapping-162"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-163"></span><span class="token del" data-title="expression_statement/call_expression"><span class="marker" id="mapping-164"></span><span class="token del" data-title="call_expression/member_expression">super._mint</span>(<span class="marker" id="mapping-165"></span><span class="token mv" id="move-src-75" data-title="call_expression/call_argument">_to</span>, <span class="marker" id="mapping-166"></span><span class="token mv" id="move-src-76" data-title="call_expression/call_argument">_amount</span>)</span>;</span>
+    }</span>
+
+}
+
+/**
+* @title WhitelistedToken
+* @notice A WhitelistedToken can be converted into CUSD and vice versa. Converting a WT into a CUSD
+* is the only way for a user to obtain CUSD. This is a permissioned token, so users have to be 
+* whitelisted before they can do any mint/burn/convert operation.
+*/
+<span class="marker" id="mapping-167"></span><span class="token del" data-title="source_file/comment">// contract WhitelistedToken is PermissionedToken {</span>
+
+
+<span class="marker" id="mapping-168"></span><span class="token del" data-title="source_file/comment">//     address public cusdAddress;</span>
+
+<span class="marker" id="mapping-169"></span><span class="token del" data-title="source_file/comment">//     /**</span>
+<span class="marker" id="mapping-170"></span><span class="token del" data-title="source_file/comment">//         Events</span>
+<span class="marker" id="mapping-171"></span><span class="token del" data-title="source_file/comment">//      */</span>
+<span class="marker" id="mapping-172"></span><span class="token del" data-title="source_file/comment">//     event CUSDAddressChanged(address indexed oldCUSD, address indexed newCUSD);</span>
+<span class="marker" id="mapping-173"></span><span class="token del" data-title="source_file/comment">//     event MintedToCUSD(address indexed user, uint256 amount);</span>
+<span class="marker" id="mapping-174"></span><span class="token del" data-title="source_file/comment">//     event ConvertedToCUSD(address indexed user, uint256 amount);</span>
+
+<span class="marker" id="mapping-175"></span><span class="token del" data-title="source_file/comment">//     /**</span>
+<span class="marker" id="mapping-176"></span><span class="token del" data-title="source_file/comment">//     * @notice Constructor sets the regulator contract and the address of the</span>
+<span class="marker" id="mapping-177"></span><span class="token del" data-title="source_file/comment">//     * CarbonUSD meta-token contract. The latter is necessary in order to make transactions</span>
+<span class="marker" id="mapping-178"></span><span class="token del" data-title="source_file/comment">//     * with the CarbonDollar smart contract.</span>
+<span class="marker" id="mapping-179"></span><span class="token del" data-title="source_file/comment">//     */</span>
+<span class="marker" id="mapping-180"></span><span class="token del" data-title="source_file/comment">//     constructor(address _regulator, address _cusd) public PermissionedToken(_regulator) {</span>
+
+<span class="marker" id="mapping-181"></span><span class="token del" data-title="source_file/comment">//         // base class fields</span>
+<span class="marker" id="mapping-182"></span><span class="token del" data-title="source_file/comment">//         regulator = WhitelistedTokenRegulator(_regulator);</span>
+
+<span class="marker" id="mapping-183"></span><span class="token del" data-title="source_file/comment">//         cusdAddress = _cusd;</span>
+
+<span class="marker" id="mapping-184"></span><span class="token del" data-title="source_file/comment">//     }</span>
+
+<span class="marker" id="mapping-185"></span><span class="token del" data-title="source_file/comment">//     /**</span>
+<span class="marker" id="mapping-186"></span><span class="token del" data-title="source_file/comment">//     * @notice Mints CarbonUSD for the user. Stores the WT0 that backs the CarbonUSD</span>
+<span class="marker" id="mapping-187"></span><span class="token del" data-title="source_file/comment">//     * into the CarbonUSD contract's escrow account.</span>
+<span class="marker" id="mapping-188"></span><span class="token del" data-title="source_file/comment">//     * @param _to The address of the receiver</span>
+<span class="marker" id="mapping-189"></span><span class="token del" data-title="source_file/comment">//     * @param _amount The number of CarbonTokens to mint to user</span>
+<span class="marker" id="mapping-190"></span><span class="token del" data-title="source_file/comment">//     */</span>
+<span class="marker" id="mapping-191"></span><span class="token del" data-title="source_file/comment">//     function mintCUSD(address _to, uint256 _amount) public requiresPermission whenNotPaused userWhitelisted(_to) {</span>
+<span class="marker" id="mapping-192"></span><span class="token del" data-title="source_file/comment">//         return _mintCUSD(_to, _amount);</span>
+<span class="marker" id="mapping-193"></span><span class="token del" data-title="source_file/comment">//     }</span>
+
+<span class="marker" id="mapping-194"></span><span class="token del" data-title="source_file/comment">//     *</span>
+<span class="marker" id="mapping-195"></span><span class="token del" data-title="source_file/comment">//     * @notice Converts WT0 to CarbonUSD for the user. Stores the WT0 that backs the CarbonUSD</span>
+<span class="marker" id="mapping-196"></span><span class="token del" data-title="source_file/comment">//     * into the CarbonUSD contract's escrow account.</span>
+<span class="marker" id="mapping-197"></span><span class="token del" data-title="source_file/comment">//     * @param _amount The number of Whitelisted tokens to convert</span>
+    
+<span class="marker" id="mapping-198"></span><span class="token del" data-title="source_file/comment">//     function convertWT(uint256 _amount) public requiresPermission whenNotPaused {</span>
+<span class="marker" id="mapping-199"></span><span class="token del" data-title="source_file/comment">//         require(balanceOf(msg.sender) &gt;= _amount, "Conversion amount should be less than balance");</span>
+<span class="marker" id="mapping-200"></span><span class="token del" data-title="source_file/comment">//         _burn(msg.sender, _amount);</span>
+<span class="marker" id="mapping-201"></span><span class="token del" data-title="source_file/comment">//         _mintCUSD(msg.sender, _amount);</span>
+<span class="marker" id="mapping-202"></span><span class="token del" data-title="source_file/comment">//         emit ConvertedToCUSD(msg.sender, _amount);</span>
+<span class="marker" id="mapping-203"></span><span class="token del" data-title="source_file/comment">//     }</span>
+
+<span class="marker" id="mapping-204"></span><span class="token del" data-title="source_file/comment">//     /**</span>
+<span class="marker" id="mapping-205"></span><span class="token del" data-title="source_file/comment">//      * @notice Change the cusd address.</span>
+<span class="marker" id="mapping-206"></span><span class="token del" data-title="source_file/comment">//      * @param _cusd the cusd address.</span>
+<span class="marker" id="mapping-207"></span><span class="token del" data-title="source_file/comment">//      */</span>
+<span class="marker" id="mapping-208"></span><span class="token del" data-title="source_file/comment">//     function setCUSDAddress(address _cusd) public onlyOwner {</span>
+<span class="marker" id="mapping-209"></span><span class="token del" data-title="source_file/comment">//         require(_cusd != address(cusdAddress), "Must be a new cusd address");</span>
+<span class="marker" id="mapping-210"></span><span class="token del" data-title="source_file/comment">//         require(AddressUtils.isContract(_cusd), "Must be an actual contract");</span>
+<span class="marker" id="mapping-211"></span><span class="token del" data-title="source_file/comment">//         address oldCUSD = address(cusdAddress);</span>
+<span class="marker" id="mapping-212"></span><span class="token del" data-title="source_file/comment">//         cusdAddress = _cusd;</span>
+<span class="marker" id="mapping-213"></span><span class="token del" data-title="source_file/comment">//         emit CUSDAddressChanged(oldCUSD, _cusd);</span>
+<span class="marker" id="mapping-214"></span><span class="token del" data-title="source_file/comment">//     }</span>
+
+<span class="marker" id="mapping-215"></span><span class="token del" data-title="source_file/comment">//     function _mintCUSD(address _to, uint256 _amount) internal {</span>
+<span class="marker" id="mapping-216"></span><span class="token del" data-title="source_file/comment">//         require(_to != cusdAddress, "Cannot mint to CarbonUSD contract"); // This is to prevent Carbon Labs from printing money out of thin air!</span>
+<span class="marker" id="mapping-217"></span><span class="token del" data-title="source_file/comment">//         CarbonDollar(cusdAddress).mint(_to, _amount);</span>
+<span class="marker" id="mapping-218"></span><span class="token del" data-title="source_file/comment">//         _mint(cusdAddress, _amount);</span>
+<span class="marker" id="mapping-219"></span><span class="token del" data-title="source_file/comment">//         emit MintedToCUSD(_to, _amount);</span>
+<span class="marker" id="mapping-220"></span><span class="token del" data-title="source_file/comment">//     }</span>
+<span class="marker" id="mapping-221"></span><span class="token del" data-title="source_file/comment">// }</span></pre></div><div class="col-6"><h5>0xa832885ca9440ab6ff1d13d34ef64c037a59d3c8.etherscan.io-WhitelistedToken.sol</h5><pre class="pre-scrollable">pragma solidity ^0.4.24;
+
+/**
+ * @title SafeMath
+ * @dev Math operations with safety checks that throw on error
+ */
+library SafeMath {
+
+  /**
+  * @dev Multiplies two numbers, throws on overflow.
+  */
+  function mul(uint256 a, uint256 b) internal pure returns (uint256 c) {
+    // Gas optimization: this is cheaper than asserting 'a' not being zero, but the
+    // benefit is lost if 'b' is also tested.
+    // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+    if (a == 0) {
+      return 0;
+    }
+
+    c = a * b;
+    assert(c / a == b);
+    return c;
+  }
+
+  /**
+  * @dev Integer division of two numbers, truncating the quotient.
+  */
+  function div(uint256 a, uint256 b) internal pure returns (uint256) {
+    // assert(b &gt; 0); // Solidity automatically throws when dividing by 0
+    // uint256 c = a / b;
+    // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+    return a / b;
+  }
+
+  /**
+  * @dev Subtracts two numbers, throws on overflow (i.e. if subtrahend is greater than minuend).
+  */
+  function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+    assert(b &lt;= a);
+    return a - b;
+  }
+
+  /**
+  * @dev Adds two numbers, throws on overflow.
+  */
+  function add(uint256 a, uint256 b) internal pure returns (uint256 c) {
+    c = a + b;
+    assert(c &gt;= a);
+    return c;
+  }
+}
+
+/**
+ * @title Ownable
+ * @dev The Ownable contract has an owner address, and provides basic authorization control
+ * functions, this simplifies the implementation of "user permissions". This adds two-phase
+ * ownership control to OpenZeppelin's Ownable class. In this model, the original owner 
+ * designates a new owner but does not actually transfer ownership. The new owner then accepts 
+ * ownership and completes the transfer.
+ */
+contract Ownable {
+  address public owner;
+  address public pendingOwner;
+
+
+  event OwnershipTransferred(
+    address indexed previousOwner,
+    address indexed newOwner
+  );
+
+
+  /**
+   * @dev The Ownable constructor sets the original `owner` of the contract to the sender
+   * account.
+   */
+  constructor() public {
+    owner = msg.sender;
+    pendingOwner = address(0);
+  }
+
+  /**
+   * @dev Throws if called by any account other than the owner.
+   */
+  modifier onlyOwner() {
+    require(msg.sender == owner);
+    _;
+  }
+
+  /**
+   * @dev Throws if called by any account other than the owner.
+   */
+  modifier onlyPendingOwner() {
+    require(msg.sender == pendingOwner);
+    _;
+  }
+
+  /**
+   * @dev Allows the current owner to transfer control of the contract to a newOwner.
+   * @param _newOwner The address to transfer ownership to.
+   */
+  function transferOwnership(address _newOwner) public onlyOwner {
+    require(_newOwner != address(0));
+    pendingOwner = _newOwner;
+  }
+
+  /**
+   * @dev Allows the pendingOwner address to finalize the transfer.
+   */
+  function claimOwnership() onlyPendingOwner public {
+    emit OwnershipTransferred(owner, pendingOwner);
+    owner = pendingOwner;
+    pendingOwner = address(0);
+  }
+
+
+}
+
+/**
+ * Utility library of inline functions on addresses
+ */
+library AddressUtils {
+
+  /**
+   * Returns whether the target address is a contract
+   * @dev This function will return false if invoked during the constructor of a contract,
+   * as the code is not actually created until after the constructor finishes.
+   * @param addr address to check
+   * @return whether the target address is a contract
+   */
+  function isContract(address addr) internal view returns (bool) {
+    uint256 size;
+    // XXX Currently there is no better way to check if there is a contract in an address
+    // than to check the size of the code at that address.
+    // See https://ethereum.stackexchange.com/a/14016/36603
+    // for more details about how this works.
+    // TODO Check this again before the Serenity release, because all addresses will be
+    // contracts then.
+    // solium-disable-next-line security/no-inline-assembly
+    assembly { size := extcodesize(addr) }
+    return size &gt; 0;
+  }
+
+}
+
+/**
+* @title PermissionedTokenStorage
+* @notice a PermissionedTokenStorage is constructed by setting Regulator, BalanceSheet, and AllowanceSheet locations.
+* Once the storages are set, they cannot be changed.
+*/
+contract PermissionedTokenStorage is Ownable {
+    using SafeMath for uint256;
+
+    /**
+        Storage
+    */
+    mapping (address =&gt; mapping (address =&gt; uint256)) public allowances;
+    mapping (address =&gt; uint256) public balances;
+    uint256 public totalSupply;
+
+    function addAllowance(address _tokenHolder, address _spender, uint256 _value) public onlyOwner {
+        allowances[_tokenHolder][_spender] = allowances[_tokenHolder][_spender].add(_value);
+    }
+
+    function subAllowance(address _tokenHolder, address _spender, uint256 _value) public onlyOwner {
+        allowances[_tokenHolder][_spender] = allowances[_tokenHolder][_spender].sub(_value);
+    }
+
+    function setAllowance(address _tokenHolder, address _spender, uint256 _value) public onlyOwner {
+        allowances[_tokenHolder][_spender] = _value;
+    }
+
+    function addBalance(address _addr, uint256 _value) public onlyOwner {
+        balances[_addr] = balances[_addr].add(_value);
+    }
+
+    function subBalance(address _addr, uint256 _value) public onlyOwner {
+        balances[_addr] = balances[_addr].sub(_value);
+    }
+
+    function setBalance(address _addr, uint256 _value) public onlyOwner {
+        balances[_addr] = _value;
+    }
+
+    function addTotalSupply(uint256 _value) public onlyOwner {
+        totalSupply = totalSupply.add(_value);
+    }
+
+    function subTotalSupply(uint256 _value) public onlyOwner {
+        totalSupply = totalSupply.sub(_value);
+    }
+
+    function setTotalSupply(uint256 _value) public onlyOwner {
+        totalSupply = _value;
+    }
+
+}
+
+/**
+ * @title ERC20Basic
+ * @dev Simpler version of ERC20 interface
+ * See https://github.com/ethereum/EIPs/issues/179
+ */
+contract ERC20Basic {
+  function totalSupply() public view returns (uint256);
+  function balanceOf(address who) public view returns (uint256);
+  function transfer(address to, uint256 value) public returns (bool);
+  event Transfer(address indexed from, address indexed to, uint256 value);
+}
+
+/**
+ * @title ERC20 interface
+ * @dev see https://github.com/ethereum/EIPs/issues/20
+ */
+contract ERC20 is ERC20Basic {
+  function allowance(address owner, address spender)
+    public view returns (uint256);
+
+  function transferFrom(address from, address to, uint256 value)
+    public returns (bool);
+
+  function approve(address spender, uint256 value) public returns (bool);
+  event Approval(
+    address indexed owner,
+    address indexed spender,
+    uint256 value
+  );
+}
+
+/**
+* @title Lockable
+* @dev Base contract which allows children to lock certain methods from being called by clients.
+* Locked methods are deemed unsafe by default, but must be implemented in children functionality to adhere by
+* some inherited standard, for example. 
+*/
+
+contract Lockable is Ownable {
+
+	// Events
+	event Unlocked();
+	event Locked();
+
+	// Fields
+	bool public isMethodEnabled = false;
+
+	// Modifiers
+	/**
+	* @dev Modifier that disables functions by default unless they are explicitly enabled
+	*/
+	modifier whenUnlocked() {
+		require(isMethodEnabled);
+		_;
+	}
+
+	// Methods
+	/**
+	* @dev called by the owner to enable method
+	*/
+	function unlock() onlyOwner public {
+		isMethodEnabled = true;
+		emit Unlocked();
+	}
+
+	/**
+	* @dev called by the owner to disable method, back to normal state
+	*/
+	function lock() onlyOwner public {
+		isMethodEnabled = false;
+		emit Locked();
+	}
+
+}
+
+/**
+ * @title Pausable
+ * @dev Base contract which allows children to implement an emergency stop mechanism. Identical to OpenZeppelin version
+ * except that it uses local Ownable contract
+ */
+contract Pausable is Ownable {
+  event Pause();
+  event Unpause();
+
+  bool public paused = false;
+
+
+  /**
+   * @dev Modifier to make a function callable only when the contract is not paused.
+   */
+  modifier whenNotPaused() {
+    require(!paused);
+    _;
+  }
+
+  /**
+   * @dev Modifier to make a function callable only when the contract is paused.
+   */
+  modifier whenPaused() {
+    require(paused);
+    _;
+  }
+
+  /**
+   * @dev called by the owner to pause, triggers stopped state
+   */
+  function pause() onlyOwner whenNotPaused public {
+    paused = true;
+    emit Pause();
+  }
+
+  /**
+   * @dev called by the owner to unpause, returns to normal state
+   */
+  function unpause() onlyOwner whenPaused public {
+    paused = false;
+    emit Unpause();
+  }
+}
+
+/**
+*
+* @dev Stores permissions and validators and provides setter and getter methods. 
+* Permissions determine which methods users have access to call. Validators
+* are able to mutate permissions at the Regulator level.
+*
+*/
+contract RegulatorStorage is Ownable {
+    
+    /** 
+        Structs 
+    */
+
+    /* Contains metadata about a permission to execute a particular method signature. */
+    struct Permission {
+        string name; // A one-word description for the permission. e.g. "canMint"
+        string description; // A longer description for the permission. e.g. "Allows user to mint tokens."
+        string contract_name; // e.g. "PermissionedToken"
+        bool active; // Permissions can be turned on or off by regulator
+    }
+
+    /** 
+        Constants: stores method signatures. These are potential permissions that a user can have, 
+        and each permission gives the user the ability to call the associated PermissionedToken method signature
+    */
+    bytes4 public constant MINT_SIG = bytes4(keccak256("mint(address,uint256)"));
+    bytes4 public constant MINT_CUSD_SIG = bytes4(keccak256("mintCUSD(address,uint256)"));
+    bytes4 public constant DESTROY_BLACKLISTED_TOKENS_SIG = bytes4(keccak256("destroyBlacklistedTokens(address,uint256)"));
+    bytes4 public constant APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG = bytes4(keccak256("approveBlacklistedAddressSpender(address)"));
+    bytes4 public constant BLACKLISTED_SIG = bytes4(keccak256("blacklisted()"));
+
+    /** 
+        Mappings 
+    */
+
+    /* each method signature maps to a Permission */
+    mapping (bytes4 =&gt; Permission) public permissions;
+    /* list of validators, either active or inactive */
+    mapping (address =&gt; bool) public validators;
+    /* each user can be given access to a given method signature */
+    mapping (address =&gt; mapping (bytes4 =&gt; bool)) public userPermissions;
+
+    /** 
+        Events 
+    */
+    event PermissionAdded(bytes4 methodsignature);
+    event PermissionRemoved(bytes4 methodsignature);
+    event ValidatorAdded(address indexed validator);
+    event ValidatorRemoved(address indexed validator);
+
+    /** 
+        Modifiers 
+    */
+    /**
+    * @notice Throws if called by any account that does not have access to set attributes
+    */
+    modifier onlyValidator() {
+        require (isValidator(msg.sender), "Sender must be validator");
+        _;
+    }
+
+    /**
+    * @notice Sets a permission within the list of permissions.
+    * @param _methodsignature Signature of the method that this permission controls.
+    * @param _permissionName A "slug" name for this permission (e.g. "canMint").
+    * @param _permissionDescription A lengthier description for this permission (e.g. "Allows user to mint tokens").
+    * @param _contractName Name of the contract that the method belongs to.
+    */
+    function addPermission(
+        bytes4 _methodsignature, 
+        string _permissionName, 
+        string _permissionDescription, 
+        string _contractName) public onlyValidator { 
+        Permission memory p = Permission(_permissionName, _permissionDescription, _contractName, true);
+        permissions[_methodsignature] = p;
+        emit PermissionAdded(_methodsignature);
+    }
+
+    /**
+    * @notice Removes a permission the list of permissions.
+    * @param _methodsignature Signature of the method that this permission controls.
+    */
+    function removePermission(bytes4 _methodsignature) public onlyValidator {
+        permissions[_methodsignature].active = false;
+        emit PermissionRemoved(_methodsignature);
+    }
+    
+    /**
+    * @notice Sets a permission in the list of permissions that a user has.
+    * @param _methodsignature Signature of the method that this permission controls.
+    */
+    function setUserPermission(address _who, bytes4 _methodsignature) public onlyValidator {
+        require(permissions[_methodsignature].active, "Permission being set must be for a valid method signature");
+        userPermissions[_who][_methodsignature] = true;
+    }
+
+    /**
+    * @notice Removes a permission from the list of permissions that a user has.
+    * @param _methodsignature Signature of the method that this permission controls.
+    */
+    function removeUserPermission(address _who, bytes4 _methodsignature) public onlyValidator {
+        require(permissions[_methodsignature].active, "Permission being removed must be for a valid method signature");
+        userPermissions[_who][_methodsignature] = false;
+    }
+
+    /**
+    * @notice add a Validator
+    * @param _validator Address of validator to add
+    */
+    function addValidator(address _validator) public onlyOwner {
+        validators[_validator] = true;
+        emit ValidatorAdded(_validator);
+    }
+
+    /**
+    * @notice remove a Validator
+    * @param _validator Address of validator to remove
+    */
+    function removeValidator(address _validator) public onlyOwner {
+        validators[_validator] = false;
+        emit ValidatorRemoved(_validator);
+    }
+
+    /**
+    * @notice does validator exist?
+    * @return true if yes, false if no
+    **/
+    function isValidator(address _validator) public view returns (bool) {
+        return validators[_validator];
+    }
+
+    /**
+    * @notice does permission exist?
+    * @return true if yes, false if no
+    **/
+    function isPermission(bytes4 _methodsignature) public view returns (bool) {
+        return permissions[_methodsignature].active;
+    }
+
+    /**
+    * @notice get Permission structure
+    * @param _methodsignature request to retrieve the Permission struct for this methodsignature
+    * @return Permission
+    **/
+    function getPermission(bytes4 _methodsignature) public view returns 
+        (string name, 
+         string description, 
+         string contract_name,
+         bool active) {
+        return (permissions[_methodsignature].name,
+                permissions[_methodsignature].description,
+                permissions[_methodsignature].contract_name,
+                permissions[_methodsignature].active);
+    }
+
+    /**
+    * @notice does permission exist?
+    * @return true if yes, false if no
+    **/
+    function hasUserPermission(address _who, bytes4 _methodsignature) public view returns (bool) {
+        return userPermissions[_who][_methodsignature];
+    }
+}
+
+/**
+ * @title Regulator
+ * @dev Regulator can be configured to meet relevant securities regulations, KYC policies
+ * AML requirements, tax laws, and more. The Regulator ensures that the PermissionedToken
+ * makes compliant transfers possible. Contains the userPermissions necessary
+ * for regulatory compliance.
+ *
+ */
+contract Regulator is RegulatorStorage {
+    
+    /** 
+        Modifiers 
+    */
+    /**
+    * @notice Throws if called by any account that does not have access to set attributes
+    */
+    modifier onlyValidator() {
+        require (isValidator(msg.sender), "Sender must be validator");
+        _;
+    }
+
+    /** 
+        Events 
+    */
+    event LogBlacklistedUser(address indexed who);
+    <span class="marker" id="mapping-222"></span><span class="token mv" id="move-dst-1" data-title="contract_body/event_definition">event <span class="marker" id="mapping-223"></span><span class="token upd" id="move-dst-2" data-title="event_definition/identifier"><span class="cupd">Log</span>R<span class="cupd">e</span>movedB<span class="cupd">l</span>ackl<span class="cupd">istedUser</span></span>(address indexed who);</span>
+    event LogSetMinter(address indexed who);
+    event LogRemovedMinter(address indexed who);
+    event LogSetBlacklistDestroyer(address indexed who);
+    event LogRemovedBlacklistDestroyer(address indexed who);
+    event LogSetBlacklistSpender(address indexed who);
+    event LogRemovedBlacklistSpender(address indexed who);
+
+    /**
+    * @notice Sets the necessary permissions for a user to mint tokens.
+    * @param _who The address of the account that we are setting permissions for.
+    */
+    function setMinter(address _who) public onlyValidator {
+        _setMinter(_who);
+    }
+
+    /**
+    * @notice Removes the necessary permissions for a user to mint tokens.
+    * @param _who The address of the account that we are removing permissions for.
+    */
+    function removeMinter(address _who) public onlyValidator {
+        _removeMinter(_who);
+    }
+
+    /**
+    * @notice Sets the necessary permissions for a user to spend tokens from a blacklisted account.
+    * @param _who The address of the account that we are setting permissions for.
+    */
+    function setBlacklistSpender(address _who) public onlyValidator {
+        require(isPermission(APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG), "Blacklist spending not supported by token");
+        setUserPermission(_who, APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG);
+        emit LogSetBlacklistSpender(_who);
+    }
+    
+    /**
+    * @notice Removes the necessary permissions for a user to spend tokens from a blacklisted account.
+    * @param _who The address of the account that we are removing permissions for.
+    */
+    function removeBlacklistSpender(address _who) public onlyValidator {
+        require(isPermission(APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG), "Blacklist spending not supported by token");
+        removeUserPermission(_who, APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG);
+        emit LogRemovedBlacklistSpender(_who);
+    }
+
+    /**
+    * @notice Sets the necessary permissions for a user to destroy tokens from a blacklisted account.
+    * @param _who The address of the account that we are setting permissions for.
+    */
+    function setBlacklistDestroyer(address _who) public onlyValidator {
+        require(isPermission(DESTROY_BLACKLISTED_TOKENS_SIG), "Blacklist token destruction not supported by token");
+        setUserPermission(_who, DESTROY_BLACKLISTED_TOKENS_SIG);
+        emit LogSetBlacklistDestroyer(_who);
+    }
+    
+
+    /**
+    * @notice Removes the necessary permissions for a user to destroy tokens from a blacklisted account.
+    * @param _who The address of the account that we are removing permissions for.
+    */
+    function removeBlacklistDestroyer(address _who) public onlyValidator {
+        require(isPermission(DESTROY_BLACKLISTED_TOKENS_SIG), "Blacklist token destruction not supported by token");
+        removeUserPermission(_who, DESTROY_BLACKLISTED_TOKENS_SIG);
+        emit LogRemovedBlacklistDestroyer(_who);
+    }
+
+    /**
+    * @notice Sets the necessary permissions for a "blacklisted" user. A blacklisted user has their accounts
+    * frozen; they cannot transfer, burn, or withdraw any tokens.
+    * @param _who The address of the account that we are setting permissions for.
+    */
+    function setBlacklistedUser(address _who) public onlyValidator {
+        _setBlacklistedUser(_who);
+    }
+
+    <span class="marker" id="mapping-224"></span><span class="token mv" id="move-dst-4" data-title="contract_body/comment"><span class="marker" id="mapping-225"></span><span class="token upd" id="move-dst-4" data-title="contract_body/comment"><span class="cupd">/**
+    * @notice</span> <span class="cupd">R</span>emov<span class="cupd">es the necessary permissions for a </span>"black<span class="cupd">l</span>i<span class="cupd">st</span>ed" user. A <span class="cupd">b</span>lack<span class="cupd">liste</span><span class="cupd">d use</span>r has their accounts
+    * frozen; they cannot transfer, burn, or withdraw any toke<span class="cupd">ns.
+    * @param _who The address of the account that we a</span>re ch<span class="cupd">anging permissions for.
+  </span>  */</span></span>
+    <span class="marker" id="mapping-226"></span><span class="token mv" id="move-dst-5" data-title="contract_body/function_definition">function <span class="marker" id="mapping-227"></span><span class="token upd" id="move-dst-6" data-title="function_definition/identifier">r<span class="cupd">e</span>mov<span class="cupd">e</span>B<span class="cupd">l</span>ackl<span class="cupd">istedUser</span></span>(address _who) public onlyValidator {
+        <span class="marker" id="mapping-228"></span><span class="token upd" id="move-dst-7" data-title="call_expression/identifier"><span class="cupd">_</span>r<span class="cupd">e</span>mov<span class="cupd">e</span>B<span class="cupd">l</span>ackl<span class="cupd">istedUser</span></span>(_who);
+    }</span>
+
+    /** Returns whether or not a user is blacklisted.
+     * @param _who The address of the account in question.
+     * @return `true` if the user is blacklisted, `false` otherwise.
+     */
+    <span class="marker" id="mapping-229"></span><span class="token mv" id="move-dst-8" data-title="contract_body/function_definition">function <span class="marker" id="mapping-230"></span><span class="token upd" id="move-dst-9" data-title="function_definition/identifier"><span class="cupd">is</span>B<span class="cupd">l</span>ackl<span class="cupd">istedUser</span></span>(address _who) public view returns (bool) {
+        return (<span class="marker" id="mapping-231"></span><span class="token mv" id="move-dst-55" data-title="parenthesized_expression/call_expression">hasUserPermission(_who, BLACKLISTED_SIG)</span>);
+    }</span>
+
+
+    /** Returns whether or not a user is a blacklist spender.
+     * @param _who The address of the account in question.
+     * @return `true` if the user is a blacklist spender, `false` otherwise.
+     */
+    function isBlacklistSpender(address _who) public view returns (bool) {
+        return hasUserPermission(_who, APPROVE_BLACKLISTED_ADDRESS_SPENDER_SIG);
+    }
+
+    /** Returns whether or not a user is a blacklist destroyer.
+     * @param _who The address of the account in question.
+     * @return `true` if the user is a blacklist destroyer, `false` otherwise.
+     */
+    function isBlacklistDestroyer(address _who) public view returns (bool) {
+        return hasUserPermission(_who, DESTROY_BLACKLISTED_TOKENS_SIG);
+    }
+
+    /** Returns whether or not a user is a minter.
+     * @param _who The address of the account in question.
+     * @return `true` if the user is a minter, `false` otherwise.
+     */
+    function isMinter(address _who) public view returns (bool) {
+        return <span class="marker" id="mapping-232"></span><span class="token mv" id="move-dst-46" data-title="return_statement/parenthesized_expression">(<span class="marker" id="mapping-233"></span><span class="token mv" id="move-dst-10" data-title="binary_expression/call_expression">hasUserPermission(_who, MINT_SIG)</span> &amp;&amp; hasUserPermission(_who, MINT_CUSD_SIG))</span>;
+    }
+
+    /** Internal Functions **/
+
+    function _setMinter(address _who) internal {
+        require(isPermission(MINT_SIG), "Minting not supported by token");
+        <span class="marker" id="mapping-234"></span><span class="token mv" id="move-dst-47" data-title="function_body/expression_statement">require(isPermission(MINT_CUSD_SIG), "Minting to CUSD not supported by token");</span>
+        setUserPermission(_who, MINT_SIG);
+        <span class="marker" id="mapping-235"></span><span class="token mv" id="move-dst-48" data-title="function_body/expression_statement">setUserPermission(_who, MINT_CUSD_SIG);</span>
+        emit LogSetMinter(_who);
+    }
+
+    function _removeMinter(address _who) internal {
+        require(isPermission(MINT_SIG), "Minting not supported by token");
+        <span class="marker" id="mapping-236"></span><span class="token mv" id="move-dst-49" data-title="function_body/expression_statement">require(isPermission(MINT_CUSD_SIG), "Minting to CUSD not supported by token");</span>
+        <span class="marker" id="mapping-237"></span><span class="token mv" id="move-dst-50" data-title="function_body/expression_statement">removeUserPermission(_who, MINT_CUSD_SIG);</span>
+        removeUserPermission(_who, MINT_SIG);
+        emit LogRemovedMinter(_who);
+    }
+
+    function _setBlacklistedUser(address _who) internal {
+        require(isPermission(BLACKLISTED_SIG), "Self-destruct method not supported by token");
+        setUserPermission(_who, BLACKLISTED_SIG);
+        emit LogBlacklistedUser(_who);
+    }
+
+    <span class="marker" id="mapping-238"></span><span class="token mv" id="move-dst-11" data-title="contract_body/function_definition">function <span class="marker" id="mapping-239"></span><span class="token upd" id="move-dst-12" data-title="function_definition/identifier"><span class="cupd">_</span>r<span class="cupd">e</span>m<span class="cupd">o</span>veB<span class="cupd">l</span>ackl<span class="cupd">istedUser</span></span>(address _who) internal {
+        require(isPermission(BLACKLISTED_SIG), "Self-destruct method not supported by token");
+        removeUserPermission(_who, BLACKLISTED_SIG);
+        emit <span class="marker" id="mapping-240"></span><span class="token upd" id="move-dst-13" data-title="emit_statement/identifier"><span class="cupd">Log</span>Rem<span class="cupd">o</span>vedB<span class="cupd">l</span>ackl<span class="cupd">istedUser</span></span>(_who);
+    }</span>
+}
+
+/**
+* @title PermissionedToken
+* @notice A permissioned token that enables transfers, withdrawals, and deposits to occur 
+* if and only if it is approved by an on-chain Regulator service. PermissionedToken is an
+* ERC-20 smart contract representing ownership of securities and overrides the
+* transfer, burn, and mint methods to check with the Regulator.
+*/
+contract PermissionedToken is ERC20, Pausable, Lockable {
+    using SafeMath for uint256;
+
+    /** Events */
+    event DestroyedBlacklistedTokens(address indexed account, uint256 amount);
+    event ApprovedBlacklistedAddressSpender(address indexed owner, address indexed spender, uint256 value);
+    event Mint(address indexed to, uint256 value);
+    event Burn(address indexed burner, uint256 value);
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+    event ChangedRegulator(address indexed oldRegulator, address indexed newRegulator );
+
+    PermissionedTokenStorage public tokenStorage;
+    Regulator public regulator;
+
+    /**
+    * @dev create a new PermissionedToken with a brand new data storage
+    **/
+    constructor (address _regulator) public {
+        regulator = Regulator(_regulator);
+        tokenStorage = new PermissionedTokenStorage();
+    }
+
+    /** Modifiers **/
+
+    /** @notice Modifier that allows function access to be restricted based on
+    * whether the regulator allows the message sender to execute that function.
+    **/
+    modifier requiresPermission() {
+        require (regulator.hasUserPermission(msg.sender, msg.sig), "User does not have permission to execute function");
+        _;
+    }
+
+    /** @notice Modifier that checks whether or not a transferFrom operation can
+    * succeed with the given _from and _to address. See transferFrom()'s documentation for
+    * more details.
+    **/
+    modifier transferFromConditionsRequired(address _from, address _to) {
+        require(!regulator.isBlacklistedUser(_to), "Recipient cannot be blacklisted");
+        
+        // If the origin user is blacklisted, the transaction can only succeed if 
+        // the message sender is a user that has been approved to transfer 
+        // blacklisted tokens out of this address.
+        bool is_origin_blacklisted = regulator.isBlacklistedUser(_from);
+
+        // Is the message sender a person with the ability to transfer tokens out of a blacklisted account?
+        bool sender_can_spend_from_blacklisted_address = regulator.isBlacklistSpender(msg.sender);
+        require(!is_origin_blacklisted || sender_can_spend_from_blacklisted_address, "Origin cannot be blacklisted if spender is not an approved blacklist spender");
+        _;
+    }
+
+    /** @notice Modifier that checks whether a user is blacklisted.
+     * @param _user The address of the user to check.
+    **/
+    modifier userBlacklisted(address _user) {
+        require(regulator.isBlacklistedUser(_user), "User must be blacklisted");
+        _;
+    }
+
+    /** @notice Modifier that checks whether a user is not blacklisted.
+     * @param _user The address of the user to check.
+    **/
+    modifier userNotBlacklisted(address _user) {
+        require(!regulator.isBlacklistedUser(_user), "User must not be blacklisted");
+        _;
+    }
+
+    /** Functions **/
+
+    <span class="marker" id="mapping-241"></span><span class="token mv" id="move-dst-17" data-title="contract_body/comment"><span class="marker" id="mapping-242"></span><span class="token upd" id="move-dst-17" data-title="contract_body/comment"><span class="cupd">/**</span>
+    *<span class="cupd"> @notice</span> Al<span class="cupd">l</span>ows user to <span class="cupd">m</span>int <span class="cupd">i</span>f they have the approp<span class="cupd">r</span>ia<span class="cupd">t</span>e p<span class="cupd">e</span>rmissions<span class="cupd">.</span> User generally
+    * m<span class="cupd">u</span>s<span class="cupd">t </span>have m<span class="cupd">i</span>nti<span class="cupd">n</span>g a<span class="cupd">u</span>thority.
+    *<span class="cupd"> </span>@dev Should b<span class="cupd">e</span> a<span class="cupd">c</span>cess-restric<span class="cupd">te</span>d <span class="cupd">w</span>i<span class="cupd">th </span>th<span class="cupd">e</span> '<span class="cupd">r</span>equ<span class="cupd">i</span>r<span class="cupd">es</span>P<span class="cupd">er</span>missi<span class="cupd">o</span>n' modifi<span class="cupd">er</span> wh<span class="cupd">e</span>n imple<span class="cupd">m</span><span class="cupd">e</span>nt<span class="cupd">ing.
+</span><span class="cupd">    * @par</span>am<span class="cupd"> _to The address of </span>t<span class="cupd">h</span>e rec<span class="cupd">ei</span>ver
+    * @param _<span class="cupd">a</span><span class="cupd">m</span>o<span class="cupd">un</span>t The number <span class="cupd">o</span>f t<span class="cupd">o</span>ke<span class="cupd">n</span>s to<span class="cupd"> mi</span>nt<span class="cupd"></span>
+    */</span></span>
+    function mint(address _to, uint256 _amount) public <span class="marker" id="mapping-243"></span><span class="token add" data-title="function_definition/modifier_invocation">userNotBlacklisted(_to)</span> requiresPermission whenNotPaused {
+        _mint(_to, _amount);
+    }
+
+    <span class="marker" id="mapping-244"></span><span class="token mv" id="move-dst-21" data-title="contract_body/comment"><span class="marker" id="mapping-245"></span><span class="token upd" id="move-dst-21" data-title="contract_body/comment"><span class="cupd">/**
+    * @notice</span> <span class="cupd">R</span>e<span class="cupd">m</span><span class="cupd">ove</span> CUS<span class="cupd">D</span> <span class="cupd">fr</span><span class="cupd">o</span><span class="cupd">m</span><span class="cupd"> </span>sup<span class="cupd">p</span><span class="cupd">ly
+    </span>* <span class="cupd">@</span>par<span class="cupd">a</span>m _amo<span class="cupd">u</span><span class="cupd">n</span>t <span class="cupd">Th</span>e <span class="cupd">n</span>u<span class="cupd">m</span><span class="cupd">b</span><span class="cupd">er o</span>f t<span class="cupd">ok</span>en<span class="cupd">s</span> <span class="cupd">t</span>o<span class="cupd"> </span><span class="cupd">b</span>u<span class="cupd">rn
+    </span>*<span class="cupd"> </span>@<span class="cupd">r</span>et<span class="cupd">u</span>r<span class="cupd">n </span>`<span class="cupd">t</span>r<span class="cupd">u</span><span class="cupd">e</span>`<span class="cupd"> </span>i<span class="cupd">f</span> s<span class="cupd">uc</span><span class="cupd">c</span><span class="cupd">e</span>s<span class="cupd">s</span><span class="cupd">f</span><span class="cupd">u</span>l <span class="cupd">a</span>nd<span class="cupd"> </span>`<span class="cupd">f</span><span class="cupd">a</span>l<span class="cupd">s</span><span class="cupd">e</span>`<span class="cupd"> </span><span class="cupd">if</span> <span class="cupd">u</span>ns<span class="cupd">u</span>cc<span class="cupd">e</span>ss<span class="cupd">f</span><span class="cupd">u</span><span class="cupd">l</span><span class="cupd">
+</span><span class="cupd">  </span>  */</span></span>
+    function burn(uint256 _amount) <span class="marker" id="mapping-246"></span><span class="token upd" id="move-dst-23" data-title="modifier_invocation/identifier"><span class="cupd">u</span><span class="cupd">s</span><span class="cupd">er</span>NotBlackl<span class="cupd">is</span>ted</span><span class="marker" id="mapping-247"></span><span class="token add" data-title="modifier_invocation/(">(</span><span class="marker" id="mapping-248"></span><span class="token add" data-title="modifier_invocation/call_argument">msg.sender</span><span class="marker" id="mapping-249"></span><span class="token add" data-title="modifier_invocation/)">)</span> <span class="marker" id="mapping-250"></span><span class="token mv" id="move-dst-22" data-title="function_definition/visibility">public</span> whenNotPaused {
+        _burn(msg.sender, _amount);
+    }
+
+    /**
+    * @notice Implements ERC-20 standard approve function. Locked or disabled by default to protect against
+    * double spend attacks. To modify allowances, clients should call safer increase/decreaseApproval methods.
+    * Upon construction, all calls to approve() will revert unless this contract owner explicitly unlocks approve()
+    */
+    function approve(address _spender, uint256 _value) 
+    public userNotBlacklisted(_spender) userNotBlacklisted(msg.sender) whenNotPaused whenUnlocked returns (bool) {
+        tokenStorage.setAllowance(msg.sender, _spender, _value);
+        emit Approval(msg.sender, _spender, _value);
+        return true;
+    }
+
+    /**
+     * @dev Increase the amount of tokens that an owner allowed to a spender.
+     * @notice increaseApproval should be used instead of approve when the user's allowance
+     * is greater than 0. Using increaseApproval protects against potential double-spend attacks
+     * by moving the check of whether the user has spent their allowance to the time that the transaction 
+     * is mined, removing the user's ability to double-spend
+     * @param _spender The address which will spend the funds.
+     * @param _addedValue The amount of tokens to increase the allowance by.
+     */
+    function increaseApproval(address _spender, uint256 _addedValue) 
+    public userNotBlacklisted(_spender) userNotBlacklisted(msg.sender) whenNotPaused returns (bool) {
+        _increaseApproval(_spender, _addedValue, msg.sender);
+        return true;
+    }
+
+    /**
+     * @dev Decrease the amount of tokens that an owner allowed to a spender.
+     * @notice decreaseApproval should be used instead of approve when the user's allowance
+     * is greater than 0. Using decreaseApproval protects against potential double-spend attacks
+     * by moving the check of whether the user has spent their allowance to the time that the transaction 
+     * is mined, removing the user's ability to double-spend
+     * @param _spender The address which will spend the funds.
+     * @param _subtractedValue The amount of tokens to decrease the allowance by.
+     */
+    function decreaseApproval(address _spender, uint256 _subtractedValue) 
+    public userNotBlacklisted(_spender) userNotBlacklisted(msg.sender) whenNotPaused returns (bool) {
+        _decreaseApproval(_spender, _subtractedValue, msg.sender);
+        return true;
+    }
+
+    /**
+    * @notice Destroy the tokens owned by a blacklisted account. This function can generally
+    * only be called by a central authority.
+    * @dev Should be access-restricted with the 'requiresPermission' modifier when implementing.
+    * @param _who Account to destroy tokens from. Must be a blacklisted account.
+    */
+    function destroyBlacklistedTokens(address _who, uint256 _amount) public userBlacklisted(_who) whenNotPaused requiresPermission {
+        tokenStorage.subBalance(_who, _amount);
+        tokenStorage.subTotalSupply(_amount);
+        emit DestroyedBlacklistedTokens(_who, _amount);
+    }
+    /**
+    * @notice Allows a central authority to approve themselves as a spender on a blacklisted account.
+    * By default, the allowance is set to the balance of the blacklisted account, so that the
+    * authority has full control over the account balance.
+    * @dev Should be access-restricted with the 'requiresPermission' modifier when implementing.
+    * @param _blacklistedAccount The blacklisted account.
+    */
+    function approveBlacklistedAddressSpender(address _blacklistedAccount) 
+    public userBlacklisted(_blacklistedAccount) whenNotPaused requiresPermission {
+        tokenStorage.setAllowance(_blacklistedAccount, msg.sender, balanceOf(_blacklistedAccount));
+        emit ApprovedBlacklistedAddressSpender(_blacklistedAccount, msg.sender, balanceOf(_blacklistedAccount));
+    }
+
+    /**
+    * @notice Initiates a "send" operation towards another user. See `transferFrom` for details.
+    * @param _to The address of the receiver. This user must not be blacklisted, or else the tranfer
+    * will fail.
+    * @param _amount The number of tokens to transfer
+    *
+    * @return `true` if successful 
+    */
+    function transfer(address _to, uint256 _amount) public userNotBlacklisted(_to) userNotBlacklisted(msg.sender) whenNotPaused returns (bool) <span class="marker" id="mapping-251"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-252"></span><span class="token mv" id="move-dst-26" data-title="function_body/expression_statement"><span class="marker" id="mapping-253"></span><span class="token add" data-title="call_expression/identifier">_transfer</span>(<span class="marker" id="mapping-254"></span><span class="token mv" id="move-dst-75" data-title="call_expression/call_argument">_to</span>, <span class="marker" id="mapping-255"></span><span class="token mv" id="move-dst-27" data-title="call_expression/call_argument">msg.sender</span><span class="marker" id="mapping-256"></span><span class="token add" data-title="call_expression/,">,</span> _amount);</span>
+        <span class="marker" id="mapping-257"></span><span class="token mv" id="move-dst-30" data-title="function_body/return_statement">return true;</span>
+    }</span>
+
+    /**
+    * @notice Initiates a transfer operation between address `_from` and `_to`. Requires that the
+    * message sender is an approved spender on the _from account.
+    * @dev When implemented, it should use the transferFromConditionsRequired() modifier.
+    * @param _to The address of the recipient. This address must not be blacklisted.
+    * @param _from The address of the origin of funds. This address _could_ be blacklisted, because
+    * a regulator may want to transfer tokens out of a blacklisted account, for example.
+    * In order to do so, the regulator would have to add themselves as an approved spender
+    * on the account via `addBlacklistAddressSpender()`, and would then be able to transfer tokens out of it.
+    * @param _amount The number of tokens to transfer
+    * @return `true` if successful 
+    */
+    <span class="marker" id="mapping-258"></span><span class="token add" data-title="contract_body/function_definition">function transferFrom(<span class="marker" id="mapping-259"></span><span class="token add" data-title="function_definition/parameter">address _from</span>, <span class="marker" id="mapping-260"></span><span class="token mv" id="move-dst-72" data-title="function_definition/parameter">address _to</span>, <span class="marker" id="mapping-261"></span><span class="token mv" id="move-dst-73" data-title="function_definition/parameter">uint256 _amount</span>) 
+    <span class="marker" id="mapping-262"></span><span class="token mv" id="move-dst-35" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-263"></span><span class="token mv" id="move-dst-36" data-title="function_definition/modifier_invocation">whenNotPaused</span> <span class="marker" id="mapping-264"></span><span class="token mv" id="move-dst-37" data-title="function_definition/modifier_invocation">transferFromConditionsRequired(_from, _to)</span> <span class="marker" id="mapping-265"></span><span class="token mv" id="move-dst-38" data-title="function_definition/return_type_definition">returns (bool)</span> <span class="marker" id="mapping-266"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-267"></span><span class="token mv" id="move-dst-39" data-title="function_body/expression_statement">require(_amount &lt;= allowance(_from, msg.sender),"not enough allowance to transfer");</span>
+        <span class="marker" id="mapping-268"></span><span class="token add" data-title="function_body/expression_statement"><span class="marker" id="mapping-269"></span><span class="token add" data-title="expression_statement/call_expression">_transfer(<span class="marker" id="mapping-270"></span><span class="token mv" id="move-dst-28" data-title="call_expression/call_argument">_to</span>, <span class="marker" id="mapping-271"></span><span class="token add" data-title="call_expression/call_argument">_from</span>, <span class="marker" id="mapping-272"></span><span class="token mv" id="move-dst-29" data-title="call_expression/call_argument">_amount</span>)</span>;</span>
+        <span class="marker" id="mapping-273"></span><span class="token mv" id="move-dst-40" data-title="function_body/expression_statement">tokenStorage.subAllowance(_from, msg.sender, _amount);</span>
+        <span class="marker" id="mapping-274"></span><span class="token mv" id="move-dst-41" data-title="function_body/return_statement">return true;</span>
+    }</span></span>
+
+    /**
+    *
+    * @dev Only the token owner can change its regulator
+    * @param _newRegulator the new Regulator for this token
+    *
+    */
+    function setRegulator(address _newRegulator) public onlyOwner {
+        require(_newRegulator != address(regulator), "Must be a new regulator");
+        require(AddressUtils.isContract(_newRegulator), "Cannot set a regulator storage to a non-contract address");
+        address old = address(regulator);
+        regulator = Regulator(_newRegulator);
+        emit ChangedRegulator(old, _newRegulator);
+    }
+
+    /**
+    * @notice If a user is blacklisted, they will have the permission to 
+    * execute this dummy function. This function effectively acts as a marker 
+    * to indicate that a user is blacklisted. We include this function to be consistent with our
+    * invariant that every possible userPermission (listed in Regulator) enables access to a single 
+    * PermissionedToken function. Thus, the 'BLACKLISTED' permission gives access to this function
+    * @return `true` if successful
+    */
+    function blacklisted() public view requiresPermission returns (bool) {
+        return true;
+    }
+
+    /**
+    * ERC20 standard functions
+    */
+    function allowance(address owner, address spender) public view returns (uint256) {
+        return tokenStorage.allowances(owner, spender);
+    }
+
+    function totalSupply() public view returns (uint256) {
+        return tokenStorage.totalSupply();
+    }
+
+    function balanceOf(address _addr) public view returns (uint256) {
+        return tokenStorage.balances(_addr);
+    }
+
+
+    /** Internal functions **/
+    
+    function _decreaseApproval(address _spender, uint256 _subtractedValue, address _tokenHolder) internal {
+        uint256 oldValue = allowance(_tokenHolder, _spender);
+        if (_subtractedValue &gt; oldValue) {
+            tokenStorage.setAllowance(_tokenHolder, _spender, 0);
+        } else {
+            tokenStorage.subAllowance(_tokenHolder, _spender, _subtractedValue);
+        }
+        emit Approval(_tokenHolder, _spender, allowance(_tokenHolder, _spender));
+    }
+
+    function _increaseApproval(address _spender, uint256 _addedValue, address _tokenHolder) internal {
+        tokenStorage.addAllowance(_tokenHolder, _spender, _addedValue);
+        emit Approval(_tokenHolder, _spender, allowance(_tokenHolder, _spender));
+    }
+
+    function _burn(address _tokensOf, uint256 _amount) internal {
+        <span class="marker" id="mapping-275"></span><span class="token mv" id="move-dst-15" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-276"></span><span class="token add" data-title="call_argument/binary_expression">_tokensOf != address(0)</span>,"burner address cannot be 0x0");</span>
+        require(_amount &lt;= balanceOf(_tokensOf),"not enough balance to burn");
+        // no need to require value &lt;= totalSupply, since that would imply the
+        // sender's balance is greater than the totalSupply, which *should* be an assertion failure
+        tokenStorage.subBalance(_tokensOf, _amount);
+        tokenStorage.subTotalSupply(_amount);
+        emit Burn(_tokensOf, _amount);
+        emit Transfer(_tokensOf, address(0), _amount);
+    }
+
+    function _mint(address _to, uint256 _amount) internal <span class="marker" id="mapping-277"></span><span class="token mv" id="move-dst-24" data-title="function_definition/function_body">{
+        require(_to != address(0),"to address cannot be 0x0");
+        <span class="marker" id="mapping-278"></span><span class="token mv" id="move-dst-42" data-title="function_body/expression_statement">tokenStorage.addTotalSupply(_amount);</span>
+        <span class="marker" id="mapping-279"></span><span class="token mv" id="move-dst-43" data-title="function_body/expression_statement">tokenStorage.addBalance(_to, _amount);</span>
+        <span class="marker" id="mapping-280"></span><span class="token mv" id="move-dst-44" data-title="function_body/emit_statement">emit Mint(_to, _amount);</span>
+        <span class="marker" id="mapping-281"></span><span class="token mv" id="move-dst-45" data-title="function_body/emit_statement">emit Transfer(address(0), _to, _amount);</span>
+    }</span>
+
+    <span class="marker" id="mapping-282"></span><span class="token mv" id="move-dst-31" data-title="contract_body/function_definition">function <span class="marker" id="mapping-283"></span><span class="token upd" id="move-dst-32" data-title="function_definition/identifier">_<span class="cupd">transfer</span></span>(address _to<span class="marker" id="mapping-284"></span><span class="token mv" id="move-dst-34" data-title="function_definition/,">,</span> <span class="marker" id="mapping-285"></span><span class="token mv" id="move-dst-33" data-title="function_definition/parameter">address _from</span>, uint256 _amount) <span class="marker" id="mapping-286"></span><span class="token mv" id="move-dst-14" data-title="function_definition/visibility">internal</span> {
+        require(_to != address(0),"to address cannot be 0x0");
+        require(_amount &lt;= balanceOf(_from),"not enough balance to transfer");
+
+        tokenStorage.addBalance(_to, _amount);
+        tokenStorage.subBalance(_from, _amount);
+        emit Transfer(_from, _to, _amount);
+    }</span>
+
+}
+
+/**
+* @title CarbonDollarStorage
+* @notice Contains necessary storage contracts for CarbonDollar (FeeSheet and StablecoinWhitelist).
+*/
+contract CarbonDollarStorage is Ownable {
+    using SafeMath for uint256;
+
+    /** 
+        Mappings
+    */
+    /* fees for withdrawing to stablecoin, in tenths of a percent) */
+    mapping (address =&gt; uint256) public fees;
+    /** @dev Units for fees are always in a tenth of a percent */
+    uint256 public defaultFee;
+    /* is the token address referring to a stablecoin/whitelisted token? */
+    mapping (address =&gt; bool) public whitelist;
+
+
+    /** 
+        Events
+    */
+    event DefaultFeeChanged(uint256 oldFee, uint256 newFee);
+    event FeeChanged(address indexed stablecoin, uint256 oldFee, uint256 newFee);
+    event FeeRemoved(address indexed stablecoin, uint256 oldFee);
+    event StablecoinAdded(address indexed stablecoin);
+    event StablecoinRemoved(address indexed stablecoin);
+
+    /** @notice Sets the default fee for burning CarbonDollar into a whitelisted stablecoin.
+        @param _fee The default fee.
+    */
+    function setDefaultFee(uint256 _fee) public onlyOwner {
+        uint256 oldFee = defaultFee;
+        defaultFee = _fee;
+        if (oldFee != defaultFee)
+            emit DefaultFeeChanged(oldFee, _fee);
+    }
+    
+    /** @notice Set a fee for burning CarbonDollar into a stablecoin.
+        @param _stablecoin Address of a whitelisted stablecoin.
+        @param _fee the fee.
+    */
+    function setFee(address _stablecoin, uint256 _fee) public onlyOwner {
+        uint256 oldFee = fees[_stablecoin];
+        fees[_stablecoin] = _fee;
+        if (oldFee != _fee)
+            emit FeeChanged(_stablecoin, oldFee, _fee);
+    }
+
+    /** @notice Remove the fee for burning CarbonDollar into a particular kind of stablecoin.
+        @param _stablecoin Address of stablecoin.
+    */
+    function removeFee(address _stablecoin) public onlyOwner {
+        uint256 oldFee = fees[_stablecoin];
+        fees[_stablecoin] = 0;
+        if (oldFee != 0)
+            emit FeeRemoved(_stablecoin, oldFee);
+    }
+
+    /** @notice Add a token to the whitelist.
+        @param _stablecoin Address of the new stablecoin.
+    */
+    function addStablecoin(address _stablecoin) public onlyOwner {
+        whitelist[_stablecoin] = true;
+        emit StablecoinAdded(_stablecoin);
+    }
+
+    /** @notice Removes a token from the whitelist.
+        @param _stablecoin Address of the ex-stablecoin.
+    */
+    function removeStablecoin(address _stablecoin) public onlyOwner {
+        whitelist[_stablecoin] = false;
+        emit StablecoinRemoved(_stablecoin);
+    }
+
+
+    /**
+     * @notice Compute the fee that will be charged on a "burn" operation.
+     * @param _amount The amount that will be traded.
+     * @param _stablecoin The stablecoin whose fee will be used.
+     */
+    function computeStablecoinFee(uint256 _amount, address _stablecoin) public view returns (uint256) {
+        uint256 fee = fees[_stablecoin];
+        return computeFee(_amount, fee);
+    }
+
+    /**
+     * @notice Compute the fee that will be charged on a "burn" operation.
+     * @param _amount The amount that will be traded.
+     * @param _fee The fee that will be charged, in tenths of a percent.
+     */
+    function computeFee(uint256 _amount, uint256 _fee) public pure returns (uint256) {
+        return _amount.mul(_fee).div(1000);
+    }
+}
+
+/**
+* @title CarbonDollar
+* @notice The main functionality for the CarbonUSD metatoken. (CarbonUSD is just a proxy
+* that implements this contract's functionality.) This is a permissioned token, so users have to be 
+* whitelisted before they can do any mint/burn/convert operation. Every CarbonDollar token is backed by one
+* whitelisted stablecoin credited to the balance of this contract address.
+*/
+contract CarbonDollar is PermissionedToken {
+    
+    // Events
+
+    event ConvertedToWT(address indexed user, uint256 amount);
+    event BurnedCUSD(address indexed user, uint256 feedAmount, uint256 chargedFee);
+    
+    /**
+        Modifiers
+    */
+    modifier requiresWhitelistedToken() {
+        require(isWhitelisted(msg.sender), "Sender must be a whitelisted token contract");
+        _;
+    }
+
+    CarbonDollarStorage public tokenStorage_CD;
+
+    /** CONSTRUCTOR
+    * @dev Passes along arguments to base class.
+    */
+    constructor(address _regulator) public PermissionedToken(_regulator) {
+
+        // base class override
+        regulator = <span class="marker" id="mapping-287"></span><span class="token upd" id="move-dst-56" data-title="call_expression/identifier"><span class="cupd">Regulator</span></span>(_regulator);
+
+        tokenStorage_CD = new CarbonDollarStorage();
+    }
+
+    /**
+     * @notice Add new stablecoin to whitelist.
+     * @param _stablecoin Address of stablecoin contract.
+     */
+    function listToken(address _stablecoin) public onlyOwner whenNotPaused {
+        tokenStorage_CD.addStablecoin(_stablecoin); 
+    }
+
+    /**
+     * @notice Remove existing stablecoin from whitelist.
+     * @param _stablecoin Address of stablecoin contract.
+     */
+    function unlistToken(address _stablecoin) public onlyOwner whenNotPaused {
+        tokenStorage_CD.removeStablecoin(_stablecoin);
+    }
+
+    /**
+     * @notice Change fees associated with going from CarbonUSD to a particular stablecoin.
+     * @param stablecoin Address of the stablecoin contract.
+     * @param _newFee The new fee rate to set, in tenths of a percent. 
+     */
+    function setFee(address stablecoin, uint256 _newFee) public onlyOwner whenNotPaused {
+        require(isWhitelisted(stablecoin), "Stablecoin must be whitelisted prior to setting conversion fee");
+        tokenStorage_CD.setFee(stablecoin, _newFee);
+    }
+
+    /**
+     * @notice Remove fees associated with going from CarbonUSD to a particular stablecoin.
+     * The default fee still may apply.
+     * @param stablecoin Address of the stablecoin contract.
+     */
+    function removeFee(address stablecoin) public onlyOwner whenNotPaused {
+        require(isWhitelisted(stablecoin), "Stablecoin must be whitelisted prior to setting conversion fee");
+       tokenStorage_CD.removeFee(stablecoin);
+    }
+
+    /**
+     * @notice Change the default fee associated with going from CarbonUSD to a WhitelistedToken.
+     * This fee amount is used if the fee for a WhitelistedToken is not specified.
+     * @param _newFee The new fee rate to set, in tenths of a percent.
+     */
+    function setDefaultFee(uint256 _newFee) public onlyOwner whenNotPaused {
+        tokenStorage_CD.setDefaultFee(_newFee);
+    }
+
+    /**
+     * @notice Mints CUSD on behalf of a user. Note the use of the "requiresWhitelistedToken"
+     * modifier; this means that minting authority does not belong to any personal account; 
+     * only whitelisted token contracts can call this function. The intended functionality is that the only
+     * way to mint CUSD is for the user to actually burn a whitelisted token to convert into CUSD
+     * @param _to User to send CUSD to
+     * @param _amount Amount of CarbonUSD to mint.
+     */
+    function mint(address _to, uint256 _amount) public requiresWhitelistedToken whenNotPaused {
+        _mint(_to, _amount);
+    }
+
+    /**
+     * @notice user can convert CarbonUSD umbrella token into a whitelisted stablecoin. 
+     * @param stablecoin represents the type of coin the users wishes to receive for burning carbonUSD
+     * @param _amount Amount of CarbonUSD to convert.
+     * we credit the user's account at the sender address with the _amount minus the percentage fee we want to charge.
+     */
+    function convertCarbonDollar(address stablecoin, uint256 _amount) public <span class="marker" id="mapping-288"></span><span class="token upd" id="move-dst-57" data-title="modifier_invocation/identifier"><span class="cupd">u</span><span class="cupd">s</span><span class="cupd">er</span>NotBlackl<span class="cupd">is</span>ted</span><span class="marker" id="mapping-289"></span><span class="token add" data-title="modifier_invocation/(">(</span><span class="marker" id="mapping-290"></span><span class="token add" data-title="modifier_invocation/call_argument">msg.sender</span><span class="marker" id="mapping-291"></span><span class="token add" data-title="modifier_invocation/)">)</span> whenNotPaused  {
+        require(isWhitelisted(stablecoin), "Stablecoin must be whitelisted prior to setting conversion fee");
+        WhitelistedToken whitelisted = WhitelistedToken(stablecoin);
+        require(whitelisted.balanceOf(address(this)) &gt;= _amount, "Carbon escrow account in WT0 doesn't have enough tokens for burning");
+ 
+        // Send back WT0 to calling user, but with a fee reduction.
+        // Transfer this fee into the whitelisted token's CarbonDollar account (this contract's address)
+        uint256 chargedFee = tokenStorage_CD.computeFee(_amount, computeFeeRate(stablecoin));
+        uint256 feedAmount = _amount.sub(chargedFee);
+        _burn(msg.sender, _amount);
+        require(whitelisted.transfer(msg.sender, feedAmount));
+        whitelisted.burn(chargedFee);
+        _mint(address(this), chargedFee);
+        emit ConvertedToWT(msg.sender, _amount);
+    }
+
+     /**
+     * @notice burns CarbonDollar and an equal amount of whitelisted stablecoin from the CarbonDollar address
+     * @param stablecoin Represents the stablecoin whose fee will be charged.
+     * @param _amount Amount of CarbonUSD to burn.
+     */
+    <span class="marker" id="mapping-292"></span><span class="token mv" id="move-dst-70" data-title="contract_body/function_definition">function <span class="marker" id="mapping-293"></span><span class="token upd" id="move-dst-71" data-title="function_definition/identifier">burnCarbonDollar</span>(<span class="marker" id="mapping-294"></span><span class="token mv" id="move-dst-60" data-title="function_definition/parameter">address stablecoin</span>, <span class="marker" id="mapping-295"></span><span class="token add" data-title="function_definition/parameter">uint256 _amount</span>) <span class="marker" id="mapping-296"></span><span class="token mv" id="move-dst-61" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-297"></span><span class="token add" data-title="function_definition/modifier_invocation">userNotBlacklisted(msg.sender)</span> <span class="marker" id="mapping-298"></span><span class="token mv" id="move-dst-62" data-title="function_definition/modifier_invocation">whenNotPaused</span> {
+        <span class="marker" id="mapping-299"></span><span class="token mv" id="move-dst-68" data-title="function_body/expression_statement"><span class="marker" id="mapping-300"></span><span class="token upd" id="move-dst-69" data-title="call_expression/identifier"><span class="cupd">_burn</span>CarbonDollar</span>(msg.sender, <span class="marker" id="mapping-301"></span><span class="token mv" id="move-dst-65" data-title="call_expression/call_argument">stablecoin</span><span class="marker" id="mapping-302"></span><span class="token add" data-title="call_expression/,">,</span> _amount);</span>
+    }</span>
+
+    /** 
+    * @notice release collected CUSD fees to owner 
+    * @param _amount Amount of CUSD to release
+    * @return `true` if successful 
+    */
+    function releaseCarbonDollar(uint256 _amount) public onlyOwner returns (bool) {
+        require(_amount &lt;= balanceOf(address(this)),"not enough balance to transfer");
+
+        tokenStorage.subBalance(address(this), _amount);
+        tokenStorage.addBalance(msg.sender, _amount);
+        emit Transfer(address(this), msg.sender, _amount);
+        return true;
+    }
+
+    /** Computes fee percentage associated with burning into a particular stablecoin.
+     * @param stablecoin The stablecoin whose fee will be charged. Precondition: is a whitelisted
+     * stablecoin.
+     * @return The fee that will be charged. If the stablecoin's fee is not set, the default
+     * fee is returned.
+     */
+    function computeFeeRate(address stablecoin) public view returns (uint256 feeRate) {
+        if (getFee(stablecoin) &gt; 0) 
+            feeRate = getFee(stablecoin);
+        else
+            feeRate = getDefaultFee();
+    }
+
+    /**
+    * @notice Check if whitelisted token is whitelisted
+    * @return bool true if whitelisted, false if not
+    **/
+    function isWhitelisted(address _stablecoin) public view returns (bool) {
+        return tokenStorage_CD.whitelist(_stablecoin);
+    }
+
+    /**
+     * @notice Get the fee associated with going from CarbonUSD to a specific WhitelistedToken.
+     * @param stablecoin The stablecoin whose fee is being checked.
+     * @return The fee associated with the stablecoin.
+     */
+    function getFee(address stablecoin) public view returns (uint256) {
+        return tokenStorage_CD.fees(stablecoin);
+    }
+
+    /**
+     * @notice Get the default fee associated with going from CarbonUSD to a specific WhitelistedToken.
+     * @return The default fee for stablecoin trades.
+     */
+    function getDefaultFee() public view returns (uint256) {
+        return tokenStorage_CD.defaultFee();
+    }
+
+    <span class="marker" id="mapping-303"></span><span class="token mv" id="move-dst-58" data-title="contract_body/function_definition">function <span class="marker" id="mapping-304"></span><span class="token upd" id="move-dst-59" data-title="function_definition/identifier">_<span class="cupd">burnCarbonDollar</span></span>(<span class="marker" id="mapping-305"></span><span class="token add" data-title="function_definition/parameter">address _tokensOf</span>, <span class="marker" id="mapping-306"></span><span class="token mv" id="move-dst-18" data-title="function_definition/parameter">address <span class="marker" id="mapping-307"></span><span class="token upd" id="move-dst-19" data-title="parameter/identifier"><span class="cupd">_</span><span class="cupd">s</span>tablecoin</span></span><span class="marker" id="mapping-308"></span><span class="token add" data-title="function_definition/,">,</span> uint256 _amount) <span class="marker" id="mapping-309"></span><span class="token mv" id="move-dst-74" data-title="function_definition/visibility">internal</span> {
+        <span class="marker" id="mapping-310"></span><span class="token mv" id="move-dst-25" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-311"></span><span class="token add" data-title="call_argument/call_expression">isWhitelisted(_stablecoin)</span>, "Stablecoin must be whitelisted prior to burning");</span>
+        WhitelistedToken whitelisted = WhitelistedToken(<span class="marker" id="mapping-312"></span><span class="token upd" id="move-dst-66" data-title="call_argument/identifier">_<span class="cupd">stablecoin</span></span>);
+        require(whitelisted.balanceOf(address(this)) &gt;= _amount, "Carbon escrow account in WT0 doesn't have enough tokens for burning");
+
+        // Burn user's CUSD, but with a fee reduction.
+        uint256 chargedFee = tokenStorage_CD.computeFee(_amount, computeFeeRate(<span class="marker" id="mapping-313"></span><span class="token upd" id="move-dst-67" data-title="call_argument/identifier">_<span class="cupd">stablecoin</span></span>));
+        uint256 feedAmount = _amount.sub(chargedFee);
+        <span class="marker" id="mapping-314"></span><span class="token mv" id="move-dst-63" data-title="function_body/expression_statement"><span class="marker" id="mapping-315"></span><span class="token upd" id="move-dst-64" data-title="call_expression/identifier">_b<span class="cupd">u</span>rn</span>(<span class="marker" id="mapping-316"></span><span class="token add" data-title="call_expression/call_argument">_tokensOf</span>, <span class="marker" id="mapping-317"></span><span class="token mv" id="move-dst-76" data-title="call_expression/call_argument">_amount</span>);</span>
+        whitelisted.burn(_amount);
+        _mint(address(this), chargedFee);
+        emit BurnedCUSD(<span class="marker" id="mapping-318"></span><span class="token add" data-title="call_argument/identifier">_tokensOf</span>, feedAmount, chargedFee); // Whitelisted trust account should send user feedAmount USD
+    }</span>
+
+}
+
+/**
+* @title WhitelistedToken
+* @notice A WhitelistedToken can be converted into CUSD and vice versa. Converting a WT into a CUSD
+* is the only way for a user to obtain CUSD. This is a permissioned token, so users have to be 
+* whitelisted before they can do any mint/burn/convert operation.
+*/
+<span class="marker" id="mapping-319"></span><span class="token mv" id="move-dst-51" data-title="source_file/contract_declaration">contract WhitelistedToken is PermissionedToken {
+
+
+    address public cusdAddress;
+
+    /**
+        Events
+     */
+    event CUSDAddressChanged(address indexed oldCUSD, address indexed newCUSD);
+    event MintedToCUSD(address indexed user, uint256 amount);
+    event ConvertedToCUSD(address indexed user, uint256 amount);
+
+    /**
+    * @notice Constructor sets the regulator contract and the address of the
+    * CarbonUSD meta-token contract. The latter is necessary in order to make transactions
+    * with the CarbonDollar smart contract.
+    */
+    constructor(address _regulator, address _cusd) public PermissionedToken(_regulator) {
+
+        // base class fields
+        regulator = <span class="marker" id="mapping-320"></span><span class="token upd" id="move-dst-52" data-title="call_expression/identifier"><span class="cupd">Regulator</span></span>(_regulator);
+
+        cusdAddress = _cusd;
+
+    }
+
+    /**
+    * @notice Mints CarbonUSD for the user. Stores the WT0 that backs the CarbonUSD
+    * into the CarbonUSD contract's escrow account.
+    * @param _to The address of the receiver
+    * @param _amount The number of CarbonTokens to mint to user
+    */
+    function mintCUSD(address _to, uint256 _amount) public requiresPermission whenNotPaused <span class="marker" id="mapping-321"></span><span class="token upd" id="move-dst-53" data-title="modifier_invocation/identifier"><span class="cupd">user</span>No<span class="cupd">t</span>B<span class="cupd">l</span>ackl<span class="cupd">isted</span></span>(_to) {
+        return _mintCUSD(_to, _amount);
+    }
+
+    /**
+    * @notice Converts WT0 to CarbonUSD for the user. Stores the WT0 that backs the CarbonUSD
+    * into the CarbonUSD contract's escrow account.
+    * @param _amount The number of Whitelisted tokens to convert
+    */
+    function convertWT(uint256 _amount) public <span class="marker" id="mapping-322"></span><span class="token upd" id="move-dst-54" data-title="modifier_invocation/identifier"><span class="cupd">u</span><span class="cupd">s</span><span class="cupd">er</span>NotBlackl<span class="cupd">is</span>ted</span><span class="marker" id="mapping-323"></span><span class="token add" data-title="modifier_invocation/(">(</span><span class="marker" id="mapping-324"></span><span class="token add" data-title="modifier_invocation/call_argument">msg.sender</span><span class="marker" id="mapping-325"></span><span class="token add" data-title="modifier_invocation/)">)</span> whenNotPaused {
+        require(balanceOf(msg.sender) &gt;= _amount, "Conversion amount should be less than balance");
+        _burn(msg.sender, _amount);
+        _mintCUSD(msg.sender, _amount);
+        emit ConvertedToCUSD(msg.sender, _amount);
+    }
+
+    /**
+     * @notice Change the cusd address.
+     * @param _cusd the cusd address.
+     */
+    function setCUSDAddress(address _cusd) public onlyOwner {
+        require(_cusd != address(cusdAddress), "Must be a new cusd address");
+        require(AddressUtils.isContract(_cusd), "Must be an actual contract");
+        address oldCUSD = address(cusdAddress);
+        cusdAddress = _cusd;
+        emit CUSDAddressChanged(oldCUSD, _cusd);
+    }
+
+    function _mintCUSD(address _to, uint256 _amount) internal {
+        require(_to != cusdAddress, "Cannot mint to CarbonUSD contract"); // This is to prevent Carbon Labs from printing money out of thin air!
+        CarbonDollar(cusdAddress).mint(_to, _amount);
+        _mint(cusdAddress, _amount);
+        emit MintedToCUSD(_to, _amount);
+    }
+}</span></pre></div></div></div></body></html>

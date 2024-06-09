@@ -1,0 +1,421 @@
+{
+  "matches": [
+    {
+      "src": "constant: constant [237,245]",
+      "dest": "constant: constant [237,245]"
+    },
+    {
+      "src": "comment: /**       * @notice Calculates the current supply interest rate per block       * @param cash The total amount of cash the market has       * @param borrows The total amount of borrows the market has outstanding       * @param reserves The total amnount of reserves the market has       * @param reserveFactorMantissa The current reserve factor the market has       * @return The supply rate per block (as a percentage, and scaled by 1e18)       */ [751,1199]",
+      "dest": "comment: /**       * @notice Calculates the current supply interest rate per block       * @param cash The total amount of cash the market has       * @param borrows The total amount of borrows the market has outstanding       * @param reserves The total amnount of reserves the market has       * @param reserveFactorMantissa The current reserve factor the market has       * @return The supply rate per block (as a percentage, and scaled by 1e18)       */ [751,1199]"
+    },
+    {
+      "src": "uint: uint [1227,1231]",
+      "dest": "uint: uint [1227,1231]"
+    },
+    {
+      "src": "state_mutability [1304,1308]",
+      "dest": "state_mutability [1304,1308]"
+    },
+    {
+      "src": "(: ( [675,676]",
+      "dest": "(: ( [675,676]"
+    },
+    {
+      "src": "type_name [1252,1256]",
+      "dest": "type_name [1252,1256]"
+    },
+    {
+      "src": ",: , [1265,1266]",
+      "dest": ",: , [1265,1266]"
+    },
+    {
+      "src": "parameter [1318,1322]",
+      "dest": "parameter [1318,1322]"
+    },
+    {
+      "src": "identifier: getBorrowRate [662,675]",
+      "dest": "identifier: getBorrowRate [662,675]"
+    },
+    {
+      "src": "primitive_type [1227,1231]",
+      "dest": "primitive_type [1227,1231]"
+    },
+    {
+      "src": "state_variable_declaration [225,273]",
+      "dest": "state_variable_declaration [225,273]"
+    },
+    {
+      "src": "uint: uint [701,705]",
+      "dest": "uint: uint [701,705]"
+    },
+    {
+      "src": "function_definition [653,745]",
+      "dest": "function_definition [653,745]"
+    },
+    {
+      "src": "type_name [1267,1271]",
+      "dest": "type_name [1267,1271]"
+    },
+    {
+      "src": "): ) [743,744]",
+      "dest": "): ) [743,744]"
+    },
+    {
+      "src": "comment: /// @notice Indicator that this is an InterestRateModel contract (for inspection) [139,220]",
+      "dest": "comment: /// @notice Indicator that this is an InterestRateModel contract (for inspection) [139,220]"
+    },
+    {
+      "src": "): ) [1322,1323]",
+      "dest": "): ) [1322,1323]"
+    },
+    {
+      "src": "type_name [701,705]",
+      "dest": "type_name [701,705]"
+    },
+    {
+      "src": "primitive_type [1252,1256]",
+      "dest": "primitive_type [1252,1256]"
+    },
+    {
+      "src": "{: { [133,134]",
+      "dest": "{: { [133,134]"
+    },
+    {
+      "src": "contract_body [133,1327]",
+      "dest": "contract_body [133,1327]"
+    },
+    {
+      "src": "identifier: reserveFactorMantissa [1272,1293]",
+      "dest": "identifier: reserveFactorMantissa [1272,1293]"
+    },
+    {
+      "src": "identifier: InterestRateModel [115,132]",
+      "dest": "identifier: InterestRateModel [115,132]"
+    },
+    {
+      "src": "comment: /**       * @notice Calculates the current borrow interest rate per block       * @param cash The total amount of cash the market has       * @param borrows The total amount of borrows the market has outstanding       * @param reserves The total amnount of reserves the market has       * @return The borrow rate per block (as a percentage, and scaled by 1e18)       */ [279,648]",
+      "dest": "comment: /**       * @notice Calculates the current borrow interest rate per block       * @param cash The total amount of cash the market has       * @param borrows The total amount of borrows the market has outstanding       * @param reserves The total amnount of reserves the market has       * @return The borrow rate per block (as a percentage, and scaled by 1e18)       */ [279,648]"
+    },
+    {
+      "src": "primitive_type [739,743]",
+      "dest": "primitive_type [739,743]"
+    },
+    {
+      "src": "pragma_directive [0,24]",
+      "dest": "pragma_directive [0,24]"
+    },
+    {
+      "src": "visibility [230,236]",
+      "dest": "visibility [230,236]"
+    },
+    {
+      "src": "contract_declaration [106,1327]",
+      "dest": "contract_declaration [106,1327]"
+    },
+    {
+      "src": "uint: uint [687,691]",
+      "dest": "uint: uint [687,691]"
+    },
+    {
+      "src": "state_mutability [725,729]",
+      "dest": "state_mutability [725,729]"
+    },
+    {
+      "src": "view: view [1304,1308]",
+      "dest": "view: view [1304,1308]"
+    },
+    {
+      "src": "type_name [1227,1231]",
+      "dest": "type_name [1227,1231]"
+    },
+    {
+      "src": "(: ( [738,739]",
+      "dest": "(: ( [738,739]"
+    },
+    {
+      "src": "): ) [714,715]",
+      "dest": "): ) [714,715]"
+    },
+    {
+      "src": "identifier: borrows [1243,1250]",
+      "dest": "identifier: borrows [1243,1250]"
+    },
+    {
+      "src": "parameter [1267,1293]",
+      "dest": "parameter [1267,1293]"
+    },
+    {
+      "src": "parameter [676,685]",
+      "dest": "parameter [676,685]"
+    },
+    {
+      "src": "identifier: getSupplyRate [1213,1226]",
+      "dest": "identifier: getSupplyRate [1213,1226]"
+    },
+    {
+      "src": "type_name [676,680]",
+      "dest": "type_name [676,680]"
+    },
+    {
+      "src": "parameter [739,743]",
+      "dest": "parameter [739,743]"
+    },
+    {
+      "src": "type_name [1238,1242]",
+      "dest": "type_name [1238,1242]"
+    },
+    {
+      "src": "identifier: reserves [1257,1265]",
+      "dest": "identifier: reserves [1257,1265]"
+    },
+    {
+      "src": "^:  ^ [15,17]",
+      "dest": "^:  ^ [15,17]"
+    },
+    {
+      "src": "primitive_type [225,229]",
+      "dest": "primitive_type [225,229]"
+    },
+    {
+      "src": "parameter [687,699]",
+      "dest": "parameter [687,699]"
+    },
+    {
+      "src": "function_definition [1204,1324]",
+      "dest": "function_definition [1204,1324]"
+    },
+    {
+      "src": "primitive_type [1238,1242]",
+      "dest": "primitive_type [1238,1242]"
+    },
+    {
+      "src": "primitive_type [1318,1322]",
+      "dest": "primitive_type [1318,1322]"
+    },
+    {
+      "src": "primitive_type [687,691]",
+      "dest": "primitive_type [687,691]"
+    },
+    {
+      "src": "bool: bool [225,229]",
+      "dest": "bool: bool [225,229]"
+    },
+    {
+      "src": "parameter [1238,1250]",
+      "dest": "parameter [1238,1250]"
+    },
+    {
+      "src": "uint: uint [676,680]",
+      "dest": "uint: uint [676,680]"
+    },
+    {
+      "src": "view: view [725,729]",
+      "dest": "view: view [725,729]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [15,17]",
+      "dest": "solidity_version_comparison_operator [15,17]"
+    },
+    {
+      "src": "uint: uint [1318,1322]",
+      "dest": "uint: uint [1318,1322]"
+    },
+    {
+      "src": "contract: contract [106,114]",
+      "dest": "contract: contract [106,114]"
+    },
+    {
+      "src": "type_name [739,743]",
+      "dest": "type_name [739,743]"
+    },
+    {
+      "src": "primitive_type [701,705]",
+      "dest": "primitive_type [701,705]"
+    },
+    {
+      "src": "public: public [230,236]",
+      "dest": "public: public [230,236]"
+    },
+    {
+      "src": ",: , [685,686]",
+      "dest": ",: , [685,686]"
+    },
+    {
+      "src": "primitive_type [676,680]",
+      "dest": "primitive_type [676,680]"
+    },
+    {
+      "src": "uint: uint [739,743]",
+      "dest": "uint: uint [739,743]"
+    },
+    {
+      "src": "function: function [653,661]",
+      "dest": "function: function [653,661]"
+    },
+    {
+      "src": "parameter [1252,1265]",
+      "dest": "parameter [1252,1265]"
+    },
+    {
+      "src": "identifier: borrows [692,699]",
+      "dest": "identifier: borrows [692,699]"
+    },
+    {
+      "src": "identifier: reserves [706,714]",
+      "dest": "identifier: reserves [706,714]"
+    },
+    {
+      "src": "primitive_type [1267,1271]",
+      "dest": "primitive_type [1267,1271]"
+    },
+    {
+      "src": "true: true [268,272]",
+      "dest": "true: true [268,272]"
+    },
+    {
+      "src": "uint: uint [1252,1256]",
+      "dest": "uint: uint [1252,1256]"
+    },
+    {
+      "src": "uint: uint [1267,1271]",
+      "dest": "uint: uint [1267,1271]"
+    },
+    {
+      "src": "source_file [0,1328]",
+      "dest": "source_file [0,1328]"
+    },
+    {
+      "src": "solidity: solidity [7,15]",
+      "dest": "solidity: solidity [7,15]"
+    },
+    {
+      "src": "=: = [266,267]",
+      "dest": "=: = [266,267]"
+    },
+    {
+      "src": "returns: returns [1309,1316]",
+      "dest": "returns: returns [1309,1316]"
+    },
+    {
+      "src": "external: external [716,724]",
+      "dest": "external: external [716,724]"
+    },
+    {
+      "src": "type_name [687,691]",
+      "dest": "type_name [687,691]"
+    },
+    {
+      "src": "boolean_literal [268,272]",
+      "dest": "boolean_literal [268,272]"
+    },
+    {
+      "src": "): ) [1293,1294]",
+      "dest": "): ) [1293,1294]"
+    },
+    {
+      "src": "function: function [1204,1212]",
+      "dest": "function: function [1204,1212]"
+    },
+    {
+      "src": "visibility [1295,1303]",
+      "dest": "visibility [1295,1303]"
+    },
+    {
+      "src": "return_type_definition [1309,1323]",
+      "dest": "return_type_definition [1309,1323]"
+    },
+    {
+      "src": "visibility [716,724]",
+      "dest": "visibility [716,724]"
+    },
+    {
+      "src": "(: ( [1317,1318]",
+      "dest": "(: ( [1317,1318]"
+    },
+    {
+      "src": "type_name [1318,1322]",
+      "dest": "type_name [1318,1322]"
+    },
+    {
+      "src": "returns: returns [730,737]",
+      "dest": "returns: returns [730,737]"
+    },
+    {
+      "src": "}: } [1326,1327]",
+      "dest": "}: } [1326,1327]"
+    },
+    {
+      "src": ",: , [699,700]",
+      "dest": ",: , [699,700]"
+    },
+    {
+      "src": "uint: uint [1238,1242]",
+      "dest": "uint: uint [1238,1242]"
+    },
+    {
+      "src": "parameter [1227,1236]",
+      "dest": "parameter [1227,1236]"
+    },
+    {
+      "src": "external: external [1295,1303]",
+      "dest": "external: external [1295,1303]"
+    },
+    {
+      "src": "identifier: isInterestRateModel [246,265]",
+      "dest": "identifier: isInterestRateModel [246,265]"
+    },
+    {
+      "src": "solidity_version: 0.5.16 [17,23]",
+      "dest": "solidity_version: 0.5.16 [17,23]"
+    },
+    {
+      "src": "true [268,272]",
+      "dest": "true [268,272]"
+    },
+    {
+      "src": "type_name [225,229]",
+      "dest": "type_name [225,229]"
+    },
+    {
+      "src": ",: , [1236,1237]",
+      "dest": ",: , [1236,1237]"
+    },
+    {
+      "src": "identifier: cash [681,685]",
+      "dest": "identifier: cash [681,685]"
+    },
+    {
+      "src": "return_type_definition [730,744]",
+      "dest": "return_type_definition [730,744]"
+    },
+    {
+      "src": ",: , [1250,1251]",
+      "dest": ",: , [1250,1251]"
+    },
+    {
+      "src": "solidity_pragma_token [7,23]",
+      "dest": "solidity_pragma_token [7,23]"
+    },
+    {
+      "src": "identifier: cash [1232,1236]",
+      "dest": "identifier: cash [1232,1236]"
+    },
+    {
+      "src": "(: ( [1226,1227]",
+      "dest": "(: ( [1226,1227]"
+    },
+    {
+      "src": "pragma: pragma [0,6]",
+      "dest": "pragma: pragma [0,6]"
+    },
+    {
+      "src": "comment: /**   * @title Compound's InterestRateModel Interface   * @author Compound   */ [26,105]",
+      "dest": "comment: /**   * @title Compound's InterestRateModel Interface   * @author Compound   */ [26,105]"
+    },
+    {
+      "src": "parameter [701,714]",
+      "dest": "parameter [701,714]"
+    }
+  ],
+  "actions": []
+}

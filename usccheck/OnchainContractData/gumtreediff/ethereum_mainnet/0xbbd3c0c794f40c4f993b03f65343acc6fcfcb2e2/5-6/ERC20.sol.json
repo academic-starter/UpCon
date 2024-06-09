@@ -1,0 +1,3987 @@
+{
+  "matches": [
+    {
+      "src": "primitive_type [3815,3822]",
+      "dest": "primitive_type [3760,3767]"
+    },
+    {
+      "src": "]: ] [3239,3240]",
+      "dest": "]: ] [3184,3185]"
+    },
+    {
+      "src": "(: ( [7413,7414]",
+      "dest": "(: ( [7231,7232]"
+    },
+    {
+      "src": "address: address [7423,7430]",
+      "dest": "address: address [7241,7248]"
+    },
+    {
+      "src": "identifier: value [7963,7968]",
+      "dest": "identifier: value [7781,7786]"
+    },
+    {
+      "src": "call_expression [3266,3302]",
+      "dest": "call_expression [3211,3247]"
+    },
+    {
+      "src": "): ) [3301,3302]",
+      "dest": "): ) [3246,3247]"
+    },
+    {
+      "src": "(: ( [1733,1734]",
+      "dest": "(: ( [1678,1679]"
+    },
+    {
+      "src": "binary_expression [3206,3254]",
+      "dest": "binary_expression [3151,3199]"
+    },
+    {
+      "src": "uint256: uint256 [4573,4580]",
+      "dest": "uint256: uint256 [4515,4522]"
+    },
+    {
+      "src": "string [66,78]",
+      "dest": "string [66,78]"
+    },
+    {
+      "src": "return: return [3312,3318]",
+      "dest": "return: return [3257,3263]"
+    },
+    {
+      "src": "return: return [4008,4014]",
+      "dest": "return: return [3950,3956]"
+    },
+    {
+      "src": ",: , [6784,6785]",
+      "dest": ",: , [6642,6643]"
+    },
+    {
+      "src": "comment: /**  * @title Standard ERC20 token  *  * @dev Implementation of the basic standard token.  * https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md  * Originally based on code by FirstBlood:  * https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol  *  * This implementation emits additional Approval events, allowing applications to reconstruct the allowance status for  * all accounts just by listening to said events. Note that this isn't required by the specification, and other  * compliant implementations may not do it.  */ [105,670]",
+      "dest": "comment: /**  * @title Standard ERC20 token  *  * @dev Implementation of the basic standard token.  * https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md  * Originally based on code by FirstBlood:  * https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol  *  * This implementation emits additional Approval events, allowing applications to reconstruct the allowance status for  * all accounts just by listening to said events. Note that this isn't required by the specification, and other  * compliant implementations may not do it.  */ [82,647]"
+    },
+    {
+      "src": "function: function [7282,7290]",
+      "dest": "function: function [7100,7108]"
+    },
+    {
+      "src": "uint256: uint256 [2051,2058]",
+      "dest": "uint256: uint256 [1996,2003]"
+    },
+    {
+      "src": "(: ( [7430,7431]",
+      "dest": "(: ( [7248,7249]"
+    },
+    {
+      "src": "identifier: require [6820,6827]",
+      "dest": "identifier: require [6678,6685]"
+    },
+    {
+      "src": "primitive_type [1734,1741]",
+      "dest": "primitive_type [1679,1686]"
+    },
+    {
+      "src": "[: [ [3968,3969]",
+      "dest": "[: [ [3913,3914]"
+    },
+    {
+      "src": "(: ( [6357,6358]",
+      "dest": "(: ( [6255,6256]"
+    },
+    {
+      "src": "identifier: _burnFrom [7928,7937]",
+      "dest": "identifier: _burnFrom [7746,7755]"
+    },
+    {
+      "src": "array_access [7445,7469]",
+      "dest": "array_access [7263,7287]"
+    },
+    {
+      "src": "visibility [1766,1772]",
+      "dest": "visibility [1711,1717]"
+    },
+    {
+      "src": "address: address [5759,5766]",
+      "dest": "address: address [5695,5702]"
+    },
+    {
+      "src": "array_access [4655,4684]",
+      "dest": "array_access [4597,4626]"
+    },
+    {
+      "src": "comment: //  https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729 [3120,3189]",
+      "dest": "comment: //  https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729 [3065,3134]"
+    },
+    {
+      "src": "function_definition [4529,4729]",
+      "dest": "function_definition [4471,4668]"
+    },
+    {
+      "src": "identifier: value [3206,3211]",
+      "dest": "identifier: value [3151,3156]"
+    },
+    {
+      "src": ",: , [7330,7331]",
+      "dest": ",: , [7148,7149]"
+    },
+    {
+      "src": "identifier: _allowed [3220,3228]",
+      "dest": "identifier: _allowed [3165,3173]"
+    },
+    {
+      "src": "return_statement [3312,3324]",
+      "dest": "return_statement [3257,3269]"
+    },
+    {
+      "src": "override_specifier [1778,1786]",
+      "dest": "override_specifier [1723,1731]"
+    },
+    {
+      "src": "identifier: account [7946,7953]",
+      "dest": "identifier: account [7764,7771]"
+    },
+    {
+      "src": "): ) [6799,6800]",
+      "dest": "): ) [6657,6658]"
+    },
+    {
+      "src": "type_name [2877,2881]",
+      "dest": "type_name [2822,2826]"
+    },
+    {
+      "src": "private: private [838,845]",
+      "dest": "private: private [783,790]"
+    },
+    {
+      "src": "[: [ [8058,8059]",
+      "dest": "[: [ [7876,7877]"
+    },
+    {
+      "src": "identifier: spender [5389,5396]",
+      "dest": "identifier: spender [5328,5335]"
+    },
+    {
+      "src": "array_access [7445,7460]",
+      "dest": "array_access [7263,7278]"
+    },
+    {
+      "src": "}: } [1852,1853]",
+      "dest": "}: } [1797,1798]"
+    },
+    {
+      "src": "identifier: value [2059,2064]",
+      "dest": "identifier: value [2004,2009]"
+    },
+    {
+      "src": "): ) [8089,8090]",
+      "dest": "): ) [7905,7906]"
+    },
+    {
+      "src": "): ) [1303,1304]",
+      "dest": "): ) [1248,1249]"
+    },
+    {
+      "src": "comment: /**      * @dev Total number of tokens in existence      */ [896,955]",
+      "dest": "comment: /**      * @dev Total number of tokens in existence      */ [841,900]"
+    },
+    {
+      "src": "expression_statement [4625,4702]",
+      "dest": "expression_statement [4567,4641]"
+    },
+    {
+      "src": "public: public [2066,2072]",
+      "dest": "public: public [2011,2017]"
+    },
+    {
+      "src": "parameter [5711,5724]",
+      "dest": "parameter [5647,5660]"
+    },
+    {
+      "src": "call_argument [8084,8089]",
+      "dest": "call_argument [7868,7905]"
+    },
+    {
+      "src": "(: ( [7937,7938]",
+      "dest": "(: ( [7755,7756]"
+    },
+    {
+      "src": "identifier: value [3296,3301]",
+      "dest": "identifier: value [3241,3246]"
+    },
+    {
+      "src": "override_specifier [995,1003]",
+      "dest": "override_specifier [940,948]"
+    },
+    {
+      "src": ",: , [6513,6514]",
+      "dest": ",: , [6371,6372]"
+    },
+    {
+      "src": "member_expression [4664,4674]",
+      "dest": "member_expression [4606,4616]"
+    },
+    {
+      "src": "call_argument [7393,7394]",
+      "dest": "call_argument [7211,7212]"
+    },
+    {
+      "src": "state_variable_declaration [788,855]",
+      "dest": "state_variable_declaration [733,800]"
+    },
+    {
+      "src": "expression_statement [6372,6411]",
+      "dest": "expression_statement [6270,6292]"
+    },
+    {
+      "src": "call_argument [3942,3946]",
+      "dest": "call_argument [3887,3891]"
+    },
+    {
+      "src": "identifier: to [3913,3915]",
+      "dest": "identifier: to [3858,3860]"
+    },
+    {
+      "src": "parameter [7955,7968]",
+      "dest": "parameter [7773,7786]"
+    },
+    {
+      "src": "identifier: require [5745,5752]",
+      "dest": "identifier: require [5681,5688]"
+    },
+    {
+      "src": "override: override [3863,3871]",
+      "dest": "override: override [3808,3816]"
+    },
+    {
+      "src": "address: address [5699,5706]",
+      "dest": "address: address [5635,5642]"
+    },
+    {
+      "src": "identifier: decreaseAllowance [5246,5263]",
+      "dest": "identifier: decreaseAllowance [5185,5202]"
+    },
+    {
+      "src": "]: ] [1836,1837]",
+      "dest": "]: ] [1781,1782]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [48,50]",
+      "dest": "solidity_version_comparison_operator [48,50]"
+    },
+    {
+      "src": "function: function [2021,2029]",
+      "dest": "function: function [1966,1974]"
+    },
+    {
+      "src": "identifier: _allowed [8050,8058]",
+      "dest": "identifier: _allowed [7868,7876]"
+    },
+    {
+      "src": "identifier: value [3917,3922]",
+      "dest": "identifier: value [3862,3867]"
+    },
+    {
+      "src": "^:  ^ [48,50]",
+      "dest": "^:  ^ [48,50]"
+    },
+    {
+      "src": "primitive_type [2039,2046]",
+      "dest": "primitive_type [1984,1991]"
+    },
+    {
+      "src": "address: address [3815,3822]",
+      "dest": "address: address [3760,3767]"
+    },
+    {
+      "src": "=>: => [752,754]",
+      "dest": "=>: => [697,699]"
+    },
+    {
+      "src": "state_mutability [990,994]",
+      "dest": "state_mutability [935,939]"
+    },
+    {
+      "src": "state_mutability [1773,1777]",
+      "dest": "state_mutability [1718,1722]"
+    },
+    {
+      "src": "identifier: spender [5272,5279]",
+      "dest": "identifier: spender [5211,5218]"
+    },
+    {
+      "src": "true [4015,4019]",
+      "dest": "true [3957,3961]"
+    },
+    {
+      "src": "identifier: value [7004,7009]",
+      "dest": "identifier: value [6822,6827]"
+    },
+    {
+      "src": "solidity_version: 0.7.0 [50,55]",
+      "dest": "solidity_version: 0.8.0 [50,55]"
+    },
+    {
+      "src": "boolean_literal [3319,3323]",
+      "dest": "boolean_literal [3264,3268]"
+    },
+    {
+      "src": "call_expression [8050,8090]",
+      "dest": "call_expression [7838,7906]"
+    },
+    {
+      "src": "binary_expression [7374,7395]",
+      "dest": "binary_expression [7192,7213]"
+    },
+    {
+      "src": "address: address [5685,5692]",
+      "dest": "address: address [5621,5628]"
+    },
+    {
+      "src": "private: private [764,771]",
+      "dest": "private: private [709,716]"
+    },
+    {
+      "src": "type_cast_expression [6350,6360]",
+      "dest": "type_cast_expression [6248,6258]"
+    },
+    {
+      "src": "call_argument [6358,6359]",
+      "dest": "call_argument [6256,6257]"
+    },
+    {
+      "src": "call_argument [3296,3301]",
+      "dest": "call_argument [3241,3246]"
+    },
+    {
+      "src": "true [3319,3323]",
+      "dest": "true [3264,3268]"
+    },
+    {
+      "src": "!=: != [6836,6838]",
+      "dest": "!=: != [6694,6696]"
+    },
+    {
+      "src": "function_definition [1715,1853]",
+      "dest": "function_definition [1660,1798]"
+    },
+    {
+      "src": "override: override [995,1003]",
+      "dest": "override: override [940,948]"
+    },
+    {
+      "src": "identifier: value [5719,5724]",
+      "dest": "identifier: value [5655,5660]"
+    },
+    {
+      "src": "identifier: _balances [5835,5844]",
+      "dest": "identifier: _balances [5751,5760]"
+    },
+    {
+      "src": "state_variable_declaration [735,782]",
+      "dest": "state_variable_declaration [680,727]"
+    },
+    {
+      "src": "parameter [4556,4571]",
+      "dest": "parameter [4498,4513]"
+    },
+    {
+      "src": "override_specifier [1317,1325]",
+      "dest": "override_specifier [1262,1270]"
+    },
+    {
+      "src": "function_body [6321,6528]",
+      "dest": "function_body [6219,6386]"
+    },
+    {
+      "src": "identifier: account [6288,6295]",
+      "dest": "identifier: account [6186,6193]"
+    },
+    {
+      "src": "type_cast_expression [6494,6504]",
+      "dest": "type_cast_expression [6352,6362]"
+    },
+    {
+      "src": ".: . [3278,3279]",
+      "dest": ".: . [3223,3224]"
+    },
+    {
+      "src": "import_directive [59,79]",
+      "dest": "import_directive [59,79]"
+    },
+    {
+      "src": "number_literal: 0 [3253,3254]",
+      "dest": "number_literal: 0 [3198,3199]"
+    },
+    {
+      "src": "function_body [5328,5447]",
+      "dest": "function_body [5267,5383]"
+    },
+    {
+      "src": "address: address [7938,7945]",
+      "dest": "address: address [7756,7763]"
+    },
+    {
+      "src": "public: public [2852,2858]",
+      "dest": "public: public [2797,2803]"
+    },
+    {
+      "src": "}: } [8100,8101]",
+      "dest": "}: } [7915,7916]"
+    },
+    {
+      "src": "): ) [835,836]",
+      "dest": "): ) [780,781]"
+    },
+    {
+      "src": "function_body [2883,3330]",
+      "dest": "function_body [2828,3275]"
+    },
+    {
+      "src": "number_literal: 0 [3215,3216]",
+      "dest": "number_literal: 0 [3160,3161]"
+    },
+    {
+      "src": "address: address [2039,2046]",
+      "dest": "address: address [1984,1991]"
+    },
+    {
+      "src": "true: true [5436,5440]",
+      "dest": "true: true [5372,5376]"
+    },
+    {
+      "src": "identifier: sender [2121,2127]",
+      "dest": "identifier: sender [2066,2072]"
+    },
+    {
+      "src": "address: address [6769,6776]",
+      "dest": "address: address [6627,6634]"
+    },
+    {
+      "src": "member_expression [5347,5357]",
+      "dest": "member_expression [5286,5296]"
+    },
+    {
+      "src": "primitive_type [797,804]",
+      "dest": "primitive_type [742,749]"
+    },
+    {
+      "src": "address: address [6280,6287]",
+      "dest": "address: address [6178,6185]"
+    },
+    {
+      "src": "primitive_type [755,762]",
+      "dest": "primitive_type [700,707]"
+    },
+    {
+      "src": "array_access [5368,5388]",
+      "dest": "array_access [5307,5327]"
+    },
+    {
+      "src": "primitive_type [1290,1297]",
+      "dest": "primitive_type [1235,1242]"
+    },
+    {
+      "src": "primitive_type [5281,5288]",
+      "dest": "primitive_type [5220,5227]"
+    },
+    {
+      "src": "override: override [1317,1325]",
+      "dest": "override: override [1262,1270]"
+    },
+    {
+      "src": "visibility [5306,5312]",
+      "dest": "visibility [5245,5251]"
+    },
+    {
+      "src": "address: address [6992,6999]",
+      "dest": "address: address [6810,6817]"
+    },
+    {
+      "src": "): ) [1803,1804]",
+      "dest": "): ) [1748,1749]"
+    },
+    {
+      "src": "emit: emit [5885,5889]",
+      "dest": "emit: emit [5783,5787]"
+    },
+    {
+      "src": "override_specifier [3863,3871]",
+      "dest": "override_specifier [3808,3816]"
+    },
+    {
+      "src": "parameter [6769,6784]",
+      "dest": "parameter [6627,6642]"
+    },
+    {
+      "src": "[: [ [6429,6430]",
+      "dest": "[: [ [6310,6311]"
+    },
+    {
+      "src": "expression_statement [3266,3303]",
+      "dest": "expression_statement [3211,3248]"
+    },
+    {
+      "src": "type_name [6786,6793]",
+      "dest": "type_name [6644,6651]"
+    },
+    {
+      "src": "call_argument [6983,6990]",
+      "dest": "call_argument [6801,6808]"
+    },
+    {
+      "src": "array_access [5835,5848]",
+      "dest": "array_access [5751,5764]"
+    },
+    {
+      "src": "[: [ [1837,1838]",
+      "dest": "[: [ [1782,1783]"
+    },
+    {
+      "src": "array_access [4655,4675]",
+      "dest": "array_access [4597,4617]"
+    },
+    {
+      "src": "primitive_type [1749,1756]",
+      "dest": "primitive_type [1694,1701]"
+    },
+    {
+      "src": "boolean_literal [4015,4019]",
+      "dest": "boolean_literal [3957,3961]"
+    },
+    {
+      "src": "comment: /**      * @dev Transfer tokens from one address to another.      * Note that while this function emits an Approval event, this is not required as per the specification,      * and other compliant implementations may not emit the event.      * @param from address The address which you want to send tokens from      * @param to address The address which you want to transfer to      * @param value uint256 the amount of tokens to be transferred      */ [3336,3788]",
+      "dest": "comment: /**      * @dev Transfer tokens from one address to another.      * Note that while this function emits an Approval event, this is not required as per the specification,      * and other compliant implementations may not emit the event.      * @param from address The address which you want to send tokens from      * @param to address The address which you want to transfer to      * @param value uint256 the amount of tokens to be transferred      */ [3281,3733]"
+    },
+    {
+      "src": ",: , [7506,7507]",
+      "dest": ",: , [7324,7325]"
+    },
+    {
+      "src": "uint256: uint256 [861,868]",
+      "dest": "uint256: uint256 [806,813]"
+    },
+    {
+      "src": "(: ( [7392,7393]",
+      "dest": "(: ( [7210,7211]"
+    },
+    {
+      "src": "type_name [5322,5326]",
+      "dest": "type_name [5261,5265]"
+    },
+    {
+      "src": "expression_statement [8020,8092]",
+      "dest": "expression_statement [7838,7907]"
+    },
+    {
+      "src": "parameter [2820,2835]",
+      "dest": "parameter [2765,2780]"
+    },
+    {
+      "src": "]: ] [5387,5388]",
+      "dest": "]: ] [5326,5327]"
+    },
+    {
+      "src": "(: ( [2819,2820]",
+      "dest": "(: ( [2764,2765]"
+    },
+    {
+      "src": "uint256: uint256 [1013,1020]",
+      "dest": "uint256: uint256 [958,965]"
+    },
+    {
+      "src": "visibility [2066,2072]",
+      "dest": "visibility [2011,2017]"
+    },
+    {
+      "src": "expression_statement [5745,5771]",
+      "dest": "expression_statement [5681,5707]"
+    },
+    {
+      "src": "}: } [4728,4729]",
+      "dest": "}: } [4667,4668]"
+    },
+    {
+      "src": "}: } [1383,1384]",
+      "dest": "}: } [1328,1329]"
+    },
+    {
+      "src": "type_name [1335,1342]",
+      "dest": "type_name [1280,1287]"
+    },
+    {
+      "src": "identifier: totalSupply [969,980]",
+      "dest": "identifier: totalSupply [914,925]"
+    },
+    {
+      "src": "function_definition [6265,6528]",
+      "dest": "function_definition [6163,6386]"
+    },
+    {
+      "src": "]: ] [8078,8079]",
+      "dest": "]: ] [7896,7897]"
+    },
+    {
+      "src": "): ) [7001,7002]",
+      "dest": "): ) [6819,6820]"
+    },
+    {
+      "src": "array_access [3206,3240]",
+      "dest": "array_access [3151,3185]"
+    },
+    {
+      "src": "identifier: from [3823,3827]",
+      "dest": "identifier: from [3768,3772]"
+    },
+    {
+      "src": "number_literal: 0 [7393,7394]",
+      "dest": "number_literal: 0 [7211,7212]"
+    },
+    {
+      "src": "uint256: uint256 [828,835]",
+      "dest": "uint256: uint256 [773,780]"
+    },
+    {
+      "src": ",: , [3911,3912]",
+      "dest": ",: , [3856,3857]"
+    },
+    {
+      "src": "identifier: spender [7508,7515]",
+      "dest": "identifier: spender [7326,7333]"
+    },
+    {
+      "src": "function_definition [1271,1384]",
+      "dest": "function_definition [1216,1329]"
+    },
+    {
+      "src": "uint256: uint256 [755,762]",
+      "dest": "uint256: uint256 [700,707]"
+    },
+    {
+      "src": "]: ] [3973,3974]",
+      "dest": "]: ] [3918,3919]"
+    },
+    {
+      "src": "internal: internal [7347,7355]",
+      "dest": "internal: internal [7165,7173]"
+    },
+    {
+      "src": ",: , [2131,2132]",
+      "dest": ",: , [2076,2077]"
+    },
+    {
+      "src": "contract_body [696,8101]",
+      "dest": "contract_body [673,7916]"
+    },
+    {
+      "src": ",: , [2835,2836]",
+      "dest": ",: , [2780,2781]"
+    },
+    {
+      "src": "comment: // To change the approve amount you first have to reduce the addresses` [2894,2965]",
+      "dest": "comment: // To change the approve amount you first have to reduce the addresses` [2839,2910]"
+    },
+    {
+      "src": "identifier: msg [3275,3278]",
+      "dest": "identifier: msg [3220,3223]"
+    },
+    {
+      "src": "function_body [1344,1384]",
+      "dest": "function_body [1289,1329]"
+    },
+    {
+      "src": "type_name [1290,1297]",
+      "dest": "type_name [1235,1242]"
+    },
+    {
+      "src": "identifier: subtractedValue [5289,5304]",
+      "dest": "identifier: subtractedValue [5228,5243]"
+    },
+    {
+      "src": ",: , [2049,2050]",
+      "dest": ",: , [1994,1995]"
+    },
+    {
+      "src": "type_name [5281,5288]",
+      "dest": "type_name [5220,5227]"
+    },
+    {
+      "src": "call_argument [2129,2131]",
+      "dest": "call_argument [2074,2076]"
+    },
+    {
+      "src": "identifier: _allowed [3960,3968]",
+      "dest": "identifier: _allowed [3905,3913]"
+    },
+    {
+      "src": "): ) [7522,7523]",
+      "dest": "): ) [7340,7341]"
+    },
+    {
+      "src": "}: } [2166,2167]",
+      "dest": "}: } [2111,2112]"
+    },
+    {
+      "src": "parameter [3815,3827]",
+      "dest": "parameter [3760,3772]"
+    },
+    {
+      "src": "}: } [7529,7530]",
+      "dest": "}: } [7347,7348]"
+    },
+    {
+      "src": "call_argument [3948,3958]",
+      "dest": "call_argument [3893,3903]"
+    },
+    {
+      "src": "(: ( [2038,2039]",
+      "dest": "(: ( [1983,1984]"
+    },
+    {
+      "src": "identifier: value [6794,6799]",
+      "dest": "identifier: value [6652,6657]"
+    },
+    {
+      "src": "call_argument [7501,7506]",
+      "dest": "call_argument [7319,7324]"
+    },
+    {
+      "src": "call_argument [6339,6360]",
+      "dest": "call_argument [6237,6258]"
+    },
+    {
+      "src": "type_name [788,837]",
+      "dest": "type_name [733,782]"
+    },
+    {
+      "src": "number_literal: 0 [7000,7001]",
+      "dest": "number_literal: 0 [6818,6819]"
+    },
+    {
+      "src": "): ) [5417,5418]",
+      "dest": "): ) [5354,5355]"
+    },
+    {
+      "src": "member_expression [3948,3958]",
+      "dest": "member_expression [3893,3903]"
+    },
+    {
+      "src": "visibility [6801,6809]",
+      "dest": "visibility [6659,6667]"
+    },
+    {
+      "src": "type_name [1734,1741]",
+      "dest": "type_name [1679,1686]"
+    },
+    {
+      "src": "true: true [4718,4722]",
+      "dest": "true: true [4657,4661]"
+    },
+    {
+      "src": "identifier: account [6828,6835]",
+      "dest": "identifier: account [6686,6693]"
+    },
+    {
+      "src": "true: true [4015,4019]",
+      "dest": "true: true [3957,3961]"
+    },
+    {
+      "src": "[: [ [5376,5377]",
+      "dest": "[: [ [5315,5316]"
+    },
+    {
+      "src": "identifier: spender [7461,7468]",
+      "dest": "identifier: spender [7279,7286]"
+    },
+    {
+      "src": "function: function [5237,5245]",
+      "dest": "function: function [5176,5184]"
+    },
+    {
+      "src": "identifier: to [2047,2049]",
+      "dest": "identifier: to [1992,1994]"
+    },
+    {
+      "src": "return: return [1032,1038]",
+      "dest": "return: return [977,983]"
+    },
+    {
+      "src": "return_type_definition [1004,1021]",
+      "dest": "return_type_definition [949,966]"
+    },
+    {
+      "src": "call_expression [7406,7434]",
+      "dest": "call_expression [7224,7252]"
+    },
+    {
+      "src": "uint256: uint256 [5281,5288]",
+      "dest": "uint256: uint256 [5220,5227]"
+    },
+    {
+      "src": "(: ( [4608,4609]",
+      "dest": "(: ( [4550,4551]"
+    },
+    {
+      "src": "identifier: _transfer [3897,3906]",
+      "dest": "identifier: _transfer [3842,3851]"
+    },
+    {
+      "src": "expression_statement [6331,6362]",
+      "dest": "expression_statement [6229,6260]"
+    },
+    {
+      "src": "type_name [5699,5706]",
+      "dest": "type_name [5635,5642]"
+    },
+    {
+      "src": "parameter [2039,2049]",
+      "dest": "parameter [1984,1994]"
+    },
+    {
+      "src": "function: function [4529,4537]",
+      "dest": "function: function [4471,4479]"
+    },
+    {
+      "src": "call_argument [2133,2138]",
+      "dest": "call_argument [2078,2083]"
+    },
+    {
+      "src": "return_statement [2149,2161]",
+      "dest": "return_statement [2094,2106]"
+    },
+    {
+      "src": "function_definition [6754,7017]",
+      "dest": "function_definition [6612,6835]"
+    },
+    {
+      "src": "public: public [3856,3862]",
+      "dest": "public: public [3801,3807]"
+    },
+    {
+      "src": "function: function [7919,7927]",
+      "dest": "function: function [7737,7745]"
+    },
+    {
+      "src": "call_argument [5753,5769]",
+      "dest": "call_argument [5689,5705]"
+    },
+    {
+      "src": "identifier: _allowed [1822,1830]",
+      "dest": "identifier: _allowed [1767,1775]"
+    },
+    {
+      "src": "): ) [4613,4614]",
+      "dest": "): ) [4555,4556]"
+    },
+    {
+      "src": "function_definition [960,1058]",
+      "dest": "function_definition [905,1003]"
+    },
+    {
+      "src": "call_argument [4689,4699]",
+      "dest": "call_argument [4597,4639]"
+    },
+    {
+      "src": "expression_statement [5835,5876]",
+      "dest": "expression_statement [5751,5774]"
+    },
+    {
+      "src": "[: [ [5844,5845]",
+      "dest": "[: [ [5760,5761]"
+    },
+    {
+      "src": "identifier: spender [2828,2835]",
+      "dest": "identifier: spender [2773,2780]"
+    },
+    {
+      "src": "identifier: transfer [2030,2038]",
+      "dest": "identifier: transfer [1975,1983]"
+    },
+    {
+      "src": "]: ] [8066,8067]",
+      "dest": "]: ] [7884,7885]"
+    },
+    {
+      "src": "comment: /**      * @dev Increase the amount of tokens that an owner allowed to a spender.      * approve should be called when allowed_[_spender] == 0. To increment      * allowed value is better to use this function to avoid 2 calls (and wait until      * the first transaction is mined)      * From MonolithDAO Token.sol      * Emits an Approval event.      * @param spender The address which will spend the funds.      * @param addedValue The amount of tokens to increase the allowance by.      */ [4032,4524]",
+      "dest": "comment: /**      * @dev Increase the amount of tokens that an owner allowed to a spender.      * approve should be called when allowed_[_spender] == 0. To increment      * allowed value is better to use this function to avoid 2 calls (and wait until      * the first transaction is mined)      * From MonolithDAO Token.sol      * Emits an Approval event.      * @param spender The address which will spend the funds.      * @param addedValue The amount of tokens to increase the allowance by.      */ [3974,4466]"
+    },
+    {
+      "src": "primitive_type [744,751]",
+      "dest": "primitive_type [689,696]"
+    },
+    {
+      "src": "): ) [6520,6521]",
+      "dest": "): ) [6378,6379]"
+    },
+    {
+      "src": "identifier: from [5899,5903]",
+      "dest": "identifier: from [5797,5801]"
+    },
+    {
+      "src": "[: [ [6918,6919]",
+      "dest": "[: [ [6759,6760]"
+    },
+    {
+      "src": "call_argument [5767,5768]",
+      "dest": "call_argument [5703,5704]"
+    },
+    {
+      "src": "expression_statement [6420,6471]",
+      "dest": "expression_statement [6301,6329]"
+    },
+    {
+      "src": "expression_statement [6820,6851]",
+      "dest": "expression_statement [6678,6709]"
+    },
+    {
+      "src": "]: ] [5847,5848]",
+      "dest": "]: ] [5763,5764]"
+    },
+    {
+      "src": "{: { [696,697]",
+      "dest": "{: { [673,674]"
+    },
+    {
+      "src": "}: } [8097,8098]",
+      "dest": "}: } [7912,7913]"
+    },
+    {
+      "src": "function_body [2097,2167]",
+      "dest": "function_body [2042,2112]"
+    },
+    {
+      "src": "public: public [1766,1772]",
+      "dest": "public: public [1711,1717]"
+    },
+    {
+      "src": "call_argument [5402,5417]",
+      "dest": "call_argument [5307,5354]"
+    },
+    {
+      "src": "function_body [6810,7017]",
+      "dest": "function_body [6668,6835]"
+    },
+    {
+      "src": "parameter [7300,7313]",
+      "dest": "parameter [7118,7131]"
+    },
+    {
+      "src": "primitive_type [6297,6304]",
+      "dest": "primitive_type [6195,6202]"
+    },
+    {
+      "src": "(: ( [5898,5899]",
+      "dest": "(: ( [5796,5797]"
+    },
+    {
+      "src": "emit_statement [7487,7524]",
+      "dest": "emit_statement [7305,7342]"
+    },
+    {
+      "src": "private: private [869,876]",
+      "dest": "private: private [814,821]"
+    },
+    {
+      "src": ",: , [7515,7516]",
+      "dest": ",: , [7333,7334]"
+    },
+    {
+      "src": "parameter [6280,6295]",
+      "dest": "parameter [6178,6193]"
+    },
+    {
+      "src": "return: return [1354,1360]",
+      "dest": "return: return [1299,1305]"
+    },
+    {
+      "src": "call_argument [6992,7002]",
+      "dest": "call_argument [6810,6820]"
+    },
+    {
+      "src": "identifier: spender [1838,1845]",
+      "dest": "identifier: spender [1783,1790]"
+    },
+    {
+      "src": "function: function [1715,1723]",
+      "dest": "function: function [1660,1668]"
+    },
+    {
+      "src": "number_literal: 0 [5767,5768]",
+      "dest": "number_literal: 0 [5703,5704]"
+    },
+    {
+      "src": "{: { [7356,7357]",
+      "dest": "{: { [7174,7175]"
+    },
+    {
+      "src": "call_argument [6847,6848]",
+      "dest": "call_argument [6705,6706]"
+    },
+    {
+      "src": "call_argument [6828,6849]",
+      "dest": "call_argument [6686,6707]"
+    },
+    {
+      "src": "parameter [1796,1803]",
+      "dest": "parameter [1741,1748]"
+    },
+    {
+      "src": "visibility [3856,3862]",
+      "dest": "visibility [3801,3807]"
+    },
+    {
+      "src": "return: return [1815,1821]",
+      "dest": "return: return [1760,1766]"
+    },
+    {
+      "src": "identifier: _allowed [4655,4663]",
+      "dest": "identifier: _allowed [4597,4605]"
+    },
+    {
+      "src": "function_definition [7919,8098]",
+      "dest": "function_definition [7737,7913]"
+    },
+    {
+      "src": "): ) [1020,1021]",
+      "dest": "): ) [965,966]"
+    },
+    {
+      "src": "(: ( [6768,6769]",
+      "dest": "(: ( [6626,6627]"
+    },
+    {
+      "src": "): ) [3254,3255]",
+      "dest": "): ) [3199,3200]"
+    },
+    {
+      "src": "primitive_type [5322,5326]",
+      "dest": "primitive_type [5261,5265]"
+    },
+    {
+      "src": ",: , [5709,5710]",
+      "dest": ",: , [5645,5646]"
+    },
+    {
+      "src": "identifier: sender [3279,3285]",
+      "dest": "identifier: sender [3224,3230]"
+    },
+    {
+      "src": "): ) [1342,1343]",
+      "dest": "): ) [1287,1288]"
+    },
+    {
+      "src": "identifier: Transfer [6974,6982]",
+      "dest": "identifier: Transfer [6792,6800]"
+    },
+    {
+      "src": "identifier: value [6515,6520]",
+      "dest": "identifier: value [6373,6378]"
+    },
+    {
+      "src": "boolean_literal [5436,5440]",
+      "dest": "boolean_literal [5372,5376]"
+    },
+    {
+      "src": "primitive_type [5685,5692]",
+      "dest": "primitive_type [5621,5628]"
+    },
+    {
+      "src": "[: [ [8067,8068]",
+      "dest": "[: [ [7885,7886]"
+    },
+    {
+      "src": "visibility [7970,7978]",
+      "dest": "visibility [7788,7796]"
+    },
+    {
+      "src": "number_literal: 0 [6502,6503]",
+      "dest": "number_literal: 0 [6360,6361]"
+    },
+    {
+      "src": "return_type_definition [4600,4614]",
+      "dest": "return_type_definition [4542,4556]"
+    },
+    {
+      "src": "}: } [6527,6528]",
+      "dest": "}: } [6385,6386]"
+    },
+    {
+      "src": "return_statement [1354,1378]",
+      "dest": "return_statement [1299,1323]"
+    },
+    {
+      "src": "returns: returns [1004,1011]",
+      "dest": "returns: returns [949,956]"
+    },
+    {
+      "src": "(: ( [5263,5264]",
+      "dest": "(: ( [5202,5203]"
+    },
+    {
+      "src": "]: ] [7468,7469]",
+      "dest": "]: ] [7286,7287]"
+    },
+    {
+      "src": "visibility [1305,1311]",
+      "dest": "visibility [1250,1256]"
+    },
+    {
+      "src": "]: ] [6926,6927]",
+      "dest": "]: ] [6767,6768]"
+    },
+    {
+      "src": "override: override [2073,2081]",
+      "dest": "override: override [2018,2026]"
+    },
+    {
+      "src": "function_body [4615,4729]",
+      "dest": "function_body [4557,4668]"
+    },
+    {
+      "src": "[: [ [7453,7454]",
+      "dest": "[: [ [7271,7272]"
+    },
+    {
+      "src": "view: view [1773,1777]",
+      "dest": "view: view [1718,1722]"
+    },
+    {
+      "src": "address: address [6839,6846]",
+      "dest": "address: address [6697,6704]"
+    },
+    {
+      "src": "identifier: account [6983,6990]",
+      "dest": "identifier: account [6801,6808]"
+    },
+    {
+      "src": "call_argument [5905,5907]",
+      "dest": "call_argument [5803,5805]"
+    },
+    {
+      "src": "uint256: uint256 [3841,3848]",
+      "dest": "uint256: uint256 [3786,3793]"
+    },
+    {
+      "src": "bool: bool [2091,2095]",
+      "dest": "bool: bool [2036,2040]"
+    },
+    {
+      "src": "[: [ [7460,7461]",
+      "dest": "[: [ [7278,7279]"
+    },
+    {
+      "src": "{: { [5735,5736]",
+      "dest": "{: { [5671,5672]"
+    },
+    {
+      "src": "primitive_type [828,835]",
+      "dest": "primitive_type [773,780]"
+    },
+    {
+      "src": "identifier: msg [5347,5350]",
+      "dest": "identifier: msg [5286,5289]"
+    },
+    {
+      "src": "array_access [6909,6927]",
+      "dest": "array_access [6750,6768]"
+    },
+    {
+      "src": "override_specifier [2073,2081]",
+      "dest": "override_specifier [2018,2026]"
+    },
+    {
+      "src": "expression_statement [7366,7397]",
+      "dest": "expression_statement [7184,7215]"
+    },
+    {
+      "src": "identifier: msg [3975,3978]",
+      "dest": "identifier: msg [3920,3923]"
+    },
+    {
+      "src": "function_body [5735,5922]",
+      "dest": "function_body [5671,5820]"
+    },
+    {
+      "src": "[: [ [1370,1371]",
+      "dest": "[: [ [1315,1316]"
+    },
+    {
+      "src": "(: ( [1289,1290]",
+      "dest": "(: ( [1234,1235]"
+    },
+    {
+      "src": "array_access [1822,1846]",
+      "dest": "array_access [1767,1791]"
+    },
+    {
+      "src": "contract_declaration [671,8101]",
+      "dest": "contract_declaration [648,7916]"
+    },
+    {
+      "src": "is: is [686,688]",
+      "dest": "is: is [663,665]"
+    },
+    {
+      "src": "type_cast_expression [6992,7002]",
+      "dest": "type_cast_expression [6810,6820]"
+    },
+    {
+      "src": "return_type_definition [3872,3886]",
+      "dest": "return_type_definition [3817,3831]"
+    },
+    {
+      "src": "(: ( [6279,6280]",
+      "dest": "(: ( [6177,6178]"
+    },
+    {
+      "src": "identifier: _balances [6420,6429]",
+      "dest": "identifier: _balances [6301,6310]"
+    },
+    {
+      "src": ",: , [3827,3828]",
+      "dest": ",: , [3772,3773]"
+    },
+    {
+      "src": "primitive_type [817,824]",
+      "dest": "primitive_type [762,769]"
+    },
+    {
+      "src": "): ) [5914,5915]",
+      "dest": "): ) [5812,5813]"
+    },
+    {
+      "src": "{: { [2883,2884]",
+      "dest": "{: { [2828,2829]"
+    },
+    {
+      "src": "array_access [3960,3974]",
+      "dest": "array_access [3905,3919]"
+    },
+    {
+      "src": "call_expression [5745,5770]",
+      "dest": "call_expression [5681,5706]"
+    },
+    {
+      "src": "]: ] [7459,7460]",
+      "dest": "]: ] [7277,7278]"
+    },
+    {
+      "src": "(: ( [7373,7374]",
+      "dest": "(: ( [7191,7192]"
+    },
+    {
+      "src": "identifier: _burn [6763,6768]",
+      "dest": "identifier: _burn [6621,6626]"
+    },
+    {
+      "src": "address: address [7300,7307]",
+      "dest": "address: address [7118,7125]"
+    },
+    {
+      "src": "type_name [861,868]",
+      "dest": "type_name [806,813]"
+    },
+    {
+      "src": "): ) [5768,5769]",
+      "dest": "): ) [5704,5705]"
+    },
+    {
+      "src": "override_specifier [2859,2867]",
+      "dest": "override_specifier [2804,2812]"
+    },
+    {
+      "src": "): ) [2850,2851]",
+      "dest": "): ) [2795,2796]"
+    },
+    {
+      "src": "call_argument [6494,6504]",
+      "dest": "call_argument [6352,6362]"
+    },
+    {
+      "src": "function_body [3887,4026]",
+      "dest": "function_body [3832,3968]"
+    },
+    {
+      "src": "(: ( [5684,5685]",
+      "dest": "(: ( [5620,5621]"
+    },
+    {
+      "src": "identifier: account [6339,6346]",
+      "dest": "identifier: account [6237,6244]"
+    },
+    {
+      "src": "]: ] [3985,3986]",
+      "dest": "]: ] [3930,3931]"
+    },
+    {
+      "src": ".: . [3951,3952]",
+      "dest": ".: . [3896,3897]"
+    },
+    {
+      "src": "parameter [7938,7953]",
+      "dest": "parameter [7756,7771]"
+    },
+    {
+      "src": "(: ( [1795,1796]",
+      "dest": "(: ( [1740,1741]"
+    },
+    {
+      "src": "expression_statement [5338,5420]",
+      "dest": "expression_statement [5277,5356]"
+    },
+    {
+      "src": "expression_statement [6861,6900]",
+      "dest": "expression_statement [6719,6741]"
+    },
+    {
+      "src": ".: . [3978,3979]",
+      "dest": ".: . [3923,3924]"
+    },
+    {
+      "src": "identifier: _approve [7291,7299]",
+      "dest": "identifier: _approve [7109,7117]"
+    },
+    {
+      "src": ".: . [2120,2121]",
+      "dest": ".: . [2065,2066]"
+    },
+    {
+      "src": "member_expression [8068,8078]",
+      "dest": "member_expression [7886,7896]"
+    },
+    {
+      "src": "identifier: msg [4634,4637]",
+      "dest": "identifier: msg [4576,4579]"
+    },
+    {
+      "src": "identifier: addedValue [4581,4591]",
+      "dest": "identifier: addedValue [4523,4533]"
+    },
+    {
+      "src": "[: [ [3974,3975]",
+      "dest": "[: [ [3919,3920]"
+    },
+    {
+      "src": "(: ( [3274,3275]",
+      "dest": "(: ( [3219,3220]"
+    },
+    {
+      "src": ",: , [3285,3286]",
+      "dest": ",: , [3230,3231]"
+    },
+    {
+      "src": "primitive_type [7423,7430]",
+      "dest": "primitive_type [7241,7248]"
+    },
+    {
+      "src": "}: } [5446,5447]",
+      "dest": "}: } [5382,5383]"
+    },
+    {
+      "src": ",: , [7953,7954]",
+      "dest": ",: , [7771,7772]"
+    },
+    {
+      "src": "solidity_pragma_token [40,55]",
+      "dest": "solidity_pragma_token [40,55]"
+    },
+    {
+      "src": "comment: /**      * @dev Approve an address to spend another addresses' tokens.      * @param owner The address that owns the tokens.      * @param spender The address that will spend the tokens.      * @param value The number of tokens that can be spent.      */ [7023,7277]",
+      "dest": "comment: /**      * @dev Approve an address to spend another addresses' tokens.      * @param owner The address that owns the tokens.      * @param spender The address that will spend the tokens.      * @param value The number of tokens that can be spent.      */ [6841,7095]"
+    },
+    {
+      "src": "identifier: Transfer [6485,6493]",
+      "dest": "identifier: Transfer [6343,6351]"
+    },
+    {
+      "src": "identifier: to [5905,5907]",
+      "dest": "identifier: to [5803,5805]"
+    },
+    {
+      "src": "parameter [2877,2881]",
+      "dest": "parameter [2822,2826]"
+    },
+    {
+      "src": "identifier: _totalSupply [877,889]",
+      "dest": "identifier: _totalSupply [822,834]"
+    },
+    {
+      "src": "): ) [4699,4700]",
+      "dest": "): ) [4639,4640]"
+    },
+    {
+      "src": "return_statement [4711,4723]",
+      "dest": "return_statement [4650,4662]"
+    },
+    {
+      "src": "public: public [4593,4599]",
+      "dest": "public: public [4535,4541]"
+    },
+    {
+      "src": "primitive_type [2820,2827]",
+      "dest": "primitive_type [2765,2772]"
+    },
+    {
+      "src": "user_defined_type [689,695]",
+      "dest": "user_defined_type [666,672]"
+    },
+    {
+      "src": "return: return [4711,4717]",
+      "dest": "return: return [4650,4656]"
+    },
+    {
+      "src": "address: address [5264,5271]",
+      "dest": "address: address [5203,5210]"
+    },
+    {
+      "src": "call_expression [7366,7396]",
+      "dest": "call_expression [7184,7214]"
+    },
+    {
+      "src": "type_name [2820,2827]",
+      "dest": "type_name [2765,2772]"
+    },
+    {
+      "src": "true: true [3319,3323]",
+      "dest": "true: true [3264,3268]"
+    },
+    {
+      "src": "identifier: msg [3229,3232]",
+      "dest": "identifier: msg [3174,3177]"
+    },
+    {
+      "src": "call_argument [7517,7522]",
+      "dest": "call_argument [7335,7340]"
+    },
+    {
+      "src": "view: view [1312,1316]",
+      "dest": "view: view [1257,1261]"
+    },
+    {
+      "src": "parameter [6786,6799]",
+      "dest": "parameter [6644,6657]"
+    },
+    {
+      "src": "uint256: uint256 [7955,7962]",
+      "dest": "uint256: uint256 [7773,7780]"
+    },
+    {
+      "src": "comment: /**      * @dev Internal function that burns an amount of the token of a given      * account.      * @param account The account whose tokens will be burnt.      * @param value The amount that will be burnt.      */ [6534,6749]",
+      "dest": "comment: /**      * @dev Internal function that burns an amount of the token of a given      * account.      * @param account The account whose tokens will be burnt.      * @param value The amount that will be burnt.      */ [6392,6607]"
+    },
+    {
+      "src": "returns: returns [3872,3879]",
+      "dest": "returns: returns [3817,3824]"
+    },
+    {
+      "src": "type_name [2837,2844]",
+      "dest": "type_name [2782,2789]"
+    },
+    {
+      "src": "): ) [6360,6361]",
+      "dest": "): ) [6258,6259]"
+    },
+    {
+      "src": "return: return [5429,5435]",
+      "dest": "return: return [5365,5371]"
+    },
+    {
+      "src": "true: true [2156,2160]",
+      "dest": "true: true [2101,2105]"
+    },
+    {
+      "src": "): ) [3885,3886]",
+      "dest": "): ) [3830,3831]"
+    },
+    {
+      "src": "(: ( [980,981]",
+      "dest": "(: ( [925,926]"
+    },
+    {
+      "src": "]: ] [3248,3249]",
+      "dest": "]: ] [3193,3194]"
+    },
+    {
+      "src": "identifier: sender [8072,8078]",
+      "dest": "identifier: sender [7890,7896]"
+    },
+    {
+      "src": "comment: /**      * @dev Internal function that burns an amount of the token of a given      * account, deducting from the sender's allowance for said account. Uses the      * internal burn function.      * Emits an Approval event (reflecting the reduced allowance).      * @param account The account whose tokens will be burnt.      * @param value The amount that will be burnt.      */ [7536,7914]",
+      "dest": "comment: /**      * @dev Internal function that burns an amount of the token of a given      * account, deducting from the sender's allowance for said account. Uses the      * internal burn function.      * Emits an Approval event (reflecting the reduced allowance).      * @param account The account whose tokens will be burnt.      * @param value The amount that will be burnt.      */ [7354,7732]"
+    },
+    {
+      "src": "return: return [2149,2155]",
+      "dest": "return: return [2094,2100]"
+    },
+    {
+      "src": "}: } [7016,7017]",
+      "dest": "}: } [6834,6835]"
+    },
+    {
+      "src": "uint256: uint256 [1796,1803]",
+      "dest": "uint256: uint256 [1741,1748]"
+    },
+    {
+      "src": "(: ( [3906,3907]",
+      "dest": "(: ( [3851,3852]"
+    },
+    {
+      "src": ".: . [8041,8042]",
+      "dest": ".: . [7859,7860]"
+    },
+    {
+      "src": "): ) [3922,3923]",
+      "dest": "): ) [3867,3868]"
+    },
+    {
+      "src": "): ) [981,982]",
+      "dest": "): ) [926,927]"
+    },
+    {
+      "src": "call_argument [5909,5914]",
+      "dest": "call_argument [5807,5812]"
+    },
+    {
+      "src": "call_argument [4634,4644]",
+      "dest": "call_argument [4576,4586]"
+    },
+    {
+      "src": "identifier: to [5845,5847]",
+      "dest": "identifier: to [5761,5763]"
+    },
+    {
+      "src": "identifier: _mint [6274,6279]",
+      "dest": "identifier: _mint [6172,6177]"
+    },
+    {
+      "src": "identifier: value [7472,7477]",
+      "dest": "identifier: value [7290,7295]"
+    },
+    {
+      "src": "identifier: require [7366,7373]",
+      "dest": "identifier: require [7184,7191]"
+    },
+    {
+      "src": "internal: internal [6801,6809]",
+      "dest": "internal: internal [6659,6667]"
+    },
+    {
+      "src": "emit_statement [5885,5916]",
+      "dest": "emit_statement [5783,5814]"
+    },
+    {
+      "src": "uint256: uint256 [1335,1342]",
+      "dest": "uint256: uint256 [1280,1287]"
+    },
+    {
+      "src": "identifier: owner [1831,1836]",
+      "dest": "identifier: owner [1776,1781]"
+    },
+    {
+      "src": "): ) [6848,6849]",
+      "dest": "): ) [6706,6707]"
+    },
+    {
+      "src": "parameter [1013,1020]",
+      "dest": "parameter [958,965]"
+    },
+    {
+      "src": "(: ( [5321,5322]",
+      "dest": "(: ( [5260,5261]"
+    },
+    {
+      "src": "(: ( [6999,7000]",
+      "dest": "(: ( [6817,6818]"
+    },
+    {
+      "src": "identifier: approve [2812,2819]",
+      "dest": "identifier: approve [2757,2764]"
+    },
+    {
+      "src": "type_name [1796,1803]",
+      "dest": "type_name [1741,1748]"
+    },
+    {
+      "src": "{: { [4615,4616]",
+      "dest": "{: { [4557,4558]"
+    },
+    {
+      "src": "identifier: _allowed [7445,7453]",
+      "dest": "identifier: _allowed [7263,7271]"
+    },
+    {
+      "src": "type_name [2051,2058]",
+      "dest": "type_name [1996,2003]"
+    },
+    {
+      "src": "type_name [828,835]",
+      "dest": "type_name [773,780]"
+    },
+    {
+      "src": "!=: != [5756,5758]",
+      "dest": "!=: != [5692,5694]"
+    },
+    {
+      "src": "bool: bool [2877,2881]",
+      "dest": "bool: bool [2822,2826]"
+    },
+    {
+      "src": "emit_statement [6969,7011]",
+      "dest": "emit_statement [6787,6829]"
+    },
+    {
+      "src": "expression_statement [3198,3256]",
+      "dest": "expression_statement [3143,3201]"
+    },
+    {
+      "src": "): ) [7009,7010]",
+      "dest": "): ) [6827,6828]"
+    },
+    {
+      "src": "identifier: value [7340,7345]",
+      "dest": "identifier: value [7158,7163]"
+    },
+    {
+      "src": "primitive_type [861,868]",
+      "dest": "primitive_type [806,813]"
+    },
+    {
+      "src": "identifier: account [8029,8036]",
+      "dest": "identifier: account [7847,7854]"
+    },
+    {
+      "src": "identifier: spender [7374,7381]",
+      "dest": "identifier: spender [7192,7199]"
+    },
+    {
+      "src": "(: ( [743,744]",
+      "dest": "(: ( [688,689]"
+    },
+    {
+      "src": "call_expression [3897,3923]",
+      "dest": "call_expression [3842,3868]"
+    },
+    {
+      "src": "true [2156,2160]",
+      "dest": "true [2101,2105]"
+    },
+    {
+      "src": "parameter [3841,3854]",
+      "dest": "parameter [3786,3799]"
+    },
+    {
+      "src": "[: [ [4675,4676]",
+      "dest": "[: [ [4617,4618]"
+    },
+    {
+      "src": "{: { [2097,2098]",
+      "dest": "{: { [2042,2043]"
+    },
+    {
+      "src": "primitive_type [7955,7962]",
+      "dest": "primitive_type [7773,7780]"
+    },
+    {
+      "src": "array_access [8050,8067]",
+      "dest": "array_access [7868,7885]"
+    },
+    {
+      "src": "type_name [3881,3885]",
+      "dest": "type_name [3826,3830]"
+    },
+    {
+      "src": "identifier: value [2845,2850]",
+      "dest": "identifier: value [2790,2795]"
+    },
+    {
+      "src": "binary_expression [6828,6849]",
+      "dest": "binary_expression [6686,6707]"
+    },
+    {
+      "src": "identifier: owner [7454,7459]",
+      "dest": "identifier: owner [7272,7277]"
+    },
+    {
+      "src": "emit_statement [6480,6522]",
+      "dest": "emit_statement [6338,6380]"
+    },
+    {
+      "src": "(: ( [6338,6339]",
+      "dest": "(: ( [6236,6237]"
+    },
+    {
+      "src": "call_argument [7414,7433]",
+      "dest": "call_argument [7232,7251]"
+    },
+    {
+      "src": ",: , [2127,2128]",
+      "dest": ",: , [2072,2073]"
+    },
+    {
+      "src": "{: { [1805,1806]",
+      "dest": "{: { [1750,1751]"
+    },
+    {
+      "src": "call_argument [8004,8009]",
+      "dest": "call_argument [7822,7827]"
+    },
+    {
+      "src": "identifier: owner [7414,7419]",
+      "dest": "identifier: owner [7232,7237]"
+    },
+    {
+      "src": "): ) [2064,2065]",
+      "dest": "): ) [2009,2010]"
+    },
+    {
+      "src": "call_argument [5899,5903]",
+      "dest": "call_argument [5797,5801]"
+    },
+    {
+      "src": "[: [ [5388,5389]",
+      "dest": "[: [ [5327,5328]"
+    },
+    {
+      "src": "): ) [8009,8010]",
+      "dest": "): ) [7827,7828]"
+    },
+    {
+      "src": "primitive_type [3829,3836]",
+      "dest": "primitive_type [3774,3781]"
+    },
+    {
+      "src": "member_expression [4634,4644]",
+      "dest": "member_expression [4576,4586]"
+    },
+    {
+      "src": "uint256: uint256 [2837,2844]",
+      "dest": "uint256: uint256 [2782,2789]"
+    },
+    {
+      "src": "): ) [5304,5305]",
+      "dest": "): ) [5243,5244]"
+    },
+    {
+      "src": "array_access [3960,3986]",
+      "dest": "array_access [3905,3931]"
+    },
+    {
+      "src": "identifier: sender [8042,8048]",
+      "dest": "identifier: sender [7860,7866]"
+    },
+    {
+      "src": "parameter [5322,5326]",
+      "dest": "parameter [5261,5265]"
+    },
+    {
+      "src": "address: address [2820,2827]",
+      "dest": "address: address [2765,2772]"
+    },
+    {
+      "src": "type_name [808,836]",
+      "dest": "type_name [753,781]"
+    },
+    {
+      "src": "address: address [6350,6357]",
+      "dest": "address: address [6248,6255]"
+    },
+    {
+      "src": "identifier: spender [4676,4683]",
+      "dest": "identifier: spender [4618,4625]"
+    },
+    {
+      "src": "(: ( [3814,3815]",
+      "dest": "(: ( [3759,3760]"
+    },
+    {
+      "src": "type_name [3841,3848]",
+      "dest": "type_name [3786,3793]"
+    },
+    {
+      "src": "primitive_type [1796,1803]",
+      "dest": "primitive_type [1741,1748]"
+    },
+    {
+      "src": ",: , [3294,3295]",
+      "dest": ",: , [3239,3240]"
+    },
+    {
+      "src": "identifier: Approval [7492,7500]",
+      "dest": "identifier: Approval [7310,7318]"
+    },
+    {
+      "src": "\": \" [77,78]",
+      "dest": "\": \" [77,78]"
+    },
+    {
+      "src": "function: function [1271,1279]",
+      "dest": "function: function [1216,1224]"
+    },
+    {
+      "src": "address: address [7315,7322]",
+      "dest": "address: address [7133,7140]"
+    },
+    {
+      "src": "pragma: pragma [33,39]",
+      "dest": "pragma: pragma [33,39]"
+    },
+    {
+      "src": "function_definition [5666,5922]",
+      "dest": "function_definition [5602,5820]"
+    },
+    {
+      "src": "identifier: to [2129,2131]",
+      "dest": "identifier: to [2074,2076]"
+    },
+    {
+      "src": ",: , [4571,4572]",
+      "dest": ",: , [4513,4514]"
+    },
+    {
+      "src": "): ) [3854,3855]",
+      "dest": "): ) [3799,3800]"
+    },
+    {
+      "src": "public: public [983,989]",
+      "dest": "public: public [928,934]"
+    },
+    {
+      "src": "identifier: value [3849,3854]",
+      "dest": "identifier: value [3794,3799]"
+    },
+    {
+      "src": "call_expression [6820,6850]",
+      "dest": "call_expression [6678,6708]"
+    },
+    {
+      "src": "identifier: require [6331,6338]",
+      "dest": "identifier: require [6229,6236]"
+    },
+    {
+      "src": "type_name [7332,7339]",
+      "dest": "type_name [7150,7157]"
+    },
+    {
+      "src": "primitive_type [2877,2881]",
+      "dest": "primitive_type [2822,2826]"
+    },
+    {
+      "src": "{: { [6321,6322]",
+      "dest": "{: { [6219,6220]"
+    },
+    {
+      "src": ",: , [3839,3840]",
+      "dest": ",: , [3784,3785]"
+    },
+    {
+      "src": "}: } [5921,5922]",
+      "dest": "}: } [5819,5820]"
+    },
+    {
+      "src": "identifier: msg [8068,8071]",
+      "dest": "identifier: msg [7886,7889]"
+    },
+    {
+      "src": "identifier: _balances [772,781]",
+      "dest": "identifier: _balances [717,726]"
+    },
+    {
+      "src": "[: [ [3240,3241]",
+      "dest": "[: [ [3185,3186]"
+    },
+    {
+      "src": "}: } [1057,1058]",
+      "dest": "}: } [1002,1003]"
+    },
+    {
+      "src": "parameter [3829,3839]",
+      "dest": "parameter [3774,3784]"
+    },
+    {
+      "src": "]: ] [6437,6438]",
+      "dest": "]: ] [6318,6319]"
+    },
+    {
+      "src": "solidity: solidity [40,48]",
+      "dest": "solidity: solidity [40,48]"
+    },
+    {
+      "src": "call_expression [6331,6361]",
+      "dest": "call_expression [6229,6259]"
+    },
+    {
+      "src": "): ) [2881,2882]",
+      "dest": "): ) [2826,2827]"
+    },
+    {
+      "src": "==: == [3212,3214]",
+      "dest": "==: == [3157,3159]"
+    },
+    {
+      "src": "address: address [3829,3836]",
+      "dest": "address: address [3774,3781]"
+    },
+    {
+      "src": "call_argument [6506,6513]",
+      "dest": "call_argument [6364,6371]"
+    },
+    {
+      "src": "return_statement [1815,1847]",
+      "dest": "return_statement [1760,1792]"
+    },
+    {
+      "src": "type_name [735,763]",
+      "dest": "type_name [680,708]"
+    },
+    {
+      "src": "{: { [1022,1023]",
+      "dest": "{: { [967,968]"
+    },
+    {
+      "src": "primitive_type [6769,6776]",
+      "dest": "primitive_type [6627,6634]"
+    },
+    {
+      "src": "emit: emit [6480,6484]",
+      "dest": "emit: emit [6338,6342]"
+    },
+    {
+      "src": "uint256: uint256 [7332,7339]",
+      "dest": "uint256: uint256 [7150,7157]"
+    },
+    {
+      "src": ",: , [3915,3916]",
+      "dest": ",: , [3860,3861]"
+    },
+    {
+      "src": "identifier: balanceOf [1280,1289]",
+      "dest": "identifier: balanceOf [1225,1234]"
+    },
+    {
+      "src": "): ) [7395,7396]",
+      "dest": "): ) [7213,7214]"
+    },
+    {
+      "src": "identifier: spender [1757,1764]",
+      "dest": "identifier: spender [1702,1709]"
+    },
+    {
+      "src": "=>: => [805,807]",
+      "dest": "=>: => [750,752]"
+    },
+    {
+      "src": "type_name [4573,4580]",
+      "dest": "type_name [4515,4522]"
+    },
+    {
+      "src": "(: ( [2116,2117]",
+      "dest": "(: ( [2061,2062]"
+    },
+    {
+      "src": "type_name [1749,1756]",
+      "dest": "type_name [1694,1701]"
+    },
+    {
+      "src": "bool: bool [3881,3885]",
+      "dest": "bool: bool [3826,3830]"
+    },
+    {
+      "src": ",: , [5279,5280]",
+      "dest": ",: , [5218,5219]"
+    },
+    {
+      "src": "call_expression [4655,4700]",
+      "dest": "call_expression [4567,4640]"
+    },
+    {
+      "src": "identifier: _balances [1361,1370]",
+      "dest": "identifier: _balances [1306,1315]"
+    },
+    {
+      "src": "function_body [7979,8098]",
+      "dest": "function_body [7797,7913]"
+    },
+    {
+      "src": "parameter [2051,2064]",
+      "dest": "parameter [1996,2009]"
+    },
+    {
+      "src": "]: ] [1376,1377]",
+      "dest": "]: ] [1321,1322]"
+    },
+    {
+      "src": "): ) [6849,6850]",
+      "dest": "): ) [6707,6708]"
+    },
+    {
+      "src": "override: override [1778,1786]",
+      "dest": "override: override [1723,1731]"
+    },
+    {
+      "src": "type_name [3829,3836]",
+      "dest": "type_name [3774,3781]"
+    },
+    {
+      "src": "primitive_type [7300,7307]",
+      "dest": "primitive_type [7118,7125]"
+    },
+    {
+      "src": "primitive_type [6992,6999]",
+      "dest": "primitive_type [6810,6817]"
+    },
+    {
+      "src": "): ) [7345,7346]",
+      "dest": "): ) [7163,7164]"
+    },
+    {
+      "src": "true [4718,4722]",
+      "dest": "true [4657,4661]"
+    },
+    {
+      "src": "): ) [7433,7434]",
+      "dest": "): ) [7251,7252]"
+    },
+    {
+      "src": "expression_statement [3933,3999]",
+      "dest": "expression_statement [3878,3941]"
+    },
+    {
+      "src": "expression_statement [5781,5826]",
+      "dest": "expression_statement [5717,5742]"
+    },
+    {
+      "src": "(: ( [6493,6494]",
+      "dest": "(: ( [6351,6352]"
+    },
+    {
+      "src": "function: function [6265,6273]",
+      "dest": "function: function [6163,6171]"
+    },
+    {
+      "src": "(: ( [4555,4556]",
+      "dest": "(: ( [4497,4498]"
+    },
+    {
+      "src": "(: ( [8083,8084]",
+      "dest": "(: ( [7846,7847]"
+    },
+    {
+      "src": "function: function [6754,6762]",
+      "dest": "function: function [6612,6620]"
+    },
+    {
+      "src": "identifier: sender [3979,3985]",
+      "dest": "identifier: sender [3924,3930]"
+    },
+    {
+      "src": "call_expression [5368,5418]",
+      "dest": "call_expression [5277,5355]"
+    },
+    {
+      "src": "comment: /**      * @dev Gets the balance of the specified address.      * @param owner The address to query the balance of.      * @return An uint256 representing the amount owned by the passed address.      */ [1064,1266]",
+      "dest": "comment: /**      * @dev Gets the balance of the specified address.      * @param owner The address to query the balance of.      * @return An uint256 representing the amount owned by the passed address.      */ [1009,1211]"
+    },
+    {
+      "src": "visibility [6312,6320]",
+      "dest": "visibility [6210,6218]"
+    },
+    {
+      "src": "type_name [4556,4563]",
+      "dest": "type_name [4498,4505]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: MIT [0,31]",
+      "dest": "comment: // SPDX-License-Identifier: MIT [0,31]"
+    },
+    {
+      "src": "==: == [3250,3252]",
+      "dest": "==: == [3195,3197]"
+    },
+    {
+      "src": "identifier: require [3198,3205]",
+      "dest": "identifier: require [3143,3150]"
+    },
+    {
+      "src": "function: function [5666,5674]",
+      "dest": "function: function [5602,5610]"
+    },
+    {
+      "src": "expression_statement [7445,7478]",
+      "dest": "expression_statement [7263,7296]"
+    },
+    {
+      "src": "(: ( [6501,6502]",
+      "dest": "(: ( [6359,6360]"
+    },
+    {
+      "src": "returns: returns [5313,5320]",
+      "dest": "returns: returns [5252,5259]"
+    },
+    {
+      "src": "(: ( [1012,1013]",
+      "dest": "(: ( [957,958]"
+    },
+    {
+      "src": "type_cast_expression [6839,6849]",
+      "dest": "type_cast_expression [6697,6707]"
+    },
+    {
+      "src": ".: . [4637,4638]",
+      "dest": ".: . [4579,4580]"
+    },
+    {
+      "src": "]: ] [4674,4675]",
+      "dest": "]: ] [4616,4617]"
+    },
+    {
+      "src": "visibility [4593,4599]",
+      "dest": "visibility [4535,4541]"
+    },
+    {
+      "src": "identifier: spender [3287,3294]",
+      "dest": "identifier: spender [3232,3239]"
+    },
+    {
+      "src": "emit: emit [7487,7491]",
+      "dest": "emit: emit [7305,7309]"
+    },
+    {
+      "src": "array_access [1822,1837]",
+      "dest": "array_access [1767,1782]"
+    },
+    {
+      "src": "(: ( [2876,2877]",
+      "dest": "(: ( [2821,2822]"
+    },
+    {
+      "src": "array_access [5781,5796]",
+      "dest": "array_access [5717,5732]"
+    },
+    {
+      "src": "primitive_type [7938,7945]",
+      "dest": "primitive_type [7756,7763]"
+    },
+    {
+      "src": "parameter [6297,6310]",
+      "dest": "parameter [6195,6208]"
+    },
+    {
+      "src": "primitive_type [7385,7392]",
+      "dest": "primitive_type [7203,7210]"
+    },
+    {
+      "src": "): ) [5326,5327]",
+      "dest": "): ) [5265,5266]"
+    },
+    {
+      "src": "mapping: mapping [735,742]",
+      "dest": "mapping: mapping [680,687]"
+    },
+    {
+      "src": "primitive_type [2091,2095]",
+      "dest": "primitive_type [2036,2040]"
+    },
+    {
+      "src": "bool: bool [4609,4613]",
+      "dest": "bool: bool [4551,4555]"
+    },
+    {
+      "src": "identifier: account [8059,8066]",
+      "dest": "identifier: account [7877,7884]"
+    },
+    {
+      "src": "primitive_type [6280,6287]",
+      "dest": "primitive_type [6178,6185]"
+    },
+    {
+      "src": "call_expression [2107,2139]",
+      "dest": "call_expression [2052,2084]"
+    },
+    {
+      "src": "expression_statement [3897,3924]",
+      "dest": "expression_statement [3842,3869]"
+    },
+    {
+      "src": "primitive_type [6350,6357]",
+      "dest": "primitive_type [6248,6255]"
+    },
+    {
+      "src": "expression_statement [2107,2140]",
+      "dest": "expression_statement [2052,2085]"
+    },
+    {
+      "src": "identifier: value [6305,6310]",
+      "dest": "identifier: value [6203,6208]"
+    },
+    {
+      "src": "): ) [3996,3997]",
+      "dest": "): ) [3939,3940]"
+    },
+    {
+      "src": "visibility [5726,5734]",
+      "dest": "visibility [5662,5670]"
+    },
+    {
+      "src": "): ) [5724,5725]",
+      "dest": "): ) [5660,5661]"
+    },
+    {
+      "src": "call_argument [8038,8048]",
+      "dest": "call_argument [7856,7866]"
+    },
+    {
+      "src": ".: . [5350,5351]",
+      "dest": ".: . [5289,5290]"
+    },
+    {
+      "src": "call_argument [7374,7395]",
+      "dest": "call_argument [7192,7213]"
+    },
+    {
+      "src": "call_argument [3913,3915]",
+      "dest": "call_argument [3858,3860]"
+    },
+    {
+      "src": "internal: internal [6312,6320]",
+      "dest": "internal: internal [6210,6218]"
+    },
+    {
+      "src": "number_literal: 0 [7431,7432]",
+      "dest": "number_literal: 0 [7249,7250]"
+    },
+    {
+      "src": "returns: returns [1326,1333]",
+      "dest": "returns: returns [1271,1278]"
+    },
+    {
+      "src": ",: , [5903,5904]",
+      "dest": ",: , [5801,5802]"
+    },
+    {
+      "src": ".: . [5380,5381]",
+      "dest": ".: . [5319,5320]"
+    },
+    {
+      "src": "comment: /**      * @dev Transfer token for a specified address      * @param to The address to transfer to.      * @param value The amount to be transferred.      */ [1859,2016]",
+      "dest": "comment: /**      * @dev Transfer token for a specified address      * @param to The address to transfer to.      * @param value The amount to be transferred.      */ [1804,1961]"
+    },
+    {
+      "src": "view: view [990,994]",
+      "dest": "view: view [935,939]"
+    },
+    {
+      "src": "identifier: transferFrom [3802,3814]",
+      "dest": "identifier: transferFrom [3747,3759]"
+    },
+    {
+      "src": "boolean_literal [4718,4722]",
+      "dest": "boolean_literal [4657,4661]"
+    },
+    {
+      "src": "(: ( [7500,7501]",
+      "dest": "(: ( [7318,7319]"
+    },
+    {
+      "src": "primitive_type [4573,4580]",
+      "dest": "primitive_type [4515,4522]"
+    },
+    {
+      "src": "identifier: from [5693,5697]",
+      "dest": "identifier: from [5629,5633]"
+    },
+    {
+      "src": "primitive_type [6839,6846]",
+      "dest": "primitive_type [6697,6704]"
+    },
+    {
+      "src": "expression_statement [6909,6960]",
+      "dest": "expression_statement [6750,6778]"
+    },
+    {
+      "src": "function_body [7356,7530]",
+      "dest": "function_body [7174,7348]"
+    },
+    {
+      "src": "identifier: to [5707,5709]",
+      "dest": "identifier: to [5643,5645]"
+    },
+    {
+      "src": "uint256: uint256 [5711,5718]",
+      "dest": "uint256: uint256 [5647,5654]"
+    },
+    {
+      "src": "[: [ [4663,4664]",
+      "dest": "[: [ [4605,4606]"
+    },
+    {
+      "src": "): ) [4591,4592]",
+      "dest": "): ) [4533,4534]"
+    },
+    {
+      "src": "(: ( [6846,6847]",
+      "dest": "(: ( [6704,6705]"
+    },
+    {
+      "src": "address: address [6494,6501]",
+      "dest": "address: address [6352,6359]"
+    },
+    {
+      "src": "array_access [8050,8079]",
+      "dest": "array_access [7868,7897]"
+    },
+    {
+      "src": "identifier: from [3907,3911]",
+      "dest": "identifier: from [3852,3856]"
+    },
+    {
+      "src": "state_variable_declaration [861,890]",
+      "dest": "state_variable_declaration [806,835]"
+    },
+    {
+      "src": "identifier: _totalSupply [1039,1051]",
+      "dest": "identifier: _totalSupply [984,996]"
+    },
+    {
+      "src": "call_argument [7508,7515]",
+      "dest": "call_argument [7326,7333]"
+    },
+    {
+      "src": "call_argument [3206,3254]",
+      "dest": "call_argument [3151,3199]"
+    },
+    {
+      "src": "member_expression [5377,5387]",
+      "dest": "member_expression [5316,5326]"
+    },
+    {
+      "src": "type_name [7315,7322]",
+      "dest": "type_name [7133,7140]"
+    },
+    {
+      "src": "(: ( [3880,3881]",
+      "dest": "(: ( [3825,3826]"
+    },
+    {
+      "src": "expression_statement [7989,8011]",
+      "dest": "expression_statement [7807,7829]"
+    },
+    {
+      "src": "primitive_type [2837,2844]",
+      "dest": "primitive_type [2782,2789]"
+    },
+    {
+      "src": "]: ] [5795,5796]",
+      "dest": "]: ] [5731,5732]"
+    },
+    {
+      "src": "returns: returns [2868,2875]",
+      "dest": "returns: returns [2813,2820]"
+    },
+    {
+      "src": "identifier: account [6430,6437]",
+      "dest": "identifier: account [6311,6318]"
+    },
+    {
+      "src": "primitive_type [1013,1020]",
+      "dest": "primitive_type [958,965]"
+    },
+    {
+      "src": "[: [ [1830,1831]",
+      "dest": "[: [ [1775,1776]"
+    },
+    {
+      "src": "): ) [6503,6504]",
+      "dest": "): ) [6361,6362]"
+    },
+    {
+      "src": "primitive_type [5264,5271]",
+      "dest": "primitive_type [5203,5210]"
+    },
+    {
+      "src": "binary_expression [3206,3216]",
+      "dest": "binary_expression [3151,3161]"
+    },
+    {
+      "src": "primitive_type [5759,5766]",
+      "dest": "primitive_type [5695,5702]"
+    },
+    {
+      "src": "true [5436,5440]",
+      "dest": "true [5372,5376]"
+    },
+    {
+      "src": "identifier: account [6506,6513]",
+      "dest": "identifier: account [6364,6371]"
+    },
+    {
+      "src": "): ) [7968,7969]",
+      "dest": "): ) [7786,7787]"
+    },
+    {
+      "src": "binary_expression [3206,3228]",
+      "dest": "binary_expression [3151,3173]"
+    },
+    {
+      "src": "identifier: spender [4564,4571]",
+      "dest": "identifier: spender [4506,4513]"
+    },
+    {
+      "src": "type_name [7300,7307]",
+      "dest": "type_name [7118,7125]"
+    },
+    {
+      "src": "{: { [7979,7980]",
+      "dest": "{: { [7797,7798]"
+    },
+    {
+      "src": "emit: emit [6969,6973]",
+      "dest": "emit: emit [6787,6791]"
+    },
+    {
+      "src": "binary_expression [7414,7433]",
+      "dest": "binary_expression [7232,7251]"
+    },
+    {
+      "src": "primitive_type [2051,2058]",
+      "dest": "primitive_type [1996,2003]"
+    },
+    {
+      "src": "function_definition [2021,2167]",
+      "dest": "function_definition [1966,2112]"
+    },
+    {
+      "src": "type_name [5685,5692]",
+      "dest": "type_name [5621,5628]"
+    },
+    {
+      "src": "identifier: msg [2117,2120]",
+      "dest": "identifier: msg [2062,2065]"
+    },
+    {
+      "src": "visibility [764,771]",
+      "dest": "visibility [709,716]"
+    },
+    {
+      "src": "): ) [6359,6360]",
+      "dest": "): ) [6257,6258]"
+    },
+    {
+      "src": "{: { [6810,6811]",
+      "dest": "{: { [6668,6669]"
+    },
+    {
+      "src": "identifier: account [6919,6926]",
+      "dest": "identifier: account [6760,6767]"
+    },
+    {
+      "src": "function_definition [5237,5447]",
+      "dest": "function_definition [5176,5383]"
+    },
+    {
+      "src": "(: ( [1334,1335]",
+      "dest": "(: ( [1279,1280]"
+    },
+    {
+      "src": "): ) [7394,7395]",
+      "dest": "): ) [7212,7213]"
+    },
+    {
+      "src": "internal: internal [5726,5734]",
+      "dest": "internal: internal [5662,5670]"
+    },
+    {
+      "src": "bool: bool [5322,5326]",
+      "dest": "bool: bool [5261,5265]"
+    },
+    {
+      "src": "array_access [1361,1377]",
+      "dest": "array_access [1306,1322]"
+    },
+    {
+      "src": "]: ] [1845,1846]",
+      "dest": "]: ] [1790,1791]"
+    },
+    {
+      "src": "!=: != [7420,7422]",
+      "dest": "!=: != [7238,7240]"
+    },
+    {
+      "src": ".: . [4667,4668]",
+      "dest": ".: . [4609,4610]"
+    },
+    {
+      "src": "identifier: sender [5351,5357]",
+      "dest": "identifier: sender [5290,5296]"
+    },
+    {
+      "src": "address: address [7385,7392]",
+      "dest": "address: address [7203,7210]"
+    },
+    {
+      "src": "=>: => [825,827]",
+      "dest": "=>: => [770,772]"
+    },
+    {
+      "src": "(: ( [3990,3991]",
+      "dest": "(: ( [3886,3887]"
+    },
+    {
+      "src": "number_literal: 0 [6358,6359]",
+      "dest": "number_literal: 0 [6256,6257]"
+    },
+    {
+      "src": "parameter [2091,2095]",
+      "dest": "parameter [2036,2040]"
+    },
+    {
+      "src": "identifier: msg [4664,4667]",
+      "dest": "identifier: msg [4606,4609]"
+    },
+    {
+      "src": "override: override [2859,2867]",
+      "dest": "override: override [2804,2812]"
+    },
+    {
+      "src": "pragma_directive [33,56]",
+      "dest": "pragma_directive [33,56]"
+    },
+    {
+      "src": "boolean_literal [2156,2160]",
+      "dest": "boolean_literal [2101,2105]"
+    },
+    {
+      "src": "=: = [7470,7471]",
+      "dest": "=: = [7288,7289]"
+    },
+    {
+      "src": "member_expression [3975,3985]",
+      "dest": "member_expression [3920,3930]"
+    },
+    {
+      "src": "(: ( [6982,6983]",
+      "dest": "(: ( [6800,6801]"
+    },
+    {
+      "src": "call_argument [7000,7001]",
+      "dest": "call_argument [6818,6819]"
+    },
+    {
+      "src": "address: address [1734,1741]",
+      "dest": "address: address [1679,1686]"
+    },
+    {
+      "src": "returns: returns [4600,4607]",
+      "dest": "returns: returns [4542,4549]"
+    },
+    {
+      "src": "identifier: value [5909,5914]",
+      "dest": "identifier: value [5807,5812]"
+    },
+    {
+      "src": "identifier: value [8004,8009]",
+      "dest": "identifier: value [7822,7827]"
+    },
+    {
+      "src": "identifier: to [5753,5755]",
+      "dest": "identifier: to [5689,5691]"
+    },
+    {
+      "src": "identifier: _burn [7989,7994]",
+      "dest": "identifier: _burn [7807,7812]"
+    },
+    {
+      "src": "call_argument [7431,7432]",
+      "dest": "call_argument [7249,7250]"
+    },
+    {
+      "src": "identifier: require [7406,7413]",
+      "dest": "identifier: require [7224,7231]"
+    },
+    {
+      "src": "]: ] [5396,5397]",
+      "dest": "]: ] [5335,5336]"
+    },
+    {
+      "src": "[: [ [3228,3229]",
+      "dest": "[: [ [3173,3174]"
+    },
+    {
+      "src": "identifier: _transfer [2107,2116]",
+      "dest": "identifier: _transfer [2052,2061]"
+    },
+    {
+      "src": "type_name [7955,7962]",
+      "dest": "type_name [7773,7780]"
+    },
+    {
+      "src": "call_argument [3991,3996]",
+      "dest": "call_argument [3905,3939]"
+    },
+    {
+      "src": "primitive_type [7332,7339]",
+      "dest": "primitive_type [7150,7157]"
+    },
+    {
+      "src": "type_name [755,762]",
+      "dest": "type_name [700,707]"
+    },
+    {
+      "src": "parameter [4609,4613]",
+      "dest": "parameter [4551,4555]"
+    },
+    {
+      "src": "identifier: _allowed [5368,5376]",
+      "dest": "identifier: _allowed [5307,5315]"
+    },
+    {
+      "src": "{: { [5328,5329]",
+      "dest": "{: { [5267,5268]"
+    },
+    {
+      "src": "mapping: mapping [808,815]",
+      "dest": "mapping: mapping [753,760]"
+    },
+    {
+      "src": "call_argument [8029,8036]",
+      "dest": "call_argument [7847,7854]"
+    },
+    {
+      "src": "identifier: ERC20 [680,685]",
+      "dest": "identifier: ERC20 [657,662]"
+    },
+    {
+      "src": "parameter [2837,2850]",
+      "dest": "parameter [2782,2795]"
+    },
+    {
+      "src": "type_name [6769,6776]",
+      "dest": "type_name [6627,6634]"
+    },
+    {
+      "src": "call_argument [3275,3285]",
+      "dest": "call_argument [3220,3230]"
+    },
+    {
+      "src": "identifier: owner [7501,7506]",
+      "dest": "identifier: owner [7319,7324]"
+    },
+    {
+      "src": "call_argument [7004,7009]",
+      "dest": "call_argument [6822,6827]"
+    },
+    {
+      "src": "public: public [1305,1311]",
+      "dest": "public: public [1250,1256]"
+    },
+    {
+      "src": "(: ( [816,817]",
+      "dest": "(: ( [761,762]"
+    },
+    {
+      "src": "member_expression [8038,8048]",
+      "dest": "member_expression [7856,7866]"
+    },
+    {
+      "src": "comment: /**      * @dev Decrease the amount of tokens that an owner allowed to a spender.      * approve should be called when allowed_[_spender] == 0. To decrement      * allowed value is better to use this function to avoid 2 calls (and wait until      * the first transaction is mined)      * From MonolithDAO Token.sol      * Emits an Approval event.      * @param spender The address which will spend the funds.      * @param subtractedValue The amount of tokens to decrease the allowance by.      */ [4735,5232]",
+      "dest": "comment: /**      * @dev Decrease the amount of tokens that an owner allowed to a spender.      * approve should be called when allowed_[_spender] == 0. To decrement      * allowed value is better to use this function to avoid 2 calls (and wait until      * the first transaction is mined)      * From MonolithDAO Token.sol      * Emits an Approval event.      * @param spender The address which will spend the funds.      * @param subtractedValue The amount of tokens to decrease the allowance by.      */ [4674,5171]"
+    },
+    {
+      "src": "): ) [762,763]",
+      "dest": "): ) [707,708]"
+    },
+    {
+      "src": "identifier: increaseAllowance [4538,4555]",
+      "dest": "identifier: increaseAllowance [4480,4497]"
+    },
+    {
+      "src": "identifier: msg [3948,3951]",
+      "dest": "identifier: msg [3893,3896]"
+    },
+    {
+      "src": "identifier: value [2133,2138]",
+      "dest": "identifier: value [2078,2083]"
+    },
+    {
+      "src": "identifier: sender [5381,5387]",
+      "dest": "identifier: sender [5320,5326]"
+    },
+    {
+      "src": "returns: returns [2082,2089]",
+      "dest": "returns: returns [2027,2034]"
+    },
+    {
+      "src": "source_file [0,8102]",
+      "dest": "source_file [0,7917]"
+    },
+    {
+      "src": "member_expression [3229,3239]",
+      "dest": "member_expression [3174,3184]"
+    },
+    {
+      "src": "type_cast_expression [7385,7395]",
+      "dest": "type_cast_expression [7203,7213]"
+    },
+    {
+      "src": "): ) [2095,2096]",
+      "dest": "): ) [2040,2041]"
+    },
+    {
+      "src": "primitive_type [5699,5706]",
+      "dest": "primitive_type [5635,5642]"
+    },
+    {
+      "src": "import: import [59,65]",
+      "dest": "import: import [59,65]"
+    },
+    {
+      "src": "): ) [1764,1765]",
+      "dest": "): ) [1709,1710]"
+    },
+    {
+      "src": "comment: /**      * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.      * Beware that changing an allowance with this method brings the risk that someone may use both the old      * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this      * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:      * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729      * @param spender The address which will spend the funds.      * @param value The amount of tokens to be spent.      */ [2173,2798]",
+      "dest": "comment: /**      * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.      * Beware that changing an allowance with this method brings the risk that someone may use both the old      * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this      * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:      * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729      * @param spender The address which will spend the funds.      * @param value The amount of tokens to be spent.      */ [2118,2743]"
+    },
+    {
+      "src": "parameter [5685,5697]",
+      "dest": "parameter [5621,5633]"
+    },
+    {
+      "src": "address: address [744,751]",
+      "dest": "address: address [689,696]"
+    },
+    {
+      "src": "identifier: to [3837,3839]",
+      "dest": "identifier: to [3782,3784]"
+    },
+    {
+      "src": "type_name [3815,3822]",
+      "dest": "type_name [3760,3767]"
+    },
+    {
+      "src": "identifier: msg [5377,5380]",
+      "dest": "identifier: msg [5316,5319]"
+    },
+    {
+      "src": "address: address [4556,4563]",
+      "dest": "address: address [4498,4505]"
+    },
+    {
+      "src": "public: public [5306,5312]",
+      "dest": "public: public [5245,5251]"
+    },
+    {
+      "src": "primitive_type [7315,7322]",
+      "dest": "primitive_type [7133,7140]"
+    },
+    {
+      "src": "\": \" [66,67]",
+      "dest": "\": \" [66,67]"
+    },
+    {
+      "src": "address: address [1749,1756]",
+      "dest": "address: address [1694,1701]"
+    },
+    {
+      "src": "identifier: Transfer [5890,5898]",
+      "dest": "identifier: Transfer [5788,5796]"
+    },
+    {
+      "src": "return_statement [5429,5441]",
+      "dest": "return_statement [5365,5377]"
+    },
+    {
+      "src": "comment: //  allowance to zero by calling `approve(_spender, 0)` if it is not [2974,3042]",
+      "dest": "comment: //  allowance to zero by calling `approve(_spender, 0)` if it is not [2919,2987]"
+    },
+    {
+      "src": "visibility [2852,2858]",
+      "dest": "visibility [2797,2803]"
+    },
+    {
+      "src": "internal: internal [7970,7978]",
+      "dest": "internal: internal [7788,7796]"
+    },
+    {
+      "src": "}: } [3329,3330]",
+      "dest": "}: } [3274,3275]"
+    },
+    {
+      "src": "call_expression [7989,8010]",
+      "dest": "call_expression [7807,7828]"
+    },
+    {
+      "src": "identifier: spender [5359,5366]",
+      "dest": "identifier: spender [5298,5305]"
+    },
+    {
+      "src": "identifier: spender [3241,3248]",
+      "dest": "identifier: spender [3186,3193]"
+    },
+    {
+      "src": "return_type_definition [2082,2096]",
+      "dest": "return_type_definition [2027,2041]"
+    },
+    {
+      "src": "): ) [5769,5770]",
+      "dest": "): ) [5705,5706]"
+    },
+    {
+      "src": "(: ( [796,797]",
+      "dest": "(: ( [741,742]"
+    },
+    {
+      "src": "identifier: msg [8038,8041]",
+      "dest": "identifier: msg [7856,7859]"
+    },
+    {
+      "src": "identifier: owner [1742,1747]",
+      "dest": "identifier: owner [1687,1692]"
+    },
+    {
+      "src": "||: || [3217,3219]",
+      "dest": "||: || [3162,3164]"
+    },
+    {
+      "src": "identifier: account [6777,6784]",
+      "dest": "identifier: account [6635,6642]"
+    },
+    {
+      "src": "call_argument [3907,3911]",
+      "dest": "call_argument [3852,3856]"
+    },
+    {
+      "src": "primitive_type [5711,5718]",
+      "dest": "primitive_type [5647,5654]"
+    },
+    {
+      "src": ",: , [6990,6991]",
+      "dest": ",: , [6808,6809]"
+    },
+    {
+      "src": "parameter [1749,1764]",
+      "dest": "parameter [1694,1709]"
+    },
+    {
+      "src": "identifier: _approve [3266,3274]",
+      "dest": "identifier: _approve [3211,3219]"
+    },
+    {
+      "src": "type_cast_expression [5759,5769]",
+      "dest": "type_cast_expression [5695,5705]"
+    },
+    {
+      "src": "identifier: spender [7323,7330]",
+      "dest": "identifier: spender [7141,7148]"
+    },
+    {
+      "src": "identifier: _balances [5781,5790]",
+      "dest": "identifier: _balances [5717,5726]"
+    },
+    {
+      "src": "primitive_type [4556,4563]",
+      "dest": "primitive_type [4498,4505]"
+    },
+    {
+      "src": "primitive_type [1335,1342]",
+      "dest": "primitive_type [1280,1287]"
+    },
+    {
+      "src": "return_type_definition [5313,5327]",
+      "dest": "return_type_definition [5252,5266]"
+    },
+    {
+      "src": ",: , [7002,7003]",
+      "dest": ",: , [6820,6821]"
+    },
+    {
+      "src": "call_argument [5347,5357]",
+      "dest": "call_argument [5286,5296]"
+    },
+    {
+      "src": ",: , [8002,8003]",
+      "dest": ",: , [7820,7821]"
+    },
+    {
+      "src": "return_statement [4008,4020]",
+      "dest": "return_statement [3950,3962]"
+    },
+    {
+      "src": "(: ( [7299,7300]",
+      "dest": "(: ( [7117,7118]"
+    },
+    {
+      "src": "comment: /**      * @dev Internal function that mints an amount of the token and assigns it to      * an account. This encapsulates the modification of balances such that the      * proper events are emitted.      * @param account The account that will receive the created tokens.      * @param value The amount that will be created.      */ [5928,6260]",
+      "dest": "comment: /**      * @dev Internal function that mints an amount of the token and assigns it to      * an account. This encapsulates the modification of balances such that the      * proper events are emitted.      * @param account The account that will receive the created tokens.      * @param value The amount that will be created.      */ [5826,6158]"
+    },
+    {
+      "src": "identifier: owner [1371,1376]",
+      "dest": "identifier: owner [1316,1321]"
+    },
+    {
+      "src": ",: , [5907,5908]",
+      "dest": ",: , [5805,5806]"
+    },
+    {
+      "src": "number_literal: 0 [6847,6848]",
+      "dest": "number_literal: 0 [6705,6706]"
+    },
+    {
+      "src": "array_access [5368,5397]",
+      "dest": "array_access [5307,5336]"
+    },
+    {
+      "src": "identifier: allowance [1724,1733]",
+      "dest": "identifier: allowance [1669,1678]"
+    },
+    {
+      "src": "call_argument [6515,6520]",
+      "dest": "call_argument [6373,6378]"
+    },
+    {
+      "src": "return_type_definition [1787,1804]",
+      "dest": "return_type_definition [1732,1749]"
+    },
+    {
+      "src": "): ) [2138,2139]",
+      "dest": "): ) [2083,2084]"
+    },
+    {
+      "src": "visibility [983,989]",
+      "dest": "visibility [928,934]"
+    },
+    {
+      "src": "return_type_definition [2868,2882]",
+      "dest": "return_type_definition [2813,2827]"
+    },
+    {
+      "src": "identifier: value [7517,7522]",
+      "dest": "identifier: value [7335,7340]"
+    },
+    {
+      "src": "parameter [1290,1303]",
+      "dest": "parameter [1235,1248]"
+    },
+    {
+      "src": "identifier: from [5791,5795]",
+      "dest": "identifier: from [5727,5731]"
+    },
+    {
+      "src": "contract: contract [671,679]",
+      "dest": "contract: contract [648,656]"
+    },
+    {
+      "src": "identifier: sender [3233,3239]",
+      "dest": "identifier: sender [3178,3184]"
+    },
+    {
+      "src": "parameter [5264,5279]",
+      "dest": "parameter [5203,5218]"
+    },
+    {
+      "src": ",: , [5697,5698]",
+      "dest": ",: , [5633,5634]"
+    },
+    {
+      "src": "assignment_expression [7445,7477]",
+      "dest": "assignment_expression [7263,7295]"
+    },
+    {
+      "src": ",: , [6295,6296]",
+      "dest": ",: , [6193,6194]"
+    },
+    {
+      "src": "(: ( [3205,3206]",
+      "dest": "(: ( [3150,3151]"
+    },
+    {
+      "src": "(: ( [4688,4689]",
+      "dest": "(: ( [4575,4576]"
+    },
+    {
+      "src": "type_name [7938,7945]",
+      "dest": "type_name [7756,7763]"
+    },
+    {
+      "src": "array_access [6420,6438]",
+      "dest": "array_access [6301,6319]"
+    },
+    {
+      "src": "identifier: sender [4668,4674]",
+      "dest": "identifier: sender [4610,4616]"
+    },
+    {
+      "src": "parameter [5699,5709]",
+      "dest": "parameter [5635,5645]"
+    },
+    {
+      "src": "primitive_type [4609,4613]",
+      "dest": "primitive_type [4551,4555]"
+    },
+    {
+      "src": "address: address [817,824]",
+      "dest": "address: address [762,769]"
+    },
+    {
+      "src": "function: function [2803,2811]",
+      "dest": "function: function [2748,2756]"
+    },
+    {
+      "src": "call_argument [4646,4653]",
+      "dest": "call_argument [4588,4595]"
+    },
+    {
+      "src": "parameter [7332,7345]",
+      "dest": "parameter [7150,7163]"
+    },
+    {
+      "src": "}: } [4025,4026]",
+      "dest": "}: } [3967,3968]"
+    },
+    {
+      "src": "binary_expression [6339,6360]",
+      "dest": "binary_expression [6237,6258]"
+    },
+    {
+      "src": "type_name [2091,2095]",
+      "dest": "type_name [2036,2040]"
+    },
+    {
+      "src": "return_type_definition [1326,1343]",
+      "dest": "return_type_definition [1271,1288]"
+    },
+    {
+      "src": "(: ( [5766,5767]",
+      "dest": "(: ( [5702,5703]"
+    },
+    {
+      "src": "primitive_type [3881,3885]",
+      "dest": "primitive_type [3826,3830]"
+    },
+    {
+      "src": "parameter [7315,7330]",
+      "dest": "parameter [7133,7148]"
+    },
+    {
+      "src": "!=: != [6347,6349]",
+      "dest": "!=: != [6245,6247]"
+    },
+    {
+      "src": "primitive_type [6786,6793]",
+      "dest": "primitive_type [6644,6651]"
+    },
+    {
+      "src": "identifier: sender [3952,3958]",
+      "dest": "identifier: sender [3897,3903]"
+    },
+    {
+      "src": "identifier: sender [4638,4644]",
+      "dest": "identifier: sender [4580,4586]"
+    },
+    {
+      "src": ",: , [1747,1748]",
+      "dest": ",: , [1692,1693]"
+    },
+    {
+      "src": "): ) [6310,6311]",
+      "dest": "): ) [6208,6209]"
+    },
+    {
+      "src": "identifier: owner [7308,7313]",
+      "dest": "identifier: owner [7126,7131]"
+    },
+    {
+      "src": "{: { [1344,1345]",
+      "dest": "{: { [1289,1290]"
+    },
+    {
+      "src": "member_expression [3275,3285]",
+      "dest": "member_expression [3220,3230]"
+    },
+    {
+      "src": "state_mutability [1312,1316]",
+      "dest": "state_mutability [1257,1261]"
+    },
+    {
+      "src": "identifier: spender [4646,4653]",
+      "dest": "identifier: spender [4588,4595]"
+    },
+    {
+      "src": "call_argument [3917,3922]",
+      "dest": "call_argument [3862,3867]"
+    },
+    {
+      "src": "(: ( [7994,7995]",
+      "dest": "(: ( [7812,7813]"
+    },
+    {
+      "src": "parameter [4573,4591]",
+      "dest": "parameter [4515,4533]"
+    },
+    {
+      "src": "comment: //  already 0 to mitigate the race condition described here: [3051,3111]",
+      "dest": "comment: //  already 0 to mitigate the race condition described here: [2996,3056]"
+    },
+    {
+      "src": "returns: returns [1787,1794]",
+      "dest": "returns: returns [1732,1739]"
+    },
+    {
+      "src": "identifier: account [7995,8002]",
+      "dest": "identifier: account [7813,7820]"
+    },
+    {
+      "src": "type_name [6280,6287]",
+      "dest": "type_name [6178,6185]"
+    },
+    {
+      "src": "]: ] [4683,4684]",
+      "dest": "]: ] [4625,4626]"
+    },
+    {
+      "src": "function: function [3793,3801]",
+      "dest": "function: function [3738,3746]"
+    },
+    {
+      "src": "parameter [1734,1747]",
+      "dest": "parameter [1679,1692]"
+    },
+    {
+      "src": ".: . [8071,8072]",
+      "dest": ".: . [7889,7890]"
+    },
+    {
+      "src": ",: , [7313,7314]",
+      "dest": ",: , [7131,7132]"
+    },
+    {
+      "src": "inheritance_specifier [689,695]",
+      "dest": "inheritance_specifier [666,672]"
+    },
+    {
+      "src": "{: { [3887,3888]",
+      "dest": "{: { [3832,3833]"
+    },
+    {
+      "src": "function_body [1022,1058]",
+      "dest": "function_body [967,1003]"
+    },
+    {
+      "src": "(: ( [2090,2091]",
+      "dest": "(: ( [2035,2036]"
+    },
+    {
+      "src": "address: address [797,804]",
+      "dest": "address: address [742,749]"
+    },
+    {
+      "src": "expression_statement [7406,7435]",
+      "dest": "expression_statement [7224,7253]"
+    },
+    {
+      "src": "call_argument [7995,8002]",
+      "dest": "call_argument [7813,7820]"
+    },
+    {
+      "src": "): ) [836,837]",
+      "dest": "): ) [781,782]"
+    },
+    {
+      "src": "call_expression [3960,3997]",
+      "dest": "call_expression [3878,3940]"
+    },
+    {
+      "src": "address: address [1290,1297]",
+      "dest": "address: address [1235,1242]"
+    },
+    {
+      "src": "): ) [7432,7433]",
+      "dest": "): ) [7250,7251]"
+    },
+    {
+      "src": "call_argument [2117,2127]",
+      "dest": "call_argument [2062,2072]"
+    },
+    {
+      "src": "parameter [3881,3885]",
+      "dest": "parameter [3826,3830]"
+    },
+    {
+      "src": "primitive_type [3841,3848]",
+      "dest": "primitive_type [3786,3793]"
+    },
+    {
+      "src": "!=: != [7382,7384]",
+      "dest": "!=: != [7200,7202]"
+    },
+    {
+      "src": ".: . [3232,3233]",
+      "dest": ".: . [3177,3178]"
+    },
+    {
+      "src": "identifier: owner [1298,1303]",
+      "dest": "identifier: owner [1243,1248]"
+    },
+    {
+      "src": "type_name [5711,5718]",
+      "dest": "type_name [5647,5654]"
+    },
+    {
+      "src": "function_body [1805,1853]",
+      "dest": "function_body [1750,1798]"
+    },
+    {
+      "src": "visibility [869,876]",
+      "dest": "visibility [814,821]"
+    },
+    {
+      "src": "call_argument [3287,3294]",
+      "dest": "call_argument [3232,3239]"
+    },
+    {
+      "src": "parameter [1335,1342]",
+      "dest": "parameter [1280,1287]"
+    },
+    {
+      "src": "mapping: mapping [788,795]",
+      "dest": "mapping: mapping [733,740]"
+    },
+    {
+      "src": "identifier: _balances [6909,6918]",
+      "dest": "identifier: _balances [6750,6759]"
+    },
+    {
+      "src": "(: ( [5752,5753]",
+      "dest": "(: ( [5688,5689]"
+    },
+    {
+      "src": "array_access [3206,3249]",
+      "dest": "array_access [3151,3194]"
+    },
+    {
+      "src": "function_definition [7282,7530]",
+      "dest": "function_definition [7100,7348]"
+    },
+    {
+      "src": "primitive_type [6494,6501]",
+      "dest": "primitive_type [6352,6359]"
+    },
+    {
+      "src": "return_statement [1032,1052]",
+      "dest": "return_statement [977,997]"
+    },
+    {
+      "src": "comment: /**      * @dev Function to check the amount of tokens that an owner allowed to a spender.      * @param owner address The address which owns the funds.      * @param spender address The address which will spend the funds.      * @return A uint256 specifying the amount of tokens still available for the spender.      */ [1390,1710]",
+      "dest": "comment: /**      * @dev Function to check the amount of tokens that an owner allowed to a spender.      * @param owner address The address which owns the funds.      * @param spender address The address which will spend the funds.      * @return A uint256 specifying the amount of tokens still available for the spender.      */ [1335,1655]"
+    },
+    {
+      "src": "function: function [960,968]",
+      "dest": "function: function [905,913]"
+    },
+    {
+      "src": "type_name [4609,4613]",
+      "dest": "type_name [4551,4555]"
+    },
+    {
+      "src": "call_argument [6502,6503]",
+      "dest": "call_argument [6360,6361]"
+    },
+    {
+      "src": "visibility [838,845]",
+      "dest": "visibility [783,790]"
+    },
+    {
+      "src": "identifier: _transfer [5675,5684]",
+      "dest": "identifier: _transfer [5611,5620]"
+    },
+    {
+      "src": "function_definition [3793,4026]",
+      "dest": "function_definition [3738,3968]"
+    },
+    {
+      "src": "(: ( [5401,5402]",
+      "dest": "(: ( [5285,5286]"
+    },
+    {
+      "src": "call_argument [5359,5366]",
+      "dest": "call_argument [5298,5305]"
+    },
+    {
+      "src": ",: , [6504,6505]",
+      "dest": ",: , [6362,6363]"
+    },
+    {
+      "src": "type_cast_expression [7423,7433]",
+      "dest": "type_cast_expression [7241,7251]"
+    },
+    {
+      "src": "call_expression [3198,3255]",
+      "dest": "call_expression [3143,3200]"
+    },
+    {
+      "src": "visibility [7347,7355]",
+      "dest": "visibility [7165,7173]"
+    },
+    {
+      "src": "type_name [5264,5271]",
+      "dest": "type_name [5203,5210]"
+    },
+    {
+      "src": "parameter [5281,5304]",
+      "dest": "parameter [5220,5243]"
+    },
+    {
+      "src": "function_definition [2803,3330]",
+      "dest": "function_definition [2748,3275]"
+    },
+    {
+      "src": "uint256: uint256 [6297,6304]",
+      "dest": "uint256: uint256 [6195,6202]"
+    },
+    {
+      "src": "uint256: uint256 [6786,6793]",
+      "dest": "uint256: uint256 [6644,6651]"
+    },
+    {
+      "src": "identifier: IERC20 [689,695]",
+      "dest": "identifier: IERC20 [666,672]"
+    },
+    {
+      "src": "identifier: from [3942,3946]",
+      "dest": "identifier: from [3887,3891]"
+    },
+    {
+      "src": "(: ( [6827,6828]",
+      "dest": "(: ( [6685,6686]"
+    },
+    {
+      "src": "type_name [1013,1020]",
+      "dest": "type_name [958,965]"
+    },
+    {
+      "src": "identifier: _allowed [846,854]",
+      "dest": "identifier: _allowed [791,799]"
+    },
+    {
+      "src": "[: [ [5790,5791]",
+      "dest": "[: [ [5726,5727]"
+    },
+    {
+      "src": "identifier: from [3969,3973]",
+      "dest": "identifier: from [3914,3918]"
+    },
+    {
+      "src": "type_name [6297,6304]",
+      "dest": "type_name [6195,6202]"
+    },
+    {
+      "src": "binary_expression [5753,5769]",
+      "dest": "binary_expression [5689,5705]"
+    },
+    {
+      "src": "member_expression [2117,2127]",
+      "dest": "member_expression [2062,2072]"
+    },
+    {
+      "src": "type_name [2039,2046]",
+      "dest": "type_name [1984,1991]"
+    },
+    {
+      "src": "comment: /**      * @dev Transfer token for a specified addresses      * @param from The address to transfer from.      * @param to The address to transfer to.      * @param value The amount to be transferred.      */ [5453,5661]",
+      "dest": "comment: /**      * @dev Transfer token for a specified addresses      * @param from The address to transfer from.      * @param to The address to transfer to.      * @param value The amount to be transferred.      */ [5389,5597]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.7.0 [50,55]",
+      "label": "0.8.0"
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_expression [3960,3997]",
+      "parent": "expression_statement [3878,3941]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_expression [4655,4700]",
+      "parent": "expression_statement [4567,4641]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_expression [5368,5418]",
+      "parent": "expression_statement [5277,5356]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "augmented_assignment_expression [5717,5741]",
+      "parent": "expression_statement [5717,5742]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "augmented_assignment_expression [5751,5773]",
+      "parent": "expression_statement [5751,5774]",
+      "at": 0
+    },
+    {
+      "action": "insert-tree",
+      "tree": "augmented_assignment_expression [6270,6291]",
+      "parent": "expression_statement [6270,6292]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "augmented_assignment_expression [6301,6328]",
+      "parent": "expression_statement [6301,6329]",
+      "at": 0
+    },
+    {
+      "action": "insert-tree",
+      "tree": "augmented_assignment_expression [6719,6740]",
+      "parent": "expression_statement [6719,6741]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "augmented_assignment_expression [6750,6777]",
+      "parent": "expression_statement [6750,6778]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_expression [8050,8090]",
+      "parent": "expression_statement [7838,7907]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: _approve [3878,3886]",
+      "parent": "call_expression [3878,3940]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [3942,3946]",
+      "parent": "call_expression [3878,3940]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [3891,3892]",
+      "parent": "call_expression [3878,3940]",
+      "at": 3
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [3948,3958]",
+      "parent": "call_expression [3878,3940]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [3903,3904]",
+      "parent": "call_expression [3878,3940]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: _approve [4567,4575]",
+      "parent": "call_expression [4567,4640]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [4634,4644]",
+      "parent": "call_expression [4567,4640]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [4586,4587]",
+      "parent": "call_expression [4567,4640]",
+      "at": 3
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [4646,4653]",
+      "parent": "call_expression [4567,4640]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [4595,4596]",
+      "parent": "call_expression [4567,4640]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: _approve [5277,5285]",
+      "parent": "call_expression [5277,5355]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [5347,5357]",
+      "parent": "call_expression [5277,5355]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [5296,5297]",
+      "parent": "call_expression [5277,5355]",
+      "at": 3
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [5359,5366]",
+      "parent": "call_expression [5277,5355]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [5305,5306]",
+      "parent": "call_expression [5277,5355]",
+      "at": 5
+    },
+    {
+      "action": "move-tree",
+      "tree": "array_access [5781,5796]",
+      "parent": "augmented_assignment_expression [5717,5741]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "-=: -= [5733,5735]",
+      "parent": "augmented_assignment_expression [5717,5741]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: value [5736,5741]",
+      "parent": "augmented_assignment_expression [5717,5741]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "array_access [5835,5848]",
+      "parent": "augmented_assignment_expression [5751,5773]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "+=: += [5765,5767]",
+      "parent": "augmented_assignment_expression [5751,5773]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: value [5768,5773]",
+      "parent": "augmented_assignment_expression [5751,5773]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "array_access [6420,6438]",
+      "parent": "augmented_assignment_expression [6301,6328]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "+=: += [6320,6322]",
+      "parent": "augmented_assignment_expression [6301,6328]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: value [6323,6328]",
+      "parent": "augmented_assignment_expression [6301,6328]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "array_access [6909,6927]",
+      "parent": "augmented_assignment_expression [6750,6777]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "-=: -= [6769,6771]",
+      "parent": "augmented_assignment_expression [6750,6777]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: value [6772,6777]",
+      "parent": "augmented_assignment_expression [6750,6777]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: _approve [7838,7846]",
+      "parent": "call_expression [7838,7906]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [8029,8036]",
+      "parent": "call_expression [7838,7906]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [7854,7855]",
+      "parent": "call_expression [7838,7906]",
+      "at": 3
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [8038,8048]",
+      "parent": "call_expression [7838,7906]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [7866,7867]",
+      "parent": "call_expression [7838,7906]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "binary_expression [3905,3939]",
+      "parent": "call_argument [3905,3939]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "binary_expression [4597,4639]",
+      "parent": "call_argument [4597,4639]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "binary_expression [5307,5354]",
+      "parent": "call_argument [5307,5354]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "binary_expression [7868,7905]",
+      "parent": "call_argument [7868,7905]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "array_access [3960,3986]",
+      "parent": "binary_expression [3905,3939]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "-: - [3932,3933]",
+      "parent": "binary_expression [3905,3939]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: value [3934,3939]",
+      "parent": "binary_expression [3905,3939]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "array_access [4655,4684]",
+      "parent": "binary_expression [4597,4639]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "+: + [4627,4628]",
+      "parent": "binary_expression [4597,4639]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: addedValue [4629,4639]",
+      "parent": "binary_expression [4597,4639]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "array_access [5368,5397]",
+      "parent": "binary_expression [5307,5354]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "-: - [5337,5338]",
+      "parent": "binary_expression [5307,5354]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: subtractedValue [5339,5354]",
+      "parent": "binary_expression [5307,5354]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "array_access [8050,8079]",
+      "parent": "binary_expression [7868,7905]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "-: - [7898,7899]",
+      "parent": "binary_expression [7868,7905]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: value [7900,7905]",
+      "parent": "binary_expression [7868,7905]",
+      "at": 2
+    },
+    {
+      "action": "delete-tree",
+      "tree": "import_directive [80,102]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "using_directive [702,729]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ".: . [3986,3987]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: sub [3987,3990]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "member_expression [3960,3990]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: value [3991,3996]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: _approve [3933,3941]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [3941,3942]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [3946,3947]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [3958,3959]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_argument [3960,3997]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [3997,3998]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [3933,3998]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ".: . [4684,4685]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: add [4685,4688]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "member_expression [4655,4688]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: addedValue [4689,4699]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: _approve [4625,4633]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [4633,4634]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [4644,4645]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [4653,4654]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_argument [4655,4700]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [4700,4701]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [4625,4701]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ".: . [5397,5398]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: sub [5398,5401]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "member_expression [5368,5401]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: subtractedValue [5402,5417]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: _approve [5338,5346]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [5346,5347]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [5357,5358]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [5366,5367]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_argument [5368,5418]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [5418,5419]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [5338,5419]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "=: = [5797,5798]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_expression [5799,5825]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "assignment_expression [5781,5825]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "=: = [5849,5850]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_expression [5851,5875]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "assignment_expression [5835,5875]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "assignment_expression [6372,6410]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "=: = [6439,6440]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_expression [6441,6470]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "assignment_expression [6420,6470]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "assignment_expression [6861,6899]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "=: = [6928,6929]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_expression [6930,6959]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "assignment_expression [6909,6959]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ".: . [8079,8080]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: sub [8080,8083]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "member_expression [8050,8083]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: value [8084,8089]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: _approve [8020,8028]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [8028,8029]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [8036,8037]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [8048,8049]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_argument [8050,8090]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [8090,8091]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [8020,8091]"
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "matches": [
+    {
+      "src": "identifier: GovernanceInfoStruct [754,774]",
+      "dest": "identifier: GovernanceInfoStruct [795,815]"
+    },
+    {
+      "src": "primitive_type [874,878]",
+      "dest": "primitive_type [915,919]"
+    },
+    {
+      "src": "bool: bool [874,878]",
+      "dest": "bool: bool [915,919]"
+    },
+    {
+      "src": "solidity: solidity [603,611]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "type_name [969,1009]",
+      "dest": "type_name [1010,1050]"
+    },
+    {
+      "src": "user_defined_type [988,1008]",
+      "dest": "user_defined_type [1029,1049]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "primitive_type [978,984]",
+      "dest": "primitive_type [1019,1025]"
+    },
+    {
+      "src": "contract: contract [713,721]",
+      "dest": "contract: contract [754,762]"
+    },
+    {
+      "src": "contract_declaration [713,1036]",
+      "dest": "contract_declaration [754,1077]"
+    },
+    {
+      "src": "solidity_pragma_token [603,618]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "state_variable_declaration [969,1034]",
+      "dest": "state_variable_declaration [1010,1075]"
+    },
+    {
+      "src": "{: { [740,741]",
+      "dest": "{: { [781,782]"
+    },
+    {
+      "src": "type_name [805,809]",
+      "dest": "type_name [846,850]"
+    },
+    {
+      "src": "struct_member [874,891]",
+      "dest": "struct_member [915,932]"
+    },
+    {
+      "src": "bool: bool [805,809]",
+      "dest": "bool: bool [846,850]"
+    },
+    {
+      "src": "comment: /*   Holds the governance slots for ALL entities, including proxy and the main contract. */ [621,712]",
+      "dest": "comment: /*   Holds the governance slots for ALL entities, including proxy and the main contract. */ [662,753]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [611,613]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "primitive_type [805,809]",
+      "dest": "primitive_type [846,850]"
+    },
+    {
+      "src": "(: ( [977,978]",
+      "dest": "(: ( [1018,1019]"
+    },
+    {
+      "src": "(: ( [793,794]",
+      "dest": "(: ( [834,835]"
+    },
+    {
+      "src": "primitive_type [794,801]",
+      "dest": "primitive_type [835,842]"
+    },
+    {
+      "src": "): ) [1008,1009]",
+      "dest": "): ) [1049,1050]"
+    },
+    {
+      "src": "internal: internal [1010,1018]",
+      "dest": "internal: internal [1051,1059]"
+    },
+    {
+      "src": "source_file [0,1037]",
+      "dest": "source_file [0,1078]"
+    },
+    {
+      "src": "contract_body [740,1036]",
+      "dest": "contract_body [781,1077]"
+    },
+    {
+      "src": "identifier: governanceInfo [1019,1033]",
+      "dest": "identifier: governanceInfo [1060,1074]"
+    },
+    {
+      "src": "struct_member [839,865]",
+      "dest": "struct_member [880,906]"
+    },
+    {
+      "src": "type_name [785,810]",
+      "dest": "type_name [826,851]"
+    },
+    {
+      "src": "{: { [775,776]",
+      "dest": "{: { [816,817]"
+    },
+    {
+      "src": "type_name [988,1008]",
+      "dest": "type_name [1029,1049]"
+    },
+    {
+      "src": "}: } [896,897]",
+      "dest": "}: } [937,938]"
+    },
+    {
+      "src": "comment: // A map from a Governor tag to its own GovernanceInfoStruct. [903,964]",
+      "dest": "comment: // A map from a Governor tag to its own GovernanceInfoStruct. [944,1005]"
+    },
+    {
+      "src": "^:  ^ [611,613]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "identifier: GovernanceStorage [722,739]",
+      "dest": "identifier: GovernanceStorage [763,780]"
+    },
+    {
+      "src": "address: address [794,801]",
+      "dest": "address: address [835,842]"
+    },
+    {
+      "src": "string: string [978,984]",
+      "dest": "string: string [1019,1025]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [988,1008]",
+      "dest": "identifier: GovernanceInfoStruct [1029,1049]"
+    },
+    {
+      "src": "identifier: initialized [879,890]",
+      "dest": "identifier: initialized [920,931]"
+    },
+    {
+      "src": "}: } [1035,1036]",
+      "dest": "}: } [1076,1077]"
+    },
+    {
+      "src": "visibility [1010,1018]",
+      "dest": "visibility [1051,1059]"
+    },
+    {
+      "src": "struct_member [785,830]",
+      "dest": "struct_member [826,871]"
+    },
+    {
+      "src": "type_name [839,846]",
+      "dest": "type_name [880,887]"
+    },
+    {
+      "src": "=>: => [802,804]",
+      "dest": "=>: => [843,845]"
+    },
+    {
+      "src": "=>: => [985,987]",
+      "dest": "=>: => [1026,1028]"
+    },
+    {
+      "src": "address: address [839,846]",
+      "dest": "address: address [880,887]"
+    },
+    {
+      "src": "solidity_version: 0.5.2 [613,618]",
+      "dest": "solidity_version: 0.6.11 [653,659]"
+    },
+    {
+      "src": "pragma_directive [596,619]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "primitive_type [839,846]",
+      "dest": "primitive_type [880,887]"
+    },
+    {
+      "src": "mapping: mapping [785,792]",
+      "dest": "mapping: mapping [826,833]"
+    },
+    {
+      "src": "pragma: pragma [596,602]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "identifier: candidateGovernor [847,864]",
+      "dest": "identifier: candidateGovernor [888,905]"
+    },
+    {
+      "src": "struct: struct [747,753]",
+      "dest": "struct: struct [788,794]"
+    },
+    {
+      "src": "struct_declaration [747,897]",
+      "dest": "struct_declaration [788,938]"
+    },
+    {
+      "src": "type_name [874,878]",
+      "dest": "type_name [915,919]"
+    },
+    {
+      "src": "mapping: mapping [969,976]",
+      "dest": "mapping: mapping [1010,1017]"
+    },
+    {
+      "src": "): ) [809,810]",
+      "dest": "): ) [850,851]"
+    },
+    {
+      "src": "identifier: effectiveGovernors [811,829]",
+      "dest": "identifier: effectiveGovernors [852,870]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "label": "/*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "parent": "source_file [0,1078]",
+      "at": 1
+    },
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.5.2 [613,618]",
+      "label": "0.6.11"
+    }
+  ]
+}

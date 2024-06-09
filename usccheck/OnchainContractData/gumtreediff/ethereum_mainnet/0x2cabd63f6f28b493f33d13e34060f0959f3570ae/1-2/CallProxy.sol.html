@@ -1,0 +1,551 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>CallProxy.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="source_file/comment"><span class="cupd">/*
+  Copyright 2019-202</span>1<span class="cupd"> StarkWare Industries Ltd.
+
+  Licensed under the Apache License, Version 2.0 (the "License").
+  You may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  https://www.starkware.co/open-source-license/
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions
+  and limitations under the License.
+*/</span></span>
+// SPDX-License-Identifier: Apache-2.0.
+pragma solidity ^<span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-2" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.6.1</span>1</span>;
+
+import "IFactRegistry.sol";
+import "StorageSlots.sol";
+import "BlockDirectCall.sol";
+import "Common.sol";
+
+/**
+  CallProxy is a 'call' based proxy.
+  It is a facade to a real implementation,
+  only that unlike the Proxy pattern, it uses call and not delegatecall,
+  so that the state is recorded on the called contract.
+
+  This contract is expected to be placed behind the regular proxy,
+  thus:
+  1. Implementation address is stored in a hashed slot (other than proxy's one...).
+  2. No state variable is allowed in low address ranges.
+  3. Setting of implementation is done in initialize.
+  4. isFrozen and initialize are implemented, to be compliant with Proxy.
+
+  This implementation is intentionally minimal,
+  and has no management or governance.
+  The assumption is that if a different implementation is needed, it will be performed
+  in an upgradeTo a new deployed CallProxy, pointing to a new implementation.
+*/
+// NOLINTNEXTLINE locked-ether.
+contract CallProxy is BlockDirectCall, StorageSlots {
+    using Addresses for address;
+
+    string public constant CALL_PROXY_VERSION = "3.1.0";
+
+    // Proxy client - initialize &amp; isFrozen.
+    // NOLINTNEXTLINE: external-function.
+    function isFrozen() public pure returns (bool) {
+        return false;
+    }
+
+    <span class="marker" id="mapping-3"></span><span class="token upd" id="move-src-3" data-title="contract_body/comment"><span class="cupd">/*
+      </span>Proxy call<span class="cupd">s </span>the <span class="cupd">function i</span>niti<span class="cupd">al</span>iz<span class="cupd">e</span><span class="cupd"> </span><span class="cupd">upon activating an implementation.
+      </span>In t<span class="cupd">he </span>con<span class="cupd">t</span><span class="cupd">e</span>xt<span class="cupd"> </span>of<span class="cupd"> t</span>he CallPr<span class="cupd">o</span>xy<span class="cupd"> </span>con<span class="cupd">t</span>ract, t<span class="cupd">h</span>e ma<span class="cupd">i</span>n<span class="cupd">s</span>tream<span class="cupd"> </span>opera<span class="cupd">tion </span><span class="cupd">o</span>f
+      i<span class="cupd">n</span>i<span class="cupd">t</span>i<span class="cupd">a</span>l<span class="cupd">i</span>ze i<span class="cupd">s t</span>o extract t<span class="cupd">he </span>real <span class="cupd">implementation </span>f<span class="cupd">r</span>om th<span class="cupd">e</span> pa<span class="cupd">ss</span>ed call data<span class="cupd">,
+      and </span>to save <span class="cupd">i</span>t<span class="cupd"> </span>in the C<span class="cupd">a</span>llProxyIm<span class="cupd">p</span><span class="cupd">l</span>ement<span class="cupd">a</span>tion s<span class="cupd">l</span>ot.
+
+      How<span class="cupd">e</span>ver<span class="cupd">, </span>i<span class="cupd">n a</span> ca<span class="cupd">s</span>e<span class="cupd"> of </span><span class="cupd">EIC </span>f<span class="cupd">l</span>ow,
+      The <span class="cupd">i</span>mp<span class="cupd">l</span><span class="cupd">e</span>me<span class="cupd">nt</span><span class="cupd">a</span><span class="cupd">t</span>ion<span class="cupd"> a</span><span class="cupd">d</span>dress<span class="cupd"> i</span><span class="cupd">s </span>se<span class="cupd">t</span>, <span class="cupd">a</span>s<span class="cupd"> </span>in<span class="cupd"> </span>the<span class="cupd"> </span>normal<span class="cupd"> </span>flow,<span class="cupd"> </span>and<span class="cupd"> </span>t<span class="cupd">he</span>n<span class="cupd"> </span><span class="cupd">t</span>h<span class="cupd">e</span><span class="cupd">
+</span>      EIC ini<span class="cupd">t</span>i<span class="cupd">a</span>lize()<span class="cupd"> f</span>unc<span class="cupd">t</span>ion<span class="cupd"> is </span>c<span class="cupd">a</span><span class="cupd">ll</span>ed <span class="cupd">wi</span>th the remai<span class="cupd">n</span>in<span class="cupd">g</span><span class="cupd"> </span>data.<span class="cupd">
+
+     </span> <span class="cupd">Case I (no EIC):
+        </span><span class="cupd">[0 </span>.. <span class="cupd">3</span>1<span class="cupd">] implementation address
+
+      </span><span class="cupd">Case II (EIC):
+        data length &gt;= 64
+        [0 </span> .. <span class="cupd">3</span>1<span class="cupd">] implementation address
+        [32</span> .. <span class="cupd">6</span>3<span class="cupd">] EIC address
+        [64</span><span class="cupd"> </span>-<span class="cupd"> </span>   <span class="cupd">] EIC init data.
+    */</span></span>
+    function initialize(bytes calldata data) external notCalledDirectly {
+        <span class="marker" id="mapping-4"></span><span class="token mv" id="move-src-4" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-5"></span><span class="token del" data-title="call_argument/binary_expression"><span class="marker" id="mapping-6"></span><span class="token del" data-title="binary_expression/member_expression"><span class="marker" id="mapping-7"></span><span class="token del" data-title="member_expression/binary_expression"><span class="marker" id="mapping-8"></span><span class="token mv" id="move-src-5" data-title="binary_expression/binary_expression">data.length == <span class="marker" id="mapping-9"></span><span class="token upd" id="move-src-6" data-title="binary_expression/number_literal">32</span></span> || data</span>.length</span> &gt;= 64</span>, "INCORRECT_DATA_SIZE");</span>
+        <span class="marker" id="mapping-10"></span><span class="token mv" id="move-src-7" data-title="variable_declaration_statement/variable_declaration">address impl</span> = abi.decode(data, <span class="marker" id="mapping-11"></span><span class="token del" data-title="call_argument/parenthesized_expression">(<span class="marker" id="mapping-12"></span><span class="token mv" id="move-src-8" data-title="parenthesized_expression/primitive_type">address</span>)</span>);
+        require(impl.isContract(), "ADDRESS_NOT_CONTRACT");
+        setCallProxyImplementation(impl);
+        <span class="marker" id="mapping-13"></span><span class="token del" data-title="function_body/if_statement">if (<span class="marker" id="mapping-14"></span><span class="token mv" id="move-src-9" data-title="if_statement/binary_expression">data.length &gt;= 64</span>) <span class="marker" id="mapping-15"></span><span class="token del" data-title="if_statement/block_statement">{
+            <span class="marker" id="mapping-16"></span><span class="token del" data-title="block_statement/variable_declaration_statement"><span class="marker" id="mapping-17"></span><span class="token mv" id="move-src-10" data-title="variable_declaration_statement/variable_declaration">address eic</span> = <span class="marker" id="mapping-18"></span><span class="token del" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-19"></span><span class="token del" data-title="call_expression/member_expression">abi.decode</span>(<span class="marker" id="mapping-20"></span><span class="token del" data-title="call_expression/call_argument">data[32:64]</span>, <span class="marker" id="mapping-21"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-22"></span><span class="token del" data-title="call_argument/parenthesized_expression">(<span class="marker" id="mapping-23"></span><span class="token mv" id="move-src-11" data-title="parenthesized_expression/primitive_type">address</span>)</span></span>)</span>;</span>
+            <span class="marker" id="mapping-24"></span><span class="token mv" id="move-src-12" data-title="block_statement/if_statement">if (eic != address(0x0)) {
+                callExternalInitializer(eic, data[64:]);
+            }</span>
+        }</span></span>
+    }
+
+    function callExternalInitializer(address externalInitializerAddr, bytes calldata eicData)
+        private
+    {
+        require(externalInitializerAddr.isContract(), "EIC_NOT_A_CONTRACT");
+
+        // NOLINTNEXTLINE: low-level-calls, controlled-delegatecall.
+        (bool success, bytes memory returndata) = externalInitializerAddr.delegatecall(
+            abi.encodeWithSelector(this.initialize.selector, eicData)
+        );
+        require(success, string(returndata));
+        require(returndata.length == 0, string(returndata));
+    }
+
+    /*
+      Returns the call proxy implementation address.
+    */
+    function callProxyImplementation() public view returns (address _implementation) {
+        bytes32 slot = CALL_PROXY_IMPL_SLOT;
+        assembly {
+            _implementation := sload(slot)
+        }
+    }
+
+    /*
+      Sets the call proxy implementation address.
+    */
+    function setCallProxyImplementation(address newImplementation) private {
+        bytes32 slot = CALL_PROXY_IMPL_SLOT;
+        assembly {
+            sstore(slot, newImplementation)
+        }
+    }
+
+    /*
+      An explicit isValid entry point, used to make isValid a part of the ABI and visible
+      on Etherscan (and alike).
+    */
+    function isValid(bytes32 fact) external view returns (bool) {
+        return IFactRegistry(callProxyImplementation()).isValid(fact);
+    }
+
+    /*
+      This entry point serves only transactions with empty calldata. (i.e. pure value transfer tx).
+      We don't expect to receive such, thus block them.
+    */
+    receive() external payable {
+        revert("CONTRACT_NOT_EXPECTED_TO_RECEIVE");
+    }
+
+    /*
+      Contract's default function. Pass execution to the implementation contract (using call).
+      It returns back to the external caller whatever the implementation called code returns.
+    */
+    fallback() external payable {
+        // NOLINT locked-ether.
+        address _implementation = callProxyImplementation();
+        require(_implementation != address(0x0), "MISSING_IMPLEMENTATION");
+        uint256 value = msg.value;
+        assembly {
+            // Copy msg.data. We take full control of memory in this inline assembly
+            // block because it will not return to Solidity code. We overwrite the
+            // Solidity scratch pad at memory position 0.
+            calldatacopy(0, 0, calldatasize())
+
+            // Call the implementation.
+            // out and outsize are 0 for now, as we don't know the out size yet.
+            let result := call(gas(), _implementation, value, 0, calldatasize(), 0, 0)
+
+            // Copy the returned data.
+            returndatacopy(0, 0, returndatasize())
+
+            switch result
+            // delegatecall returns 0 on error.
+            case 0 {
+                revert(0, returndatasize())
+            }
+            default {
+                return(0, returndatasize())
+            }
+        }
+    }
+}
+</pre></div><div class="col-6"><h5>CallProxy.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-25"></span><span class="token upd" id="move-dst-1" data-title="source_file/comment"><span class="cupd">/*
+  Copyright 2019-202</span>2<span class="cupd"> StarkWare Industries Ltd.
+
+  Licensed under the Apache License, Version 2.0 (the "License").
+  You may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  https://www.starkware.co/open-source-license/
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions
+  and limitations under the License.
+*/</span></span>
+// SPDX-License-Identifier: Apache-2.0.
+pragma solidity ^<span class="marker" id="mapping-26"></span><span class="token upd" id="move-dst-2" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.6.1</span>2</span>;
+
+import "IFactRegistry.sol";
+import "StorageSlots.sol";
+import "BlockDirectCall.sol";
+import "Common.sol";
+
+/**
+  CallProxy is a 'call' based proxy.
+  It is a facade to a real implementation,
+  only that unlike the Proxy pattern, it uses call and not delegatecall,
+  so that the state is recorded on the called contract.
+
+  This contract is expected to be placed behind the regular proxy,
+  thus:
+  1. Implementation address is stored in a hashed slot (other than proxy's one...).
+  2. No state variable is allowed in low address ranges.
+  3. Setting of implementation is done in initialize.
+  4. isFrozen and initialize are implemented, to be compliant with Proxy.
+
+  This implementation is intentionally minimal,
+  and has no management or governance.
+  The assumption is that if a different implementation is needed, it will be performed
+  in an upgradeTo a new deployed CallProxy, pointing to a new implementation.
+*/
+// NOLINTNEXTLINE locked-ether.
+contract CallProxy is BlockDirectCall, StorageSlots {
+    using Addresses for address;
+
+    string public constant CALL_PROXY_VERSION = "3.1.0";
+
+    // Proxy client - initialize &amp; isFrozen.
+    // NOLINTNEXTLINE: external-function.
+    function isFrozen() public pure returns (bool) {
+        return false;
+    }
+
+    <span class="marker" id="mapping-27"></span><span class="token upd" id="move-dst-3" data-title="contract_body/comment"><span class="cupd">/*
+      </span>Thi<span class="cupd">s </span><span class="cupd">function i</span>s c<span class="cupd">al</span>l<span class="cupd">e</span>d<span class="cupd"> </span>by the Proxy <span class="cupd">upon activating an implementation.
+      </span>T<span class="cupd">he </span>da<span class="cupd">t</span>a pass<span class="cupd">e</span>d<span class="cupd"> </span>in<span class="cupd"> t</span><span class="cupd">o</span><span class="cupd"> </span><span class="cupd">t</span><span class="cupd">h</span><span class="cupd">i</span><span class="cupd">s</span><span class="cupd"> </span>func<span class="cupd">tion </span>c<span class="cupd">o</span><span class="cupd">n</span><span class="cupd">t</span><span class="cupd">a</span><span class="cupd">i</span>n<span class="cupd">s t</span><span class="cupd">he </span><span class="cupd">implementation </span>add<span class="cupd">r</span><span class="cupd">e</span><span class="cupd">ss</span><span class="cupd">,
+      and </span><span class="cupd">i</span>f<span class="cupd"> </span><span class="cupd">a</span><span class="cupd">p</span>p<span class="cupd">l</span>ic<span class="cupd">a</span>b<span class="cupd">l</span><span class="cupd">e</span><span class="cupd">, </span>a<span class="cupd">n a</span>ddre<span class="cupd">s</span>s<span class="cupd"> of </span>an <span class="cupd">EIC </span>(Externa<span class="cupd">l</span>In<span class="cupd">i</span>tia<span class="cupd">l</span>iz<span class="cupd">e</span>rCo<span class="cupd">nt</span>r<span class="cupd">a</span>c<span class="cupd">t</span>)<span class="cupd"> a</span>n<span class="cupd">d</span><span class="cupd"> i</span>t<span class="cupd">s </span>da<span class="cupd">t</span><span class="cupd">a</span>.<span class="cupd">
+</span><span class="cupd">
+</span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span>  T<span class="cupd">he</span><span class="cupd"> </span>expec<span class="cupd">t</span><span class="cupd">e</span>d<span class="cupd"> </span>da<span class="cupd">t</span><span class="cupd">a</span><span class="cupd"> f</span>orma<span class="cupd">t</span><span class="cupd"> is </span><span class="cupd">a</span>s fo<span class="cupd">ll</span>o<span class="cupd">wi</span><span class="cupd">n</span><span class="cupd">g</span>:<span class="cupd">
+</span><span class="cupd">
+      </span><span class="cupd">Case I (no EIC):
+        </span>data.length == 64.
+        <span class="cupd">[0 </span>:<span class="cupd">3</span>2<span class="cupd">] implementation address
+       </span> [32:64] Zero address.
+
+      <span class="cupd">Case II (EIC):
+        data length &gt;= 64
+        [0 </span>:<span class="cupd">3</span>2<span class="cupd">] implementation address
+        [32</span>:<span class="cupd">6</span>4<span class="cupd">] EIC address
+        [64</span>:<span class="cupd"> </span><span class="cupd"> </span><span class="cupd">] EIC init data.
+    */</span></span>
+    function initialize(bytes calldata data) external notCalledDirectly {
+        <span class="marker" id="mapping-28"></span><span class="token add" data-title="function_body/expression_statement"><span class="marker" id="mapping-29"></span><span class="token add" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-30"></span><span class="token add" data-title="call_expression/call_argument"><span class="marker" id="mapping-31"></span><span class="token mv" id="move-dst-9" data-title="call_argument/binary_expression">data.length &gt;= 64</span></span>, <span class="marker" id="mapping-32"></span><span class="token add" data-title="call_expression/call_argument">"INCORRECT_DATA_SIZE"</span>)</span>;</span>
+        <span class="marker" id="mapping-33"></span><span class="token add" data-title="variable_declaration_statement/variable_declaration_tuple">(<span class="marker" id="mapping-34"></span><span class="token mv" id="move-dst-7" data-title="variable_declaration_tuple/variable_declaration">address impl</span>, <span class="marker" id="mapping-35"></span><span class="token mv" id="move-dst-10" data-title="variable_declaration_tuple/variable_declaration">address eic</span>)</span> = abi.decode(data, <span class="marker" id="mapping-36"></span><span class="token add" data-title="call_argument/tuple_expression">(<span class="marker" id="mapping-37"></span><span class="token mv" id="move-dst-8" data-title="tuple_expression/primitive_type">address</span>, <span class="marker" id="mapping-38"></span><span class="token mv" id="move-dst-11" data-title="tuple_expression/primitive_type">address</span>)</span>);
+        require(impl.isContract(), "ADDRESS_NOT_CONTRACT");
+        setCallProxyImplementation(impl);
+        <span class="marker" id="mapping-39"></span><span class="token mv" id="move-dst-12" data-title="function_body/if_statement">if (eic != address(0x0)) {
+            callExternalInitializer(eic, data[64:]);
+        } <span class="marker" id="mapping-40"></span><span class="token add" data-title="if_statement/else">else</span> <span class="marker" id="mapping-41"></span><span class="token add" data-title="if_statement/block_statement">{
+            <span class="marker" id="mapping-42"></span><span class="token mv" id="move-dst-4" data-title="block_statement/expression_statement">require(<span class="marker" id="mapping-43"></span><span class="token mv" id="move-dst-5" data-title="call_argument/binary_expression">data.length == <span class="marker" id="mapping-44"></span><span class="token upd" id="move-dst-6" data-title="binary_expression/number_literal">64</span></span>, "INVALID_INIT_DATA");</span>
+        }</span></span>
+    }
+
+    function callExternalInitializer(address externalInitializerAddr, bytes calldata eicData)
+        private
+    {
+        require(externalInitializerAddr.isContract(), "EIC_NOT_A_CONTRACT");
+
+        // NOLINTNEXTLINE: low-level-calls, controlled-delegatecall.
+        (bool success, bytes memory returndata) = externalInitializerAddr.delegatecall(
+            abi.encodeWithSelector(this.initialize.selector, eicData)
+        );
+        require(success, string(returndata));
+        require(returndata.length == 0, string(returndata));
+    }
+
+    /*
+      Returns the call proxy implementation address.
+    */
+    function callProxyImplementation() public view returns (address _implementation) {
+        bytes32 slot = CALL_PROXY_IMPL_SLOT;
+        assembly {
+            _implementation := sload(slot)
+        }
+    }
+
+    /*
+      Sets the call proxy implementation address.
+    */
+    function setCallProxyImplementation(address newImplementation) private {
+        bytes32 slot = CALL_PROXY_IMPL_SLOT;
+        assembly {
+            sstore(slot, newImplementation)
+        }
+    }
+
+    /*
+      An explicit isValid entry point, used to make isValid a part of the ABI and visible
+      on Etherscan (and alike).
+    */
+    function isValid(bytes32 fact) external view returns (bool) {
+        return IFactRegistry(callProxyImplementation()).isValid(fact);
+    }
+
+    /*
+      This entry point serves only transactions with empty calldata. (i.e. pure value transfer tx).
+      We don't expect to receive such, thus block them.
+    */
+    receive() external payable {
+        revert("CONTRACT_NOT_EXPECTED_TO_RECEIVE");
+    }
+
+    /*
+      Contract's default function. Pass execution to the implementation contract (using call).
+      It returns back to the external caller whatever the implementation called code returns.
+    */
+    fallback() external payable {
+        // NOLINT locked-ether.
+        address _implementation = callProxyImplementation();
+        require(_implementation != address(0x0), "MISSING_IMPLEMENTATION");
+        uint256 value = msg.value;
+        assembly {
+            // Copy msg.data. We take full control of memory in this inline assembly
+            // block because it will not return to Solidity code. We overwrite the
+            // Solidity scratch pad at memory position 0.
+            calldatacopy(0, 0, calldatasize())
+
+            // Call the implementation.
+            // out and outsize are 0 for now, as we don't know the out size yet.
+            let result := call(gas(), _implementation, value, 0, calldatasize(), 0, 0)
+
+            // Copy the returned data.
+            returndatacopy(0, 0, returndatasize())
+
+            switch result
+            // delegatecall returns 0 on error.
+            case 0 {
+                revert(0, returndatasize())
+            }
+            default {
+                return(0, returndatasize())
+            }
+        }
+    }
+}
+</pre></div></div></div></body></html>

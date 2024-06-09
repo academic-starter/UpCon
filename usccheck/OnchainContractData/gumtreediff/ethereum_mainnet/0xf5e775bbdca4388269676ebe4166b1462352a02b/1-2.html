@@ -1,0 +1,1083 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>0xfd5749c2eee2bbd702dedfd1b6ad671de956c547.etherscan.io-RevenuePoolV2.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="source_file/comment"><span class="cupd">// </span>D<span class="cupd">e</span>pendency<span class="cupd"> f</span>i<span class="cupd">l</span><span class="cupd">e</span>:<span class="cupd"> </span>@ev<span class="cupd">o</span>l<span class="cupd">u</span>tionland/<span class="cupd">c</span><span class="cupd">o</span>mmon/<span class="cupd">contracts/</span>interf<span class="cupd">a</span><span class="cupd">c</span>es/ISe<span class="cupd">t</span>t<span class="cupd">i</span><span class="cupd">n</span>gs<span class="cupd">Re</span>gistry<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-2" data-title="source_file/comment"><span class="cupd">//</span><span class="cupd"> </span>p<span class="cupd">ra</span>gm<span class="cupd">a</span> <span class="cupd">s</span>ol<span class="cupd">i</span><span class="cupd">d</span>ity ^0.4.24;</span>
+
+<span class="marker" id="mapping-3"></span><span class="token mv" id="move-src-3" data-title="source_file/contract_declaration">contract ISettingsRegistry {
+    enum SettingsValueTypes { NONE, UINT, STRING, ADDRESS, BYTES, BOOL, INT }
+
+    function uintOf(bytes32 _propertyName) public view returns (uint256);
+
+    function stringOf(bytes32 _propertyName) public view returns (string);
+
+    function addressOf(bytes32 _propertyName) public view returns (address);
+
+    function bytesOf(bytes32 _propertyName) public view returns (bytes);
+
+    function boolOf(bytes32 _propertyName) public view returns (bool);
+
+    function intOf(bytes32 _propertyName) public view returns (int);
+
+    function setUintProperty(bytes32 _propertyName, uint _value) public;
+
+    function setStringProperty(bytes32 _propertyName, string _value) public;
+
+    function setAddressProperty(bytes32 _propertyName, address _value) public;
+
+    function setBytesProperty(bytes32 _propertyName, bytes _value) public;
+
+    function setBoolProperty(bytes32 _propertyName, bool _value) public;
+
+    function setIntProperty(bytes32 _propertyName, int _value) public;
+
+    function getValueTypeOf(bytes32 _propertyName) public view returns (uint /* SettingsValueTypes */ );
+
+    event ChangeProperty(bytes32 indexed _propertyName, uint256 _type);
+}</span>
+
+<span class="marker" id="mapping-4"></span><span class="token upd" id="move-src-4" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>De<span class="cupd">p</span>endency<span class="cupd"> </span>file: @ev<span class="cupd">ol</span>ut<span class="cupd">i</span>onlan<span class="cupd">d</span>/common/contracts/<span class="cupd">i</span>n<span class="cupd">t</span>erfaces/ERC223ReceivingContract.sol</span>
+
+<span class="marker" id="mapping-5"></span><span class="token upd" id="move-src-5" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>p<span class="cupd">r</span>a<span class="cupd">g</span>m<span class="cupd">a</span><span class="cupd"> </span><span class="cupd">s</span><span class="cupd">o</span>l<span class="cupd">i</span>d<span class="cupd">it</span><span class="cupd">y </span>^0.4.23;</span>
+
+ <span class="marker" id="mapping-6"></span><span class="token mv" id="move-src-6" data-title="source_file/comment">/*
+ * Contract that is working with ERC223 tokens
+ * https://github.com/ethereum/EIPs/issues/223
+ */</span>
+
+<span class="marker" id="mapping-7"></span><span class="token mv" id="move-src-7" data-title="source_file/comment">/// @title ERC223ReceivingContract - Standard contract implementation for compatibility with ERC223 tokens.</span>
+<span class="marker" id="mapping-8"></span><span class="token mv" id="move-src-8" data-title="source_file/contract_declaration">contract ERC223ReceivingContract {
+
+    /// @dev Function that is called when a user or another contract wants to transfer funds.
+    /// @param _from Transaction initiator, analogue of msg.sender
+    /// @param _value Number of tokens to transfer.
+    /// @param _data Data containig a function signature and/or parameters
+    function tokenFallback(address _from, uint256 _value, bytes _data) public;
+
+}</span>
+
+
+<span class="marker" id="mapping-9"></span><span class="token upd" id="move-src-9" data-title="source_file/comment"><span class="cupd">//</span><span class="cupd"> </span>Dependen<span class="cupd">c</span>y file: @ev<span class="cupd">o</span>lu<span class="cupd">t</span>ionl<span class="cupd">a</span>nd<span class="cupd">/</span><span class="cupd">c</span><span class="cupd">o</span>mmo<span class="cupd">n/</span><span class="cupd">c</span><span class="cupd">on</span><span class="cupd">t</span>rac<span class="cupd">t</span>s/<span class="cupd">in</span>terface<span class="cupd">s</span>/ERC223<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-10"></span><span class="token upd" id="move-src-10" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> pragma solidity ^0.4.2</span>3;</span>
+
+<span class="marker" id="mapping-11"></span><span class="token del" data-title="source_file/contract_declaration">contract ERC223 <span class="marker" id="mapping-12"></span><span class="token del" data-title="contract_declaration/contract_body">{
+    <span class="marker" id="mapping-13"></span><span class="token del" data-title="contract_body/function_definition">function transfer(<span class="marker" id="mapping-14"></span><span class="token del" data-title="function_definition/parameter">address to</span>, <span class="marker" id="mapping-15"></span><span class="token del" data-title="function_definition/parameter">uint amount</span>, <span class="marker" id="mapping-16"></span><span class="token del" data-title="function_definition/parameter">bytes data</span>) <span class="marker" id="mapping-17"></span><span class="token mv" id="move-src-11" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-18"></span><span class="token del" data-title="function_definition/return_type_definition">returns (bool ok)</span>;</span>
+
+    <span class="marker" id="mapping-19"></span><span class="token del" data-title="contract_body/function_definition">function transferFrom(<span class="marker" id="mapping-20"></span><span class="token del" data-title="function_definition/parameter">address from</span>, <span class="marker" id="mapping-21"></span><span class="token del" data-title="function_definition/parameter">address to</span>, <span class="marker" id="mapping-22"></span><span class="token del" data-title="function_definition/parameter">uint256 amount</span>, <span class="marker" id="mapping-23"></span><span class="token del" data-title="function_definition/parameter">bytes data</span>) <span class="marker" id="mapping-24"></span><span class="token mv" id="move-src-12" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-25"></span><span class="token del" data-title="function_definition/return_type_definition">returns (bool ok)</span>;</span>
+
+    <span class="marker" id="mapping-26"></span><span class="token del" data-title="contract_body/event_definition">event ERC223Transfer(address indexed from, address indexed to, uint amount, bytes data);</span>
+}</span></span>
+
+
+<span class="marker" id="mapping-27"></span><span class="token upd" id="move-src-13" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>De<span class="cupd">p</span>endency<span class="cupd"> </span>file: <span class="cupd">@evolutionland/common/contracts/</span><span class="cupd">in</span>terfaces/<span class="cupd">I</span>U<span class="cupd">s</span>erPoints<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-28"></span><span class="token upd" id="move-src-14" data-title="source_file/comment"><span class="cupd">//</span><span class="cupd"> </span>p<span class="cupd">ra</span>gm<span class="cupd">a</span> <span class="cupd">s</span><span class="cupd">o</span><span class="cupd">l</span>idity ^0.4.24;</span>
+
+<span class="marker" id="mapping-29"></span><span class="token mv" id="move-src-15" data-title="source_file/contract_declaration">contract IUserPoints {
+    event AddedPoints(address indexed user, uint256 pointAmount);
+    event SubedPoints(address indexed user, uint256 pointAmount);
+
+    function addPoints(address _user, uint256 _pointAmount) public;
+
+    function subPoints(address _user, uint256 _pointAmount) public;
+
+    function pointsSupply() public view returns (uint256);
+
+    function pointsBalanceOf(address _user) public view returns (uint256);
+}</span>
+
+
+<span class="marker" id="mapping-30"></span><span class="token upd" id="move-src-16" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>De<span class="cupd">p</span>endency<span class="cupd"> </span>file: @ev<span class="cupd">ol</span>ut<span class="cupd">i</span>onlan<span class="cupd">d</span>/common/contracts/<span class="cupd">i</span>n<span class="cupd">t</span>erfaces/IAuthorit<span class="cupd">y</span>.sol</span>
+
+<span class="marker" id="mapping-31"></span><span class="token upd" id="move-src-17" data-title="source_file/comment"><span class="cupd">//</span><span class="cupd"> </span>p<span class="cupd">ra</span>gm<span class="cupd">a</span> <span class="cupd">s</span><span class="cupd">o</span>l<span class="cupd">i</span>di<span class="cupd">ty</span> ^0.4.24;</span>
+
+<span class="marker" id="mapping-32"></span><span class="token mv" id="move-src-18" data-title="source_file/contract_declaration">contract IAuthority {
+    function canCall(
+        address src, address dst, bytes4 sig
+    ) public view returns (bool);
+}</span>
+
+<span class="marker" id="mapping-33"></span><span class="token upd" id="move-src-19" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>De<span class="cupd">p</span>endency<span class="cupd"> </span>file: @ev<span class="cupd">ol</span>ut<span class="cupd">i</span>onlan<span class="cupd">d</span>/common/con<span class="cupd">t</span>racts/DSAuth.sol</span>
+
+<span class="marker" id="mapping-34"></span><span class="token upd" id="move-src-20" data-title="source_file/comment"><span class="cupd">//</span><span class="cupd"> </span>p<span class="cupd">ra</span>gm<span class="cupd">a</span> <span class="cupd">s</span><span class="cupd">ol</span>idity ^0.4.24;</span>
+
+<span class="marker" id="mapping-35"></span><span class="token upd" id="move-src-21" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>im<span class="cupd">p</span>o<span class="cupd">r</span>t '/Users/d/iterin<span class="cupd">g</span>/projects/for-<span class="cupd">ma</span>rket-contract/node_module<span class="cupd">s</span>/@ev<span class="cupd">ol</span>ut<span class="cupd">i</span>onlan<span class="cupd">d</span>/common/contracts/<span class="cupd">i</span>n<span class="cupd">t</span>erfaces/IAuthorit<span class="cupd">y</span><span class="cupd">.</span>sol';</span>
+
+<span class="marker" id="mapping-36"></span><span class="token mv" id="move-src-22" data-title="source_file/contract_declaration">contract DSAuthEvents {
+    event LogSetAuthority (address indexed authority);
+    event LogSetOwner     (address indexed owner);
+}</span>
+
+<span class="marker" id="mapping-37"></span><span class="token upd" id="move-src-23" data-title="source_file/comment"><span class="cupd">/*</span>*<span class="cupd"></span>
+ * @<span class="cupd">t</span>itle DSAuth
+ * @dev The DSAuth<span class="cupd"> </span>co<span class="cupd">n</span>tr<span class="cupd">ac</span>t is reference implement of https://gith<span class="cupd">u</span>b.c<span class="cupd">o</span>m/dapphub/ds-auth
+ * B<span class="cupd">ut</span> <span class="cupd">i</span>n<span class="cupd"> </span>the isAu<span class="cupd">t</span>horized method, the s<span class="cupd">r</span>c fr<span class="cupd">o</span>m a<span class="cupd">dd</span>re<span class="cupd">ss</span>(this) is <span class="cupd">r</span>emove<span class="cupd"> </span>for <span class="cupd">sa</span>ft<span class="cupd">y</span> conce<span class="cupd">r</span>n<span class="cupd">.</span>
+ */</span>
+<span class="marker" id="mapping-38"></span><span class="token mv" id="move-src-24" data-title="source_file/contract_declaration">contract DSAuth is DSAuthEvents {
+    IAuthority   public  authority;
+    address      public  owner;
+
+    constructor() public {
+        owner = msg.sender;
+        emit LogSetOwner(msg.sender);
+    }
+
+    function setOwner(address owner_)
+        public
+        auth
+    {
+        owner = owner_;
+        emit LogSetOwner(owner);
+    }
+
+    function setAuthority(IAuthority authority_)
+        public
+        auth
+    {
+        authority = authority_;
+        emit LogSetAuthority(authority);
+    }
+
+    modifier auth {
+        require(isAuthorized(msg.sender, msg.sig));
+        _;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    function isAuthorized(address src, bytes4 sig) internal view returns (bool) {
+        if (src == owner) {
+            return true;
+        } else if (authority == IAuthority(0)) {
+            return false;
+        } else {
+            return authority.canCall(src, this, sig);
+        }
+    }
+}</span>
+
+
+<span class="marker" id="mapping-39"></span><span class="token upd" id="move-src-25" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span><span class="cupd">D</span><span class="cupd">e</span>p<span class="cupd">e</span><span class="cupd">n</span>d<span class="cupd">e</span><span class="cupd">nc</span>y<span class="cupd"> </span>f<span class="cupd">i</span><span class="cupd">le</span>:<span class="cupd"> o</span><span class="cupd">p</span>enze<span class="cupd">pp</span><span class="cupd">e</span>l<span class="cupd">i</span>n-<span class="cupd">s</span><span class="cupd">o</span>l<span class="cupd">i</span><span class="cupd">d</span>i<span class="cupd">t</span>y/c<span class="cupd">o</span>n<span class="cupd">t</span><span class="cupd">r</span><span class="cupd">a</span>c<span class="cupd">t</span><span class="cupd">s</span>/<span class="cupd">t</span><span class="cupd">o</span>k<span class="cupd">e</span><span class="cupd">n</span>/ERC20/ERC20Basic.sol</span>
+
+<span class="marker" id="mapping-40"></span><span class="token upd" id="move-src-26" data-title="source_file/comment"><span class="cupd">//</span><span class="cupd"> </span>p<span class="cupd">ra</span>gm<span class="cupd">a</span> <span class="cupd">s</span>ol<span class="cupd">i</span>d<span class="cupd">i</span><span class="cupd">t</span>y ^0.4.24;</span>
+
+
+<span class="marker" id="mapping-41"></span><span class="token mv" id="move-src-27" data-title="source_file/comment">/**
+ * @title ERC20Basic
+ * @dev Simpler version of ERC20 interface
+ * See https://github.com/ethereum/EIPs/issues/179
+ */</span>
+<span class="marker" id="mapping-42"></span><span class="token mv" id="move-src-28" data-title="source_file/contract_declaration">contract ERC20Basic {
+  function totalSupply() public view returns (uint256);
+  function balanceOf(address _who) public view returns (uint256);
+  function transfer(address _to, uint256 _value) public returns (bool);
+  event Transfer(address indexed from, address indexed to, uint256 value);
+}</span>
+
+
+<span class="marker" id="mapping-43"></span><span class="token upd" id="move-src-29" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>De<span class="cupd">p</span>endency<span class="cupd"> </span>file: openzeppelin-<span class="cupd">solidity</span>/contracts/token/ERC<span class="cupd">2</span>0/ERC20.sol</span>
+
+<span class="marker" id="mapping-44"></span><span class="token upd" id="move-src-30" data-title="source_file/comment"><span class="cupd">//</span><span class="cupd"> </span>p<span class="cupd">ra</span>gm<span class="cupd">a</span> <span class="cupd">s</span>ol<span class="cupd">i</span>d<span class="cupd">i</span><span class="cupd">t</span><span class="cupd">y</span> ^0.4.24;</span>
+
+<span class="marker" id="mapping-45"></span><span class="token upd" id="move-src-31" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>im<span class="cupd">p</span>o<span class="cupd">r</span>t<span class="cupd"> </span>"openzeppelin-<span class="cupd">solidity</span>/contracts/token/ERC2<span class="cupd">0</span>/ERC<span class="cupd">2</span>0Basic.sol";</span>
+
+
+<span class="marker" id="mapping-46"></span><span class="token mv" id="move-src-32" data-title="source_file/comment">/**
+ * @title ERC20 interface
+ * @dev see https://github.com/ethereum/EIPs/issues/20
+ */</span>
+<span class="marker" id="mapping-47"></span><span class="token mv" id="move-src-33" data-title="source_file/contract_declaration">contract ERC20 is ERC20Basic {
+  function allowance(address _owner, address _spender)
+    public view returns (uint256);
+
+  function transferFrom(address _from, address _to, uint256 _value)
+    public returns (bool);
+
+  function approve(address _spender, uint256 _value) public returns (bool);
+  event Approval(
+    address indexed owner,
+    address indexed spender,
+    uint256 value
+  );
+}</span>
+
+
+<span class="marker" id="mapping-48"></span><span class="token upd" id="move-src-34" data-title="source_file/comment"><span class="cupd">//</span><span class="cupd"> </span>Dependency fi<span class="cupd">l</span>e: @evolut<span class="cupd">i</span>onland<span class="cupd">/common</span>/<span class="cupd">contracts/</span>Se<span class="cupd">t</span><span class="cupd">t</span><span class="cupd">in</span>g<span class="cupd">I</span>d<span class="cupd">s</span><span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-49"></span><span class="token upd" id="move-src-35" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> pragma solidity ^0.4.24;</span></span>
+
+<span class="marker" id="mapping-50"></span><span class="token upd" id="move-src-36" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+    Id <span class="cupd">d</span>e<span class="cupd">fi</span>nitio<span class="cupd">n</span>s <span class="cupd">f</span>or Set<span class="cupd">t</span>ingsRe<span class="cupd">g</span>i<span class="cupd">s</span>t<span class="cupd">r</span>y.sol
+    Can be used i<span class="cupd">n c</span>onj<span class="cupd">un</span>c<span class="cupd">t</span>ion with <span class="cupd">t</span>he set<span class="cupd">t</span>i<span class="cupd">n</span>gs r<span class="cupd">e</span><span class="cupd">g</span>istry to get properties
+*/</span>
+<span class="marker" id="mapping-51"></span><span class="token mv" id="move-src-37" data-title="source_file/contract_declaration">contract SettingIds {
+    bytes32 public constant CONTRACT_RING_ERC20_TOKEN = "CONTRACT_RING_ERC20_TOKEN";
+
+    bytes32 public constant CONTRACT_KTON_ERC20_TOKEN = "CONTRACT_KTON_ERC20_TOKEN";
+
+    bytes32 public constant CONTRACT_GOLD_ERC20_TOKEN = "CONTRACT_GOLD_ERC20_TOKEN";
+
+    bytes32 public constant CONTRACT_WOOD_ERC20_TOKEN = "CONTRACT_WOOD_ERC20_TOKEN";
+
+    bytes32 public constant CONTRACT_WATER_ERC20_TOKEN = "CONTRACT_WATER_ERC20_TOKEN";
+
+    bytes32 public constant CONTRACT_FIRE_ERC20_TOKEN = "CONTRACT_FIRE_ERC20_TOKEN";
+
+    bytes32 public constant CONTRACT_SOIL_ERC20_TOKEN = "CONTRACT_SOIL_ERC20_TOKEN";
+
+    bytes32 public constant CONTRACT_OBJECT_OWNERSHIP = "CONTRACT_OBJECT_OWNERSHIP";
+
+    bytes32 public constant CONTRACT_TOKEN_LOCATION = "CONTRACT_TOKEN_LOCATION";
+
+    bytes32 public constant CONTRACT_LAND_BASE = "CONTRACT_LAND_BASE";
+
+    bytes32 public constant CONTRACT_USER_POINTS = "CONTRACT_USER_POINTS";
+
+    bytes32 public constant CONTRACT_INTERSTELLAR_ENCODER = "CONTRACT_INTERSTELLAR_ENCODER";
+
+    bytes32 public constant CONTRACT_DIVIDENDS_POOL = "CONTRACT_DIVIDENDS_POOL";
+
+    bytes32 public constant CONTRACT_TOKEN_USE = "CONTRACT_TOKEN_USE";
+
+    bytes32 public constant CONTRACT_REVENUE_POOL = "CONTRACT_REVENUE_POOL";
+
+    bytes32 public constant CONTRACT_ERC721_BRIDGE = "CONTRACT_ERC721_BRIDGE";
+
+    bytes32 public constant CONTRACT_PET_BASE = "CONTRACT_PET_BASE";
+
+    // Cut owner takes on each auction, measured in basis points (1/100 of a percent).
+    // this can be considered as transaction fee.
+    // Values 0-10,000 map to 0%-100%
+    // set ownerCut to 4%
+    // ownerCut = 400;
+    bytes32 public constant UINT_AUCTION_CUT = "UINT_AUCTION_CUT";  // Denominator is 10000
+
+    bytes32 public constant UINT_TOKEN_OFFER_CUT = "UINT_TOKEN_OFFER_CUT";  // Denominator is 10000
+
+    // Cut referer takes on each auction, measured in basis points (1/100 of a percent).
+    // which cut from transaction fee.
+    // Values 0-10,000 map to 0%-100%
+    // set refererCut to 4%
+    // refererCut = 400;
+    bytes32 public constant UINT_REFERER_CUT = "UINT_REFERER_CUT";
+
+    bytes32 public constant CONTRACT_LAND_RESOURCE = "CONTRACT_LAND_RESOURCE";
+}</span>
+
+<span class="marker" id="mapping-52"></span><span class="token upd" id="move-src-38" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>De<span class="cupd">p</span>endency file: cont<span class="cupd">ra</span>ct<span class="cupd">s</span>/Aucti<span class="cupd">o</span>nSett<span class="cupd">i</span>ngI<span class="cupd">d</span>s.sol</span>
+
+<span class="marker" id="mapping-53"></span><span class="token upd" id="move-src-39" data-title="source_file/comment"><span class="cupd">//</span><span class="cupd"> </span><span class="cupd">p</span>ragma <span class="cupd">solidity</span> ^<span class="cupd">0</span>.4.24;</span>
+
+<span class="marker" id="mapping-54"></span><span class="token upd" id="move-src-40" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>im<span class="cupd">p</span>o<span class="cupd">r</span>t<span class="cupd"> </span>"@ev<span class="cupd">ol</span>ut<span class="cupd">i</span>onlan<span class="cupd">d</span>/common/con<span class="cupd">t</span>racts/SettingIds<span class="cupd">.</span>sol";</span>
+
+<span class="marker" id="mapping-55"></span><span class="token mv" id="move-src-41" data-title="source_file/contract_declaration">contract AuctionSettingIds is SettingIds {
+
+    bytes32 public constant CONTRACT_CLOCK_AUCTION = "CONTRACT_CLOCK_AUCTION";
+
+    // BidWaitingTime in seconds, default is 30 minutes
+    // necessary period of time from invoking bid action to successfully taking the land asset.
+    // if someone else bid the same auction with higher price and within bidWaitingTime, your bid failed.
+    bytes32 public constant UINT_AUCTION_BID_WAITING_TIME = "UINT_AUCTION_BID_WAITING_TIME";
+
+
+    bytes32 public constant CONTRACT_MYSTERIOUS_TREASURE = "CONTRACT_MYSTERIOUS_TREASURE";
+
+    // users change eth(in wei) into ring with bancor exchange
+    // which introduce bancor protocol to regulate the price of ring
+    <span class="marker" id="mapping-56"></span><span class="token mv" id="move-src-42" data-title="contract_body/state_variable_declaration">bytes32 public constant <span class="marker" id="mapping-57"></span><span class="token upd" id="move-src-43" data-title="state_variable_declaration/identifier"><span class="cupd">CONTRACT_</span>B<span class="cupd">A</span>NCO<span class="cupd">R</span>_EXCHANGE</span> = "BANCOR_EXCHANGE";</span>
+
+    bytes32 public constant CONTRACT_POINTS_REWARD_POOL = "CONTRACT_POINTS_REWARD_POOL";
+
+    // value belongs to [0, 10000000]
+    <span class="marker" id="mapping-58"></span><span class="token mv" id="move-src-44" data-title="contract_body/state_variable_declaration">bytes32 public constant <span class="marker" id="mapping-59"></span><span class="token upd" id="move-src-45" data-title="state_variable_declaration/identifier">UI<span class="cupd">NT</span><span class="cupd">_</span><span class="cupd">E</span>XCHA<span class="cupd">N</span>G<span class="cupd">E</span><span class="cupd">_</span><span class="cupd">ER</span>ROR_SPACE</span> = "UINT_EXCHANGE_ERROR_SPACE";</span>
+
+    // "CONTRACT_CONTRIBUTION_INCENTIVE_POOL" is too long for byted32
+    // so compress it to what states below
+    bytes32 public constant CONTRACT_CONTRIBUTION_INCENTIVE_POOL = "CONTRACT_CONTRIBUTION_POOL";
+
+    bytes32 public constant CONTRACT_DEV_POOL = "CONTRACT_DEV_POOL";
+
+}</span>
+
+
+<span class="marker" id="mapping-60"></span><span class="token upd" id="move-src-46" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>De<span class="cupd">p</span>endency file: c<span class="cupd">o</span>n<span class="cupd">t</span>r<span class="cupd">a</span>ct<span class="cupd">s</span>/<span class="cupd">i</span>nterfa<span class="cupd">c</span>es/IGovernorPool<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-61"></span><span class="token upd" id="move-src-47" data-title="source_file/comment"><span class="cupd">//</span><span class="cupd"> </span>p<span class="cupd">ra</span>gm<span class="cupd">a</span> <span class="cupd">sol</span>idity ^0.4.24;</span>
+
+<span class="marker" id="mapping-62"></span><span class="token mv" id="move-src-48" data-title="source_file/contract_declaration">contract IGovernorPool {
+    function checkRewardAvailable(address _token) external view returns(bool);
+    function rewardAmount(uint256 _amount) external; 
+}</span>
+
+
+<span class="marker" id="mapping-63"></span><span class="token upd" id="move-src-49" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>Root file: cont<span class="cupd">ra</span>ct<span class="cupd">s</span>/RevenueP<span class="cupd">o</span>o<span class="cupd">l</span>V2.sol</span>
+
+<span class="marker" id="mapping-64"></span><span class="token mv" id="move-src-50" data-title="source_file/pragma_directive">pragma solidity<span class="marker" id="mapping-65"></span><span class="token del" data-title="solidity_pragma_token/solidity_version_comparison_operator"> ^</span>0.4.24;</span>
+
+<span class="marker" id="mapping-66"></span><span class="token upd" id="move-src-51" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> import "@evolutionland/common/contracts/interfaces/ISettingsRegistry.sol";</span></span>
+<span class="marker" id="mapping-67"></span><span class="token upd" id="move-src-52" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> import "@evolutionland/common/contracts/interfaces/ERC223ReceivingContract.sol";</span></span>
+<span class="marker" id="mapping-68"></span><span class="token upd" id="move-src-53" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> import "@evolutionland/common/contracts/interfaces/</span>ERC223<span class="cupd">.sol";</span></span>
+<span class="marker" id="mapping-69"></span><span class="token upd" id="move-src-54" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> import "@evolutionland/common/contracts/</span>in<span class="cupd">t</span>erfaces/IUserPoints<span class="cupd">.sol";</span></span>
+<span class="marker" id="mapping-70"></span><span class="token upd" id="move-src-55" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> import "</span>@<span class="cupd">e</span>vo<span class="cupd">l</span>ut<span class="cupd">i</span><span class="cupd">o</span>n<span class="cupd">l</span>an<span class="cupd">d</span><span class="cupd">/co</span>mmo<span class="cupd">n</span>/con<span class="cupd">tracts/</span>DSAu<span class="cupd">t</span>h<span class="cupd">.sol";</span></span>
+<span class="marker" id="mapping-71"></span><span class="token upd" id="move-src-56" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> import "</span><span class="cupd">o</span>pe<span class="cupd">n</span>z<span class="cupd">e</span>ppel<span class="cupd">in</span>-soli<span class="cupd">d</span>ity/contract<span class="cupd">s</span>/token/ERC20/ERC20<span class="cupd">.sol";</span></span>
+<span class="marker" id="mapping-72"></span><span class="token upd" id="move-src-57" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> import "</span>co<span class="cupd">nt</span><span class="cupd">r</span><span class="cupd">ac</span>t<span class="cupd">s/</span>Aucti<span class="cupd">o</span>nS<span class="cupd">e</span>tti<span class="cupd">n</span>gIds<span class="cupd">.sol";</span></span>
+<span class="marker" id="mapping-73"></span><span class="token del" data-title="source_file/comment">// import "contracts/interfaces/IGovernorPool.sol";</span>
+
+/**
+ * @title RevenuePool
+ * difference between LandResourceV1:
+     change DividendPool into governorPool for reward
+ */
+
+// Use proxy mode
+contract <span class="marker" id="mapping-74"></span><span class="token upd" id="move-src-58" data-title="contract_declaration/identifier"><span class="cupd">RevenuePoolV</span>2</span> is DSAuth, ERC223ReceivingContract, AuctionSettingIds {
+
+    bool private singletonLock = false;
+
+//    // 10%
+//    address public pointsRewardPool;
+//    // 30%
+//    address public contributionIncentivePool;
+//    // 30%
+//    address public dividendsPool;
+//    // 30%
+//    address public devPool;
+
+    ISettingsRegistry public registry;
+
+    // claimedToken event
+    event ClaimedTokens(address indexed token, address indexed owner, uint amount);
+
+    /*
+     *  Modifiers
+     */
+    modifier singletonLockCall() {
+        require(!singletonLock, "Only can call once");
+        _;
+        singletonLock = true;
+    }
+
+    function initializeContract(address _registry) public singletonLockCall {
+        owner = msg.sender;
+        emit LogSetOwner(msg.sender);
+
+        registry = ISettingsRegistry(_registry);
+    }
+
+    function tokenFallback(address <span class="marker" id="mapping-75"></span><span class="token del" data-title="parameter/identifier">_from</span>, uint256 _value, bytes _data) public {
+
+        address ring = registry.addressOf(SettingIds.CONTRACT_RING_ERC20_TOKEN);
+        address userPoints = registry.addressOf(SettingIds.CONTRACT_USER_POINTS);
+
+        if(msg.sender == ring) {
+            address buyer = bytesToAddress(_data);
+            // should same with trading reward percentage in settleToken;
+
+            IUserPoints(userPoints).addPoints(buyer, _value / 1000);
+        }
+    }
+
+
+    function settleToken(address _tokenAddress) public {
+        uint balance = ERC20(_tokenAddress).balanceOf(address(this));
+
+        // to save gas when playing
+        if (balance &gt; 10) {
+            address pointsRewardPool = registry.addressOf(AuctionSettingIds.CONTRACT_POINTS_REWARD_POOL);
+            address contributionIncentivePool = registry.addressOf(AuctionSettingIds.CONTRACT_CONTRIBUTION_INCENTIVE_POOL);
+            address governorPool = registry.addressOf(CONTRACT_DIVIDENDS_POOL);
+            address devPool = registry.addressOf(AuctionSettingIds.CONTRACT_DEV_POOL);
+
+            require(pointsRewardPool != 0x0 &amp;&amp; contributionIncentivePool != 0x0 &amp;&amp; governorPool != 0x0 &amp;&amp; devPool != 0x0, "invalid addr");
+
+            require(<span class="marker" id="mapping-76"></span><span class="token upd" id="move-src-59" data-title="call_expression/identifier"><span class="cupd">ERC2</span>23</span>(_tokenAddress).transfer(pointsRewardPool, balance / 10<span class="marker" id="mapping-77"></span><span class="token del" data-title="call_expression/,">,</span> <span class="marker" id="mapping-78"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-79"></span><span class="token mv" id="move-src-60" data-title="call_argument/string_literal">"0x0"</span></span>));
+            require(<span class="marker" id="mapping-80"></span><span class="token upd" id="move-src-61" data-title="call_expression/identifier"><span class="cupd">ERC2</span>23</span>(_tokenAddress).transfer(contributionIncentivePool, balance * 3 / 10<span class="marker" id="mapping-81"></span><span class="token del" data-title="call_expression/,">,</span> <span class="marker" id="mapping-82"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-83"></span><span class="token mv" id="move-src-62" data-title="call_argument/string_literal">"0x0"</span></span>));
+            if (IGovernorPool(governorPool).checkRewardAvailable(_tokenAddress)) {
+                ERC20(_tokenAddress).approve(governorPool, balance * 3 / 10);
+                IGovernorPool(governorPool).rewardAmount(balance * 3 / 10);
+            }
+            require(<span class="marker" id="mapping-84"></span><span class="token upd" id="move-src-63" data-title="call_expression/identifier"><span class="cupd">ERC2</span>23</span>(_tokenAddress).transfer(devPool, balance * 3 / 10<span class="marker" id="mapping-85"></span><span class="token del" data-title="call_expression/,">,</span> <span class="marker" id="mapping-86"></span><span class="token del" data-title="call_expression/call_argument">"0x0"</span>));
+        }
+
+    }
+
+
+    /// @notice This method can be used by the owner to extract mistakenly
+    ///  sent tokens to this contract.
+    /// @param _token The address of the token contract that you want to recover
+    ///  set to 0 in case you want to extract ether.
+    function claimTokens(address _token) public auth {
+        if (_token == 0x0) {
+            owner.transfer(address(this).balance);
+            return;
+        }
+        ERC20 token = ERC20(_token);
+        uint balance = token.balanceOf(address(this));
+        token.transfer(owner, balance);
+
+        emit ClaimedTokens(_token, msg.sender, balance);
+    }
+
+    function bytesToAddress(bytes b) public pure returns (address) {
+        bytes32 out;
+
+        for (uint i = 0; i &lt; 32; i++) {
+            out |= bytes32(b[i] &amp; 0xFF) &gt;&gt; (i * 8);
+        }
+        return address(out);
+    }
+
+}</pre></div><div class="col-6"><h5>0x28fe2046b1ab4461cc5cb8e29afcc36d1ddac4bb.etherscan.io-RevenuePoolV3.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-87"></span><span class="token upd" id="move-dst-1" data-title="source_file/comment"><span class="cupd">// </span>h<span class="cupd">e</span>vm:<span class="cupd"> f</span><span class="cupd">l</span>att<span class="cupd">e</span>ned<span class="cupd"> </span>s<span class="cupd">o</span><span class="cupd">u</span>r<span class="cupd">c</span>es <span class="cupd">o</span>f <span class="cupd">contracts/</span><span class="cupd">a</span>u<span class="cupd">c</span><span class="cupd">t</span><span class="cupd">i</span>o<span class="cupd">n</span>/<span class="cupd">Re</span>venuePoolV2<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-88"></span><span class="token mv" id="move-dst-50" data-title="source_file/pragma_directive">pragma solidity<span class="marker" id="mapping-89"></span><span class="token add" data-title="solidity_pragma_token/solidity_version_comparison_operator"> &gt;=</span><span class="marker" id="mapping-90"></span><span class="token add" data-title="solidity_pragma_token/solidity_version">0.4.23</span><span class="marker" id="mapping-91"></span><span class="token add" data-title="solidity_pragma_token/solidity_version_comparison_operator"> &lt;</span><span class="marker" id="mapping-92"></span><span class="token add" data-title="solidity_pragma_token/solidity_version">0.5.0</span><span class="marker" id="mapping-93"></span><span class="token add" data-title="solidity_pragma_token/solidity_version_comparison_operator"> &gt;=</span>0.4.24<span class="marker" id="mapping-94"></span><span class="token add" data-title="solidity_pragma_token/solidity_version_comparison_operator"> &lt;</span><span class="marker" id="mapping-95"></span><span class="token add" data-title="solidity_pragma_token/solidity_version">0.5.0</span>;</span>
+
+<span class="marker" id="mapping-96"></span><span class="token upd" id="move-dst-2" data-title="source_file/comment"><span class="cupd">//</span>////<span class="cupd"> </span>lib/common-cont<span class="cupd">ra</span>cts/contr<span class="cupd">a</span>ct<span class="cupd">s</span>/Sett<span class="cupd">i</span>ngI<span class="cupd">d</span>s.sol</span>
+<span class="marker" id="mapping-97"></span><span class="token upd" id="move-dst-4" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span><span class="cupd">p</span>ragma<span class="cupd"> </span>s<span class="cupd">ol</span><span class="cupd">i</span><span class="cupd">d</span><span class="cupd">i</span><span class="cupd">t</span>y ^0.4.24; */</span>
+
+<span class="marker" id="mapping-98"></span><span class="token upd" id="move-dst-5" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+    Id definitions f<span class="cupd">o</span>r Setti<span class="cupd">n</span>gsRegistry.sol
+   <span class="cupd"> </span>C<span class="cupd">a</span>n be<span class="cupd"> </span>used in<span class="cupd"> </span>conjun<span class="cupd">c</span>tion<span class="cupd"> w</span>ith the settings regis<span class="cupd">tr</span>y to get properties
+*/</span>
+<span class="marker" id="mapping-99"></span><span class="token mv" id="move-dst-37" data-title="source_file/contract_declaration">contract SettingIds {
+    <span class="marker" id="mapping-100"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f52494e475f45524332305f544f4b454e00000000000000</span>
+    bytes32 public constant CONTRACT_RING_ERC20_TOKEN = "CONTRACT_RING_ERC20_TOKEN";
+
+    <span class="marker" id="mapping-101"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f4b544f4e5f45524332305f544f4b454e00000000000000</span>
+    bytes32 public constant CONTRACT_KTON_ERC20_TOKEN = "CONTRACT_KTON_ERC20_TOKEN";
+
+    <span class="marker" id="mapping-102"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f474f4c445f45524332305f544f4b454e00000000000000</span>
+    bytes32 public constant CONTRACT_GOLD_ERC20_TOKEN = "CONTRACT_GOLD_ERC20_TOKEN";
+
+    <span class="marker" id="mapping-103"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f574f4f445f45524332305f544f4b454e00000000000000</span>
+    bytes32 public constant CONTRACT_WOOD_ERC20_TOKEN = "CONTRACT_WOOD_ERC20_TOKEN";
+
+    <span class="marker" id="mapping-104"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f57415445525f45524332305f544f4b454e000000000000</span>
+    bytes32 public constant CONTRACT_WATER_ERC20_TOKEN = "CONTRACT_WATER_ERC20_TOKEN";
+
+    <span class="marker" id="mapping-105"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f464952455f45524332305f544f4b454e00000000000000</span>
+    bytes32 public constant CONTRACT_FIRE_ERC20_TOKEN = "CONTRACT_FIRE_ERC20_TOKEN";
+
+    <span class="marker" id="mapping-106"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f534f494c5f45524332305f544f4b454e00000000000000</span>
+    bytes32 public constant CONTRACT_SOIL_ERC20_TOKEN = "CONTRACT_SOIL_ERC20_TOKEN";
+
+    <span class="marker" id="mapping-107"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f4f424a4543545f4f574e45525348495000000000000000</span>
+    bytes32 public constant CONTRACT_OBJECT_OWNERSHIP = "CONTRACT_OBJECT_OWNERSHIP";
+
+    <span class="marker" id="mapping-108"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f544f4b454e5f4c4f434154494f4e000000000000000000</span>
+    bytes32 public constant CONTRACT_TOKEN_LOCATION = "CONTRACT_TOKEN_LOCATION";
+
+    <span class="marker" id="mapping-109"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f4c414e445f424153450000000000000000000000000000</span>
+    bytes32 public constant CONTRACT_LAND_BASE = "CONTRACT_LAND_BASE";
+
+    <span class="marker" id="mapping-110"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f555345525f504f494e5453000000000000000000000000</span>
+    bytes32 public constant CONTRACT_USER_POINTS = "CONTRACT_USER_POINTS";
+
+    <span class="marker" id="mapping-111"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f494e5445525354454c4c41525f454e434f444552000000</span>
+    bytes32 public constant CONTRACT_INTERSTELLAR_ENCODER = "CONTRACT_INTERSTELLAR_ENCODER";
+
+    <span class="marker" id="mapping-112"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f4449564944454e44535f504f4f4c000000000000000000</span>
+    bytes32 public constant CONTRACT_DIVIDENDS_POOL = "CONTRACT_DIVIDENDS_POOL";
+
+    <span class="marker" id="mapping-113"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f544f4b454e5f5553450000000000000000000000000000</span>
+    bytes32 public constant CONTRACT_TOKEN_USE = "CONTRACT_TOKEN_USE";
+
+    <span class="marker" id="mapping-114"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f524556454e55455f504f4f4c0000000000000000000000</span>
+    bytes32 public constant CONTRACT_REVENUE_POOL = "CONTRACT_REVENUE_POOL";
+
+    <span class="marker" id="mapping-115"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f4252494447455f504f4f4c000000000000000000000000</span>
+    <span class="marker" id="mapping-116"></span><span class="token add" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-117"></span><span class="token add" data-title="state_variable_declaration/type_name">bytes32</span> <span class="marker" id="mapping-118"></span><span class="token mv" id="move-dst-12" data-title="state_variable_declaration/visibility">public</span> constant CONTRACT_BRIDGE_POOL = <span class="marker" id="mapping-119"></span><span class="token mv" id="move-dst-60" data-title="state_variable_declaration/string_literal">"CONTRACT_BRIDGE_POOL"</span>;</span>
+
+    <span class="marker" id="mapping-120"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f4552433732315f42524944474500000000000000000000</span>
+    bytes32 public constant CONTRACT_ERC721_BRIDGE = "CONTRACT_ERC721_BRIDGE";
+
+    <span class="marker" id="mapping-121"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f5045545f42415345000000000000000000000000000000</span>
+    bytes32 public constant CONTRACT_PET_BASE = "CONTRACT_PET_BASE";
+
+    // Cut owner takes on each auction, measured in basis points (1/100 of a percent).
+    // this can be considered as transaction fee.
+    // Values 0-10,000 map to 0%-100%
+    // set ownerCut to 4%
+    // ownerCut = 400;
+    <span class="marker" id="mapping-122"></span><span class="token add" data-title="contract_body/comment">// 0x55494e545f41554354494f4e5f43555400000000000000000000000000000000</span>
+    bytes32 public constant UINT_AUCTION_CUT = "UINT_AUCTION_CUT";  // Denominator is 10000
+
+    <span class="marker" id="mapping-123"></span><span class="token add" data-title="contract_body/comment">// 0x55494e545f544f4b454e5f4f464645525f435554000000000000000000000000</span>
+    bytes32 public constant UINT_TOKEN_OFFER_CUT = "UINT_TOKEN_OFFER_CUT";  // Denominator is 10000
+
+    // Cut referer takes on each auction, measured in basis points (1/100 of a percent).
+    // which cut from transaction fee.
+    // Values 0-10,000 map to 0%-100%
+    // set refererCut to 4%
+    // refererCut = 400;
+    <span class="marker" id="mapping-124"></span><span class="token add" data-title="contract_body/comment">// 0x55494e545f524546455245525f43555400000000000000000000000000000000</span>
+    bytes32 public constant UINT_REFERER_CUT = "UINT_REFERER_CUT";
+
+    <span class="marker" id="mapping-125"></span><span class="token add" data-title="contract_body/comment">// 0x55494e545f4252494447455f4645450000000000000000000000000000000000</span>
+    <span class="marker" id="mapping-126"></span><span class="token add" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-127"></span><span class="token add" data-title="state_variable_declaration/type_name">bytes32</span> <span class="marker" id="mapping-128"></span><span class="token mv" id="move-dst-11" data-title="state_variable_declaration/visibility">public</span> constant UINT_BRIDGE_FEE = <span class="marker" id="mapping-129"></span><span class="token mv" id="move-dst-62" data-title="state_variable_declaration/string_literal">"UINT_BRIDGE_FEE"</span>;</span>
+
+    <span class="marker" id="mapping-130"></span><span class="token add" data-title="contract_body/comment">// 0x434f4e54524143545f4c414e445f5245534f5552434500000000000000000000</span>
+    bytes32 public constant CONTRACT_LAND_RESOURCE = "CONTRACT_LAND_RESOURCE";
+}</span>
+
+<span class="marker" id="mapping-131"></span><span class="token upd" id="move-dst-9" data-title="source_file/comment"><span class="cupd">//</span>////<span class="cupd"> </span><span class="cupd">c</span><span class="cupd">o</span>n<span class="cupd">t</span>r<span class="cupd">a</span>cts<span class="cupd">/</span>au<span class="cupd">c</span>ti<span class="cupd">o</span><span class="cupd">n/</span>Au<span class="cupd">c</span>ti<span class="cupd">on</span>Se<span class="cupd">t</span><span class="cupd">t</span><span class="cupd">in</span>gId<span class="cupd">s</span><span class="cupd">.sol</span></span>
+<span class="marker" id="mapping-132"></span><span class="token upd" id="move-dst-10" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> pragma solidity ^0.4.2</span>4; */</span>
+
+<span class="marker" id="mapping-133"></span><span class="token upd" id="move-dst-13" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span>im<span class="cupd">p</span>ort<span class="cupd"> </span>"<span class="cupd">@evolutionland/common/contracts/</span>Sett<span class="cupd">in</span>g<span class="cupd">I</span>d<span class="cupd">s</span><span class="cupd">.sol</span>"; */</span>
+
+<span class="marker" id="mapping-134"></span><span class="token mv" id="move-dst-41" data-title="source_file/contract_declaration">contract AuctionSettingIds is SettingIds {
+
+    bytes32 public constant CONTRACT_CLOCK_AUCTION = "CONTRACT_CLOCK_AUCTION";
+
+    // BidWaitingTime in seconds, default is 30 minutes
+    // necessary period of time from invoking bid action to successfully taking the land asset.
+    // if someone else bid the same auction with higher price and within bidWaitingTime, your bid failed.
+    bytes32 public constant UINT_AUCTION_BID_WAITING_TIME = "UINT_AUCTION_BID_WAITING_TIME";
+
+
+    bytes32 public constant CONTRACT_MYSTERIOUS_TREASURE = "CONTRACT_MYSTERIOUS_TREASURE";
+
+    // users change eth(in wei) into ring with bancor exchange
+    // which introduce bancor protocol to regulate the price of ring
+    <span class="marker" id="mapping-135"></span><span class="token add" data-title="contract_body/comment">// bytes32 public constant CONTRACT_BANCOR_EXCHANGE = "BANCOR_EXCHANGE";</span>
+
+    bytes32 public constant CONTRACT_POINTS_REWARD_POOL = "CONTRACT_POINTS_REWARD_POOL";
+
+    // value belongs to [0, 10000000]
+    <span class="marker" id="mapping-136"></span><span class="token add" data-title="contract_body/comment">// bytes32 public constant UINT_EXCHANGE_ERROR_SPACE = "UINT_EXCHANGE_ERROR_SPACE";</span>
+
+    // "CONTRACT_CONTRIBUTION_INCENTIVE_POOL" is too long for byted32
+    // so compress it to what states below
+    bytes32 public constant CONTRACT_CONTRIBUTION_INCENTIVE_POOL = "CONTRACT_CONTRIBUTION_POOL";
+
+    bytes32 public constant CONTRACT_DEV_POOL = "CONTRACT_DEV_POOL";
+
+    <span class="marker" id="mapping-137"></span><span class="token mv" id="move-dst-44" data-title="contract_body/state_variable_declaration">bytes32 public constant <span class="marker" id="mapping-138"></span><span class="token upd" id="move-dst-45" data-title="state_variable_declaration/identifier">CO<span class="cupd">NT</span>RACT<span class="cupd">_</span>G<span class="cupd">E</span><span class="cupd">N</span><span class="cupd">E</span>SIS<span class="cupd">_</span>HOLD<span class="cupd">ER</span></span> = "CONTRACT_GENESIS_HOLDER";</span>
+
+    <span class="marker" id="mapping-139"></span><span class="token mv" id="move-dst-42" data-title="contract_body/state_variable_declaration">bytes32 public constant <span class="marker" id="mapping-140"></span><span class="token upd" id="move-dst-43" data-title="state_variable_declaration/identifier"><span class="cupd">CONTRACT_</span>F<span class="cupd">A</span><span class="cupd">R</span>M_POOL</span> = "CONTRACT_FARM_POOL";</span>
+}</span>
+
+<span class="marker" id="mapping-141"></span><span class="token upd" id="move-dst-14" data-title="source_file/comment"><span class="cupd">//</span>////<span class="cupd"> </span>cont<span class="cupd">ra</span>cts/<span class="cupd">a</span>uction/interface<span class="cupd">s</span>/IG<span class="cupd">o</span>vernorPoo<span class="cupd">l</span>.sol</span>
+<span class="marker" id="mapping-142"></span><span class="token upd" id="move-dst-16" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span><span class="cupd">p</span>ragma<span class="cupd"> </span>s<span class="cupd">ol</span><span class="cupd">i</span><span class="cupd">d</span><span class="cupd">i</span><span class="cupd">t</span><span class="cupd">y</span> ^0.4.24; */</span>
+
+<span class="marker" id="mapping-143"></span><span class="token mv" id="move-dst-48" data-title="source_file/contract_declaration">contract IGovernorPool {
+    function checkRewardAvailable(address _token) external view returns(bool);
+    function rewardAmount(uint256 _amount) external; 
+}</span>
+
+<span class="marker" id="mapping-144"></span><span class="token upd" id="move-dst-17" data-title="source_file/comment"><span class="cupd">//</span>////<span class="cupd"> </span>lib/common-cont<span class="cupd">ra</span>cts/contr<span class="cupd">a</span>ct<span class="cupd">s</span>/interfaces/IAuth<span class="cupd">o</span>r<span class="cupd">i</span><span class="cupd">ty</span>.sol</span>
+<span class="marker" id="mapping-145"></span><span class="token upd" id="move-dst-19" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span><span class="cupd">p</span>ragma<span class="cupd"> </span>s<span class="cupd">ol</span><span class="cupd">i</span><span class="cupd">d</span>i<span class="cupd">t</span>y ^0.4.24; */</span>
+
+<span class="marker" id="mapping-146"></span><span class="token mv" id="move-dst-18" data-title="source_file/contract_declaration">contract IAuthority {
+    function canCall(
+        address src, address dst, bytes4 sig
+    ) public view returns (bool);
+}</span>
+
+<span class="marker" id="mapping-147"></span><span class="token upd" id="move-dst-20" data-title="source_file/comment"><span class="cupd">//</span>////<span class="cupd"> </span>lib/common-cont<span class="cupd">ra</span>cts/contr<span class="cupd">a</span>ct<span class="cupd">s</span>/DSAuth.s<span class="cupd">ol</span></span>
+<span class="marker" id="mapping-148"></span><span class="token upd" id="move-dst-21" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span><span class="cupd">p</span><span class="cupd">r</span>a<span class="cupd">g</span><span class="cupd">ma</span> <span class="cupd">s</span><span class="cupd">ol</span><span class="cupd">i</span><span class="cupd">d</span><span class="cupd">i</span><span class="cupd">t</span><span class="cupd">y</span> ^0<span class="cupd">.</span>4.24; */</span>
+
+<span class="marker" id="mapping-149"></span><span class="token upd" id="move-dst-23" data-title="source_file/comment"><span class="cupd">/*</span><span class="cupd"> </span><span class="cupd">i</span>mp<span class="cupd">o</span><span class="cupd">r</span><span class="cupd">t </span>'<span class="cupd">.</span><span class="cupd">/</span><span class="cupd">in</span><span class="cupd">t</span><span class="cupd">e</span><span class="cupd">r</span><span class="cupd">f</span><span class="cupd">a</span>c<span class="cupd">es</span>/IAu<span class="cupd">th</span><span class="cupd">o</span><span class="cupd">r</span>i<span class="cupd">ty</span>.s<span class="cupd">o</span>l';<span class="cupd"> </span><span class="cupd">*/</span></span>
+
+<span class="marker" id="mapping-150"></span><span class="token mv" id="move-dst-22" data-title="source_file/contract_declaration">contract DSAuthEvents {
+    event LogSetAuthority (address indexed authority);
+    event LogSetOwner     (address indexed owner);
+}</span>
+
+<span class="marker" id="mapping-151"></span><span class="token upd" id="move-dst-25" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+ * @title<span class="cupd"> </span>DSAuth
+ * <span class="cupd">@</span>dev <span class="cupd">T</span>he DSAuth <span class="cupd">c</span>ontract is<span class="cupd"> </span>refe<span class="cupd">re</span>n<span class="cupd">c</span><span class="cupd">e</span> i<span class="cupd">mp</span>leme<span class="cupd">nt</span> of h<span class="cupd">t</span>tps://github.com/<span class="cupd">da</span>pphub/ds-auth
+ * But in<span class="cupd"> </span>t<span class="cupd">h</span><span class="cupd">e</span> isA<span class="cupd">u</span>t<span class="cupd">h</span>or<span class="cupd">i</span>zed<span class="cupd"> </span>m<span class="cupd">e</span>tho<span class="cupd">d</span>, th<span class="cupd">e</span> src fr<span class="cupd">o</span>m addre<span class="cupd">s</span>s(<span class="cupd">t</span>his) is remove for <span class="cupd">s</span>aft<span class="cupd">y</span> c<span class="cupd">o</span>n<span class="cupd">c</span>ern.
+ */</span>
+<span class="marker" id="mapping-152"></span><span class="token mv" id="move-dst-24" data-title="source_file/contract_declaration">contract DSAuth is DSAuthEvents {
+    IAuthority   public  authority;
+    address      public  owner;
+
+    constructor() public {
+        owner = msg.sender;
+        emit LogSetOwner(msg.sender);
+    }
+
+    function setOwner(address owner_)
+        public
+        auth
+    {
+        owner = owner_;
+        emit LogSetOwner(owner);
+    }
+
+    function setAuthority(IAuthority authority_)
+        public
+        auth
+    {
+        authority = authority_;
+        emit LogSetAuthority(authority);
+    }
+
+    modifier auth {
+        require(isAuthorized(msg.sender, msg.sig));
+        _;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    function isAuthorized(address src, bytes4 sig) internal view returns (bool) {
+        if (src == owner) {
+            return true;
+        } else if (authority == IAuthority(0)) {
+            return false;
+        } else {
+            return authority.canCall(src, this, sig);
+        }
+    }
+}</span>
+
+<span class="marker" id="mapping-153"></span><span class="token upd" id="move-dst-26" data-title="source_file/comment"><span class="cupd">//</span>////<span class="cupd"> </span>lib/common-cont<span class="cupd">ra</span>cts/contr<span class="cupd">a</span>ct<span class="cupd">s</span>/<span class="cupd">i</span>nterfaces/ERC223Rece<span class="cupd">i</span>vingCon<span class="cupd">t</span>ract.sol</span>
+<span class="marker" id="mapping-154"></span><span class="token upd" id="move-dst-29" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span><span class="cupd">p</span>ragma<span class="cupd"> </span><span class="cupd">solidity</span> ^0.4.<span class="cupd">2</span>3; */</span>
+
+ <span class="marker" id="mapping-155"></span><span class="token mv" id="move-dst-6" data-title="source_file/comment">/*
+ * Contract that is working with ERC223 tokens
+ * https://github.com/ethereum/EIPs/issues/223
+ */</span>
+
+<span class="marker" id="mapping-156"></span><span class="token mv" id="move-dst-7" data-title="source_file/comment">/// @title ERC223ReceivingContract - Standard contract implementation for compatibility with ERC223 tokens.</span>
+<span class="marker" id="mapping-157"></span><span class="token mv" id="move-dst-8" data-title="source_file/contract_declaration">contract ERC223ReceivingContract {
+
+    /// @dev Function that is called when a user or another contract wants to transfer funds.
+    /// @param _from Transaction initiator, analogue of msg.sender
+    /// @param _value Number of tokens to transfer.
+    /// @param _data Data containig a function signature and/or parameters
+    function tokenFallback(address _from, uint256 _value, bytes _data) public;
+
+}</span>
+
+<span class="marker" id="mapping-158"></span><span class="token upd" id="move-dst-30" data-title="source_file/comment"><span class="cupd">//</span>////<span class="cupd"> </span>lib/common-cont<span class="cupd">ra</span>cts/contr<span class="cupd">a</span>ct<span class="cupd">s</span>/<span class="cupd">i</span>nterfaces/ISett<span class="cupd">i</span>ngsRegis<span class="cupd">t</span>r<span class="cupd">y</span>.sol</span>
+<span class="marker" id="mapping-159"></span><span class="token upd" id="move-dst-31" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span><span class="cupd">p</span><span class="cupd">r</span>agma<span class="cupd"> </span><span class="cupd">solidity</span> ^<span class="cupd">0</span>.4.<span class="cupd">2</span>4; */</span>
+
+<span class="marker" id="mapping-160"></span><span class="token mv" id="move-dst-3" data-title="source_file/contract_declaration">contract ISettingsRegistry {
+    enum SettingsValueTypes { NONE, UINT, STRING, ADDRESS, BYTES, BOOL, INT }
+
+    function uintOf(bytes32 _propertyName) public view returns (uint256);
+
+    function stringOf(bytes32 _propertyName) public view returns (string);
+
+    function addressOf(bytes32 _propertyName) public view returns (address);
+
+    function bytesOf(bytes32 _propertyName) public view returns (bytes);
+
+    function boolOf(bytes32 _propertyName) public view returns (bool);
+
+    function intOf(bytes32 _propertyName) public view returns (int);
+
+    function setUintProperty(bytes32 _propertyName, uint _value) public;
+
+    function setStringProperty(bytes32 _propertyName, string _value) public;
+
+    function setAddressProperty(bytes32 _propertyName, address _value) public;
+
+    function setBytesProperty(bytes32 _propertyName, bytes _value) public;
+
+    function setBoolProperty(bytes32 _propertyName, bool _value) public;
+
+    function setIntProperty(bytes32 _propertyName, int _value) public;
+
+    function getValueTypeOf(bytes32 _propertyName) public view returns (uint /* SettingsValueTypes */ );
+
+    event ChangeProperty(bytes32 indexed _propertyName, uint256 _type);
+}</span>
+
+<span class="marker" id="mapping-161"></span><span class="token upd" id="move-dst-34" data-title="source_file/comment"><span class="cupd">//</span>////<span class="cupd"> </span><span class="cupd">l</span><span class="cupd">i</span>b<span class="cupd">/common</span>-<span class="cupd">contracts/</span>con<span class="cupd">t</span>rac<span class="cupd">t</span>s/<span class="cupd">in</span>terfaces/<span class="cupd">I</span>U<span class="cupd">s</span>erPoints<span class="cupd">.sol</span></span>
+<span class="marker" id="mapping-162"></span><span class="token upd" id="move-dst-35" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> pragma solidity ^0.4.24;</span> */</span>
+
+<span class="marker" id="mapping-163"></span><span class="token mv" id="move-dst-15" data-title="source_file/contract_declaration">contract IUserPoints {
+    event AddedPoints(address indexed user, uint256 pointAmount);
+    event SubedPoints(address indexed user, uint256 pointAmount);
+
+    function addPoints(address _user, uint256 _pointAmount) public;
+
+    function subPoints(address _user, uint256 _pointAmount) public;
+
+    function pointsSupply() public view returns (uint256);
+
+    function pointsBalanceOf(address _user) public view returns (uint256);
+}</span>
+
+<span class="marker" id="mapping-164"></span><span class="token upd" id="move-dst-36" data-title="source_file/comment"><span class="cupd">/</span>/////<span class="cupd"> </span>lib/z<span class="cupd">e</span>ppel<span class="cupd">in</span>-<span class="cupd">s</span><span class="cupd">o</span>l<span class="cupd">i</span>d<span class="cupd">i</span><span class="cupd">t</span><span class="cupd">y</span>/<span class="cupd">con</span>tra<span class="cupd">ct</span>s/t<span class="cupd">o</span>k<span class="cupd">e</span><span class="cupd">n</span>/ERC20/ERC20Ba<span class="cupd">s</span><span class="cupd">i</span>c.<span class="cupd">s</span>ol</span>
+<span class="marker" id="mapping-165"></span><span class="token upd" id="move-dst-38" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span><span class="cupd">p</span><span class="cupd">ra</span>gma <span class="cupd">s</span><span class="cupd">o</span>l<span class="cupd">i</span><span class="cupd">d</span>ity ^0.4.24; */</span>
+
+
+<span class="marker" id="mapping-166"></span><span class="token mv" id="move-dst-27" data-title="source_file/comment">/**
+ * @title ERC20Basic
+ * @dev Simpler version of ERC20 interface
+ * See https://github.com/ethereum/EIPs/issues/179
+ */</span>
+<span class="marker" id="mapping-167"></span><span class="token mv" id="move-dst-28" data-title="source_file/contract_declaration">contract ERC20Basic {
+  function totalSupply() public view returns (uint256);
+  function balanceOf(address _who) public view returns (uint256);
+  function transfer(address _to, uint256 _value) public returns (bool);
+  event Transfer(address indexed from, address indexed to, uint256 value);
+}</span>
+
+<span class="marker" id="mapping-168"></span><span class="token upd" id="move-dst-39" data-title="source_file/comment"><span class="cupd">//</span>////<span class="cupd"> </span>lib/ze<span class="cupd">p</span>pelin-<span class="cupd">solidity</span>/contracts/token/ERC2<span class="cupd">0</span>/ERC20.sol</span>
+<span class="marker" id="mapping-169"></span><span class="token upd" id="move-dst-40" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span><span class="cupd">p</span><span class="cupd">r</span>agma<span class="cupd"> </span>s<span class="cupd">ol</span><span class="cupd">i</span><span class="cupd">d</span>i<span class="cupd">t</span>y ^0<span class="cupd">.</span>4.24; */</span>
+
+<span class="marker" id="mapping-170"></span><span class="token upd" id="move-dst-46" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span>im<span class="cupd">p</span><span class="cupd">o</span>r<span class="cupd">t</span> "./ERC20B<span class="cupd">a</span><span class="cupd">s</span><span class="cupd">i</span><span class="cupd">c</span><span class="cupd">.sol</span>"; */</span>
+
+
+<span class="marker" id="mapping-171"></span><span class="token mv" id="move-dst-32" data-title="source_file/comment">/**
+ * @title ERC20 interface
+ * @dev see https://github.com/ethereum/EIPs/issues/20
+ */</span>
+<span class="marker" id="mapping-172"></span><span class="token mv" id="move-dst-33" data-title="source_file/contract_declaration">contract ERC20 is ERC20Basic {
+  function allowance(address _owner, address _spender)
+    public view returns (uint256);
+
+  function transferFrom(address _from, address _to, uint256 _value)
+    public returns (bool);
+
+  function approve(address _spender, uint256 _value) public returns (bool);
+  event Approval(
+    address indexed owner,
+    address indexed spender,
+    uint256 value
+  );
+}</span>
+
+<span class="marker" id="mapping-173"></span><span class="token upd" id="move-dst-47" data-title="source_file/comment"><span class="cupd">//</span>////<span class="cupd"> </span>cont<span class="cupd">ra</span>cts/<span class="cupd">a</span>uction/RevenuePoolV2.<span class="cupd">sol</span></span>
+<span class="marker" id="mapping-174"></span><span class="token upd" id="move-dst-49" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span>p<span class="cupd">ra</span>gma <span class="cupd">s</span><span class="cupd">o</span><span class="cupd">l</span>idity ^0.4.24; */</span>
+
+<span class="marker" id="mapping-175"></span><span class="token upd" id="move-dst-51" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> import "@evolutionland/common/contracts/interfaces/ISettingsRegistry.sol";</span> */</span>
+<span class="marker" id="mapping-176"></span><span class="token upd" id="move-dst-52" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> import "@evolutionland/common/contracts/interfaces/ERC223ReceivingContract.sol";</span> */</span>
+<span class="marker" id="mapping-177"></span><span class="token upd" id="move-dst-53" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> import "@evolutionland/common/contracts/interfaces/</span>IUserPoints<span class="cupd">.sol";</span> */</span>
+<span class="marker" id="mapping-178"></span><span class="token upd" id="move-dst-54" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> import "@evolutionland/common/contracts/</span>DSAu<span class="cupd">t</span>h<span class="cupd">.sol";</span> */</span>
+<span class="marker" id="mapping-179"></span><span class="token upd" id="move-dst-55" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> import "</span>op<span class="cupd">e</span>nzeppe<span class="cupd">l</span><span class="cupd">i</span>n-s<span class="cupd">o</span><span class="cupd">l</span>i<span class="cupd">d</span>ity<span class="cupd">/co</span><span class="cupd">n</span><span class="cupd">tracts/</span><span class="cupd">t</span>oken/ERC20/ERC20<span class="cupd">.sol";</span> */</span>
+<span class="marker" id="mapping-180"></span><span class="token upd" id="move-dst-56" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> import "</span>./Aucti<span class="cupd">o</span><span class="cupd">n</span>S<span class="cupd">e</span>tt<span class="cupd">in</span>gI<span class="cupd">d</span><span class="cupd">s</span><span class="cupd">.sol";</span> */</span>
+<span class="marker" id="mapping-181"></span><span class="token upd" id="move-dst-57" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> import "</span>./i<span class="cupd">nt</span>e<span class="cupd">r</span>f<span class="cupd">ac</span>e<span class="cupd">s/</span>IG<span class="cupd">o</span>v<span class="cupd">e</span>r<span class="cupd">n</span>orPool<span class="cupd">.sol";</span> */</span>
+
+/**
+ * @title RevenuePool
+ * difference between LandResourceV1:
+     change DividendPool into governorPool for reward
+ */
+
+// Use proxy mode
+contract <span class="marker" id="mapping-182"></span><span class="token upd" id="move-dst-58" data-title="contract_declaration/identifier"><span class="cupd">RevenuePoolV</span>3</span> is DSAuth, ERC223ReceivingContract, AuctionSettingIds {
+
+    bool private singletonLock = false;
+
+//    // 10%
+//    address public pointsRewardPool;
+//    // 30%
+//    address public contributionIncentivePool;
+//    // 30%
+//    address public dividendsPool;
+//    // 30%
+//    address public devPool;
+
+    ISettingsRegistry public registry;
+
+    // claimedToken event
+    event ClaimedTokens(address indexed token, address indexed owner, uint amount);
+
+    /*
+     *  Modifiers
+     */
+    modifier singletonLockCall() {
+        require(!singletonLock, "Only can call once");
+        _;
+        singletonLock = true;
+    }
+
+    function initializeContract(address _registry) public singletonLockCall {
+        owner = msg.sender;
+        emit LogSetOwner(msg.sender);
+
+        registry = ISettingsRegistry(_registry);
+    }
+
+    function tokenFallback(address <span class="marker" id="mapping-183"></span><span class="token add" data-title="function_definition/comment">/*_from*/</span>, uint256 _value, bytes _data) public {
+
+        address ring = registry.addressOf(SettingIds.CONTRACT_RING_ERC20_TOKEN);
+        address userPoints = registry.addressOf(SettingIds.CONTRACT_USER_POINTS);
+
+        if(msg.sender == ring) {
+            address buyer = bytesToAddress(_data);
+            // should same with trading reward percentage in settleToken;
+
+            IUserPoints(userPoints).addPoints(buyer, _value / 1000);
+        }
+    }
+
+
+    function settleToken(address _tokenAddress) public {
+        uint balance = ERC20(_tokenAddress).balanceOf(address(this));
+
+        // to save gas when playing
+        if (balance &gt; 10) {
+            address pointsRewardPool = registry.addressOf(AuctionSettingIds.CONTRACT_POINTS_REWARD_POOL);
+            address contributionIncentivePool = registry.addressOf(AuctionSettingIds.CONTRACT_CONTRIBUTION_INCENTIVE_POOL);
+            address governorPool = registry.addressOf(CONTRACT_DIVIDENDS_POOL);
+            address devPool = registry.addressOf(AuctionSettingIds.CONTRACT_DEV_POOL);
+
+            require(pointsRewardPool != 0x0 &amp;&amp; contributionIncentivePool != 0x0 &amp;&amp; governorPool != 0x0 &amp;&amp; devPool != 0x0, "invalid addr");
+
+            require(<span class="marker" id="mapping-184"></span><span class="token upd" id="move-dst-59" data-title="call_expression/identifier"><span class="cupd">ERC2</span>0</span>(_tokenAddress).transfer(pointsRewardPool, balance / 10));
+            require(<span class="marker" id="mapping-185"></span><span class="token upd" id="move-dst-61" data-title="call_expression/identifier"><span class="cupd">ERC2</span>0</span>(_tokenAddress).transfer(contributionIncentivePool, balance * 3 / 10));
+            if (IGovernorPool(governorPool).checkRewardAvailable(_tokenAddress)) {
+                ERC20(_tokenAddress).approve(governorPool, balance * 3 / 10);
+                IGovernorPool(governorPool).rewardAmount(balance * 3 / 10);
+            }
+            require(<span class="marker" id="mapping-186"></span><span class="token upd" id="move-dst-63" data-title="call_expression/identifier"><span class="cupd">ERC2</span>0</span>(_tokenAddress).transfer(devPool, balance * 3 / 10));
+        }
+
+    }
+
+
+    /// @notice This method can be used by the owner to extract mistakenly
+    ///  sent tokens to this contract.
+    /// @param _token The address of the token contract that you want to recover
+    ///  set to 0 in case you want to extract ether.
+    function claimTokens(address _token) public auth {
+        if (_token == 0x0) {
+            owner.transfer(address(this).balance);
+            return;
+        }
+        ERC20 token = ERC20(_token);
+        uint balance = token.balanceOf(address(this));
+        token.transfer(owner, balance);
+
+        emit ClaimedTokens(_token, msg.sender, balance);
+    }
+
+    function bytesToAddress(bytes b) public pure returns (address) {
+        bytes32 out;
+
+        for (uint i = 0; i &lt; 32; i++) {
+            out |= bytes32(b[i] &amp; 0xFF) &gt;&gt; (i * 8);
+        }
+        return address(out);
+    }
+
+}</pre></div></div></div></body></html>

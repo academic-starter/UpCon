@@ -1,0 +1,454 @@
+{
+  "matches": [
+    {
+      "src": "): ) [1513,1514]",
+      "dest": "): ) [1130,1131]"
+    },
+    {
+      "src": "identifier: require [1766,1773]",
+      "dest": "identifier: require [1142,1149]"
+    },
+    {
+      "src": "identifier: UNIQUE_SAFEGUARD_SLOT [1387,1408]",
+      "dest": "identifier: this_ [1069,1074]"
+    },
+    {
+      "src": "call_argument [1343,1347]",
+      "dest": "call_argument [1167,1171]"
+    },
+    {
+      "src": "): ) [1193,1194]",
+      "dest": "): ) [1048,1049]"
+    },
+    {
+      "src": "(: ( [1512,1513]",
+      "dest": "(: ( [1129,1130]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "assignment_expression [1387,1415]",
+      "dest": "assignment_expression [1069,1090]"
+    },
+    {
+      "src": "contract_body [1100,1850]",
+      "dest": "contract_body [1000,1219]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "contract_declaration [1066,1850]",
+      "dest": "contract_declaration [966,1219]"
+    },
+    {
+      "src": "\": \" [1818,1819]",
+      "dest": "\": \" [1197,1198]"
+    },
+    {
+      "src": "(: ( [1773,1774]",
+      "dest": "(: ( [1149,1150]"
+    },
+    {
+      "src": "=: = [1409,1410]",
+      "dest": "=: = [1075,1076]"
+    },
+    {
+      "src": "function_body [1204,1480]",
+      "dest": "function_body [1059,1097]"
+    },
+    {
+      "src": "}: } [1847,1848]",
+      "dest": "}: } [1216,1217]"
+    },
+    {
+      "src": "call_argument [1795,1819]",
+      "dest": "call_argument [1174,1198]"
+    },
+    {
+      "src": "expression_statement [1840,1842]",
+      "dest": "expression_statement [1209,1211]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "type_name [1106,1113]",
+      "dest": "type_name [1006,1013]"
+    },
+    {
+      "src": "expression_statement [1387,1416]",
+      "dest": "expression_statement [1069,1091]"
+    },
+    {
+      "src": "expression_statement [1766,1821]",
+      "dest": "expression_statement [1142,1200]"
+    },
+    {
+      "src": "identifier: BlockDirectCall [1084,1099]",
+      "dest": "identifier: BlockDirectCall [984,999]"
+    },
+    {
+      "src": "\": \" [1795,1796]",
+      "dest": "\": \" [1174,1175]"
+    },
+    {
+      "src": "}: } [1849,1850]",
+      "dest": "}: } [1218,1219]"
+    },
+    {
+      "src": "internal: internal [1195,1203]",
+      "dest": "internal: internal [1050,1058]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "string [1795,1819]",
+      "dest": "string [1174,1198]"
+    },
+    {
+      "src": "abstract: abstract [1066,1074]",
+      "dest": "abstract: abstract [966,974]"
+    },
+    {
+      "src": "source_file [0,1851]",
+      "dest": "source_file [0,1220]"
+    },
+    {
+      "src": "{: { [1204,1205]",
+      "dest": "{: { [1059,1060]"
+    },
+    {
+      "src": "}: } [1479,1480]",
+      "dest": "}: } [1096,1097]"
+    },
+    {
+      "src": "solidity_version: 0.6.11 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": ",: , [1793,1794]",
+      "dest": ",: , [1172,1173]"
+    },
+    {
+      "src": "identifier: _ [1840,1841]",
+      "dest": "identifier: _ [1209,1210]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "immutable: immutable [1114,1123]",
+      "dest": "immutable: immutable [1014,1023]"
+    },
+    {
+      "src": "comment: /*   This contract provides means to block direct call of an external function.   A derived contract (e.g. MainDispatcherBase) should decorate sensitive functions with the   notCalledDirectly modifier, thereby preventing it from being called directly, and allowing only calling   using delegate_call.    This Guard contract uses pseudo-random slot, So each deployed contract would have its own guard. */ [662,1065]",
+      "dest": "comment: /*   This contract provides means to block direct call of an external function.   A derived contract (e.g. MainDispatcherBase) should decorate sensitive functions with the   notCalledDirectly modifier, thereby preventing it from being called directly, and allowing only calling   using delegate_call. */ [662,965]"
+    },
+    {
+      "src": "state_variable_declaration [1106,1146]",
+      "dest": "state_variable_declaration [1006,1030]"
+    },
+    {
+      "src": "constructor_definition [1181,1480]",
+      "dest": "constructor_definition [1036,1097]"
+    },
+    {
+      "src": "identifier: UNIQUE_SAFEGUARD_SLOT [1124,1145]",
+      "dest": "identifier: this_ [1024,1029]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "identifier: safeGuardValue [1774,1788]",
+      "dest": "identifier: this_ [1150,1155]"
+    },
+    {
+      "src": "constructor: constructor [1181,1192]",
+      "dest": "constructor: constructor [1036,1047]"
+    },
+    {
+      "src": "primitive_type [1106,1113]",
+      "dest": "primitive_type [1006,1013]"
+    },
+    {
+      "src": "): ) [1819,1820]",
+      "dest": "): ) [1198,1199]"
+    },
+    {
+      "src": "modifier_definition [1486,1848]",
+      "dest": "modifier_definition [1103,1217]"
+    },
+    {
+      "src": "string_literal [1795,1819]",
+      "dest": "string_literal [1174,1198]"
+    },
+    {
+      "src": "identifier: notCalledDirectly [1495,1512]",
+      "dest": "identifier: notCalledDirectly [1112,1129]"
+    },
+    {
+      "src": "call_expression [1766,1820]",
+      "dest": "call_expression [1142,1199]"
+    },
+    {
+      "src": "(: ( [1192,1193]",
+      "dest": "(: ( [1047,1048]"
+    },
+    {
+      "src": "{: { [1100,1101]",
+      "dest": "{: { [1000,1001]"
+    },
+    {
+      "src": "{: { [1515,1516]",
+      "dest": "{: { [1132,1133]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "call_argument [1774,1793]",
+      "dest": "call_argument [1150,1172]"
+    },
+    {
+      "src": "modifier: modifier [1486,1494]",
+      "dest": "modifier: modifier [1103,1111]"
+    },
+    {
+      "src": "function_body [1515,1848]",
+      "dest": "function_body [1132,1217]"
+    },
+    {
+      "src": "binary_expression [1774,1793]",
+      "dest": "binary_expression [1150,1172]"
+    },
+    {
+      "src": "contract: contract [1075,1083]",
+      "dest": "contract: contract [975,983]"
+    },
+    {
+      "src": "identifier: this [1343,1347]",
+      "dest": "identifier: this [1167,1171]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "label": "/*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /*   This contract provides means to block direct call of an external function.   A derived contract (e.g. MainDispatcherBase) should decorate sensitive functions with the   notCalledDirectly modifier, thereby preventing it from being called directly, and allowing only calling   using delegate_call.    This Guard contract uses pseudo-random slot, So each deployed contract would have its own guard. */ [662,1065]",
+      "label": "/*   This contract provides means to block direct call of an external function.   A derived contract (e.g. MainDispatcherBase) should decorate sensitive functions with the   notCalledDirectly modifier, thereby preventing it from being called directly, and allowing only calling   using delegate_call. */"
+    },
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.6.11 [653,659]",
+      "label": "0.6.12"
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: UNIQUE_SAFEGUARD_SLOT [1124,1145]",
+      "label": "this_"
+    },
+    {
+      "action": "move-tree",
+      "tree": "expression_statement [1766,1821]",
+      "parent": "function_body [1132,1217]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "address: address [1006,1013]",
+      "parent": "primitive_type [1006,1013]",
+      "at": 0
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: UNIQUE_SAFEGUARD_SLOT [1387,1408]",
+      "label": "this_"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "type_cast_expression [1077,1090]",
+      "parent": "assignment_expression [1069,1090]",
+      "at": 2
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: safeGuardValue [1774,1788]",
+      "label": "this_"
+    },
+    {
+      "action": "insert-node",
+      "tree": "!=: != [1156,1158]",
+      "parent": "binary_expression [1150,1172]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "type_cast_expression [1159,1172]",
+      "parent": "binary_expression [1150,1172]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "primitive_type [1159,1166]",
+      "parent": "type_cast_expression [1159,1172]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [1166,1167]",
+      "parent": "type_cast_expression [1159,1172]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [1343,1347]",
+      "parent": "type_cast_expression [1159,1172]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [1171,1172]",
+      "parent": "type_cast_expression [1159,1172]",
+      "at": 3
+    },
+    {
+      "action": "delete-node",
+      "tree": "bytes32: bytes32 [1106,1113]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: // NOLINT naming-convention. [1147,1175]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: // The slot is pseudo-random to allow hierarchy of contracts with guarded functions. [1214,1298]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "variable_declaration [1307,1319]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "=: = [1320,1321]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: keccak256 [1322,1331]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [1331,1332]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "member_expression [1332,1342]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [1342,1343]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [1347,1348]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [1349,1364]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [1364,1365]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [1366,1375]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [1375,1376]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [1332,1376]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_argument [1332,1376]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [1376,1377]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [1322,1377]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "variable_declaration_statement [1307,1378]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: slot [1411,1415]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "assembly_statement [1425,1474]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "==: == [1789,1791]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "number_literal: 0 [1792,1793]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "{: { [1525,1526]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: // Prevent too many local variables in stack. [1539,1584]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "variable_declaration_statement [1597,1620]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "variable_declaration_statement [1633,1670]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "assembly_statement [1683,1753]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "}: } [1830,1831]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "block_statement [1525,1831]"
+    }
+  ]
+}

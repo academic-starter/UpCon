@@ -1,0 +1,541 @@
+{
+  "matches": [
+    {
+      "src": "contract_body [173,558]",
+      "dest": "contract_body [173,558]"
+    },
+    {
+      "src": "type_name [309,316]",
+      "dest": "type_name [309,316]"
+    },
+    {
+      "src": "parameter [437,441]",
+      "dest": "parameter [437,441]"
+    },
+    {
+      "src": "type_name [437,441]",
+      "dest": "type_name [437,441]"
+    },
+    {
+      "src": "uint256: uint256 [322,329]",
+      "dest": "uint256: uint256 [322,329]"
+    },
+    {
+      "src": "parameter [405,419]",
+      "dest": "parameter [405,419]"
+    },
+    {
+      "src": "identifier: _owner [206,212]",
+      "dest": "identifier: _owner [206,212]"
+    },
+    {
+      "src": "primitive_type [358,362]",
+      "dest": "primitive_type [358,362]"
+    },
+    {
+      "src": "function: function [370,378]",
+      "dest": "function: function [370,378]"
+    },
+    {
+      "src": "): ) [419,420]",
+      "dest": "): ) [419,420]"
+    },
+    {
+      "src": "address: address [198,205]",
+      "dest": "address: address [198,205]"
+    },
+    {
+      "src": "primitive_type [322,329]",
+      "dest": "primitive_type [322,329]"
+    },
+    {
+      "src": "contract: contract [144,152]",
+      "dest": "contract: contract [144,152]"
+    },
+    {
+      "src": "type_name [257,264]",
+      "dest": "type_name [257,264]"
+    },
+    {
+      "src": "type_name [198,205]",
+      "dest": "type_name [198,205]"
+    },
+    {
+      "src": "(: ( [386,387]",
+      "dest": "(: ( [386,387]"
+    },
+    {
+      "src": "parameter [309,320]",
+      "dest": "parameter [309,320]"
+    },
+    {
+      "src": "contract_declaration [144,558]",
+      "dest": "contract_declaration [144,558]"
+    },
+    {
+      "src": "returns: returns [428,435]",
+      "dest": "returns: returns [428,435]"
+    },
+    {
+      "src": "type_name [536,543]",
+      "dest": "type_name [536,543]"
+    },
+    {
+      "src": "(: ( [256,257]",
+      "dest": "(: ( [256,257]"
+    },
+    {
+      "src": "bool: bool [358,362]",
+      "dest": "bool: bool [358,362]"
+    },
+    {
+      "src": "comment: /**  * @title ERC20 interface  * @dev see https://github.com/ethereum/EIPs/issues/20  */ [55,143]",
+      "dest": "comment: /**  * @title ERC20 interface  * @dev see https://github.com/ethereum/EIPs/issues/20  */ [55,143]"
+    },
+    {
+      "src": "\": \" [50,51]",
+      "dest": "\": \" [50,51]"
+    },
+    {
+      "src": "primitive_type [387,394]",
+      "dest": "primitive_type [387,394]"
+    },
+    {
+      "src": "\": \" [33,34]",
+      "dest": "\": \" [33,34]"
+    },
+    {
+      "src": "parameter [198,212]",
+      "dest": "parameter [198,212]"
+    },
+    {
+      "src": "identifier: _from [302,307]",
+      "dest": "identifier: _from [302,307]"
+    },
+    {
+      "src": "pragma_directive [0,24]",
+      "dest": "pragma_directive [0,24]"
+    },
+    {
+      "src": ",: , [526,527]",
+      "dest": ",: , [526,527]"
+    },
+    {
+      "src": "user_defined_type [162,172]",
+      "dest": "user_defined_type [162,172]"
+    },
+    {
+      "src": "import: import [26,32]",
+      "dest": "import: import [26,32]"
+    },
+    {
+      "src": "type_name [472,479]",
+      "dest": "type_name [472,479]"
+    },
+    {
+      "src": "state_mutability [243,247]",
+      "dest": "state_mutability [243,247]"
+    },
+    {
+      "src": "function: function [272,280]",
+      "dest": "function: function [272,280]"
+    },
+    {
+      "src": "type_name [405,412]",
+      "dest": "type_name [405,412]"
+    },
+    {
+      "src": "indexed: indexed [480,487]",
+      "dest": "indexed: indexed [480,487]"
+    },
+    {
+      "src": "type_name [322,329]",
+      "dest": "type_name [322,329]"
+    },
+    {
+      "src": "address: address [472,479]",
+      "dest": "address: address [472,479]"
+    },
+    {
+      "src": "type_name [294,301]",
+      "dest": "type_name [294,301]"
+    },
+    {
+      "src": "identifier: value [544,549]",
+      "dest": "identifier: value [544,549]"
+    },
+    {
+      "src": "uint256: uint256 [257,264]",
+      "dest": "uint256: uint256 [257,264]"
+    },
+    {
+      "src": "(: ( [357,358]",
+      "dest": "(: ( [357,358]"
+    },
+    {
+      "src": "identifier: approve [379,386]",
+      "dest": "identifier: approve [379,386]"
+    },
+    {
+      "src": ",: , [212,213]",
+      "dest": ",: , [212,213]"
+    },
+    {
+      "src": "identifier: _to [317,320]",
+      "dest": "identifier: _to [317,320]"
+    },
+    {
+      "src": "identifier: owner [488,493]",
+      "dest": "identifier: owner [488,493]"
+    },
+    {
+      "src": "parameter [214,230]",
+      "dest": "parameter [214,230]"
+    },
+    {
+      "src": "identifier: Approval [454,462]",
+      "dest": "identifier: Approval [454,462]"
+    },
+    {
+      "src": "indexed: indexed [511,518]",
+      "dest": "indexed: indexed [511,518]"
+    },
+    {
+      "src": "primitive_type [294,301]",
+      "dest": "primitive_type [294,301]"
+    },
+    {
+      "src": ",: , [493,494]",
+      "dest": ",: , [493,494]"
+    },
+    {
+      "src": "event_definition [448,556]",
+      "dest": "event_definition [448,556]"
+    },
+    {
+      "src": "public: public [342,348]",
+      "dest": "public: public [342,348]"
+    },
+    {
+      "src": "function_definition [370,443]",
+      "dest": "function_definition [370,443]"
+    },
+    {
+      "src": "^:  ^ [15,17]",
+      "dest": "^:  ^ [15,17]"
+    },
+    {
+      "src": "is: is [159,161]",
+      "dest": "is: is [159,161]"
+    },
+    {
+      "src": "): ) [230,231]",
+      "dest": "): ) [230,231]"
+    },
+    {
+      "src": "primitive_type [309,316]",
+      "dest": "primitive_type [309,316]"
+    },
+    {
+      "src": "return_type_definition [349,363]",
+      "dest": "return_type_definition [349,363]"
+    },
+    {
+      "src": "identifier: spender [519,526]",
+      "dest": "identifier: spender [519,526]"
+    },
+    {
+      "src": "primitive_type [536,543]",
+      "dest": "primitive_type [536,543]"
+    },
+    {
+      "src": "public: public [421,427]",
+      "dest": "public: public [421,427]"
+    },
+    {
+      "src": "public: public [236,242]",
+      "dest": "public: public [236,242]"
+    },
+    {
+      "src": "inheritance_specifier [162,172]",
+      "dest": "inheritance_specifier [162,172]"
+    },
+    {
+      "src": "visibility [342,348]",
+      "dest": "visibility [342,348]"
+    },
+    {
+      "src": "primitive_type [214,221]",
+      "dest": "primitive_type [214,221]"
+    },
+    {
+      "src": "identifier: transferFrom [281,293]",
+      "dest": "identifier: transferFrom [281,293]"
+    },
+    {
+      "src": "event_paramater [536,549]",
+      "dest": "event_paramater [536,549]"
+    },
+    {
+      "src": "event: event [448,453]",
+      "dest": "event: event [448,453]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [15,17]",
+      "dest": "solidity_version_comparison_operator [15,17]"
+    },
+    {
+      "src": "return_type_definition [428,442]",
+      "dest": "return_type_definition [428,442]"
+    },
+    {
+      "src": "string [33,51]",
+      "dest": "string [33,51]"
+    },
+    {
+      "src": "address: address [294,301]",
+      "dest": "address: address [294,301]"
+    },
+    {
+      "src": "parameter [257,264]",
+      "dest": "parameter [257,264]"
+    },
+    {
+      "src": "event_paramater [503,526]",
+      "dest": "event_paramater [503,526]"
+    },
+    {
+      "src": "(: ( [462,463]",
+      "dest": "(: ( [462,463]"
+    },
+    {
+      "src": "identifier: ERC20Basic [162,172]",
+      "dest": "identifier: ERC20Basic [162,172]"
+    },
+    {
+      "src": "identifier: _spender [222,230]",
+      "dest": "identifier: _spender [222,230]"
+    },
+    {
+      "src": "type_name [214,221]",
+      "dest": "type_name [214,221]"
+    },
+    {
+      "src": ",: , [307,308]",
+      "dest": ",: , [307,308]"
+    },
+    {
+      "src": "primitive_type [198,205]",
+      "dest": "primitive_type [198,205]"
+    },
+    {
+      "src": "type_name [358,362]",
+      "dest": "type_name [358,362]"
+    },
+    {
+      "src": "uint256: uint256 [536,543]",
+      "dest": "uint256: uint256 [536,543]"
+    },
+    {
+      "src": "view: view [243,247]",
+      "dest": "view: view [243,247]"
+    },
+    {
+      "src": "): ) [441,442]",
+      "dest": "): ) [441,442]"
+    },
+    {
+      "src": "primitive_type [257,264]",
+      "dest": "primitive_type [257,264]"
+    },
+    {
+      "src": "parameter [387,403]",
+      "dest": "parameter [387,403]"
+    },
+    {
+      "src": "type_name [503,510]",
+      "dest": "type_name [503,510]"
+    },
+    {
+      "src": "): ) [554,555]",
+      "dest": "): ) [554,555]"
+    },
+    {
+      "src": "(: ( [197,198]",
+      "dest": "(: ( [197,198]"
+    },
+    {
+      "src": "): ) [362,363]",
+      "dest": "): ) [362,363]"
+    },
+    {
+      "src": "type_name [387,394]",
+      "dest": "type_name [387,394]"
+    },
+    {
+      "src": "source_file [0,559]",
+      "dest": "source_file [0,559]"
+    },
+    {
+      "src": "solidity: solidity [7,15]",
+      "dest": "solidity: solidity [7,15]"
+    },
+    {
+      "src": "event_paramater [472,493]",
+      "dest": "event_paramater [472,493]"
+    },
+    {
+      "src": "function_definition [179,266]",
+      "dest": "function_definition [179,266]"
+    },
+    {
+      "src": "uint256: uint256 [405,412]",
+      "dest": "uint256: uint256 [405,412]"
+    },
+    {
+      "src": "function_definition [272,364]",
+      "dest": "function_definition [272,364]"
+    },
+    {
+      "src": "}: } [557,558]",
+      "dest": "}: } [557,558]"
+    },
+    {
+      "src": "visibility [236,242]",
+      "dest": "visibility [236,242]"
+    },
+    {
+      "src": "bool: bool [437,441]",
+      "dest": "bool: bool [437,441]"
+    },
+    {
+      "src": "function: function [179,187]",
+      "dest": "function: function [179,187]"
+    },
+    {
+      "src": "primitive_type [503,510]",
+      "dest": "primitive_type [503,510]"
+    },
+    {
+      "src": "address: address [387,394]",
+      "dest": "address: address [387,394]"
+    },
+    {
+      "src": "address: address [309,316]",
+      "dest": "address: address [309,316]"
+    },
+    {
+      "src": "identifier: _spender [395,403]",
+      "dest": "identifier: _spender [395,403]"
+    },
+    {
+      "src": "primitive_type [405,412]",
+      "dest": "primitive_type [405,412]"
+    },
+    {
+      "src": "): ) [264,265]",
+      "dest": "): ) [264,265]"
+    },
+    {
+      "src": "identifier: _value [413,419]",
+      "dest": "identifier: _value [413,419]"
+    },
+    {
+      "src": "visibility [421,427]",
+      "dest": "visibility [421,427]"
+    },
+    {
+      "src": "primitive_type [437,441]",
+      "dest": "primitive_type [437,441]"
+    },
+    {
+      "src": "parameter [294,307]",
+      "dest": "parameter [294,307]"
+    },
+    {
+      "src": "(: ( [436,437]",
+      "dest": "(: ( [436,437]"
+    },
+    {
+      "src": "return_type_definition [248,265]",
+      "dest": "return_type_definition [248,265]"
+    },
+    {
+      "src": "returns: returns [349,356]",
+      "dest": "returns: returns [349,356]"
+    },
+    {
+      "src": "address: address [503,510]",
+      "dest": "address: address [503,510]"
+    },
+    {
+      "src": "parameter [322,336]",
+      "dest": "parameter [322,336]"
+    },
+    {
+      "src": ",: , [403,404]",
+      "dest": ",: , [403,404]"
+    },
+    {
+      "src": "{: { [173,174]",
+      "dest": "{: { [173,174]"
+    },
+    {
+      "src": "solidity_version: 0.4.24 [17,23]",
+      "dest": "solidity_version: 0.4.24 [17,23]"
+    },
+    {
+      "src": "identifier: allowance [188,197]",
+      "dest": "identifier: allowance [188,197]"
+    },
+    {
+      "src": "identifier: ERC20 [153,158]",
+      "dest": "identifier: ERC20 [153,158]"
+    },
+    {
+      "src": "): ) [336,337]",
+      "dest": "): ) [336,337]"
+    },
+    {
+      "src": "address: address [214,221]",
+      "dest": "address: address [214,221]"
+    },
+    {
+      "src": "(: ( [293,294]",
+      "dest": "(: ( [293,294]"
+    },
+    {
+      "src": "parameter [358,362]",
+      "dest": "parameter [358,362]"
+    },
+    {
+      "src": "solidity_pragma_token [7,23]",
+      "dest": "solidity_pragma_token [7,23]"
+    },
+    {
+      "src": "identifier: _value [330,336]",
+      "dest": "identifier: _value [330,336]"
+    },
+    {
+      "src": "primitive_type [472,479]",
+      "dest": "primitive_type [472,479]"
+    },
+    {
+      "src": ",: , [320,321]",
+      "dest": ",: , [320,321]"
+    },
+    {
+      "src": "pragma: pragma [0,6]",
+      "dest": "pragma: pragma [0,6]"
+    },
+    {
+      "src": "import_directive [26,52]",
+      "dest": "import_directive [26,52]"
+    },
+    {
+      "src": "returns: returns [248,255]",
+      "dest": "returns: returns [248,255]"
+    }
+  ],
+  "actions": []
+}

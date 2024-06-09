@@ -1,0 +1,698 @@
+{
+  "matches": [
+    {
+      "src": "function_definition [374,478]",
+      "dest": "function_definition [446,550]"
+    },
+    {
+      "src": "pure: pure [242,246]",
+      "dest": "pure: pure [314,318]"
+    },
+    {
+      "src": "primitive_type [703,710]",
+      "dest": "primitive_type [691,698]"
+    },
+    {
+      "src": "return_type_definition [247,264]",
+      "dest": "return_type_definition [319,336]"
+    },
+    {
+      "src": "type_name [387,394]",
+      "dest": "type_name [459,466]"
+    },
+    {
+      "src": "primitive_type [256,263]",
+      "dest": "primitive_type [328,335]"
+    },
+    {
+      "src": "(: ( [736,737]",
+      "dest": "(: ( [724,725]"
+    },
+    {
+      "src": "ternary_expression [282,296]",
+      "dest": "ternary_expression [354,368]"
+    },
+    {
+      "src": "state_mutability [418,422]",
+      "dest": "state_mutability [490,494]"
+    },
+    {
+      "src": "parameter [398,407]",
+      "dest": "parameter [470,479]"
+    },
+    {
+      "src": "return: return [810,816]",
+      "dest": "return: return [781,787]"
+    },
+    {
+      "src": "function_body [265,303]",
+      "dest": "function_body [337,375]"
+    },
+    {
+      "src": "return_type_definition [423,440]",
+      "dest": "return_type_definition [495,512]"
+    },
+    {
+      "src": "type_name [432,439]",
+      "dest": "type_name [504,511]"
+    },
+    {
+      "src": "): ) [407,408]",
+      "dest": "): ) [479,480]"
+    },
+    {
+      "src": "uint256: uint256 [211,218]",
+      "dest": "uint256: uint256 [283,290]"
+    },
+    {
+      "src": "function: function [675,683]",
+      "dest": "function: function [663,671]"
+    },
+    {
+      "src": "comment: /**  * @title Math  * @dev Assorted math operations  */ [59,114]",
+      "dest": "comment: // OpenZeppelin Contracts v4.3.2 (utils/math/Math.sol) [32,86]"
+    },
+    {
+      "src": "parenthesized_expression [837,858]",
+      "dest": "parenthesized_expression [788,795]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns the largest of two numbers.      */ [134,193]",
+      "dest": "comment: /**      * @dev Returns the largest of two numbers.      */ [206,265]"
+    },
+    {
+      "src": "function_definition [198,303]",
+      "dest": "function_definition [270,375]"
+    },
+    {
+      "src": "}: } [302,303]",
+      "dest": "}: } [374,375]"
+    },
+    {
+      "src": "identifier: a [219,220]",
+      "dest": "identifier: a [291,292]"
+    },
+    {
+      "src": "): ) [744,745]",
+      "dest": "): ) [732,733]"
+    },
+    {
+      "src": "source_file [0,868]",
+      "dest": "source_file [0,1212]"
+    },
+    {
+      "src": "primitive_type [398,405]",
+      "dest": "primitive_type [470,477]"
+    },
+    {
+      "src": "parameter [211,220]",
+      "dest": "parameter [283,292]"
+    },
+    {
+      "src": "identifier: a [282,283]",
+      "dest": "identifier: a [354,355]"
+    },
+    {
+      "src": "identifier: b [287,288]",
+      "dest": "identifier: b [359,360]"
+    },
+    {
+      "src": "?: ? [289,290]",
+      "dest": "?: ? [361,362]"
+    },
+    {
+      "src": "?: ? [464,465]",
+      "dest": "?: ? [536,537]"
+    },
+    {
+      "src": "identifier: b [470,471]",
+      "dest": "identifier: b [542,543]"
+    },
+    {
+      "src": "function_body [441,478]",
+      "dest": "function_body [513,550]"
+    },
+    {
+      "src": "function: function [198,206]",
+      "dest": "function: function [270,278]"
+    },
+    {
+      "src": "return: return [275,281]",
+      "dest": "return: return [347,353]"
+    },
+    {
+      "src": "return: return [451,457]",
+      "dest": "return: return [523,529]"
+    },
+    {
+      "src": "identifier: b [462,463]",
+      "dest": "identifier: b [534,535]"
+    },
+    {
+      "src": "binary_expression [458,463]",
+      "dest": "binary_expression [530,535]"
+    },
+    {
+      "src": "type_name [211,218]",
+      "dest": "type_name [283,290]"
+    },
+    {
+      "src": "+: + [835,836]",
+      "dest": "+: + [796,797]"
+    },
+    {
+      "src": "identifier: Math [123,127]",
+      "dest": "identifier: Math [195,199]"
+    },
+    {
+      "src": "binary_expression [282,288]",
+      "dest": "binary_expression [354,360]"
+    },
+    {
+      "src": "visibility [409,417]",
+      "dest": "visibility [481,489]"
+    },
+    {
+      "src": "primitive_type [692,699]",
+      "dest": "primitive_type [680,687]"
+    },
+    {
+      "src": "(: ( [431,432]",
+      "dest": "(: ( [503,504]"
+    },
+    {
+      "src": "pure: pure [723,727]",
+      "dest": "pure: pure [711,715]"
+    },
+    {
+      "src": "identifier: a [291,292]",
+      "dest": "identifier: a [363,364]"
+    },
+    {
+      "src": ">=: >= [284,286]",
+      "dest": ">=: >= [356,358]"
+    },
+    {
+      "src": "return_type_definition [728,745]",
+      "dest": "return_type_definition [716,733]"
+    },
+    {
+      "src": "return_statement [275,297]",
+      "dest": "return_statement [347,369]"
+    },
+    {
+      "src": "function_definition [675,865]",
+      "dest": "function_definition [663,816]"
+    },
+    {
+      "src": "identifier: a [466,467]",
+      "dest": "identifier: a [538,539]"
+    },
+    {
+      "src": "identifier: b [230,231]",
+      "dest": "identifier: b [302,303]"
+    },
+    {
+      "src": "parameter [692,701]",
+      "dest": "parameter [680,689]"
+    },
+    {
+      "src": "(: ( [691,692]",
+      "dest": "(: ( [679,680]"
+    },
+    {
+      "src": "comment: /**      * @dev Calculates the average of two numbers. Since these are integers,      * averages of an even and odd number cannot be represented, and will be      * rounded down.      */ [484,670]",
+      "dest": "comment: /**      * @dev Returns the average of two numbers. The result is rounded towards      * zero.      */ [556,658]"
+    },
+    {
+      "src": "identifier: max [207,210]",
+      "dest": "identifier: max [279,282]"
+    },
+    {
+      "src": "primitive_type [387,394]",
+      "dest": "primitive_type [459,466]"
+    },
+    {
+      "src": "library: library [115,122]",
+      "dest": "library: library [187,194]"
+    },
+    {
+      "src": "type_name [398,405]",
+      "dest": "type_name [470,477]"
+    },
+    {
+      "src": "state_mutability [242,246]",
+      "dest": "state_mutability [314,318]"
+    },
+    {
+      "src": "uint256: uint256 [256,263]",
+      "dest": "uint256: uint256 [328,335]"
+    },
+    {
+      "src": "parameter [222,231]",
+      "dest": "parameter [294,303]"
+    },
+    {
+      "src": "identifier: a [458,459]",
+      "dest": "identifier: a [530,531]"
+    },
+    {
+      "src": "uint256: uint256 [398,405]",
+      "dest": "uint256: uint256 [470,477]"
+    },
+    {
+      "src": "identifier: b [406,407]",
+      "dest": "identifier: b [478,479]"
+    },
+    {
+      "src": "state_mutability [723,727]",
+      "dest": "state_mutability [711,715]"
+    },
+    {
+      "src": "internal: internal [409,417]",
+      "dest": "internal: internal [481,489]"
+    },
+    {
+      "src": "contract_body [128,867]",
+      "dest": "contract_body [200,1211]"
+    },
+    {
+      "src": "pure: pure [418,422]",
+      "dest": "pure: pure [490,494]"
+    },
+    {
+      "src": "binary_expression [817,834]",
+      "dest": "binary_expression [798,809]"
+    },
+    {
+      "src": "solidity_version: 0.7.0 [50,55]",
+      "dest": "solidity_version: 0.8.0 [105,110]"
+    },
+    {
+      "src": "visibility [714,722]",
+      "dest": "visibility [702,710]"
+    },
+    {
+      "src": "library_declaration [115,867]",
+      "dest": "library_declaration [187,1211]"
+    },
+    {
+      "src": "uint256: uint256 [703,710]",
+      "dest": "uint256: uint256 [691,698]"
+    },
+    {
+      "src": "identifier: b [711,712]",
+      "dest": "identifier: b [699,700]"
+    },
+    {
+      "src": "{: { [441,442]",
+      "dest": "{: { [513,514]"
+    },
+    {
+      "src": "identifier: b [295,296]",
+      "dest": "identifier: b [367,368]"
+    },
+    {
+      "src": "}: } [864,865]",
+      "dest": "}: } [815,816]"
+    },
+    {
+      "src": "parameter [432,439]",
+      "dest": "parameter [504,511]"
+    },
+    {
+      "src": "type_name [256,263]",
+      "dest": "type_name [328,335]"
+    },
+    {
+      "src": "}: } [866,867]",
+      "dest": "}: } [1210,1211]"
+    },
+    {
+      "src": "type_name [703,710]",
+      "dest": "type_name [691,698]"
+    },
+    {
+      "src": "(: ( [837,838]",
+      "dest": "(: ( [788,789]"
+    },
+    {
+      "src": "internal: internal [233,241]",
+      "dest": "internal: internal [305,313]"
+    },
+    {
+      "src": "internal: internal [714,722]",
+      "dest": "internal: internal [702,710]"
+    },
+    {
+      "src": "): ) [857,858]",
+      "dest": "): ) [794,795]"
+    },
+    {
+      "src": "parameter [387,396]",
+      "dest": "parameter [459,468]"
+    },
+    {
+      "src": "ternary_expression [458,471]",
+      "dest": "ternary_expression [530,543]"
+    },
+    {
+      "src": "uint256: uint256 [692,699]",
+      "dest": "uint256: uint256 [680,687]"
+    },
+    {
+      "src": ",: , [220,221]",
+      "dest": ",: , [292,293]"
+    },
+    {
+      "src": ",: , [701,702]",
+      "dest": ",: , [689,690]"
+    },
+    {
+      "src": "primitive_type [737,744]",
+      "dest": "primitive_type [725,732]"
+    },
+    {
+      "src": ":: : [468,469]",
+      "dest": ":: : [540,541]"
+    },
+    {
+      "src": "parameter [737,744]",
+      "dest": "parameter [725,732]"
+    },
+    {
+      "src": "identifier: a [395,396]",
+      "dest": "identifier: a [467,468]"
+    },
+    {
+      "src": "): ) [712,713]",
+      "dest": "): ) [700,701]"
+    },
+    {
+      "src": "): ) [263,264]",
+      "dest": "): ) [335,336]"
+    },
+    {
+      "src": "return_statement [451,472]",
+      "dest": "return_statement [523,544]"
+    },
+    {
+      "src": "(: ( [210,211]",
+      "dest": "(: ( [282,283]"
+    },
+    {
+      "src": "}: } [477,478]",
+      "dest": "}: } [549,550]"
+    },
+    {
+      "src": "primitive_type [222,229]",
+      "dest": "primitive_type [294,301]"
+    },
+    {
+      "src": "returns: returns [423,430]",
+      "dest": "returns: returns [495,502]"
+    },
+    {
+      "src": "(: ( [255,256]",
+      "dest": "(: ( [327,328]"
+    },
+    {
+      "src": "^:  ^ [48,50]",
+      "dest": "^:  ^ [103,105]"
+    },
+    {
+      "src": "parameter [256,263]",
+      "dest": "parameter [328,335]"
+    },
+    {
+      "src": "function: function [374,382]",
+      "dest": "function: function [446,454]"
+    },
+    {
+      "src": "pragma: pragma [33,39]",
+      "dest": "pragma: pragma [88,94]"
+    },
+    {
+      "src": "identifier: average [684,691]",
+      "dest": "identifier: average [672,679]"
+    },
+    {
+      "src": "{: { [265,266]",
+      "dest": "{: { [337,338]"
+    },
+    {
+      "src": "(: ( [386,387]",
+      "dest": "(: ( [458,459]"
+    },
+    {
+      "src": "comment: // (a + b) / 2 can overflow, so we distribute [756,801]",
+      "dest": "comment: // (a + b) / 2 can overflow. [744,772]"
+    },
+    {
+      "src": "binary_expression [838,857]",
+      "dest": "binary_expression [789,794]"
+    },
+    {
+      "src": "returns: returns [247,254]",
+      "dest": "returns: returns [319,326]"
+    },
+    {
+      "src": "solidity_pragma_token [40,55]",
+      "dest": "solidity_pragma_token [95,110]"
+    },
+    {
+      "src": "uint256: uint256 [737,744]",
+      "dest": "uint256: uint256 [725,732]"
+    },
+    {
+      "src": "uint256: uint256 [222,229]",
+      "dest": "uint256: uint256 [294,301]"
+    },
+    {
+      "src": "uint256: uint256 [432,439]",
+      "dest": "uint256: uint256 [504,511]"
+    },
+    {
+      "src": "{: { [128,129]",
+      "dest": "{: { [200,201]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns the smallest of two numbers.      */ [309,369]",
+      "dest": "comment: /**      * @dev Returns the smallest of two numbers.      */ [381,441]"
+    },
+    {
+      "src": "primitive_type [211,218]",
+      "dest": "primitive_type [283,290]"
+    },
+    {
+      "src": "function_body [746,865]",
+      "dest": "function_body [734,816]"
+    },
+    {
+      "src": "): ) [231,232]",
+      "dest": "): ) [303,304]"
+    },
+    {
+      "src": ",: , [396,397]",
+      "dest": ",: , [468,469]"
+    },
+    {
+      "src": "parameter [703,712]",
+      "dest": "parameter [691,700]"
+    },
+    {
+      "src": ":: : [293,294]",
+      "dest": ":: : [365,366]"
+    },
+    {
+      "src": "identifier: min [383,386]",
+      "dest": "identifier: min [455,458]"
+    },
+    {
+      "src": "<: < [460,461]",
+      "dest": "<: < [532,533]"
+    },
+    {
+      "src": "type_name [737,744]",
+      "dest": "type_name [725,732]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: MIT [0,31]",
+      "dest": "comment: // SPDX-License-Identifier: MIT [0,31]"
+    },
+    {
+      "src": "type_name [692,699]",
+      "dest": "type_name [680,687]"
+    },
+    {
+      "src": "primitive_type [432,439]",
+      "dest": "primitive_type [504,511]"
+    },
+    {
+      "src": "visibility [233,241]",
+      "dest": "visibility [305,313]"
+    },
+    {
+      "src": "solidity: solidity [40,48]",
+      "dest": "solidity: solidity [95,103]"
+    },
+    {
+      "src": "pragma_directive [33,56]",
+      "dest": "pragma_directive [88,111]"
+    },
+    {
+      "src": "{: { [746,747]",
+      "dest": "{: { [734,735]"
+    },
+    {
+      "src": "uint256: uint256 [387,394]",
+      "dest": "uint256: uint256 [459,466]"
+    },
+    {
+      "src": "): ) [439,440]",
+      "dest": "): ) [511,512]"
+    },
+    {
+      "src": "return_statement [810,859]",
+      "dest": "return_statement [781,810]"
+    },
+    {
+      "src": "binary_expression [817,858]",
+      "dest": "binary_expression [788,809]"
+    },
+    {
+      "src": "returns: returns [728,735]",
+      "dest": "returns: returns [716,723]"
+    },
+    {
+      "src": "identifier: a [700,701]",
+      "dest": "identifier: a [688,689]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [48,50]",
+      "dest": "solidity_version_comparison_operator [103,105]"
+    },
+    {
+      "src": "type_name [222,229]",
+      "dest": "type_name [294,301]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "move-tree",
+      "tree": "pragma_directive [33,56]",
+      "parent": "source_file [0,1212]",
+      "at": 2
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**  * @title Math  * @dev Assorted math operations  */ [59,114]",
+      "label": "// OpenZeppelin Contracts v4.3.2 (utils/math/Math.sol)"
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**  * @dev Standard math utilities missing in the Solidity language.  */ [113,186]",
+      "parent": "source_file [0,1212]",
+      "at": 3
+    },
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.7.0 [50,55]",
+      "label": "0.8.0"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Calculates the average of two numbers. Since these are integers,      * averages of an even and odd number cannot be represented, and will be      * rounded down.      */ [484,670]",
+      "label": "/**      * @dev Returns the average of two numbers. The result is rounded towards      * zero.      */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Returns the ceiling of the division of two numbers.      *      * This differs from standard division with `/` in that it rounds up instead      * of rounding down.      */ [822,1010]",
+      "parent": "contract_body [200,1211]",
+      "at": 7
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [1015,1209]",
+      "parent": "contract_body [200,1211]",
+      "at": 8
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: // (a + b) / 2 can overflow, so we distribute [756,801]",
+      "label": "// (a + b) / 2 can overflow."
+    },
+    {
+      "action": "move-tree",
+      "tree": "+: + [835,836]",
+      "parent": "binary_expression [788,809]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "binary_expression [817,834]",
+      "parent": "binary_expression [788,809]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "parenthesized_expression [798,805]",
+      "parent": "binary_expression [798,809]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "/: / [806,807]",
+      "parent": "binary_expression [798,809]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "number_literal: 2 [808,809]",
+      "parent": "binary_expression [798,809]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: a [789,790]",
+      "parent": "binary_expression [789,794]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "&: & [791,792]",
+      "parent": "binary_expression [789,794]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: b [793,794]",
+      "parent": "binary_expression [789,794]",
+      "at": 2
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parenthesized_expression [838,853]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "/: / [854,855]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "number_literal: 2 [856,857]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parenthesized_expression [817,824]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "+: + [825,826]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parenthesized_expression [827,834]"
+    }
+  ]
+}

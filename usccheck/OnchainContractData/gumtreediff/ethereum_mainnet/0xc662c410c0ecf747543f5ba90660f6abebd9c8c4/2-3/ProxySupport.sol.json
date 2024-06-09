@@ -1,0 +1,1681 @@
+{
+  "matches": [
+    {
+      "src": "import: import [708,714]",
+      "dest": "import: import [711,717]"
+    },
+    {
+      "src": "): ) [1358,1359]",
+      "dest": "): ) [1361,1362]"
+    },
+    {
+      "src": "variable_declaration_statement [2304,2381]",
+      "dest": "variable_declaration_statement [2307,2384]"
+    },
+    {
+      "src": "call_expression [2325,2380]",
+      "dest": "call_expression [2328,2383]"
+    },
+    {
+      "src": "(: ( [1390,1391]",
+      "dest": "(: ( [1393,1394]"
+    },
+    {
+      "src": "comment: /*       The initialize() function serves as an alternative constructor for a proxied deployment.        Flow and notes:       1. This function cannot be called directly on the deployed contract, but only via          delegate call.       2. If an EIC is provided - init is passed onto EIC and the standard init flow is skipped.          This true for both first intialization or a later one.       3. The data passed to this function is as follows:          [sub_contracts addresses, eic address, initData].           When calling on an initialized contract (no EIC scenario), initData.length must be 0.     */ [1432,2043]",
+      "dest": "comment: /*       The initialize() function serves as an alternative constructor for a proxied deployment.        Flow and notes:       1. This function cannot be called directly on the deployed contract, but only via          delegate call.       2. If an EIC is provided - init is passed onto EIC and the standard init flow is skipped.          This true for both first intialization or a later one.       3. The data passed to this function is as follows:          [sub_contracts addresses, eic address, initData].           When calling on an initialized contract (no EIC scenario), initData.length must be 0.     */ [1435,2046]"
+    },
+    {
+      "src": "variable_declaration_statement [3349,3509]",
+      "dest": "variable_declaration_statement [3352,3512]"
+    },
+    {
+      "src": "import_directive [687,707]",
+      "dest": "import_directive [687,710]"
+    },
+    {
+      "src": "contract_body [1217,3624]",
+      "dest": "contract_body [1220,3627]"
+    },
+    {
+      "src": "function: function [2048,2056]",
+      "dest": "function: function [2051,2059]"
+    },
+    {
+      "src": "call_argument [3526,3533]",
+      "dest": "call_argument [3529,3536]"
+    },
+    {
+      "src": "variable_declaration_statement [2126,2171]",
+      "dest": "variable_declaration_statement [2129,2174]"
+    },
+    {
+      "src": "call_expression [2702,2747]",
+      "dest": "call_expression [2705,2750]"
+    },
+    {
+      "src": "member_expression [2325,2335]",
+      "dest": "member_expression [2328,2338]"
+    },
+    {
+      "src": "variable_declaration [3350,3362]",
+      "dest": "variable_declaration [3353,3365]"
+    },
+    {
+      "src": "call_expression [3441,3498]",
+      "dest": "call_expression [3444,3501]"
+    },
+    {
+      "src": "false [1414,1419]",
+      "dest": "false [1417,1422]"
+    },
+    {
+      "src": "): ) [2379,2380]",
+      "dest": "): ) [2382,2383]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "identifier: data [2336,2340]",
+      "dest": "identifier: data [2339,2343]"
+    },
+    {
+      "src": "memory: memory [3370,3376]",
+      "dest": "memory: memory [3373,3379]"
+    },
+    {
+      "src": "comment: // EIC Provided - Pass initData to EIC and the skip standard init flow. [2576,2647]",
+      "dest": "comment: // EIC Provided - Pass initData to EIC and the skip standard init flow. [2579,2650]"
+    },
+    {
+      "src": "primitive_type [3115,3122]",
+      "dest": "primitive_type [3118,3125]"
+    },
+    {
+      "src": "(: ( [2168,2169]",
+      "dest": "(: ( [2171,2172]"
+    },
+    {
+      "src": "user_defined_type [1180,1195]",
+      "dest": "user_defined_type [1183,1198]"
+    },
+    {
+      "src": "identifier: Addresses [1229,1238]",
+      "dest": "identifier: Addresses [1232,1241]"
+    },
+    {
+      "src": "identifier: data [2083,2087]",
+      "dest": "identifier: data [2086,2090]"
+    },
+    {
+      "src": "member_expression [2831,2846]",
+      "dest": "member_expression [2834,2849]"
+    },
+    {
+      "src": "variable_declaration_statement [2180,2222]",
+      "dest": "variable_declaration_statement [2183,2225]"
+    },
+    {
+      "src": "address: address [1243,1250]",
+      "dest": "address: address [1246,1253]"
+    },
+    {
+      "src": "call_expression [2996,3029]",
+      "dest": "call_expression [2999,3032]"
+    },
+    {
+      "src": "function_definition [2048,3076]",
+      "dest": "function_definition [2051,3079]"
+    },
+    {
+      "src": "call_expression [3391,3508]",
+      "dest": "call_expression [3394,3511]"
+    },
+    {
+      "src": "abstract: abstract [1134,1142]",
+      "dest": "abstract: abstract [1137,1145]"
+    },
+    {
+      "src": "expression_statement [3564,3616]",
+      "dest": "expression_statement [3567,3619]"
+    },
+    {
+      "src": "[: [ [2340,2341]",
+      "dest": "[: [ [2343,2344]"
+    },
+    {
+      "src": "identifier: eicData [3490,3497]",
+      "dest": "identifier: eicData [3493,3500]"
+    },
+    {
+      "src": "type_name [2180,2187]",
+      "dest": "type_name [2183,2190]"
+    },
+    {
+      "src": "identifier: callExternalInitializer [2702,2725]",
+      "dest": "identifier: callExternalInitializer [2705,2728]"
+    },
+    {
+      "src": "contract: contract [1143,1151]",
+      "dest": "contract: contract [1146,1154]"
+    },
+    {
+      "src": "calldata: calldata [3154,3162]",
+      "dest": "calldata: calldata [3157,3165]"
+    },
+    {
+      "src": "identifier: eicAddress [2726,2736]",
+      "dest": "identifier: eicAddress [2729,2739]"
+    },
+    {
+      "src": "}: } [1425,1426]",
+      "dest": "}: } [1428,1429]"
+    },
+    {
+      "src": "call_argument [3020,3028]",
+      "dest": "call_argument [3023,3031]"
+    },
+    {
+      "src": "visibility [1360,1368]",
+      "dest": "visibility [1363,1371]"
+    },
+    {
+      "src": "type_name [3115,3122]",
+      "dest": "type_name [3118,3125]"
+    },
+    {
+      "src": ",: , [2270,2271]",
+      "dest": ",: , [2273,2274]"
+    },
+    {
+      "src": "is: is [1165,1167]",
+      "dest": "is: is [1168,1170]"
+    },
+    {
+      "src": "for: for [1239,1242]",
+      "dest": "for: for [1242,1245]"
+    },
+    {
+      "src": "\": \" [2874,2875]",
+      "dest": "\": \" [2877,2878]"
+    },
+    {
+      "src": "call_argument [3572,3594]",
+      "dest": "call_argument [3575,3597]"
+    },
+    {
+      "src": "identifier: initData [2531,2539]",
+      "dest": "identifier: initData [2534,2542]"
+    },
+    {
+      "src": "{: { [2116,2117]",
+      "dest": "{: { [2119,2120]"
+    },
+    {
+      "src": "(: ( [3463,3464]",
+      "dest": "(: ( [3466,3467]"
+    },
+    {
+      "src": "primitive_type [3596,3602]",
+      "dest": "primitive_type [3599,3605]"
+    },
+    {
+      "src": "function: function [3082,3090]",
+      "dest": "function: function [3085,3093]"
+    },
+    {
+      "src": ".: . [3479,3480]",
+      "dest": ".: . [3482,3483]"
+    },
+    {
+      "src": "!=: != [2671,2673]",
+      "dest": "!=: != [2674,2676]"
+    },
+    {
+      "src": "uint256: uint256 [2180,2187]",
+      "dest": "uint256: uint256 [2183,2190]"
+    },
+    {
+      "src": "address: address [3115,3122]",
+      "dest": "address: address [3118,3125]"
+    },
+    {
+      "src": "call_argument [2682,2685]",
+      "dest": "call_argument [2685,2688]"
+    },
+    {
+      "src": "string [2272,2293]",
+      "dest": "string [2275,2296]"
+    },
+    {
+      "src": "primitive_type [3364,3369]",
+      "dest": "primitive_type [3367,3372]"
+    },
+    {
+      "src": "(: ( [3525,3526]",
+      "dest": "(: ( [3528,3529]"
+    },
+    {
+      "src": "): ) [3613,3614]",
+      "dest": "): ) [3616,3617]"
+    },
+    {
+      "src": "block_statement [2809,2887]",
+      "dest": "block_statement [2812,2890]"
+    },
+    {
+      "src": ",: , [3362,3363]",
+      "dest": ",: , [3365,3366]"
+    },
+    {
+      "src": "identifier: initializeContractState [2996,3019]",
+      "dest": "identifier: initializeContractState [2999,3022]"
+    },
+    {
+      "src": "): ) [3387,3388]",
+      "dest": "): ) [3390,3391]"
+    },
+    {
+      "src": "{: { [2893,2894]",
+      "dest": "{: { [2896,2897]"
+    },
+    {
+      "src": "call_argument [3248,3268]",
+      "dest": "call_argument [3251,3271]"
+    },
+    {
+      "src": "type_name [2516,2521]",
+      "dest": "type_name [2519,2524]"
+    },
+    {
+      "src": "identifier: initialize [2057,2067]",
+      "dest": "identifier: initialize [2060,2070]"
+    },
+    {
+      "src": "binary_expression [2239,2270]",
+      "dest": "binary_expression [2242,2273]"
+    },
+    {
+      "src": "false: false [1414,1419]",
+      "dest": "false: false [1417,1422]"
+    },
+    {
+      "src": "(: ( [2067,2068]",
+      "dest": "(: ( [2070,2071]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "block_statement [2688,2778]",
+      "dest": "block_statement [2691,2781]"
+    },
+    {
+      "src": "identifier: initData [3020,3028]",
+      "dest": "identifier: initData [3023,3031]"
+    },
+    {
+      "src": "\": \" [3248,3249]",
+      "dest": "\": \" [3251,3252]"
+    },
+    {
+      "src": "number_literal: 0 [3593,3594]",
+      "dest": "number_literal: 0 [3596,3597]"
+    },
+    {
+      "src": "member_expression [3391,3427]",
+      "dest": "member_expression [3394,3430]"
+    },
+    {
+      "src": "identifier: require [3564,3571]",
+      "dest": "identifier: require [3567,3574]"
+    },
+    {
+      "src": "identifier: eicOffset [2134,2143]",
+      "dest": "identifier: eicOffset [2137,2146]"
+    },
+    {
+      "src": "=: = [2205,2206]",
+      "dest": "=: = [2208,2209]"
+    },
+    {
+      "src": "(: ( [2335,2336]",
+      "dest": "(: ( [2338,2339]"
+    },
+    {
+      "src": "}: } [2886,2887]",
+      "dest": "}: } [2889,2890]"
+    },
+    {
+      "src": "function_body [3192,3622]",
+      "dest": "function_body [3195,3625]"
+    },
+    {
+      "src": "expression_statement [2456,2506]",
+      "dest": "expression_statement [2459,2509]"
+    },
+    {
+      "src": "block_statement [2893,3070]",
+      "dest": "block_statement [2896,3073]"
+    },
+    {
+      "src": "function_body [1397,1426]",
+      "dest": "function_body [1400,1429]"
+    },
+    {
+      "src": "virtual: virtual [1374,1381]",
+      "dest": "virtual: virtual [1377,1384]"
+    },
+    {
+      "src": "bytes: bytes [2068,2073]",
+      "dest": "bytes: bytes [2071,2076]"
+    },
+    {
+      "src": "bytes: bytes [2516,2521]",
+      "dest": "bytes: bytes [2519,2524]"
+    },
+    {
+      "src": "import_directive [738,771]",
+      "dest": "import_directive [741,774]"
+    },
+    {
+      "src": "identifier: returndata [3542,3552]",
+      "dest": "identifier: returndata [3545,3555]"
+    },
+    {
+      "src": "inheritance_specifier [1168,1178]",
+      "dest": "inheritance_specifier [1171,1181]"
+    },
+    {
+      "src": "type_name [1243,1250]",
+      "dest": "type_name [1246,1253]"
+    },
+    {
+      "src": "number_literal: 0x0 [2682,2685]",
+      "dest": "number_literal: 0x0 [2685,2688]"
+    },
+    {
+      "src": "(: ( [2830,2831]",
+      "dest": "(: ( [2833,2834]"
+    },
+    {
+      "src": "identifier: subContractAddresses [2484,2504]",
+      "dest": "identifier: subContractAddresses [2487,2507]"
+    },
+    {
+      "src": "call_expression [3518,3554]",
+      "dest": "call_expression [3521,3557]"
+    },
+    {
+      "src": "}: } [3621,3622]",
+      "dest": "}: } [3624,3625]"
+    },
+    {
+      "src": "view: view [1369,1373]",
+      "dest": "view: view [1372,1376]"
+    },
+    {
+      "src": "type_name [3148,3153]",
+      "dest": "type_name [3151,3156]"
+    },
+    {
+      "src": "inheritance_specifier [1197,1216]",
+      "dest": "inheritance_specifier [1200,1219]"
+    },
+    {
+      "src": "{: { [3192,3193]",
+      "dest": "{: { [3195,3196]"
+    },
+    {
+      "src": "call_argument [2336,2368]",
+      "dest": "call_argument [2339,2371]"
+    },
+    {
+      "src": "identifier: abi [3441,3444]",
+      "dest": "identifier: abi [3444,3447]"
+    },
+    {
+      "src": "call_expression [3043,3059]",
+      "dest": "call_expression [3046,3062]"
+    },
+    {
+      "src": "type_cast_expression [3596,3614]",
+      "dest": "type_cast_expression [3599,3617]"
+    },
+    {
+      "src": "boolean_literal [1414,1419]",
+      "dest": "boolean_literal [1417,1422]"
+    },
+    {
+      "src": "): ) [2378,2379]",
+      "dest": "): ) [2381,2382]"
+    },
+    {
+      "src": "member_expression [3464,3479]",
+      "dest": "member_expression [3467,3482]"
+    },
+    {
+      "src": "comment: /**   This contract contains the code commonly needed for a contract to be deployed behind   an upgradability proxy.   It perform the required semantics of the proxy pattern,   but in a generic manner.   Instantiation of the Governance and of the ContractInitializer, that are the app specific   part of initialization, has to be done by the using contract. */ [773,1133]",
+      "dest": "comment: /**   This contract contains the code commonly needed for a contract to be deployed behind   an upgradability proxy.   It perform the required semantics of the proxy pattern,   but in a generic manner.   Instantiation of the Governance and of the ContractInitializer, that are the app specific   part of initialization, has to be done by the using contract. */ [776,1136]"
+    },
+    {
+      "src": "returns: returns [1382,1389]",
+      "dest": "returns: returns [1385,1392]"
+    },
+    {
+      "src": "call_argument [3596,3614]",
+      "dest": "call_argument [3599,3617]"
+    },
+    {
+      "src": "identifier: selector [3480,3488]",
+      "dest": "identifier: selector [3483,3491]"
+    },
+    {
+      "src": "variable_declaration [3364,3387]",
+      "dest": "variable_declaration [3367,3390]"
+    },
+    {
+      "src": "primitive_type [2391,2396]",
+      "dest": "primitive_type [2394,2399]"
+    },
+    {
+      "src": "identifier: length [2244,2250]",
+      "dest": "identifier: length [2247,2253]"
+    },
+    {
+      "src": "identifier: expectedBaseSize [2254,2270]",
+      "dest": "identifier: expectedBaseSize [2257,2273]"
+    },
+    {
+      "src": "string: string [3596,3602]",
+      "dest": "string: string [3599,3605]"
+    },
+    {
+      "src": "string [669,685]",
+      "dest": "string [669,685]"
+    },
+    {
+      "src": "if_statement [2788,3070]",
+      "dest": "if_statement [2791,3073]"
+    },
+    {
+      "src": "import: import [662,668]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "}: } [3069,3070]",
+      "dest": "}: } [3072,3073]"
+    },
+    {
+      "src": "variable_declaration [2516,2539]",
+      "dest": "variable_declaration [2519,2542]"
+    },
+    {
+      "src": "call_argument [2726,2736]",
+      "dest": "call_argument [2729,2739]"
+    },
+    {
+      "src": "): ) [2806,2807]",
+      "dest": "): ) [2809,2810]"
+    },
+    {
+      "src": "(: ( [2805,2806]",
+      "dest": "(: ( [2808,2809]"
+    },
+    {
+      "src": "\": \" [3267,3268]",
+      "dest": "\": \" [3270,3271]"
+    },
+    {
+      "src": "call_argument [3210,3246]",
+      "dest": "call_argument [3213,3249]"
+    },
+    {
+      "src": "call_argument [2973,2981]",
+      "dest": "call_argument [2976,2984]"
+    },
+    {
+      "src": "identifier: validateInitData [2956,2972]",
+      "dest": "identifier: validateInitData [2959,2975]"
+    },
+    {
+      "src": "call_argument [2239,2270]",
+      "dest": "call_argument [2242,2273]"
+    },
+    {
+      "src": "using_directive [1223,1251]",
+      "dest": "using_directive [1226,1254]"
+    },
+    {
+      "src": ".: . [2328,2329]",
+      "dest": ".: . [2331,2332]"
+    },
+    {
+      "src": "call_expression [3202,3269]",
+      "dest": "call_expression [3205,3272]"
+    },
+    {
+      "src": "expression_statement [2956,2983]",
+      "dest": "expression_statement [2959,2986]"
+    },
+    {
+      "src": "call_argument [2272,2293]",
+      "dest": "call_argument [2275,2296]"
+    },
+    {
+      "src": "call_argument [3542,3552]",
+      "dest": "call_argument [3545,3555]"
+    },
+    {
+      "src": "calldata: calldata [2397,2405]",
+      "dest": "calldata: calldata [2400,2408]"
+    },
+    {
+      "src": "): ) [2875,2876]",
+      "dest": "): ) [2878,2879]"
+    },
+    {
+      "src": "(: ( [3019,3020]",
+      "dest": "(: ( [3022,3023]"
+    },
+    {
+      "src": "}: } [3623,3624]",
+      "dest": "}: } [3626,3627]"
+    },
+    {
+      "src": "identifier: eicOffset [2207,2216]",
+      "dest": "identifier: eicOffset [2210,2219]"
+    },
+    {
+      "src": "variable_declaration_statement [2391,2446]",
+      "dest": "variable_declaration_statement [2394,2449]"
+    },
+    {
+      "src": "identifier: initData [2831,2839]",
+      "dest": "identifier: initData [2834,2842]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "string [694,706]",
+      "dest": "string [694,709]"
+    },
+    {
+      "src": "identifier: Governance [1168,1178]",
+      "dest": "identifier: Governance [1171,1181]"
+    },
+    {
+      "src": "): ) [1395,1396]",
+      "dest": "): ) [1398,1399]"
+    },
+    {
+      "src": ".: . [3233,3234]",
+      "dest": ".: . [3236,3237]"
+    },
+    {
+      "src": "parameter [3148,3170]",
+      "dest": "parameter [3151,3173]"
+    },
+    {
+      "src": "+: + [2217,2218]",
+      "dest": "+: + [2220,2221]"
+    },
+    {
+      "src": "): ) [2686,2687]",
+      "dest": "): ) [2689,2690]"
+    },
+    {
+      "src": "function_body [2116,3076]",
+      "dest": "function_body [2119,3079]"
+    },
+    {
+      "src": "binary_expression [2831,2851]",
+      "dest": "binary_expression [2834,2854]"
+    },
+    {
+      "src": "identifier: data [2429,2433]",
+      "dest": "identifier: data [2432,2436]"
+    },
+    {
+      "src": ",: , [3594,3595]",
+      "dest": ",: , [3597,3598]"
+    },
+    {
+      "src": "\": \" [2853,2854]",
+      "dest": "\": \" [2856,2857]"
+    },
+    {
+      "src": "[: [ [2433,2434]",
+      "dest": "[: [ [2436,2437]"
+    },
+    {
+      "src": "primitive_type [2674,2681]",
+      "dest": "primitive_type [2677,2684]"
+    },
+    {
+      "src": "variable_declaration [2391,2426]",
+      "dest": "variable_declaration [2394,2429]"
+    },
+    {
+      "src": "): ) [3497,3498]",
+      "dest": "): ) [3500,3501]"
+    },
+    {
+      "src": "call_expression [2456,2505]",
+      "dest": "call_expression [2459,2508]"
+    },
+    {
+      "src": "(: ( [3349,3350]",
+      "dest": "(: ( [3352,3353]"
+    },
+    {
+      "src": "parameter [3115,3146]",
+      "dest": "parameter [3118,3149]"
+    },
+    {
+      "src": "bytes: bytes [2391,2396]",
+      "dest": "bytes: bytes [2394,2399]"
+    },
+    {
+      "src": "identifier: ContractInitializer [1197,1216]",
+      "dest": "identifier: ContractInitializer [1200,1219]"
+    },
+    {
+      "src": "call_expression [2151,2170]",
+      "dest": "call_expression [2154,2173]"
+    },
+    {
+      "src": "import_directive [708,737]",
+      "dest": "import_directive [711,740]"
+    },
+    {
+      "src": "\": \" [769,770]",
+      "dest": "\": \" [772,773]"
+    },
+    {
+      "src": "call_argument [2370,2379]",
+      "dest": "call_argument [2373,2382]"
+    },
+    {
+      "src": "): ) [2685,2686]",
+      "dest": "): ) [2688,2689]"
+    },
+    {
+      "src": "(: ( [3114,3115]",
+      "dest": "(: ( [3117,3118]"
+    },
+    {
+      "src": "): ) [3028,3029]",
+      "dest": "): ) [3031,3032]"
+    },
+    {
+      "src": "\": \" [2292,2293]",
+      "dest": "\": \" [2295,2296]"
+    },
+    {
+      "src": "): ) [3058,3059]",
+      "dest": "): ) [3061,3062]"
+    },
+    {
+      "src": ".: . [3468,3469]",
+      "dest": ".: . [3471,3472]"
+    },
+    {
+      "src": "type_alias [1229,1238]",
+      "dest": "type_alias [1232,1241]"
+    },
+    {
+      "src": "address: address [2674,2681]",
+      "dest": "address: address [2677,2684]"
+    },
+    {
+      "src": "]: ] [2564,2565]",
+      "dest": "]: ] [2567,2568]"
+    },
+    {
+      "src": "==: == [3590,3592]",
+      "dest": "==: == [3593,3595]"
+    },
+    {
+      "src": ".: . [2839,2840]",
+      "dest": ".: . [2842,2843]"
+    },
+    {
+      "src": "number_literal: 0 [2850,2851]",
+      "dest": "number_literal: 0 [2853,2854]"
+    },
+    {
+      "src": ".: . [3582,3583]",
+      "dest": ".: . [3585,3586]"
+    },
+    {
+      "src": "): ) [2087,2088]",
+      "dest": "): ) [2090,2091]"
+    },
+    {
+      "src": "using: using [1223,1228]",
+      "dest": "using: using [1226,1231]"
+    },
+    {
+      "src": "primitive_type [2516,2521]",
+      "dest": "primitive_type [2519,2524]"
+    },
+    {
+      "src": "uint256: uint256 [2126,2133]",
+      "dest": "uint256: uint256 [2129,2136]"
+    },
+    {
+      "src": "slice_access [2542,2565]",
+      "dest": "slice_access [2545,2568]"
+    },
+    {
+      "src": "identifier: this [3464,3468]",
+      "dest": "identifier: this [3467,3471]"
+    },
+    {
+      "src": "type_name [2304,2311]",
+      "dest": "type_name [2307,2314]"
+    },
+    {
+      "src": "expression_statement [2702,2748]",
+      "dest": "expression_statement [2705,2751]"
+    },
+    {
+      "src": "call_argument [2484,2504]",
+      "dest": "call_argument [2487,2507]"
+    },
+    {
+      "src": "import: import [687,693]",
+      "dest": "import: import [687,693]"
+    },
+    {
+      "src": "type_cast_expression [2674,2686]",
+      "dest": "type_cast_expression [2677,2689]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "call_expression [2823,2876]",
+      "dest": "call_expression [2826,2879]"
+    },
+    {
+      "src": "call_argument [3603,3613]",
+      "dest": "call_argument [3606,3616]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "if: if [2656,2658]",
+      "dest": "if: if [2659,2661]"
+    },
+    {
+      "src": "else: else [2888,2892]",
+      "dest": "else: else [2891,2895]"
+    },
+    {
+      "src": "identifier: require [3202,3209]",
+      "dest": "identifier: require [3205,3212]"
+    },
+    {
+      "src": "string_literal [2272,2293]",
+      "dest": "string_literal [2275,2296]"
+    },
+    {
+      "src": "call_expression [2792,2807]",
+      "dest": "call_expression [2795,2810]"
+    },
+    {
+      "src": "identifier: returndata [3377,3387]",
+      "dest": "identifier: returndata [3380,3390]"
+    },
+    {
+      "src": "identifier: eicOffset [2435,2444]",
+      "dest": "identifier: eicOffset [2438,2447]"
+    },
+    {
+      "src": "primitive_type [2126,2133]",
+      "dest": "primitive_type [2129,2136]"
+    },
+    {
+      "src": "calldata: calldata [2074,2082]",
+      "dest": "calldata: calldata [2077,2085]"
+    },
+    {
+      "src": "modifier_invocation [2098,2115]",
+      "dest": "modifier_invocation [2101,2118]"
+    },
+    {
+      "src": "address: address [2371,2378]",
+      "dest": "address: address [2374,2381]"
+    },
+    {
+      "src": ",: , [3246,3247]",
+      "dest": ",: , [3249,3250]"
+    },
+    {
+      "src": "call_argument [3490,3497]",
+      "dest": "call_argument [3493,3500]"
+    },
+    {
+      "src": "address: address [2304,2311]",
+      "dest": "address: address [2307,2314]"
+    },
+    {
+      "src": "identifier: subContractAddresses [2406,2426]",
+      "dest": "identifier: subContractAddresses [2409,2429]"
+    },
+    {
+      "src": ">=: >= [2251,2253]",
+      "dest": ">=: >= [2254,2256]"
+    },
+    {
+      "src": "primitive_type [3535,3541]",
+      "dest": "primitive_type [3538,3544]"
+    },
+    {
+      "src": "comment: // Contract was not initialized yet. [2907,2943]",
+      "dest": "comment: // Contract was not initialized yet. [2910,2946]"
+    },
+    {
+      "src": "): ) [3245,3246]",
+      "dest": "): ) [3248,3249]"
+    },
+    {
+      "src": ",: , [3488,3489]",
+      "dest": ",: , [3491,3492]"
+    },
+    {
+      "src": "return: return [2761,2767]",
+      "dest": "return: return [2764,2770]"
+    },
+    {
+      "src": "string [745,770]",
+      "dest": "string [748,773]"
+    },
+    {
+      "src": "): ) [3268,3269]",
+      "dest": "): ) [3271,3272]"
+    },
+    {
+      "src": "call_argument [2853,2875]",
+      "dest": "call_argument [2856,2878]"
+    },
+    {
+      "src": "(: ( [2659,2660]",
+      "dest": "(: ( [2662,2663]"
+    },
+    {
+      "src": "number_literal: 32 [2219,2221]",
+      "dest": "number_literal: 32 [2222,2224]"
+    },
+    {
+      "src": "(: ( [3427,3428]",
+      "dest": "(: ( [3430,3431]"
+    },
+    {
+      "src": "(: ( [2370,2371]",
+      "dest": "(: ( [2373,2374]"
+    },
+    {
+      "src": "call_argument [3464,3488]",
+      "dest": "call_argument [3467,3491]"
+    },
+    {
+      "src": "type_name [3350,3354]",
+      "dest": "type_name [3353,3357]"
+    },
+    {
+      "src": "}: } [3075,3076]",
+      "dest": "}: } [3078,3079]"
+    },
+    {
+      "src": "return_type_definition [1382,1396]",
+      "dest": "return_type_definition [1385,1399]"
+    },
+    {
+      "src": "{: { [1397,1398]",
+      "dest": "{: { [1400,1401]"
+    },
+    {
+      "src": "identifier: externalInitializerAddr [3210,3233]",
+      "dest": "identifier: externalInitializerAddr [3213,3236]"
+    },
+    {
+      "src": "[: [ [2546,2547]",
+      "dest": "[: [ [2549,2550]"
+    },
+    {
+      "src": "(: ( [3571,3572]",
+      "dest": "(: ( [3574,3575]"
+    },
+    {
+      "src": "identifier: abi [2325,2328]",
+      "dest": "identifier: abi [2328,2331]"
+    },
+    {
+      "src": "(: ( [3244,3245]",
+      "dest": "(: ( [3247,3248]"
+    },
+    {
+      "src": "): ) [2293,2294]",
+      "dest": "): ) [2296,2297]"
+    },
+    {
+      "src": "expression_statement [3043,3060]",
+      "dest": "expression_statement [3046,3063]"
+    },
+    {
+      "src": "comment: // The two function below (isFrozen & initialize) needed to bind to the Proxy. [1257,1335]",
+      "dest": "comment: // The two function below (isFrozen & initialize) needed to bind to the Proxy. [1260,1338]"
+    },
+    {
+      "src": "): ) [2807,2808]",
+      "dest": "): ) [2810,2811]"
+    },
+    {
+      "src": "parenthesized_expression [2370,2379]",
+      "dest": "parenthesized_expression [2373,2382]"
+    },
+    {
+      "src": "identifier: eicData [3163,3170]",
+      "dest": "identifier: eicData [3166,3173]"
+    },
+    {
+      "src": "primitive_type [2180,2187]",
+      "dest": "primitive_type [2183,2190]"
+    },
+    {
+      "src": "call_argument [2738,2746]",
+      "dest": "call_argument [2741,2749]"
+    },
+    {
+      "src": "): ) [3614,3615]",
+      "dest": "): ) [3617,3618]"
+    },
+    {
+      "src": ":: : [2350,2351]",
+      "dest": ":: : [2353,2354]"
+    },
+    {
+      "src": "=: = [3389,3390]",
+      "dest": "=: = [3392,3393]"
+    },
+    {
+      "src": "identifier: success [3526,3533]",
+      "dest": "identifier: success [3529,3536]"
+    },
+    {
+      "src": "(: ( [2483,2484]",
+      "dest": "(: ( [2486,2487]"
+    },
+    {
+      "src": "\": \" [694,695]",
+      "dest": "\": \" [694,695]"
+    },
+    {
+      "src": "if: if [2788,2790]",
+      "dest": "if: if [2791,2793]"
+    },
+    {
+      "src": ",: , [2368,2369]",
+      "dest": ",: , [2371,2372]"
+    },
+    {
+      "src": "primitive_type [1391,1395]",
+      "dest": "primitive_type [1394,1398]"
+    },
+    {
+      "src": "type_name [2391,2396]",
+      "dest": "type_name [2394,2399]"
+    },
+    {
+      "src": "(: ( [3541,3542]",
+      "dest": "(: ( [3544,3545]"
+    },
+    {
+      "src": "): ) [3170,3171]",
+      "dest": "): ) [3173,3174]"
+    },
+    {
+      "src": ",: , [3533,3534]",
+      "dest": ",: , [3536,3537]"
+    },
+    {
+      "src": ",: , [2736,2737]",
+      "dest": ",: , [2739,2740]"
+    },
+    {
+      "src": "expression_statement [2231,2295]",
+      "dest": "expression_statement [2234,2298]"
+    },
+    {
+      "src": ":: : [2434,2435]",
+      "dest": ":: : [2437,2438]"
+    },
+    {
+      "src": "string_literal [3248,3268]",
+      "dest": "string_literal [3251,3271]"
+    },
+    {
+      "src": "identifier: length [2840,2846]",
+      "dest": "identifier: length [2843,2849]"
+    },
+    {
+      "src": "call_expression [2956,2982]",
+      "dest": "call_expression [2959,2985]"
+    },
+    {
+      "src": "identifier: externalInitializerAddr [3123,3146]",
+      "dest": "identifier: externalInitializerAddr [3126,3149]"
+    },
+    {
+      "src": "member_expression [3464,3488]",
+      "dest": "member_expression [3467,3491]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "): ) [2746,2747]",
+      "dest": "): ) [2749,2750]"
+    },
+    {
+      "src": "function_definition [1340,1426]",
+      "dest": "function_definition [1343,1429]"
+    },
+    {
+      "src": ".: . [2243,2244]",
+      "dest": ".: . [2246,2247]"
+    },
+    {
+      "src": "(: ( [2791,2792]",
+      "dest": "(: ( [2794,2795]"
+    },
+    {
+      "src": "bytes: bytes [3364,3369]",
+      "dest": "bytes: bytes [3367,3372]"
+    },
+    {
+      "src": "call_argument [3535,3553]",
+      "dest": "call_argument [3538,3556]"
+    },
+    {
+      "src": "identifier: returndata [3603,3613]",
+      "dest": "identifier: returndata [3606,3616]"
+    },
+    {
+      "src": "user_defined_type [1168,1178]",
+      "dest": "user_defined_type [1171,1181]"
+    },
+    {
+      "src": "calldata: calldata [2522,2530]",
+      "dest": "calldata: calldata [2525,2533]"
+    },
+    {
+      "src": "]: ] [2367,2368]",
+      "dest": "]: ] [2370,2371]"
+    },
+    {
+      "src": "(: ( [2238,2239]",
+      "dest": "(: ( [2241,2242]"
+    },
+    {
+      "src": "=: = [2144,2145]",
+      "dest": "=: = [2147,2148]"
+    },
+    {
+      "src": "binary_expression [2660,2686]",
+      "dest": "binary_expression [2663,2689]"
+    },
+    {
+      "src": "import: import [738,744]",
+      "dest": "import: import [741,747]"
+    },
+    {
+      "src": "identifier: numOfSubContracts [2151,2168]",
+      "dest": "identifier: numOfSubContracts [2154,2171]"
+    },
+    {
+      "src": "\": \" [715,716]",
+      "dest": "\": \" [718,719]"
+    },
+    {
+      "src": "visibility [2089,2097]",
+      "dest": "visibility [2092,2100]"
+    },
+    {
+      "src": "type_name [3364,3369]",
+      "dest": "type_name [3367,3372]"
+    },
+    {
+      "src": ",: , [1178,1179]",
+      "dest": ",: , [1181,1182]"
+    },
+    {
+      "src": "\": \" [735,736]",
+      "dest": "\": \" [738,739]"
+    },
+    {
+      "src": "type_name [2068,2073]",
+      "dest": "type_name [2071,2076]"
+    },
+    {
+      "src": "external: external [1360,1368]",
+      "dest": "external: external [1363,1371]"
+    },
+    {
+      "src": "identifier: initData [2738,2746]",
+      "dest": "identifier: initData [2741,2749]"
+    },
+    {
+      "src": "identifier: eicAddress [2660,2670]",
+      "dest": "identifier: eicAddress [2663,2673]"
+    },
+    {
+      "src": "expression_statement [3518,3555]",
+      "dest": "expression_statement [3521,3558]"
+    },
+    {
+      "src": "identifier: delegatecall [3415,3427]",
+      "dest": "identifier: delegatecall [3418,3430]"
+    },
+    {
+      "src": "external: external [2089,2097]",
+      "dest": "external: external [2092,2100]"
+    },
+    {
+      "src": "binary_expression [3572,3594]",
+      "dest": "binary_expression [3575,3597]"
+    },
+    {
+      "src": "primitive_type [3350,3354]",
+      "dest": "primitive_type [3353,3357]"
+    },
+    {
+      "src": "primitive_type [1243,1250]",
+      "dest": "primitive_type [1246,1253]"
+    },
+    {
+      "src": "variable_declaration [2126,2143]",
+      "dest": "variable_declaration [2129,2146]"
+    },
+    {
+      "src": "identifier: require [2823,2830]",
+      "dest": "identifier: require [2826,2833]"
+    },
+    {
+      "src": "type_name [1391,1395]",
+      "dest": "type_name [1394,1398]"
+    },
+    {
+      "src": "member_expression [3572,3589]",
+      "dest": "member_expression [3575,3592]"
+    },
+    {
+      "src": "variable_declaration_statement [2516,2566]",
+      "dest": "variable_declaration_statement [2519,2569]"
+    },
+    {
+      "src": "return_statement [1407,1420]",
+      "dest": "return_statement [1410,1423]"
+    },
+    {
+      "src": "identifier: success [3355,3362]",
+      "dest": "identifier: success [3358,3365]"
+    },
+    {
+      "src": "parameter [1391,1395]",
+      "dest": "parameter [1394,1398]"
+    },
+    {
+      "src": "=: = [2323,2324]",
+      "dest": "=: = [2326,2327]"
+    },
+    {
+      "src": ":: : [2563,2564]",
+      "dest": ":: : [2566,2567]"
+    },
+    {
+      "src": "): ) [2169,2170]",
+      "dest": "): ) [2172,2173]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "call_expression [3210,3246]",
+      "dest": "call_expression [3213,3249]"
+    },
+    {
+      "src": "identifier: processSubContractAddresses [2456,2483]",
+      "dest": "identifier: processSubContractAddresses [2459,2486]"
+    },
+    {
+      "src": "type_name [2126,2133]",
+      "dest": "type_name [2129,2136]"
+    },
+    {
+      "src": "string [3248,3268]",
+      "dest": "string [3251,3271]"
+    },
+    {
+      "src": "comment: // NOLINTNEXTLINE: low-level-calls, controlled-delegatecall. [3280,3340]",
+      "dest": "comment: // NOLINTNEXTLINE: low-level-calls, controlled-delegatecall. [3283,3343]"
+    },
+    {
+      "src": "contract_declaration [1134,3624]",
+      "dest": "contract_declaration [1137,3627]"
+    },
+    {
+      "src": "identifier: externalInitializerAddr [3391,3414]",
+      "dest": "identifier: externalInitializerAddr [3394,3417]"
+    },
+    {
+      "src": "==: == [2847,2849]",
+      "dest": "==: == [2850,2852]"
+    },
+    {
+      "src": "expression_statement [2996,3030]",
+      "dest": "expression_statement [2999,3033]"
+    },
+    {
+      "src": "\": \" [745,746]",
+      "dest": "\": \" [748,749]"
+    },
+    {
+      "src": "slice_access [2429,2445]",
+      "dest": "slice_access [2432,2448]"
+    },
+    {
+      "src": ",: , [3146,3147]",
+      "dest": ",: , [3149,3150]"
+    },
+    {
+      "src": "(: ( [1357,1358]",
+      "dest": "(: ( [1360,1361]"
+    },
+    {
+      "src": "\": \" [684,685]",
+      "dest": "\": \" [684,685]"
+    },
+    {
+      "src": "slice_access [2336,2368]",
+      "dest": "slice_access [2339,2371]"
+    },
+    {
+      "src": "call_expression [2231,2294]",
+      "dest": "call_expression [2234,2297]"
+    },
+    {
+      "src": "user_defined_type [1197,1216]",
+      "dest": "user_defined_type [1200,1219]"
+    },
+    {
+      "src": "\": \" [669,670]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "parameter [2068,2087]",
+      "dest": "parameter [2071,2090]"
+    },
+    {
+      "src": "function: function [1340,1348]",
+      "dest": "function: function [1343,1351]"
+    },
+    {
+      "src": "=: = [2427,2428]",
+      "dest": "=: = [2430,2431]"
+    },
+    {
+      "src": "private: private [3180,3187]",
+      "dest": "private: private [3183,3190]"
+    },
+    {
+      "src": "type_cast_expression [3535,3553]",
+      "dest": "type_cast_expression [3538,3556]"
+    },
+    {
+      "src": "\": \" [705,706]",
+      "dest": "\": \" [708,709]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "string [2853,2875]",
+      "dest": "string [2856,2878]"
+    },
+    {
+      "src": "identifier: initData [2973,2981]",
+      "dest": "identifier: initData [2976,2984]"
+    },
+    {
+      "src": "variable_declaration [2180,2204]",
+      "dest": "variable_declaration [2183,2207]"
+    },
+    {
+      "src": "state_mutability [1369,1373]",
+      "dest": "state_mutability [1372,1376]"
+    },
+    {
+      "src": "}: } [2777,2778]",
+      "dest": "}: } [2780,2781]"
+    },
+    {
+      "src": "expression_statement [3202,3270]",
+      "dest": "expression_statement [3205,3273]"
+    },
+    {
+      "src": ",: , [2851,2852]",
+      "dest": ",: , [2854,2855]"
+    },
+    {
+      "src": "if_statement [2656,2778]",
+      "dest": "if_statement [2659,2781]"
+    },
+    {
+      "src": "member_expression [3441,3463]",
+      "dest": "member_expression [3444,3466]"
+    },
+    {
+      "src": "*: * [2149,2150]",
+      "dest": "*: * [2152,2153]"
+    },
+    {
+      "src": "bool: bool [3350,3354]",
+      "dest": "bool: bool [3353,3357]"
+    },
+    {
+      "src": "identifier: length [3583,3589]",
+      "dest": "identifier: length [3586,3592]"
+    },
+    {
+      "src": "binary_expression [2146,2170]",
+      "dest": "binary_expression [2149,2173]"
+    },
+    {
+      "src": "): ) [2981,2982]",
+      "dest": "): ) [2984,2985]"
+    },
+    {
+      "src": "identifier: isContract [3234,3244]",
+      "dest": "identifier: isContract [3237,3247]"
+    },
+    {
+      "src": "bool: bool [1391,1395]",
+      "dest": "bool: bool [1394,1398]"
+    },
+    {
+      "src": "visibility [3180,3187]",
+      "dest": "visibility [3183,3190]"
+    },
+    {
+      "src": "primitive_type [2371,2378]",
+      "dest": "primitive_type [2374,2381]"
+    },
+    {
+      "src": "identifier: require [2231,2238]",
+      "dest": "identifier: require [2234,2241]"
+    },
+    {
+      "src": "inheritance_specifier [1180,1195]",
+      "dest": "inheritance_specifier [1183,1198]"
+    },
+    {
+      "src": "): ) [2504,2505]",
+      "dest": "): ) [2507,2508]"
+    },
+    {
+      "src": ".: . [3414,3415]",
+      "dest": ".: . [3417,3418]"
+    },
+    {
+      "src": "member_expression [3210,3244]",
+      "dest": "member_expression [3213,3247]"
+    },
+    {
+      "src": "identifier: initialize [3469,3479]",
+      "dest": "identifier: initialize [3472,3482]"
+    },
+    {
+      "src": "variable_declaration_tuple [3349,3388]",
+      "dest": "variable_declaration_tuple [3352,3391]"
+    },
+    {
+      "src": "number_literal: 32 [2146,2148]",
+      "dest": "number_literal: 32 [2149,2151]"
+    },
+    {
+      "src": "identifier: returndata [3572,3582]",
+      "dest": "identifier: returndata [3575,3585]"
+    },
+    {
+      "src": "identifier: initGovernance [3043,3057]",
+      "dest": "identifier: initGovernance [3046,3060]"
+    },
+    {
+      "src": "function_definition [3082,3622]",
+      "dest": "function_definition [3085,3625]"
+    },
+    {
+      "src": "return_statement [2761,2768]",
+      "dest": "return_statement [2764,2771]"
+    },
+    {
+      "src": "identifier: require [3518,3525]",
+      "dest": "identifier: require [3521,3528]"
+    },
+    {
+      "src": "import_directive [662,686]",
+      "dest": "import_directive [662,686]"
+    },
+    {
+      "src": "\": \" [2272,2273]",
+      "dest": "\": \" [2275,2276]"
+    },
+    {
+      "src": "call_argument [3441,3498]",
+      "dest": "call_argument [3444,3501]"
+    },
+    {
+      "src": "): ) [3552,3553]",
+      "dest": "): ) [3555,3556]"
+    },
+    {
+      "src": "identifier: eicOffset [2341,2350]",
+      "dest": "identifier: eicOffset [2344,2353]"
+    },
+    {
+      "src": "{: { [2688,2689]",
+      "dest": "{: { [2691,2692]"
+    },
+    {
+      "src": "primitive_type [3148,3153]",
+      "dest": "primitive_type [3151,3156]"
+    },
+    {
+      "src": "identifier: decode [2329,2335]",
+      "dest": "identifier: decode [2332,2338]"
+    },
+    {
+      "src": "{: { [2809,2810]",
+      "dest": "{: { [2812,2813]"
+    },
+    {
+      "src": "string: string [3535,3541]",
+      "dest": "string: string [3538,3544]"
+    },
+    {
+      "src": "identifier: expectedBaseSize [2547,2563]",
+      "dest": "identifier: expectedBaseSize [2550,2566]"
+    },
+    {
+      "src": "]: ] [2444,2445]",
+      "dest": "]: ] [2447,2448]"
+    },
+    {
+      "src": "identifier: data [2239,2243]",
+      "dest": "identifier: data [2242,2246]"
+    },
+    {
+      "src": "identifier: ProxySupport [1152,1164]",
+      "dest": "identifier: ProxySupport [1155,1167]"
+    },
+    {
+      "src": "identifier: isFrozen [1349,1357]",
+      "dest": "identifier: isFrozen [1352,1360]"
+    },
+    {
+      "src": "bytes: bytes [3148,3153]",
+      "dest": "bytes: bytes [3151,3156]"
+    },
+    {
+      "src": ".: . [3444,3445]",
+      "dest": ".: . [3447,3448]"
+    },
+    {
+      "src": "return: return [1407,1413]",
+      "dest": "return: return [1410,1416]"
+    },
+    {
+      "src": "(: ( [3209,3210]",
+      "dest": "(: ( [3212,3213]"
+    },
+    {
+      "src": "identifier: BlockDirectCall [1180,1195]",
+      "dest": "identifier: BlockDirectCall [1183,1198]"
+    },
+    {
+      "src": "): ) [3507,3508]",
+      "dest": "): ) [3510,3511]"
+    },
+    {
+      "src": "=: = [2540,2541]",
+      "dest": "=: = [2543,2544]"
+    },
+    {
+      "src": "{: { [1217,1218]",
+      "dest": "{: { [1220,1221]"
+    },
+    {
+      "src": "identifier: expectedBaseSize [2188,2204]",
+      "dest": "identifier: expectedBaseSize [2191,2207]"
+    },
+    {
+      "src": "source_file [0,3625]",
+      "dest": "source_file [0,3628]"
+    },
+    {
+      "src": "identifier: callExternalInitializer [3091,3114]",
+      "dest": "identifier: callExternalInitializer [3094,3117]"
+    },
+    {
+      "src": "member_expression [2239,2250]",
+      "dest": "member_expression [2242,2253]"
+    },
+    {
+      "src": "(: ( [3602,3603]",
+      "dest": "(: ( [3605,3606]"
+    },
+    {
+      "src": "(: ( [2972,2973]",
+      "dest": "(: ( [2975,2976]"
+    },
+    {
+      "src": "string_literal [2853,2875]",
+      "dest": "string_literal [2856,2878]"
+    },
+    {
+      "src": "): ) [3553,3554]",
+      "dest": "): ) [3556,3557]"
+    },
+    {
+      "src": "primitive_type [2068,2073]",
+      "dest": "primitive_type [2071,2076]"
+    },
+    {
+      "src": "identifier: notCalledDirectly [2098,2115]",
+      "dest": "identifier: notCalledDirectly [2101,2118]"
+    },
+    {
+      "src": "identifier: eicAddress [2312,2322]",
+      "dest": "identifier: eicAddress [2315,2325]"
+    },
+    {
+      "src": "identifier: isInitialized [2792,2805]",
+      "dest": "identifier: isInitialized [2795,2808]"
+    },
+    {
+      "src": ",: , [1195,1196]",
+      "dest": ",: , [1198,1199]"
+    },
+    {
+      "src": "binary_expression [2207,2221]",
+      "dest": "binary_expression [2210,2224]"
+    },
+    {
+      "src": "string [715,736]",
+      "dest": "string [718,739]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "identifier: expectedBaseSize [2351,2367]",
+      "dest": "identifier: expectedBaseSize [2354,2370]"
+    },
+    {
+      "src": "(: ( [3057,3058]",
+      "dest": "(: ( [3060,3061]"
+    },
+    {
+      "src": "variable_declaration [2304,2322]",
+      "dest": "variable_declaration [2307,2325]"
+    },
+    {
+      "src": "call_argument [2831,2851]",
+      "dest": "call_argument [2834,2854]"
+    },
+    {
+      "src": "identifier: encodeWithSelector [3445,3463]",
+      "dest": "identifier: encodeWithSelector [3448,3466]"
+    },
+    {
+      "src": "call_expression [3564,3615]",
+      "dest": "call_expression [3567,3618]"
+    },
+    {
+      "src": "primitive_type [2304,2311]",
+      "dest": "primitive_type [2307,2314]"
+    },
+    {
+      "src": "(: ( [2725,2726]",
+      "dest": "(: ( [2728,2729]"
+    },
+    {
+      "src": "identifier: data [2542,2546]",
+      "dest": "identifier: data [2545,2549]"
+    },
+    {
+      "src": "expression_statement [2823,2877]",
+      "dest": "expression_statement [2826,2880]"
+    },
+    {
+      "src": "(: ( [2681,2682]",
+      "dest": "(: ( [2684,2685]"
+    }
+  ],
+  "actions": []
+}

@@ -1,0 +1,168 @@
+{
+  "matches": [
+    {
+      "src": "identifier: isValid [987,994]",
+      "dest": "identifier: isValid [1583,1590]"
+    },
+    {
+      "src": "function: function [978,986]",
+      "dest": "function: function [1574,1582]"
+    },
+    {
+      "src": "solidity_pragma_token [47,63]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "}: } [1039,1040]",
+      "dest": "}: } [1635,1636]"
+    },
+    {
+      "src": "solidity: solidity [47,55]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "pragma_directive [40,64]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "^:  ^ [55,57]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "identifier: IFactRegistry [864,877]",
+      "dest": "identifier: IFactRegistry [1460,1473]"
+    },
+    {
+      "src": "identifier: fact [1003,1007]",
+      "dest": "identifier: fact [1599,1603]"
+    },
+    {
+      "src": "pragma: pragma [40,46]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "interface: interface [854,863]",
+      "dest": "interface: interface [1450,1459]"
+    },
+    {
+      "src": "interface_declaration [854,1040]",
+      "dest": "interface_declaration [1450,1636]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [55,57]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "{: { [878,879]",
+      "dest": "{: { [1474,1475]"
+    },
+    {
+      "src": "(: ( [994,995]",
+      "dest": "(: ( [1590,1591]"
+    },
+    {
+      "src": "(: ( [1031,1032]",
+      "dest": "(: ( [1627,1628]"
+    },
+    {
+      "src": "comment: /*   The Fact Registry design pattern is a way to separate cryptographic verification from the   business logic of the contract flow.    A fact registry holds a hash table of verified \"facts\" which are represented by a hash of claims   that the registry hash check and found valid. This table may be queried by accessing the   isValid() function of the registry with a given hash.    In addition, each fact registry exposes a registry specific function for submitting new claims   together with their proofs. The information submitted varies from one registry to the other   depending of the type of fact requiring verification.    For further reading on the Fact Registry design pattern see this   `StarkWare blog post <https://medium.com/starkware/the-fact-registry-a64aafb598b6>`_. */ [66,853]",
+      "dest": "comment: /*   The Fact Registry design pattern is a way to separate cryptographic verification from the   business logic of the contract flow.    A fact registry holds a hash table of verified \"facts\" which are represented by a hash of claims   that the registry hash check and found valid. This table may be queried by accessing the   isValid() function of the registry with a given hash.    In addition, each fact registry exposes a registry specific function for submitting new claims   together with their proofs. The information submitted varies from one registry to the other   depending of the type of fact requiring verification.    For further reading on the Fact Registry design pattern see this   `StarkWare blog post <https://medium.com/starkware/the-fact-registry-a64aafb598b6>`_. */ [662,1449]"
+    },
+    {
+      "src": "): ) [1007,1008]",
+      "dest": "): ) [1603,1604]"
+    },
+    {
+      "src": "visibility [1009,1017]",
+      "dest": "visibility [1605,1613]"
+    },
+    {
+      "src": "type_name [1032,1036]",
+      "dest": "type_name [1628,1632]"
+    },
+    {
+      "src": "bool: bool [1032,1036]",
+      "dest": "bool: bool [1628,1632]"
+    },
+    {
+      "src": "parameter [1032,1036]",
+      "dest": "parameter [1628,1632]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "state_mutability [1018,1022]",
+      "dest": "state_mutability [1614,1618]"
+    },
+    {
+      "src": "external: external [1009,1017]",
+      "dest": "external: external [1605,1613]"
+    },
+    {
+      "src": "type_name [995,1002]",
+      "dest": "type_name [1591,1598]"
+    },
+    {
+      "src": "primitive_type [1032,1036]",
+      "dest": "primitive_type [1628,1632]"
+    },
+    {
+      "src": "function_definition [978,1038]",
+      "dest": "function_definition [1574,1634]"
+    },
+    {
+      "src": "comment: /*       Returns true if the given fact was previously registered in the contract.     */ [884,973]",
+      "dest": "comment: /*       Returns true if the given fact was previously registered in the contract.     */ [1480,1569]"
+    },
+    {
+      "src": "primitive_type [995,1002]",
+      "dest": "primitive_type [1591,1598]"
+    },
+    {
+      "src": "bytes32: bytes32 [995,1002]",
+      "dest": "bytes32: bytes32 [1591,1598]"
+    },
+    {
+      "src": "source_file [0,1041]",
+      "dest": "source_file [0,1637]"
+    },
+    {
+      "src": "contract_body [878,1040]",
+      "dest": "contract_body [1474,1636]"
+    },
+    {
+      "src": "): ) [1036,1037]",
+      "dest": "): ) [1632,1633]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [57,63]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "view: view [1018,1022]",
+      "dest": "view: view [1614,1618]"
+    },
+    {
+      "src": "returns: returns [1023,1030]",
+      "dest": "returns: returns [1619,1626]"
+    },
+    {
+      "src": "parameter [995,1007]",
+      "dest": "parameter [1591,1603]"
+    },
+    {
+      "src": "return_type_definition [1023,1037]",
+      "dest": "return_type_definition [1619,1633]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "insert-node",
+      "tree": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "parent": "source_file [0,1637]",
+      "at": 0
+    }
+  ]
+}

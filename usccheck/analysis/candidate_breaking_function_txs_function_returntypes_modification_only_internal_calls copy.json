@@ -1,0 +1,1849 @@
+{
+    "modified_function_returntypes_failure_txs": {
+        "0xcef9e167d3f8806771e9bac1d4a0d568c39a9388": {
+            "1": [
+                [
+                    "0xb0ec6208000000000000000000000000efe0fed2b728b9711030e7643e98477957df9809000000000000000000000000000000000000000000010013e6396aa1f4782ba6",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0xefE0Fed2B728B9711030e7643E98477957dF9809",
+                                "_amount": 1209292897159975875914662
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0xb0ec6208000000000000000000000000efe0fed2b728b9711030e7643e98477957df9809000000000000000000000000000000000000000000001999fd86199c018dd79d",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0xefE0Fed2B728B9711030e7643E98477957dF9809",
+                                "_amount": 120899782232114998400925
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb05900000000000000000000000000000000000000000000151e1ebb9e259cc68000",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 99725313000000000000000
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x7060001b000000000000000000000000efe0fed2b728b9711030e7643e98477957df980900000000000000000000000000000000000000000000167158518f3ca9032ec70000000000000000000000007ea5271a0f4ea160934553f4f94ec01f8b3299bd000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "_swapper",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "_swapDest",
+                                        "type": "address"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0xefE0Fed2B728B9711030e7643E98477957dF9809",
+                                "_amount": 105982908728700521623239,
+                                "_swapper": "0x7ea5271a0f4EA160934553F4F94EC01F8B3299bD",
+                                "_swapDest": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb05900000000000000000000000000000000000000000000010ea1dee2b018296574",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 4992284909232462587252
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb0590000000000000000000000000000000000000000000013328ab40790bca18000",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 90657295000000000000000
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0xb0ec62080000000000000000000000008c018265fab3494c76bf804821174ebc4fd8437b0000000000000000000000000000000000000000000000094cb5156dfa82f3cd",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0x8c018265faB3494c76bf804821174ebC4fd8437B",
+                                "_amount": 171548044343151621069
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb0590000000000000000000000000000000000000000000000056b57d1517130d008",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 99968601401301454856
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb059000000000000000000000000000000000000000000013da329b6336471800000",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 1500000000000000000000000
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb05900000000000000000000000000000000000000000000000969d5ba68d5e1a8c4",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 173646903166835468484
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb0590000000000000000000000000000000000000000000002338233c9df3cad2bd4",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 10394898977907853306836
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb0590000000000000000000000000000000000000000000013328ab40790bca18000",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 90657295000000000000000
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb059000000000000000000000000000000000000000000013da329b6336471800000",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 1500000000000000000000000
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb05900000000000000000000000000000000000000000000021d794d5d0d3fed9c38",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 9988429288640151919672
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb0590000000000000000000000000000000000000000000002338226e91dc1ce7e31",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 10394895353086538055217
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb059000000000000000000000000000000000000000000000dfd5bf8dc4a2ee3060f",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 66064417817016752342543
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb059000000000000000000000000000000000000000000000dfd5bf039dabbe148ab",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 66064415386617384093867
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0xb0ec6208000000000000000000000000efe0fed2b728b9711030e7643e98477957df9809000000000000000000000000000000000000000000005054411d3fd2c4721e62",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0xefE0Fed2B728B9711030e7643E98477957dF9809",
+                                "_amount": 379343537108324480851554
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb0590000000000000000000000000000000000000000000004c10e18687c4ad05560",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 22450703214303536764256
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x7060001b000000000000000000000000efe0fed2b728b9711030e7643e98477957df980900000000000000000000000000000000000000000000114822deffc53fbeb7cd0000000000000000000000007ea5271a0f4ea160934553f4f94ec01f8b3299bd000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "_swapper",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "_swapDest",
+                                        "type": "address"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0xefE0Fed2B728B9711030e7643E98477957dF9809",
+                                "_amount": 81610908508955818768333,
+                                "_swapper": "0x7ea5271a0f4EA160934553F4F94EC01F8B3299bD",
+                                "_swapDest": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0xb0ec6208000000000000000000000000efe0fed2b728b9711030e7643e98477957df98090000000000000000000000000000000000000000000050542d56a7c55230fa95",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0xefE0Fed2B728B9711030e7643E98477957dF9809",
+                                "_amount": 379342112114808852642453
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x7060001b000000000000000000000000efe0fed2b728b9711030e7643e98477957df980900000000000000000000000000000000000000000000114821db43bed04b525e0000000000000000000000007ea5271a0f4ea160934553f4f94ec01f8b3299bd000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "_swapper",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "_swapDest",
+                                        "type": "address"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0xefE0Fed2B728B9711030e7643E98477957dF9809",
+                                "_amount": 81610835400201025049182,
+                                "_swapper": "0x7ea5271a0f4EA160934553F4F94EC01F8B3299bD",
+                                "_swapDest": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb05900000000000000000000000000000000000000000000151cd72a7936fc75307c",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 99701709312270664020092
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb0590000000000000000000000000000000000000000000013328ab40790bca18000",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 90657295000000000000000
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb05900000000000000000000000000000000000000000000151e1ebb9e259cc68000",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 99725313000000000000000
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb05900000000000000000000000000000000000000000000000969d5bac1aa4ca0b1",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 173646903548356370609
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0xb0ec6208000000000000000000000000efe0fed2b728b9711030e7643e98477957df980900000000000000000000000000000000000000000001009c05fb870713c9c78b",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0xefE0Fed2B728B9711030e7643E98477957dF9809",
+                                "_amount": 1211803942776781675284363
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0xb0ec6208000000000000000000000000efe0fed2b728b9711030e7643e98477957df98090000000000000000000000000000000000000000000050542d56a7c55230fa95",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0xefE0Fed2B728B9711030e7643E98477957dF9809",
+                                "_amount": 379342112114808852642453
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb05900000000000000000000000000000000000000000000023382284303dcc822cf",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 10394895733406344684239
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0xb0ec62080000000000000000000000008c018265fab3494c76bf804821174ebc4fd8437b0000000000000000000000000000000000000000000000094cb5156dfa82f3cd",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0x8c018265faB3494c76bf804821174ebC4fd8437B",
+                                "_amount": 171548044343151621069
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb059000000000000000000000000000000000000000000000e525b3f3a29042d3865",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 67632338812148038580325
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb0590000000000000000000000000000000000000000000000056437f949693b2f0b",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 99455234989753052939
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb05900000000000000000000000000000000000000000000006c0fad4492a0c727eb",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 1993377994438724757483
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x7060001b000000000000000000000000360f8dadc56717cfb53b03ff4a570f4fd54e73c300000000000000000000000000000000000000000000002681002dd3af77a2370000000000000000000000007ea5271a0f4ea160934553f4f94ec01f8b3299bd0000000000000000000000006b175474e89094c44da98b954eedeac495271d0f",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "_swapper",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "_swapDest",
+                                        "type": "address"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0x360F8dAdC56717CFB53b03Ff4A570f4FD54e73c3",
+                                "_amount": 710271754819060867639,
+                                "_swapper": "0x7ea5271a0f4EA160934553F4F94EC01F8B3299bD",
+                                "_swapDest": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x7060001b000000000000000000000000efe0fed2b728b9711030e7643e98477957df9809000000000000000000000000000000000000000000001125a213030ab598c1680000000000000000000000007ea5271a0f4ea160934553f4f94ec01f8b3299bd000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "address",
+                                        "name": "_operator",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "_swapper",
+                                        "type": "address"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "_swapDest",
+                                        "type": "address"
+                                    }
+                                ],
+                                "name": "redeemStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_operator": "0xefE0Fed2B728B9711030e7643E98477957dF9809",
+                                "_amount": 80974438421114455114088,
+                                "_swapper": "0x7ea5271a0f4EA160934553F4F94EC01F8B3299bD",
+                                "_swapDest": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x0fcfb05900000000000000000000000000000000000000000000151e1ebb9e259cc68000",
+                    {
+                        "prev_impl": "0x39ef3f37f06871b3824110475fbbd2e55bd4d9e4",
+                        "new_impl": "0xec0e6b7892dea03d42554111fd4ce4296d4b7e54",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "_amount",
+                                        "type": "uint256"
+                                    }
+                                ],
+                                "name": "depositStable",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "_amount": 99725313000000000000000
+                            }
+                        }
+                    }
+                ]
+            ]
+        },
+        "0xc662c410c0ecf747543f5ba90660f6abebd9c8c4": {
+            "4": [
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee500000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003031ba518c9398449ebed56f792945043fe404d08ca0340be23bd2810efb0a6b200000000000000000000000000000000000000000000000000038d7ea4c680000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    1405782872876187641816009764245147331014556180421142663022201606895100274354,
+                                    1000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee500000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003073eee30603f2eddb9c5f45fe58d227e7134a147b87323b0f423b193ad98df69000000000000000000000000000000000000000000000000002386f26fc100000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    3277378377943072732363518618163890555267793106132809207703890378718329757545,
+                                    10000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee500000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003067c4bb900d45780545e1d8c258fa754b279246fd8b43cd35ac9fda2d0367b85000000000000000000000000000000000000000000000000016345785d8a00000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    2933488746185613052946278526443192635455571096320185402701394068302489615237,
+                                    100000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee50000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000301e62b97fc3641056ffef82e64a991a037b29b5289050c660ae3ac03ef61a0b3000000000000000000000000000000000000000000000000002386f26fc100000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    858988546088169815271717418236934926193744349991355860253211294223336317107,
+                                    10000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee500000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003073eee30603f2eddb9c5f45fe58d227e7134a147b87323b0f423b193ad98df69000000000000000000000000000000000000000000000000002386f26fc100000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    3277378377943072732363518618163890555267793106132809207703890378718329757545,
+                                    10000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee500000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003027617944c9b0b25448355de1df285d78809ff4f13b6c33062cbe725442f79b400000000000000000000000000000000000000000000000000038d7ea4c680000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    1113276389115980427557006599549485821549474499331726886607143664137360341428,
+                                    1000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee500000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003064d416277dacf31db7aaab689c84539f31c5ed658f4bcbe15a17face132337d000000000000000000000000000000000000000000000000016345785d8a00000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    2850375583697024347093813121505269341982408043354826152904209974485281026941,
+                                    100000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee50000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000303f7b2f21343475ca8589f464761005a564df841b5451ad4b4d63fb40caab924000000000000000000000000000000000000000000000000000aa87bee5380000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    1794584807935492682596095782563464392821488569545900219011637327079922120996,
+                                    3000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee50000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000300c161616b9af2bb3075fe354dc40f92d00ee45bd86a3f2b3a550a3c88f866d500000000000000000000000000000000000000000000000000024f2beb1aa0000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    341673579344850761914496333532268484447513256210497523751499392068670219989,
+                                    650000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee50000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000301b14632036a33c180fc4e75b7d84b962c285140c02e078df3fca26de4930d5d00000000000000000000000000000000000000000000000000470de4df8200000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    765529249650275025964970670199031066047646288221446291382229367090350067037,
+                                    20000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee5000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000030413eab41b0f12e85d8fa93e244ee6c0dffd7b9a6afe47c88ad52bca97a86d6e00000000000000000000000000000000000000000000000000470de4df8200000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    1844441352849036835404313266178271075553449142830162809697638087252664413550,
+                                    20000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee500000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003061be99ad3c5b780dee96f2c6ca28cbd6bf09fcccc4493f74ce006a29a54867000000000000000000000000000000000000000000000000000000000000027100000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    2763194243281433169810234708476104764765012872195223386474414970046514497136,
+                                    10000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee5000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000030233d174cfa44aced1b7ea019e64874e48bcaeed8d6d7132c7ed69033d33b3d5000000000000000000000000000000000000000000000000002aa1efb94e00000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    996180511677753268743206845965274696394109419881446302140142104685627814869,
+                                    12000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee500000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003073e0ee5da2320d53e2b74445e9224e1fab418a47367858f107bf44189c9229b00000000000000000000000000000000000000000000000000071afd498d00000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    3275837279348296901623481468752380384381817168181315506012104567758525112987,
+                                    2000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee50000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000306a4e2ebb5c93cc5e17cb7fb08210df631e174072245f7cdc539bb1a90817b6d00000000000000000000000000000000000000000000000000024f2beb1aa0000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    3005206159529403862522786182241410983748592190963449843152653418575381494637,
+                                    650000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee500000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003076894036a56d7dac0a8c7d0a72dd0608701067b47699f690c95b5bcd0020397000000000000000000000000000000000000000000000000001c6bf5263400000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    3350963585357809823443545770773804877479984602802853148476939682194158388119,
+                                    8000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ],
+                [
+                    "0x3e3aa6c5073314940630fd6dcda0d772d4c972c4e0a9946bef9dabf4ef84eda8ef542b8202d757788a8d8d6f21d1cd40bce38a8222d70654214e96ff95d8086e684fbee500000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003006084df8ad99e95cbf714ddd818ac9cf3bd61043d89d775c3b0dacb583078f800000000000000000000000000000000000000000000000000071afd498d00000000000000000000000000000000000000000000000000000000000000000000",
+                    {
+                        "prev_impl": "0xdc109c4a1a3084ed15a97692fbef3e1fb32a6955",
+                        "new_impl": "0x2b3b750f1f10c85c8a6d476fc209a8dc7e4ca3f8",
+                        "decoded_input": {
+                            "func": {
+                                "inputs": [
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "toAddress",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256",
+                                        "name": "selector",
+                                        "type": "uint256"
+                                    },
+                                    {
+                                        "internalType": "uint256[]",
+                                        "name": "payload",
+                                        "type": "uint256[]"
+                                    }
+                                ],
+                                "name": "sendMessageToL2",
+                                "outputs": [
+                                    {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                    }
+                                ],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            "inputs": {
+                                "toAddress": 3256441166037631918262930812410838598500200462657642943867372734773841898370,
+                                "selector": 1285101517810983806491589552491143496277809242732141897358598292095611420389,
+                                "payload": [
+                                    170534375427227733648542067526530906955505649830718419110503382287712811256,
+                                    2000000000000000,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                ]
+            ]
+        }
+    }
+}

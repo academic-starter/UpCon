@@ -1,0 +1,414 @@
+{
+  "matches": [
+    {
+      "src": "struct_member [180,197]",
+      "dest": "struct_member [776,793]"
+    },
+    {
+      "src": "identifier: onlyGovernance [399,413]",
+      "dest": "identifier: onlyGovernance [996,1010]"
+    },
+    {
+      "src": "type_name [180,184]",
+      "dest": "type_name [776,780]"
+    },
+    {
+      "src": "^:  ^ [55,57]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "): ) [414,415]",
+      "dest": "): ) [1011,1012]"
+    },
+    {
+      "src": "call_argument [434,456]",
+      "dest": "call_argument [1031,1054]"
+    },
+    {
+      "src": "abstract: abstract [201,209]",
+      "dest": "abstract: abstract [797,805]"
+    },
+    {
+      "src": "bool: bool [310,314]",
+      "dest": "bool: bool [907,911]"
+    },
+    {
+      "src": "identifier: testGovernor [265,277]",
+      "dest": "identifier: testGovernor [862,874]"
+    },
+    {
+      "src": "(: ( [309,310]",
+      "dest": "(: ( [906,907]"
+    },
+    {
+      "src": "internal: internal [279,287]",
+      "dest": "internal: internal [876,884]"
+    },
+    {
+      "src": "contract_declaration [201,496]",
+      "dest": "contract_declaration [797,1094]"
+    },
+    {
+      "src": "identifier: sender [449,455]",
+      "dest": "identifier: sender [1047,1053]"
+    },
+    {
+      "src": "address: address [108,115]",
+      "dest": "address: address [704,711]"
+    },
+    {
+      "src": "{: { [416,417]",
+      "dest": "{: { [1013,1014]"
+    },
+    {
+      "src": "\": \" [474,475]",
+      "dest": "\": \" [1072,1073]"
+    },
+    {
+      "src": "=>: => [116,118]",
+      "dest": "=>: => [712,714]"
+    },
+    {
+      "src": "member_expression [445,455]",
+      "dest": "member_expression [1043,1053]"
+    },
+    {
+      "src": "mapping: mapping [100,107]",
+      "dest": "mapping: mapping [696,703]"
+    },
+    {
+      "src": "pragma_directive [40,64]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "function_body [416,494]",
+      "dest": "function_body [1013,1092]"
+    },
+    {
+      "src": "{: { [231,232]",
+      "dest": "{: { [827,828]"
+    },
+    {
+      "src": "identifier: MGovernance [219,230]",
+      "dest": "identifier: MGovernance [815,826]"
+    },
+    {
+      "src": "{: { [94,95]",
+      "dest": "{: { [690,691]"
+    },
+    {
+      "src": "struct: struct [66,72]",
+      "dest": "struct: struct [662,668]"
+    },
+    {
+      "src": "primitive_type [310,314]",
+      "dest": "primitive_type [907,911]"
+    },
+    {
+      "src": "call_expression [434,456]",
+      "dest": "call_expression [1031,1054]"
+    },
+    {
+      "src": "(: ( [107,108]",
+      "dest": "(: ( [703,704]"
+    },
+    {
+      "src": "modifier_definition [390,494]",
+      "dest": "modifier_definition [987,1092]"
+    },
+    {
+      "src": "): ) [314,315]",
+      "dest": "): ) [911,912]"
+    },
+    {
+      "src": "expression_statement [486,488]",
+      "dest": "expression_statement [1084,1086]"
+    },
+    {
+      "src": "string_literal [458,475]",
+      "dest": "string_literal [1056,1073]"
+    },
+    {
+      "src": "parameter [257,277]",
+      "dest": "parameter [854,874]"
+    },
+    {
+      "src": "): ) [277,278]",
+      "dest": "): ) [874,875]"
+    },
+    {
+      "src": "type_name [310,314]",
+      "dest": "type_name [907,911]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "struct_member [149,175]",
+      "dest": "struct_member [745,771]"
+    },
+    {
+      "src": "struct_member [100,144]",
+      "dest": "struct_member [696,740]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [57,63]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "call_argument [445,455]",
+      "dest": "call_argument [1043,1053]"
+    },
+    {
+      "src": "call_expression [426,476]",
+      "dest": "call_expression [1023,1074]"
+    },
+    {
+      "src": "identifier: candidateGovernor [157,174]",
+      "dest": "identifier: candidateGovernor [753,770]"
+    },
+    {
+      "src": "primitive_type [119,123]",
+      "dest": "primitive_type [715,719]"
+    },
+    {
+      "src": "identifier: msg [445,448]",
+      "dest": "identifier: msg [1043,1046]"
+    },
+    {
+      "src": ".: . [448,449]",
+      "dest": ".: . [1046,1047]"
+    },
+    {
+      "src": "state_mutability [288,292]",
+      "dest": "state_mutability [885,889]"
+    },
+    {
+      "src": "identifier: _ [486,487]",
+      "dest": "identifier: _ [1084,1085]"
+    },
+    {
+      "src": "function_definition [237,316]",
+      "dest": "function_definition [833,913]"
+    },
+    {
+      "src": "(: ( [444,445]",
+      "dest": "(: ( [1042,1043]"
+    },
+    {
+      "src": "contract_body [231,496]",
+      "dest": "contract_body [827,1094]"
+    },
+    {
+      "src": "\": \" [458,459]",
+      "dest": "\": \" [1056,1057]"
+    },
+    {
+      "src": "}: } [198,199]",
+      "dest": "}: } [794,795]"
+    },
+    {
+      "src": "expression_statement [426,477]",
+      "dest": "expression_statement [1023,1075]"
+    },
+    {
+      "src": "(: ( [433,434]",
+      "dest": "(: ( [1030,1031]"
+    },
+    {
+      "src": ",: , [456,457]",
+      "dest": ",: , [1054,1055]"
+    },
+    {
+      "src": "address: address [149,156]",
+      "dest": "address: address [745,752]"
+    },
+    {
+      "src": "(: ( [413,414]",
+      "dest": "(: ( [1010,1011]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [55,57]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "type_name [119,123]",
+      "dest": "type_name [715,719]"
+    },
+    {
+      "src": "contract: contract [210,218]",
+      "dest": "contract: contract [806,814]"
+    },
+    {
+      "src": "primitive_type [257,264]",
+      "dest": "primitive_type [854,861]"
+    },
+    {
+      "src": "): ) [455,456]",
+      "dest": "): ) [1053,1054]"
+    },
+    {
+      "src": "call_argument [458,475]",
+      "dest": "call_argument [1056,1073]"
+    },
+    {
+      "src": "returns: returns [301,308]",
+      "dest": "returns: returns [898,905]"
+    },
+    {
+      "src": "}: } [495,496]",
+      "dest": "}: } [1093,1094]"
+    },
+    {
+      "src": "type_name [100,124]",
+      "dest": "type_name [696,720]"
+    },
+    {
+      "src": "}: } [493,494]",
+      "dest": "}: } [1091,1092]"
+    },
+    {
+      "src": "source_file [0,497]",
+      "dest": "source_file [0,1095]"
+    },
+    {
+      "src": "identifier: isGovernor [246,256]",
+      "dest": "identifier: _isGovernor [842,853]"
+    },
+    {
+      "src": "(: ( [256,257]",
+      "dest": "(: ( [853,854]"
+    },
+    {
+      "src": "): ) [123,124]",
+      "dest": "): ) [719,720]"
+    },
+    {
+      "src": "modifier: modifier [390,398]",
+      "dest": "modifier: modifier [987,995]"
+    },
+    {
+      "src": "return_type_definition [301,315]",
+      "dest": "return_type_definition [898,912]"
+    },
+    {
+      "src": "identifier: isGovernor [434,444]",
+      "dest": "identifier: _isGovernor [1031,1042]"
+    },
+    {
+      "src": "view: view [288,292]",
+      "dest": "view: view [885,889]"
+    },
+    {
+      "src": "bool: bool [180,184]",
+      "dest": "bool: bool [776,780]"
+    },
+    {
+      "src": "identifier: initialized [185,196]",
+      "dest": "identifier: initialized [781,792]"
+    },
+    {
+      "src": "pragma: pragma [40,46]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "parameter [310,314]",
+      "dest": "parameter [907,911]"
+    },
+    {
+      "src": "function: function [237,245]",
+      "dest": "function: function [833,841]"
+    },
+    {
+      "src": "solidity: solidity [47,55]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "virtual: virtual [293,300]",
+      "dest": "virtual: virtual [890,897]"
+    },
+    {
+      "src": "primitive_type [180,184]",
+      "dest": "primitive_type [776,780]"
+    },
+    {
+      "src": "identifier: require [426,433]",
+      "dest": "identifier: require [1023,1030]"
+    },
+    {
+      "src": "comment: /*       Allows calling the function only by a Governor.     */ [322,385]",
+      "dest": "comment: /*       Allows calling the function only by a Governor.     */ [919,982]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [73,93]",
+      "dest": "identifier: GovernanceInfoStruct [669,689]"
+    },
+    {
+      "src": "identifier: effectiveGovernors [125,143]",
+      "dest": "identifier: effectiveGovernors [721,739]"
+    },
+    {
+      "src": "primitive_type [108,115]",
+      "dest": "primitive_type [704,711]"
+    },
+    {
+      "src": "type_name [149,156]",
+      "dest": "type_name [745,752]"
+    },
+    {
+      "src": "address: address [257,264]",
+      "dest": "address: address [854,861]"
+    },
+    {
+      "src": "string [458,475]",
+      "dest": "string [1056,1073]"
+    },
+    {
+      "src": "solidity_pragma_token [47,63]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "visibility [279,287]",
+      "dest": "visibility [876,884]"
+    },
+    {
+      "src": "primitive_type [149,156]",
+      "dest": "primitive_type [745,752]"
+    },
+    {
+      "src": "type_name [257,264]",
+      "dest": "type_name [854,861]"
+    },
+    {
+      "src": "struct_declaration [66,199]",
+      "dest": "struct_declaration [662,795]"
+    },
+    {
+      "src": "): ) [475,476]",
+      "dest": "): ) [1073,1074]"
+    },
+    {
+      "src": "bool: bool [119,123]",
+      "dest": "bool: bool [715,719]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "insert-node",
+      "tree": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "parent": "source_file [0,1095]",
+      "at": 0
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: isGovernor [246,256]",
+      "label": "_isGovernor"
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: isGovernor [434,444]",
+      "label": "_isGovernor"
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "matches": [
+    {
+      "src": "primitive_type [474,481]",
+      "dest": "primitive_type [474,481]"
+    },
+    {
+      "src": "extcodesize: extcodesize [1023,1034]",
+      "dest": "extcodesize: extcodesize [1023,1034]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [15,17]",
+      "dest": "solidity_version_comparison_operator [15,17]"
+    },
+    {
+      "src": "return: return [1052,1058]",
+      "dest": "return: return [1052,1058]"
+    },
+    {
+      "src": "(: ( [511,512]",
+      "dest": "(: ( [511,512]"
+    },
+    {
+      "src": "library: library [87,94]",
+      "dest": "library: library [87,94]"
+    },
+    {
+      "src": "identifier: size [1015,1019]",
+      "dest": "identifier: size [1015,1019]"
+    },
+    {
+      "src": "returns: returns [503,510]",
+      "dest": "returns: returns [503,510]"
+    },
+    {
+      "src": "return_statement [1052,1068]",
+      "dest": "return_statement [1052,1068]"
+    },
+    {
+      "src": "function_definition [454,1074]",
+      "dest": "function_definition [454,1074]"
+    },
+    {
+      "src": "comment: // See https://ethereum.stackexchange.com/a/14016/36603 [707,762]",
+      "dest": "comment: // See https://ethereum.stackexchange.com/a/14016/36603 [707,762]"
+    },
+    {
+      "src": "comment: // than to check the size of the code at that address. [644,698]",
+      "dest": "comment: // than to check the size of the code at that address. [644,698]"
+    },
+    {
+      "src": "view: view [498,502]",
+      "dest": "view: view [498,502]"
+    },
+    {
+      "src": "yul_evm_builtin [1023,1034]",
+      "dest": "yul_evm_builtin [1023,1034]"
+    },
+    {
+      "src": "comment: /**      * Returns whether the target address is a contract      * @dev This function will return false if invoked during the constructor of a contract,      * as the code is not actually created until after the constructor finishes.      * @param _addr address to check      * @return whether the target address is a contract      */ [115,449]",
+      "dest": "comment: /**      * Returns whether the target address is a contract      * @dev This function will return false if invoked during the constructor of a contract,      * as the code is not actually created until after the constructor finishes.      * @param _addr address to check      * @return whether the target address is a contract      */ [115,449]"
+    },
+    {
+      "src": "type_name [474,481]",
+      "dest": "type_name [474,481]"
+    },
+    {
+      "src": "function_body [518,1074]",
+      "dest": "function_body [518,1074]"
+    },
+    {
+      "src": "primitive_type [512,516]",
+      "dest": "primitive_type [512,516]"
+    },
+    {
+      "src": "yul_function_call [1023,1041]",
+      "dest": "yul_function_call [1023,1041]"
+    },
+    {
+      "src": "return_type_definition [503,517]",
+      "dest": "return_type_definition [503,517]"
+    },
+    {
+      "src": "comment: // XXX Currently there is no better way to check if there is a contract in an address [550,635]",
+      "dest": "comment: // XXX Currently there is no better way to check if there is a contract in an address [550,635]"
+    },
+    {
+      "src": "{: { [108,109]",
+      "dest": "{: { [108,109]"
+    },
+    {
+      "src": "contract_body [108,1077]",
+      "dest": "contract_body [108,1077]"
+    },
+    {
+      "src": "identifier: AddressUtils [95,107]",
+      "dest": "identifier: AddressUtils [95,107]"
+    },
+    {
+      "src": "state_mutability [498,502]",
+      "dest": "state_mutability [498,502]"
+    },
+    {
+      "src": ":=: := [1020,1022]",
+      "dest": ":=: := [1020,1022]"
+    },
+    {
+      "src": "pragma_directive [0,24]",
+      "dest": "pragma_directive [0,24]"
+    },
+    {
+      "src": "primitive_type [528,535]",
+      "dest": "primitive_type [528,535]"
+    },
+    {
+      "src": "comment: // for more details about how this works. [771,812]",
+      "dest": "comment: // for more details about how this works. [771,812]"
+    },
+    {
+      "src": "parameter [474,487]",
+      "dest": "parameter [474,487]"
+    },
+    {
+      "src": "library_declaration [87,1077]",
+      "dest": "library_declaration [87,1077]"
+    },
+    {
+      "src": "internal: internal [489,497]",
+      "dest": "internal: internal [489,497]"
+    },
+    {
+      "src": "source_file [0,1078]",
+      "dest": "source_file [0,1078]"
+    },
+    {
+      "src": "solidity: solidity [7,15]",
+      "dest": "solidity: solidity [7,15]"
+    },
+    {
+      "src": "identifier: _addr [482,487]",
+      "dest": "identifier: _addr [482,487]"
+    },
+    {
+      "src": "type_name [528,535]",
+      "dest": "type_name [528,535]"
+    },
+    {
+      "src": "assembly_statement [1004,1043]",
+      "dest": "assembly_statement [1004,1043]"
+    },
+    {
+      "src": "comment: // solium-disable-next-line security/no-inline-assembly [940,995]",
+      "dest": "comment: // solium-disable-next-line security/no-inline-assembly [940,995]"
+    },
+    {
+      "src": "}: } [1042,1043]",
+      "dest": "}: } [1042,1043]"
+    },
+    {
+      "src": "variable_declaration_statement [528,541]",
+      "dest": "variable_declaration_statement [528,541]"
+    },
+    {
+      "src": "): ) [487,488]",
+      "dest": "): ) [487,488]"
+    },
+    {
+      "src": "yul_path [1015,1019]",
+      "dest": "yul_path [1015,1019]"
+    },
+    {
+      "src": "comment: // TODO Check this again before the Serenity release, because all addresses will be [821,904]",
+      "dest": "comment: // TODO Check this again before the Serenity release, because all addresses will be [821,904]"
+    },
+    {
+      "src": "parameter [512,516]",
+      "dest": "parameter [512,516]"
+    },
+    {
+      "src": "yul_path [1035,1040]",
+      "dest": "yul_path [1035,1040]"
+    },
+    {
+      "src": "yul_identifier [1035,1040]",
+      "dest": "yul_identifier [1035,1040]"
+    },
+    {
+      "src": "comment: // contracts then. [913,931]",
+      "dest": "comment: // contracts then. [913,931]"
+    },
+    {
+      "src": "type_name [512,516]",
+      "dest": "type_name [512,516]"
+    },
+    {
+      "src": "yul_assignment [1015,1041]",
+      "dest": "yul_assignment [1015,1041]"
+    },
+    {
+      "src": "uint256: uint256 [528,535]",
+      "dest": "uint256: uint256 [528,535]"
+    },
+    {
+      "src": "}: } [1076,1077]",
+      "dest": "}: } [1076,1077]"
+    },
+    {
+      "src": "): ) [1040,1041]",
+      "dest": "): ) [1040,1041]"
+    },
+    {
+      "src": "yul_identifier [1015,1019]",
+      "dest": "yul_identifier [1015,1019]"
+    },
+    {
+      "src": "address: address [474,481]",
+      "dest": "address: address [474,481]"
+    },
+    {
+      "src": "solidity_version: 0.4.24 [17,23]",
+      "dest": "solidity_version: 0.4.24 [17,23]"
+    },
+    {
+      "src": "visibility [489,497]",
+      "dest": "visibility [489,497]"
+    },
+    {
+      "src": "number_literal: 0 [1066,1067]",
+      "dest": "number_literal: 0 [1066,1067]"
+    },
+    {
+      "src": "^:  ^ [15,17]",
+      "dest": "^:  ^ [15,17]"
+    },
+    {
+      "src": "function: function [454,462]",
+      "dest": "function: function [454,462]"
+    },
+    {
+      "src": "identifier: isContract [463,473]",
+      "dest": "identifier: isContract [463,473]"
+    },
+    {
+      "src": "{: { [518,519]",
+      "dest": "{: { [518,519]"
+    },
+    {
+      "src": "(: ( [1034,1035]",
+      "dest": "(: ( [1034,1035]"
+    },
+    {
+      "src": "identifier: size [1059,1063]",
+      "dest": "identifier: size [1059,1063]"
+    },
+    {
+      "src": "): ) [516,517]",
+      "dest": "): ) [516,517]"
+    },
+    {
+      "src": "{: { [1013,1014]",
+      "dest": "{: { [1013,1014]"
+    },
+    {
+      "src": "}: } [1073,1074]",
+      "dest": "}: } [1073,1074]"
+    },
+    {
+      "src": "solidity_pragma_token [7,23]",
+      "dest": "solidity_pragma_token [7,23]"
+    },
+    {
+      "src": "variable_declaration [528,540]",
+      "dest": "variable_declaration [528,540]"
+    },
+    {
+      "src": "binary_expression [1059,1067]",
+      "dest": "binary_expression [1059,1067]"
+    },
+    {
+      "src": "(: ( [473,474]",
+      "dest": "(: ( [473,474]"
+    },
+    {
+      "src": "identifier: _addr [1035,1040]",
+      "dest": "identifier: _addr [1035,1040]"
+    },
+    {
+      "src": ">: > [1064,1065]",
+      "dest": ">: > [1064,1065]"
+    },
+    {
+      "src": "pragma: pragma [0,6]",
+      "dest": "pragma: pragma [0,6]"
+    },
+    {
+      "src": "comment: /**  * Utility library of inline functions on addresses  */ [27,86]",
+      "dest": "comment: /**  * Utility library of inline functions on addresses  */ [27,86]"
+    },
+    {
+      "src": "bool: bool [512,516]",
+      "dest": "bool: bool [512,516]"
+    },
+    {
+      "src": "identifier: size [536,540]",
+      "dest": "identifier: size [536,540]"
+    },
+    {
+      "src": "assembly: assembly [1004,1012]",
+      "dest": "assembly: assembly [1004,1012]"
+    }
+  ],
+  "actions": []
+}

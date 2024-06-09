@@ -1,0 +1,626 @@
+{
+  "matches": [
+    {
+      "src": "import: import [66,72]",
+      "dest": "import: import [686,692]"
+    },
+    {
+      "src": "identifier: MGovernance [483,494]",
+      "dest": "identifier: MGovernance [1079,1090]"
+    },
+    {
+      "src": "primitive_type [965,969]",
+      "dest": "primitive_type [1561,1565]"
+    },
+    {
+      "src": "import: import [90,96]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "modifier_invocation [577,591]",
+      "dest": "modifier_invocation [1173,1187]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [57,63]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "identifier: onlyGovernance [577,591]",
+      "dest": "identifier: onlyGovernance [1173,1187]"
+    },
+    {
+      "src": "function: function [693,701]",
+      "dest": "function: function [1289,1297]"
+    },
+    {
+      "src": "array_access [602,629]",
+      "dest": "array_access [1198,1225]"
+    },
+    {
+      "src": "]: ] [628,629]",
+      "dest": "]: ] [1224,1225]"
+    },
+    {
+      "src": "modifier_invocation [764,778]",
+      "dest": "modifier_invocation [1360,1374]"
+    },
+    {
+      "src": "primitive_type [721,728]",
+      "dest": "primitive_type [1317,1324]"
+    },
+    {
+      "src": "(: ( [614,615]",
+      "dest": "(: ( [1210,1211]"
+    },
+    {
+      "src": "function_body [779,885]",
+      "dest": "function_body [1375,1481]"
+    },
+    {
+      "src": "contract_declaration [453,1027]",
+      "dest": "contract_declaration [1049,1623]"
+    },
+    {
+      "src": "(: ( [1000,1001]",
+      "dest": "(: ( [1596,1597]"
+    },
+    {
+      "src": "array_access [789,820]",
+      "dest": "array_access [1385,1416]"
+    },
+    {
+      "src": "external: external [746,754]",
+      "dest": "external: external [1342,1350]"
+    },
+    {
+      "src": "identifier: registerOperator [521,537]",
+      "dest": "identifier: registerOperator [1117,1133]"
+    },
+    {
+      "src": "address: address [911,918]",
+      "dest": "address: address [1507,1514]"
+    },
+    {
+      "src": "call_argument [668,679]",
+      "dest": "call_argument [1264,1275]"
+    },
+    {
+      "src": "function_definition [891,1025]",
+      "dest": "function_definition [1487,1621]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "(: ( [537,538]",
+      "dest": "(: ( [1133,1134]"
+    },
+    {
+      "src": "identifier: removedOperator [729,744]",
+      "dest": "identifier: removedOperator [1325,1340]"
+    },
+    {
+      "src": "{: { [506,507]",
+      "dest": "{: { [1102,1103]"
+    },
+    {
+      "src": "boolean_literal [632,636]",
+      "dest": "boolean_literal [1228,1232]"
+    },
+    {
+      "src": "true: true [632,636]",
+      "dest": "true: true [1228,1232]"
+    },
+    {
+      "src": "identifier: Operator [471,479]",
+      "dest": "identifier: Operator [1067,1075]"
+    },
+    {
+      "src": "emit_statement [646,681]",
+      "dest": "emit_statement [1242,1277]"
+    },
+    {
+      "src": "emit: emit [838,842]",
+      "dest": "emit: emit [1434,1438]"
+    },
+    {
+      "src": "call_argument [862,877]",
+      "dest": "call_argument [1458,1473]"
+    },
+    {
+      "src": "): ) [802,803]",
+      "dest": "): ) [1398,1399]"
+    },
+    {
+      "src": "user_defined_type [496,505]",
+      "dest": "user_defined_type [1092,1101]"
+    },
+    {
+      "src": ",: , [494,495]",
+      "dest": ",: , [1090,1091]"
+    },
+    {
+      "src": "identifier: newOperator [617,628]",
+      "dest": "identifier: newOperator [1213,1224]"
+    },
+    {
+      "src": "]: ] [819,820]",
+      "dest": "]: ] [1415,1416]"
+    },
+    {
+      "src": "emit_statement [838,879]",
+      "dest": "emit_statement [1434,1475]"
+    },
+    {
+      "src": "boolean_literal [823,828]",
+      "dest": "boolean_literal [1419,1424]"
+    },
+    {
+      "src": "contract: contract [462,470]",
+      "dest": "contract: contract [1058,1066]"
+    },
+    {
+      "src": "function_definition [512,687]",
+      "dest": "function_definition [1108,1283]"
+    },
+    {
+      "src": "return: return [981,987]",
+      "dest": "return: return [1577,1583]"
+    },
+    {
+      "src": "=: = [630,631]",
+      "dest": "=: = [1226,1227]"
+    },
+    {
+      "src": "override: override [947,955]",
+      "dest": "override: override [1543,1551]"
+    },
+    {
+      "src": "override_specifier [755,763]",
+      "dest": "override_specifier [1351,1359]"
+    },
+    {
+      "src": "pragma: pragma [40,46]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "expression_statement [789,829]",
+      "dest": "expression_statement [1385,1425]"
+    },
+    {
+      "src": "emit: emit [646,650]",
+      "dest": "emit: emit [1242,1246]"
+    },
+    {
+      "src": "true [632,636]",
+      "dest": "true [1228,1232]"
+    },
+    {
+      "src": "): ) [877,878]",
+      "dest": "): ) [1473,1474]"
+    },
+    {
+      "src": "[: [ [616,617]",
+      "dest": "[: [ [1212,1213]"
+    },
+    {
+      "src": "): ) [969,970]",
+      "dest": "): ) [1565,1566]"
+    },
+    {
+      "src": "identifier: LogOperatorRemoved [843,861]",
+      "dest": "identifier: LogOperatorRemoved [1439,1457]"
+    },
+    {
+      "src": "): ) [557,558]",
+      "dest": "): ) [1153,1154]"
+    },
+    {
+      "src": "string [73,88]",
+      "dest": "string [693,710]"
+    },
+    {
+      "src": "state_mutability [942,946]",
+      "dest": "state_mutability [1538,1542]"
+    },
+    {
+      "src": "}: } [1026,1027]",
+      "dest": "}: } [1622,1623]"
+    },
+    {
+      "src": "identifier: MOperator [496,505]",
+      "dest": "identifier: MOperator [1092,1101]"
+    },
+    {
+      "src": "identifier: unregisterOperator [702,720]",
+      "dest": "identifier: unregisterOperator [1298,1316]"
+    },
+    {
+      "src": "address: address [721,728]",
+      "dest": "address: address [1317,1324]"
+    },
+    {
+      "src": "user_defined_type [483,494]",
+      "dest": "user_defined_type [1079,1090]"
+    },
+    {
+      "src": "pragma_directive [40,64]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "override: override [568,576]",
+      "dest": "override: override [1164,1172]"
+    },
+    {
+      "src": "call_expression [602,616]",
+      "dest": "call_expression [1198,1212]"
+    },
+    {
+      "src": "type_name [538,545]",
+      "dest": "type_name [1134,1141]"
+    },
+    {
+      "src": "false [823,828]",
+      "dest": "false [1419,1424]"
+    },
+    {
+      "src": "): ) [744,745]",
+      "dest": "): ) [1340,1341]"
+    },
+    {
+      "src": "visibility [746,754]",
+      "dest": "visibility [1342,1350]"
+    },
+    {
+      "src": "override: override [755,763]",
+      "dest": "override: override [1351,1359]"
+    },
+    {
+      "src": "call_expression [988,1002]",
+      "dest": "call_expression [1584,1598]"
+    },
+    {
+      "src": "identifier: getOperators [988,1000]",
+      "dest": "identifier: getOperators [1584,1596]"
+    },
+    {
+      "src": "identifier: onlyGovernance [764,778]",
+      "dest": "identifier: onlyGovernance [1360,1374]"
+    },
+    {
+      "src": "\": \" [113,114]",
+      "dest": "\": \" [683,684]"
+    },
+    {
+      "src": "public: public [935,941]",
+      "dest": "public: public [1531,1537]"
+    },
+    {
+      "src": "import_directive [66,89]",
+      "dest": "import_directive [686,711]"
+    },
+    {
+      "src": "): ) [933,934]",
+      "dest": "): ) [1529,1530]"
+    },
+    {
+      "src": "]: ] [1017,1018]",
+      "dest": "]: ] [1613,1614]"
+    },
+    {
+      "src": "abstract: abstract [453,461]",
+      "dest": "abstract: abstract [1049,1057]"
+    },
+    {
+      "src": "[: [ [803,804]",
+      "dest": "[: [ [1399,1400]"
+    },
+    {
+      "src": "(: ( [667,668]",
+      "dest": "(: ( [1263,1264]"
+    },
+    {
+      "src": "(: ( [910,911]",
+      "dest": "(: ( [1506,1507]"
+    },
+    {
+      "src": "assignment_expression [789,828]",
+      "dest": "assignment_expression [1385,1424]"
+    },
+    {
+      "src": "assignment_expression [602,636]",
+      "dest": "assignment_expression [1198,1232]"
+    },
+    {
+      "src": "is: is [480,482]",
+      "dest": "is: is [1076,1078]"
+    },
+    {
+      "src": "identifier: testedOperator [919,933]",
+      "dest": "identifier: testedOperator [1515,1529]"
+    },
+    {
+      "src": "{: { [971,972]",
+      "dest": "{: { [1567,1568]"
+    },
+    {
+      "src": "[: [ [1002,1003]",
+      "dest": "[: [ [1598,1599]"
+    },
+    {
+      "src": "comment: /**   The Operator of the contract is the entity entitled to submit state update requests   by calling :sol:func:`updateState`.    An Operator may be instantly appointed or removed by the contract Governor   (see :sol:mod:`Governance`). Typically, the Operator is the hot wallet of the service   submitting proofs for state updates. */ [117,452]",
+      "dest": "comment: /**   The Operator of the contract is the entity entitled to submit state update requests   by calling :sol:func:`updateState`.    An Operator may be instantly appointed or removed by the contract Governor   (see :sol:mod:`Governance`). Typically, the Operator is the hot wallet of the service   submitting proofs for state updates. */ [713,1048]"
+    },
+    {
+      "src": "string [97,114]",
+      "dest": "string [669,684]"
+    },
+    {
+      "src": "override_specifier [568,576]",
+      "dest": "override_specifier [1164,1172]"
+    },
+    {
+      "src": "primitive_type [911,918]",
+      "dest": "primitive_type [1507,1514]"
+    },
+    {
+      "src": "array_access [988,1018]",
+      "dest": "array_access [1584,1614]"
+    },
+    {
+      "src": "function_definition [693,885]",
+      "dest": "function_definition [1289,1481]"
+    },
+    {
+      "src": "=: = [821,822]",
+      "dest": "=: = [1417,1418]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [55,57]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "parameter [538,557]",
+      "dest": "parameter [1134,1153]"
+    },
+    {
+      "src": "^:  ^ [55,57]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "(: ( [861,862]",
+      "dest": "(: ( [1457,1458]"
+    },
+    {
+      "src": "parameter [721,744]",
+      "dest": "parameter [1317,1340]"
+    },
+    {
+      "src": "import_directive [90,115]",
+      "dest": "import_directive [662,685]"
+    },
+    {
+      "src": "identifier: getOperators [602,614]",
+      "dest": "identifier: getOperators [1198,1210]"
+    },
+    {
+      "src": "identifier: removedOperator [804,819]",
+      "dest": "identifier: removedOperator [1400,1415]"
+    },
+    {
+      "src": "(: ( [964,965]",
+      "dest": "(: ( [1560,1561]"
+    },
+    {
+      "src": "}: } [884,885]",
+      "dest": "}: } [1480,1481]"
+    },
+    {
+      "src": "contract_body [506,1027]",
+      "dest": "contract_body [1102,1623]"
+    },
+    {
+      "src": "): ) [1001,1002]",
+      "dest": "): ) [1597,1598]"
+    },
+    {
+      "src": "source_file [0,1028]",
+      "dest": "source_file [0,1624]"
+    },
+    {
+      "src": "identifier: removedOperator [862,877]",
+      "dest": "identifier: removedOperator [1458,1473]"
+    },
+    {
+      "src": "address: address [538,545]",
+      "dest": "address: address [1134,1141]"
+    },
+    {
+      "src": "type_name [911,918]",
+      "dest": "type_name [1507,1514]"
+    },
+    {
+      "src": "{: { [779,780]",
+      "dest": "{: { [1375,1376]"
+    },
+    {
+      "src": "{: { [592,593]",
+      "dest": "{: { [1188,1189]"
+    },
+    {
+      "src": "parameter [965,969]",
+      "dest": "parameter [1561,1565]"
+    },
+    {
+      "src": "expression_statement [602,637]",
+      "dest": "expression_statement [1198,1233]"
+    },
+    {
+      "src": "return_type_definition [956,970]",
+      "dest": "return_type_definition [1552,1566]"
+    },
+    {
+      "src": "identifier: newOperator [668,679]",
+      "dest": "identifier: newOperator [1264,1275]"
+    },
+    {
+      "src": "solidity_pragma_token [47,63]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "\": \" [97,98]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "): ) [615,616]",
+      "dest": "): ) [1211,1212]"
+    },
+    {
+      "src": "}: } [686,687]",
+      "dest": "}: } [1282,1283]"
+    },
+    {
+      "src": "view: view [942,946]",
+      "dest": "view: view [1538,1542]"
+    },
+    {
+      "src": "function_body [592,687]",
+      "dest": "function_body [1188,1283]"
+    },
+    {
+      "src": "bool: bool [965,969]",
+      "dest": "bool: bool [1561,1565]"
+    },
+    {
+      "src": "identifier: testedOperator [1003,1017]",
+      "dest": "identifier: testedOperator [1599,1613]"
+    },
+    {
+      "src": "parameter [911,933]",
+      "dest": "parameter [1507,1529]"
+    },
+    {
+      "src": "inheritance_specifier [496,505]",
+      "dest": "inheritance_specifier [1092,1101]"
+    },
+    {
+      "src": "identifier: newOperator [546,557]",
+      "dest": "identifier: newOperator [1142,1153]"
+    },
+    {
+      "src": "identifier: getOperators [789,801]",
+      "dest": "identifier: getOperators [1385,1397]"
+    },
+    {
+      "src": "return_statement [981,1019]",
+      "dest": "return_statement [1577,1615]"
+    },
+    {
+      "src": "function: function [512,520]",
+      "dest": "function: function [1108,1116]"
+    },
+    {
+      "src": "\": \" [73,74]",
+      "dest": "\": \" [693,694]"
+    },
+    {
+      "src": "function_body [971,1025]",
+      "dest": "function_body [1567,1621]"
+    },
+    {
+      "src": "visibility [559,567]",
+      "dest": "visibility [1155,1163]"
+    },
+    {
+      "src": "type_name [721,728]",
+      "dest": "type_name [1317,1324]"
+    },
+    {
+      "src": "identifier: isOperator [900,910]",
+      "dest": "identifier: isOperator [1496,1506]"
+    },
+    {
+      "src": "identifier: LogOperatorAdded [651,667]",
+      "dest": "identifier: LogOperatorAdded [1247,1263]"
+    },
+    {
+      "src": "): ) [679,680]",
+      "dest": "): ) [1275,1276]"
+    },
+    {
+      "src": "false: false [823,828]",
+      "dest": "false: false [1419,1424]"
+    },
+    {
+      "src": "\": \" [87,88]",
+      "dest": "\": \" [709,710]"
+    },
+    {
+      "src": "type_name [965,969]",
+      "dest": "type_name [1561,1565]"
+    },
+    {
+      "src": "solidity: solidity [47,55]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "call_expression [789,803]",
+      "dest": "call_expression [1385,1399]"
+    },
+    {
+      "src": "external: external [559,567]",
+      "dest": "external: external [1155,1163]"
+    },
+    {
+      "src": "function: function [891,899]",
+      "dest": "function: function [1487,1495]"
+    },
+    {
+      "src": "(: ( [720,721]",
+      "dest": "(: ( [1316,1317]"
+    },
+    {
+      "src": "(: ( [801,802]",
+      "dest": "(: ( [1397,1398]"
+    },
+    {
+      "src": "visibility [935,941]",
+      "dest": "visibility [1531,1537]"
+    },
+    {
+      "src": "inheritance_specifier [483,494]",
+      "dest": "inheritance_specifier [1079,1090]"
+    },
+    {
+      "src": "returns: returns [956,963]",
+      "dest": "returns: returns [1552,1559]"
+    },
+    {
+      "src": "}: } [1024,1025]",
+      "dest": "}: } [1620,1621]"
+    },
+    {
+      "src": "override_specifier [947,955]",
+      "dest": "override_specifier [1543,1551]"
+    },
+    {
+      "src": "primitive_type [538,545]",
+      "dest": "primitive_type [1134,1141]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "move-tree",
+      "tree": "import_directive [66,89]",
+      "parent": "source_file [0,1624]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "parent": "source_file [0,1624]",
+      "at": 0
+    }
+  ]
+}

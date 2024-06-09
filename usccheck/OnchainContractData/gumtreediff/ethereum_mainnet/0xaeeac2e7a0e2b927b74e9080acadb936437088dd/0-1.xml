@@ -1,0 +1,1364 @@
+<?xml version="1.0" ?>
+<matches>
+  <match src="primitive_type [3632,3639]" dest="primitive_type [3758,3765]"/>
+  <match src="identifier: releaseEnd [8088,8098]" dest="identifier: releaseEnd [8995,9005]"/>
+  <match src="identifier: mul [3049,3052]" dest="identifier: mul [3175,3178]"/>
+  <match src="type_name [3053,3060]" dest="type_name [3179,3186]"/>
+  <match src="return_statement [4421,4430]" dest="return_statement [4547,4556]"/>
+  <match src="return_statement [4183,4192]" dest="return_statement [4309,4318]"/>
+  <match src="identifier: _amount [5174,5181]" dest="identifier: _amount [5417,5424]"/>
+  <match src="identifier: timestamp [6697,6706]" dest="identifier: timestamp [7273,7282]"/>
+  <match src="): ) [6733,6734]" dest="): ) [7309,7310]"/>
+  <match src="assignment_expression [6249,6280]" dest="assignment_expression [6826,6857]"/>
+  <match src="call_expression [8134,8232]" dest="call_expression [9041,9139]"/>
+  <match src="identifier: c [4401,4402]" dest="identifier: c [4527,4528]"/>
+  <match src="identifier: a [4709,4710]" dest="identifier: a [4835,4836]"/>
+  <match src="): ) [4946,4947]" dest="): ) [5189,5190]"/>
+  <match src="member_expression [8158,8181]" dest="member_expression [9065,9088]"/>
+  <match src="visibility [7645,7653]" dest="visibility [8551,8559]"/>
+  <match src="uint256: uint256 [4073,4080]" dest="uint256: uint256 [4199,4206]"/>
+  <match src=",: , [3630,3631]" dest=",: , [3756,3757]"/>
+  <match src="variable_declaration [8026,8053]" dest="variable_declaration [8933,8960]"/>
+  <match src="function_body [4354,4437]" dest="function_body [4480,4563]"/>
+  <match src="comment: // Solidity only automatically asserts when dividing by 0 [3686,3743]" dest="comment: // Solidity only automatically asserts when dividing by 0 [3812,3869]"/>
+  <match src=".: . [8177,8178]" dest=".: . [9084,9085]"/>
+  <match src="&quot;: &quot; [6445,6446]" dest="&quot;: &quot; [7022,7023]"/>
+  <match src="identifier: length [5754,5760]" dest="identifier: length [6331,6337]"/>
+  <match src="type_name [1837,1844]" dest="type_name [1891,1898]"/>
+  <match src="comment: /**      * @dev Moves `amount` tokens from `sender` to `recipient` using the      * allowance mechanism. `amount` is then deducted from the caller's      * allowance.      *      * Returns a boolean value indicating whether the operation succeeded.      *      * Emits a {Transfer} event.      */ [1885,2189]" dest="comment: /**      * @dev Moves `amount` tokens from `sender` to `recipient` using the      * allowance mechanism. `amount` is then deducted from the caller's      * allowance.      *      * Returns a boolean value indicating whether the operation succeeded.      *      * Emits a {Transfer} event.      */ [1939,2243]"/>
+  <match src="primitive_type [2721,2728]" dest="primitive_type [2775,2782]"/>
+  <match src="primitive_type [8547,8554]" dest="primitive_type [8102,8109]"/>
+  <match src="member_expression [8202,8216]" dest="member_expression [9109,9123]"/>
+  <match src="member_expression [7100,7118]" dest="member_expression [7676,7694]"/>
+  <match src="type_name [2252,2259]" dest="type_name [2306,2313]"/>
+  <match src="primitive_type [5143,5150]" dest="primitive_type [5386,5393]"/>
+  <match src="(: ( [8900,8901]" dest="(: ( [8058,8059]"/>
+  <match src="expression_statement [6745,6858]" dest="expression_statement [7321,7434]"/>
+  <match src="identifier: releaseStart [6160,6172]" dest="identifier: releaseStart [6737,6749]"/>
+  <match src="identifier: grantedToken [5004,5016]" dest="identifier: grantedToken [5247,5259]"/>
+  <match src="external: external [2268,2276]" dest="external: external [2322,2330]"/>
+  <match src="comment: /**      * @dev Divides two unsigned integers and returns the remainder (unsigned integer modulo),      * reverts when dividing by zero.      */ [4445,4592]" dest="comment: /**      * @dev Divides two unsigned integers and returns the remainder (unsigned integer modulo),      * reverts when dividing by zero.      */ [4571,4718]"/>
+  <match src="return: return [7687,7693]" dest="return: return [8593,8599]"/>
+  <match src="uint256: uint256 [5593,5600]" dest="uint256: uint256 [6172,6179]"/>
+  <match src="uint256: uint256 [3666,3673]" dest="uint256: uint256 [3792,3799]"/>
+  <match src="binary_expression [6753,6787]" dest="binary_expression [7329,7363]"/>
+  <match src="[: [ [6987,6988]" dest="[: [ [7563,7564]"/>
+  <match src="variable_declaration [4153,4162]" dest="variable_declaration [4279,4288]"/>
+  <match src="): ) [3766,3767]" dest="): ) [3892,3893]"/>
+  <match src="state_variable_declaration [4818,4845]" dest="state_variable_declaration [5061,5088]"/>
+  <match src="function_definition [7896,8240]" dest="function_definition [8803,9147]"/>
+  <match src="identifier: releaseStart [7993,8005]" dest="identifier: releaseStart [8900,8912]"/>
+  <match src="=: = [8054,8055]" dest="=: = [8961,8962]"/>
+  <match src="): ) [5103,5104]" dest="): ) [5346,5347]"/>
+  <match src="identifier: b [3442,3443]" dest="identifier: b [3568,3569]"/>
+  <match src="function: function [6582,6590]" dest="function: function [7160,7168]"/>
+  <match src="identifier: block [8056,8061]" dest="identifier: block [8963,8968]"/>
+  <match src="=: = [3407,3408]" dest="=: = [3533,3534]"/>
+  <match src="=&gt;: =&gt; [5093,5095]" dest="=&gt;: =&gt; [5336,5338]"/>
+  <match src="address: address [5085,5092]" dest="address: address [5328,5335]"/>
+  <match src="identifier: applicableTimeStamp [8158,8177]" dest="identifier: applicableTimeStamp [9065,9084]"/>
+  <match src="comment: /**      * @dev Returns the amount of tokens owned by `account`.      */ [313,387]" dest="comment: /**      * @dev Returns the amount of tokens owned by `account`.      */ [367,441]"/>
+  <match src="identifier: require [5663,5670]" dest="identifier: require [6240,6247]"/>
+  <match src="if_statement [7971,8016]" dest="if_statement [8878,8923]"/>
+  <match src="type_name [4656,4663]" dest="type_name [4782,4789]"/>
+  <match src="identifier: add [7710,7713]" dest="identifier: add [8616,8619]"/>
+  <match src="uint256: uint256 [5268,5275]" dest="uint256: uint256 [5511,5518]"/>
+  <match src="binary_expression [6753,6775]" dest="binary_expression [7329,7351]"/>
+  <match src="mapping: mapping [4968,4975]" dest="mapping: mapping [5211,5218]"/>
+  <match src="identifier: _token [5921,5927]" dest="identifier: _token [6498,6504]"/>
+  <match src="type_name [5247,5254]" dest="type_name [5490,5497]"/>
+  <match src="array_access [7100,7114]" dest="array_access [7676,7690]"/>
+  <match src="identifier: sender [8905,8911]" dest="identifier: sender [8063,8069]"/>
+  <match src="event_paramater [5268,5283]" dest="event_paramater [5511,5526]"/>
+  <match src="comment: // this means, released but unclaimed amounts [5025,5070]" dest="comment: // this means, released but unclaimed amounts [5268,5313]"/>
+  <match src="identifier: spender [2760,2767]" dest="identifier: spender [2814,2821]"/>
+  <match src="identifier: user [7109,7113]" dest="identifier: user [7685,7689]"/>
+  <match src="type_name [2721,2728]" dest="type_name [2775,2782]"/>
+  <match src="identifier: a [3437,3438]" dest="identifier: a [3563,3564]"/>
+  <match src="uint256: uint256 [296,303]" dest="uint256: uint256 [350,357]"/>
+  <match src="call_expression [8158,8196]" dest="call_expression [9065,9103]"/>
+  <match src=",: , [7401,7402]" dest=",: , [7969,7970]"/>
+  <match src="parameter [3064,3073]" dest="parameter [3190,3199]"/>
+  <match src="state_variable_declaration [4885,4911]" dest="state_variable_declaration [5128,5154]"/>
+  <match src="call_argument [6675,6706]" dest="call_argument [7251,7282]"/>
+  <match src="event_paramater [2526,2539]" dest="event_paramater [2580,2593]"/>
+  <match src="type_name [5183,5190]" dest="type_name [5426,5433]"/>
+  <match src="identifier: a [4070,4071]" dest="identifier: a [4196,4197]"/>
+  <match src=".: . [7332,7333]" dest=".: . [7900,7901]"/>
+  <match src="pure: pure [4093,4097]" dest="pure: pure [4219,4223]"/>
+  <match src="external: external [429,437]" dest="external: external [483,491]"/>
+  <match src="binary_expression [3761,3766]" dest="binary_expression [3887,3892]"/>
+  <match src="visibility [4997,5003]" dest="visibility [5240,5246]"/>
+  <match src="identifier: c [3786,3787]" dest="identifier: c [3912,3913]"/>
+  <match src="number_literal: 0 [4689,4690]" dest="number_literal: 0 [4815,4816]"/>
+  <match src="state_variable_declaration [4968,5017]" dest="state_variable_declaration [5211,5260]"/>
+  <match src="identifier: a [4308,4309]" dest="identifier: a [4434,4435]"/>
+  <match src="solidity: solidity [57,65]" dest="solidity: solidity [2896,2904]"/>
+  <match src="pure: pure [3652,3656]" dest="pure: pure [3778,3782]"/>
+  <match src="call_expression [4127,4142]" dest="call_expression [4253,4268]"/>
+  <match src="identifier: _grantedToken [5764,5777]" dest="identifier: _grantedToken [6341,6354]"/>
+  <match src="[: [ [6966,6967]" dest="[: [ [7542,7543]"/>
+  <match src=",: , [5490,5491]" dest=",: , [6069,6070]"/>
+  <match src="identifier: _recipients [6142,6153]" dest="identifier: _recipients [6719,6730]"/>
+  <match src="external: external [1102,1110]" dest="external: external [1156,1164]"/>
+  <match src="}: } [6502,6503]" dest="}: } [7079,7080]"/>
+  <match src="(: ( [7713,7714]" dest="(: ( [8619,8620]"/>
+  <match src="identifier: sender [5962,5968]" dest="identifier: sender [6539,6545]"/>
+  <match src="call_argument [6998,7007]" dest="call_argument [7574,7583]"/>
+  <match src="parameter [4656,4663]" dest="parameter [4782,4789]"/>
+  <match src="identifier: _grantedToken [6218,6231]" dest="identifier: _grantedToken [6795,6808]"/>
+  <match src="}: } [4721,4722]" dest="}: } [4847,4848]"/>
+  <match src="type_name [4311,4318]" dest="type_name [4437,4444]"/>
+  <match src="(: ( [295,296]" dest="(: ( [349,350]"/>
+  <match src="type_name [5470,5477]" dest="type_name [6049,6056]"/>
+  <match src="identifier: _totalTokens [5478,5490]" dest="identifier: _totalTokens [6057,6069]"/>
+  <match src="variable_declaration [7078,7097]" dest="variable_declaration [7654,7673]"/>
+  <match src="identifier: i [6277,6278]" dest="identifier: i [6854,6855]"/>
+  <match src="/: / [3792,3793]" dest="/: / [3918,3919]"/>
+  <match src="call_argument [7390,7401]" dest="call_argument [7958,7969]"/>
+  <match src="uint256: uint256 [4939,4946]" dest="uint256: uint256 [5182,5189]"/>
+  <match src="expression_statement [5872,5894]" dest="expression_statement [6449,6471]"/>
+  <match src="expression_statement [6954,7009]" dest="expression_statement [7530,7585]"/>
+  <match src="call_expression [5842,5861]" dest="call_expression [6419,6438]"/>
+  <match src="expression_statement [8834,8914]" dest="expression_statement [8051,8092]"/>
+  <match src="&quot;: &quot; [6493,6494]" dest="&quot;: &quot; [7070,7071]"/>
+  <match src="call_argument [8901,8911]" dest="call_argument [8059,8080]"/>
+  <match src="call_expression [5939,5998]" dest="call_expression [6516,6575]"/>
+  <match src="type_name [1871,1875]" dest="type_name [1925,1929]"/>
+  <match src="identifier: sub [8178,8181]" dest="identifier: sub [9085,9088]"/>
+  <match src="function_body [3675,3911]" dest="function_body [3801,4037]"/>
+  <match src="member_expression [7694,7713]" dest="member_expression [8600,8619]"/>
+  <match src="identifier: msg [6644,6647]" dest="identifier: msg [7220,7223]"/>
+  <match src="call_expression [7714,7731]" dest="call_expression [8620,8637]"/>
+  <match src="call_argument [8158,8196]" dest="call_argument [9065,9103]"/>
+  <match src="(: ( [8181,8182]" dest="(: ( [9088,9089]"/>
+  <match src="&quot;: &quot; [5786,5787]" dest="&quot;: &quot; [6363,6364]"/>
+  <match src="call_argument [7403,7418]" dest="call_argument [7971,7986]"/>
+  <match src="identifier: a [4406,4407]" dest="identifier: a [4532,4533]"/>
+  <match src="return_type_definition [1116,1133]" dest="return_type_definition [1170,1187]"/>
+  <match src="function_definition [1803,1877]" dest="function_definition [1857,1931]"/>
+  <match src="primitive_type [4062,4069]" dest="primitive_type [4188,4195]"/>
+  <match src="type_name [708,715]" dest="type_name [762,769]"/>
+  <match src="[: [ [7702,7703]" dest="[: [ [8608,8609]"/>
+  <match src=",: , [5245,5246]" dest=",: , [5488,5489]"/>
+  <match src="parameter [7667,7674]" dest="parameter [8573,8580]"/>
+  <match src="contract: contract [4729,4737]" dest="contract: contract [4972,4980]"/>
+  <match src="): ) [4114,4115]" dest="): ) [4240,4241]"/>
+  <match src="{: { [2947,2948]" dest="{: { [3073,3074]"/>
+  <match src="uint256: uint256 [4988,4995]" dest="uint256: uint256 [5231,5238]"/>
+  <match src="identifier: releasing [6878,6887]" dest="identifier: releasing [7454,7463]"/>
+  <match src="identifier: owner [1078,1083]" dest="identifier: owner [1132,1137]"/>
+  <match src="primitive_type [4851,4858]" dest="primitive_type [5094,5101]"/>
+  <match src="binary_expression [3342,3348]" dest="binary_expression [3468,3474]"/>
+  <match src="identifier: _recipients [5742,5753]" dest="identifier: _recipients [6319,6330]"/>
+  <match src="for: for [4770,4773]" dest="for: for [5013,5016]"/>
+  <match src="[: [ [8146,8147]" dest="[: [ [9053,9054]"/>
+  <match src="identifier: a [3342,3343]" dest="identifier: a [3468,3469]"/>
+  <match src="=: = [4375,4376]" dest="=: = [4501,4502]"/>
+  <match src="type_name [4774,4781]" dest="type_name [5017,5024]"/>
+  <match src="identifier: timestamp [8107,8116]" dest="identifier: timestamp [9014,9023]"/>
+  <match src="[: [ [8188,8189]" dest="[: [ [9095,9096]"/>
+  <match src="identifier: _user [7638,7643]" dest="identifier: _user [8544,8549]"/>
+  <match src="parameter [7951,7958]" dest="parameter [8858,8865]"/>
+  <match src=",: , [3062,3063]" dest=",: , [3188,3189]"/>
+  <match src="parameter [2233,2250]" dest="parameter [2287,2304]"/>
+  <match src="comment: // SPDX-License-Identifier: (c) Otsea.fi, 2021 [0,46]" dest="comment: // Sources flattened with hardhat v2.3.0 https://hardhat.org [0,60]"/>
+  <match src="member_expression [7975,7990]" dest="member_expression [8882,8897]"/>
+  <match src="binary_expression [8056,8085]" dest="binary_expression [8963,8992]"/>
+  <match src="type_name [7078,7085]" dest="type_name [7654,7661]"/>
+  <match src="parameter [2252,2266]" dest="parameter [2306,2320]"/>
+  <match src="]: ] [7708,7709]" dest="]: ] [8614,8615]"/>
+  <match src="for_statement [6074,6292]" dest="for_statement [6651,6869]"/>
+  <match src="type_name [296,303]" dest="type_name [350,357]"/>
+  <match src="array_access [7286,7298]" dest="array_access [7854,7866]"/>
+  <match src="parameter [5552,5582]" dest="parameter [6131,6161]"/>
+  <match src="parameter [1837,1851]" dest="parameter [1891,1905]"/>
+  <match src="call_argument [6901,6905]" dest="call_argument [7477,7481]"/>
+  <match src="binary_expression [4401,4407]" dest="binary_expression [4527,4533]"/>
+  <match src="(: ( [270,271]" dest="(: ( [324,325]"/>
+  <match src="parameter [4345,4352]" dest="parameter [4471,4478]"/>
+  <match src="identifier: div [3617,3620]" dest="identifier: div [3743,3746]"/>
+  <match src="(: ( [1819,1820]" dest="(: ( [1873,1874]"/>
+  <match src="): ) [7674,7675]" dest="): ) [8580,8581]"/>
+  <match src="expression_statement [5663,5724]" dest="expression_statement [6240,6301]"/>
+  <match src="(: ( [4683,4684]" dest="(: ( [4809,4810]"/>
+  <match src="identifier: value [2777,2782]" dest="identifier: value [2831,2836]"/>
+  <match src="identifier: a [4619,4620]" dest="identifier: a [4745,4746]"/>
+  <match src="return_type_definition [2277,2291]" dest="return_type_definition [2331,2345]"/>
+  <match src="comment: /**      * @dev returns claimable token. buffered(released) token + token released from last update      * @param _user user to check the claimable token     **/ [7435,7599]" dest="comment: /**      * @dev User may claim tokens that have vested.      **/ [7088,7154]"/>
+  <match src="{: { [3675,3676]" dest="{: { [3801,3802]"/>
+  <match src="call_argument [6445,6494]" dest="call_argument [7022,7071]"/>
+  <match src="call_argument [4135,4141]" dest="call_argument [4261,4267]"/>
+  <match src="public: public [5640,5646]" dest="public: public [6217,6223]"/>
+  <match src="return: return [8127,8133]" dest="return: return [9034,9040]"/>
+  <match src="state_variable_declaration [4919,4962]" dest="state_variable_declaration [5162,5205]"/>
+  <match src="primitive_type [5166,5173]" dest="primitive_type [5409,5416]"/>
+  <match src="return_statement [4702,4715]" dest="return_statement [4828,4841]"/>
+  <match src="string_literal [5688,5722]" dest="string_literal [6265,6299]"/>
+  <match src="): ) [6118,6119]" dest="): ) [6695,6696]"/>
+  <match src="identifier: i [6086,6087]" dest="identifier: i [6663,6664]"/>
+  <match src="assignment_expression [6009,6035]" dest="assignment_expression [6586,6612]"/>
+  <match src="parameter [8534,8545]" dest="parameter [8016,8029]"/>
+  <match src="public: public [4893,4899]" dest="public: public [5136,5142]"/>
+  <match src="return: return [3895,3901]" dest="return: return [4021,4027]"/>
+  <match src="primitive_type [2217,2224]" dest="primitive_type [2271,2278]"/>
+  <match src="call_argument [6799,6856]" dest="call_argument [7375,7432]"/>
+  <match src="identifier: b [3761,3762]" dest="identifier: b [3887,3888]"/>
+  <match src="type_name [4365,4372]" dest="type_name [4491,4498]"/>
+  <match src="(: ( [6674,6675]" dest="(: ( [7250,7251]"/>
+  <match src="identifier: IERC20 [5914,5920]" dest="identifier: IERC20 [6491,6497]"/>
+  <match src="identifier: IERC20 [162,168]" dest="identifier: IERC20 [216,222]"/>
+  <match src="identifier: Approval [2712,2720]" dest="identifier: Approval [2766,2774]"/>
+  <match src="primitive_type [1125,1132]" dest="primitive_type [1179,1186]"/>
+  <match src="parameter [7916,7929]" dest="parameter [8823,8836]"/>
+  <match src="identifier: amount [2260,2266]" dest="identifier: amount [2314,2320]"/>
+  <match src="(: ( [7915,7916]" dest="(: ( [8822,8823]"/>
+  <match src="library_declaration [2930,4725]" dest="library_declaration [3056,4851]"/>
+  <match src="comment: // updates the grantedToken [6917,6944]" dest="comment: // updates the grantedToken [7493,7520]"/>
+  <match src="[: [ [7108,7109]" dest="[: [ [7684,7685]"/>
+  <match src="assignment_expression [6135,6172]" dest="assignment_expression [6712,6749]"/>
+  <match src="identifier: Claimed [7376,7383]" dest="identifier: Claimed [7944,7951]"/>
+  <match src="identifier: _start [5509,5515]" dest="identifier: _start [6088,6094]"/>
+  <match src="type_name [2769,2776]" dest="type_name [2823,2830]"/>
+  <match src="emit_statement [7371,7420]" dest="emit_statement [7939,7988]"/>
+  <match src="identifier: require [4676,4683]" dest="identifier: require [4802,4809]"/>
+  <match src="call_argument [5985,5997]" dest="call_argument [6562,6574]"/>
+  <match src="primitive_type [8026,8033]" dest="primitive_type [8933,8940]"/>
+  <match src="(: ( [5852,5853]" dest="(: ( [6429,6430]"/>
+  <match src="primitive_type [4107,4114]" dest="primitive_type [4233,4240]"/>
+  <match src="identifier: claimAmount [7348,7359]" dest="identifier: claimAmount [7916,7927]"/>
+  <match src="expression_statement [5906,5929]" dest="expression_statement [6483,6506]"/>
+  <match src="binary_expression [6675,6706]" dest="binary_expression [7251,7282]"/>
+  <match src="type_name [5268,5275]" dest="type_name [5511,5518]"/>
+  <match src="primitive_type [4300,4307]" dest="primitive_type [4426,4433]"/>
+  <match src="string [6799,6856]" dest="string [7375,7432]"/>
+  <match src="identifier: transfer [7333,7341]" dest="identifier: transfer [7901,7909]"/>
+  <match src="): ) [5631,5632]" dest="): ) [6210,6211]"/>
+  <match src="function: function [4598,4606]" dest="function: function [4724,4732]"/>
+  <match src="variable_declaration_statement [6629,6655]" dest="variable_declaration_statement [7205,7231]"/>
+  <match src="expression_statement [6135,6173]" dest="expression_statement [6712,6750]"/>
+  <match src="identifier: transfer [699,707]" dest="identifier: transfer [753,761]"/>
+  <match src="]: ] [7297,7298]" dest="]: ] [7865,7866]"/>
+  <match src="type_name [761,765]" dest="type_name [815,819]"/>
+  <match src=",: , [5784,5785]" dest=",: , [6361,6362]"/>
+  <match src="): ) [3073,3074]" dest="): ) [3199,3200]"/>
+  <match src="return_type_definition [3657,3674]" dest="return_type_definition [3783,3800]"/>
+  <match src="contract_body [4746,9572]" dest="contract_body [4989,10552]"/>
+  <match src="): ) [7929,7930]" dest="): ) [8836,8837]"/>
+  <match src="(: ( [3052,3053]" dest="(: ( [3178,3179]"/>
+  <match src=".: . [7980,7981]" dest=".: . [8887,8888]"/>
+  <match src="identifier: grantedToken [8134,8146]" dest="identifier: grantedToken [9041,9053]"/>
+  <match src="primitive_type [4345,4352]" dest="primitive_type [4471,4478]"/>
+  <match src="uint256: uint256 [7078,7085]" dest="uint256: uint256 [7654,7661]"/>
+  <match src="(: ( [4344,4345]" dest="(: ( [4470,4471]"/>
+  <match src="[: [ [7292,7293]" dest="[: [ [7860,7861]"/>
+  <match src="}: } [4436,4437]" dest="}: } [4562,4563]"/>
+  <match src="variable_declaration_statement [6870,6907]" dest="variable_declaration_statement [7446,7483]"/>
+  <match src="identifier: token [7327,7332]" dest="identifier: token [7895,7900]"/>
+  <match src="function_body [4116,4199]" dest="function_body [4242,4325]"/>
+  <match src="identifier: releaseEnd [5671,5681]" dest="identifier: releaseEnd [6248,6258]"/>
+  <match src="variable_declaration [6870,6887]" dest="variable_declaration [7446,7463]"/>
+  <match src="+: + [4379,4380]" dest="+: + [4505,4506]"/>
+  <match src="): ) [7007,7008]" dest="): ) [7583,7584]"/>
+  <match src="uint256: uint256 [1837,1844]" dest="uint256: uint256 [1891,1898]"/>
+  <match src="visibility [2268,2276]" dest="visibility [2322,2330]"/>
+  <match src="function_definition [690,767]" dest="function_definition [744,821]"/>
+  <match src="number_literal: 0 [6796,6797]" dest="number_literal: 0 [7372,7373]"/>
+  <match src="primitive_type [2526,2533]" dest="primitive_type [2580,2587]"/>
+  <match src="identifier: _recipients [5571,5582]" dest="identifier: _recipients [6150,6161]"/>
+  <match src="): ) [1132,1133]" dest="): ) [1186,1187]"/>
+  <match src="array_access [6135,6157]" dest="array_access [6712,6734]"/>
+  <match src="comment: /**      * @dev User may claim tokens that have vested.     **/ [6511,6576]" dest="comment: // Storage position of the owner of the contract [5556,5604]"/>
+  <match src="comment: /**      * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.      *      * Returns a boolean value indicating whether the operation succeeded.      *      * IMPORTANT: Beware that changing an allowance with this method brings the risk      * that someone may use both the old and the new allowance by unfortunate      * transaction ordering. One possible solution to mitigate this race      * condition is to first reduce the spender's allowance to 0 and set the      * desired value afterwards:      * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729      *      * Emits an {Approval} event.      */ [1142,1797]" dest="comment: /**      * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.      *      * Returns a boolean value indicating whether the operation succeeded.      *      * IMPORTANT: Beware that changing an allowance with this method brings the risk      * that someone may use both the old and the new allowance by unfortunate      * transaction ordering. One possible solution to mitigate this race      * condition is to first reduce the spender's allowance to 0 and set the      * desired value afterwards:      * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729      *      * Emits an {Approval} event.      */ [1196,1851]"/>
+  <match src="type_name [5285,5292]" dest="type_name [5528,5535]"/>
+  <match src="identifier: token [4804,4809]" dest="identifier: token [5047,5052]"/>
+  <match src="call_expression [7694,7732]" dest="call_expression [8600,8638]"/>
+  <match src="=: = [6888,6889]" dest="=: = [7464,7465]"/>
+  <match src="identifier: b [4684,4685]" dest="identifier: b [4810,4811]"/>
+  <match src="=: = [6058,6059]" dest="=: = [6635,6636]"/>
+  <match src="): ) [5927,5928]" dest="): ) [6504,6505]"/>
+  <match src="return_statement [3365,3374]" dest="return_statement [3491,3500]"/>
+  <match src="]: ] [6155,6156]" dest="]: ] [6732,6733]"/>
+  <match src="): ) [271,272]" dest="): ) [325,326]"/>
+  <match src="for: for [6074,6077]" dest="for: for [6651,6654]"/>
+  <match src="&gt;: &gt; [6772,6773]" dest="&gt;: &gt; [7348,7349]"/>
+  <match src="block_statement [6120,6292]" dest="block_statement [6697,6869]"/>
+  <match src="identifier: _to [8542,8545]" dest="identifier: _user [8024,8029]"/>
+  <match src="]: ] [6156,6157]" dest="]: ] [6733,6734]"/>
+  <match src="primitive_type [7078,7085]" dest="primitive_type [7654,7661]"/>
+  <match src="address: address [5143,5150]" dest="address: address [5386,5393]"/>
+  <match src="identifier: grantedToken [6187,6199]" dest="identifier: grantedToken [6764,6776]"/>
+  <match src="member_expression [7403,7418]" dest="member_expression [7971,7986]"/>
+  <match src="array_access [7694,7709]" dest="array_access [8600,8615]"/>
+  <match src="&gt;=: &gt;= [4403,4405]" dest="&gt;=: &gt;= [4529,4531]"/>
+  <match src="identifier: block [6691,6696]" dest="identifier: block [7267,7272]"/>
+  <match src="type_name [5501,5508]" dest="type_name [6080,6087]"/>
+  <match src="type_name [4345,4352]" dest="type_name [4471,4478]"/>
+  <match src="identifier: releaseEnd [5829,5839]" dest="identifier: releaseEnd [6406,6416]"/>
+  <match src="call_argument [5978,5982]" dest="call_argument [6555,6559]"/>
+  <match src=",: , [5283,5284]" dest=",: , [5526,5527]"/>
+  <match src="identifier: _timestamp [5293,5303]" dest="identifier: _timestamp [5536,5546]"/>
+  <match src="event_definition [2706,2784]" dest="event_definition [2760,2838]"/>
+  <match src="identifier: add [4296,4299]" dest="identifier: add [4422,4425]"/>
+  <match src="bool: bool [761,765]" dest="bool: bool [815,819]"/>
+  <match src="visibility [1102,1110]" dest="visibility [1156,1164]"/>
+  <match src="]: ] [6214,6215]" dest="]: ] [6791,6792]"/>
+  <match src="comment: // claim will claim both released and releasing [7021,7068]" dest="comment: // claim will claim both released and releasing [7597,7644]"/>
+  <match src="primitive_type [6078,6085]" dest="primitive_type [6655,6662]"/>
+  <match src="state_mutability [3652,3656]" dest="state_mutability [3778,3782]"/>
+  <match src="=: = [7299,7300]" dest="=: = [7867,7868]"/>
+  <match src=".: . [7306,7307]" dest=".: . [7874,7875]"/>
+  <match src="type_name [4885,4892]" dest="type_name [5128,5135]"/>
+  <match src="): ) [8195,8196]" dest="): ) [9102,9103]"/>
+  <match src="call_argument [5688,5722]" dest="call_argument [6265,6299]"/>
+  <match src="assignment_expression [6954,7008]" dest="assignment_expression [7530,7584]"/>
+  <match src="primitive_type [296,303]" dest="primitive_type [350,357]"/>
+  <match src="]: ] [6971,6972]" dest="]: ] [7547,7548]"/>
+  <match src="): ) [459,460]" dest="): ) [513,514]"/>
+  <match src="primitive_type [1871,1875]" dest="primitive_type [1925,1929]"/>
+  <match src="identifier: _user [7924,7929]" dest="identifier: _user [8831,8836]"/>
+  <match src="identifier: releasing [6998,7007]" dest="identifier: releasing [7574,7583]"/>
+  <match src="uint256: uint256 [4656,4663]" dest="uint256: uint256 [4782,4789]"/>
+  <match src="uint256: uint256 [3397,3404]" dest="uint256: uint256 [3523,3530]"/>
+  <match src="identifier: transferFrom [2204,2216]" dest="identifier: transferFrom [2258,2270]"/>
+  <match src="type_name [4919,4947]" dest="type_name [5162,5190]"/>
+  <match src="identifier: SafeMath [2938,2946]" dest="identifier: SafeMath [3064,3072]"/>
+  <match src="primitive_type [4622,4629]" dest="primitive_type [4748,4755]"/>
+  <match src=".: . [5961,5962]" dest=".: . [6538,6539]"/>
+  <match src="identifier: _start [5842,5848]" dest="identifier: _start [6419,6425]"/>
+  <match src="]: ] [6992,6993]" dest="]: ] [7568,7569]"/>
+  <match src="call_argument [7342,7346]" dest="call_argument [7910,7914]"/>
+  <match src="identifier: a [3629,3630]" dest="identifier: a [3755,3756]"/>
+  <match src="function: function [2195,2203]" dest="function: function [2249,2257]"/>
+  <match src="array_access [7213,7227]" dest="array_access [7789,7803]"/>
+  <match src="parameter [5526,5541]" dest="parameter [6105,6120]"/>
+  <match src="primitive_type [6870,6877]" dest="primitive_type [7446,7453]"/>
+  <match src="): ) [4690,4691]" dest="): ) [4816,4817]"/>
+  <match src="[: [ [6153,6154]" dest="[: [ [6730,6731]"/>
+  <match src="identifier: sub [8213,8216]" dest="identifier: sub [9120,9123]"/>
+  <match src="identifier: _user [8189,8194]" dest="identifier: _user [9096,9101]"/>
+  <match src="indexed: indexed [5151,5158]" dest="indexed: indexed [5394,5401]"/>
+  <match src="parameter [4622,4631]" dest="parameter [4748,4757]"/>
+  <match src="identifier: div [8198,8201]" dest="identifier: div [9105,9108]"/>
+  <match src="[: [ [6787,6788]" dest="[: [ [7363,7364]"/>
+  <match src="comment: /**      * @dev Emitted when the allowance of a `spender` for an `owner` is set by      * a call to {approve}. `value` is the new allowance.      */ [2549,2700]" dest="comment: /**      * @dev Emitted when the allowance of a `spender` for an `owner` is set by      * a call to {approve}. `value` is the new allowance.      */ [2603,2754]"/>
+  <match src="call_expression [5914,5928]" dest="call_expression [6491,6505]"/>
+  <match src="uint256: uint256 [4365,4372]" dest="uint256: uint256 [4491,4498]"/>
+  <match src="(: ( [2285,2286]" dest="(: ( [2339,2340]"/>
+  <match src="&quot;: &quot; [6799,6800]" dest="&quot;: &quot; [7375,7376]"/>
+  <match src="state_mutability [7654,7658]" dest="state_mutability [8560,8564]"/>
+  <match src="indexed: indexed [2492,2499]" dest="indexed: indexed [2546,2553]"/>
+  <match src="&gt;: &gt; [3763,3764]" dest="&gt;: &gt; [3889,3890]"/>
+  <match src="returns: returns [2277,2284]" dest="returns: returns [2331,2338]"/>
+  <match src="public: public [4997,5003]" dest="public: public [5240,5246]"/>
+  <match src="call_argument [5853,5860]" dest="call_argument [6430,6437]"/>
+  <match src="return: return [3457,3463]" dest="return: return [3583,3589]"/>
+  <match src="uint256: uint256 [452,459]" dest="uint256: uint256 [506,513]"/>
+  <match src=".: . [6993,6994]" dest=".: . [7569,7570]"/>
+  <match src="internal: internal [3075,3083]" dest="internal: internal [3201,3209]"/>
+  <match src="type_name [6629,6636]" dest="type_name [7205,7212]"/>
+  <match src="call_expression [3425,3444]" dest="call_expression [3551,3570]"/>
+  <match src="primitive_type [3064,3071]" dest="primitive_type [3190,3197]"/>
+  <match src="type_name [5166,5173]" dest="type_name [5409,5416]"/>
+  <match src="primitive_type [5501,5508]" dest="primitive_type [6080,6087]"/>
+  <match src="array_access [6187,6215]" dest="array_access [6764,6792]"/>
+  <match src="call_argument [4684,4690]" dest="call_argument [4810,4816]"/>
+  <match src="mapping: mapping [4919,4926]" dest="mapping: mapping [5162,5169]"/>
+  <match src="}: } [9571,9572]" dest="}: } [10551,10552]"/>
+  <match src="identifier: i [6115,6116]" dest="identifier: i [6692,6693]"/>
+  <match src="member_expression [5764,5784]" dest="member_expression [6341,6361]"/>
+  <match src="return_statement [8127,8233]" dest="return_statement [9034,9140]"/>
+  <match src="state_mutability [1111,1115]" dest="state_mutability [1165,1169]"/>
+  <match src="identifier: _user [8147,8152]" dest="identifier: _user [9054,9059]"/>
+  <match src="visibility [4084,4092]" dest="visibility [4210,4218]"/>
+  <match src="parameter [296,303]" dest="parameter [350,357]"/>
+  <match src="identifier: spender [1093,1100]" dest="identifier: spender [1147,1154]"/>
+  <match src="visibility [8583,8591]" dest="visibility [8031,8039]"/>
+  <match src="): ) [4663,4664]" dest="): ) [4789,4790]"/>
+  <match src="binary_expression [4684,4690]" dest="binary_expression [4810,4816]"/>
+  <match src="uint256: uint256 [4774,4781]" dest="uint256: uint256 [5017,5024]"/>
+  <match src="identifier: b [4169,4170]" dest="identifier: b [4295,4296]"/>
+  <match src="): ) [5860,5861]" dest="): ) [6437,6438]"/>
+  <match src="): ) [8911,8912]" dest="): ) [8090,8091]"/>
+  <match src="type_name [5224,5231]" dest="type_name [5467,5474]"/>
+  <match src="primitive_type [5247,5254]" dest="primitive_type [5490,5497]"/>
+  <match src="primitive_type [9193,9200]" dest="primitive_type [8182,8189]"/>
+  <match src="identifier: block [7403,7408]" dest="identifier: block [7971,7976]"/>
+  <match src="number_literal: 0 [6774,6775]" dest="number_literal: 0 [7350,7351]"/>
+  <match src=".: . [5848,5849]" dest=".: . [6425,6426]"/>
+  <match src="return: return [4421,4427]" dest="return: return [4547,4553]"/>
+  <match src=".: . [7114,7115]" dest=".: . [7690,7691]"/>
+  <match src="event_paramater [2744,2767]" dest="event_paramater [2798,2821]"/>
+  <match src="type_name [5076,5104]" dest="type_name [5319,5347]"/>
+  <match src="identifier: _to [5263,5266]" dest="identifier: _to [5506,5509]"/>
+  <match src="function_definition [4049,4199]" dest="function_definition [4175,4325]"/>
+  <match src="comment: /**      * @dev Emitted when `value` tokens are moved from one account (`from`) to      * another (`to`).      *      * Note that `value` may be zero.      */ [2300,2463]" dest="comment: /**      * @dev Emitted when `value` tokens are moved from one account (`from`) to      * another (`to`).      *      * Note that `value` may be zero.      */ [2354,2517]"/>
+  <match src="function: function [7605,7613]" dest="function: function [8511,8519]"/>
+  <match src="uint256: uint256 [4885,4892]" dest="uint256: uint256 [5128,5135]"/>
+  <match src="identifier: grantedToken [6753,6765]" dest="identifier: grantedToken [7329,7341]"/>
+  <match src="number_literal: 0 [6090,6091]" dest="number_literal: 0 [6667,6668]"/>
+  <match src="primitive_type [3778,3785]" dest="primitive_type [3904,3911]"/>
+  <match src="type_name [8534,8541]" dest="type_name [8016,8023]"/>
+  <match src="identifier: b [4630,4631]" dest="identifier: b [4756,4757]"/>
+  <match src="address: address [2484,2491]" dest="address: address [2538,2545]"/>
+  <match src="(: ( [3097,3098]" dest="(: ( [3223,3224]"/>
+  <match src="}: } [3910,3911]" dest="}: } [4036,4037]"/>
+  <match src="expression_statement [6417,6496]" dest="expression_statement [6994,7073]"/>
+  <match src="type_name [5096,5103]" dest="type_name [5339,5346]"/>
+  <match src="expression_statement [7213,7232]" dest="expression_statement [7789,7808]"/>
+  <match src="]: ] [6770,6771]" dest="]: ] [7346,7347]"/>
+  <match src="call_argument [4401,4407]" dest="call_argument [4527,4533]"/>
+  <match src="array_access [6200,6214]" dest="array_access [6777,6791]"/>
+  <match src="return: return [4702,4708]" dest="return: return [4828,4834]"/>
+  <match src="function_definition [250,305]" dest="function_definition [304,359]"/>
+  <match src="using_directive [4755,4782]" dest="using_directive [4998,5025]"/>
+  <match src="binary_expression [3433,3438]" dest="binary_expression [3559,3564]"/>
+  <match src="]: ] [7113,7114]" dest="]: ] [7689,7690]"/>
+  <match src="uint256: uint256 [5285,5292]" dest="uint256: uint256 [5528,5535]"/>
+  <match src="primitive_type [6629,6636]" dest="primitive_type [7205,7212]"/>
+  <match src="parameter [4611,4620]" dest="parameter [4737,4746]"/>
+  <match src="=: = [6088,6089]" dest="=: = [6665,6666]"/>
+  <match src="type_name [6870,6877]" dest="type_name [7446,7453]"/>
+  <match src="primitive_type [2484,2491]" dest="primitive_type [2538,2545]"/>
+  <match src="identifier: i [6093,6094]" dest="identifier: i [6670,6671]"/>
+  <match src="): ) [4141,4142]" dest="): ) [4267,4268]"/>
+  <match src="): ) [7359,7360]" dest="): ) [7927,7928]"/>
+  <match src="internal: internal [3643,3651]" dest="internal: internal [3769,3777]"/>
+  <match src="}: } [3472,3473]" dest="}: } [3598,3599]"/>
+  <match src="contract_declaration [4729,9572]" dest="contract_declaration [4972,10552]"/>
+  <match src=".: . [7709,7710]" dest=".: . [8615,8616]"/>
+  <match src="=&gt;: =&gt; [4936,4938]" dest="=&gt;: =&gt; [5179,5181]"/>
+  <match src="call_argument [3761,3766]" dest="call_argument [3887,3892]"/>
+  <match src=",: , [5459,5460]" dest=",: , [6038,6039]"/>
+  <match src="(: ( [3665,3666]" dest="(: ( [3791,3792]"/>
+  <match src="primitive_type [1070,1077]" dest="primitive_type [1124,1131]"/>
+  <match src="]: ] [6278,6279]" dest="]: ] [6855,6856]"/>
+  <match src="pure: pure [4642,4646]" dest="pure: pure [4768,4772]"/>
+  <match src=",: , [5181,5182]" dest=",: , [5424,5425]"/>
+  <match src="identifier: block [7975,7980]" dest="identifier: block [8882,8887]"/>
+  <match src="identifier: c [4428,4429]" dest="identifier: c [4554,4555]"/>
+  <match src="=&gt;: =&gt; [4985,4987]" dest="=&gt;: =&gt; [5228,5230]"/>
+  <match src="*: * [3411,3412]" dest="*: * [3537,3538]"/>
+  <match src="identifier: grantedToken [6954,6966]" dest="identifier: grantedToken [7530,7542]"/>
+  <match src="identifier: user [6766,6770]" dest="identifier: user [7342,7346]"/>
+  <match src="identifier: i [6212,6213]" dest="identifier: i [6789,6790]"/>
+  <match src="number_literal: 0 [3372,3373]" dest="number_literal: 0 [3498,3499]"/>
+  <match src="=: = [6642,6643]" dest="=: = [7218,7219]"/>
+  <match src="identifier: spender [1828,1835]" dest="identifier: spender [1882,1889]"/>
+  <match src="array_access [8217,8230]" dest="array_access [9124,9137]"/>
+  <match src="variable_declaration_statement [4365,4383]" dest="variable_declaration_statement [4491,4509]"/>
+  <match src=",: , [2767,2768]" dest=",: , [2821,2822]"/>
+  <match src="comment: /**      * @dev Transfers a sender's weight to another address starting from now.      * @param _to The address to transfer weight to.      * @param _amountInFullTokens The amount of tokens (in 0 decimal format). We will not have fractions of tokens.     **/ [8248,8510]" dest="comment: /**      * @dev returns the token that can be released from last user update      * @param _user user to check the releasable token      **/ [8654,8797]"/>
+  <match src="comment: /**  * @title SafeMath  * @dev Unsigned math operations with safety checks that revert on error  *   * @dev Default OpenZeppelin  */ [2791,2928]" dest="comment: /**  * @title SafeMath  * @dev Unsigned math operations with safety checks that revert on error  *   * @dev Default OpenZeppelin  */ [2917,3054]"/>
+  <match src="identifier: sub [6994,6997]" dest="identifier: sub [7570,7573]"/>
+  <match src="type_name [7951,7958]" dest="type_name [8858,8865]"/>
+  <match src="type_name [5445,5452]" dest="type_name [6024,6031]"/>
+  <match src="returns: returns [7943,7950]" dest="returns: returns [8850,8857]"/>
+  <match src="primitive_type [3397,3404]" dest="primitive_type [3523,3530]"/>
+  <match src="): ) [8196,8197]" dest="): ) [9103,9104]"/>
+  <match src="address: address [1085,1092]" dest="address: address [1139,1146]"/>
+  <match src="address: address [2233,2240]" dest="address: address [2287,2294]"/>
+  <match src="=: = [5840,5841]" dest="=: = [6417,6418]"/>
+  <match src="identifier: require [5734,5741]" dest="identifier: require [6311,6318]"/>
+  <match src="uint256: uint256 [4611,4618]" dest="uint256: uint256 [4737,4744]"/>
+  <match src=".: . [6106,6107]" dest=".: . [6683,6684]"/>
+  <match src="): ) [765,766]" dest="): ) [819,820]"/>
+  <match src="primitive_type [6046,6053]" dest="primitive_type [6623,6630]"/>
+  <match src="member_expression [5939,5957]" dest="member_expression [6516,6534]"/>
+  <match src="library: library [2930,2937]" dest="library: library [3056,3063]"/>
+  <match src=".: . [8197,8198]" dest=".: . [9104,9105]"/>
+  <match src="(: ( [4927,4928]" dest="(: ( [5170,5171]"/>
+  <match src="identifier: _user [5159,5164]" dest="identifier: _user [5402,5407]"/>
+  <match src="type_name [4611,4618]" dest="type_name [4737,4744]"/>
+  <match src="identifier: releaseEnd [8202,8212]" dest="identifier: releaseEnd [9109,9119]"/>
+  <match src="return_type_definition [7659,7675]" dest="return_type_definition [8565,8581]"/>
+  <match src="type_name [452,459]" dest="type_name [506,513]"/>
+  <match src="assignment_expression [7286,7316]" dest="assignment_expression [7854,7884]"/>
+  <match src="function_body [4665,4722]" dest="function_body [4791,4848]"/>
+  <match src="identifier: _totalTokens [5985,5997]" dest="identifier: _totalTokens [6562,6574]"/>
+  <match src="(: ( [6077,6078]" dest="(: ( [6654,6655]"/>
+  <match src="function: function [3608,3616]" dest="function: function [3734,3742]"/>
+  <match src="{: { [4354,4355]" dest="{: { [4480,4481]"/>
+  <match src="identifier: mod [4607,4610]" dest="identifier: mod [4733,4736]"/>
+  <match src="{: { [7676,7677]" dest="{: { [8582,8583]"/>
+  <match src="call_expression [8134,8197]" dest="call_expression [9041,9104]"/>
+  <match src="]: ] [8152,8153]" dest="]: ] [9059,9060]"/>
+  <match src="primitive_type [727,734]" dest="primitive_type [781,788]"/>
+  <match src="%: % [4711,4712]" dest="%: % [4837,4838]"/>
+  <match src="type_name [727,734]" dest="type_name [781,788]"/>
+  <match src="&quot;: &quot; [6732,6733]" dest="&quot;: &quot; [7308,7309]"/>
+  <match src="variable_declaration [9193,9207]" dest="variable_declaration [8182,8201]"/>
+  <match src="): ) [5303,5304]" dest="): ) [5546,5547]"/>
+  <match src="type_name [2484,2491]" dest="type_name [2538,2545]"/>
+  <match src="(: ( [4400,4401]" dest="(: ( [4526,4527]"/>
+  <match src="identifier: releasable [8890,8900]" dest="identifier: require [8051,8058]"/>
+  <match src=",: , [2231,2232]" dest=",: , [2285,2286]"/>
+  <match src="uint256: uint256 [3098,3105]" dest="uint256: uint256 [3224,3231]"/>
+  <match src="identifier: c [3902,3903]" dest="identifier: c [4028,4029]"/>
+  <match src="type_name [2286,2290]" dest="type_name [2340,2344]"/>
+  <match src="address: address [7630,7637]" dest="address: address [8536,8543]"/>
+  <match src="identifier: c [3464,3465]" dest="identifier: c [3590,3591]"/>
+  <match src="): ) [4631,4632]" dest="): ) [4757,4758]"/>
+  <match src=",: , [5686,5687]" dest=",: , [6263,6264]"/>
+  <match src="if_statement [3338,3385]" dest="if_statement [3464,3511]"/>
+  <match src="{: { [7960,7961]" dest="{: { [8867,8868]"/>
+  <match src="identifier: Claimed [5135,5142]" dest="identifier: Claimed [5378,5385]"/>
+  <match src="parameter [3053,3062]" dest="parameter [3179,3188]"/>
+  <match src="identifier: c [4373,4374]" dest="identifier: c [4499,4500]"/>
+  <match src="/: / [3435,3436]" dest="/: / [3561,3562]"/>
+  <match src="member_expression [6095,6113]" dest="member_expression [6672,6690]"/>
+  <match src="(: ( [5977,5978]" dest="(: ( [6554,6555]"/>
+  <match src="comment: // assert(a == b * c + a % b); // There is no case in which this doesn't hold [3806,3883]" dest="comment: // assert(a == b * c + a % b); // There is no case in which this doesn't hold [3932,4009]"/>
+  <match src="parameter [412,427]" dest="parameter [466,481]"/>
+  <match src="primitive_type [7916,7923]" dest="primitive_type [8823,8830]"/>
+  <match src="return_type_definition [4647,4664]" dest="return_type_definition [4773,4790]"/>
+  <match src="type_name [3632,3639]" dest="type_name [3758,3765]"/>
+  <match src="expression_statement [6187,6235]" dest="expression_statement [6764,6812]"/>
+  <match src="identifier: owner [2737,2742]" dest="identifier: owner [2791,2796]"/>
+  <match src="address: address [6629,6636]" dest="address: address [7205,7212]"/>
+  <match src="type_name [7916,7923]" dest="type_name [8823,8830]"/>
+  <match src="call_argument [8182,8195]" dest="call_argument [9089,9102]"/>
+  <match src="primitive_type [4928,4935]" dest="primitive_type [5171,5178]"/>
+  <match src="&gt;=: &gt;= [8072,8074]" dest="&gt;=: &gt;= [8979,8981]"/>
+  <match src="&quot;: &quot; [6855,6856]" dest="&quot;: &quot; [7431,7432]"/>
+  <match src="function: function [1051,1059]" dest="function: function [1105,1113]"/>
+  <match src="identifier: sum [6425,6428]" dest="identifier: sum [7002,7005]"/>
+  <match src="type_name [3397,3404]" dest="type_name [3523,3530]"/>
+  <match src="parameter [3098,3105]" dest="parameter [3224,3231]"/>
+  <match src="comment: // benefit is lost if 'b' is also tested. [3207,3248]" dest="comment: // benefit is lost if 'b' is also tested. [3333,3374]"/>
+  <match src="function: function [393,401]" dest="function: function [447,455]"/>
+  <match src="pragma_directive [50,74]" dest="pragma_directive [2889,2913]"/>
+  <match src="identifier: require [6417,6424]" dest="identifier: require [6994,7001]"/>
+  <match src="public: public [7931,7937]" dest="public: public [8838,8844]"/>
+  <match src="]: ] [5601,5602]" dest="]: ] [6180,6181]"/>
+  <match src="member_expression [7327,7341]" dest="member_expression [7895,7909]"/>
+  <match src=",: , [5515,5516]" dest=",: , [6094,6095]"/>
+  <match src="binary_expression [6425,6443]" dest="binary_expression [7002,7020]"/>
+  <match src="identifier: recipient [716,725]" dest="identifier: recipient [770,779]"/>
+  <match src="event_definition [2469,2541]" dest="event_definition [2523,2595]"/>
+  <match src="(: ( [7383,7384]" dest="(: ( [7951,7952]"/>
+  <match src="call_expression [4393,4408]" dest="call_expression [4519,4534]"/>
+  <match src="identifier: b [4081,4082]" dest="identifier: b [4207,4208]"/>
+  <match src="visibility [4826,4832]" dest="visibility [5069,5075]"/>
+  <match src="identifier: block [8101,8106]" dest="identifier: block [9008,9013]"/>
+  <match src="call_expression [4676,4691]" dest="call_expression [4802,4817]"/>
+  <match src="primitive_type [708,715]" dest="primitive_type [762,769]"/>
+  <match src="identifier: b [4381,4382]" dest="identifier: b [4507,4508]"/>
+  <match src="returns: returns [7659,7666]" dest="returns: returns [8565,8572]"/>
+  <match src="identifier: timestamp [7307,7316]" dest="identifier: timestamp [7875,7884]"/>
+  <match src="): ) [7730,7731]" dest="): ) [8636,8637]"/>
+  <match src="(: ( [4299,4300]" dest="(: ( [4425,4426]"/>
+  <match src="type_name [8547,8554]" dest="type_name [8102,8109]"/>
+  <match src="primitive_type [412,419]" dest="primitive_type [466,473]"/>
+  <match src="primitive_type [4311,4318]" dest="primitive_type [4437,4444]"/>
+  <match src="uint256: uint256 [5183,5190]" dest="uint256: uint256 [5426,5433]"/>
+  <match src="call_argument [7384,7388]" dest="call_argument [7952,7956]"/>
+  <match src="internal: internal [4633,4641]" dest="internal: internal [4759,4767]"/>
+  <match src="address: address [5445,5452]" dest="address: address [6024,6031]"/>
+  <match src="): ) [2290,2291]" dest="): ) [2344,2345]"/>
+  <match src="function: function [1803,1811]" dest="function: function [1857,1865]"/>
+  <match src="identifier: released [6779,6787]" dest="identifier: released [7355,7363]"/>
+  <match src="identifier: user [6637,6641]" dest="identifier: user [7213,7217]"/>
+  <match src="visibility [743,751]" dest="visibility [797,805]"/>
+  <match src="identifier: sum [6249,6252]" dest="identifier: sum [6826,6829]"/>
+  <match src="identifier: amount [735,741]" dest="identifier: amount [789,795]"/>
+  <match src="identifier: recipient [2241,2250]" dest="identifier: recipient [2295,2304]"/>
+  <match src="binary_expression [3790,3795]" dest="binary_expression [3916,3921]"/>
+  <match src="type_name [3621,3628]" dest="type_name [3747,3754]"/>
+  <match src="identifier: amount [1845,1851]" dest="identifier: amount [1899,1905]"/>
+  <match src="identifier: a [4377,4378]" dest="identifier: a [4503,4504]"/>
+  <match src="address: address [2506,2513]" dest="address: address [2560,2567]"/>
+  <match src="): ) [4407,4408]" dest="): ) [4533,4534]"/>
+  <match src="==: == [3439,3441]" dest="==: == [3565,3567]"/>
+  <match src="]: ] [6213,6214]" dest="]: ] [6790,6791]"/>
+  <match src="number_literal: 0 [6060,6061]" dest="number_literal: 0 [6637,6638]"/>
+  <match src="identifier: timestamp [7409,7418]" dest="identifier: timestamp [7977,7986]"/>
+  <match src="interface: interface [152,161]" dest="interface: interface [206,215]"/>
+  <match src="identifier: releasable [7905,7915]" dest="identifier: releasable [8812,8822]"/>
+  <match src=",: , [5983,5984]" dest=",: , [6560,6561]"/>
+  <match src="array_access [6218,6234]" dest="array_access [6795,6811]"/>
+  <match src="array_access [6753,6771]" dest="array_access [7329,7347]"/>
+  <match src="=: = [7098,7099]" dest="=: = [7674,7675]"/>
+  <match src="parameter [3621,3630]" dest="parameter [3747,3756]"/>
+  <match src="primitive_type [5085,5092]" dest="primitive_type [5328,5335]"/>
+  <match src="): ) [2782,2783]" dest="): ) [2836,2837]"/>
+  <match src="member_expression [6975,6997]" dest="member_expression [7551,7573]"/>
+  <match src="uint256: uint256 [5166,5173]" dest="uint256: uint256 [5409,5416]"/>
+  <match src="uint256: uint256 [6870,6877]" dest="uint256: uint256 [7446,7453]"/>
+  <match src="): ) [7643,7644]" dest="): ) [8549,8550]"/>
+  <match src="(: ( [7974,7975]" dest="(: ( [8881,8882]"/>
+  <match src="assignment_expression [5906,5928]" dest="assignment_expression [6483,6505]"/>
+  <match src="identifier: account [420,427]" dest="identifier: account [474,481]"/>
+  <match src="event_paramater [5247,5266]" dest="event_paramater [5490,5509]"/>
+  <match src="type_name [3666,3673]" dest="type_name [3792,3799]"/>
+  <match src="): ) [8005,8006]" dest="): ) [8912,8913]"/>
+  <match src="identifier: _user [7725,7730]" dest="identifier: _user [8631,8636]"/>
+  <match src="uint256: uint256 [2526,2533]" dest="uint256: uint256 [2580,2587]"/>
+  <match src="identifier: a [3409,3410]" dest="identifier: a [3535,3536]"/>
+  <match src="}: } [4724,4725]" dest="}: } [4850,4851]"/>
+  <match src="public: public [6606,6612]" dest="public: public [7182,7188]"/>
+  <match src="primitive_type [2233,2240]" dest="primitive_type [2287,2294]"/>
+  <match src="primitive_type [4818,4825]" dest="primitive_type [5061,5068]"/>
+  <match src="): ) [2539,2540]" dest="): ) [2593,2594]"/>
+  <match src="variable_declaration [4365,4374]" dest="variable_declaration [4491,4500]"/>
+  <match src="view: view [7654,7658]" dest="view: view [8560,8564]"/>
+  <match src="parameter [5501,5515]" dest="parameter [6080,6094]"/>
+  <match src="call_argument [5671,5686]" dest="call_argument [6248,6263]"/>
+  <match src="identifier: amount [9201,9207]" dest="identifier: grantPulled [8190,8201]"/>
+  <match src="binary_expression [5671,5686]" dest="binary_expression [6248,6263]"/>
+  <match src=".: . [6647,6648]" dest=".: . [7223,7224]"/>
+  <match src="function: function [4287,4295]" dest="function: function [4413,4421]"/>
+  <match src="call_expression [7327,7360]" dest="call_expression [7895,7928]"/>
+  <match src="variable_declaration_statement [4153,4171]" dest="variable_declaration_statement [4279,4297]"/>
+  <match src="type_name [7667,7674]" dest="type_name [8573,8580]"/>
+  <match src="identifier: _amount [5276,5283]" dest="identifier: _amount [5519,5526]"/>
+  <match src="{: { [4116,4117]" dest="{: { [4242,4243]"/>
+  <match src="variable_declaration_statement [6046,6062]" dest="variable_declaration_statement [6623,6639]"/>
+  <match src="comment: /**  * @dev Interface of the ERC20 standard as defined in the EIP.  */ [78,150]" dest="comment: /**  * @dev Interface of the ERC20 standard as defined in the EIP.  */ [132,204]"/>
+  <match src="identifier: b [3413,3414]" dest="identifier: b [3539,3540]"/>
+  <match src="): ) [3348,3349]" dest="): ) [3474,3475]"/>
+  <match src="number_literal: 0 [3765,3766]" dest="number_literal: 0 [3891,3892]"/>
+  <match src="solidity_version_comparison_operator [65,67]" dest="solidity_version_comparison_operator [2904,2906]"/>
+  <match src="(: ( [8201,8202]" dest="(: ( [9108,9109]"/>
+  <match src="identifier: released [7213,7221]" dest="identifier: released [7789,7797]"/>
+  <match src="(: ( [4655,4656]" dest="(: ( [4781,4782]"/>
+  <match src="identifier: add [5849,5852]" dest="identifier: add [6426,6429]"/>
+  <match src="calldata: calldata [5603,5611]" dest="calldata: calldata [6182,6190]"/>
+  <match src="uint256: uint256 [3064,3071]" dest="uint256: uint256 [3190,3197]"/>
+  <match src="primitive_type [2744,2751]" dest="primitive_type [2798,2805]"/>
+  <match src="return_type_definition [7943,7959]" dest="return_type_definition [8850,8866]"/>
+  <match src="string [5786,5815]" dest="string [6363,6392]"/>
+  <match src="type_name [2526,2533]" dest="type_name [2580,2587]"/>
+  <match src="=: = [5912,5913]" dest="=: = [6489,6490]"/>
+  <match src="address: address [5224,5231]" dest="address: address [5467,5474]"/>
+  <match src="call_expression [5663,5723]" dest="call_expression [6240,6300]"/>
+  <match src="[: [ [6765,6766]" dest="[: [ [7341,7342]"/>
+  <match src="parameter [3666,3673]" dest="parameter [3792,3799]"/>
+  <match src="(: ( [3760,3761]" dest="(: ( [3886,3887]"/>
+  <match src="parameter [5593,5625]" dest="parameter [6172,6204]"/>
+  <match src="identifier: _period [5534,5541]" dest="identifier: _period [6113,6120]"/>
+  <match src="-: - [4167,4168]" dest="-: - [4293,4294]"/>
+  <match src="public: public [4797,4803]" dest="public: public [5040,5046]"/>
+  <match src="type_name [4790,4796]" dest="type_name [5033,5039]"/>
+  <match src=",: , [6706,6707]" dest=",: , [7282,7283]"/>
+  <match src="return_type_definition [3089,3106]" dest="return_type_definition [3215,3232]"/>
+  <match src="identifier: starts [7286,7292]" dest="identifier: starts [7854,7860]"/>
+  <match src="identifier: _token [5453,5459]" dest="identifier: _token [6032,6038]"/>
+  <match src="uint256: uint256 [5096,5103]" dest="uint256: uint256 [5339,5346]"/>
+  <match src="primitive_type [4977,4984]" dest="primitive_type [5220,5227]"/>
+  <match src="indexed: indexed [5255,5262]" dest="indexed: indexed [5498,5505]"/>
+  <match src="pure: pure [4331,4335]" dest="pure: pure [4457,4461]"/>
+  <match src="string_literal [6708,6733]" dest="string_literal [7284,7309]"/>
+  <match src="event_definition [5209,5305]" dest="event_definition [5452,5548]"/>
+  <match src="identifier: released [7100,7108]" dest="identifier: released [7676,7684]"/>
+  <match src="type_name [4622,4629]" dest="type_name [4748,4755]"/>
+  <match src="uint256: uint256 [727,734]" dest="uint256: uint256 [781,788]"/>
+  <match src="state_mutability [282,286]" dest="state_mutability [336,340]"/>
+  <match src="returns: returns [4336,4343]" dest="returns: returns [4462,4469]"/>
+  <match src="function: function [690,698]" dest="function: function [744,752]"/>
+  <match src=".: . [8904,8905]" dest=".: . [8062,8063]"/>
+  <match src="): ) [6279,6280]" dest="): ) [6856,6857]"/>
+  <match src="parameter [3632,3641]" dest="parameter [3758,3767]"/>
+  <match src="view: view [7938,7942]" dest="view: view [8845,8849]"/>
+  <match src="identifier: releasable [7714,7724]" dest="identifier: releasable [8620,8630]"/>
+  <match src="call_expression [5734,5816]" dest="call_expression [6311,6393]"/>
+  <match src="expression_statement [4393,4409]" dest="expression_statement [4519,4535]"/>
+  <match src=".: . [5944,5945]" dest=".: . [6521,6522]"/>
+  <match src="visibility [1853,1861]" dest="visibility [1907,1915]"/>
+  <match src="pure: pure [3084,3088]" dest="pure: pure [3210,3214]"/>
+  <match src="[: [ [6199,6200]" dest="[: [ [6776,6777]"/>
+  <match src="address: address [7916,7923]" dest="address: address [8823,8830]"/>
+  <match src="using: using [4755,4760]" dest="using: using [4998,5003]"/>
+  <match src="(: ( [5957,5958]" dest="(: ( [6534,6535]"/>
+  <match src="identifier: claimableAmount [7614,7629]" dest="identifier: claimableAmount [8520,8535]"/>
+  <match src="returns: returns [443,450]" dest="returns: returns [497,504]"/>
+  <match src="identifier: starts [6135,6141]" dest="identifier: starts [6712,6718]"/>
+  <match src="visibility [429,437]" dest="visibility [483,491]"/>
+  <match src="comment: // We're gonna just set the weight as full tokens. Ensures grantedToken were entered correctly as well. [6304,6407]" dest="comment: // We're gonna just set the weight as full tokens. Ensures grantedToken were entered correctly as well. [6881,6984]"/>
+  <match src="(: ( [8157,8158]" dest="(: ( [9064,9065]"/>
+  <match src="uint256: uint256 [7667,7674]" dest="uint256: uint256 [8573,8580]"/>
+  <match src="]: ] [6792,6793]" dest="]: ] [7368,7369]"/>
+  <match src="return_type_definition [287,304]" dest="return_type_definition [341,358]"/>
+  <match src="(: ( [5434,5435]" dest="(: ( [6013,6014]"/>
+  <match src="uint256: uint256 [4851,4858]" dest="uint256: uint256 [5094,5101]"/>
+  <match src="type_name [4073,4080]" dest="type_name [4199,4206]"/>
+  <match src="): ) [8231,8232]" dest="): ) [9138,9139]"/>
+  <match src="array_access [6142,6156]" dest="array_access [6719,6733]"/>
+  <match src="identifier: c [3433,3434]" dest="identifier: c [3559,3560]"/>
+  <match src="type_name [2744,2751]" dest="type_name [2798,2805]"/>
+  <match src="parameter [1871,1875]" dest="parameter [1925,1929]"/>
+  <match src=",: , [2524,2525]" dest=",: , [2578,2579]"/>
+  <match src="solidity_pragma_token [57,73]" dest="solidity_pragma_token [2896,2912]"/>
+  <match src="]: ] [8194,8195]" dest="]: ] [9101,9102]"/>
+  <match src="identifier: user [7293,7297]" dest="identifier: user [7861,7865]"/>
+  <match src="address: address [5970,5977]" dest="address: address [6547,6554]"/>
+  <match src="call_expression [6417,6495]" dest="call_expression [6994,7072]"/>
+  <match src=",: , [7388,7389]" dest=",: , [7956,7957]"/>
+  <match src="primitive_type [3053,3060]" dest="primitive_type [3179,3186]"/>
+  <match src="call_argument [5786,5815]" dest="call_argument [6363,6392]"/>
+  <match src="primitive_type [4073,4080]" dest="primitive_type [4199,4206]"/>
+  <match src="address: address [2721,2728]" dest="address: address [2775,2782]"/>
+  <match src="identifier: allowance [1060,1069]" dest="identifier: allowance [1114,1123]"/>
+  <match src="identifier: from [2500,2504]" dest="identifier: from [2554,2558]"/>
+  <match src="(: ( [6596,6597]" dest="(: ( [7174,7175]"/>
+  <match src="if: if [7971,7973]" dest="if: if [8878,8880]"/>
+  <match src="(: ( [2216,2217]" dest="(: ( [2270,2271]"/>
+  <match src="identifier: Vesting [4738,4745]" dest="identifier: Vesting [4981,4988]"/>
+  <match src="(: ( [1069,1070]" dest="(: ( [1123,1124]"/>
+  <match src="=: = [6253,6254]" dest="=: = [6830,6831]"/>
+  <match src="identifier: a [4140,4141]" dest="identifier: a [4266,4267]"/>
+  <match src="): ) [3673,3674]" dest="): ) [3799,3800]"/>
+  <match src="address: address [1820,1827]" dest="address: address [1874,1881]"/>
+  <match src="{: { [4665,4666]" dest="{: { [4791,4792]"/>
+  <match src="identifier: i [6232,6233]" dest="identifier: i [6809,6810]"/>
+  <match src=":: : [8099,8100]" dest=":: : [9006,9007]"/>
+  <match src="bool: bool [2286,2290]" dest="bool: bool [2340,2344]"/>
+  <match src="&quot;: &quot; [5721,5722]" dest="&quot;: &quot; [6298,6299]"/>
+  <match src="expression_statement [3425,3445]" dest="expression_statement [3551,3571]"/>
+  <match src="function_body [5652,6503]" dest="function_body [6229,7080]"/>
+  <match src="identifier: token [5939,5944]" dest="identifier: token [6516,6521]"/>
+  <match src="identifier: _period [5853,5860]" dest="identifier: _period [6430,6437]"/>
+  <match src=",: , [5582,5583]" dest=",: , [6161,6162]"/>
+  <match src="call_argument [5958,5968]" dest="call_argument [6535,6545]"/>
+  <match src="binary_expression [7975,8005]" dest="binary_expression [8882,8912]"/>
+  <match src="ternary_expression [8056,8116]" dest="ternary_expression [8963,9023]"/>
+  <match src="uint256: uint256 [3621,3628]" dest="uint256: uint256 [3747,3754]"/>
+  <match src="identifier: c [3405,3406]" dest="identifier: c [3531,3532]"/>
+  <match src="event_paramater [2721,2742]" dest="event_paramater [2775,2796]"/>
+  <match src="state_variable_declaration [4790,4810]" dest="state_variable_declaration [5033,5053]"/>
+  <match src="visibility [4859,4865]" dest="visibility [5102,5108]"/>
+  <match src="identifier: require [3753,3760]" dest="identifier: require [3879,3886]"/>
+  <match src="primitive_type [5526,5533]" dest="primitive_type [6105,6112]"/>
+  <match src="&quot;: &quot; [5688,5689]" dest="&quot;: &quot; [6265,6266]"/>
+  <match src="event: event [5209,5214]" dest="event: event [5452,5457]"/>
+  <match src="returns: returns [752,759]" dest="returns: returns [806,813]"/>
+  <match src="mapping: mapping [5076,5083]" dest="mapping: mapping [5319,5326]"/>
+  <match src="&lt;=: &lt;= [4137,4139]" dest="&lt;=: &lt;= [4263,4265]"/>
+  <match src="): ) [7731,7732]" dest="): ) [8637,8638]"/>
+  <match src="call_expression [8202,8231]" dest="call_expression [9109,9138]"/>
+  <match src="): ) [5722,5723]" dest="): ) [6299,6300]"/>
+  <match src="type_name [5552,5559]" dest="type_name [6131,6138]"/>
+  <match src="visibility [6606,6612]" dest="visibility [7182,7188]"/>
+  <match src=",: , [4309,4310]" dest=",: , [4435,4436]"/>
+  <match src="&lt;=: &lt;= [6688,6690]" dest="&lt;=: &lt;= [7264,7266]"/>
+  <match src="expression_statement [5734,5817]" dest="expression_statement [6311,6394]"/>
+  <match src="uint256: uint256 [4345,4352]" dest="uint256: uint256 [4471,4478]"/>
+  <match src="view: view [438,442]" dest="view: view [492,496]"/>
+  <match src="address: address [4928,4935]" dest="address: address [5171,5178]"/>
+  <match src="=: = [7228,7229]" dest="=: = [7804,7805]"/>
+  <match src=",: , [7346,7347]" dest=",: , [7914,7915]"/>
+  <match src="parameter [4073,4082]" dest="parameter [4199,4208]"/>
+  <match src="identifier: claimAmount [7086,7097]" dest="identifier: claimAmount [7662,7673]"/>
+  <match src="assignment_expression [5829,5861]" dest="assignment_expression [6406,6438]"/>
+  <match src="type_alias [4761,4769]" dest="type_alias [5004,5012]"/>
+  <match src="event_paramater [2506,2524]" dest="event_paramater [2560,2578]"/>
+  <match src="call_argument [8217,8230]" dest="call_argument [9124,9137]"/>
+  <match src="comment: // Gas optimization: this is cheaper than requiring 'a' not being zero, but the [3118,3197]" dest="comment: // Gas optimization: this is cheaper than requiring 'a' not being zero, but the [3244,3323]"/>
+  <match src="uint256: uint256 [3778,3785]" dest="uint256: uint256 [3904,3911]"/>
+  <match src="function_body [6618,7427]" dest="function_body [7194,7995]"/>
+  <match src="call_argument [6753,6797]" dest="call_argument [7329,7373]"/>
+  <match src="(: ( [7341,7342]" dest="(: ( [7909,7910]"/>
+  <match src="type_name [1070,1077]" dest="type_name [1124,1131]"/>
+  <match src="type_name [1820,1827]" dest="type_name [1874,1881]"/>
+  <match src="returns: returns [1862,1869]" dest="returns: returns [1916,1923]"/>
+  <match src="variable_declaration [3397,3406]" dest="variable_declaration [3523,3532]"/>
+  <match src="]: ] [5560,5561]" dest="]: ] [6139,6140]"/>
+  <match src="expression_statement [6093,6114]" dest="expression_statement [6670,6691]"/>
+  <match src="primitive_type [4611,4618]" dest="primitive_type [4737,4744]"/>
+  <match src="identifier: user [7342,7346]" dest="identifier: user [7910,7914]"/>
+  <match src="type_name [5143,5150]" dest="type_name [5386,5393]"/>
+  <match src="parameter [2217,2231]" dest="parameter [2271,2285]"/>
+  <match src="solidity_version: 0.6.12 [67,73]" dest="solidity_version: 0.6.12 [2906,2912]"/>
+  <match src="call_expression [6255,6280]" dest="call_expression [6832,6857]"/>
+  <match src="identifier: to [2522,2524]" dest="identifier: to [2576,2578]"/>
+  <match src="array_access [6954,6972]" dest="array_access [7530,7548]"/>
+  <match src="public: public [5105,5111]" dest="public: public [5348,5354]"/>
+  <match src="}: } [4198,4199]" dest="}: } [4324,4325]"/>
+  <match src="[: [ [6211,6212]" dest="[: [ [6788,6789]"/>
+  <match src="contract_body [2947,4725]" dest="contract_body [3073,4851]"/>
+  <match src="uint256: uint256 [4153,4160]" dest="uint256: uint256 [4279,4286]"/>
+  <match src="(: ( [3432,3433]" dest="(: ( [3558,3559]"/>
+  <match src="type_cast_expression [5970,5983]" dest="type_cast_expression [6547,6560]"/>
+  <match src="(: ( [3341,3342]" dest="(: ( [3467,3468]"/>
+  <match src=".: . [5777,5778]" dest=".: . [6354,6355]"/>
+  <match src="): ) [3443,3444]" dest="): ) [3569,3570]"/>
+  <match src="identifier: b [3640,3641]" dest="identifier: b [3766,3767]"/>
+  <match src="==: == [6429,6431]" dest="==: == [7006,7008]"/>
+  <match src="): ) [5201,5202]" dest="): ) [5444,5445]"/>
+  <match src=".: . [8106,8107]" dest=".: . [9013,9014]"/>
+  <match src="uint256: uint256 [2769,2776]" dest="uint256: uint256 [2823,2830]"/>
+  <match src="return: return [8007,8013]" dest="return: return [8914,8920]"/>
+  <match src="variable_declaration_statement [3397,3415]" dest="variable_declaration_statement [3523,3541]"/>
+  <match src="identifier: IERC20 [4790,4796]" dest="identifier: IERC20 [5033,5039]"/>
+  <match src="primitive_type [4774,4781]" dest="primitive_type [5017,5024]"/>
+  <match src="primitive_type [1085,1092]" dest="primitive_type [1139,1146]"/>
+  <match src="binary_expression [6753,6797]" dest="binary_expression [7329,7373]"/>
+  <match src="number_literal: 0 [3347,3348]" dest="number_literal: 0 [3473,3474]"/>
+  <match src="++: ++ [6116,6118]" dest="++: ++ [6693,6695]"/>
+  <match src="primitive_type [5224,5231]" dest="primitive_type [5467,5474]"/>
+  <match src=".: . [7408,7409]" dest=".: . [7976,7977]"/>
+  <match src="parameter [4062,4071]" dest="parameter [4188,4197]"/>
+  <match src=",: , [725,726]" dest=",: , [779,780]"/>
+  <match src="function_definition [3608,3911]" dest="function_definition [3734,4037]"/>
+  <match src="identifier: mul [8154,8157]" dest="identifier: mul [9061,9064]"/>
+  <match src="identifier: user [6788,6792]" dest="identifier: user [7364,7368]"/>
+  <match src="function_body [7960,8240]" dest="function_body [8867,9147]"/>
+  <match src="identifier: _from [5240,5245]" dest="identifier: _from [5483,5488]"/>
+  <match src="comment: /**      * @dev Subtracts two unsigned integers, reverts on overflow (i.e. if subtrahend is greater than minuend).      */ [3919,4043]" dest="comment: /**      * @dev Subtracts two unsigned integers, reverts on overflow (i.e. if subtrahend is greater than minuend).      */ [4045,4169]"/>
+  <match src="primitive_type [5445,5452]" dest="primitive_type [6024,6031]"/>
+  <match src="): ) [303,304]" dest="): ) [357,358]"/>
+  <match src="identifier: b [4135,4136]" dest="identifier: b [4261,4262]"/>
+  <match src="member_expression [5742,5760]" dest="member_expression [6319,6337]"/>
+  <match src="binary_expression [3433,3443]" dest="binary_expression [3559,3569]"/>
+  <match src="comment: /**      * @dev Moves `amount` tokens from the caller's account to `recipient`.      *      * Returns a boolean value indicating whether the operation succeeded.      *      * Emits a {Transfer} event.      */ [469,684]" dest="comment: /**      * @dev Moves `amount` tokens from the caller's account to `recipient`.      *      * Returns a boolean value indicating whether the operation succeeded.      *      * Emits a {Transfer} event.      */ [523,738]"/>
+  <match src="call_expression [6667,6734]" dest="call_expression [7243,7310]"/>
+  <match src="comment: // flush the released since released means &quot;unclaimed&quot; amount [7142,7203]" dest="comment: // flush the released since released means &quot;unclaimed&quot; amount [7718,7779]"/>
+  <match src="uint256: uint256 [3053,3060]" dest="uint256: uint256 [3179,3186]"/>
+  <match src="): ) [5982,5983]" dest="): ) [6559,6560]"/>
+  <match src="primitive_type [4656,4663]" dest="primitive_type [4782,4789]"/>
+  <match src="address: address [412,419]" dest="address: address [466,473]"/>
+  <match src="address: address [1070,1077]" dest="address: address [1124,1131]"/>
+  <match src="identifier: length [5778,5784]" dest="identifier: length [6355,6361]"/>
+  <match src="identifier: user [7222,7226]" dest="identifier: user [7798,7802]"/>
+  <match src="(: ( [4134,4135]" dest="(: ( [4260,4261]"/>
+  <match src="primitive_type [5593,5600]" dest="primitive_type [6172,6179]"/>
+  <match src="[: [ [7221,7222]" dest="[: [ [7797,7798]"/>
+  <match src="primitive_type [8534,8541]" dest="primitive_type [8016,8023]"/>
+  <match src="string [6445,6494]" dest="string [7022,7071]"/>
+  <match src="comment: /**      * @dev Adds two unsigned integers, reverts on overflow.      */ [4207,4281]" dest="comment: /**      * @dev Adds two unsigned integers, reverts on overflow.      */ [4333,4407]"/>
+  <match src="identifier: Transfer [5215,5223]" dest="identifier: Transfer [5458,5466]"/>
+  <match src="&lt;: &lt; [6094,6095]" dest="&lt;: &lt; [6671,6672]"/>
+  <match src="indexed: indexed [5232,5239]" dest="indexed: indexed [5475,5482]"/>
+  <match src="comment: /**      * @dev Returns the amount of tokens in existence.      */ [176,244]" dest="comment: /**      * @dev Returns the amount of tokens in existence.      */ [230,298]"/>
+  <match src="): ) [1851,1852]" dest="): ) [1905,1906]"/>
+  <match src="call_argument [5742,5784]" dest="call_argument [6319,6361]"/>
+  <match src="identifier: a [4165,4166]" dest="identifier: a [4291,4292]"/>
+  <match src="member_expression [6644,6654]" dest="member_expression [7220,7230]"/>
+  <match src="identifier: released [5112,5120]" dest="identifier: released [5355,5363]"/>
+  <match src="{: { [4746,4747]" dest="{: { [4989,4990]"/>
+  <match src="event_paramater [5183,5201]" dest="event_paramater [5426,5444]"/>
+  <match src="identifier: b [3794,3795]" dest="identifier: b [3920,3921]"/>
+  <match src="uint256: uint256 [4300,4307]" dest="uint256: uint256 [4426,4433]"/>
+  <match src="identifier: require [6745,6752]" dest="identifier: require [7321,7328]"/>
+  <match src="): ) [3105,3106]" dest="): ) [3231,3232]"/>
+  <match src="uint256: uint256 [4622,4629]" dest="uint256: uint256 [4748,4755]"/>
+  <match src=",: , [5164,5165]" dest=",: , [5407,5408]"/>
+  <match src="{: { [6120,6121]" dest="{: { [6697,6698]"/>
+  <match src="): ) [3641,3642]" dest="): ) [3767,3768]"/>
+  <match src="type_name [2217,2224]" dest="type_name [2271,2278]"/>
+  <match src="identifier: claimAmount [7390,7401]" dest="identifier: claimAmount [7958,7969]"/>
+  <match src="(: ( [5670,5671]" dest="(: ( [6247,6248]"/>
+  <match src="identifier: _grantedToken [6263,6276]" dest="identifier: _grantedToken [6840,6853]"/>
+  <match src="number_literal: 0 [5685,5686]" dest="number_literal: 0 [6262,6263]"/>
+  <match src="identifier: sum [6054,6057]" dest="identifier: sum [6631,6634]"/>
+  <match src="&gt;: &gt; [6794,6795]" dest="&gt;: &gt; [7370,7371]"/>
+  <match src="external: external [1853,1861]" dest="external: external [1907,1915]"/>
+  <match src="=: = [3788,3789]" dest="=: = [3914,3915]"/>
+  <match src="): ) [4352,4353]" dest="): ) [4478,4479]"/>
+  <match src="): ) [1100,1101]" dest="): ) [1154,1155]"/>
+  <match src="&quot;: &quot; [5814,5815]" dest="&quot;: &quot; [6391,6392]"/>
+  <match src="user_defined_type [4790,4796]" dest="user_defined_type [5033,5039]"/>
+  <match src="uint256: uint256 [5501,5508]" dest="uint256: uint256 [6080,6087]"/>
+  <match src="(: ( [2483,2484]" dest="(: ( [2537,2538]"/>
+  <match src="identifier: msg [8901,8904]" dest="identifier: msg [8059,8062]"/>
+  <match src="variable_declaration [6629,6641]" dest="variable_declaration [7205,7217]"/>
+  <match src="call_argument [8202,8231]" dest="call_argument [9109,9138]"/>
+  <match src="primitive_type [761,765]" dest="primitive_type [815,819]"/>
+  <match src="primitive_type [5096,5103]" dest="primitive_type [5339,5346]"/>
+  <match src="identifier: totalTokens [6009,6020]" dest="identifier: totalTokens [6586,6597]"/>
+  <match src="parameter [7630,7643]" dest="parameter [8536,8549]"/>
+  <match src="primitive_type [4153,4160]" dest="primitive_type [4279,4286]"/>
+  <match src="indexed: indexed [2752,2759]" dest="indexed: indexed [2806,2813]"/>
+  <match src="function: function [5415,5423]" dest="function: function [5994,6002]"/>
+  <match src="return_type_definition [443,460]" dest="return_type_definition [497,514]"/>
+  <match src="): ) [5815,5816]" dest="): ) [6392,6393]"/>
+  <match src="variable_declaration_statement [6078,6092]" dest="variable_declaration_statement [6655,6669]"/>
+  <match src="primitive_type [5268,5275]" dest="primitive_type [5511,5518]"/>
+  <match src="): ) [4995,4996]" dest="): ) [5238,5239]"/>
+  <match src="block_statement [3350,3385]" dest="block_statement [3476,3511]"/>
+  <match src="(: ( [5920,5921]" dest="(: ( [6497,6498]"/>
+  <match src="primitive_type [5183,5190]" dest="primitive_type [5426,5433]"/>
+  <match src="(: ( [4976,4977]" dest="(: ( [5219,5220]"/>
+  <match src="=: = [4163,4164]" dest="=: = [4289,4290]"/>
+  <match src="): ) [1875,1876]" dest="): ) [1929,1930]"/>
+  <match src="{: { [3350,3351]" dest="{: { [3476,3477]"/>
+  <match src="public: public [4948,4954]" dest="public: public [5191,5197]"/>
+  <match src="identifier: require [4393,4400]" dest="identifier: require [4519,4526]"/>
+  <match src="type_name [4300,4307]" dest="type_name [4426,4433]"/>
+  <match src="(: ( [707,708]" dest="(: ( [761,762]"/>
+  <match src="uint256: uint256 [4818,4825]" dest="uint256: uint256 [5061,5068]"/>
+  <match src="(: ( [7666,7667]" dest="(: ( [8572,8573]"/>
+  <match src="return_statement [7687,7733]" dest="return_statement [8593,8639]"/>
+  <match src="string_literal [6799,6856]" dest="string_literal [7375,7432]"/>
+  <match src="[: [ [6231,6232]" dest="[: [ [6808,6809]"/>
+  <match src="address: address [708,715]" dest="address: address [762,769]"/>
+  <match src="variable_declaration_statement [8026,8117]" dest="variable_declaration_statement [8933,9024]"/>
+  <match src="calldata: calldata [5562,5570]" dest="calldata: calldata [6141,6149]"/>
+  <match src="(: ( [1870,1871]" dest="(: ( [1924,1925]"/>
+  <match src="array_access [6263,6279]" dest="array_access [6840,6856]"/>
+  <match src="type_name [7630,7637]" dest="type_name [8536,8543]"/>
+  <match src="public: public [4826,4832]" dest="public: public [5069,5075]"/>
+  <match src="type_name [3098,3105]" dest="type_name [3224,3231]"/>
+  <match src="]: ] [8229,8230]" dest="]: ] [9136,9137]"/>
+  <match src="binary_expression [4135,4141]" dest="binary_expression [4261,4267]"/>
+  <match src="state_mutability [7938,7942]" dest="state_mutability [8845,8849]"/>
+  <match src="type_name [4988,4995]" dest="type_name [5231,5238]"/>
+  <match src="type_name [2506,2513]" dest="type_name [2560,2567]"/>
+  <match src="): ) [7958,7959]" dest="): ) [8865,8866]"/>
+  <match src="event_definition [5129,5203]" dest="event_definition [5372,5446]"/>
+  <match src="address: address [4977,4984]" dest="address: address [5220,5227]"/>
+  <match src="identifier: released [7694,7702]" dest="identifier: released [8600,8608]"/>
+  <match src="variable_declaration_statement [3778,3796]" dest="variable_declaration_statement [3904,3922]"/>
+  <match src="call_argument [6263,6279]" dest="call_argument [6840,6856]"/>
+  <match src="event: event [2469,2474]" dest="event: event [2523,2528]"/>
+  <match src="event_paramater [2769,2782]" dest="event_paramater [2823,2836]"/>
+  <match src="}: } [7426,7427]" dest="}: } [7994,7995]"/>
+  <match src="binary_expression [6093,6113]" dest="binary_expression [6670,6690]"/>
+  <match src="): ) [741,742]" dest="): ) [795,796]"/>
+  <match src="visibility [4948,4954]" dest="visibility [5191,5197]"/>
+  <match src="function_definition [7605,7740]" dest="function_definition [8511,8646]"/>
+  <match src="identifier: applicableTimeStamp [8034,8053]" dest="identifier: applicableTimeStamp [8941,8960]"/>
+  <match src="visibility [5105,5111]" dest="visibility [5348,5354]"/>
+  <match src="identifier: grantedToken [6975,6987]" dest="identifier: grantedToken [7551,7563]"/>
+  <match src="identifier: a [3790,3791]" dest="identifier: a [3916,3917]"/>
+  <match src="event: event [2706,2711]" dest="event: event [2760,2765]"/>
+  <match src="type_name [1125,1132]" dest="type_name [1179,1186]"/>
+  <match src="expression_statement [6249,6281]" dest="expression_statement [6826,6858]"/>
+  <match src="identifier: balanceOf [402,411]" dest="identifier: balanceOf [456,465]"/>
+  <match src="uint256: uint256 [8026,8033]" dest="uint256: uint256 [8933,8940]"/>
+  <match src="primitive_type [2286,2290]" dest="primitive_type [2340,2344]"/>
+  <match src="=: = [5885,5886]" dest="=: = [6462,6463]"/>
+  <match src="(: ( [8216,8217]" dest="(: ( [9123,9124]"/>
+  <match src="(: ( [411,412]" dest="(: ( [465,466]"/>
+  <match src="call_argument [6708,6733]" dest="call_argument [7284,7309]"/>
+  <match src="call_expression [7100,7129]" dest="call_expression [7676,7705]"/>
+  <match src="member_expression [5842,5852]" dest="member_expression [6419,6429]"/>
+  <match src="(: ( [6900,6901]" dest="(: ( [7476,7477]"/>
+  <match src="expression_statement [7286,7317]" dest="expression_statement [7854,7885]"/>
+  <match src="external: external [7645,7653]" dest="external: external [8551,8559]"/>
+  <match src="parameter [1820,1835]" dest="parameter [1874,1889]"/>
+  <match src="identifier: releaseStart [6675,6687]" dest="identifier: releaseStart [7251,7263]"/>
+  <match src="identifier: add [6259,6262]" dest="identifier: add [6836,6839]"/>
+  <match src="returns: returns [1116,1123]" dest="returns: returns [1170,1177]"/>
+  <match src="update_expression [6115,6118]" dest="update_expression [6692,6695]"/>
+  <match src="identifier: c [4190,4191]" dest="identifier: c [4316,4317]"/>
+  <match src="return_statement [3895,3904]" dest="return_statement [4021,4030]"/>
+  <match src="identifier: totalTokens [4833,4844]" dest="identifier: totalTokens [5076,5087]"/>
+  <match src="identifier: _grantedToken [5612,5625]" dest="identifier: _grantedToken [6191,6204]"/>
+  <match src="contract_body [169,2787]" dest="contract_body [223,2841]"/>
+  <match src="string [6708,6733]" dest="string [7284,7309]"/>
+  <match src="function: function [250,258]" dest="function: function [304,312]"/>
+  <match src=",: , [5968,5969]" dest=",: , [6545,6546]"/>
+  <match src="==: == [3344,3346]" dest="==: == [3470,3472]"/>
+  <match src="parameter [452,459]" dest="parameter [506,513]"/>
+  <match src="identifier: require [6667,6674]" dest="identifier: require [7243,7250]"/>
+  <match src="call_argument [7348,7359]" dest="call_argument [7916,7927]"/>
+  <match src="returns: returns [4098,4105]" dest="returns: returns [4224,4231]"/>
+  <match src="parameter [727,741]" dest="parameter [781,795]"/>
+  <match src="string_literal [6445,6494]" dest="string_literal [7022,7071]"/>
+  <match src="[: [ [5600,5601]" dest="[: [ [6179,6180]"/>
+  <match src="parameter [2286,2290]" dest="parameter [2340,2344]"/>
+  <match src="identifier: releasing [7119,7128]" dest="identifier: releasing [7695,7704]"/>
+  <match src="=: = [6021,6022]" dest="=: = [6598,6599]"/>
+  <match src="address: address [5247,5254]" dest="address: address [5490,5497]"/>
+  <match src="primitive_type [7951,7958]" dest="primitive_type [8858,8865]"/>
+  <match src="expression_statement [7327,7361]" dest="expression_statement [7895,7929]"/>
+  <match src="^:  ^ [65,67]" dest="^:  ^ [2904,2906]"/>
+  <match src="identifier: b [3072,3073]" dest="identifier: b [3198,3199]"/>
+  <match src="event_paramater [5143,5164]" dest="event_paramater [5386,5407]"/>
+  <match src="comment: // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522 [3258,3328]" dest="comment: // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522 [3384,3454]"/>
+  <match src="function: function [4049,4057]" dest="function: function [4175,4183]"/>
+  <match src="function_definition [4287,4437]" dest="function_definition [4413,4563]"/>
+  <match src="identifier: length [6107,6113]" dest="identifier: length [6684,6690]"/>
+  <match src="||: || [6776,6778]" dest="||: || [7352,7354]"/>
+  <match src="(: ( [4610,4611]" dest="(: ( [4736,4737]"/>
+  <match src="identifier: Transfer [2475,2483]" dest="identifier: Transfer [2529,2537]"/>
+  <match src="indexed: indexed [2514,2521]" dest="indexed: indexed [2568,2575]"/>
+  <match src="primitive_type [7667,7674]" dest="primitive_type [8573,8580]"/>
+  <match src="state_mutability [4642,4646]" dest="state_mutability [4768,4772]"/>
+  <match src="identifier: i [6154,6155]" dest="identifier: i [6731,6732]"/>
+  <match src="member_expression [6255,6262]" dest="member_expression [6832,6839]"/>
+  <match src="identifier: token [5906,5911]" dest="identifier: token [6483,6488]"/>
+  <match src="public: public [4859,4865]" dest="public: public [5102,5108]"/>
+  <match src="return_type_definition [4336,4353]" dest="return_type_definition [4462,4479]"/>
+  <match src="call_expression [6975,7008]" dest="call_expression [7551,7584]"/>
+  <match src="identifier: b [4319,4320]" dest="identifier: b [4445,4446]"/>
+  <match src="parameter [5470,5490]" dest="parameter [6049,6069]"/>
+  <match src="(: ( [7724,7725]" dest="(: ( [8630,8631]"/>
+  <match src="type_name [3064,3071]" dest="type_name [3190,3197]"/>
+  <match src="return_statement [3457,3466]" dest="return_statement [3583,3592]"/>
+  <match src="call_expression [6745,6857]" dest="call_expression [7321,7433]"/>
+  <match src="primitive_type [3621,3628]" dest="primitive_type [3747,3754]"/>
+  <match src=".: . [6696,6697]" dest=".: . [7272,7273]"/>
+  <match src="view: view [282,286]" dest="view: view [336,340]"/>
+  <match src="uint256: uint256 [1125,1132]" dest="uint256: uint256 [1179,1186]"/>
+  <match src="identifier: _timestamp [5191,5201]" dest="identifier: _timestamp [5434,5444]"/>
+  <match src=".: . [8061,8062]" dest=".: . [8968,8969]"/>
+  <match src="]: ] [7226,7227]" dest="]: ] [7802,7803]"/>
+  <match src="function_definition [393,461]" dest="function_definition [447,515]"/>
+  <match src="): ) [6597,6598]" dest="): ) [7175,7176]"/>
+  <match src="==: == [5682,5684]" dest="==: == [6259,6261]"/>
+  <match src="external: external [8583,8591]" dest="external: external [8031,8039]"/>
+  <match src=",: , [5541,5542]" dest=",: , [6120,6121]"/>
+  <match src="returns: returns [3089,3096]" dest="returns: returns [3215,3222]"/>
+  <match src="call_argument [7725,7730]" dest="call_argument [8631,8636]"/>
+  <match src="member_expression [8901,8911]" dest="member_expression [8059,8069]"/>
+  <match src="{: { [169,170]" dest="{: { [223,224]"/>
+  <match src="primitive_type [4885,4892]" dest="primitive_type [5128,5135]"/>
+  <match src="identifier: releasable [6890,6900]" dest="identifier: releasable [7466,7476]"/>
+  <match src="identifier: a [3061,3062]" dest="identifier: a [3187,3188]"/>
+  <match src="parameter [4107,4114]" dest="parameter [4233,4240]"/>
+  <match src="function_definition [2195,2292]" dest="function_definition [2249,2346]"/>
+  <match src="visibility [7931,7937]" dest="visibility [8838,8844]"/>
+  <match src=",: , [1835,1836]" dest=",: , [1889,1890]"/>
+  <match src="(: ( [2720,2721]" dest="(: ( [2774,2775]"/>
+  <match src="call_argument [7714,7731]" dest="call_argument [8620,8637]"/>
+  <match src="member_expression [8134,8157]" dest="member_expression [9041,9064]"/>
+  <match src=",: , [6797,6798]" dest=",: , [7373,7374]"/>
+  <match src="}: } [7739,7740]" dest="}: } [8645,8646]"/>
+  <match src="identifier: _user [7703,7708]" dest="identifier: _user [8609,8614]"/>
+  <match src=",: , [2742,2743]" dest=",: , [2796,2797]"/>
+  <match src="type_name [412,419]" dest="type_name [466,473]"/>
+  <match src="address: address [2217,2224]" dest="address: address [2271,2278]"/>
+  <match src="call_argument [5970,5983]" dest="call_argument [6547,6560]"/>
+  <match src="visibility [4797,4803]" dest="visibility [5040,5046]"/>
+  <match src="identifier: totalTokens [6432,6443]" dest="identifier: totalTokens [7009,7020]"/>
+  <match src="]: ] [6233,6234]" dest="]: ] [6810,6811]"/>
+  <match src="identifier: releaseStart [5872,5884]" dest="identifier: releaseStart [6449,6461]"/>
+  <match src="member_expression [7301,7316]" dest="member_expression [7869,7884]"/>
+  <match src="uint256: uint256 [4062,4069]" dest="uint256: uint256 [4188,4195]"/>
+  <match src="type_name [5552,5561]" dest="type_name [6131,6140]"/>
+  <match src="): ) [427,428]" dest="): ) [481,482]"/>
+  <match src="(: ( [3620,3621]" dest="(: ( [3746,3747]"/>
+  <match src="function_definition [5415,6503]" dest="function_definition [5994,7080]"/>
+  <match src="external: external [273,281]" dest="external: external [327,335]"/>
+  <match src="(: ( [7118,7119]" dest="(: ( [7694,7695]"/>
+  <match src="binary_expression [3409,3414]" dest="binary_expression [3535,3540]"/>
+  <match src="source_file [0,9572]" dest="source_file [0,10552]"/>
+  <match src="primitive_type [2769,2776]" dest="primitive_type [2823,2830]"/>
+  <match src="assignment_expression [5872,5893]" dest="assignment_expression [6449,6470]"/>
+  <match src="primitive_type [4988,4995]" dest="primitive_type [5231,5238]"/>
+  <match src="identifier: timestamp [8062,8071]" dest="identifier: timestamp [8969,8978]"/>
+  <match src="expression_statement [6667,6735]" dest="expression_statement [7243,7311]"/>
+  <match src="assignment_expression [7213,7231]" dest="assignment_expression [7789,7807]"/>
+  <match src="uint256: uint256 [6046,6053]" dest="uint256: uint256 [6623,6630]"/>
+  <match src="comment: /**      * @dev Multiplies two unsigned integers, reverts on overflow.      */ [2954,3034]" dest="comment: /**      * @dev Multiplies two unsigned integers, reverts on overflow.      */ [3080,3160]"/>
+  <match src="visibility [5640,5646]" dest="visibility [6217,6223]"/>
+  <match src="uint256: uint256 [2252,2259]" dest="uint256: uint256 [2306,2313]"/>
+  <match src="binary_expression [4165,4170]" dest="binary_expression [4291,4296]"/>
+  <match src="}: } [6291,6292]" dest="}: } [6868,6869]"/>
+  <match src="uint256: uint256 [3632,3639]" dest="uint256: uint256 [3758,3765]"/>
+  <match src="uint256: uint256 [6078,6085]" dest="uint256: uint256 [6655,6662]"/>
+  <match src="primitive_type [3098,3105]" dest="primitive_type [3224,3231]"/>
+  <match src="[: [ [6276,6277]" dest="[: [ [6853,6854]"/>
+  <match src="uint256: uint256 [8547,8554]" dest="uint256: uint256 [8102,8109]"/>
+  <match src="variable_declaration [3778,3787]" dest="variable_declaration [3904,3913]"/>
+  <match src="state_mutability [4093,4097]" dest="state_mutability [4219,4223]"/>
+  <match src="primitive_type [5970,5977]" dest="primitive_type [6547,6554]"/>
+  <match src="visibility [273,281]" dest="visibility [327,335]"/>
+  <match src="address: address [2744,2751]" dest="address: address [2798,2805]"/>
+  <match src="{: { [5652,5653]" dest="{: { [6229,6230]"/>
+  <match src="): ) [8230,8231]" dest="): ) [9137,9138]"/>
+  <match src="call_argument [5921,5927]" dest="call_argument [6498,6504]"/>
+  <match src="type_name [4968,4996]" dest="type_name [5211,5239]"/>
+  <match src="[: [ [5559,5560]" dest="[: [ [6138,6139]"/>
+  <match src="identifier: releaseEnd [4900,4910]" dest="identifier: releaseEnd [5143,5153]"/>
+  <match src=",: , [4620,4621]" dest=",: , [4746,4747]"/>
+  <match src="type_name [4939,4946]" dest="type_name [5182,5189]"/>
+  <match src="expression_statement [4127,4143]" dest="expression_statement [4253,4269]"/>
+  <match src="identifier: timestamp [7981,7990]" dest="identifier: timestamp [8888,8897]"/>
+  <match src="(: ( [7950,7951]" dest="(: ( [8857,8858]"/>
+  <match src="array_access [8182,8195]" dest="array_access [9089,9102]"/>
+  <match src="uint256: uint256 [4311,4318]" dest="uint256: uint256 [4437,4444]"/>
+  <match src="identifier: totalSupply [259,270]" dest="identifier: totalSupply [313,324]"/>
+  <match src="member_expression [8101,8116]" dest="member_expression [9008,9023]"/>
+  <match src="identifier: add [7115,7118]" dest="identifier: add [7691,7694]"/>
+  <match src="identifier: sub [4058,4061]" dest="identifier: sub [4184,4187]"/>
+  <match src="event_paramater [5224,5245]" dest="event_paramater [5467,5488]"/>
+  <match src="(: ( [6997,6998]" dest="(: ( [7573,7574]"/>
+  <match src="primitive_type [7630,7637]" dest="primitive_type [8536,8543]"/>
+  <match src="member_expression [8056,8071]" dest="member_expression [8963,8978]"/>
+  <match src="type_name [5526,5533]" dest="type_name [6105,6112]"/>
+  <match src="address: address [5552,5559]" dest="address: address [6131,6138]"/>
+  <match src=",: , [4071,4072]" dest=",: , [4197,4198]"/>
+  <match src="=: = [6216,6217]" dest="=: = [6793,6794]"/>
+  <match src="parameter [4300,4309]" dest="parameter [4426,4435]"/>
+  <match src="[: [ [6141,6142]" dest="[: [ [6718,6719]"/>
+  <match src="view: view [1111,1115]" dest="view: view [1165,1169]"/>
+  <match src="identifier: value [2534,2539]" dest="identifier: value [2588,2593]"/>
+  <match src="): ) [6905,6906]" dest="): ) [7481,7482]"/>
+  <match src="primitive_type [4939,4946]" dest="primitive_type [5182,5189]"/>
+  <match src="call_expression [8890,8912]" dest="call_expression [8051,8091]"/>
+  <match src="member_expression [8134,8201]" dest="member_expression [9041,9108]"/>
+  <match src="array_access [6975,6993]" dest="array_access [7551,7569]"/>
+  <match src="}: } [8239,8240]" dest="}: } [9146,9147]"/>
+  <match src="(: ( [5084,5085]" dest="(: ( [5327,5328]"/>
+  <match src="(: ( [1124,1125]" dest="(: ( [1178,1179]"/>
+  <match src=".: . [6258,6259]" dest=".: . [6835,6836]"/>
+  <match src="bool: bool [1871,1875]" dest="bool: bool [1925,1929]"/>
+  <match src="type_name [4818,4825]" dest="type_name [5061,5068]"/>
+  <match src="type_name [6078,6085]" dest="type_name [6655,6662]"/>
+  <match src="returns: returns [3657,3664]" dest="returns: returns [3783,3790]"/>
+  <match src="call_expression [6890,6906]" dest="call_expression [7466,7482]"/>
+  <match src="state_mutability [4331,4335]" dest="state_mutability [4457,4461]"/>
+  <match src=".: . [8212,8213]" dest=".: . [9119,9120]"/>
+  <match src="comment: /**      * @dev Integer division of two unsigned integers truncating the quotient, reverts on division by zero.      */ [3481,3602]" dest="comment: /**      * @dev Integer division of two unsigned integers truncating the quotient, reverts on division by zero.      */ [3607,3728]"/>
+  <match src="parameter [761,765]" dest="parameter [815,819]"/>
+  <match src="identifier: sender [2225,2231]" dest="identifier: sender [2279,2285]"/>
+  <match src="visibility [4633,4641]" dest="visibility [4759,4767]"/>
+  <match src=".: . [5753,5754]" dest=".: . [6330,6331]"/>
+  <match src="expression_statement [5829,5862]" dest="expression_statement [6406,6439]"/>
+  <match src="function_body [7676,7740]" dest="function_body [8582,8646]"/>
+  <match src="visibility [4893,4899]" dest="visibility [5136,5142]"/>
+  <match src="return: return [3365,3371]" dest="return: return [3491,3497]"/>
+  <match src="type_name [2233,2240]" dest="type_name [2287,2294]"/>
+  <match src="): ) [2266,2267]" dest="): ) [2320,2321]"/>
+  <match src="primitive_type [5552,5559]" dest="primitive_type [6131,6138]"/>
+  <match src="identifier: block [7301,7306]" dest="identifier: block [7869,7874]"/>
+  <match src="identifier: user [7384,7388]" dest="identifier: user [7952,7956]"/>
+  <match src="(: ( [4061,4062]" dest="(: ( [4187,4188]"/>
+  <match src="uint256: uint256 [7951,7958]" dest="uint256: uint256 [8858,8865]"/>
+  <match src="type_name [3778,3785]" dest="type_name [3904,3911]"/>
+  <match src="expression_statement [5939,5999]" dest="expression_statement [6516,6576]"/>
+  <match src="identifier: _recipients [6200,6211]" dest="identifier: _recipients [6777,6788]"/>
+  <match src="primitive_type [452,459]" dest="primitive_type [506,513]"/>
+  <match src="): ) [6856,6857]" dest="): ) [7432,7433]"/>
+  <match src="state_mutability [3084,3088]" dest="state_mutability [3210,3214]"/>
+  <match src="parameter [1125,1132]" dest="parameter [1179,1186]"/>
+  <match src="?: ? [8086,8087]" dest="?: ? [8993,8994]"/>
+  <match src="uint256: uint256 [4107,4114]" dest="uint256: uint256 [4233,4240]"/>
+  <match src="identifier: msg [5958,5961]" dest="identifier: msg [6535,6538]"/>
+  <match src="identifier: approve [1812,1819]" dest="identifier: approve [1866,1873]"/>
+  <match src="=: = [6158,6159]" dest="=: = [6735,6736]"/>
+  <match src="array_access [6753,6793]" dest="array_access [7329,7369]"/>
+  <match src="primitive_type [1820,1827]" dest="primitive_type [1874,1881]"/>
+  <match src="type_name [9193,9200]" dest="type_name [8182,8189]"/>
+  <match src="state_mutability [438,442]" dest="state_mutability [492,496]"/>
+  <match src="(: ( [5142,5143]" dest="(: ( [5385,5386]"/>
+  <match src="number_literal: 0 [8014,8015]" dest="number_literal: 0 [8921,8922]"/>
+  <match src=",: , [2250,2251]" dest=",: , [2304,2305]"/>
+  <match src="binary_expression [4709,4714]" dest="binary_expression [4835,4840]"/>
+  <match src="identifier: _totalTokens [6023,6035]" dest="identifier: _totalTokens [6600,6612]"/>
+  <match src="identifier: require [4127,4134]" dest="identifier: require [4253,4260]"/>
+  <match src="primitive_type [2506,2513]" dest="primitive_type [2560,2567]"/>
+  <match src="{: { [3107,3108]" dest="{: { [3233,3234]"/>
+  <match src=",: , [2504,2505]" dest=",: , [2558,2559]"/>
+  <match src="call_argument [3433,3443]" dest="call_argument [3559,3569]"/>
+  <match src="assignment_expression [6187,6234]" dest="assignment_expression [6764,6811]"/>
+  <match src="function: function [7896,7904]" dest="function: function [8803,8811]"/>
+  <match src="event: event [5129,5134]" dest="event: event [5372,5377]"/>
+  <match src="return: return [4183,4189]" dest="return: return [4309,4315]"/>
+  <match src="identifier: require [3425,3432]" dest="identifier: require [3551,3558]"/>
+  <match src="(: ( [451,452]" dest="(: ( [505,506]"/>
+  <match src="identifier: claim [6591,6596]" dest="identifier: claim [7169,7174]"/>
+  <match src="function: function [3040,3048]" dest="function: function [3166,3174]"/>
+  <match src="(: ( [6262,6263]" dest="(: ( [6839,6840]"/>
+  <match src="state_variable_declaration [5076,5121]" dest="state_variable_declaration [5319,5364]"/>
+  <match src="event_paramater [2484,2504]" dest="event_paramater [2538,2558]"/>
+  <match src="member_expression [5958,5968]" dest="member_expression [6535,6545]"/>
+  <match src="(: ( [7629,7630]" dest="(: ( [8535,8536]"/>
+  <match src="): ) [6494,6495]" dest="): ) [7071,7072]"/>
+  <match src="type_name [5593,5602]" dest="type_name [6172,6181]"/>
+  <match src="returns: returns [287,294]" dest="returns: returns [341,348]"/>
+  <match src="): ) [7128,7129]" dest="): ) [7704,7705]"/>
+  <match src="uint256: uint256 [5526,5533]" dest="uint256: uint256 [6105,6112]"/>
+  <match src="return_type_definition [1862,1876]" dest="return_type_definition [1916,1930]"/>
+  <match src="identifier: transferFrom [5945,5957]" dest="identifier: transferFrom [6522,6534]"/>
+  <match src="identifier: user [6988,6992]" dest="identifier: user [7564,7568]"/>
+  <match src="address: address [8534,8541]" dest="address: address [8016,8023]"/>
+  <match src="call_argument [6425,6443]" dest="call_argument [7002,7020]"/>
+  <match src="identifier: _user [8224,8229]" dest="identifier: _user [9131,9136]"/>
+  <match src="variable_declaration [6078,6087]" dest="variable_declaration [6655,6664]"/>
+  <match src="type_name [5593,5600]" dest="type_name [6172,6179]"/>
+  <match src="): ) [5997,5998]" dest="): ) [6574,6575]"/>
+  <match src=",: , [6443,6444]" dest=",: , [7020,7021]"/>
+  <match src="primitive_type [1837,1844]" dest="primitive_type [1891,1898]"/>
+  <match src="}: } [3384,3385]" dest="}: } [3510,3511]"/>
+  <match src="type_name [1085,1092]" dest="type_name [1139,1146]"/>
+  <match src="pragma: pragma [50,56]" dest="pragma: pragma [2889,2895]"/>
+  <match src="event_paramater [5166,5181]" dest="event_paramater [5409,5424]"/>
+  <match src="identifier: starts [8217,8223]" dest="identifier: starts [9124,9130]"/>
+  <match src="array_access [8134,8153]" dest="array_access [9041,9060]"/>
+  <match src="identifier: c [4161,4162]" dest="identifier: c [4287,4288]"/>
+  <match src="expression_statement [6009,6036]" dest="expression_statement [6586,6613]"/>
+  <match src="parameter [4311,4320]" dest="parameter [4437,4446]"/>
+  <match src="): ) [4320,4321]" dest="): ) [4446,4447]"/>
+  <match src="&lt;: &lt; [7991,7992]" dest="&lt;: &lt; [8898,8899]"/>
+  <match src="identifier: user [6901,6905]" dest="identifier: user [7477,7481]"/>
+  <match src="identifier: _start [5887,5893]" dest="identifier: _start [6464,6470]"/>
+  <match src="internal: internal [4322,4330]" dest="internal: internal [4448,4456]"/>
+  <match src="variable_declaration [6046,6057]" dest="variable_declaration [6623,6634]"/>
+  <match src="comment: // do not input same recipient in the _recipients, it will lead to locked token in this contract [5313,5409]" dest="comment: // do not input same recipient in the _recipients, it will lead to locked token in this contract [5892,5988]"/>
+  <match src="internal: internal [4084,4092]" dest="internal: internal [4210,4218]"/>
+  <match src="expression_statement [4676,4692]" dest="expression_statement [4802,4818]"/>
+  <match src="event_paramater [5285,5303]" dest="event_paramater [5528,5546]"/>
+  <match src="function_body [3107,3473]" dest="function_body [3233,3599]"/>
+  <match src="parameter [5445,5459]" dest="parameter [6024,6038]"/>
+  <match src="[: [ [8223,8224]" dest="[: [ [9130,9131]"/>
+  <match src="binary_expression [4377,4382]" dest="binary_expression [4503,4508]"/>
+  <match src="type_name [4062,4069]" dest="type_name [4188,4195]"/>
+  <match src="string [5688,5722]" dest="string [6265,6299]"/>
+  <match src="identifier: SafeMath [4761,4769]" dest="identifier: SafeMath [5004,5012]"/>
+  <match src="expression_statement [3753,3768]" dest="expression_statement [3879,3894]"/>
+  <match src="call_argument [7119,7128]" dest="call_argument [7695,7704]"/>
+  <match src="identifier: b [4713,4714]" dest="identifier: b [4839,4840]"/>
+  <match src="member_expression [6691,6706]" dest="member_expression [7267,7282]"/>
+  <match src="visibility [4322,4330]" dest="visibility [4448,4456]"/>
+  <match src="primitive_type [3666,3673]" dest="primitive_type [3792,3799]"/>
+  <match src="function_definition [1051,1134]" dest="function_definition [1105,1188]"/>
+  <match src="type_name [4153,4160]" dest="type_name [4279,4286]"/>
+  <match src="indexed: indexed [2729,2736]" dest="indexed: indexed [2783,2790]"/>
+  <match src="==: == [5761,5763]" dest="==: == [6338,6340]"/>
+  <match src="(: ( [6752,6753]" dest="(: ( [7328,7329]"/>
+  <match src="number_literal: 0 [7230,7231]" dest="number_literal: 0 [7806,7807]"/>
+  <match src="(: ( [6424,6425]" dest="(: ( [7001,7002]"/>
+  <match src="if: if [3338,3340]" dest="if: if [3464,3466]"/>
+  <match src="identifier: _recipients [6095,6106]" dest="identifier: _recipients [6672,6683]"/>
+  <match src="external: external [743,751]" dest="external: external [797,805]"/>
+  <match src="identifier: sender [6648,6654]" dest="identifier: sender [7224,7230]"/>
+  <match src="(: ( [5741,5742]" dest="(: ( [6318,6319]"/>
+  <match src="identifier: releaseEnd [8075,8085]" dest="identifier: releaseEnd [8982,8992]"/>
+  <match src="primitive_type [4365,4372]" dest="primitive_type [4491,4498]"/>
+  <match src="type_name [6046,6053]" dest="type_name [6623,6630]"/>
+  <match src="identifier: starts [4955,4961]" dest="identifier: starts [5198,5204]"/>
+  <match src=".: . [8153,8154]" dest=".: . [9060,9061]"/>
+  <match src="identifier: user [6967,6971]" dest="identifier: user [7543,7547]"/>
+  <match src="type_name [8026,8033]" dest="type_name [8933,8940]"/>
+  <match src="function_definition [3040,3473]" dest="function_definition [3166,3599]"/>
+  <match src="identifier: releaseStart [4866,4878]" dest="identifier: releaseStart [5109,5121]"/>
+  <match src="type_name [4851,4858]" dest="type_name [5094,5101]"/>
+  <match src="(: ( [5223,5224]" dest="(: ( [5466,5467]"/>
+  <match src="comment: /**      * @dev Returns the remaining number of tokens that `spender` will be      * allowed to spend on behalf of `owner` through {transferFrom}. This is      * zero by default.      *      * This value changes when {approve} or {transferFrom} are called.      */ [775,1045]" dest="comment: /**      * @dev Returns the remaining number of tokens that `spender` will be      * allowed to spend on behalf of `owner` through {transferFrom}. This is      * zero by default.      *      * This value changes when {approve} or {transferFrom} are called.      */ [829,1099]"/>
+  <match src="identifier: sum [6255,6258]" dest="identifier: sum [6832,6835]"/>
+  <match src="primitive_type [2252,2259]" dest="primitive_type [2306,2313]"/>
+  <match src="): ) [4082,4083]" dest="): ) [4208,4209]"/>
+  <match src="binary_expression [5742,5784]" dest="binary_expression [6319,6361]"/>
+  <match src="(: ( [760,761]" dest="(: ( [814,815]"/>
+  <match src="visibility [3075,3083]" dest="visibility [3201,3209]"/>
+  <match src="emit: emit [7371,7375]" dest="emit: emit [7939,7943]"/>
+  <match src="(: ( [4106,4107]" dest="(: ( [4232,4233]"/>
+  <match src="identifier: this [5978,5982]" dest="identifier: this [6555,6559]"/>
+  <match src="identifier: starts [8182,8188]" dest="identifier: starts [9089,9095]"/>
+  <match src="call_expression [3753,3767]" dest="call_expression [3879,3893]"/>
+  <match src="!=: != [4686,4688]" dest="!=: != [4812,4814]"/>
+  <match src="&quot;: &quot; [6708,6709]" dest="&quot;: &quot; [7284,7285]"/>
+  <match src="return_statement [8007,8016]" dest="return_statement [8914,8923]"/>
+  <match src="comment: /**      * @dev returns the token that can be released from last user update      * @param _user user to check the releasable token     **/ [7748,7890]" dest="comment: /**      * @dev returns claimable token. buffered(released) token + token released from last update      * @param _user user to check the claimable token      **/ [8340,8505]"/>
+  <match src="{: { [6618,6619]" dest="{: { [7194,7195]"/>
+  <match src="interface_declaration [152,2787]" dest="interface_declaration [206,2841]"/>
+  <match src="function_definition [6582,7427]" dest="function_definition [7160,7995]"/>
+  <match src="}: } [2786,2787]" dest="}: } [2840,2841]"/>
+  <match src="parameter [1085,1100]" dest="parameter [1139,1154]"/>
+  <match src="parameter [1070,1083]" dest="parameter [1124,1137]"/>
+  <match src="visibility [3643,3651]" dest="visibility [3769,3777]"/>
+  <match src="returns: returns [4647,4654]" dest="returns: returns [4773,4780]"/>
+  <match src="state_variable_declaration [4851,4879]" dest="state_variable_declaration [5094,5122]"/>
+  <match src="uint256: uint256 [5470,5477]" dest="uint256: uint256 [6049,6056]"/>
+  <match src="string_literal [5786,5815]" dest="string_literal [6363,6392]"/>
+  <match src="): ) [7418,7419]" dest="): ) [7986,7987]"/>
+  <match src="type_name [4107,4114]" dest="type_name [4233,4240]"/>
+  <match src=",: , [5266,5267]" dest=",: , [5509,5510]"/>
+  <match src="return_type_definition [4098,4115]" dest="return_type_definition [4224,4241]"/>
+  <match src="primitive_type [5285,5292]" dest="primitive_type [5528,5535]"/>
+  <match src="function_definition [4598,4722]" dest="function_definition [4724,4848]"/>
+  <match src="parameter [708,725]" dest="parameter [762,779]"/>
+  <match src=",: , [1083,1084]" dest=",: , [1137,1138]"/>
+  <match src="=: = [6973,6974]" dest="=: = [7549,7550]"/>
+  <match src="comment: // and update the starts [7252,7276]" dest="comment: // and update the starts [7820,7844]"/>
+  <match src="variable_declaration_statement [7078,7130]" dest="variable_declaration_statement [7654,7706]"/>
+  <match src="primitive_type [5470,5477]" dest="primitive_type [6049,6056]"/>
+  <match src="return_type_definition [752,766]" dest="return_type_definition [806,820]"/>
+  <match src="uint256: uint256 [9193,9200]" dest="uint256: uint256 [8182,8189]"/>
+  <match src="identifier: initialize [5424,5434]" dest="identifier: initialize [6003,6013]"/>
+</matches>
+<actions>
+  <move-tree tree="pragma_directive [50,74]" parent="source_file [0,10552]" at="3"/>
+  <update-node tree="comment: // SPDX-License-Identifier: (c) Otsea.fi, 2021 [0,46]" label="// Sources flattened with hardhat v2.3.0 https://hardhat.org"/>
+  <insert-node tree="comment: // File contracts/interfaces/IERC20.sol [64,103]" parent="source_file [0,10552]" at="1"/>
+  <insert-tree tree="pragma_directive [105,128]" parent="source_file [0,10552]" at="2"/>
+  <insert-node tree="comment: // File contracts/libraries/SafeMath.sol [2847,2887]" parent="source_file [0,10552]" at="5"/>
+  <insert-node tree="comment: // File contracts/vesting.sol [4857,4886]" parent="source_file [0,10552]" at="9"/>
+  <insert-node tree="comment: // SPDX-License-Identifier: (c) Armor.Fi DAO, 2021 [4888,4938]" parent="source_file [0,10552]" at="10"/>
+  <insert-tree tree="pragma_directive [4942,4966]" parent="source_file [0,10552]" at="11"/>
+  <move-tree tree="comment: /**      * @dev User may claim tokens that have vested.     **/ [6511,6576]" parent="contract_body [4989,10552]" at="12"/>
+  <move-tree tree="function_definition [6582,7427]" parent="contract_body [4989,10552]" at="16"/>
+  <move-tree tree="function_definition [7605,7740]" parent="contract_body [4989,10552]" at="18"/>
+  <move-tree tree="function_definition [7896,8240]" parent="contract_body [4989,10552]" at="20"/>
+  <update-node tree="comment: /**      * @dev User may claim tokens that have vested.     **/ [6511,6576]" label="// Storage position of the owner of the contract"/>
+  <insert-tree tree="state_variable_declaration [5610,5697]" parent="contract_body [4989,10552]" at="13"/>
+  <insert-tree tree="function_definition [5703,5884]" parent="contract_body [4989,10552]" at="14"/>
+  <update-node tree="comment: /**      * @dev returns claimable token. buffered(released) token + token released from last update      * @param _user user to check the claimable token     **/ [7435,7599]" label="/**      * @dev User may claim tokens that have vested.      **/"/>
+  <insert-node tree="function_definition [8003,8328]" parent="contract_body [4989,10552]" at="19"/>
+  <update-node tree="comment: /**      * @dev returns the token that can be released from last user update      * @param _user user to check the releasable token     **/ [7748,7890]" label="/**      * @dev returns claimable token. buffered(released) token + token released from last update      * @param _user user to check the claimable token      **/"/>
+  <update-node tree="comment: /**      * @dev Transfers a sender's weight to another address starting from now.      * @param _to The address to transfer weight to.      * @param _amountInFullTokens The amount of tokens (in 0 decimal format). We will not have fractions of tokens.     **/ [8248,8510]" label="/**      * @dev returns the token that can be released from last user update      * @param _user user to check the releasable token      **/"/>
+  <insert-node tree="comment: /**      * @dev Transfers a sender's weight to another address starting from now.      * @param _to The address to transfer weight to.      * @param _amountInFullTokens The amount of tokens (in 0 decimal format). We will not have fractions of tokens.      **/ [9155,9418]" parent="contract_body [4989,10552]" at="24"/>
+  <insert-node tree="comment: /*function transfer(address _to, uint256 _amountInFullTokens)     external     {         require(_to != msg.sender, &quot;May not transfer to yourself.&quot;);          // first, update the released         released[msg.sender] = released[msg.sender].add(releasable(msg.sender));         released[_to] = released[_to].add(releasable(_to));          // then update the grantedToken;         grantedToken[msg.sender] = grantedToken[msg.sender].sub(releasable(msg.sender));         grantedToken[_to] = grantedToken[_to].sub(releasable(_to));          // then update the starts of user         starts[msg.sender] = block.timestamp;         starts[_to] = block.timestamp;          // If trying to transfer too much, transfer full amount.         uint256 amount = _amountInFullTokens.mul(1e18) &gt; grantedToken[msg.sender] ? grantedToken[msg.sender] : _amountInFullTokens.mul(1e18);          // then move _amount         grantedToken[msg.sender] = grantedToken[msg.sender].sub(amount);         grantedToken[_to] = grantedToken[_to].add(amount);          emit Transfer(msg.sender, _to, amount, block.timestamp);     }*/ [9424,10549]" parent="contract_body [4989,10552]" at="25"/>
+  <insert-node tree="function: function [8003,8011]" parent="function_definition [8003,8328]" at="0"/>
+  <insert-node tree="identifier: end [8012,8015]" parent="function_definition [8003,8328]" at="1"/>
+  <insert-node tree="(: ( [8015,8016]" parent="function_definition [8003,8328]" at="2"/>
+  <move-tree tree="parameter [8534,8545]" parent="function_definition [8003,8328]" at="3"/>
+  <insert-node tree="): ) [8029,8030]" parent="function_definition [8003,8328]" at="4"/>
+  <move-tree tree="visibility [8583,8591]" parent="function_definition [8003,8328]" at="5"/>
+  <insert-node tree="function_body [8040,8328]" parent="function_definition [8003,8328]" at="6"/>
+  <update-node tree="identifier: _to [8542,8545]" label="_user"/>
+  <insert-node tree="{: { [8040,8041]" parent="function_body [8040,8328]" at="0"/>
+  <move-tree tree="expression_statement [8834,8914]" parent="function_body [8040,8328]" at="1"/>
+  <insert-node tree="variable_declaration_statement [8102,8142]" parent="function_body [8040,8328]" at="2"/>
+  <insert-tree tree="expression_statement [8152,8172]" parent="function_body [8040,8328]" at="3"/>
+  <insert-node tree="variable_declaration_statement [8182,8224]" parent="function_body [8040,8328]" at="4"/>
+  <insert-tree tree="expression_statement [8234,8258]" parent="function_body [8040,8328]" at="5"/>
+  <insert-tree tree="expression_statement [8268,8321]" parent="function_body [8040,8328]" at="6"/>
+  <insert-node tree="}: } [8327,8328]" parent="function_body [8040,8328]" at="7"/>
+  <move-tree tree="call_expression [8890,8912]" parent="expression_statement [8051,8092]" at="0"/>
+  <insert-node tree="variable_declaration [8102,8123]" parent="variable_declaration_statement [8102,8142]" at="0"/>
+  <insert-node tree="=: = [8124,8125]" parent="variable_declaration_statement [8102,8142]" at="1"/>
+  <insert-tree tree="array_access [8126,8141]" parent="variable_declaration_statement [8102,8142]" at="2"/>
+  <move-tree tree="variable_declaration [9193,9207]" parent="variable_declaration_statement [8182,8224]" at="0"/>
+  <insert-node tree="=: = [8202,8203]" parent="variable_declaration_statement [8182,8224]" at="1"/>
+  <insert-tree tree="array_access [8204,8223]" parent="variable_declaration_statement [8182,8224]" at="2"/>
+  <update-node tree="identifier: releasable [8890,8900]" label="require"/>
+  <insert-node tree=",: , [8080,8081]" parent="call_expression [8051,8091]" at="3"/>
+  <insert-tree tree="call_argument [8082,8090]" parent="call_expression [8051,8091]" at="4"/>
+  <move-tree tree="type_name [8547,8554]" parent="variable_declaration [8102,8123]" at="0"/>
+  <insert-node tree="identifier: releasePulled [8110,8123]" parent="variable_declaration [8102,8123]" at="1"/>
+  <update-node tree="identifier: amount [9201,9207]" label="grantPulled"/>
+  <insert-node tree="binary_expression [8059,8080]" parent="call_argument [8059,8080]" at="0"/>
+  <move-tree tree="member_expression [8901,8911]" parent="binary_expression [8059,8080]" at="0"/>
+  <insert-node tree="==: == [8070,8072]" parent="binary_expression [8059,8080]" at="1"/>
+  <insert-tree tree="call_expression [8073,8080]" parent="binary_expression [8059,8080]" at="2"/>
+  <delete-tree tree="array_access [8834,8858]"/>
+  <delete-node tree="=: = [8859,8860]"/>
+  <delete-tree tree="member_expression [8861,8889]"/>
+  <delete-node tree="(: ( [8889,8890]"/>
+  <delete-node tree="call_argument [8890,8912]"/>
+  <delete-node tree="): ) [8912,8913]"/>
+  <delete-node tree="call_expression [8861,8913]"/>
+  <delete-node tree="assignment_expression [8834,8913]"/>
+  <delete-node tree="function: function [8516,8524]"/>
+  <delete-node tree="identifier: transfer [8525,8533]"/>
+  <delete-node tree="(: ( [8533,8534]"/>
+  <delete-node tree=",: , [8545,8546]"/>
+  <delete-node tree="identifier: _amountInFullTokens [8555,8574]"/>
+  <delete-node tree="parameter [8547,8574]"/>
+  <delete-node tree="): ) [8574,8575]"/>
+  <delete-node tree="{: { [8597,8598]"/>
+  <delete-node tree="comment: // first, update the released [8608,8637]"/>
+  <delete-tree tree="expression_statement [8647,8719]"/>
+  <delete-tree tree="expression_statement [8729,8780]"/>
+  <delete-node tree="comment: // then update the grantedToken; [8792,8824]"/>
+  <delete-tree tree="expression_statement [8924,8983]"/>
+  <delete-node tree="comment: // then update the starts of user [8995,9028]"/>
+  <delete-tree tree="expression_statement [9038,9075]"/>
+  <delete-tree tree="expression_statement [9085,9115]"/>
+  <delete-node tree="comment: // If trying to transfer too much, transfer full amount. [9127,9183]"/>
+  <delete-node tree="=: = [9208,9209]"/>
+  <delete-tree tree="ternary_expression [9210,9325]"/>
+  <delete-node tree="variable_declaration_statement [9193,9326]"/>
+  <delete-node tree="comment: // then move _amount [9338,9358]"/>
+  <delete-tree tree="expression_statement [9368,9432]"/>
+  <delete-tree tree="expression_statement [9442,9492]"/>
+  <delete-tree tree="emit_statement [9504,9560]"/>
+  <delete-node tree="}: } [9566,9567]"/>
+  <delete-node tree="function_body [8597,9567]"/>
+  <delete-node tree="function_definition [8516,9567]"/>
+</actions>

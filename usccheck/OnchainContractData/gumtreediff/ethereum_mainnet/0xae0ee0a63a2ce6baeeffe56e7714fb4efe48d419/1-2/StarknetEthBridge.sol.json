@@ -1,0 +1,964 @@
+{
+  "matches": [
+    {
+      "src": "string [690,715]",
+      "dest": "string [693,718]"
+    },
+    {
+      "src": "call_expression [956,1031]",
+      "dest": "call_expression [1291,1372]"
+    },
+    {
+      "src": "(: ( [1052,1053]",
+      "dest": "(: ( [1566,1567]"
+    },
+    {
+      "src": "visibility [1575,1583]",
+      "dest": "visibility [1664,1672]"
+    },
+    {
+      "src": "string [1258,1277]",
+      "dest": "string [1122,1142]"
+    },
+    {
+      "src": "internal: internal [1575,1583]",
+      "dest": "internal: internal [1664,1672]"
+    },
+    {
+      "src": "call_expression [1041,1076]",
+      "dest": "call_expression [1559,1590]"
+    },
+    {
+      "src": "member_expression [1053,1062]",
+      "dest": "member_expression [1567,1576]"
+    },
+    {
+      "src": "expression_statement [1603,1640]",
+      "dest": "expression_statement [1692,1729]"
+    },
+    {
+      "src": "(: ( [963,964]",
+      "dest": "(: ( [1298,1299]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "primitive_type [794,801]",
+      "dest": "primitive_type [797,804]"
+    },
+    {
+      "src": "call_argument [1632,1638]",
+      "dest": "call_argument [1721,1727]"
+    },
+    {
+      "src": "identifier: this [972,976]",
+      "dest": "identifier: this [1307,1311]"
+    },
+    {
+      "src": "type_name [1107,1114]",
+      "dest": "type_name [936,943]"
+    },
+    {
+      "src": "identifier: recipient [1603,1612]",
+      "dest": "identifier: recipient [1692,1701]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "uint256: uint256 [1107,1114]",
+      "dest": "uint256: uint256 [936,943]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2023 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "call_expression [1223,1278]",
+      "dest": "call_expression [1093,1143]"
+    },
+    {
+      "src": "identifier: deposit [817,824]",
+      "dest": "identifier: deposit [928,935]"
+    },
+    {
+      "src": ",: , [1006,1007]",
+      "dest": ",: , [1347,1348]"
+    },
+    {
+      "src": "}: } [1082,1083]",
+      "dest": "}: } [1425,1426]"
+    },
+    {
+      "src": "parameter [1540,1554]",
+      "dest": "parameter [1629,1643]"
+    },
+    {
+      "src": "): ) [976,977]",
+      "dest": "): ) [1311,1312]"
+    },
+    {
+      "src": "function_definition [1514,1646]",
+      "dest": "function_definition [1603,1735]"
+    },
+    {
+      "src": "import: import [662,668]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "type_alias [780,789]",
+      "dest": "type_alias [783,792]"
+    },
+    {
+      "src": "\": \" [669,670]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "call_argument [1258,1277]",
+      "dest": "call_argument [1122,1142]"
+    },
+    {
+      "src": "expression_statement [1223,1279]",
+      "dest": "expression_statement [1093,1144]"
+    },
+    {
+      "src": "): ) [1075,1076]",
+      "dest": "): ) [1589,1590]"
+    },
+    {
+      "src": "type_name [1540,1547]",
+      "dest": "type_name [1629,1636]"
+    },
+    {
+      "src": "\": \" [714,715]",
+      "dest": "\": \" [717,718]"
+    },
+    {
+      "src": "{: { [863,864]",
+      "dest": "{: { [997,998]"
+    },
+    {
+      "src": "identifier: StarknetEthBridge [727,744]",
+      "dest": "identifier: StarknetEthBridge [730,747]"
+    },
+    {
+      "src": "function: function [1514,1522]",
+      "dest": "function: function [1603,1611]"
+    },
+    {
+      "src": "): ) [1638,1639]",
+      "dest": "): ) [1727,1728]"
+    },
+    {
+      "src": "expression_statement [1041,1077]",
+      "dest": "expression_statement [1559,1591]"
+    },
+    {
+      "src": "binary_expression [964,1006]",
+      "dest": "binary_expression [1299,1347]"
+    },
+    {
+      "src": "address: address [794,801]",
+      "dest": "address: address [797,804]"
+    },
+    {
+      "src": "<=: <= [986,988]",
+      "dest": "<=: <= [1327,1329]"
+    },
+    {
+      "src": "{: { [768,769]",
+      "dest": "{: { [771,772]"
+    },
+    {
+      "src": "(: ( [1631,1632]",
+      "dest": "(: ( [1720,1721]"
+    },
+    {
+      "src": "parameter [825,844]",
+      "dest": "parameter [952,971]"
+    },
+    {
+      "src": "identifier: amount [1494,1500]",
+      "dest": "identifier: amount [1394,1400]"
+    },
+    {
+      "src": "(: ( [1004,1005]",
+      "dest": "(: ( [1345,1346]"
+    },
+    {
+      "src": "address: address [964,971]",
+      "dest": "address: address [1299,1306]"
+    },
+    {
+      "src": "primitive_type [1107,1114]",
+      "dest": "primitive_type [936,943]"
+    },
+    {
+      "src": "identifier: transferOutFunds [1523,1539]",
+      "dest": "identifier: transferOutFunds [1612,1628]"
+    },
+    {
+      "src": "\": \" [1029,1030]",
+      "dest": "\": \" [1370,1371]"
+    },
+    {
+      "src": "string [669,681]",
+      "dest": "string [669,684]"
+    },
+    {
+      "src": "identifier: amount [1632,1638]",
+      "dest": "identifier: amount [1721,1727]"
+    },
+    {
+      "src": "string_literal [1008,1030]",
+      "dest": "string_literal [1349,1371]"
+    },
+    {
+      "src": "call_argument [1064,1075]",
+      "dest": "call_argument [1578,1589]"
+    },
+    {
+      "src": "(: ( [824,825]",
+      "dest": "(: ( [935,936]"
+    },
+    {
+      "src": "identifier: sendMessage [1041,1052]",
+      "dest": "identifier: deposit [1559,1566]"
+    },
+    {
+      "src": "comment: // The msg.value in this transaction was already credited to the contract. [873,947]",
+      "dest": "comment: // Make sure msg.value is enough to cover amount. The remaining value is fee. [1007,1084]"
+    },
+    {
+      "src": "string [1008,1030]",
+      "dest": "string [1349,1371]"
+    },
+    {
+      "src": "visibility [846,854]",
+      "dest": "visibility [1532,1540]"
+    },
+    {
+      "src": "string_literal [1258,1277]",
+      "dest": "string_literal [1122,1142]"
+    },
+    {
+      "src": "}: } [1645,1646]",
+      "dest": "}: } [1734,1735]"
+    },
+    {
+      "src": "identifier: performEthTransfer [1613,1631]",
+      "dest": "identifier: performEthTransfer [1702,1720]"
+    },
+    {
+      "src": "user_defined_type [748,767]",
+      "dest": "user_defined_type [751,770]"
+    },
+    {
+      "src": "}: } [1647,1648]",
+      "dest": "}: } [1937,1938]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "identifier: balance [978,985]",
+      "dest": "identifier: balance [1313,1320]"
+    },
+    {
+      "src": "contract_body [768,1648]",
+      "dest": "contract_body [771,1938]"
+    },
+    {
+      "src": "type_cast_expression [964,977]",
+      "dest": "type_cast_expression [1299,1312]"
+    },
+    {
+      "src": "type_name [1556,1563]",
+      "dest": "type_name [1645,1652]"
+    },
+    {
+      "src": "(: ( [1230,1231]",
+      "dest": "(: ( [1100,1101]"
+    },
+    {
+      "src": "): ) [844,845]",
+      "dest": "): ) [971,972]"
+    },
+    {
+      "src": "public: public [1142,1148]",
+      "dest": "public: public [973,979]"
+    },
+    {
+      "src": "type_name [825,832]",
+      "dest": "type_name [952,959]"
+    },
+    {
+      "src": "\": \" [680,681]",
+      "dest": "\": \" [683,684]"
+    },
+    {
+      "src": "member_expression [964,985]",
+      "dest": "member_expression [1299,1320]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "): ) [1277,1278]",
+      "dest": "): ) [1142,1143]"
+    },
+    {
+      "src": "): ) [1573,1574]",
+      "dest": "): ) [1662,1663]"
+    },
+    {
+      "src": "call_expression [1603,1639]",
+      "dest": "call_expression [1692,1728]"
+    },
+    {
+      "src": "uint256: uint256 [1540,1547]",
+      "dest": "uint256: uint256 [1629,1636]"
+    },
+    {
+      "src": "\": \" [1258,1259]",
+      "dest": "\": \" [1122,1123]"
+    },
+    {
+      "src": "payable: payable [855,862]",
+      "dest": "payable: payable [980,987]"
+    },
+    {
+      "src": "identifier: require [956,963]",
+      "dest": "identifier: require [1291,1298]"
+    },
+    {
+      "src": ",: , [1256,1257]",
+      "dest": ",: , [1120,1121]"
+    },
+    {
+      "src": "identifier: StarknetTokenBridge [748,767]",
+      "dest": "identifier: StarknetTokenBridge [751,770]"
+    },
+    {
+      "src": "contract_declaration [718,1648]",
+      "dest": "contract_declaration [721,1938]"
+    },
+    {
+      "src": "source_file [0,1649]",
+      "dest": "source_file [0,1939]"
+    },
+    {
+      "src": "expression_statement [956,1032]",
+      "dest": "expression_statement [1291,1373]"
+    },
+    {
+      "src": "import: import [683,689]",
+      "dest": "import: import [686,692]"
+    },
+    {
+      "src": "{: { [1593,1594]",
+      "dest": "{: { [1682,1683]"
+    },
+    {
+      "src": "function_body [863,1083]",
+      "dest": "function_body [997,1426]"
+    },
+    {
+      "src": "visibility [1142,1148]",
+      "dest": "visibility [973,979]"
+    },
+    {
+      "src": "primitive_type [825,832]",
+      "dest": "primitive_type [952,959]"
+    },
+    {
+      "src": "): ) [1030,1031]",
+      "dest": "): ) [1371,1372]"
+    },
+    {
+      "src": "identifier: recipient [1564,1573]",
+      "dest": "identifier: recipient [1653,1662]"
+    },
+    {
+      "src": "binary_expression [1231,1256]",
+      "dest": "binary_expression [1101,1120]"
+    },
+    {
+      "src": "call_argument [1008,1030]",
+      "dest": "call_argument [1349,1371]"
+    },
+    {
+      "src": "primitive_type [1540,1547]",
+      "dest": "primitive_type [1629,1636]"
+    },
+    {
+      "src": "call_argument [972,976]",
+      "dest": "call_argument [1307,1311]"
+    },
+    {
+      "src": "identifier: maxTotalBalance [989,1004]",
+      "dest": "identifier: maxTotalBalance [1330,1345]"
+    },
+    {
+      "src": "identifier: value [1057,1062]",
+      "dest": "identifier: value [1571,1576]"
+    },
+    {
+      "src": "member_expression [1603,1631]",
+      "dest": "member_expression [1692,1720]"
+    },
+    {
+      "src": "identifier: amount [1115,1121]",
+      "dest": "identifier: amount [944,950]"
+    },
+    {
+      "src": "uint256: uint256 [825,832]",
+      "dest": "uint256: uint256 [952,959]"
+    },
+    {
+      "src": "): ) [1005,1006]",
+      "dest": "): ) [1346,1347]"
+    },
+    {
+      "src": "is: is [745,747]",
+      "dest": "is: is [748,750]"
+    },
+    {
+      "src": ".: . [977,978]",
+      "dest": ".: . [1312,1313]"
+    },
+    {
+      "src": "call_argument [1053,1062]",
+      "dest": "call_argument [1567,1576]"
+    },
+    {
+      "src": "using: using [774,779]",
+      "dest": "using: using [777,782]"
+    },
+    {
+      "src": "call_expression [989,1006]",
+      "dest": "call_expression [1330,1347]"
+    },
+    {
+      "src": "import_directive [683,716]",
+      "dest": "import_directive [686,719]"
+    },
+    {
+      "src": "identifier: require [1223,1230]",
+      "dest": "identifier: require [1093,1100]"
+    },
+    {
+      "src": "inheritance_specifier [748,767]",
+      "dest": "inheritance_specifier [751,770]"
+    },
+    {
+      "src": ",: , [1554,1555]",
+      "dest": ",: , [1643,1644]"
+    },
+    {
+      "src": "identifier: l2Recipient [1064,1075]",
+      "dest": "identifier: l2Recipient [1578,1589]"
+    },
+    {
+      "src": ".: . [1056,1057]",
+      "dest": ".: . [1570,1571]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "override: override [1584,1592]",
+      "dest": "override: override [1673,1681]"
+    },
+    {
+      "src": "external: external [846,854]",
+      "dest": "external: external [1532,1540]"
+    },
+    {
+      "src": "function_body [1593,1646]",
+      "dest": "function_body [1682,1735]"
+    },
+    {
+      "src": "identifier: Addresses [780,789]",
+      "dest": "identifier: Addresses [783,792]"
+    },
+    {
+      "src": "call_argument [1494,1500]",
+      "dest": "call_argument [1394,1400]"
+    },
+    {
+      "src": "using_directive [774,802]",
+      "dest": "using_directive [777,805]"
+    },
+    {
+      "src": "override: override [1149,1157]",
+      "dest": "override: override [988,996]"
+    },
+    {
+      "src": ".: . [1612,1613]",
+      "dest": ".: . [1701,1702]"
+    },
+    {
+      "src": "for: for [790,793]",
+      "dest": "for: for [793,796]"
+    },
+    {
+      "src": "import_directive [662,682]",
+      "dest": "import_directive [662,685]"
+    },
+    {
+      "src": "call_argument [1231,1256]",
+      "dest": "call_argument [1101,1120]"
+    },
+    {
+      "src": "\": \" [1276,1277]",
+      "dest": "\": \" [1141,1142]"
+    },
+    {
+      "src": "state_mutability [855,862]",
+      "dest": "state_mutability [980,987]"
+    },
+    {
+      "src": "\": \" [1008,1009]",
+      "dest": "\": \" [1349,1350]"
+    },
+    {
+      "src": "override_specifier [1584,1592]",
+      "dest": "override_specifier [1673,1681]"
+    },
+    {
+      "src": "identifier: msg [1053,1056]",
+      "dest": "identifier: msg [1567,1570]"
+    },
+    {
+      "src": "\": \" [690,691]",
+      "dest": "\": \" [693,694]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "primitive_type [964,971]",
+      "dest": "primitive_type [1299,1306]"
+    },
+    {
+      "src": "parameter [1556,1573]",
+      "dest": "parameter [1645,1662]"
+    },
+    {
+      "src": "call_argument [964,1006]",
+      "dest": "call_argument [1299,1347]"
+    },
+    {
+      "src": "type_name [794,801]",
+      "dest": "type_name [797,804]"
+    },
+    {
+      "src": "(: ( [1539,1540]",
+      "dest": "(: ( [1628,1629]"
+    },
+    {
+      "src": "function_definition [808,1083]",
+      "dest": "function_definition [919,1426]"
+    },
+    {
+      "src": "primitive_type [1556,1563]",
+      "dest": "primitive_type [1645,1652]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "parameter [1107,1121]",
+      "dest": "parameter [936,950]"
+    },
+    {
+      "src": "(: ( [971,972]",
+      "dest": "(: ( [1306,1307]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "identifier: l2Recipient [833,844]",
+      "dest": "identifier: l2Recipient [960,971]"
+    },
+    {
+      "src": "identifier: recipient [1231,1240]",
+      "dest": "identifier: amount [1114,1120]"
+    },
+    {
+      "src": "address: address [1556,1563]",
+      "dest": "address: address [1645,1652]"
+    },
+    {
+      "src": ",: , [1062,1063]",
+      "dest": ",: , [1576,1577]"
+    },
+    {
+      "src": "function: function [808,816]",
+      "dest": "function: function [919,927]"
+    },
+    {
+      "src": "override_specifier [1149,1157]",
+      "dest": "override_specifier [988,996]"
+    },
+    {
+      "src": "contract: contract [718,726]",
+      "dest": "contract: contract [721,729]"
+    },
+    {
+      "src": "identifier: amount [1548,1554]",
+      "dest": "identifier: amount [1637,1643]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "label": "/*   Copyright 2019-2023 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [811,913]",
+      "parent": "contract_body [771,1938]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // A backwards compatible deposit function with zero fee. [1432,1489]",
+      "parent": "contract_body [771,1938]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "function_definition [1494,1597]",
+      "parent": "contract_body [771,1938]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**       Returns a string that identifies the contract.     */ [1741,1804]",
+      "parent": "contract_body [771,1938]",
+      "at": 7
+    },
+    {
+      "action": "insert-tree",
+      "tree": "function_definition [1809,1936]",
+      "parent": "contract_body [771,1938]",
+      "at": 8
+    },
+    {
+      "action": "move-tree",
+      "tree": "parameter [1107,1121]",
+      "parent": "function_definition [919,1426]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [950,951]",
+      "parent": "function_definition [919,1426]",
+      "at": 4
+    },
+    {
+      "action": "move-tree",
+      "tree": "visibility [1142,1148]",
+      "parent": "function_definition [919,1426]",
+      "at": 7
+    },
+    {
+      "action": "move-tree",
+      "tree": "override_specifier [1149,1157]",
+      "parent": "function_definition [919,1426]",
+      "at": 10
+    },
+    {
+      "action": "insert-node",
+      "tree": "function: function [1494,1502]",
+      "parent": "function_definition [1494,1597]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: deposit [1503,1510]",
+      "parent": "function_definition [1494,1597]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [1510,1511]",
+      "parent": "function_definition [1494,1597]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "parameter [1511,1530]",
+      "parent": "function_definition [1494,1597]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [1530,1531]",
+      "parent": "function_definition [1494,1597]",
+      "at": 4
+    },
+    {
+      "action": "move-tree",
+      "tree": "visibility [846,854]",
+      "parent": "function_definition [1494,1597]",
+      "at": 5
+    },
+    {
+      "action": "insert-tree",
+      "tree": "state_mutability [1541,1548]",
+      "parent": "function_definition [1494,1597]",
+      "at": 6
+    },
+    {
+      "action": "insert-node",
+      "tree": "function_body [1549,1597]",
+      "parent": "function_definition [1494,1597]",
+      "at": 7
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: // The msg.value in this transaction was already credited to the contract. [873,947]",
+      "label": "// Make sure msg.value is enough to cover amount. The remaining value is fee."
+    },
+    {
+      "action": "move-tree",
+      "tree": "expression_statement [1223,1279]",
+      "parent": "function_body [997,1426]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "variable_declaration_statement [1153,1186]",
+      "parent": "function_body [997,1426]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // The msg.value was already credited to this contract. Fee will be passed to StarkNet. [1195,1282]",
+      "parent": "function_body [997,1426]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "expression_statement [1382,1420]",
+      "parent": "function_body [997,1426]",
+      "at": 6
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [1549,1550]",
+      "parent": "function_body [1549,1597]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "expression_statement [1041,1077]",
+      "parent": "function_body [1549,1597]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [1596,1597]",
+      "parent": "function_body [1549,1597]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "call_expression [1382,1419]",
+      "parent": "expression_statement [1382,1420]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: sendMessage [1382,1393]",
+      "parent": "call_expression [1382,1419]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [1393,1394]",
+      "parent": "call_expression [1382,1419]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [1494,1500]",
+      "parent": "call_expression [1382,1419]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [1400,1401]",
+      "parent": "call_expression [1382,1419]",
+      "at": 3
+    },
+    {
+      "action": "insert-tree",
+      "tree": "call_argument [1402,1413]",
+      "parent": "call_expression [1382,1419]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [1413,1414]",
+      "parent": "call_expression [1382,1419]",
+      "at": 5
+    },
+    {
+      "action": "insert-tree",
+      "tree": "call_argument [1415,1418]",
+      "parent": "call_expression [1382,1419]",
+      "at": 6
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [1418,1419]",
+      "parent": "call_expression [1382,1419]",
+      "at": 7
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: sendMessage [1041,1052]",
+      "label": "deposit"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "member_expression [1101,1110]",
+      "parent": "binary_expression [1101,1120]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": ">=: >= [1111,1113]",
+      "parent": "binary_expression [1101,1120]",
+      "at": 1
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: recipient [1231,1240]",
+      "label": "amount"
+    },
+    {
+      "action": "insert-node",
+      "tree": "binary_expression [1299,1326]",
+      "parent": "binary_expression [1299,1347]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "member_expression [964,985]",
+      "parent": "binary_expression [1299,1326]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "-: - [1321,1322]",
+      "parent": "binary_expression [1299,1326]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: fee [1323,1326]",
+      "parent": "binary_expression [1299,1326]",
+      "at": 2
+    },
+    {
+      "action": "delete-node",
+      "tree": "!=: != [1241,1243]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "type_cast_expression [1244,1256]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function: function [1089,1097]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: withdraw [1098,1106]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [1106,1107]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [1121,1122]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [1123,1140]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [1140,1141]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "{: { [1158,1159]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: // Make sure we don't accidentally burn funds. [1168,1214]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: // The call to consumeMessage will succeed only if a matching L2->L1 message [1289,1365]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: // exists and is ready for consumption. [1374,1413]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "expression_statement [1422,1456]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "member_expression [1465,1493]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [1493,1494]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [1500,1501]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [1465,1501]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "expression_statement [1465,1502]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "}: } [1507,1508]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_body [1158,1508]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_definition [1089,1508]"
+    }
+  ]
+}

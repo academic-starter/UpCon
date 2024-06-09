@@ -1,0 +1,3343 @@
+{
+  "matches": [
+    {
+      "src": "memory: memory [7366,7372]",
+      "dest": "memory: memory [5501,5507]"
+    },
+    {
+      "src": "visibility [6730,6738]",
+      "dest": "visibility [4171,4179]"
+    },
+    {
+      "src": "variable_declaration_statement [2230,2283]",
+      "dest": "variable_declaration_statement [1731,1784]"
+    },
+    {
+      "src": "address: address [6253,6260]",
+      "dest": "address: address [4670,4677]"
+    },
+    {
+      "src": "primitive_type [7360,7365]",
+      "dest": "primitive_type [5495,5500]"
+    },
+    {
+      "src": "function: function [2065,2073]",
+      "dest": "function: function [1531,1539]"
+    },
+    {
+      "src": "return: return [5979,5985]",
+      "dest": "return: return [3896,3902]"
+    },
+    {
+      "src": "pure: pure [7346,7350]",
+      "dest": "pure: pure [5793,5797]"
+    },
+    {
+      "src": "parameter [3545,3559]",
+      "dest": "parameter [2727,2741]"
+    },
+    {
+      "src": "solidity: solidity [93,101]",
+      "dest": "solidity: solidity [108,116]"
+    },
+    {
+      "src": "(: ( [3699,3700]",
+      "dest": "(: ( [2832,2833]"
+    },
+    {
+      "src": "comment: /**      * @dev Performs a Solidity function call using a low level `call`. A      * plain `call` is an unsafe replacement for a function call: use this      * function instead.      *      * If `target` reverts with a revert reason, it is bubbled up by this      * function (like regular Solidity function calls).      *      * Returns the raw returned data. To convert to the expected return value,      * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].      *      * Requirements:      *      * - `target` must be a contract.      * - calling `target` with `data` must not revert.      *      * _Available since v3.1._      */ [2383,3114]",
+      "dest": "comment: /**      * @dev A call to an address target failed. The target may have reverted.      */ [497,586]"
+    },
+    {
+      "src": "binary_expression [7529,7550]",
+      "dest": "binary_expression [5874,5895]"
+    },
+    {
+      "src": "function: function [6607,6615]",
+      "dest": "function: function [4106,4114]"
+    },
+    {
+      "src": "=: = [2247,2248]",
+      "dest": "=: = [1748,1749]"
+    },
+    {
+      "src": "): ) [5968,5969]",
+      "dest": "): ) [3885,3886]"
+    },
+    {
+      "src": "{: { [5816,5817]",
+      "dest": "{: { [3811,3812]"
+    },
+    {
+      "src": "): ) [4990,4991]",
+      "dest": "): ) [3458,3459]"
+    },
+    {
+      "src": "return_type_definition [7351,7373]",
+      "dest": "return_type_definition [5486,5508]"
+    },
+    {
+      "src": "visibility [2127,2135]",
+      "dest": "visibility [1593,1601]"
+    },
+    {
+      "src": "}: } [2277,2278]",
+      "dest": "}: } [1778,1779]"
+    },
+    {
+      "src": "identifier: length [7540,7546]",
+      "dest": "identifier: length [5885,5891]"
+    },
+    {
+      "src": "identifier: target [4994,5000]",
+      "dest": "identifier: target [3462,3468]"
+    },
+    {
+      "src": "primitive_type [2084,2099]",
+      "dest": "primitive_type [1550,1565]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a static call.      *      * _Available since v3.3._      */ [5106,5272]",
+      "dest": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a static call.      */ [3578,3706]"
+    },
+    {
+      "src": "function_body [2136,2377]",
+      "dest": "function_body [1602,1862]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but      * with `errorMessage` as a fallback revert reason when `target` reverts.      *      * _Available since v3.1._      */ [4359,4596]",
+      "dest": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but also transferring `value` wei to `target`.      *      * Requirements:      *      * - the calling contract must have an ETH balance of at least `value`.      * - the called Solidity function must be `payable`.      */ [2862,3175]"
+    },
+    {
+      "src": "visibility [3629,3637]",
+      "dest": "visibility [2762,2770]"
+    },
+    {
+      "src": "number_literal: 0 [3714,3715]",
+      "dest": "number_literal: 0 [2847,2848]"
+    },
+    {
+      "src": "identifier: functionCallWithValue [3678,3699]",
+      "dest": "identifier: functionCallWithValue [2811,2832]"
+    },
+    {
+      "src": "function_definition [3514,3737]",
+      "dest": "function_definition [2705,2856]"
+    },
+    {
+      "src": "{: { [7837,7838]",
+      "dest": "{: { [6204,6205]"
+    },
+    {
+      "src": "memory: memory [4772,4778]",
+      "dest": "memory: memory [3285,3291]"
+    },
+    {
+      "src": ".: . [5000,5001]",
+      "dest": ".: . [3468,3469]"
+    },
+    {
+      "src": "returns: returns [6739,6746]",
+      "dest": "returns: returns [4180,4187]"
+    },
+    {
+      "src": "bool: bool [7249,7253]",
+      "dest": "bool: bool [5433,5437]"
+    },
+    {
+      "src": "call_argument [6358,6364]",
+      "dest": "call_argument [4324,4330]"
+    },
+    {
+      "src": "call_argument [5964,5968]",
+      "dest": "call_argument [3881,3885]"
+    },
+    {
+      "src": ":: : [5011,5012]",
+      "dest": ":: : [3479,3480]"
+    },
+    {
+      "src": "identifier: returndata [6880,6890]",
+      "dest": "identifier: returndata [4241,4251]"
+    },
+    {
+      "src": "comment: /**      * @dev Replacement for Solidity's `transfer`: sends `amount` wei to      * `recipient`, forwarding all available gas and reverting on errors.      *      * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost      * of certain opcodes, possibly making contracts go over the 2300 gas limit      * imposed by `transfer`, making them unable to receive funds via      * `transfer`. {sendValue} removes this limitation.      *      * https://diligence.consensys.net/posts/2019/09/stop-using-soliditys-transfer-now/[Learn more].      *      * IMPORTANT: because control is transferred to `recipient`, care must be      * taken to not create reentrancy vulnerabilities. Consider using      * {ReentrancyGuard} or the      * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].      */ [1154,2060]",
+      "dest": "comment: /**      * @dev There's no code at `target` (it is not a contract).      */ [372,447]"
+    },
+    {
+      "src": "state_mutability [7346,7350]",
+      "dest": "state_mutability [5793,5797]"
+    },
+    {
+      "src": "variable_declaration [4953,4965]",
+      "dest": "variable_declaration [3421,3433]"
+    },
+    {
+      "src": "returns: returns [7351,7358]",
+      "dest": "returns: returns [5486,5493]"
+    },
+    {
+      "src": "memory: memory [6312,6318]",
+      "dest": "memory: memory [4775,4781]"
+    },
+    {
+      "src": "primitive_type [5695,5702]",
+      "dest": "primitive_type [3739,3746]"
+    },
+    {
+      "src": "\": \" [2279,2280]",
+      "dest": "\": \" [1780,1781]"
+    },
+    {
+      "src": "{: { [195,196]",
+      "dest": "{: { [211,212]"
+    },
+    {
+      "src": "revert: revert [7855,7861]",
+      "dest": "revert: revert [6218,6224]"
+    },
+    {
+      "src": "parameter [3647,3659]",
+      "dest": "parameter [2780,2792]"
+    },
+    {
+      "src": "type_name [4641,4648]",
+      "dest": "type_name [3211,3218]"
+    },
+    {
+      "src": "type_name [5802,5807]",
+      "dest": "type_name [3797,3802]"
+    },
+    {
+      "src": "): ) [5814,5815]",
+      "dest": "): ) [3809,3810]"
+    },
+    {
+      "src": "type_name [5919,5924]",
+      "dest": "type_name [3836,3841]"
+    },
+    {
+      "src": "parameter [2084,2109]",
+      "dest": "parameter [1550,1575]"
+    },
+    {
+      "src": "returns: returns [5793,5800]",
+      "dest": "returns: returns [3788,3795]"
+    },
+    {
+      "src": ",: , [7768,7769]",
+      "dest": ",: , [6143,6144]"
+    },
+    {
+      "src": "identifier: returndata_size [7783,7798]",
+      "dest": "identifier: returndata_size [6158,6173]"
+    },
+    {
+      "src": "state_mutability [5788,5792]",
+      "dest": "state_mutability [3783,3787]"
+    },
+    {
+      "src": "identifier: returndata [6012,6022]",
+      "dest": "identifier: returndata [3947,3957]"
+    },
+    {
+      "src": "identifier: functionCallWithValue [4610,4631]",
+      "dest": "identifier: functionCallWithValue [3189,3210]"
+    },
+    {
+      "src": "): ) [7335,7336]",
+      "dest": "): ) [5783,5784]"
+    },
+    {
+      "src": "uint256: uint256 [4692,4699]",
+      "dest": "uint256: uint256 [3246,3253]"
+    },
+    {
+      "src": ",: , [6960,6961]",
+      "dest": ",: , [4330,4331]"
+    },
+    {
+      "src": "solidity_pragma_token [93,108]",
+      "dest": "solidity_pragma_token [108,124]"
+    },
+    {
+      "src": "identifier: returndata [7770,7780]",
+      "dest": "identifier: returndata [6145,6155]"
+    },
+    {
+      "src": "identifier: success [4958,4965]",
+      "dest": "identifier: success [3426,3433]"
+    },
+    {
+      "src": "(: ( [6002,6003]",
+      "dest": "(: ( [3929,3930]"
+    },
+    {
+      "src": ".: . [5952,5953]",
+      "dest": ".: . [3869,3870]"
+    },
+    {
+      "src": "memory: memory [4973,4979]",
+      "dest": "memory: memory [3441,3447]"
+    },
+    {
+      "src": ">: > [7547,7548]",
+      "dest": ">: > [5892,5893]"
+    },
+    {
+      "src": "memory: memory [6754,6760]",
+      "dest": "memory: memory [4195,4201]"
+    },
+    {
+      "src": "{: { [4780,4781]",
+      "dest": "{: { [3293,3294]"
+    },
+    {
+      "src": "identifier: data [5964,5968]",
+      "dest": "identifier: data [3881,3885]"
+    },
+    {
+      "src": "yul_identifier [7783,7798]",
+      "dest": "yul_identifier [6158,6173]"
+    },
+    {
+      "src": "function: function [3514,3522]",
+      "dest": "function: function [2705,2713]"
+    },
+    {
+      "src": "primitive_type [6253,6260]",
+      "dest": "primitive_type [4670,4677]"
+    },
+    {
+      "src": "primitive_type [6853,6857]",
+      "dest": "primitive_type [4214,4218]"
+    },
+    {
+      "src": ",: , [5066,5067]",
+      "dest": ",: , [3543,3544]"
+    },
+    {
+      "src": "yul_identifier [7698,7713]",
+      "dest": "yul_identifier [6077,6092]"
+    },
+    {
+      "src": "internal: internal [6730,6738]",
+      "dest": "internal: internal [4171,4179]"
+    },
+    {
+      "src": ",: , [6022,6023]",
+      "dest": ",: , [3945,3946]"
+    },
+    {
+      "src": "library: library [179,186]",
+      "dest": "library: library [195,202]"
+    },
+    {
+      "src": "(: ( [5904,5905]",
+      "dest": "(: ( [3821,3822]"
+    },
+    {
+      "src": "call_argument [3714,3715]",
+      "dest": "call_argument [2847,2848]"
+    },
+    {
+      "src": "identifier: delegatecall [6901,6913]",
+      "dest": "identifier: delegatecall [4262,4274]"
+    },
+    {
+      "src": "}: } [7438,7439]",
+      "dest": "}: } [5624,5625]"
+    },
+    {
+      "src": "call_expression [2249,2282]",
+      "dest": "call_expression [1750,1783]"
+    },
+    {
+      "src": "): ) [4810,4811]",
+      "dest": "): ) [3319,3320]"
+    },
+    {
+      "src": "member_expression [2249,2263]",
+      "dest": "member_expression [1750,1764]"
+    },
+    {
+      "src": "primitive_type [6867,6872]",
+      "dest": "primitive_type [4228,4233]"
+    },
+    {
+      "src": "memory: memory [3575,3581]",
+      "dest": "memory: memory [2749,2755]"
+    },
+    {
+      "src": "add: add [7762,7765]",
+      "dest": "add: add [6137,6140]"
+    },
+    {
+      "src": "(: ( [5058,5059]",
+      "dest": "(: ( [3536,3537]"
+    },
+    {
+      "src": "identifier: success [5910,5917]",
+      "dest": "identifier: success [3827,3834]"
+    },
+    {
+      "src": "view: view [5349,5353]",
+      "dest": "view: view [4755,4759]"
+    },
+    {
+      "src": "return_type_definition [3638,3660]",
+      "dest": "return_type_definition [2771,2793]"
+    },
+    {
+      "src": "{: { [2136,2137]",
+      "dest": "{: { [1602,1603]"
+    },
+    {
+      "src": "yul_decimal_number: 32 [7766,7768]",
+      "dest": "yul_decimal_number: 32 [6141,6143]"
+    },
+    {
+      "src": "identifier: returndata [7418,7428]",
+      "dest": "identifier: returndata [5604,5614]"
+    },
+    {
+      "src": "function_body [6762,6994]",
+      "dest": "function_body [4203,4359]"
+    },
+    {
+      "src": "identifier: functionStaticCall [5667,5685]",
+      "dest": "identifier: functionStaticCall [3720,3738]"
+    },
+    {
+      "src": ",: , [2243,2244]",
+      "dest": ",: , [1744,1745]"
+    },
+    {
+      "src": "(: ( [7528,7529]",
+      "dest": "(: ( [5873,5874]"
+    },
+    {
+      "src": "primitive_type [3647,3652]",
+      "dest": "primitive_type [2780,2785]"
+    },
+    {
+      "src": "bytes: bytes [4766,4771]",
+      "dest": "bytes: bytes [3279,3284]"
+    },
+    {
+      "src": "internal: internal [3629,3637]",
+      "dest": "internal: internal [2762,2770]"
+    },
+    {
+      "src": "return_type_definition [6297,6319]",
+      "dest": "return_type_definition [4760,4782]"
+    },
+    {
+      "src": "yul_function_call [7762,7781]",
+      "dest": "yul_function_call [6137,6156]"
+    },
+    {
+      "src": "assembly: assembly [7663,7671]",
+      "dest": "assembly: assembly [6046,6054]"
+    },
+    {
+      "src": "state_mutability [5349,5353]",
+      "dest": "state_mutability [4755,4759]"
+    },
+    {
+      "src": "mload: mload [7717,7722]",
+      "dest": "mload: mload [6096,6101]"
+    },
+    {
+      "src": "bytes: bytes [3569,3574]",
+      "dest": "bytes: bytes [2743,2748]"
+    },
+    {
+      "src": "yul_evm_builtin [7755,7761]",
+      "dest": "yul_evm_builtin [6130,6136]"
+    },
+    {
+      "src": "variable_declaration_tuple [4952,4991]",
+      "dest": "variable_declaration_tuple [3420,3459]"
+    },
+    {
+      "src": "bytes: bytes [4967,4972]",
+      "dest": "bytes: bytes [3435,3440]"
+    },
+    {
+      "src": "bytes: bytes [7271,7276]",
+      "dest": "bytes: bytes [5760,5765]"
+    },
+    {
+      "src": "return_type_definition [5793,5815]",
+      "dest": "return_type_definition [3788,3810]"
+    },
+    {
+      "src": "function_body [4780,5100]",
+      "dest": "function_body [3293,3572]"
+    },
+    {
+      "src": "yul_evm_builtin [7762,7765]",
+      "dest": "yul_evm_builtin [6137,6140]"
+    },
+    {
+      "src": "variable_declaration [4967,4990]",
+      "dest": "variable_declaration [3435,3458]"
+    },
+    {
+      "src": "type_name [6867,6872]",
+      "dest": "type_name [4228,4233]"
+    },
+    {
+      "src": ".: . [2258,2259]",
+      "dest": ".: . [1759,1760]"
+    },
+    {
+      "src": "identifier: returndata [7529,7539]",
+      "dest": "identifier: returndata [5874,5884]"
+    },
+    {
+      "src": "identifier: success [7254,7261]",
+      "dest": "identifier: success [5438,5445]"
+    },
+    {
+      "src": "\": \" [2280,2281]",
+      "dest": "\": \" [1781,1782]"
+    },
+    {
+      "src": "primitive_type [4641,4648]",
+      "dest": "primitive_type [3211,3218]"
+    },
+    {
+      "src": "yul_path [7783,7798]",
+      "dest": "yul_path [6158,6173]"
+    },
+    {
+      "src": "type_name [5719,5724]",
+      "dest": "type_name [3755,3760]"
+    },
+    {
+      "src": "memory: memory [5725,5731]",
+      "dest": "memory: memory [3761,3767]"
+    },
+    {
+      "src": "primitive_type [4798,4805]",
+      "dest": "primitive_type [3307,3314]"
+    },
+    {
+      "src": "primitive_type [5905,5909]",
+      "dest": "primitive_type [3822,3826]"
+    },
+    {
+      "src": "string_literal [2279,2281]",
+      "dest": "string_literal [1780,1782]"
+    },
+    {
+      "src": "}: } [5018,5019]",
+      "dest": "}: } [3486,3487]"
+    },
+    {
+      "src": "identifier: target [3238,3244]",
+      "dest": "identifier: target [5138,5144]"
+    },
+    {
+      "src": "primitive_type [3569,3574]",
+      "dest": "primitive_type [2743,2748]"
+    },
+    {
+      "src": "call_argument [6914,6918]",
+      "dest": "call_argument [4275,4279]"
+    },
+    {
+      "src": "bytes: bytes [5802,5807]",
+      "dest": "bytes: bytes [3797,3802]"
+    },
+    {
+      "src": "memory: memory [3653,3659]",
+      "dest": "memory: memory [2786,2792]"
+    },
+    {
+      "src": "member_expression [2154,2175]",
+      "dest": "member_expression [1616,1637]"
+    },
+    {
+      "src": "function_body [3661,3737]",
+      "dest": "function_body [2794,2856]"
+    },
+    {
+      "src": "identifier: staticcall [5953,5963]",
+      "dest": "identifier: staticcall [3870,3880]"
+    },
+    {
+      "src": "(: ( [2161,2162]",
+      "dest": "(: ( [1623,1624]"
+    },
+    {
+      "src": ",: , [4682,4683]",
+      "dest": ",: , [3244,3245]"
+    },
+    {
+      "src": "type_name [791,798]",
+      "dest": "type_name [349,356]"
+    },
+    {
+      "src": "variable_declaration [5919,5942]",
+      "dest": "variable_declaration [3836,3859]"
+    },
+    {
+      "src": "address: address [3545,3552]",
+      "dest": "address: address [2727,2734]"
+    },
+    {
+      "src": "identifier: target [5413,5419]",
+      "dest": "identifier: target [3930,3936]"
+    },
+    {
+      "src": "call_expression [5946,5969]",
+      "dest": "call_expression [3863,3886]"
+    },
+    {
+      "src": "bytes: bytes [6306,6311]",
+      "dest": "bytes: bytes [4769,4774]"
+    },
+    {
+      "src": "): ) [7733,7734]",
+      "dest": "): ) [6112,6113]"
+    },
+    {
+      "src": "type_name [6646,6653]",
+      "dest": "type_name [4136,4143]"
+    },
+    {
+      "src": "identifier: target [6894,6900]",
+      "dest": "identifier: target [4255,4261]"
+    },
+    {
+      "src": "identifier: amount [2179,2185]",
+      "dest": "identifier: amount [1640,1646]"
+    },
+    {
+      "src": "if: if [7525,7527]",
+      "dest": "if: if [5870,5872]"
+    },
+    {
+      "src": "pragma: pragma [86,92]",
+      "dest": "pragma: pragma [101,107]"
+    },
+    {
+      "src": "identifier: success [2236,2243]",
+      "dest": "identifier: success [1737,1744]"
+    },
+    {
+      "src": "address: address [2084,2091]",
+      "dest": "address: address [1550,1557]"
+    },
+    {
+      "src": ".: . [7539,7540]",
+      "dest": ".: . [5884,5885]"
+    },
+    {
+      "src": "{: { [3661,3662]",
+      "dest": "{: { [2794,2795]"
+    },
+    {
+      "src": "block_statement [7837,7890]",
+      "dest": "block_statement [6204,6253]"
+    },
+    {
+      "src": "): ) [3729,3730]",
+      "dest": "): ) [2848,2849]"
+    },
+    {
+      "src": "): ) [5092,5093]",
+      "dest": "): ) [3564,3565]"
+    },
+    {
+      "src": "(: ( [7765,7766]",
+      "dest": "(: ( [6140,6141]"
+    },
+    {
+      "src": "function_definition [7214,7906]",
+      "dest": "function_definition [5743,6259]"
+    },
+    {
+      "src": "function_definition [5658,6044]",
+      "dest": "function_definition [3711,3965]"
+    },
+    {
+      "src": "memory: memory [4671,4677]",
+      "dest": "memory: memory [3233,3239]"
+    },
+    {
+      "src": "call_argument [6962,6972]",
+      "dest": "call_argument [4341,4351]"
+    },
+    {
+      "src": "type_name [2084,2099]",
+      "dest": "type_name [1550,1565]"
+    },
+    {
+      "src": "{: { [7397,7398]",
+      "dest": "{: { [5583,5584]"
+    },
+    {
+      "src": "parameter [3569,3586]",
+      "dest": "parameter [2743,2760]"
+    },
+    {
+      "src": ",: , [5078,5079]",
+      "dest": ",: , [3552,3553]"
+    },
+    {
+      "src": "(: ( [4952,4953]",
+      "dest": "(: ( [3420,3421]"
+    },
+    {
+      "src": "call_expression [3678,3730]",
+      "dest": "call_expression [2811,2849]"
+    },
+    {
+      "src": "): ) [3659,3660]",
+      "dest": "): ) [2792,2793]"
+    },
+    {
+      "src": "type_name [4692,4699]",
+      "dest": "type_name [3246,3253]"
+    },
+    {
+      "src": "parameter [5695,5709]",
+      "dest": "parameter [3739,3753]"
+    },
+    {
+      "src": "(: ( [6852,6853]",
+      "dest": "(: ( [4213,4214]"
+    },
+    {
+      "src": "primitive_type [5802,5807]",
+      "dest": "primitive_type [3797,3802]"
+    },
+    {
+      "src": "assembly_statement [7663,7817]",
+      "dest": "assembly_statement [6046,6188]"
+    },
+    {
+      "src": "member_expression [7529,7546]",
+      "dest": "member_expression [5874,5891]"
+    },
+    {
+      "src": "): ) [5942,5943]",
+      "dest": "): ) [3859,3860]"
+    },
+    {
+      "src": "block_statement [7552,7831]",
+      "dest": "block_statement [5897,6198]"
+    },
+    {
+      "src": "identifier: value [4823,4828]",
+      "dest": "identifier: value [3331,3336]"
+    },
+    {
+      "src": "identifier: target [4281,4287]",
+      "dest": "identifier: target [3537,3543]"
+    },
+    {
+      "src": ",: , [7781,7782]",
+      "dest": ",: , [6156,6157]"
+    },
+    {
+      "src": "identifier: sendValue [2074,2083]",
+      "dest": "identifier: sendValue [1540,1549]"
+    },
+    {
+      "src": "bytes: bytes [3647,3652]",
+      "dest": "bytes: bytes [2780,2785]"
+    },
+    {
+      "src": "function: function [5658,5666]",
+      "dest": "function: function [3711,3719]"
+    },
+    {
+      "src": "identifier: data [5020,5024]",
+      "dest": "identifier: data [3488,3492]"
+    },
+    {
+      "src": "parameter [2111,2125]",
+      "dest": "parameter [1577,1591]"
+    },
+    {
+      "src": "}: } [7816,7817]",
+      "dest": "}: } [6187,6188]"
+    },
+    {
+      "src": "parameter [6748,6760]",
+      "dest": "parameter [4189,4201]"
+    },
+    {
+      "src": ".: . [4811,4812]",
+      "dest": ".: . [3320,3321]"
+    },
+    {
+      "src": "identifier: balance [4812,4819]",
+      "dest": "identifier: balance [3321,3328]"
+    },
+    {
+      "src": ",: , [3712,3713]",
+      "dest": ",: , [2845,2846]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: MIT [0,31]",
+      "dest": "comment: // SPDX-License-Identifier: MIT [0,31]"
+    },
+    {
+      "src": "identifier: success [6858,6865]",
+      "dest": "identifier: success [4219,4226]"
+    },
+    {
+      "src": "yul_function_call [7717,7734]",
+      "dest": "yul_function_call [6096,6113]"
+    },
+    {
+      "src": "identifier: target [4649,4655]",
+      "dest": "identifier: target [3219,3225]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],      * but performing a delegate call.      *      * _Available since v3.4._      */ [6427,6602]",
+      "dest": "comment: /**      * @dev Tool to verify that a low level call was successful, and reverts if it wasn't, either by bubbling the      * revert reason or with a default {FailedInnerCall} error.      */ [5213,5402]"
+    },
+    {
+      "src": "primitive_type [4967,4972]",
+      "dest": "primitive_type [3435,3440]"
+    },
+    {
+      "src": ",: , [4965,4966]",
+      "dest": ",: , [3433,3434]"
+    },
+    {
+      "src": "identifier: returndata [4980,4990]",
+      "dest": "identifier: returndata [3448,3458]"
+    },
+    {
+      "src": ",: , [4655,4656]",
+      "dest": ",: , [3225,3226]"
+    },
+    {
+      "src": "identifier: target [6261,6267]",
+      "dest": "identifier: target [4678,4684]"
+    },
+    {
+      "src": "parameter [4665,4682]",
+      "dest": "parameter [3227,3244]"
+    },
+    {
+      "src": "address: address [2154,2161]",
+      "dest": "address: address [1616,1623]"
+    },
+    {
+      "src": "source_file [0,7909]",
+      "dest": "source_file [0,6262]"
+    },
+    {
+      "src": "parameter [7249,7261]",
+      "dest": "parameter [5433,5445]"
+    },
+    {
+      "src": "(: ( [6747,6748]",
+      "dest": "(: ( [4188,4189]"
+    },
+    {
+      "src": "else: else [7832,7836]",
+      "dest": "else: else [6199,6203]"
+    },
+    {
+      "src": "(: ( [4805,4806]",
+      "dest": "(: ( [3314,3315]"
+    },
+    {
+      "src": "payable: payable [2092,2099]",
+      "dest": "payable: payable [1558,1565]"
+    },
+    {
+      "src": "primitive_type [2111,2118]",
+      "dest": "primitive_type [1577,1584]"
+    },
+    {
+      "src": "type_name [6748,6753]",
+      "dest": "type_name [4189,4194]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],      * but performing a static call.      *      * _Available since v3.3._      */ [5480,5653]",
+      "dest": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a delegate call.      */ [3971,4101]"
+    },
+    {
+      "src": "=: = [6892,6893]",
+      "dest": "=: = [4253,4254]"
+    },
+    {
+      "src": "primitive_type [6646,6653]",
+      "dest": "primitive_type [4136,4143]"
+    },
+    {
+      "src": "return_statement [6929,6988]",
+      "dest": "return_statement [4290,4353]"
+    },
+    {
+      "src": "let: let [7694,7697]",
+      "dest": "let: let [6073,6076]"
+    },
+    {
+      "src": ",: , [5709,5710]",
+      "dest": ",: , [3753,3754]"
+    },
+    {
+      "src": "type_name [6853,6857]",
+      "dest": "type_name [4214,4218]"
+    },
+    {
+      "src": "): ) [5024,5025]",
+      "dest": "): ) [3492,3493]"
+    },
+    {
+      "src": "yul_path [7770,7780]",
+      "dest": "yul_path [6145,6155]"
+    },
+    {
+      "src": "return_type_definition [6739,6761]",
+      "dest": "return_type_definition [4180,4202]"
+    },
+    {
+      "src": "call_argument [5020,5024]",
+      "dest": "call_argument [3488,3492]"
+    },
+    {
+      "src": "return_statement [5035,5094]",
+      "dest": "return_statement [3503,3566]"
+    },
+    {
+      "src": "struct_expression [2249,2278]",
+      "dest": "struct_expression [1750,1779]"
+    },
+    {
+      "src": "call_expression [5042,5093]",
+      "dest": "call_expression [3510,3565]"
+    },
+    {
+      "src": "=: = [5944,5945]",
+      "dest": "=: = [3861,3862]"
+    },
+    {
+      "src": "variable_declaration [6853,6865]",
+      "dest": "variable_declaration [4214,4226]"
+    },
+    {
+      "src": "return: return [7411,7417]",
+      "dest": "return: return [5597,5603]"
+    },
+    {
+      "src": "bool: bool [4953,4957]",
+      "dest": "bool: bool [3421,3425]"
+    },
+    {
+      "src": "identifier: returndata [6962,6972]",
+      "dest": "identifier: returndata [4341,4351]"
+    },
+    {
+      "src": "internal: internal [6288,6296]",
+      "dest": "internal: internal [4746,4754]"
+    },
+    {
+      "src": "return: return [5035,5041]",
+      "dest": "return: return [3503,3509]"
+    },
+    {
+      "src": "return: return [3671,3677]",
+      "dest": "return: return [2804,2810]"
+    },
+    {
+      "src": "returns: returns [6297,6304]",
+      "dest": "returns: returns [4760,4767]"
+    },
+    {
+      "src": ",: , [5917,5918]",
+      "dest": ",: , [3834,3835]"
+    },
+    {
+      "src": "function_definition [2065,2377]",
+      "dest": "function_definition [1531,1862]"
+    },
+    {
+      "src": "pragma_directive [86,109]",
+      "dest": "pragma_directive [101,125]"
+    },
+    {
+      "src": "identifier: returndata [7723,7733]",
+      "dest": "identifier: returndata [6102,6112]"
+    },
+    {
+      "src": "parameter [7360,7372]",
+      "dest": "parameter [5495,5507]"
+    },
+    {
+      "src": "type_name [3647,3652]",
+      "dest": "type_name [2780,2785]"
+    },
+    {
+      "src": "binary_expression [4798,4828]",
+      "dest": "binary_expression [3307,3336]"
+    },
+    {
+      "src": "identifier: value [4700,4705]",
+      "dest": "identifier: value [3254,3259]"
+    },
+    {
+      "src": "identifier: target [5703,5709]",
+      "dest": "identifier: target [3747,3753]"
+    },
+    {
+      "src": "primitive_type [3545,3552]",
+      "dest": "primitive_type [2727,2734]"
+    },
+    {
+      "src": "parameter [5719,5736]",
+      "dest": "parameter [3755,3772]"
+    },
+    {
+      "src": "bytes: bytes [4665,4670]",
+      "dest": "bytes: bytes [3227,3232]"
+    },
+    {
+      "src": "identifier: returndata [5068,5078]",
+      "dest": "identifier: returndata [3554,3564]"
+    },
+    {
+      "src": "variable_declaration_tuple [2230,2246]",
+      "dest": "variable_declaration_tuple [1731,1747]"
+    },
+    {
+      "src": "type_name [7249,7253]",
+      "dest": "type_name [5433,5437]"
+    },
+    {
+      "src": ":: : [2269,2270]",
+      "dest": ":: : [1770,1771]"
+    },
+    {
+      "src": "}: } [6993,6994]",
+      "dest": "}: } [4358,4359]"
+    },
+    {
+      "src": "memory: memory [6676,6682]",
+      "dest": "memory: memory [4158,4164]"
+    },
+    {
+      "src": "struct_field_assignment [5006,5018]",
+      "dest": "struct_field_assignment [3474,3486]"
+    },
+    {
+      "src": "type_cast_expression [2154,2167]",
+      "dest": "type_cast_expression [1616,1629]"
+    },
+    {
+      "src": "call_argument [5068,5078]",
+      "dest": "call_argument [3554,3564]"
+    },
+    {
+      "src": "): ) [6318,6319]",
+      "dest": "): ) [4781,4782]"
+    },
+    {
+      "src": "type_name [4665,4670]",
+      "dest": "type_name [3227,3232]"
+    },
+    {
+      "src": "): ) [6986,6987]",
+      "dest": "): ) [4351,4352]"
+    },
+    {
+      "src": "identifier: verifyCallResult [7223,7239]",
+      "dest": "identifier: _revert [5752,5759]"
+    },
+    {
+      "src": "identifier: amount [2119,2125]",
+      "dest": "identifier: amount [1585,1591]"
+    },
+    {
+      "src": "parameter [7271,7294]",
+      "dest": "parameter [5760,5783]"
+    },
+    {
+      "src": "primitive_type [4665,4670]",
+      "dest": "primitive_type [3227,3232]"
+    },
+    {
+      "src": ",: , [3706,3707]",
+      "dest": ",: , [2839,2840]"
+    },
+    {
+      "src": "): ) [6760,6761]",
+      "dest": "): ) [4201,4202]"
+    },
+    {
+      "src": ".: . [6900,6901]",
+      "dest": ".: . [4261,4262]"
+    },
+    {
+      "src": "primitive_type [791,798]",
+      "dest": "primitive_type [349,356]"
+    },
+    {
+      "src": "primitive_type [2231,2235]",
+      "dest": "primitive_type [1732,1736]"
+    },
+    {
+      "src": "member_expression [5946,5963]",
+      "dest": "member_expression [3863,3880]"
+    },
+    {
+      "src": "identifier: value [5013,5018]",
+      "dest": "identifier: value [3481,3486]"
+    },
+    {
+      "src": "primitive_type [4766,4771]",
+      "dest": "primitive_type [3279,3284]"
+    },
+    {
+      "src": "returns: returns [3638,3645]",
+      "dest": "returns: returns [2771,2778]"
+    },
+    {
+      "src": "parameter [6306,6318]",
+      "dest": "parameter [4769,4781]"
+    },
+    {
+      "src": ",: , [6660,6661]",
+      "dest": ",: , [4150,4151]"
+    },
+    {
+      "src": "identifier: returndata [5932,5942]",
+      "dest": "identifier: returndata [3849,3859]"
+    },
+    {
+      "src": "member_expression [4798,4819]",
+      "dest": "member_expression [3307,3328]"
+    },
+    {
+      "src": "string [2279,2281]",
+      "dest": "string [1780,1782]"
+    },
+    {
+      "src": "identifier: success [6003,6010]",
+      "dest": "identifier: success [3938,3945]"
+    },
+    {
+      "src": "returns: returns [4757,4764]",
+      "dest": "returns: returns [3270,3277]"
+    },
+    {
+      "src": "memory: memory [6873,6879]",
+      "dest": "memory: memory [4234,4240]"
+    },
+    {
+      "src": "internal: internal [7337,7345]",
+      "dest": "internal: internal [5472,5480]"
+    },
+    {
+      "src": "type_name [2231,2235]",
+      "dest": "type_name [1732,1736]"
+    },
+    {
+      "src": "(: ( [6305,6306]",
+      "dest": "(: ( [4768,4769]"
+    },
+    {
+      "src": "call_argument [4281,4287]",
+      "dest": "call_argument [3537,3543]"
+    },
+    {
+      "src": "primitive_type [5719,5724]",
+      "dest": "primitive_type [3755,3760]"
+    },
+    {
+      "src": "type_name [4766,4771]",
+      "dest": "type_name [3279,3284]"
+    },
+    {
+      "src": "identifier: data [6683,6687]",
+      "dest": "identifier: data [4165,4169]"
+    },
+    {
+      "src": "identifier: target [5946,5952]",
+      "dest": "identifier: target [3863,3869]"
+    },
+    {
+      "src": "(: ( [3535,3536]",
+      "dest": "(: ( [2726,2727]"
+    },
+    {
+      "src": "^:  ^ [101,103]",
+      "dest": "^:  ^ [116,118]"
+    },
+    {
+      "src": "}: } [3736,3737]",
+      "dest": "}: } [2855,2856]"
+    },
+    {
+      "src": "(: ( [7359,7360]",
+      "dest": "(: ( [5494,5495]"
+    },
+    {
+      "src": "return_type_definition [4757,4779]",
+      "dest": "return_type_definition [3270,3292]"
+    },
+    {
+      "src": "yul_path [7723,7733]",
+      "dest": "yul_path [6102,6112]"
+    },
+    {
+      "src": "address: address [5695,5702]",
+      "dest": "address: address [3739,3746]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but also transferring `value` wei to `target`.      *      * Requirements:      *      * - the calling contract must have an ETH balance of at least `value`.      * - the called Solidity function must be `payable`.      *      * _Available since v3.1._      */ [3743,4094]",
+      "dest": "comment: /**      * @dev Performs a Solidity function call using a low level `call`. A      * plain `call` is an unsafe replacement for a function call: use this      * function instead.      *      * If `target` reverts with a revert reason or custom error, it is bubbled      * up by this function (like regular Solidity function calls). However, if      * the call reverted with no returned reason, this function reverts with a      * {FailedInnerCall} error.      *      * Returns the raw returned data. To convert to the expected return value,      * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].      *      * Requirements:      *      * - `target` must be a contract.      * - calling `target` with `data` must not revert.      */ [1868,2700]"
+    },
+    {
+      "src": "function_definition [6607,6994]",
+      "dest": "function_definition [4106,4359]"
+    },
+    {
+      "src": "identifier: call [2259,2263]",
+      "dest": "identifier: call [1760,1764]"
+    },
+    {
+      "src": "(: ( [2083,2084]",
+      "dest": "(: ( [1549,1550]"
+    },
+    {
+      "src": "(: ( [6636,6637]",
+      "dest": "(: ( [4135,4136]"
+    },
+    {
+      "src": "identifier: amount [2271,2277]",
+      "dest": "identifier: amount [1772,1778]"
+    },
+    {
+      "src": "bytes: bytes [5719,5724]",
+      "dest": "bytes: bytes [3755,3760]"
+    },
+    {
+      "src": "type_name [7360,7365]",
+      "dest": "type_name [5495,5500]"
+    },
+    {
+      "src": "): ) [6036,6037]",
+      "dest": "): ) [3957,3958]"
+    },
+    {
+      "src": "primitive_type [6306,6311]",
+      "dest": "primitive_type [4769,4774]"
+    },
+    {
+      "src": "(: ( [2278,2279]",
+      "dest": "(: ( [1779,1780]"
+    },
+    {
+      "src": "primitive_type [2154,2161]",
+      "dest": "primitive_type [1616,1623]"
+    },
+    {
+      "src": "variable_declaration [6867,6890]",
+      "dest": "variable_declaration [4228,4251]"
+    },
+    {
+      "src": "call_argument [3708,3712]",
+      "dest": "call_argument [2841,2845]"
+    },
+    {
+      "src": "identifier: recipient [2100,2109]",
+      "dest": "identifier: recipient [1566,1575]"
+    },
+    {
+      "src": "call_expression [6936,6987]",
+      "dest": "call_expression [4297,4352]"
+    },
+    {
+      "src": "comment: // The easiest way to bubble the revert reason is using memory via assembly [7570,7645]",
+      "dest": "comment: // The easiest way to bubble the revert reason is using memory via assembly [5911,5986]"
+    },
+    {
+      "src": "(: ( [7239,7240]",
+      "dest": "(: ( [5759,5760]"
+    },
+    {
+      "src": "contract_body [195,7908]",
+      "dest": "contract_body [211,6261]"
+    },
+    {
+      "src": "): ) [4778,4779]",
+      "dest": "): ) [3291,3292]"
+    },
+    {
+      "src": "number_literal: 0 [7549,7550]",
+      "dest": "number_literal: 0 [5894,5895]"
+    },
+    {
+      "src": "identifier: returndata [7284,7294]",
+      "dest": "identifier: returndata [5773,5783]"
+    },
+    {
+      "src": ",: , [6010,6011]",
+      "dest": ",: , [3936,3937]"
+    },
+    {
+      "src": "library_declaration [179,7908]",
+      "dest": "library_declaration [195,6261]"
+    },
+    {
+      "src": "yul_variable_declaration [7694,7734]",
+      "dest": "yul_variable_declaration [6073,6113]"
+    },
+    {
+      "src": "identifier: verifyCallResult [5986,6002]",
+      "dest": "identifier: verifyCallResultFromTarget [3903,3929]"
+    },
+    {
+      "src": "type_name [5905,5909]",
+      "dest": "type_name [3822,3826]"
+    },
+    {
+      "src": "}: } [7905,7906]",
+      "dest": "}: } [6258,6259]"
+    },
+    {
+      "src": "comment: /**  * @dev Collection of functions related to the address type  */ [111,178]",
+      "dest": "comment: /**  * @dev Collection of functions related to the address type  */ [127,194]"
+    },
+    {
+      "src": "visibility [7337,7345]",
+      "dest": "visibility [5472,5480]"
+    },
+    {
+      "src": "bytes: bytes [7360,7365]",
+      "dest": "bytes: bytes [5495,5500]"
+    },
+    {
+      "src": "}: } [5099,5100]",
+      "dest": "}: } [3571,3572]"
+    },
+    {
+      "src": "function_definition [4601,5100]",
+      "dest": "function_definition [3180,3572]"
+    },
+    {
+      "src": "variable_declaration_statement [6852,6920]",
+      "dest": "variable_declaration_statement [4213,4281]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns true if `account` is a contract.      *      * [IMPORTANT]      * ====      * It is unsafe to assume that an address for which this function returns      * false is an externally-owned account (EOA) and not a contract.      *      * Among others, `isContract` will return false for the following      * types of addresses:      *      *  - an externally-owned account      *  - a contract in construction      *  - an address where a contract will be created      *  - an address where a contract lived, but was destroyed      * ====      */ [201,766]",
+      "dest": "comment: /**      * @dev The ETH balance of the account is not enough to perform the operation.      */ [217,311]"
+    },
+    {
+      "src": "type_name [6670,6675]",
+      "dest": "type_name [4152,4157]"
+    },
+    {
+      "src": "binary_expression [2154,2185]",
+      "dest": "binary_expression [1616,1646]"
+    },
+    {
+      "src": "identifier: recipient [2249,2258]",
+      "dest": "identifier: recipient [1750,1759]"
+    },
+    {
+      "src": "call_argument [6012,6022]",
+      "dest": "call_argument [3947,3957]"
+    },
+    {
+      "src": "solidity_version: 0.8.0 [103,108]",
+      "dest": "solidity_version: 0.8.20 [118,124]"
+    },
+    {
+      "src": "struct_field_assignment [2264,2277]",
+      "dest": "struct_field_assignment [1765,1778]"
+    },
+    {
+      "src": "bytes: bytes [6867,6872]",
+      "dest": "bytes: bytes [4228,4233]"
+    },
+    {
+      "src": "}: } [2376,2377]",
+      "dest": "}: } [1861,1862]"
+    },
+    {
+      "src": "revert: revert [7755,7761]",
+      "dest": "revert: revert [6130,6136]"
+    },
+    {
+      "src": "parameter [4641,4655]",
+      "dest": "parameter [3211,3225]"
+    },
+    {
+      "src": "): ) [6728,6729]",
+      "dest": "): ) [4169,4170]"
+    },
+    {
+      "src": "struct_expression [4994,5019]",
+      "dest": "struct_expression [3462,3487]"
+    },
+    {
+      "src": "call_argument [4806,4810]",
+      "dest": "call_argument [3315,3319]"
+    },
+    {
+      "src": "identifier: functionCall [3523,3535]",
+      "dest": "identifier: functionCall [2714,2726]"
+    },
+    {
+      "src": "variable_declaration_statement [5904,5970]",
+      "dest": "variable_declaration_statement [3821,3887]"
+    },
+    {
+      "src": "function_body [5816,6044]",
+      "dest": "function_body [3811,3965]"
+    },
+    {
+      "src": "yul_function_call [7755,7799]",
+      "dest": "yul_function_call [6130,6174]"
+    },
+    {
+      "src": "primitive_type [4953,4957]",
+      "dest": "primitive_type [3421,3425]"
+    },
+    {
+      "src": "memory: memory [7277,7283]",
+      "dest": "memory: memory [5766,5772]"
+    },
+    {
+      "src": "parameter [4692,4705]",
+      "dest": "parameter [3246,3259]"
+    },
+    {
+      "src": "{: { [6762,6763]",
+      "dest": "{: { [4203,4204]"
+    },
+    {
+      "src": "return_statement [7411,7429]",
+      "dest": "return_statement [5597,5615]"
+    },
+    {
+      "src": "identifier: call [5001,5005]",
+      "dest": "identifier: call [3469,3473]"
+    },
+    {
+      "src": "address: address [4798,4805]",
+      "dest": "address: address [3307,3314]"
+    },
+    {
+      "src": "type_name [7271,7276]",
+      "dest": "type_name [5760,5765]"
+    },
+    {
+      "src": "{: { [7672,7673]",
+      "dest": "{: { [6055,6056]"
+    },
+    {
+      "src": "call_expression [6894,6919]",
+      "dest": "call_expression [4255,4280]"
+    },
+    {
+      "src": "bool: bool [6853,6857]",
+      "dest": "bool: bool [4214,4218]"
+    },
+    {
+      "src": "): ) [2166,2167]",
+      "dest": "): ) [1628,1629]"
+    },
+    {
+      "src": "parameter [6253,6267]",
+      "dest": "parameter [4670,4684]"
+    },
+    {
+      "src": "identifier: this [4806,4810]",
+      "dest": "identifier: this [3315,3319]"
+    },
+    {
+      "src": "type_name [3569,3574]",
+      "dest": "type_name [2743,2748]"
+    },
+    {
+      "src": ",: , [6865,6866]",
+      "dest": ",: , [4226,4227]"
+    },
+    {
+      "src": "}: } [7889,7890]",
+      "dest": "}: } [6252,6253]"
+    },
+    {
+      "src": "call_argument [5059,5066]",
+      "dest": "call_argument [3545,3552]"
+    },
+    {
+      "src": "primitive_type [7249,7253]",
+      "dest": "primitive_type [5433,5437]"
+    },
+    {
+      "src": "function: function [7214,7222]",
+      "dest": "function: function [5743,5751]"
+    },
+    {
+      "src": "type_cast_expression [4798,4811]",
+      "dest": "type_cast_expression [3307,3320]"
+    },
+    {
+      "src": "function: function [4601,4609]",
+      "dest": "function: function [3180,3188]"
+    },
+    {
+      "src": "type_name [2111,2118]",
+      "dest": "type_name [1577,1584]"
+    },
+    {
+      "src": "identifier: this [2162,2166]",
+      "dest": "identifier: this [1624,1628]"
+    },
+    {
+      "src": "variable_declaration_tuple [5904,5943]",
+      "dest": "variable_declaration_tuple [3821,3860]"
+    },
+    {
+      "src": "primitive_type [6748,6753]",
+      "dest": "primitive_type [4189,4194]"
+    },
+    {
+      "src": "): ) [2125,2126]",
+      "dest": "): ) [1591,1592]"
+    },
+    {
+      "src": "visibility [6288,6296]",
+      "dest": "visibility [4746,4754]"
+    },
+    {
+      "src": "bytes: bytes [6748,6753]",
+      "dest": "bytes: bytes [4189,4194]"
+    },
+    {
+      "src": "identifier: data [6914,6918]",
+      "dest": "identifier: data [4275,4279]"
+    },
+    {
+      "src": "identifier: success [6953,6960]",
+      "dest": "identifier: success [4332,4339]"
+    },
+    {
+      "src": "{: { [7374,7375]",
+      "dest": "{: { [5798,5799]"
+    },
+    {
+      "src": ":=: := [7714,7716]",
+      "dest": ":=: := [6093,6095]"
+    },
+    {
+      "src": "identifier: data [5732,5736]",
+      "dest": "identifier: data [3768,3772]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [101,103]",
+      "dest": "solidity_version_comparison_operator [116,118]"
+    },
+    {
+      "src": "call_argument [6953,6960]",
+      "dest": "call_argument [4332,4339]"
+    },
+    {
+      "src": "(: ( [6952,6953]",
+      "dest": "(: ( [4323,4324]"
+    },
+    {
+      "src": "): ) [6890,6891]",
+      "dest": "): ) [4251,4252]"
+    },
+    {
+      "src": "): ) [7372,7373]",
+      "dest": "): ) [5507,5508]"
+    },
+    {
+      "src": "call_argument [3700,3706]",
+      "dest": "call_argument [2833,2839]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a delegate call.      *      * _Available since v3.4._      */ [6050,6218]",
+      "dest": "comment: /**      * @dev Tool to verify that a low level call to smart-contract was successful, and reverts if the target      * was not a contract or bubbling up the revert reason (falling back to {FailedInnerCall}) in case of an      * unsuccessful call.      */ [4365,4620]"
+    },
+    {
+      "src": "if_statement [7525,7890]",
+      "dest": "if_statement [5870,6253]"
+    },
+    {
+      "src": "identifier: verifyCallResult [5042,5058]",
+      "dest": "identifier: verifyCallResultFromTarget [3510,3536]"
+    },
+    {
+      "src": "identifier: data [3582,3586]",
+      "dest": "identifier: data [2756,2760]"
+    },
+    {
+      "src": "variable_declaration [2231,2243]",
+      "dest": "variable_declaration [1732,1744]"
+    },
+    {
+      "src": "bool: bool [2231,2235]",
+      "dest": "bool: bool [1732,1736]"
+    },
+    {
+      "src": "call_expression [4994,5025]",
+      "dest": "call_expression [3462,3493]"
+    },
+    {
+      "src": "primitive_type [4692,4699]",
+      "dest": "primitive_type [3246,3253]"
+    },
+    {
+      "src": "type_name [5695,5702]",
+      "dest": "type_name [3739,3746]"
+    },
+    {
+      "src": "visibility [5779,5787]",
+      "dest": "visibility [3774,3782]"
+    },
+    {
+      "src": "view: view [5788,5792]",
+      "dest": "view: view [3783,3787]"
+    },
+    {
+      "src": "bytes: bytes [5919,5924]",
+      "dest": "bytes: bytes [3836,3841]"
+    },
+    {
+      "src": "identifier: verifyCallResult [6936,6952]",
+      "dest": "identifier: verifyCallResultFromTarget [4297,4323]"
+    },
+    {
+      "src": "(: ( [3646,3647]",
+      "dest": "(: ( [2779,2780]"
+    },
+    {
+      "src": "yul_identifier [7770,7780]",
+      "dest": "yul_identifier [6145,6155]"
+    },
+    {
+      "src": "(: ( [2230,2231]",
+      "dest": "(: ( [1731,1732]"
+    },
+    {
+      "src": "internal: internal [4748,4756]",
+      "dest": "internal: internal [3261,3269]"
+    },
+    {
+      "src": "uint256: uint256 [2111,2118]",
+      "dest": "uint256: uint256 [1577,1584]"
+    },
+    {
+      "src": "type_name [4953,4957]",
+      "dest": "type_name [3421,3425]"
+    },
+    {
+      "src": "identifier: target [6358,6364]",
+      "dest": "identifier: target [4324,4330]"
+    },
+    {
+      "src": "return: return [6929,6935]",
+      "dest": "return: return [4290,4296]"
+    },
+    {
+      "src": "variable_declaration [5905,5917]",
+      "dest": "variable_declaration [3822,3834]"
+    },
+    {
+      "src": "call_argument [6003,6010]",
+      "dest": "call_argument [3938,3945]"
+    },
+    {
+      "src": ",: , [6972,6973]",
+      "dest": ",: , [4339,4340]"
+    },
+    {
+      "src": "identifier: functionDelegateCall [6616,6636]",
+      "dest": "identifier: functionDelegateCall [4115,4135]"
+    },
+    {
+      "src": "type_name [6253,6260]",
+      "dest": "type_name [4670,4677]"
+    },
+    {
+      "src": "comment: // OpenZeppelin Contracts v4.3.2 (utils/Address.sol) [32,84]",
+      "dest": "comment: // OpenZeppelin Contracts (last updated v5.0.0) (utils/Address.sol) [32,99]"
+    },
+    {
+      "src": "call_argument [2279,2281]",
+      "dest": "call_argument [1780,1782]"
+    },
+    {
+      "src": "member_expression [4994,5005]",
+      "dest": "member_expression [3462,3473]"
+    },
+    {
+      "src": "): ) [7780,7781]",
+      "dest": "): ) [6155,6156]"
+    },
+    {
+      "src": "(: ( [4631,4632]",
+      "dest": "(: ( [3210,3211]"
+    },
+    {
+      "src": "): ) [2281,2282]",
+      "dest": "): ) [1782,1783]"
+    },
+    {
+      "src": "internal: internal [5779,5787]",
+      "dest": "internal: internal [3774,3782]"
+    },
+    {
+      "src": "(: ( [7722,7723]",
+      "dest": "(: ( [6101,6102]"
+    },
+    {
+      "src": "): ) [6918,6919]",
+      "dest": "): ) [4279,4280]"
+    },
+    {
+      "src": "type_name [4967,4972]",
+      "dest": "type_name [3435,3440]"
+    },
+    {
+      "src": "yul_evm_builtin [7717,7722]",
+      "dest": "yul_evm_builtin [6096,6101]"
+    },
+    {
+      "src": "(: ( [6913,6914]",
+      "dest": "(: ( [4274,4275]"
+    },
+    {
+      "src": "): ) [4746,4747]",
+      "dest": "): ) [3259,3260]"
+    },
+    {
+      "src": "{: { [7552,7553]",
+      "dest": "{: { [5897,5898]"
+    },
+    {
+      "src": "): ) [2245,2246]",
+      "dest": "): ) [1746,1747]"
+    },
+    {
+      "src": "revert_statement [7855,7876]",
+      "dest": "revert_statement [6218,6243]"
+    },
+    {
+      "src": "call_argument [3238,3244]",
+      "dest": "call_argument [5138,5144]"
+    },
+    {
+      "src": "): ) [3627,3628]",
+      "dest": "): ) [2760,2761]"
+    },
+    {
+      "src": "identifier: data [4678,4682]",
+      "dest": "identifier: data [3240,3244]"
+    },
+    {
+      "src": "internal: internal [2127,2135]",
+      "dest": "internal: internal [1593,1601]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with      * `errorMessage` as a fallback revert reason when `target` reverts.      *      * _Available since v3.1._      */ [3298,3509]",
+      "dest": "comment: /**      * @dev Replacement for Solidity's `transfer`: sends `amount` wei to      * `recipient`, forwarding all available gas and reverting on errors.      *      * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost      * of certain opcodes, possibly making contracts go over the 2300 gas limit      * imposed by `transfer`, making them unable to receive funds via      * `transfer`. {sendValue} removes this limitation.      *      * https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/[Learn more].      *      * IMPORTANT: because control is transferred to `recipient`, care must be      * taken to not create reentrancy vulnerabilities. Consider using      * {ReentrancyGuard} or the      * https://solidity.readthedocs.io/en/v0.8.20/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].      */ [621,1526]"
+    },
+    {
+      "src": "comment: /**      * @dev Tool to verifies that a low level call was successful, and revert if it wasn't, either by bubbling the      * revert reason using the provided one.      *      * _Available since v4.3._      */ [7000,7209]",
+      "dest": "comment: /**      * @dev Reverts with returndata if present. Otherwise reverts with {FailedInnerCall}.      */ [5637,5738]"
+    },
+    {
+      "src": ".: . [2167,2168]",
+      "dest": ".: . [1629,1630]"
+    },
+    {
+      "src": "{: { [5005,5006]",
+      "dest": "{: { [3473,3474]"
+    },
+    {
+      "src": "type_name [3545,3552]",
+      "dest": "type_name [2727,2734]"
+    },
+    {
+      "src": "variable_declaration_statement [4952,5026]",
+      "dest": "variable_declaration_statement [3420,3494]"
+    },
+    {
+      "src": "bytes: bytes [6670,6675]",
+      "dest": "bytes: bytes [4152,4157]"
+    },
+    {
+      "src": "call_argument [5413,5419]",
+      "dest": "call_argument [3930,3936]"
+    },
+    {
+      "src": "identifier: returndata_size [7698,7713]",
+      "dest": "identifier: returndata_size [6077,6092]"
+    },
+    {
+      "src": "(: ( [5019,5020]",
+      "dest": "(: ( [3487,3488]"
+    },
+    {
+      "src": "address: address [6646,6653]",
+      "dest": "address: address [4136,4143]"
+    },
+    {
+      "src": "memory: memory [5925,5931]",
+      "dest": "memory: memory [3842,3848]"
+    },
+    {
+      "src": "primitive_type [7271,7276]",
+      "dest": "primitive_type [5760,5765]"
+    },
+    {
+      "src": "variable_declaration_tuple [6852,6891]",
+      "dest": "variable_declaration_tuple [4213,4252]"
+    },
+    {
+      "src": "parameter [5802,5814]",
+      "dest": "parameter [3797,3809]"
+    },
+    {
+      "src": "identifier: target [6654,6660]",
+      "dest": "identifier: target [4144,4150]"
+    },
+    {
+      "src": "visibility [4748,4756]",
+      "dest": "visibility [3261,3269]"
+    },
+    {
+      "src": "primitive_type [5919,5924]",
+      "dest": "primitive_type [3836,3841]"
+    },
+    {
+      "src": "parameter [4766,4778]",
+      "dest": "parameter [3279,3291]"
+    },
+    {
+      "src": "(: ( [5963,5964]",
+      "dest": "(: ( [3880,3881]"
+    },
+    {
+      "src": "address: address [4641,4648]",
+      "dest": "address: address [3211,3218]"
+    },
+    {
+      "src": ",: , [3559,3560]",
+      "dest": ",: , [2741,2742]"
+    },
+    {
+      "src": "return_statement [5979,6038]",
+      "dest": "return_statement [3896,3959]"
+    },
+    {
+      "src": "block_statement [7397,7439]",
+      "dest": "block_statement [5583,5625]"
+    },
+    {
+      "src": ",: , [2109,2110]",
+      "dest": ",: , [1575,1576]"
+    },
+    {
+      "src": "(: ( [7761,7762]",
+      "dest": "(: ( [6136,6137]"
+    },
+    {
+      "src": "}: } [7830,7831]",
+      "dest": "}: } [6197,6198]"
+    },
+    {
+      "src": "yul_identifier [7723,7733]",
+      "dest": "yul_identifier [6102,6112]"
+    },
+    {
+      "src": "=: = [4992,4993]",
+      "dest": "=: = [3460,3461]"
+    },
+    {
+      "src": "): ) [5777,5778]",
+      "dest": "): ) [3772,3773]"
+    },
+    {
+      "src": "(: ( [5685,5686]",
+      "dest": "(: ( [3738,3739]"
+    },
+    {
+      "src": "parameter [6646,6660]",
+      "dest": "parameter [4136,4150]"
+    },
+    {
+      "src": "call_expression [5986,6037]",
+      "dest": "call_expression [3903,3958]"
+    },
+    {
+      "src": "): ) [7798,7799]",
+      "dest": "): ) [6173,6174]"
+    },
+    {
+      "src": "type_name [6306,6311]",
+      "dest": "type_name [4769,4774]"
+    },
+    {
+      "src": "call_argument [2162,2166]",
+      "dest": "call_argument [1624,1628]"
+    },
+    {
+      "src": "}: } [7907,7908]",
+      "dest": "}: } [6260,6261]"
+    },
+    {
+      "src": "identifier: success [5059,5066]",
+      "dest": "identifier: success [3545,3552]"
+    },
+    {
+      "src": "identifier: data [3708,3712]",
+      "dest": "identifier: data [2841,2845]"
+    },
+    {
+      "src": "primitive_type [6670,6675]",
+      "dest": "primitive_type [4152,4157]"
+    },
+    {
+      "src": "function_body [7374,7906]",
+      "dest": "function_body [5798,6259]"
+    },
+    {
+      "src": "identifier: value [2264,2269]",
+      "dest": "identifier: value [1765,1770]"
+    },
+    {
+      "src": "identifier: balance [2168,2175]",
+      "dest": "identifier: balance [1630,1637]"
+    },
+    {
+      "src": "): ) [7550,7551]",
+      "dest": "): ) [5895,5896]"
+    },
+    {
+      "src": "member_expression [6894,6913]",
+      "dest": "member_expression [4255,4274]"
+    },
+    {
+      "src": "(: ( [4765,4766]",
+      "dest": "(: ( [3278,3279]"
+    },
+    {
+      "src": "}: } [6043,6044]",
+      "dest": "}: } [3964,3965]"
+    },
+    {
+      "src": "identifier: target [3700,3706]",
+      "dest": "identifier: target [2833,2839]"
+    },
+    {
+      "src": "identifier: target [3553,3559]",
+      "dest": "identifier: target [2735,2741]"
+    },
+    {
+      "src": "address: address [791,798]",
+      "dest": "address: address [349,356]"
+    },
+    {
+      "src": "bool: bool [5905,5909]",
+      "dest": "bool: bool [3822,3826]"
+    },
+    {
+      "src": "{: { [2263,2264]",
+      "dest": "{: { [1764,1765]"
+    },
+    {
+      "src": "return_statement [3671,3731]",
+      "dest": "return_statement [2804,2850]"
+    },
+    {
+      "src": "(: ( [5801,5802]",
+      "dest": "(: ( [3796,3797]"
+    },
+    {
+      "src": "parameter [6670,6687]",
+      "dest": "parameter [4152,4169]"
+    },
+    {
+      "src": "identifier: Address [187,194]",
+      "dest": "identifier: Address [203,210]"
+    },
+    {
+      "src": "identifier: value [5006,5011]",
+      "dest": "identifier: value [3474,3479]"
+    },
+    {
+      "src": "memory: memory [5808,5814]",
+      "dest": "memory: memory [3803,3809]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "comment: // OpenZeppelin Contracts v4.3.2 (utils/Address.sol) [32,84]",
+      "label": "// OpenZeppelin Contracts (last updated v5.0.0) (utils/Address.sol)"
+    },
+    {
+      "action": "move-tree",
+      "tree": "function_definition [2065,2377]",
+      "parent": "contract_body [211,6261]",
+      "at": 7
+    },
+    {
+      "action": "move-tree",
+      "tree": "function_definition [3514,3737]",
+      "parent": "contract_body [211,6261]",
+      "at": 9
+    },
+    {
+      "action": "move-tree",
+      "tree": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],      * but performing a static call.      *      * _Available since v3.3._      */ [5480,5653]",
+      "parent": "contract_body [211,6261]",
+      "at": 16
+    },
+    {
+      "action": "move-tree",
+      "tree": "function_definition [6607,6994]",
+      "parent": "contract_body [211,6261]",
+      "at": 17
+    },
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.8.0 [103,108]",
+      "label": "0.8.20"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Returns true if `account` is a contract.      *      * [IMPORTANT]      * ====      * It is unsafe to assume that an address for which this function returns      * false is an externally-owned account (EOA) and not a contract.      *      * Among others, `isContract` will return false for the following      * types of addresses:      *      *  - an externally-owned account      *  - a contract in construction      *  - an address where a contract will be created      *  - an address where a contract lived, but was destroyed      * ====      */ [201,766]",
+      "label": "/**      * @dev The ETH balance of the account is not enough to perform the operation.      */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "error_declaration [316,366]",
+      "parent": "contract_body [211,6261]",
+      "at": 2
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Replacement for Solidity's `transfer`: sends `amount` wei to      * `recipient`, forwarding all available gas and reverting on errors.      *      * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost      * of certain opcodes, possibly making contracts go over the 2300 gas limit      * imposed by `transfer`, making them unable to receive funds via      * `transfer`. {sendValue} removes this limitation.      *      * https://diligence.consensys.net/posts/2019/09/stop-using-soliditys-transfer-now/[Learn more].      *      * IMPORTANT: because control is transferred to `recipient`, care must be      * taken to not create reentrancy vulnerabilities. Consider using      * {ReentrancyGuard} or the      * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].      */ [1154,2060]",
+      "label": "/**      * @dev There's no code at `target` (it is not a contract).      */"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "error_declaration [452,491]",
+      "parent": "contract_body [211,6261]",
+      "at": 4
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Performs a Solidity function call using a low level `call`. A      * plain `call` is an unsafe replacement for a function call: use this      * function instead.      *      * If `target` reverts with a revert reason, it is bubbled up by this      * function (like regular Solidity function calls).      *      * Returns the raw returned data. To convert to the expected return value,      * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].      *      * Requirements:      *      * - `target` must be a contract.      * - calling `target` with `data` must not revert.      *      * _Available since v3.1._      */ [2383,3114]",
+      "label": "/**      * @dev A call to an address target failed. The target may have reverted.      */"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "error_declaration [591,615]",
+      "parent": "contract_body [211,6261]",
+      "at": 6
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with      * `errorMessage` as a fallback revert reason when `target` reverts.      *      * _Available since v3.1._      */ [3298,3509]",
+      "label": "/**      * @dev Replacement for Solidity's `transfer`: sends `amount` wei to      * `recipient`, forwarding all available gas and reverting on errors.      *      * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost      * of certain opcodes, possibly making contracts go over the 2300 gas limit      * imposed by `transfer`, making them unable to receive funds via      * `transfer`. {sendValue} removes this limitation.      *      * https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/[Learn more].      *      * IMPORTANT: because control is transferred to `recipient`, care must be      * taken to not create reentrancy vulnerabilities. Consider using      * {ReentrancyGuard} or the      * https://solidity.readthedocs.io/en/v0.8.20/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].      */"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but also transferring `value` wei to `target`.      *      * Requirements:      *      * - the calling contract must have an ETH balance of at least `value`.      * - the called Solidity function must be `payable`.      *      * _Available since v3.1._      */ [3743,4094]",
+      "label": "/**      * @dev Performs a Solidity function call using a low level `call`. A      * plain `call` is an unsafe replacement for a function call: use this      * function instead.      *      * If `target` reverts with a revert reason or custom error, it is bubbled      * up by this function (like regular Solidity function calls). However, if      * the call reverted with no returned reason, this function reverts with a      * {FailedInnerCall} error.      *      * Returns the raw returned data. To convert to the expected return value,      * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].      *      * Requirements:      *      * - `target` must be a contract.      * - calling `target` with `data` must not revert.      */"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but      * with `errorMessage` as a fallback revert reason when `target` reverts.      *      * _Available since v3.1._      */ [4359,4596]",
+      "label": "/**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but also transferring `value` wei to `target`.      *      * Requirements:      *      * - the calling contract must have an ETH balance of at least `value`.      * - the called Solidity function must be `payable`.      */"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a static call.      *      * _Available since v3.3._      */ [5106,5272]",
+      "label": "/**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a static call.      */"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],      * but performing a static call.      *      * _Available since v3.3._      */ [5480,5653]",
+      "label": "/**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a delegate call.      */"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a delegate call.      *      * _Available since v3.4._      */ [6050,6218]",
+      "label": "/**      * @dev Tool to verify that a low level call to smart-contract was successful, and reverts if the target      * was not a contract or bubbling up the revert reason (falling back to {FailedInnerCall}) in case of an      * unsuccessful call.      */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "function_definition [4625,5207]",
+      "parent": "contract_body [211,6261]",
+      "at": 18
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],      * but performing a delegate call.      *      * _Available since v3.4._      */ [6427,6602]",
+      "label": "/**      * @dev Tool to verify that a low level call was successful, and reverts if it wasn't, either by bubbling the      * revert reason or with a default {FailedInnerCall} error.      */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "function_definition [5407,5631]",
+      "parent": "contract_body [211,6261]",
+      "at": 20
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Tool to verifies that a low level call was successful, and revert if it wasn't, either by bubbling the      * revert reason using the provided one.      *      * _Available since v4.3._      */ [7000,7209]",
+      "label": "/**      * @dev Reverts with returndata if present. Otherwise reverts with {FailedInnerCall}.      */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "error: error [316,321]",
+      "parent": "error_declaration [316,366]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: AddressInsufficientBalance [322,348]",
+      "parent": "error_declaration [316,366]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [348,349]",
+      "parent": "error_declaration [316,366]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "error_parameter [349,364]",
+      "parent": "error_declaration [316,366]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [364,365]",
+      "parent": "error_declaration [316,366]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "function: function [4625,4633]",
+      "parent": "function_definition [4625,5207]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: verifyCallResultFromTarget [4634,4660]",
+      "parent": "function_definition [4625,5207]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [4660,4661]",
+      "parent": "function_definition [4625,5207]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "parameter [6253,6267]",
+      "parent": "function_definition [4625,5207]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [4684,4685]",
+      "parent": "function_definition [4625,5207]",
+      "at": 4
+    },
+    {
+      "action": "insert-tree",
+      "tree": "parameter [4694,4706]",
+      "parent": "function_definition [4625,5207]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [4706,4707]",
+      "parent": "function_definition [4625,5207]",
+      "at": 6
+    },
+    {
+      "action": "insert-tree",
+      "tree": "parameter [4716,4739]",
+      "parent": "function_definition [4625,5207]",
+      "at": 7
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [4744,4745]",
+      "parent": "function_definition [4625,5207]",
+      "at": 8
+    },
+    {
+      "action": "move-tree",
+      "tree": "visibility [6288,6296]",
+      "parent": "function_definition [4625,5207]",
+      "at": 9
+    },
+    {
+      "action": "move-tree",
+      "tree": "state_mutability [5349,5353]",
+      "parent": "function_definition [4625,5207]",
+      "at": 10
+    },
+    {
+      "action": "move-tree",
+      "tree": "return_type_definition [6297,6319]",
+      "parent": "function_definition [4625,5207]",
+      "at": 11
+    },
+    {
+      "action": "insert-node",
+      "tree": "function_body [4783,5207]",
+      "parent": "function_definition [4625,5207]",
+      "at": 12
+    },
+    {
+      "action": "insert-node",
+      "tree": "function: function [5407,5415]",
+      "parent": "function_definition [5407,5631]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: verifyCallResult [5416,5432]",
+      "parent": "function_definition [5407,5631]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [5432,5433]",
+      "parent": "function_definition [5407,5631]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "parameter [7249,7261]",
+      "parent": "function_definition [5407,5631]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": ",: , [5445,5446]",
+      "parent": "function_definition [5407,5631]",
+      "at": 4
+    },
+    {
+      "action": "insert-tree",
+      "tree": "parameter [5447,5470]",
+      "parent": "function_definition [5407,5631]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [5470,5471]",
+      "parent": "function_definition [5407,5631]",
+      "at": 6
+    },
+    {
+      "action": "move-tree",
+      "tree": "visibility [7337,7345]",
+      "parent": "function_definition [5407,5631]",
+      "at": 7
+    },
+    {
+      "action": "insert-tree",
+      "tree": "state_mutability [5481,5485]",
+      "parent": "function_definition [5407,5631]",
+      "at": 8
+    },
+    {
+      "action": "move-tree",
+      "tree": "return_type_definition [7351,7373]",
+      "parent": "function_definition [5407,5631]",
+      "at": 9
+    },
+    {
+      "action": "insert-node",
+      "tree": "function_body [5509,5631]",
+      "parent": "function_definition [5407,5631]",
+      "at": 10
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: verifyCallResult [7223,7239]",
+      "label": "_revert"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "visibility [5785,5792]",
+      "parent": "function_definition [5743,6259]",
+      "at": 5
+    },
+    {
+      "action": "move-tree",
+      "tree": "type_name [791,798]",
+      "parent": "error_parameter [349,364]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: account [357,364]",
+      "parent": "error_parameter [349,364]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "if_statement [1612,1721]",
+      "parent": "function_body [1602,1862]",
+      "at": 1
+    },
+    {
+      "action": "insert-tree",
+      "tree": "if_statement [1793,1856]",
+      "parent": "function_body [1602,1862]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "if_statement [3303,3411]",
+      "parent": "function_body [3293,3572]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [4783,4784]",
+      "parent": "function_body [4783,5207]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "if_statement [4793,5201]",
+      "parent": "function_body [4783,5207]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [5206,5207]",
+      "parent": "function_body [4783,5207]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [5509,5510]",
+      "parent": "function_body [5509,5631]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "if_statement [5519,5625]",
+      "parent": "function_body [5509,5631]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [5630,5631]",
+      "parent": "function_body [5509,5631]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // Look for revert reason and bubble it up if present [5808,5861]",
+      "parent": "function_body [5798,6259]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "if_statement [7525,7890]",
+      "parent": "function_body [5798,6259]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "if: if [1612,1614]",
+      "parent": "if_statement [1612,1721]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [1615,1616]",
+      "parent": "if_statement [1612,1721]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "binary_expression [2154,2185]",
+      "parent": "if_statement [1612,1721]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [1646,1647]",
+      "parent": "if_statement [1612,1721]",
+      "at": 3
+    },
+    {
+      "action": "insert-tree",
+      "tree": "block_statement [1648,1721]",
+      "parent": "if_statement [1612,1721]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "if: if [3303,3305]",
+      "parent": "if_statement [3303,3411]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [3306,3307]",
+      "parent": "if_statement [3303,3411]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "binary_expression [4798,4828]",
+      "parent": "if_statement [3303,3411]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [3336,3337]",
+      "parent": "if_statement [3303,3411]",
+      "at": 3
+    },
+    {
+      "action": "insert-tree",
+      "tree": "block_statement [3338,3411]",
+      "parent": "if_statement [3303,3411]",
+      "at": 4
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [5059,5066]",
+      "parent": "call_expression [3510,3565]",
+      "at": 3
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [5068,5078]",
+      "parent": "call_expression [3510,3565]",
+      "at": 5
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [6003,6010]",
+      "parent": "call_expression [3903,3958]",
+      "at": 3
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [6012,6022]",
+      "parent": "call_expression [3903,3958]",
+      "at": 5
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [6953,6960]",
+      "parent": "call_expression [4297,4352]",
+      "at": 3
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [6962,6972]",
+      "parent": "call_expression [4297,4352]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "if: if [4793,4795]",
+      "parent": "if_statement [4793,5201]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [4796,4797]",
+      "parent": "if_statement [4793,5201]",
+      "at": 1
+    },
+    {
+      "action": "insert-tree",
+      "tree": "unary_expression [4797,4805]",
+      "parent": "if_statement [4793,5201]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [4805,4806]",
+      "parent": "if_statement [4793,5201]",
+      "at": 3
+    },
+    {
+      "action": "insert-tree",
+      "tree": "block_statement [4807,4851]",
+      "parent": "if_statement [4793,5201]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "else: else [4852,4856]",
+      "parent": "if_statement [4793,5201]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "block_statement [4857,5201]",
+      "parent": "if_statement [4793,5201]",
+      "at": 6
+    },
+    {
+      "action": "insert-node",
+      "tree": "if: if [5519,5521]",
+      "parent": "if_statement [5519,5625]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [5522,5523]",
+      "parent": "if_statement [5519,5625]",
+      "at": 1
+    },
+    {
+      "action": "insert-tree",
+      "tree": "unary_expression [5523,5531]",
+      "parent": "if_statement [5519,5625]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [5531,5532]",
+      "parent": "if_statement [5519,5625]",
+      "at": 3
+    },
+    {
+      "action": "insert-tree",
+      "tree": "block_statement [5533,5577]",
+      "parent": "if_statement [5519,5625]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "else: else [5578,5582]",
+      "parent": "if_statement [5519,5625]",
+      "at": 5
+    },
+    {
+      "action": "move-tree",
+      "tree": "block_statement [7397,7439]",
+      "parent": "if_statement [5519,5625]",
+      "at": 6
+    },
+    {
+      "action": "insert-node",
+      "tree": "<: < [1638,1639]",
+      "parent": "binary_expression [1616,1646]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "<: < [3329,3330]",
+      "parent": "binary_expression [3307,3336]",
+      "at": 1
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: verifyCallResult [5042,5058]",
+      "label": "verifyCallResultFromTarget"
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [4281,4287]",
+      "parent": "call_expression [3510,3565]",
+      "at": 2
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: verifyCallResult [5986,6002]",
+      "label": "verifyCallResultFromTarget"
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [5413,5419]",
+      "parent": "call_expression [3903,3958]",
+      "at": 2
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: verifyCallResult [6936,6952]",
+      "label": "verifyCallResultFromTarget"
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [6358,6364]",
+      "parent": "call_expression [4297,4352]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [4857,4858]",
+      "parent": "block_statement [4857,5201]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // only check if target is a contract if the call was successful and the return data is empty [4871,4964]",
+      "parent": "block_statement [4857,5201]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // otherwise we already know that it was a contract [4977,5028]",
+      "parent": "block_statement [4857,5201]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "if_statement [5041,5160]",
+      "parent": "block_statement [4857,5201]",
+      "at": 3
+    },
+    {
+      "action": "insert-tree",
+      "tree": "return_statement [5173,5191]",
+      "parent": "block_statement [4857,5201]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [5200,5201]",
+      "parent": "block_statement [4857,5201]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /// @solidity memory-safe-assembly [5999,6033]",
+      "parent": "block_statement [5897,6198]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "if: if [5041,5043]",
+      "parent": "if_statement [5041,5160]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [5044,5045]",
+      "parent": "if_statement [5041,5160]",
+      "at": 1
+    },
+    {
+      "action": "insert-tree",
+      "tree": "binary_expression [5045,5094]",
+      "parent": "if_statement [5041,5160]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [5094,5095]",
+      "parent": "if_statement [5041,5160]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "block_statement [5096,5160]",
+      "parent": "if_statement [5041,5160]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: FailedInnerCall [6225,6240]",
+      "parent": "revert_statement [6218,6243]",
+      "at": 1
+    },
+    {
+      "action": "insert-tree",
+      "tree": "revert_arguments [6240,6242]",
+      "parent": "revert_statement [6218,6243]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [5096,5097]",
+      "parent": "block_statement [5096,5160]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "revert_statement [5114,5146]",
+      "parent": "block_statement [5096,5160]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [5159,5160]",
+      "parent": "block_statement [5096,5160]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "revert: revert [5114,5120]",
+      "parent": "revert_statement [5114,5146]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: AddressEmptyCode [5121,5137]",
+      "parent": "revert_statement [5114,5146]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "revert_arguments [5137,5145]",
+      "parent": "revert_statement [5114,5146]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [5137,5138]",
+      "parent": "revert_arguments [5137,5145]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [3238,3244]",
+      "parent": "revert_arguments [5137,5145]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [5144,5145]",
+      "parent": "revert_arguments [5137,5145]",
+      "at": 2
+    },
+    {
+      "action": "delete-node",
+      "tree": "function: function [771,779]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: isContract [780,790]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [790,791]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: account [799,806]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "parameter [791,806]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [806,807]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "visibility [808,816]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "state_mutability [817,821]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "return_type_definition [822,836]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "function_body [837,1148]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_definition [771,1148]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function: function [3119,3127]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: functionCall [3128,3140]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [3140,3141]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [3141,3155]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [3155,3156]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [3157,3174]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [3174,3175]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "visibility [3176,3184]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "return_type_definition [3185,3207]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "{: { [3208,3209]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "return: return [3218,3224]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: functionCall [3225,3237]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [3237,3238]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [3244,3245]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [3246,3250]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [3250,3251]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [3252,3284]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [3284,3285]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [3225,3285]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "return_statement [3218,3286]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "}: } [3291,3292]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_body [3208,3292]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_definition [3119,3292]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ">=: >= [2176,2178]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: require [2146,2153]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [2153,2154]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_argument [2154,2185]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [2185,2186]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [2187,2218]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [2218,2219]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [2146,2219]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "expression_statement [2146,2220]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "expression_statement [2292,2371]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [3586,3587]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [3596,3622]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [3715,3716]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [3717,3729]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function: function [4099,4107]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: functionCallWithValue [4108,4129]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [4129,4130]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [4139,4153]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [4153,4154]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [4163,4180]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [4180,4181]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [4190,4203]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [4208,4209]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "visibility [4210,4218]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "return_type_definition [4219,4241]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "{: { [4242,4243]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "return: return [4252,4258]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: functionCallWithValue [4259,4280]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [4280,4281]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [4287,4288]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [4289,4293]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [4293,4294]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [4295,4300]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [4300,4301]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [4302,4345]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [4345,4346]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [4259,4346]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "return_statement [4252,4347]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "}: } [4352,4353]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_body [4242,4353]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_definition [4099,4353]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [4705,4706]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [4715,4741]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ">=: >= [4820,4822]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: require [4790,4797]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [4797,4798]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_argument [4798,4828]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [4828,4829]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [4830,4870]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [4870,4871]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [4790,4871]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "expression_statement [4790,4872]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "expression_statement [4881,4942]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [5080,5092]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function: function [5277,5285]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: functionStaticCall [5286,5304]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [5304,5305]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [5305,5319]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [5319,5320]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [5321,5338]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [5338,5339]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "visibility [5340,5348]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "return_type_definition [5354,5376]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "{: { [5377,5378]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "return: return [5387,5393]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: functionStaticCall [5394,5412]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [5412,5413]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [5419,5420]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [5421,5425]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [5425,5426]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [5427,5466]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [5466,5467]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [5394,5467]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "return_statement [5387,5468]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "}: } [5473,5474]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_body [5377,5474]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_definition [5277,5474]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [5736,5737]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [5746,5772]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "expression_statement [5826,5894]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [6024,6036]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [6687,6688]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [6697,6723]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "expression_statement [6772,6842]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [6974,6986]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function: function [6223,6231]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: functionDelegateCall [6232,6252]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [6252,6253]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [6267,6268]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [6269,6286]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [6286,6287]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "{: { [6320,6321]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "return: return [6330,6336]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: functionDelegateCall [6337,6357]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [6357,6358]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [6364,6365]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [6366,6370]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [6370,6371]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [6372,6413]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [6413,6414]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [6337,6414]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "return_statement [6330,6415]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "}: } [6420,6421]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_body [6320,6421]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "function_definition [6223,6421]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [7261,7262]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [7294,7295]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parameter [7304,7330]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "parenthesized_expression [7861,7875]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "if: if [7384,7386]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [7387,7388]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: success [7388,7395]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [7395,7396]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "else: else [7440,7444]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "{: { [7445,7446]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: // Look for revert reason and bubble it up if present [7459,7512]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "}: } [7899,7900]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "block_statement [7445,7900]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "if_statement [7384,7900]"
+    }
+  ]
+}

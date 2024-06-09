@@ -1,0 +1,528 @@
+{
+  "matches": [
+    {
+      "src": "identifier: MGovernance [900,911]",
+      "dest": "identifier: MGovernance [304,315]"
+    },
+    {
+      "src": "import_directive [662,687]",
+      "dest": "import_directive [92,118]"
+    },
+    {
+      "src": "state_mutability [1036,1040]",
+      "dest": "state_mutability [440,444]"
+    },
+    {
+      "src": "view: view [1036,1040]",
+      "dest": "view: view [440,444]"
+    },
+    {
+      "src": "(: ( [1145,1146]",
+      "dest": "(: ( [549,550]"
+    },
+    {
+      "src": "type_name [1050,1054]",
+      "dest": "type_name [454,458]"
+    },
+    {
+      "src": "return: return [1066,1072]",
+      "dest": "return: return [470,476]"
+    },
+    {
+      "src": "(: ( [1178,1179]",
+      "dest": "(: ( [582,583]"
+    },
+    {
+      "src": "call_expression [1158,1194]",
+      "dest": "call_expression [562,598]"
+    },
+    {
+      "src": "): ) [1054,1055]",
+      "dest": "): ) [458,459]"
+    },
+    {
+      "src": ",: , [1180,1181]",
+      "dest": ",: , [584,585]"
+    },
+    {
+      "src": "contract_declaration [859,1325]",
+      "dest": "contract_declaration [263,729]"
+    },
+    {
+      "src": "\": \" [1182,1183]",
+      "dest": "\": \" [586,587]"
+    },
+    {
+      "src": "!: ! [1166,1167]",
+      "dest": "!: ! [570,571]"
+    },
+    {
+      "src": "=: = [946,947]",
+      "dest": "=: = [350,351]"
+    },
+    {
+      "src": "call_argument [1311,1315]",
+      "dest": "call_argument [715,719]"
+    },
+    {
+      "src": "comment: /**   A Governor controlled finalizable contract.   The inherited contract (the one that is GovernedFinalizable) implements the Governance. */ [716,858]",
+      "dest": "comment: /**   A Governor controlled finalizable contract.   The inherited contract (the one that is GovernedFinalizable) implements the Governance. */ [120,262]"
+    },
+    {
+      "src": "): ) [1110,1111]",
+      "dest": "): ) [514,515]"
+    },
+    {
+      "src": "identifier: NamedStorage [1272,1284]",
+      "dest": "identifier: NamedStorage [676,688]"
+    },
+    {
+      "src": "string_literal [948,999]",
+      "dest": "string_literal [352,403]"
+    },
+    {
+      "src": "(: ( [1165,1166]",
+      "dest": "(: ( [569,570]"
+    },
+    {
+      "src": "\": \" [712,713]",
+      "dest": "\": \" [89,90]"
+    },
+    {
+      "src": "string: string [918,924]",
+      "dest": "string: string [322,328]"
+    },
+    {
+      "src": "member_expression [1073,1098]",
+      "dest": "member_expression [477,502]"
+    },
+    {
+      "src": ".: . [1085,1086]",
+      "dest": ".: . [489,490]"
+    },
+    {
+      "src": "identifier: GovernedFinalizable [877,896]",
+      "dest": "identifier: GovernedFinalizable [281,300]"
+    },
+    {
+      "src": "identifier: getBoolValue [1086,1098]",
+      "dest": "identifier: getBoolValue [490,502]"
+    },
+    {
+      "src": "modifier_invocation [1247,1261]",
+      "dest": "modifier_invocation [651,665]"
+    },
+    {
+      "src": "{: { [1262,1263]",
+      "dest": "{: { [666,667]"
+    },
+    {
+      "src": "identifier: _ [1204,1205]",
+      "dest": "identifier: _ [608,609]"
+    },
+    {
+      "src": "state_variable_declaration [918,1000]",
+      "dest": "state_variable_declaration [322,404]"
+    },
+    {
+      "src": "contract_body [912,1325]",
+      "dest": "contract_body [316,729]"
+    },
+    {
+      "src": "return_statement [1066,1112]",
+      "dest": "return_statement [470,516]"
+    },
+    {
+      "src": "function: function [1218,1226]",
+      "dest": "function: function [622,630]"
+    },
+    {
+      "src": "external: external [1238,1246]",
+      "dest": "external: external [642,650]"
+    },
+    {
+      "src": "(: ( [1235,1236]",
+      "dest": "(: ( [639,640]"
+    },
+    {
+      "src": "contract: contract [868,876]",
+      "dest": "contract: contract [272,280]"
+    },
+    {
+      "src": "constant: constant [925,933]",
+      "dest": "constant: constant [329,337]"
+    },
+    {
+      "src": "call_expression [1073,1111]",
+      "dest": "call_expression [477,515]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [40,46]"
+    },
+    {
+      "src": "call_expression [1167,1180]",
+      "dest": "call_expression [571,584]"
+    },
+    {
+      "src": "string_literal [1182,1193]",
+      "dest": "string_literal [586,597]"
+    },
+    {
+      "src": "(: ( [1098,1099]",
+      "dest": "(: ( [502,503]"
+    },
+    {
+      "src": "identifier: NamedStorage [1073,1085]",
+      "dest": "identifier: NamedStorage [477,489]"
+    },
+    {
+      "src": "call_expression [1272,1316]",
+      "dest": "call_expression [676,720]"
+    },
+    {
+      "src": "\": \" [695,696]",
+      "dest": "\": \" [73,74]"
+    },
+    {
+      "src": "{: { [1056,1057]",
+      "dest": "{: { [460,461]"
+    },
+    {
+      "src": "identifier: onlyGovernance [1247,1261]",
+      "dest": "identifier: onlyGovernance [651,665]"
+    },
+    {
+      "src": "identifier: isFinalized [1015,1026]",
+      "dest": "identifier: isFinalized [419,430]"
+    },
+    {
+      "src": "string [669,686]",
+      "dest": "string [99,117]"
+    },
+    {
+      "src": "}: } [1322,1323]",
+      "dest": "}: } [726,727]"
+    },
+    {
+      "src": "type_name [918,924]",
+      "dest": "type_name [322,328]"
+    },
+    {
+      "src": "): ) [1146,1147]",
+      "dest": "): ) [550,551]"
+    },
+    {
+      "src": "import: import [688,694]",
+      "dest": "import: import [66,72]"
+    },
+    {
+      "src": "identifier: require [1158,1165]",
+      "dest": "identifier: require [562,569]"
+    },
+    {
+      "src": "user_defined_type [900,911]",
+      "dest": "user_defined_type [304,315]"
+    },
+    {
+      "src": "public: public [1029,1035]",
+      "dest": "public: public [433,439]"
+    },
+    {
+      "src": "primitive_type [1050,1054]",
+      "dest": "primitive_type [454,458]"
+    },
+    {
+      "src": "\": \" [948,949]",
+      "dest": "\": \" [352,353]"
+    },
+    {
+      "src": "): ) [1236,1237]",
+      "dest": "): ) [640,641]"
+    },
+    {
+      "src": "call_argument [1166,1180]",
+      "dest": "call_argument [570,584]"
+    },
+    {
+      "src": "unary_expression [1166,1180]",
+      "dest": "unary_expression [570,584]"
+    },
+    {
+      "src": "identifier: isFinalized [1167,1178]",
+      "dest": "identifier: isFinalized [571,582]"
+    },
+    {
+      "src": "): ) [1179,1180]",
+      "dest": "): ) [583,584]"
+    },
+    {
+      "src": "): ) [1315,1316]",
+      "dest": "): ) [719,720]"
+    },
+    {
+      "src": "true [1311,1315]",
+      "dest": "true [715,719]"
+    },
+    {
+      "src": "abstract: abstract [859,867]",
+      "dest": "abstract: abstract [263,271]"
+    },
+    {
+      "src": "}: } [1211,1212]",
+      "dest": "}: } [615,616]"
+    },
+    {
+      "src": "identifier: STORAGE_TAG [1099,1110]",
+      "dest": "identifier: STORAGE_TAG [503,514]"
+    },
+    {
+      "src": "(: ( [1297,1298]",
+      "dest": "(: ( [701,702]"
+    },
+    {
+      "src": "import: import [662,668]",
+      "dest": "import: import [92,98]"
+    },
+    {
+      "src": "import_directive [688,714]",
+      "dest": "import_directive [66,91]"
+    },
+    {
+      "src": "string [1182,1193]",
+      "dest": "string [586,597]"
+    },
+    {
+      "src": "parameter [1050,1054]",
+      "dest": "parameter [454,458]"
+    },
+    {
+      "src": "is: is [897,899]",
+      "dest": "is: is [301,303]"
+    },
+    {
+      "src": "boolean_literal [1311,1315]",
+      "dest": "boolean_literal [715,719]"
+    },
+    {
+      "src": "visibility [1029,1035]",
+      "dest": "visibility [433,439]"
+    },
+    {
+      "src": ",: , [1309,1310]",
+      "dest": ",: , [713,714]"
+    },
+    {
+      "src": "identifier: notFinalized [1133,1145]",
+      "dest": "identifier: notFinalized [537,549]"
+    },
+    {
+      "src": "identifier: finalize [1227,1235]",
+      "dest": "identifier: finalize [631,639]"
+    },
+    {
+      "src": "string [695,713]",
+      "dest": "string [73,90]"
+    },
+    {
+      "src": "string [948,999]",
+      "dest": "string [352,403]"
+    },
+    {
+      "src": "\": \" [685,686]",
+      "dest": "\": \" [116,117]"
+    },
+    {
+      "src": "function_body [1262,1323]",
+      "dest": "function_body [666,727]"
+    },
+    {
+      "src": "{: { [1148,1149]",
+      "dest": "{: { [552,553]"
+    },
+    {
+      "src": "bool: bool [1050,1054]",
+      "dest": "bool: bool [454,458]"
+    },
+    {
+      "src": "function_definition [1218,1323]",
+      "dest": "function_definition [622,727]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [55,57]"
+    },
+    {
+      "src": "member_expression [1272,1297]",
+      "dest": "member_expression [676,701]"
+    },
+    {
+      "src": "primitive_type [918,924]",
+      "dest": "primitive_type [322,328]"
+    },
+    {
+      "src": "source_file [0,1326]",
+      "dest": "source_file [0,730]"
+    },
+    {
+      "src": "expression_statement [1272,1317]",
+      "dest": "expression_statement [676,721]"
+    },
+    {
+      "src": "function_definition [1006,1118]",
+      "dest": "function_definition [410,522]"
+    },
+    {
+      "src": "identifier: STORAGE_TAG [1298,1309]",
+      "dest": "identifier: STORAGE_TAG [702,713]"
+    },
+    {
+      "src": "call_argument [1182,1193]",
+      "dest": "call_argument [586,597]"
+    },
+    {
+      "src": "returns: returns [1041,1048]",
+      "dest": "returns: returns [445,452]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [55,57]"
+    },
+    {
+      "src": "(: ( [1049,1050]",
+      "dest": "(: ( [453,454]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [47,63]"
+    },
+    {
+      "src": "}: } [1117,1118]",
+      "dest": "}: } [521,522]"
+    },
+    {
+      "src": "function_body [1056,1118]",
+      "dest": "function_body [460,522]"
+    },
+    {
+      "src": "modifier: modifier [1124,1132]",
+      "dest": "modifier: modifier [528,536]"
+    },
+    {
+      "src": "}: } [1324,1325]",
+      "dest": "}: } [728,729]"
+    },
+    {
+      "src": "return_type_definition [1041,1055]",
+      "dest": "return_type_definition [445,459]"
+    },
+    {
+      "src": "call_argument [1298,1309]",
+      "dest": "call_argument [702,713]"
+    },
+    {
+      "src": "{: { [912,913]",
+      "dest": "{: { [316,317]"
+    },
+    {
+      "src": "function: function [1006,1014]",
+      "dest": "function: function [410,418]"
+    },
+    {
+      "src": "): ) [1193,1194]",
+      "dest": "): ) [597,598]"
+    },
+    {
+      "src": "identifier: STORAGE_TAG [934,945]",
+      "dest": "identifier: STORAGE_TAG [338,349]"
+    },
+    {
+      "src": "(: ( [1026,1027]",
+      "dest": "(: ( [430,431]"
+    },
+    {
+      "src": "expression_statement [1158,1195]",
+      "dest": "expression_statement [562,599]"
+    },
+    {
+      "src": "identifier: setBoolValue [1285,1297]",
+      "dest": "identifier: setBoolValue [689,701]"
+    },
+    {
+      "src": "call_argument [1099,1110]",
+      "dest": "call_argument [503,514]"
+    },
+    {
+      "src": "modifier_definition [1124,1212]",
+      "dest": "modifier_definition [528,616]"
+    },
+    {
+      "src": "\": \" [669,670]",
+      "dest": "\": \" [99,100]"
+    },
+    {
+      "src": "visibility [1238,1246]",
+      "dest": "visibility [642,650]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [57,63]"
+    },
+    {
+      "src": "\": \" [1192,1193]",
+      "dest": "\": \" [596,597]"
+    },
+    {
+      "src": "): ) [1027,1028]",
+      "dest": "): ) [431,432]"
+    },
+    {
+      "src": ".: . [1284,1285]",
+      "dest": ".: . [688,689]"
+    },
+    {
+      "src": "function_body [1148,1212]",
+      "dest": "function_body [552,616]"
+    },
+    {
+      "src": "expression_statement [1204,1206]",
+      "dest": "expression_statement [608,610]"
+    },
+    {
+      "src": "true: true [1311,1315]",
+      "dest": "true: true [715,719]"
+    },
+    {
+      "src": "inheritance_specifier [900,911]",
+      "dest": "inheritance_specifier [304,315]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [47,55]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [40,64]"
+    },
+    {
+      "src": "\": \" [998,999]",
+      "dest": "\": \" [402,403]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "move-tree",
+      "tree": "import_directive [662,687]",
+      "parent": "source_file [0,730]",
+      "at": 4
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    }
+  ]
+}

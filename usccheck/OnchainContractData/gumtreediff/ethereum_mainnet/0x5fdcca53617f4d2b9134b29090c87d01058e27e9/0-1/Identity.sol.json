@@ -1,0 +1,182 @@
+{
+  "matches": [
+    {
+      "src": "): ) [808,809]",
+      "dest": "): ) [850,851]"
+    },
+    {
+      "src": "(: ( [807,808]",
+      "dest": "(: ( [849,850]"
+    },
+    {
+      "src": "solidity_version: 0.5.2 [613,618]",
+      "dest": "solidity_version: 0.6.11 [653,659]"
+    },
+    {
+      "src": "{: { [639,640]",
+      "dest": "{: { [681,682]"
+    },
+    {
+      "src": "returns: returns [840,847]",
+      "dest": "returns: returns [882,889]"
+    },
+    {
+      "src": "contract_body [639,865]",
+      "dest": "contract_body [681,907]"
+    },
+    {
+      "src": "function_definition [790,863]",
+      "dest": "function_definition [832,905]"
+    },
+    {
+      "src": "solidity: solidity [603,611]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "visibility [818,826]",
+      "dest": "visibility [860,868]"
+    },
+    {
+      "src": "}: } [864,865]",
+      "dest": "}: } [906,907]"
+    },
+    {
+      "src": "(: ( [847,848]",
+      "dest": "(: ( [889,890]"
+    },
+    {
+      "src": "parameter [848,861]",
+      "dest": "parameter [890,903]"
+    },
+    {
+      "src": "solidity_pragma_token [603,618]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "^:  ^ [611,613]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "pragma_directive [596,619]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "primitive_type [848,854]",
+      "dest": "primitive_type [890,896]"
+    },
+    {
+      "src": "type_name [848,854]",
+      "dest": "type_name [890,896]"
+    },
+    {
+      "src": "pragma: pragma [596,602]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "state_mutability [827,831]",
+      "dest": "state_mutability [869,873]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [611,613]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "identifier: identify [799,807]",
+      "dest": "identifier: identify [841,849]"
+    },
+    {
+      "src": "function: function [790,798]",
+      "dest": "function: function [832,840]"
+    },
+    {
+      "src": "pure: pure [827,831]",
+      "dest": "pure: pure [869,873]"
+    },
+    {
+      "src": "return_type_definition [840,862]",
+      "dest": "return_type_definition [882,904]"
+    },
+    {
+      "src": "source_file [0,866]",
+      "dest": "source_file [0,908]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "comment: /*       Allows a caller, typically another contract,       to ensure that the provided address is of the expected type and version.     */ [646,785]",
+      "dest": "comment: /*       Allows a caller, typically another contract,       to ensure that the provided address is of the expected type and version.     */ [688,827]"
+    },
+    {
+      "src": "string: string [848,854]",
+      "dest": "string: string [890,896]"
+    },
+    {
+      "src": "): ) [861,862]",
+      "dest": "): ) [903,904]"
+    },
+    {
+      "src": "external: external [818,826]",
+      "dest": "external: external [860,868]"
+    },
+    {
+      "src": "memory: memory [855,861]",
+      "dest": "memory: memory [897,903]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "label": "/*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "parent": "source_file [0,908]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "interface_declaration [662,907]",
+      "parent": "source_file [0,908]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "interface: interface [662,671]",
+      "parent": "interface_declaration [662,907]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: Identity [672,680]",
+      "parent": "interface_declaration [662,907]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "contract_body [639,865]",
+      "parent": "interface_declaration [662,907]",
+      "at": 2
+    },
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.5.2 [613,618]",
+      "label": "0.6.11"
+    },
+    {
+      "action": "delete-node",
+      "tree": "contract: contract [621,629]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: Identity [630,638]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "contract_declaration [621,865]"
+    }
+  ]
+}

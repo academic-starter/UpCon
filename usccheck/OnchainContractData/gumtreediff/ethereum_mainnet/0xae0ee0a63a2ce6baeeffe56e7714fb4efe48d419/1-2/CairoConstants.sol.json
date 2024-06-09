@@ -1,0 +1,117 @@
+{
+  "matches": [
+    {
+      "src": "uint256: uint256 [651,658]",
+      "dest": "uint256: uint256 [691,698]"
+    },
+    {
+      "src": "primitive_type [651,658]",
+      "dest": "primitive_type [691,698]"
+    },
+    {
+      "src": "identifier: CairoConstants [630,644]",
+      "dest": "identifier: CairoConstants [670,684]"
+    },
+    {
+      "src": "number_literal: 0x800000000000011000000000000000000000000000000000000000000000001 [697,762]",
+      "dest": "number_literal: 0x800000000000011000000000000000000000000000000000000000000000001 [737,802]"
+    },
+    {
+      "src": "library: library [622,629]",
+      "dest": "library: library [662,669]"
+    },
+    {
+      "src": "library_declaration [622,765]",
+      "dest": "library_declaration [662,805]"
+    },
+    {
+      "src": "{: { [645,646]",
+      "dest": "{: { [685,686]"
+    },
+    {
+      "src": "visibility [659,665]",
+      "dest": "visibility [699,705]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [613,619]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "}: } [764,765]",
+      "dest": "}: } [804,805]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2023 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "pragma_directive [596,620]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "solidity_pragma_token [603,619]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "pragma: pragma [596,602]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "constant: constant [666,674]",
+      "dest": "constant: constant [706,714]"
+    },
+    {
+      "src": "type_name [651,658]",
+      "dest": "type_name [691,698]"
+    },
+    {
+      "src": "state_variable_declaration [651,763]",
+      "dest": "state_variable_declaration [691,803]"
+    },
+    {
+      "src": "identifier: FIELD_PRIME [675,686]",
+      "dest": "identifier: FIELD_PRIME [715,726]"
+    },
+    {
+      "src": "=: = [687,688]",
+      "dest": "=: = [727,728]"
+    },
+    {
+      "src": "source_file [0,766]",
+      "dest": "source_file [0,806]"
+    },
+    {
+      "src": "contract_body [645,765]",
+      "dest": "contract_body [685,805]"
+    },
+    {
+      "src": "solidity: solidity [603,611]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "^:  ^ [611,613]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "public: public [659,665]",
+      "dest": "public: public [699,705]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [611,613]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "label": "/*   Copyright 2019-2023 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "parent": "source_file [0,806]",
+      "at": 1
+    }
+  ]
+}

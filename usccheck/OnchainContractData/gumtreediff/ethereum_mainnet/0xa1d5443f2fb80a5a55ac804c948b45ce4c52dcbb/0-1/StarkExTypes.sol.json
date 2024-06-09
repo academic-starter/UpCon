@@ -1,0 +1,185 @@
+{
+  "matches": [
+    {
+      "src": "type_name [1457,1464]",
+      "dest": "type_name [1457,1464]"
+    },
+    {
+      "src": "struct_member [1141,1161]",
+      "dest": "struct_member [1141,1161]"
+    },
+    {
+      "src": "primitive_type [1141,1148]",
+      "dest": "primitive_type [1141,1148]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "struct_member [1438,1493]",
+      "dest": "struct_member [1438,1493]"
+    },
+    {
+      "src": "comment: // of verifierAllowedRemovalTime[A] != 0 and verifierAllowedRemovalTime[A] < (current time). [1341,1433]",
+      "dest": "comment: // of verifierAllowedRemovalTime[A] != 0 and verifierAllowedRemovalTime[A] < (current time). [1341,1433]"
+    },
+    {
+      "src": "comment: // Structure representing a list of verifiers (validity/availability). [662,732]",
+      "dest": "comment: // Structure representing a list of verifiers (validity/availability). [662,732]"
+    },
+    {
+      "src": "comment: // Removal of the verifier with address A is allowed only in the case the value [1257,1336]",
+      "dest": "comment: // Removal of the verifier with address A is allowed only in the case the value [1257,1336]"
+    },
+    {
+      "src": "comment: // not content with the announced removal has ample time to leave the system before it is [1008,1097]",
+      "dest": "comment: // not content with the announced removal has ample time to leave the system before it is [1008,1097]"
+    },
+    {
+      "src": "type_name [1438,1465]",
+      "dest": "type_name [1438,1465]"
+    },
+    {
+      "src": "identifier: verifiers [1151,1160]",
+      "dest": "identifier: verifiers [1151,1160]"
+    },
+    {
+      "src": "identifier: verifierAllowedRemovalTime [1466,1492]",
+      "dest": "identifier: verifierAllowedRemovalTime [1466,1492]"
+    },
+    {
+      "src": "comment: // Removing a verifier from the list is time-locked, to ensure that any user of the system [917,1007]",
+      "dest": "comment: // Removing a verifier from the list is time-locked, to ensure that any user of the system [917,1007]"
+    },
+    {
+      "src": "{: { [1135,1136]",
+      "dest": "{: { [1135,1136]"
+    },
+    {
+      "src": "type_name [1141,1150]",
+      "dest": "type_name [1141,1150]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "address: address [1446,1453]",
+      "dest": "address: address [1446,1453]"
+    },
+    {
+      "src": "address: address [1141,1148]",
+      "dest": "address: address [1141,1148]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "comment: // removed. [1098,1109]",
+      "dest": "comment: // removed. [1098,1109]"
+    },
+    {
+      "src": "struct_declaration [1110,1495]",
+      "dest": "struct_declaration [1110,1495]"
+    },
+    {
+      "src": "mapping: mapping [1438,1445]",
+      "dest": "mapping: mapping [1438,1445]"
+    },
+    {
+      "src": "comment: // Represents the time after which the verifier with the given address can be removed. [1166,1252]",
+      "dest": "comment: // Represents the time after which the verifier with the given address can be removed. [1166,1252]"
+    },
+    {
+      "src": "=>: => [1454,1456]",
+      "dest": "=>: => [1454,1456]"
+    },
+    {
+      "src": "comment: // any soundness issues. [892,916]",
+      "dest": "comment: // any soundness issues. [892,916]"
+    },
+    {
+      "src": "primitive_type [1446,1453]",
+      "dest": "primitive_type [1446,1453]"
+    },
+    {
+      "src": "comment: // Adding a verifier to the list is immediate - this is used for fast resolution of [808,891]",
+      "dest": "comment: // Adding a verifier to the list is immediate - this is used for fast resolution of [808,891]"
+    },
+    {
+      "src": "comment: // A statement is valid only if all the verifiers in the list agree on it. [733,807]",
+      "dest": "comment: // A statement is valid only if all the verifiers in the list agree on it. [733,807]"
+    },
+    {
+      "src": "]: ] [1149,1150]",
+      "dest": "]: ] [1149,1150]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "primitive_type [1457,1464]",
+      "dest": "primitive_type [1457,1464]"
+    },
+    {
+      "src": "): ) [1464,1465]",
+      "dest": "): ) [1464,1465]"
+    },
+    {
+      "src": "struct: struct [1110,1116]",
+      "dest": "struct: struct [1110,1116]"
+    },
+    {
+      "src": "identifier: ApprovalChainData [1117,1134]",
+      "dest": "identifier: ApprovalChainData [1117,1134]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "[: [ [1148,1149]",
+      "dest": "[: [ [1148,1149]"
+    },
+    {
+      "src": "source_file [0,1496]",
+      "dest": "source_file [0,1496]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "(: ( [1445,1446]",
+      "dest": "(: ( [1445,1446]"
+    },
+    {
+      "src": "}: } [1494,1495]",
+      "dest": "}: } [1494,1495]"
+    },
+    {
+      "src": "type_name [1141,1148]",
+      "dest": "type_name [1141,1148]"
+    },
+    {
+      "src": "uint256: uint256 [1457,1464]",
+      "dest": "uint256: uint256 [1457,1464]"
+    }
+  ],
+  "actions": []
+}

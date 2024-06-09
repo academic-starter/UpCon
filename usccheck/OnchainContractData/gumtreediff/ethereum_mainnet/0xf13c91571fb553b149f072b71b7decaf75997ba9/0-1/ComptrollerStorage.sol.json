@@ -1,0 +1,2039 @@
+{
+  "matches": [
+    {
+      "src": "visibility [4772,4778]",
+      "dest": "visibility [4792,4798]"
+    },
+    {
+      "src": "identifier: borrowGuardianPaused [4779,4799]",
+      "dest": "identifier: borrowGuardianPaused [4799,4819]"
+    },
+    {
+      "src": "type_name [4050,4057]",
+      "dest": "type_name [4072,4079]"
+    },
+    {
+      "src": "identifier: admin [417,422]",
+      "dest": "identifier: admin [417,422]"
+    },
+    {
+      "src": "[: [ [4057,4058]",
+      "dest": "[: [ [4079,4080]"
+    },
+    {
+      "src": "comment: /**      * @notice Per-account mapping of \"assets you are in\", capped by maxAssets      */ [1937,2029]",
+      "dest": "comment: /**      * @notice Per-account mapping of \"assets you are in\", capped by maxAssets      */ [1959,2051]"
+    },
+    {
+      "src": "comment: /**     * @notice Pending administrator for this contract     */ [431,497]",
+      "dest": "comment: /**     * @notice Pending administrator for this contract     */ [431,497]"
+    },
+    {
+      "src": "type_name [3242,3249]",
+      "dest": "type_name [3264,3271]"
+    },
+    {
+      "src": "primitive_type [4185,4192]",
+      "dest": "primitive_type [4207,4214]"
+    },
+    {
+      "src": "): ) [4770,4771]",
+      "dest": "): ) [4790,4791]"
+    },
+    {
+      "src": "visibility [2064,2070]",
+      "dest": "visibility [2086,2092]"
+    },
+    {
+      "src": "comment: /// @notice Whether or not the supplier whitelist is enforced [3729,3790]",
+      "dest": "comment: /// @notice Whether or not the supplier whitelist is enforced [3751,3812]"
+    },
+    {
+      "src": "state_variable_declaration [3363,3416]",
+      "dest": "state_variable_declaration [3385,3438]"
+    },
+    {
+      "src": "comment: /**      * @dev Maps borrowers to booleans indicating if they have entered any markets      */ [3022,3118]",
+      "dest": "comment: /**      * @dev Maps borrowers to booleans indicating if they have entered any markets      */ [3044,3140]"
+    },
+    {
+      "src": "{: { [1347,1348]",
+      "dest": "{: { [1347,1348]"
+    },
+    {
+      "src": "mapping: mapping [3667,3674]",
+      "dest": "mapping: mapping [3689,3696]"
+    },
+    {
+      "src": "state_variable_declaration [742,776]",
+      "dest": "state_variable_declaration [742,776]"
+    },
+    {
+      "src": "&&: && [972,974]",
+      "dest": "&&: && [972,974]"
+    },
+    {
+      "src": "identifier: CToken [2054,2060]",
+      "dest": "identifier: CToken [2076,2082]"
+    },
+    {
+      "src": "(: ( [285,286]",
+      "dest": "(: ( [285,286]"
+    },
+    {
+      "src": "{: { [2148,2149]",
+      "dest": "{: { [2170,2171]"
+    },
+    {
+      "src": "visibility [2925,2931]",
+      "dest": "visibility [2947,2953]"
+    },
+    {
+      "src": "function_definition [878,1058]",
+      "dest": "function_definition [878,1058]"
+    },
+    {
+      "src": "primitive_type [4698,4705]",
+      "dest": "primitive_type [4718,4725]"
+    },
+    {
+      "src": "contract_body [152,1287]",
+      "dest": "contract_body [152,1287]"
+    },
+    {
+      "src": "=>: => [3962,3964]",
+      "dest": "=>: => [3984,3986]"
+    },
+    {
+      "src": "comment: /**          * @notice Whether or not this market is listed          */ [2180,2253]",
+      "dest": "comment: /**          * @notice Whether or not this market is listed          */ [2202,2275]"
+    },
+    {
+      "src": "primitive_type [4709,4713]",
+      "dest": "primitive_type [4729,4733]"
+    },
+    {
+      "src": "user_defined_type [216,235]",
+      "dest": "user_defined_type [216,235]"
+    },
+    {
+      "src": "]: ] [4058,4059]",
+      "dest": "]: ] [4080,4081]"
+    },
+    {
+      "src": "identifier: transferGuardianPaused [4623,4645]",
+      "dest": "identifier: transferGuardianPaused [4643,4665]"
+    },
+    {
+      "src": "=: = [264,265]",
+      "dest": "=: = [264,265]"
+    },
+    {
+      "src": "struct_member [2263,2277]",
+      "dest": "struct_member [2285,2299]"
+    },
+    {
+      "src": "primitive_type [3132,3139]",
+      "dest": "primitive_type [3154,3161]"
+    },
+    {
+      "src": "primitive_type [1907,1911]",
+      "dest": "primitive_type [1927,1931]"
+    },
+    {
+      "src": "==: == [963,965]",
+      "dest": "==: == [963,965]"
+    },
+    {
+      "src": "comment: /**          * @notice Multiplier representing the most one can borrow against their collateral in this market.          *  For instance, 0.9 to allow borrowing 90% of collateral value.          *  Must be between 0 and 1, and stored as a mantissa.          */ [2289,2553]",
+      "dest": "comment: /**          * @notice Multiplier representing the most one can borrow against their collateral in this market.          *  For instance, 0.9 to allow borrowing 90% of collateral value.          *  Must be between 0 and 1, and stored as a mantissa.          */ [2311,2575]"
+    },
+    {
+      "src": "comment: /**      * @notice Official mapping of cTokens -> Market metadata      * @dev Used e.g. to determine if a market is supported      */ [2756,2892]",
+      "dest": "comment: /**      * @notice Official mapping of cTokens -> Market metadata      * @dev Used e.g. to determine if a market is supported      */ [2778,2914]"
+    },
+    {
+      "src": "[: [ [2060,2061]",
+      "dest": "[: [ [2082,2083]"
+    },
+    {
+      "src": "=>: => [4706,4708]",
+      "dest": "=>: => [4726,4728]"
+    },
+    {
+      "src": "comment: /// @notice Indexes of account addresses in the `whitelistArray` array [4090,4160]",
+      "dest": "comment: /// @notice Indexes of account addresses in the `whitelistArray` array [4112,4182]"
+    },
+    {
+      "src": "public: public [1450,1456]",
+      "dest": "public: public [1448,1454]"
+    },
+    {
+      "src": "string [96,115]",
+      "dest": "string [96,115]"
+    },
+    {
+      "src": "type_name [402,409]",
+      "dest": "type_name [402,409]"
+    },
+    {
+      "src": "visibility [4657,4663]",
+      "dest": "visibility [4677,4683]"
+    },
+    {
+      "src": "internal: internal [236,244]",
+      "dest": "internal: internal [236,244]"
+    },
+    {
+      "src": "visibility [2996,3002]",
+      "dest": "visibility [3018,3024]"
+    },
+    {
+      "src": "public: public [1244,1250]",
+      "dest": "public: public [1244,1250]"
+    },
+    {
+      "src": "import_directive [65,87]",
+      "dest": "import_directive [65,87]"
+    },
+    {
+      "src": "primitive_type [4766,4770]",
+      "dest": "primitive_type [4786,4790]"
+    },
+    {
+      "src": "public: public [4616,4622]",
+      "dest": "public: public [4636,4642]"
+    },
+    {
+      "src": "state_variable_declaration [3946,3988]",
+      "dest": "state_variable_declaration [3968,4010]"
+    },
+    {
+      "src": "(: ( [3131,3132]",
+      "dest": "(: ( [3153,3154]"
+    },
+    {
+      "src": "pragma_directive [0,24]",
+      "dest": "pragma_directive [0,24]"
+    },
+    {
+      "src": "public: public [3252,3258]",
+      "dest": "public: public [3274,3280]"
+    },
+    {
+      "src": "identifier: enforceWhitelist [3808,3824]",
+      "dest": "identifier: enforceWhitelist [3830,3846]"
+    },
+    {
+      "src": "visibility [904,912]",
+      "dest": "visibility [904,912]"
+    },
+    {
+      "src": "(: ( [2042,2043]",
+      "dest": "(: ( [2064,2065]"
+    },
+    {
+      "src": "visibility [1912,1918]",
+      "dest": "visibility [5567,5573]"
+    },
+    {
+      "src": "type_name [3946,3970]",
+      "dest": "type_name [3968,3992]"
+    },
+    {
+      "src": "state_variable_declaration [1438,1464]",
+      "dest": "state_variable_declaration [1436,1462]"
+    },
+    {
+      "src": "type_name [3667,3693]",
+      "dest": "type_name [3689,3715]"
+    },
+    {
+      "src": "solidity_version: 0.5.16 [17,23]",
+      "dest": "solidity_version: 0.5.16 [17,23]"
+    },
+    {
+      "src": "function_body [933,1058]",
+      "dest": "function_body [933,1058]"
+    },
+    {
+      "src": "import: import [65,71]",
+      "dest": "import: import [65,71]"
+    },
+    {
+      "src": "address: address [503,510]",
+      "dest": "address: address [503,510]"
+    },
+    {
+      "src": "state_variable_declaration [1126,1167]",
+      "dest": "state_variable_declaration [1126,1167]"
+    },
+    {
+      "src": "state_variable_declaration [1236,1284]",
+      "dest": "state_variable_declaration [1236,1284]"
+    },
+    {
+      "src": "primitive_type [3675,3682]",
+      "dest": "primitive_type [3697,3704]"
+    },
+    {
+      "src": "address: address [1126,1133]",
+      "dest": "address: address [1126,1133]"
+    },
+    {
+      "src": "identifier: msg [952,955]",
+      "dest": "identifier: msg [952,955]"
+    },
+    {
+      "src": "identifier: ComptrollerV1Storage [2127,2147]",
+      "dest": "identifier: ComptrollerV1Storage [2149,2169]"
+    },
+    {
+      "src": "type_name [3965,3969]",
+      "dest": "type_name [3987,3991]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [15,17]",
+      "dest": "solidity_version_comparison_operator [15,17]"
+    },
+    {
+      "src": "type_name [3124,3148]",
+      "dest": "type_name [3146,3170]"
+    },
+    {
+      "src": "]: ] [2061,2062]",
+      "dest": "]: ] [2083,2084]"
+    },
+    {
+      "src": "visibility [1450,1456]",
+      "dest": "visibility [1448,1454]"
+    },
+    {
+      "src": "identifier: admin [966,971]",
+      "dest": "identifier: admin [966,971]"
+    },
+    {
+      "src": "comment: /**     * @notice Pending brains of Unitroller     */ [1175,1230]",
+      "dest": "comment: /**     * @notice Pending brains of Unitroller     */ [1175,1230]"
+    },
+    {
+      "src": "=>: => [3683,3685]",
+      "dest": "=>: => [3705,3707]"
+    },
+    {
+      "src": "primitive_type [2706,2713]",
+      "dest": "primitive_type [2728,2735]"
+    },
+    {
+      "src": "identifier: markets [2932,2939]",
+      "dest": "identifier: markets [2954,2961]"
+    },
+    {
+      "src": "(: ( [994,995]",
+      "dest": "(: ( [994,995]"
+    },
+    {
+      "src": "return_type_definition [918,932]",
+      "dest": "return_type_definition [918,932]"
+    },
+    {
+      "src": "visibility [4506,4512]",
+      "dest": "visibility [4526,4532]"
+    },
+    {
+      "src": "primitive_type [1737,1741]",
+      "dest": "primitive_type [1735,1739]"
+    },
+    {
+      "src": "type_name [503,510]",
+      "dest": "type_name [503,510]"
+    },
+    {
+      "src": "=>: => [2914,2916]",
+      "dest": "=>: => [2936,2938]"
+    },
+    {
+      "src": "primitive_type [503,510]",
+      "dest": "primitive_type [503,510]"
+    },
+    {
+      "src": "identifier: whitelist [3978,3987]",
+      "dest": "identifier: whitelist [4000,4009]"
+    },
+    {
+      "src": "type_name [742,746]",
+      "dest": "type_name [742,746]"
+    },
+    {
+      "src": "import_directive [89,116]",
+      "dest": "import_directive [89,116]"
+    },
+    {
+      "src": "type_name [4611,4615]",
+      "dest": "type_name [4631,4635]"
+    },
+    {
+      "src": "bool: bool [742,746]",
+      "dest": "bool: bool [742,746]"
+    },
+    {
+      "src": "): ) [2721,2722]",
+      "dest": "): ) [2743,2744]"
+    },
+    {
+      "src": "bool: bool [4533,4537]",
+      "dest": "bool: bool [4553,4557]"
+    },
+    {
+      "src": "public: public [3801,3807]",
+      "dest": "public: public [3823,3829]"
+    },
+    {
+      "src": "string [72,86]",
+      "dest": "string [72,86]"
+    },
+    {
+      "src": "): ) [1049,1050]",
+      "dest": "): ) [1049,1050]"
+    },
+    {
+      "src": "visibility [4538,4544]",
+      "dest": "visibility [4558,4564]"
+    },
+    {
+      "src": "identifier: IFuseFeeDistributor [216,235]",
+      "dest": "identifier: IFuseFeeDistributor [216,235]"
+    },
+    {
+      "src": "primitive_type [927,931]",
+      "dest": "primitive_type [927,931]"
+    },
+    {
+      "src": "type_name [3382,3389]",
+      "dest": "type_name [3404,3411]"
+    },
+    {
+      "src": "comment: /**     * @notice Active brains of Unitroller     */ [1066,1120]",
+      "dest": "comment: /**     * @notice Active brains of Unitroller     */ [1066,1120]"
+    },
+    {
+      "src": "public: public [3971,3977]",
+      "dest": "public: public [3993,3999]"
+    },
+    {
+      "src": "primitive_type [402,409]",
+      "dest": "primitive_type [402,409]"
+    },
+    {
+      "src": "identifier: whitelistArray [4067,4081]",
+      "dest": "identifier: whitelistArray [4089,4103]"
+    },
+    {
+      "src": "state_variable_declaration [4690,4741]",
+      "dest": "state_variable_declaration [4710,4761]"
+    },
+    {
+      "src": "true: true [653,657]",
+      "dest": "true: true [653,657]"
+    },
+    {
+      "src": "state_variable_declaration [2035,2085]",
+      "dest": "state_variable_declaration [2057,2107]"
+    },
+    {
+      "src": "comment: /**      * @notice Oracle which gives the price of any given asset      */ [1356,1432]",
+      "dest": "comment: /**      * @notice Oracle which gives the price of any given asset      */ [1354,1430]"
+    },
+    {
+      "src": "primitive_type [4533,4537]",
+      "dest": "primitive_type [4553,4557]"
+    },
+    {
+      "src": "state_variable_declaration [3535,3577]",
+      "dest": "state_variable_declaration [3557,3599]"
+    },
+    {
+      "src": "bool: bool [4709,4713]",
+      "dest": "bool: bool [4729,4733]"
+    },
+    {
+      "src": "contract_body [1347,2090]",
+      "dest": "contract_body [1347,2112]"
+    },
+    {
+      "src": "&&: && [1028,1030]",
+      "dest": "&&: && [1028,1030]"
+    },
+    {
+      "src": "identifier: adminHasRights [975,989]",
+      "dest": "identifier: adminHasRights [975,989]"
+    },
+    {
+      "src": ".: . [998,999]",
+      "dest": ".: . [998,999]"
+    },
+    {
+      "src": "call_argument [1017,1026]",
+      "dest": "call_argument [1017,1026]"
+    },
+    {
+      "src": "state_variable_declaration [4611,4646]",
+      "dest": "state_variable_declaration [4631,4666]"
+    },
+    {
+      "src": "address: address [1236,1243]",
+      "dest": "address: address [1236,1243]"
+    },
+    {
+      "src": "user_defined_type [2127,2147]",
+      "dest": "user_defined_type [2149,2169]"
+    },
+    {
+      "src": "(: ( [4754,4755]",
+      "dest": "(: ( [4774,4775]"
+    },
+    {
+      "src": "public: public [2925,2931]",
+      "dest": "public: public [2947,2953]"
+    },
+    {
+      "src": "uint: uint [1737,1741]",
+      "dest": "uint: uint [1735,1739]"
+    },
+    {
+      "src": "identifier: _mintGuardianPaused [4545,4564]",
+      "dest": "identifier: _mintGuardianPaused [4565,4584]"
+    },
+    {
+      "src": "type_name [216,235]",
+      "dest": "type_name [216,235]"
+    },
+    {
+      "src": "identifier: fuseAdminHasRights [1031,1049]",
+      "dest": "identifier: fuseAdminHasRights [1031,1049]"
+    },
+    {
+      "src": "identifier: ComptrollerV2Storage [2103,2123]",
+      "dest": "identifier: ComptrollerV2Storage [2125,2145]"
+    },
+    {
+      "src": "bool: bool [2717,2721]",
+      "dest": "bool: bool [2739,2743]"
+    },
+    {
+      "src": "identifier: suppliers [3567,3576]",
+      "dest": "identifier: suppliers [3589,3598]"
+    },
+    {
+      "src": "public: public [747,753]",
+      "dest": "public: public [747,753]"
+    },
+    {
+      "src": "primitive_type [3954,3961]",
+      "dest": "primitive_type [3976,3983]"
+    },
+    {
+      "src": "): ) [2062,2063]",
+      "dest": "): ) [2084,2085]"
+    },
+    {
+      "src": "comment: /// @notice All cTokens addresses mapped by their underlying token addresses [3585,3661]",
+      "dest": "comment: /// @notice All cTokens addresses mapped by their underlying token addresses [3607,3683]"
+    },
+    {
+      "src": "type_name [4747,4771]",
+      "dest": "type_name [4767,4791]"
+    },
+    {
+      "src": "internal: internal [904,912]",
+      "dest": "internal: internal [904,912]"
+    },
+    {
+      "src": "uint: uint [1585,1589]",
+      "dest": "uint: uint [1583,1587]"
+    },
+    {
+      "src": "identifier: comptrollerImplementation [1141,1166]",
+      "dest": "identifier: comptrollerImplementation [1141,1166]"
+    },
+    {
+      "src": "parameter [927,931]",
+      "dest": "parameter [927,931]"
+    },
+    {
+      "src": "(: ( [901,902]",
+      "dest": "(: ( [901,902]"
+    },
+    {
+      "src": "type_name [2563,2567]",
+      "dest": "type_name [2585,2589]"
+    },
+    {
+      "src": "mapping: mapping [4690,4697]",
+      "dest": "mapping: mapping [4710,4717]"
+    },
+    {
+      "src": "primitive_type [3242,3249]",
+      "dest": "primitive_type [3264,3271]"
+    },
+    {
+      "src": "user_defined_type [2917,2923]",
+      "dest": "user_defined_type [2939,2945]"
+    },
+    {
+      "src": "state_variable_declaration [1737,1778]",
+      "dest": "state_variable_declaration [1735,1776]"
+    },
+    {
+      "src": "visibility [4060,4066]",
+      "dest": "visibility [4082,4088]"
+    },
+    {
+      "src": "comment: /// @notice A list of all markets [2948,2981]",
+      "dest": "comment: /// @notice A list of all markets [2970,3003]"
+    },
+    {
+      "src": "[: [ [2993,2994]",
+      "dest": "[: [ [3015,3016]"
+    },
+    {
+      "src": "type_name [3363,3390]",
+      "dest": "type_name [3385,3412]"
+    },
+    {
+      "src": ".: . [955,956]",
+      "dest": ".: . [955,956]"
+    },
+    {
+      "src": "[: [ [3249,3250]",
+      "dest": "[: [ [3271,3272]"
+    },
+    {
+      "src": "): ) [931,932]",
+      "dest": "): ) [931,932]"
+    },
+    {
+      "src": "internal: internal [3391,3399]",
+      "dest": "internal: internal [3413,3421]"
+    },
+    {
+      "src": "pragma: pragma [0,6]",
+      "dest": "pragma: pragma [0,6]"
+    },
+    {
+      "src": "binary_expression [952,989]",
+      "dest": "binary_expression [952,989]"
+    },
+    {
+      "src": "type_name [4498,4505]",
+      "dest": "type_name [4518,4525]"
+    },
+    {
+      "src": "address: address [1009,1016]",
+      "dest": "address: address [1009,1016]"
+    },
+    {
+      "src": "contract_declaration [2094,4803]",
+      "dest": "contract_declaration [2116,4823]"
+    },
+    {
+      "src": "primitive_type [2906,2913]",
+      "dest": "primitive_type [2928,2935]"
+    },
+    {
+      "src": "type_name [1438,1449]",
+      "dest": "type_name [1436,1447]"
+    },
+    {
+      "src": "comment: /**      * @notice Max number of assets a single account can participate in (borrow or use as collateral)      */ [1786,1901]",
+      "dest": "comment: /**      * @notice UNUSED AFTER UPGRADE: Max number of assets a single account can participate in (borrow or use as collateral)      */ [1784,1921]"
+    },
+    {
+      "src": "true [653,657]",
+      "dest": "true [653,657]"
+    },
+    {
+      "src": "address: address [3954,3961]",
+      "dest": "address: address [3976,3983]"
+    },
+    {
+      "src": "visibility [3149,3157]",
+      "dest": "visibility [3171,3179]"
+    },
+    {
+      "src": "primitive_type [4174,4181]",
+      "dest": "primitive_type [4196,4203]"
+    },
+    {
+      "src": "primitive_type [2043,2050]",
+      "dest": "primitive_type [2065,2072]"
+    },
+    {
+      "src": "}: } [1057,1058]",
+      "dest": "}: } [1057,1058]"
+    },
+    {
+      "src": "primitive_type [4050,4057]",
+      "dest": "primitive_type [4072,4079]"
+    },
+    {
+      "src": "user_defined_type [3686,3692]",
+      "dest": "user_defined_type [3708,3714]"
+    },
+    {
+      "src": "bool: bool [3965,3969]",
+      "dest": "bool: bool [3987,3991]"
+    },
+    {
+      "src": "identifier: ComptrollerV1Storage [1300,1320]",
+      "dest": "identifier: ComptrollerV1Storage [1300,1320]"
+    },
+    {
+      "src": "visibility [3252,3258]",
+      "dest": "visibility [3274,3280]"
+    },
+    {
+      "src": "visibility [1244,1250]",
+      "dest": "visibility [1244,1250]"
+    },
+    {
+      "src": "type_name [2698,2722]",
+      "dest": "type_name [2720,2744]"
+    },
+    {
+      "src": "public: public [511,517]",
+      "dest": "public: public [511,517]"
+    },
+    {
+      "src": "(: ( [3953,3954]",
+      "dest": "(: ( [3975,3976]"
+    },
+    {
+      "src": "number_literal: 0xa731585ab05fC9f83555cf9Bff8F58ee94e18F85 [286,328]",
+      "dest": "number_literal: 0xa731585ab05fC9f83555cf9Bff8F58ee94e18F85 [286,328]"
+    },
+    {
+      "src": "parenthesized_expression [951,990]",
+      "dest": "parenthesized_expression [951,990]"
+    },
+    {
+      "src": "type_name [4571,4575]",
+      "dest": "type_name [4591,4595]"
+    },
+    {
+      "src": "import: import [28,34]",
+      "dest": "import: import [28,34]"
+    },
+    {
+      "src": "public: public [1134,1140]",
+      "dest": "public: public [1134,1140]"
+    },
+    {
+      "src": "primitive_type [4571,4575]",
+      "dest": "primitive_type [4591,4595]"
+    },
+    {
+      "src": "identifier: liquidationIncentiveMantissa [1749,1777]",
+      "dest": "identifier: liquidationIncentiveMantissa [1747,1775]"
+    },
+    {
+      "src": "comment: /**      * @dev Maps suppliers to booleans indicating if they have ever supplied to any markets      */ [3424,3529]",
+      "dest": "comment: /**      * @dev Maps suppliers to booleans indicating if they have ever supplied to any markets      */ [3446,3551]"
+    },
+    {
+      "src": "identifier: collateralFactorMantissa [2568,2592]",
+      "dest": "identifier: collateralFactorMantissa [2590,2614]"
+    },
+    {
+      "src": "): ) [3147,3148]",
+      "dest": "): ) [3169,3170]"
+    },
+    {
+      "src": "import: import [89,95]",
+      "dest": "import: import [89,95]"
+    },
+    {
+      "src": "primitive_type [1236,1243]",
+      "dest": "primitive_type [1236,1243]"
+    },
+    {
+      "src": "bool: bool [4571,4575]",
+      "dest": "bool: bool [4591,4595]"
+    },
+    {
+      "src": "contract: contract [120,128]",
+      "dest": "contract: contract [120,128]"
+    },
+    {
+      "src": "primitive_type [3543,3550]",
+      "dest": "primitive_type [3565,3572]"
+    },
+    {
+      "src": "visibility [3801,3807]",
+      "dest": "visibility [3823,3829]"
+    },
+    {
+      "src": "=>: => [2714,2716]",
+      "dest": "=>: => [2736,2738]"
+    },
+    {
+      "src": "identifier: whitelistIndexes [4203,4219]",
+      "dest": "identifier: whitelistIndexes [4225,4241]"
+    },
+    {
+      "src": "member_expression [995,1005]",
+      "dest": "member_expression [995,1005]"
+    },
+    {
+      "src": "(: ( [3542,3543]",
+      "dest": "(: ( [3564,3565]"
+    },
+    {
+      "src": "visibility [410,416]",
+      "dest": "visibility [410,416]"
+    },
+    {
+      "src": "inheritance_specifier [2127,2147]",
+      "dest": "inheritance_specifier [2149,2169]"
+    },
+    {
+      "src": "contract: contract [2094,2102]",
+      "dest": "contract: contract [2116,2124]"
+    },
+    {
+      "src": "contract_body [2148,4803]",
+      "dest": "contract_body [2170,4823]"
+    },
+    {
+      "src": "primitive_type [3143,3147]",
+      "dest": "primitive_type [3165,3169]"
+    },
+    {
+      "src": "state_variable_declaration [2987,3014]",
+      "dest": "state_variable_declaration [3009,3036]"
+    },
+    {
+      "src": "user_defined_type [1324,1346]",
+      "dest": "user_defined_type [1324,1346]"
+    },
+    {
+      "src": "type_name [3242,3251]",
+      "dest": "type_name [3264,3273]"
+    },
+    {
+      "src": "comment: /**     * @notice Administrator for this contract     */ [338,396]",
+      "dest": "comment: /**     * @notice Administrator for this contract     */ [338,396]"
+    },
+    {
+      "src": "=>: => [3140,3142]",
+      "dest": "=>: => [3162,3164]"
+    },
+    {
+      "src": "mapping: mapping [2035,2042]",
+      "dest": "mapping: mapping [2057,2064]"
+    },
+    {
+      "src": "=>: => [3551,3553]",
+      "dest": "=>: => [3573,3575]"
+    },
+    {
+      "src": "type_name [2898,2924]",
+      "dest": "type_name [2920,2946]"
+    },
+    {
+      "src": "state_variable_declaration [503,531]",
+      "dest": "state_variable_declaration [503,531]"
+    },
+    {
+      "src": "identifier: oracle [1457,1463]",
+      "dest": "identifier: oracle [1455,1461]"
+    },
+    {
+      "src": "parenthesized_expression [994,1050]",
+      "dest": "parenthesized_expression [994,1050]"
+    },
+    {
+      "src": "address: address [3675,3682]",
+      "dest": "address: address [3697,3704]"
+    },
+    {
+      "src": "visibility [3694,3700]",
+      "dest": "visibility [3716,3722]"
+    },
+    {
+      "src": "(: ( [2705,2706]",
+      "dest": "(: ( [2727,2728]"
+    },
+    {
+      "src": "comment: /**          * @notice Per-market mapping of \"accounts in this asset\"          */ [2605,2688]",
+      "dest": "comment: /**          * @notice Per-market mapping of \"accounts in this asset\"          */ [2627,2710]"
+    },
+    {
+      "src": "type_name [1126,1133]",
+      "dest": "type_name [1126,1133]"
+    },
+    {
+      "src": "type_name [3686,3692]",
+      "dest": "type_name [3708,3714]"
+    },
+    {
+      "src": "uint: uint [2563,2567]",
+      "dest": "uint: uint [2585,2589]"
+    },
+    {
+      "src": "primitive_type [742,746]",
+      "dest": "primitive_type [742,746]"
+    },
+    {
+      "src": "public: public [3694,3700]",
+      "dest": "public: public [3716,3722]"
+    },
+    {
+      "src": "\": \" [35,36]",
+      "dest": "\": \" [35,36]"
+    },
+    {
+      "src": "visibility [4616,4622]",
+      "dest": "visibility [4636,4642]"
+    },
+    {
+      "src": "(: ( [951,952]",
+      "dest": "(: ( [951,952]"
+    },
+    {
+      "src": "mapping: mapping [2698,2705]",
+      "dest": "mapping: mapping [2720,2727]"
+    },
+    {
+      "src": "comment: /// @notice A list of all borrowers who have entered markets [3176,3236]",
+      "dest": "comment: /// @notice A list of all borrowers who have entered markets [3198,3258]"
+    },
+    {
+      "src": "identifier: PriceOracle [1438,1449]",
+      "dest": "identifier: PriceOracle [1436,1447]"
+    },
+    {
+      "src": "mapping: mapping [3363,3370]",
+      "dest": "mapping: mapping [3385,3392]"
+    },
+    {
+      "src": "visibility [3971,3977]",
+      "dest": "visibility [3993,3999]"
+    },
+    {
+      "src": "contract_declaration [1291,2090]",
+      "dest": "contract_declaration [1291,2112]"
+    },
+    {
+      "src": "bool: bool [927,931]",
+      "dest": "bool: bool [927,931]"
+    },
+    {
+      "src": "primitive_type [3554,3558]",
+      "dest": "primitive_type [3576,3580]"
+    },
+    {
+      "src": "comment: /**      * @notice Administrator for Fuse      */ [159,210]",
+      "dest": "comment: /**      * @notice Administrator for Fuse      */ [159,210]"
+    },
+    {
+      "src": "bool: bool [3796,3800]",
+      "dest": "bool: bool [3818,3822]"
+    },
+    {
+      "src": "primitive_type [1009,1016]",
+      "dest": "primitive_type [1009,1016]"
+    },
+    {
+      "src": "bool: bool [4766,4770]",
+      "dest": "bool: bool [4786,4790]"
+    },
+    {
+      "src": "type_name [2987,2995]",
+      "dest": "type_name [3009,3017]"
+    },
+    {
+      "src": "internal: internal [3149,3157]",
+      "dest": "internal: internal [3171,3179]"
+    },
+    {
+      "src": "comment: /// @notice Indexes of borrower account addresses in the `allBorrowers` array [3280,3357]",
+      "dest": "comment: /// @notice Indexes of borrower account addresses in the `allBorrowers` array [3302,3379]"
+    },
+    {
+      "src": "bool: bool [620,624]",
+      "dest": "bool: bool [620,624]"
+    },
+    {
+      "src": "true: true [771,775]",
+      "dest": "true: true [771,775]"
+    },
+    {
+      "src": "contract_declaration [120,1287]",
+      "dest": "contract_declaration [120,1287]"
+    },
+    {
+      "src": "public: public [4538,4544]",
+      "dest": "public: public [4558,4564]"
+    },
+    {
+      "src": "bool: bool [2263,2267]",
+      "dest": "bool: bool [2285,2289]"
+    },
+    {
+      "src": "\": \" [61,62]",
+      "dest": "\": \" [61,62]"
+    },
+    {
+      "src": "mapping: mapping [3946,3953]",
+      "dest": "mapping: mapping [3968,3975]"
+    },
+    {
+      "src": "identifier: allBorrowers [3259,3271]",
+      "dest": "identifier: allBorrowers [3281,3293]"
+    },
+    {
+      "src": "type_name [3143,3147]",
+      "dest": "type_name [3165,3169]"
+    },
+    {
+      "src": "public: public [1912,1918]",
+      "dest": "public: public [5567,5573]"
+    },
+    {
+      "src": "identifier: closeFactorMantissa [1597,1616]",
+      "dest": "identifier: closeFactorMantissa [1595,1614]"
+    },
+    {
+      "src": "visibility [4715,4721]",
+      "dest": "visibility [4735,4741]"
+    },
+    {
+      "src": "bool: bool [3554,3558]",
+      "dest": "bool: bool [3576,3580]"
+    },
+    {
+      "src": "identifier: CToken [2987,2993]",
+      "dest": "identifier: CToken [3009,3015]"
+    },
+    {
+      "src": "=>: => [4182,4184]",
+      "dest": "=>: => [4204,4206]"
+    },
+    {
+      "src": "public: public [4657,4663]",
+      "dest": "public: public [4677,4683]"
+    },
+    {
+      "src": "type_name [4166,4193]",
+      "dest": "type_name [4188,4215]"
+    },
+    {
+      "src": "(: ( [4173,4174]",
+      "dest": "(: ( [4195,4196]"
+    },
+    {
+      "src": "address: address [2906,2913]",
+      "dest": "address: address [2928,2935]"
+    },
+    {
+      "src": "identifier: pauseGuardian [4513,4526]",
+      "dest": "identifier: pauseGuardian [4533,4546]"
+    },
+    {
+      "src": "identifier: fuseAdmin [254,263]",
+      "dest": "identifier: fuseAdmin [254,263]"
+    },
+    {
+      "src": "=: = [651,652]",
+      "dest": "=: = [651,652]"
+    },
+    {
+      "src": "address: address [3543,3550]",
+      "dest": "address: address [3565,3572]"
+    },
+    {
+      "src": "binary_expression [952,971]",
+      "dest": "binary_expression [952,971]"
+    },
+    {
+      "src": "struct_member [2563,2593]",
+      "dest": "struct_member [2585,2615]"
+    },
+    {
+      "src": "primitive_type [1585,1589]",
+      "dest": "primitive_type [1583,1587]"
+    },
+    {
+      "src": "public: public [1742,1748]",
+      "dest": "public: public [1740,1746]"
+    },
+    {
+      "src": "public: public [3560,3566]",
+      "dest": "public: public [3582,3588]"
+    },
+    {
+      "src": "binary_expression [951,1050]",
+      "dest": "binary_expression [951,1050]"
+    },
+    {
+      "src": "state_variable_declaration [3667,3721]",
+      "dest": "state_variable_declaration [3689,3743]"
+    },
+    {
+      "src": "type_name [1585,1589]",
+      "dest": "type_name [1583,1587]"
+    },
+    {
+      "src": "primitive_type [3371,3378]",
+      "dest": "primitive_type [3393,3400]"
+    },
+    {
+      "src": "): ) [902,903]",
+      "dest": "): ) [902,903]"
+    },
+    {
+      "src": "state_variable_declaration [4166,4220]",
+      "dest": "state_variable_declaration [4188,4242]"
+    },
+    {
+      "src": "): ) [4713,4714]",
+      "dest": "): ) [4733,4734]"
+    },
+    {
+      "src": "}: } [2747,2748]",
+      "dest": "}: } [2769,2770]"
+    },
+    {
+      "src": "type_name [4766,4770]",
+      "dest": "type_name [4786,4790]"
+    },
+    {
+      "src": "type_name [3554,3558]",
+      "dest": "type_name [3576,3580]"
+    },
+    {
+      "src": "): ) [3558,3559]",
+      "dest": "): ) [3580,3581]"
+    },
+    {
+      "src": "identifier: fuseAdminHasRights [632,650]",
+      "dest": "identifier: fuseAdminHasRights [632,650]"
+    },
+    {
+      "src": "\": \" [72,73]",
+      "dest": "\": \" [72,73]"
+    },
+    {
+      "src": "): ) [4192,4193]",
+      "dest": "): ) [4214,4215]"
+    },
+    {
+      "src": "member_expression [952,962]",
+      "dest": "member_expression [952,962]"
+    },
+    {
+      "src": "identifier: allMarkets [3003,3013]",
+      "dest": "identifier: allMarkets [3025,3035]"
+    },
+    {
+      "src": "\": \" [114,115]",
+      "dest": "\": \" [114,115]"
+    },
+    {
+      "src": "mapping: mapping [3124,3131]",
+      "dest": "mapping: mapping [3146,3153]"
+    },
+    {
+      "src": "visibility [1590,1596]",
+      "dest": "visibility [1588,1594]"
+    },
+    {
+      "src": "state_variable_declaration [3124,3168]",
+      "dest": "state_variable_declaration [3146,3190]"
+    },
+    {
+      "src": "public: public [4060,4066]",
+      "dest": "public: public [4082,4088]"
+    },
+    {
+      "src": "visibility [4194,4202]",
+      "dest": "visibility [4216,4224]"
+    },
+    {
+      "src": "==: == [1006,1008]",
+      "dest": "==: == [1006,1008]"
+    },
+    {
+      "src": "identifier: adminHasRights [754,768]",
+      "dest": "identifier: adminHasRights [754,768]"
+    },
+    {
+      "src": "comment: /**      * @notice Returns a boolean indicating if the sender has admin rights      */ [784,872]",
+      "dest": "comment: /**      * @notice Returns a boolean indicating if the sender has admin rights      */ [784,872]"
+    },
+    {
+      "src": "solidity: solidity [7,15]",
+      "dest": "solidity: solidity [7,15]"
+    },
+    {
+      "src": "state_variable_declaration [216,330]",
+      "dest": "state_variable_declaration [216,330]"
+    },
+    {
+      "src": "(: ( [4697,4698]",
+      "dest": "(: ( [4717,4718]"
+    },
+    {
+      "src": "is: is [1321,1323]",
+      "dest": "is: is [1321,1323]"
+    },
+    {
+      "src": "public: public [410,416]",
+      "dest": "public: public [410,416]"
+    },
+    {
+      "src": "function: function [878,886]",
+      "dest": "function: function [878,886]"
+    },
+    {
+      "src": "primitive_type [2717,2721]",
+      "dest": "primitive_type [2739,2743]"
+    },
+    {
+      "src": "user_defined_type [1438,1449]",
+      "dest": "user_defined_type [1436,1447]"
+    },
+    {
+      "src": "type_name [2035,2063]",
+      "dest": "type_name [2057,2085]"
+    },
+    {
+      "src": "identifier: mintGuardianPaused [4722,4740]",
+      "dest": "identifier: mintGuardianPaused [4742,4760]"
+    },
+    {
+      "src": "primitive_type [3965,3969]",
+      "dest": "primitive_type [3987,3991]"
+    },
+    {
+      "src": "primitive_type [4755,4762]",
+      "dest": "primitive_type [4775,4782]"
+    },
+    {
+      "src": "state_variable_declaration [1907,1929]",
+      "dest": "state_variable_declaration [1927,1951]"
+    },
+    {
+      "src": "state_variable_declaration [4652,4684]",
+      "dest": "state_variable_declaration [4672,4704]"
+    },
+    {
+      "src": "||: || [991,993]",
+      "dest": "||: || [991,993]"
+    },
+    {
+      "src": "type_name [1737,1741]",
+      "dest": "type_name [1735,1739]"
+    },
+    {
+      "src": "(: ( [926,927]",
+      "dest": "(: ( [926,927]"
+    },
+    {
+      "src": "=>: => [2051,2053]",
+      "dest": "=>: => [2073,2075]"
+    },
+    {
+      "src": "comment: /// @notice An array of all whitelisted accounts [3996,4044]",
+      "dest": "comment: /// @notice An array of all whitelisted accounts [4018,4066]"
+    },
+    {
+      "src": "{: { [152,153]",
+      "dest": "{: { [152,153]"
+    },
+    {
+      "src": "bool: bool [3143,3147]",
+      "dest": "bool: bool [3165,3169]"
+    },
+    {
+      "src": "uint256: uint256 [3382,3389]",
+      "dest": "uint256: uint256 [3404,3411]"
+    },
+    {
+      "src": "primitive_type [4652,4656]",
+      "dest": "primitive_type [4672,4676]"
+    },
+    {
+      "src": "}: } [4802,4803]",
+      "dest": "}: } [4822,4823]"
+    },
+    {
+      "src": "visibility [747,753]",
+      "dest": "visibility [747,753]"
+    },
+    {
+      "src": "identifier: CToken [3686,3692]",
+      "dest": "identifier: CToken [3708,3714]"
+    },
+    {
+      "src": "comment: /**      * @notice The Pause Guardian can pause certain actions as a safety mechanism.      *  Actions which allow users to remove their own assets cannot be paused.      *  Liquidation / seizing / transfer can only be paused globally, not by market.      */ [4230,4492]",
+      "dest": "comment: /**      * @notice The Pause Guardian can pause certain actions as a safety mechanism.      *  Actions which allow users to remove their own assets cannot be paused.      *  Liquidation / seizing / transfer can only be paused globally, not by market.      */ [4250,4512]"
+    },
+    {
+      "src": "public: public [4576,4582]",
+      "dest": "public: public [4596,4602]"
+    },
+    {
+      "src": "boolean_literal [771,775]",
+      "dest": "boolean_literal [771,775]"
+    },
+    {
+      "src": "identifier: accountMembership [2723,2740]",
+      "dest": "identifier: accountMembership [2745,2762]"
+    },
+    {
+      "src": "identifier: maxAssets [1919,1928]",
+      "dest": "identifier: maxAssets [1941,1950]"
+    },
+    {
+      "src": "identifier: pendingAdmin [518,530]",
+      "dest": "identifier: pendingAdmin [518,530]"
+    },
+    {
+      "src": "identifier: fuseAdmin [1017,1026]",
+      "dest": "identifier: fuseAdmin [1017,1026]"
+    },
+    {
+      "src": "type_name [3796,3800]",
+      "dest": "type_name [3818,3822]"
+    },
+    {
+      "src": "bool: bool [4611,4615]",
+      "dest": "bool: bool [4631,4635]"
+    },
+    {
+      "src": "type_name [1907,1911]",
+      "dest": "type_name [1927,1931]"
+    },
+    {
+      "src": "identifier: Market [2162,2168]",
+      "dest": "identifier: Market [2184,2190]"
+    },
+    {
+      "src": "mapping: mapping [3535,3542]",
+      "dest": "mapping: mapping [3557,3564]"
+    },
+    {
+      "src": "(: ( [1016,1017]",
+      "dest": "(: ( [1016,1017]"
+    },
+    {
+      "src": "}: } [1286,1287]",
+      "dest": "}: } [1286,1287]"
+    },
+    {
+      "src": "type_name [3535,3559]",
+      "dest": "type_name [3557,3581]"
+    },
+    {
+      "src": "): ) [3969,3970]",
+      "dest": "): ) [3991,3992]"
+    },
+    {
+      "src": "type_name [2263,2267]",
+      "dest": "type_name [2285,2289]"
+    },
+    {
+      "src": "): ) [3692,3693]",
+      "dest": "): ) [3714,3715]"
+    },
+    {
+      "src": "\": \" [96,97]",
+      "dest": "\": \" [96,97]"
+    },
+    {
+      "src": "state_variable_declaration [402,423]",
+      "dest": "state_variable_declaration [402,423]"
+    },
+    {
+      "src": "inheritance_specifier [1324,1346]",
+      "dest": "inheritance_specifier [1324,1346]"
+    },
+    {
+      "src": "primitive_type [3382,3389]",
+      "dest": "primitive_type [3404,3411]"
+    },
+    {
+      "src": "call_expression [266,329]",
+      "dest": "call_expression [266,329]"
+    },
+    {
+      "src": "mapping: mapping [4747,4754]",
+      "dest": "mapping: mapping [4767,4774]"
+    },
+    {
+      "src": "uint: uint [1907,1911]",
+      "dest": "uint: uint [1927,1931]"
+    },
+    {
+      "src": "): ) [989,990]",
+      "dest": "): ) [989,990]"
+    },
+    {
+      "src": "}: } [2089,2090]",
+      "dest": "}: } [2111,2112]"
+    },
+    {
+      "src": "public: public [1590,1596]",
+      "dest": "public: public [1588,1594]"
+    },
+    {
+      "src": "mapping: mapping [2898,2905]",
+      "dest": "mapping: mapping [2920,2927]"
+    },
+    {
+      "src": "address: address [2706,2713]",
+      "dest": "address: address [2728,2735]"
+    },
+    {
+      "src": "state_variable_declaration [3242,3272]",
+      "dest": "state_variable_declaration [3264,3294]"
+    },
+    {
+      "src": "address: address [402,409]",
+      "dest": "address: address [402,409]"
+    },
+    {
+      "src": "(: ( [3370,3371]",
+      "dest": "(: ( [3392,3393]"
+    },
+    {
+      "src": "type_name [2717,2721]",
+      "dest": "type_name [2739,2743]"
+    },
+    {
+      "src": "address: address [2043,2050]",
+      "dest": "address: address [2065,2072]"
+    },
+    {
+      "src": "import_directive [28,63]",
+      "dest": "import_directive [28,63]"
+    },
+    {
+      "src": "state_variable_declaration [4498,4527]",
+      "dest": "state_variable_declaration [4518,4547]"
+    },
+    {
+      "src": "solidity_pragma_token [7,23]",
+      "dest": "solidity_pragma_token [7,23]"
+    },
+    {
+      "src": "address: address [3132,3139]",
+      "dest": "address: address [3154,3161]"
+    },
+    {
+      "src": "state_variable_declaration [4747,4800]",
+      "dest": "state_variable_declaration [4767,4820]"
+    },
+    {
+      "src": "public: public [4715,4721]",
+      "dest": "public: public [4735,4741]"
+    },
+    {
+      "src": "visibility [511,517]",
+      "dest": "visibility [511,517]"
+    },
+    {
+      "src": "identifier: borrowerIndexes [3400,3415]",
+      "dest": "identifier: borrowerIndexes [3422,3437]"
+    },
+    {
+      "src": "state_variable_declaration [4533,4565]",
+      "dest": "state_variable_declaration [4553,4585]"
+    },
+    {
+      "src": "]: ] [2994,2995]",
+      "dest": "]: ] [3016,3017]"
+    },
+    {
+      "src": "visibility [4576,4582]",
+      "dest": "visibility [4596,4602]"
+    },
+    {
+      "src": "address: address [4050,4057]",
+      "dest": "address: address [4072,4079]"
+    },
+    {
+      "src": "comment: /**      * @notice Whether or not the Fuse admin has admin rights      */ [539,614]",
+      "dest": "comment: /**      * @notice Whether or not the Fuse admin has admin rights      */ [539,614]"
+    },
+    {
+      "src": "address: address [4698,4705]",
+      "dest": "address: address [4718,4725]"
+    },
+    {
+      "src": "view: view [913,917]",
+      "dest": "view: view [913,917]"
+    },
+    {
+      "src": "type_name [4185,4192]",
+      "dest": "type_name [4207,4214]"
+    },
+    {
+      "src": "identifier: Market [2917,2923]",
+      "dest": "identifier: Market [2939,2945]"
+    },
+    {
+      "src": "public: public [4772,4778]",
+      "dest": "public: public [4792,4798]"
+    },
+    {
+      "src": "identifier: IFuseFeeDistributor [266,285]",
+      "dest": "identifier: IFuseFeeDistributor [266,285]"
+    },
+    {
+      "src": "comment: /**      * @notice Multiplier representing the discount on collateral that a liquidator receives      */ [1625,1731]",
+      "dest": "comment: /**      * @notice Multiplier representing the discount on collateral that a liquidator receives      */ [1623,1729]"
+    },
+    {
+      "src": "binary_expression [995,1027]",
+      "dest": "binary_expression [995,1027]"
+    },
+    {
+      "src": "primitive_type [4611,4615]",
+      "dest": "primitive_type [4631,4635]"
+    },
+    {
+      "src": "internal: internal [4194,4202]",
+      "dest": "internal: internal [4216,4224]"
+    },
+    {
+      "src": "public: public [4506,4512]",
+      "dest": "public: public [4526,4532]"
+    },
+    {
+      "src": "state_variable_declaration [2898,2940]",
+      "dest": "state_variable_declaration [2920,2962]"
+    },
+    {
+      "src": "address: address [4498,4505]",
+      "dest": "address: address [4518,4525]"
+    },
+    {
+      "src": "type_name [4690,4714]",
+      "dest": "type_name [4710,4734]"
+    },
+    {
+      "src": "public: public [625,631]",
+      "dest": "public: public [625,631]"
+    },
+    {
+      "src": "identifier: seizeGuardianPaused [4664,4683]",
+      "dest": "identifier: seizeGuardianPaused [4684,4703]"
+    },
+    {
+      "src": "boolean_literal [653,657]",
+      "dest": "boolean_literal [653,657]"
+    },
+    {
+      "src": "struct: struct [2155,2161]",
+      "dest": "struct: struct [2177,2183]"
+    },
+    {
+      "src": "visibility [236,244]",
+      "dest": "visibility [236,244]"
+    },
+    {
+      "src": "type_name [4050,4059]",
+      "dest": "type_name [4072,4081]"
+    },
+    {
+      "src": "primitive_type [620,624]",
+      "dest": "primitive_type [620,624]"
+    },
+    {
+      "src": "(: ( [3674,3675]",
+      "dest": "(: ( [3696,3697]"
+    },
+    {
+      "src": "return_statement [944,1051]",
+      "dest": "return_statement [944,1051]"
+    },
+    {
+      "src": "identifier: UnitrollerAdminStorage [129,151]",
+      "dest": "identifier: UnitrollerAdminStorage [129,151]"
+    },
+    {
+      "src": "primitive_type [1126,1133]",
+      "dest": "primitive_type [1126,1133]"
+    },
+    {
+      "src": "user_defined_type [2987,2993]",
+      "dest": "user_defined_type [3009,3015]"
+    },
+    {
+      "src": "visibility [625,631]",
+      "dest": "visibility [625,631]"
+    },
+    {
+      "src": "identifier: pendingComptrollerImplementation [1251,1283]",
+      "dest": "identifier: pendingComptrollerImplementation [1251,1283]"
+    },
+    {
+      "src": "returns: returns [918,925]",
+      "dest": "returns: returns [918,925]"
+    },
+    {
+      "src": "identifier: _borrowGuardianPaused [4583,4604]",
+      "dest": "identifier: _borrowGuardianPaused [4603,4624]"
+    },
+    {
+      "src": "type_name [620,624]",
+      "dest": "type_name [620,624]"
+    },
+    {
+      "src": "): ) [3389,3390]",
+      "dest": "): ) [3411,3412]"
+    },
+    {
+      "src": "=>: => [3379,3381]",
+      "dest": "=>: => [3401,3403]"
+    },
+    {
+      "src": "=>: => [4763,4765]",
+      "dest": "=>: => [4783,4785]"
+    },
+    {
+      "src": "identifier: hasAdminRights [887,901]",
+      "dest": "identifier: hasAdminRights [887,901]"
+    },
+    {
+      "src": "\": \" [85,86]",
+      "dest": "\": \" [85,86]"
+    },
+    {
+      "src": "{: { [2169,2170]",
+      "dest": "{: { [2191,2192]"
+    },
+    {
+      "src": "primitive_type [4498,4505]",
+      "dest": "primitive_type [4518,4525]"
+    },
+    {
+      "src": "type_name [4709,4713]",
+      "dest": "type_name [4729,4733]"
+    },
+    {
+      "src": "visibility [1134,1140]",
+      "dest": "visibility [1134,1140]"
+    },
+    {
+      "src": "public: public [2064,2070]",
+      "dest": "public: public [2086,2092]"
+    },
+    {
+      "src": "state_mutability [913,917]",
+      "dest": "state_mutability [913,917]"
+    },
+    {
+      "src": "identifier: sender [999,1005]",
+      "dest": "identifier: sender [999,1005]"
+    },
+    {
+      "src": "visibility [1742,1748]",
+      "dest": "visibility [1740,1746]"
+    },
+    {
+      "src": "): ) [2923,2924]",
+      "dest": "): ) [2945,2946]"
+    },
+    {
+      "src": "is: is [2124,2126]",
+      "dest": "is: is [2146,2148]"
+    },
+    {
+      "src": "identifier: msg [995,998]",
+      "dest": "identifier: msg [995,998]"
+    },
+    {
+      "src": "type_name [2917,2923]",
+      "dest": "type_name [2939,2945]"
+    },
+    {
+      "src": "user_defined_type [2054,2060]",
+      "dest": "user_defined_type [2076,2082]"
+    },
+    {
+      "src": "comment: /**      * @notice Whether or not the admin has admin rights      */ [666,736]",
+      "dest": "comment: /**      * @notice Whether or not the admin has admin rights      */ [666,736]"
+    },
+    {
+      "src": "primitive_type [3796,3800]",
+      "dest": "primitive_type [3818,3822]"
+    },
+    {
+      "src": "visibility [3560,3566]",
+      "dest": "visibility [3582,3588]"
+    },
+    {
+      "src": "address: address [4755,4762]",
+      "dest": "address: address [4775,4782]"
+    },
+    {
+      "src": "type_name [2987,2993]",
+      "dest": "type_name [3009,3015]"
+    },
+    {
+      "src": "type_name [4533,4537]",
+      "dest": "type_name [4553,4557]"
+    },
+    {
+      "src": "primitive_type [2263,2267]",
+      "dest": "primitive_type [2285,2289]"
+    },
+    {
+      "src": "binary_expression [995,1049]",
+      "dest": "binary_expression [995,1049]"
+    },
+    {
+      "src": "primitive_type [2563,2567]",
+      "dest": "primitive_type [2585,2589]"
+    },
+    {
+      "src": "comment: /// @notice Maps addresses to booleans indicating if they are allowed to supply assets (i.e., mint cTokens) [3833,3940]",
+      "dest": "comment: /// @notice Maps addresses to booleans indicating if they are allowed to supply assets (i.e., mint cTokens) [3855,3962]"
+    },
+    {
+      "src": "return: return [944,950]",
+      "dest": "return: return [944,950]"
+    },
+    {
+      "src": "call_argument [286,328]",
+      "dest": "call_argument [286,328]"
+    },
+    {
+      "src": "type_name [2054,2060]",
+      "dest": "type_name [2076,2082]"
+    },
+    {
+      "src": "address: address [3242,3249]",
+      "dest": "address: address [3264,3271]"
+    },
+    {
+      "src": "type_name [4652,4656]",
+      "dest": "type_name [4672,4676]"
+    },
+    {
+      "src": "struct_member [2698,2741]",
+      "dest": "struct_member [2720,2763]"
+    },
+    {
+      "src": "state_variable_declaration [4050,4082]",
+      "dest": "state_variable_declaration [4072,4104]"
+    },
+    {
+      "src": "^:  ^ [15,17]",
+      "dest": "^:  ^ [15,17]"
+    },
+    {
+      "src": "{: { [933,934]",
+      "dest": "{: { [933,934]"
+    },
+    {
+      "src": "constant: constant [245,253]",
+      "dest": "constant: constant [245,253]"
+    },
+    {
+      "src": "source_file [0,4805]",
+      "dest": "source_file [0,5927]"
+    },
+    {
+      "src": "identifier: sender [956,962]",
+      "dest": "identifier: sender [956,962]"
+    },
+    {
+      "src": "]: ] [3250,3251]",
+      "dest": "]: ] [3272,3273]"
+    },
+    {
+      "src": "address: address [4174,4181]",
+      "dest": "address: address [4196,4203]"
+    },
+    {
+      "src": "visibility [3391,3399]",
+      "dest": "visibility [3413,3421]"
+    },
+    {
+      "src": "): ) [1026,1027]",
+      "dest": "): ) [1026,1027]"
+    },
+    {
+      "src": "contract: contract [1291,1299]",
+      "dest": "contract: contract [1291,1299]"
+    },
+    {
+      "src": "public: public [2996,3002]",
+      "dest": "public: public [3018,3024]"
+    },
+    {
+      "src": "state_variable_declaration [620,658]",
+      "dest": "state_variable_declaration [620,658]"
+    },
+    {
+      "src": "string [35,62]",
+      "dest": "string [35,62]"
+    },
+    {
+      "src": "identifier: accountAssets [2071,2084]",
+      "dest": "identifier: accountAssets [2093,2106]"
+    },
+    {
+      "src": "type_cast_expression [1009,1027]",
+      "dest": "type_cast_expression [1009,1027]"
+    },
+    {
+      "src": "struct_declaration [2155,2748]",
+      "dest": "struct_declaration [2177,2770]"
+    },
+    {
+      "src": "bool: bool [4652,4656]",
+      "dest": "bool: bool [4672,4676]"
+    },
+    {
+      "src": "state_variable_declaration [4571,4605]",
+      "dest": "state_variable_declaration [4591,4625]"
+    },
+    {
+      "src": "identifier: UnitrollerAdminStorage [1324,1346]",
+      "dest": "identifier: UnitrollerAdminStorage [1324,1346]"
+    },
+    {
+      "src": "identifier: borrowers [3158,3167]",
+      "dest": "identifier: borrowers [3180,3189]"
+    },
+    {
+      "src": "identifier: cTokensByUnderlying [3701,3720]",
+      "dest": "identifier: cTokensByUnderlying [3723,3742]"
+    },
+    {
+      "src": "type_name [1236,1243]",
+      "dest": "type_name [1236,1243]"
+    },
+    {
+      "src": "mapping: mapping [4166,4173]",
+      "dest": "mapping: mapping [4188,4195]"
+    },
+    {
+      "src": "address: address [3371,3378]",
+      "dest": "address: address [3393,3400]"
+    },
+    {
+      "src": "true [771,775]",
+      "dest": "true [771,775]"
+    },
+    {
+      "src": "type_name [2054,2062]",
+      "dest": "type_name [2076,2084]"
+    },
+    {
+      "src": "state_variable_declaration [1585,1617]",
+      "dest": "state_variable_declaration [1583,1615]"
+    },
+    {
+      "src": "(: ( [2905,2906]",
+      "dest": "(: ( [2927,2928]"
+    },
+    {
+      "src": "uint256: uint256 [4185,4192]",
+      "dest": "uint256: uint256 [4207,4214]"
+    },
+    {
+      "src": "type_name [927,931]",
+      "dest": "type_name [927,931]"
+    },
+    {
+      "src": "comment: /**      * @notice Multiplier used to calculate the maximum repayAmount when liquidating a borrow      */ [1472,1579]",
+      "dest": "comment: /**      * @notice Multiplier used to calculate the maximum repayAmount when liquidating a borrow      */ [1470,1577]"
+    },
+    {
+      "src": "=: = [769,770]",
+      "dest": "=: = [769,770]"
+    },
+    {
+      "src": "state_variable_declaration [3796,3825]",
+      "dest": "state_variable_declaration [3818,3847]"
+    },
+    {
+      "src": "): ) [328,329]",
+      "dest": "): ) [328,329]"
+    },
+    {
+      "src": "identifier: isListed [2268,2276]",
+      "dest": "identifier: isListed [2290,2298]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "insert-node",
+      "tree": "contract_declaration [4827,5925]",
+      "parent": "source_file [0,5927]",
+      "at": 7
+    },
+    {
+      "action": "insert-node",
+      "tree": "contract: contract [4827,4835]",
+      "parent": "contract_declaration [4827,5925]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: ComptrollerV3Storage [4836,4856]",
+      "parent": "contract_declaration [4827,5925]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "is: is [4857,4859]",
+      "parent": "contract_declaration [4827,5925]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "inheritance_specifier [4860,4880]",
+      "parent": "contract_declaration [4827,5925]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "contract_body [4881,5925]",
+      "parent": "contract_declaration [4827,5925]",
+      "at": 4
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @notice Max number of assets a single account can participate in (borrow or use as collateral)      */ [1786,1901]",
+      "label": "/**      * @notice UNUSED AFTER UPGRADE: Max number of assets a single account can participate in (borrow or use as collateral)      */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [4881,4882]",
+      "parent": "contract_body [4881,5925]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Whether or not the implementation should be auto-upgraded.      */ [4888,4972]",
+      "parent": "contract_body [4881,5925]",
+      "at": 1
+    },
+    {
+      "action": "insert-tree",
+      "tree": "state_variable_declaration [4978,5009]",
+      "parent": "contract_body [4881,5925]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /// @notice The borrowCapGuardian can set borrowCaps to any number for any market. Lowering the borrow cap could disable borrowing on the given market. [5017,5168]",
+      "parent": "contract_body [4881,5925]",
+      "at": 3
+    },
+    {
+      "action": "insert-tree",
+      "tree": "state_variable_declaration [5174,5207]",
+      "parent": "contract_body [4881,5925]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /// @notice Borrow caps enforced by borrowAllowed for each cToken address. Defaults to zero which corresponds to unlimited borrowing. [5215,5348]",
+      "parent": "contract_body [4881,5925]",
+      "at": 5
+    },
+    {
+      "action": "insert-tree",
+      "tree": "state_variable_declaration [5354,5397]",
+      "parent": "contract_body [4881,5925]",
+      "at": 6
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /// @notice Supply caps enforced by mintAllowed for each cToken address. Defaults to zero which corresponds to unlimited supplying. [5405,5536]",
+      "parent": "contract_body [4881,5925]",
+      "at": 7
+    },
+    {
+      "action": "insert-node",
+      "tree": "state_variable_declaration [5542,5585]",
+      "parent": "contract_body [4881,5925]",
+      "at": 8
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /// @notice RewardsDistributor contracts to notify of flywheel changes. [5593,5664]",
+      "parent": "contract_body [4881,5925]",
+      "at": 9
+    },
+    {
+      "action": "insert-tree",
+      "tree": "state_variable_declaration [5670,5707]",
+      "parent": "contract_body [4881,5925]",
+      "at": 10
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /// @dev Guard variable for pool-wide/cross-asset re-entrancy checks [5715,5783]",
+      "parent": "contract_body [4881,5925]",
+      "at": 11
+    },
+    {
+      "action": "insert-tree",
+      "tree": "state_variable_declaration [5789,5815]",
+      "parent": "contract_body [4881,5925]",
+      "at": 12
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /// @dev Whether or not _notEntered has been initialized [5823,5879]",
+      "parent": "contract_body [4881,5925]",
+      "at": 13
+    },
+    {
+      "action": "insert-tree",
+      "tree": "state_variable_declaration [5885,5922]",
+      "parent": "contract_body [4881,5925]",
+      "at": 14
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [5924,5925]",
+      "parent": "contract_body [4881,5925]",
+      "at": 15
+    },
+    {
+      "action": "insert-tree",
+      "tree": "visibility [1932,1940]",
+      "parent": "state_variable_declaration [1927,1951]",
+      "at": 1
+    },
+    {
+      "action": "insert-tree",
+      "tree": "type_name [5542,5566]",
+      "parent": "state_variable_declaration [5542,5585]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "visibility [1912,1918]",
+      "parent": "state_variable_declaration [5542,5585]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: supplyCaps [5574,5584]",
+      "parent": "state_variable_declaration [5542,5585]",
+      "at": 2
+    }
+  ]
+}

@@ -1,0 +1,661 @@
+{
+  "matches": [
+    {
+      "src": "number_literal: 1 [1053,1054]",
+      "dest": "number_literal: 1 [1053,1054]"
+    },
+    {
+      "src": "constant: constant [210,218]",
+      "dest": "constant: constant [210,218]"
+    },
+    {
+      "src": "return_statement [502,529]",
+      "dest": "return_statement [502,529]"
+    },
+    {
+      "src": "return: return [707,713]",
+      "dest": "return: return [707,713]"
+    },
+    {
+      "src": "type_cast_expression [714,738]",
+      "dest": "type_cast_expression [714,738]"
+    },
+    {
+      "src": "bool: bool [1014,1018]",
+      "dest": "bool: bool [1014,1018]"
+    },
+    {
+      "src": "binary_expression [1037,1050]",
+      "dest": "binary_expression [1037,1050]"
+    },
+    {
+      "src": "identifier: index [523,528]",
+      "dest": "identifier: index [523,528]"
+    },
+    {
+      "src": "return_type_definition [681,696]",
+      "dest": "return_type_definition [681,696]"
+    },
+    {
+      "src": "comment: /**     * @notice Sets the bit at the given 'index' in 'self' to:     *  '1' - if the bit is '0'     *  '0' - if the bit is '1'     * @return The modified value     */ [242,409]",
+      "dest": "comment: /**     * @notice Sets the bit at the given 'index' in 'self' to:     *  '1' - if the bit is '0'     *  '0' - if the bit is '1'     * @return The modified value     */ [242,409]"
+    },
+    {
+      "src": "uint256: uint256 [640,647]",
+      "dest": "uint256: uint256 [640,647]"
+    },
+    {
+      "src": "type_name [654,659]",
+      "dest": "type_name [654,659]"
+    },
+    {
+      "src": "primitive_type [690,695]",
+      "dest": "primitive_type [690,695]"
+    },
+    {
+      "src": "return_statement [1030,1060]",
+      "dest": "return_statement [1030,1060]"
+    },
+    {
+      "src": "): ) [234,235]",
+      "dest": "): ) [234,235]"
+    },
+    {
+      "src": "<<: << [520,522]",
+      "dest": "<<: << [520,522]"
+    },
+    {
+      "src": "state_variable_declaration [193,236]",
+      "dest": "state_variable_declaration [193,236]"
+    },
+    {
+      "src": "): ) [458,459]",
+      "dest": "): ) [458,459]"
+    },
+    {
+      "src": "call_argument [233,234]",
+      "dest": "call_argument [233,234]"
+    },
+    {
+      "src": "uint8: uint8 [654,659]",
+      "dest": "uint8: uint8 [654,659]"
+    },
+    {
+      "src": "{: { [492,493]",
+      "dest": "{: { [492,493]"
+    },
+    {
+      "src": "{: { [186,187]",
+      "dest": "{: { [186,187]"
+    },
+    {
+      "src": "{: { [697,698]",
+      "dest": "{: { [697,698]"
+    },
+    {
+      "src": "internal: internal [991,999]",
+      "dest": "internal: internal [991,999]"
+    },
+    {
+      "src": "identifier: self [1037,1041]",
+      "dest": "identifier: self [1037,1041]"
+    },
+    {
+      "src": "==: == [1055,1057]",
+      "dest": "==: == [1055,1057]"
+    },
+    {
+      "src": "identifier: self [972,976]",
+      "dest": "identifier: self [972,976]"
+    },
+    {
+      "src": "visibility [991,999]",
+      "dest": "visibility [991,999]"
+    },
+    {
+      "src": "state_mutability [1000,1004]",
+      "dest": "state_mutability [1000,1004]"
+    },
+    {
+      "src": "uint8: uint8 [447,452]",
+      "dest": "uint8: uint8 [447,452]"
+    },
+    {
+      "src": "identifier: self [648,652]",
+      "dest": "identifier: self [648,652]"
+    },
+    {
+      "src": "contract_body [186,1069]",
+      "dest": "contract_body [186,1069]"
+    },
+    {
+      "src": "identifier: Bits [181,185]",
+      "dest": "identifier: Bits [181,185]"
+    },
+    {
+      "src": "visibility [667,675]",
+      "dest": "visibility [667,675]"
+    },
+    {
+      "src": "library: library [173,180]",
+      "dest": "library: library [173,180]"
+    },
+    {
+      "src": "(: ( [232,233]",
+      "dest": "(: ( [232,233]"
+    },
+    {
+      "src": "): ) [490,491]",
+      "dest": "): ) [490,491]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: AGPL-3.0-or-later [0,45]",
+      "dest": "comment: // SPDX-License-Identifier: AGPL-3.0-or-later [0,45]"
+    },
+    {
+      "src": "primitive_type [964,971]",
+      "dest": "primitive_type [964,971]"
+    },
+    {
+      "src": "number_literal: 1 [1058,1059]",
+      "dest": "number_literal: 1 [1058,1059]"
+    },
+    {
+      "src": "visibility [201,209]",
+      "dest": "visibility [201,209]"
+    },
+    {
+      "src": "comment: /** * @dev Taken from https://github.com/ethereum/solidity-examples/blob/master/src/bits/Bits.sol */ [72,172]",
+      "dest": "comment: /** * @dev Taken from https://github.com/ethereum/solidity-examples/blob/master/src/bits/Bits.sol */ [72,172]"
+    },
+    {
+      "src": "identifier: index [728,733]",
+      "dest": "identifier: index [728,733]"
+    },
+    {
+      "src": ",: , [445,446]",
+      "dest": ",: , [445,446]"
+    },
+    {
+      "src": "return_type_definition [474,491]",
+      "dest": "return_type_definition [474,491]"
+    },
+    {
+      "src": "returns: returns [681,688]",
+      "dest": "returns: returns [681,688]"
+    },
+    {
+      "src": "): ) [737,738]",
+      "dest": "): ) [737,738]"
+    },
+    {
+      "src": "identifier: ONE [516,519]",
+      "dest": "identifier: ONE [516,519]"
+    },
+    {
+      "src": "number_literal: 1 [736,737]",
+      "dest": "number_literal: 1 [736,737]"
+    },
+    {
+      "src": "type_name [483,490]",
+      "dest": "type_name [483,490]"
+    },
+    {
+      "src": "type_name [978,983]",
+      "dest": "type_name [978,983]"
+    },
+    {
+      "src": "internal: internal [460,468]",
+      "dest": "internal: internal [460,468]"
+    },
+    {
+      "src": "parameter [640,652]",
+      "dest": "parameter [640,652]"
+    },
+    {
+      "src": "primitive_type [654,659]",
+      "dest": "primitive_type [654,659]"
+    },
+    {
+      "src": "function_definition [414,535]",
+      "dest": "function_definition [414,535]"
+    },
+    {
+      "src": "identifier: self [509,513]",
+      "dest": "identifier: self [509,513]"
+    },
+    {
+      "src": "identifier: index [1045,1050]",
+      "dest": "identifier: index [1045,1050]"
+    },
+    {
+      "src": "}: } [1065,1066]",
+      "dest": "}: } [1065,1066]"
+    },
+    {
+      "src": "return_type_definition [1005,1019]",
+      "dest": "return_type_definition [1005,1019]"
+    },
+    {
+      "src": "}: } [744,745]",
+      "dest": "}: } [744,745]"
+    },
+    {
+      "src": "function: function [414,422]",
+      "dest": "function: function [414,422]"
+    },
+    {
+      "src": ">>: >> [1042,1044]",
+      "dest": ">>: >> [1042,1044]"
+    },
+    {
+      "src": "binary_expression [720,733]",
+      "dest": "binary_expression [720,733]"
+    },
+    {
+      "src": "primitive_type [1014,1018]",
+      "dest": "primitive_type [1014,1018]"
+    },
+    {
+      "src": "parameter [964,976]",
+      "dest": "parameter [964,976]"
+    },
+    {
+      "src": "primitive_type [483,490]",
+      "dest": "primitive_type [483,490]"
+    },
+    {
+      "src": "comment: /**     * @notice Check if the bit at the given 'index' in 'self' is set.     * @return  'true' - if the value of the bit is '1',     *          'false' - if the value of the bit is '0'     */ [751,943]",
+      "dest": "comment: /**     * @notice Check if the bit at the given 'index' in 'self' is set.     * @return  'true' - if the value of the bit is '1',     *          'false' - if the value of the bit is '0'     */ [751,943]"
+    },
+    {
+      "src": "call_argument [720,737]",
+      "dest": "call_argument [720,737]"
+    },
+    {
+      "src": "function: function [627,635]",
+      "dest": "function: function [627,635]"
+    },
+    {
+      "src": "parameter [654,665]",
+      "dest": "parameter [654,665]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [62,64]",
+      "dest": "solidity_version_comparison_operator [62,64]"
+    },
+    {
+      "src": "primitive_type [193,200]",
+      "dest": "primitive_type [193,200]"
+    },
+    {
+      "src": "primitive_type [433,440]",
+      "dest": "primitive_type [433,440]"
+    },
+    {
+      "src": "return: return [502,508]",
+      "dest": "return: return [502,508]"
+    },
+    {
+      "src": "identifier: bit [636,639]",
+      "dest": "identifier: bit [636,639]"
+    },
+    {
+      "src": "type_name [964,971]",
+      "dest": "type_name [964,971]"
+    },
+    {
+      "src": ",: , [976,977]",
+      "dest": ",: , [976,977]"
+    },
+    {
+      "src": "): ) [695,696]",
+      "dest": "): ) [695,696]"
+    },
+    {
+      "src": "pure: pure [1000,1004]",
+      "dest": "pure: pure [1000,1004]"
+    },
+    {
+      "src": "identifier: self [441,445]",
+      "dest": "identifier: self [441,445]"
+    },
+    {
+      "src": "uint256: uint256 [193,200]",
+      "dest": "uint256: uint256 [193,200]"
+    },
+    {
+      "src": "function_definition [627,745]",
+      "dest": "function_definition [627,745]"
+    },
+    {
+      "src": "(: ( [432,433]",
+      "dest": "(: ( [432,433]"
+    },
+    {
+      "src": "returns: returns [474,481]",
+      "dest": "returns: returns [474,481]"
+    },
+    {
+      "src": "uint256: uint256 [964,971]",
+      "dest": "uint256: uint256 [964,971]"
+    },
+    {
+      "src": "binary_expression [720,737]",
+      "dest": "binary_expression [720,737]"
+    },
+    {
+      "src": "solidity: solidity [54,62]",
+      "dest": "solidity: solidity [54,62]"
+    },
+    {
+      "src": "function_body [697,745]",
+      "dest": "function_body [697,745]"
+    },
+    {
+      "src": "library_declaration [173,1069]",
+      "dest": "library_declaration [173,1069]"
+    },
+    {
+      "src": "uint256: uint256 [483,490]",
+      "dest": "uint256: uint256 [483,490]"
+    },
+    {
+      "src": "): ) [989,990]",
+      "dest": "): ) [989,990]"
+    },
+    {
+      "src": "parameter [1014,1018]",
+      "dest": "parameter [1014,1018]"
+    },
+    {
+      "src": "identifier: index [453,458]",
+      "dest": "identifier: index [453,458]"
+    },
+    {
+      "src": "function_definition [948,1066]",
+      "dest": "function_definition [948,1066]"
+    },
+    {
+      "src": "}: } [1068,1069]",
+      "dest": "}: } [1068,1069]"
+    },
+    {
+      "src": "&: & [1051,1052]",
+      "dest": "&: & [1051,1052]"
+    },
+    {
+      "src": "identifier: self [720,724]",
+      "dest": "identifier: self [720,724]"
+    },
+    {
+      "src": "internal: internal [201,209]",
+      "dest": "internal: internal [201,209]"
+    },
+    {
+      "src": "type_name [433,440]",
+      "dest": "type_name [433,440]"
+    },
+    {
+      "src": "(: ( [1013,1014]",
+      "dest": "(: ( [1013,1014]"
+    },
+    {
+      "src": "identifier: index [984,989]",
+      "dest": "identifier: index [984,989]"
+    },
+    {
+      "src": "identifier: toggleBit [423,432]",
+      "dest": "identifier: toggleBit [423,432]"
+    },
+    {
+      "src": "function_body [492,535]",
+      "dest": "function_body [492,535]"
+    },
+    {
+      "src": "number_literal: 1 [233,234]",
+      "dest": "number_literal: 1 [233,234]"
+    },
+    {
+      "src": "primitive_type [640,647]",
+      "dest": "primitive_type [640,647]"
+    },
+    {
+      "src": "parameter [978,989]",
+      "dest": "parameter [978,989]"
+    },
+    {
+      "src": "parameter [447,458]",
+      "dest": "parameter [447,458]"
+    },
+    {
+      "src": "(: ( [719,720]",
+      "dest": "(: ( [719,720]"
+    },
+    {
+      "src": "type_name [1014,1018]",
+      "dest": "type_name [1014,1018]"
+    },
+    {
+      "src": "visibility [460,468]",
+      "dest": "visibility [460,468]"
+    },
+    {
+      "src": "identifier: index [660,665]",
+      "dest": "identifier: index [660,665]"
+    },
+    {
+      "src": "function: function [948,956]",
+      "dest": "function: function [948,956]"
+    },
+    {
+      "src": "primitive_type [978,983]",
+      "dest": "primitive_type [978,983]"
+    },
+    {
+      "src": "uint256: uint256 [225,232]",
+      "dest": "uint256: uint256 [225,232]"
+    },
+    {
+      "src": ",: , [652,653]",
+      "dest": ",: , [652,653]"
+    },
+    {
+      "src": "): ) [665,666]",
+      "dest": "): ) [665,666]"
+    },
+    {
+      "src": "source_file [0,1070]",
+      "dest": "source_file [0,1070]"
+    },
+    {
+      "src": "solidity_pragma_token [54,69]",
+      "dest": "solidity_pragma_token [54,69]"
+    },
+    {
+      "src": ">>: >> [725,727]",
+      "dest": ">>: >> [725,727]"
+    },
+    {
+      "src": "=: = [223,224]",
+      "dest": "=: = [223,224]"
+    },
+    {
+      "src": "parameter [690,695]",
+      "dest": "parameter [690,695]"
+    },
+    {
+      "src": "pure: pure [469,473]",
+      "dest": "pure: pure [469,473]"
+    },
+    {
+      "src": "uint8: uint8 [978,983]",
+      "dest": "uint8: uint8 [978,983]"
+    },
+    {
+      "src": "uint256: uint256 [433,440]",
+      "dest": "uint256: uint256 [433,440]"
+    },
+    {
+      "src": "uint8: uint8 [714,719]",
+      "dest": "uint8: uint8 [714,719]"
+    },
+    {
+      "src": "type_cast_expression [225,235]",
+      "dest": "type_cast_expression [225,235]"
+    },
+    {
+      "src": "identifier: bitSet [957,963]",
+      "dest": "identifier: bitSet [957,963]"
+    },
+    {
+      "src": "binary_expression [1053,1059]",
+      "dest": "binary_expression [1053,1059]"
+    },
+    {
+      "src": "internal: internal [667,675]",
+      "dest": "internal: internal [667,675]"
+    },
+    {
+      "src": "binary_expression [509,528]",
+      "dest": "binary_expression [509,528]"
+    },
+    {
+      "src": "state_mutability [676,680]",
+      "dest": "state_mutability [676,680]"
+    },
+    {
+      "src": "(: ( [689,690]",
+      "dest": "(: ( [689,690]"
+    },
+    {
+      "src": "state_mutability [469,473]",
+      "dest": "state_mutability [469,473]"
+    },
+    {
+      "src": "type_name [690,695]",
+      "dest": "type_name [690,695]"
+    },
+    {
+      "src": "uint8: uint8 [690,695]",
+      "dest": "uint8: uint8 [690,695]"
+    },
+    {
+      "src": "primitive_type [714,719]",
+      "dest": "primitive_type [714,719]"
+    },
+    {
+      "src": "return: return [1030,1036]",
+      "dest": "return: return [1030,1036]"
+    },
+    {
+      "src": "parameter [483,490]",
+      "dest": "parameter [483,490]"
+    },
+    {
+      "src": "return_statement [707,739]",
+      "dest": "return_statement [707,739]"
+    },
+    {
+      "src": "type_name [447,452]",
+      "dest": "type_name [447,452]"
+    },
+    {
+      "src": "(: ( [639,640]",
+      "dest": "(: ( [639,640]"
+    },
+    {
+      "src": "function_body [1020,1066]",
+      "dest": "function_body [1020,1066]"
+    },
+    {
+      "src": "(: ( [963,964]",
+      "dest": "(: ( [963,964]"
+    },
+    {
+      "src": "binary_expression [516,528]",
+      "dest": "binary_expression [516,528]"
+    },
+    {
+      "src": "pure: pure [676,680]",
+      "dest": "pure: pure [676,680]"
+    },
+    {
+      "src": "identifier: ONE [219,222]",
+      "dest": "identifier: ONE [219,222]"
+    },
+    {
+      "src": "^:  ^ [62,64]",
+      "dest": "^:  ^ [62,64]"
+    },
+    {
+      "src": "primitive_type [225,232]",
+      "dest": "primitive_type [225,232]"
+    },
+    {
+      "src": "type_name [193,200]",
+      "dest": "type_name [193,200]"
+    },
+    {
+      "src": "comment: /**     * @notice Get the value of the bit at the given 'index' in 'self'.     */ [541,622]",
+      "dest": "comment: /**     * @notice Get the value of the bit at the given 'index' in 'self'.     */ [541,622]"
+    },
+    {
+      "src": "parameter [433,445]",
+      "dest": "parameter [433,445]"
+    },
+    {
+      "src": "(: ( [482,483]",
+      "dest": "(: ( [482,483]"
+    },
+    {
+      "src": "type_name [640,647]",
+      "dest": "type_name [640,647]"
+    },
+    {
+      "src": "pragma: pragma [47,53]",
+      "dest": "pragma: pragma [47,53]"
+    },
+    {
+      "src": "}: } [534,535]",
+      "dest": "}: } [534,535]"
+    },
+    {
+      "src": "): ) [1018,1019]",
+      "dest": "): ) [1018,1019]"
+    },
+    {
+      "src": "binary_expression [1037,1059]",
+      "dest": "binary_expression [1037,1059]"
+    },
+    {
+      "src": "&: & [734,735]",
+      "dest": "&: & [734,735]"
+    },
+    {
+      "src": "^: ^ [514,515]",
+      "dest": "^: ^ [514,515]"
+    },
+    {
+      "src": "pragma_directive [47,70]",
+      "dest": "pragma_directive [47,70]"
+    },
+    {
+      "src": "{: { [1020,1021]",
+      "dest": "{: { [1020,1021]"
+    },
+    {
+      "src": "solidity_version: 0.7.0 [64,69]",
+      "dest": "solidity_version: 0.7.0 [64,69]"
+    },
+    {
+      "src": "primitive_type [447,452]",
+      "dest": "primitive_type [447,452]"
+    },
+    {
+      "src": "returns: returns [1005,1012]",
+      "dest": "returns: returns [1005,1012]"
+    }
+  ],
+  "actions": []
+}

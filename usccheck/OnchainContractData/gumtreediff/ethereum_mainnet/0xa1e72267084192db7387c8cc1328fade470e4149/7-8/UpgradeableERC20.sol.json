@@ -1,0 +1,5189 @@
+{
+  "matches": [
+    {
+      "src": "[: [ [5252,5253]",
+      "dest": "[: [ [5252,5253]"
+    },
+    {
+      "src": "=: = [7599,7600]",
+      "dest": "=: = [7599,7600]"
+    },
+    {
+      "src": "user_defined_type [1452,1459]",
+      "dest": "user_defined_type [1452,1459]"
+    },
+    {
+      "src": "array_access [5233,5252]",
+      "dest": "array_access [5233,5252]"
+    },
+    {
+      "src": "visibility [1759,1766]",
+      "dest": "visibility [1759,1766]"
+    },
+    {
+      "src": "(: ( [2126,2127]",
+      "dest": "(: ( [2126,2127]"
+    },
+    {
+      "src": "call_argument [7780,7786]",
+      "dest": "call_argument [7780,7786]"
+    },
+    {
+      "src": "using_directive [1474,1501]",
+      "dest": "using_directive [1474,1501]"
+    },
+    {
+      "src": "identifier: require [8139,8146]",
+      "dest": "identifier: require [8139,8146]"
+    },
+    {
+      "src": ",: , [6490,6491]",
+      "dest": ",: , [6490,6491]"
+    },
+    {
+      "src": "string [9018,9054]",
+      "dest": "string [9018,9054]"
+    },
+    {
+      "src": "primitive_type [1524,1531]",
+      "dest": "primitive_type [1524,1531]"
+    },
+    {
+      "src": ",: , [3896,3897]",
+      "dest": ",: , [3896,3897]"
+    },
+    {
+      "src": "=: = [11183,11184]",
+      "dest": "=: = [11183,11184]"
+    },
+    {
+      "src": "}: } [227,228]",
+      "dest": "}: } [227,228]"
+    },
+    {
+      "src": "identifier: account [8355,8362]",
+      "dest": "identifier: account [8355,8362]"
+    },
+    {
+      "src": "visibility [8801,8809]",
+      "dest": "visibility [8801,8809]"
+    },
+    {
+      "src": "parameter [10305,10320]",
+      "dest": "parameter [10305,10320]"
+    },
+    {
+      "src": "type_name [5834,5838]",
+      "dest": "type_name [5834,5838]"
+    },
+    {
+      "src": "identifier: amount [7563,7569]",
+      "dest": "identifier: amount [7563,7569]"
+    },
+    {
+      "src": "): ) [8203,8204]",
+      "dest": "): ) [8203,8204]"
+    },
+    {
+      "src": "state_variable_declaration [1538,1584]",
+      "dest": "state_variable_declaration [1538,1584]"
+    },
+    {
+      "src": "uint8: uint8 [10305,10310]",
+      "dest": "uint8: uint8 [10305,10310]"
+    },
+    {
+      "src": "mapping: mapping [1590,1597]",
+      "dest": "mapping: mapping [1590,1597]"
+    },
+    {
+      "src": "parameter [2567,2580]",
+      "dest": "parameter [2567,2580]"
+    },
+    {
+      "src": "binary_expression [7449,7472]",
+      "dest": "binary_expression [7449,7472]"
+    },
+    {
+      "src": "parameter [2127,2145]",
+      "dest": "parameter [2127,2145]"
+    },
+    {
+      "src": "{: { [6547,6548]",
+      "dest": "{: { [6547,6548]"
+    },
+    {
+      "src": "primitive_type [3898,3905]",
+      "dest": "primitive_type [3898,3905]"
+    },
+    {
+      "src": "identifier: sender [7369,7375]",
+      "dest": "identifier: sender [7369,7375]"
+    },
+    {
+      "src": "parameter [6492,6515]",
+      "dest": "parameter [6492,6515]"
+    },
+    {
+      "src": "\": \" [9855,9856]",
+      "dest": "\": \" [9855,9856]"
+    },
+    {
+      "src": "identifier: sender [7761,7767]",
+      "dest": "identifier: sender [7761,7767]"
+    },
+    {
+      "src": "parameter [2147,2167]",
+      "dest": "parameter [2147,2167]"
+    },
+    {
+      "src": "returns: returns [3938,3945]",
+      "dest": "returns: returns [3938,3945]"
+    },
+    {
+      "src": "{: { [2386,2387]",
+      "dest": "{: { [2386,2387]"
+    },
+    {
+      "src": ".: . [9092,9093]",
+      "dest": ".: . [9092,9093]"
+    },
+    {
+      "src": "expression_statement [7581,7673]",
+      "dest": "expression_statement [7581,7673]"
+    },
+    {
+      "src": "function: function [10281,10289]",
+      "dest": "function: function [10281,10289]"
+    },
+    {
+      "src": "\": \" [189,190]",
+      "dest": "\": \" [189,190]"
+    },
+    {
+      "src": "comment: /**  * @dev Implementation of the {IERC20} interface.  *  * This implementation is agnostic to the way tokens are created. This means  * that a supply mechanism has to be added in a derived contract using {_mint}.  * For a generic mechanism see {ERC20PresetMinterPauser}.  *  * TIP: For a detailed writeup see our guide  * https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How  * to implement supply mechanisms].  *  * We have followed general OpenZeppelin guidelines: functions revert instead  * of returning `false` on failure. This behavior is nonetheless conventional  * and does not conflict with the expectations of ERC20 applications.  *  * Additionally, an {Approval} event is emitted on calls to {transferFrom}.  * This allows applications to reconstruct the allowance for all accounts just  * by listening to said events. Other implementations of the EIP may not emit  * these events, as it isn't required by the specification.  *  * Finally, the non-standard {decreaseAllowance} and {increaseAllowance}  * functions have been added to mitigate the well-known issues around setting  * allowances. See {IERC20-approve}.  */ [256,1418]",
+      "dest": "comment: /**  * @dev Implementation of the {IERC20} interface.  *  * This implementation is agnostic to the way tokens are created. This means  * that a supply mechanism has to be added in a derived contract using {_mint}.  * For a generic mechanism see {ERC20PresetMinterPauser}.  *  * TIP: For a detailed writeup see our guide  * https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How  * to implement supply mechanisms].  *  * We have followed general OpenZeppelin guidelines: functions revert instead  * of returning `false` on failure. This behavior is nonetheless conventional  * and does not conflict with the expectations of ERC20 applications.  *  * Additionally, an {Approval} event is emitted on calls to {transferFrom}.  * This allows applications to reconstruct the allowance for all accounts just  * by listening to said events. Other implementations of the EIP may not emit  * these events, as it isn't required by the specification.  *  * Finally, the non-standard {decreaseAllowance} and {increaseAllowance}  * functions have been added to mitigate the well-known issues around setting  * allowances. See {IERC20-approve}.  */ [256,1418]"
+    },
+    {
+      "src": "call_argument [8236,8246]",
+      "dest": "call_argument [8236,8246]"
+    },
+    {
+      "src": "): ) [1635,1636]",
+      "dest": "): ) [1635,1636]"
+    },
+    {
+      "src": "is: is [1434,1436]",
+      "dest": "is: is [1434,1436]"
+    },
+    {
+      "src": "address: address [1524,1531]",
+      "dest": "address: address [1524,1531]"
+    },
+    {
+      "src": "primitive_type [3947,3951]",
+      "dest": "primitive_type [3947,3951]"
+    },
+    {
+      "src": "identifier: _balances [8345,8354]",
+      "dest": "identifier: _balances [8345,8354]"
+    },
+    {
+      "src": "\": \" [152,153]",
+      "dest": "\": \" [152,153]"
+    },
+    {
+      "src": "identifier: spender [4133,4140]",
+      "dest": "identifier: spender [4133,4140]"
+    },
+    {
+      "src": "identifier: amount [7730,7736]",
+      "dest": "identifier: amount [7730,7736]"
+    },
+    {
+      "src": "identifier: _approve [9597,9605]",
+      "dest": "identifier: _approve [9597,9605]"
+    },
+    {
+      "src": "identifier: amount [9944,9950]",
+      "dest": "identifier: amount [9944,9950]"
+    },
+    {
+      "src": "type_name [2147,2153]",
+      "dest": "type_name [2147,2153]"
+    },
+    {
+      "src": "primitive_type [6475,6482]",
+      "dest": "primitive_type [6475,6482]"
+    },
+    {
+      "src": "boolean_literal [4022,4026]",
+      "dest": "boolean_literal [4022,4026]"
+    },
+    {
+      "src": "type_name [2567,2573]",
+      "dest": "type_name [2567,2573]"
+    },
+    {
+      "src": "(: ( [8078,8079]",
+      "dest": "(: ( [8078,8079]"
+    },
+    {
+      "src": "returns: returns [3598,3605]",
+      "dest": "returns: returns [3598,3605]"
+    },
+    {
+      "src": "\": \" [6720,6721]",
+      "dest": "\": \" [6720,6721]"
+    },
+    {
+      "src": "address: address [8399,8406]",
+      "dest": "address: address [8399,8406]"
+    },
+    {
+      "src": "string_literal [6682,6721]",
+      "dest": "string_literal [6682,6721]"
+    },
+    {
+      "src": "primitive_type [8158,8165]",
+      "dest": "primitive_type [8158,8165]"
+    },
+    {
+      "src": "memory: memory [2574,2580]",
+      "dest": "memory: memory [2574,2580]"
+    },
+    {
+      "src": ",: , [4498,4499]",
+      "dest": ",: , [4498,4499]"
+    },
+    {
+      "src": "call_expression [8828,8895]",
+      "dest": "call_expression [8828,8895]"
+    },
+    {
+      "src": "parameter [5790,5808]",
+      "dest": "parameter [5790,5808]"
+    },
+    {
+      "src": "type_name [1524,1531]",
+      "dest": "type_name [1524,1531]"
+    },
+    {
+      "src": "function_body [3447,3483]",
+      "dest": "function_body [3447,3483]"
+    },
+    {
+      "src": "): ) [4465,4466]",
+      "dest": "): ) [4465,4466]"
+    },
+    {
+      "src": "type_name [5140,5144]",
+      "dest": "type_name [5140,5144]"
+    },
+    {
+      "src": "identifier: _setupDecimals [10290,10304]",
+      "dest": "identifier: _setupDecimals [10290,10304]"
+    },
+    {
+      "src": "primitive_type [7286,7293]",
+      "dest": "primitive_type [7286,7293]"
+    },
+    {
+      "src": "visibility [1732,1739]",
+      "dest": "visibility [1732,1739]"
+    },
+    {
+      "src": "identifier: amount [4509,4515]",
+      "dest": "identifier: amount [4509,4515]"
+    },
+    {
+      "src": "identifier: owner [9719,9724]",
+      "dest": "identifier: owner [9719,9724]"
+    },
+    {
+      "src": "function: function [3385,3393]",
+      "dest": "function: function [3385,3393]"
+    },
+    {
+      "src": "call_argument [9149,9155]",
+      "dest": "call_argument [9149,9155]"
+    },
+    {
+      "src": "virtual: virtual [4149,4156]",
+      "dest": "virtual: virtual [4149,4156]"
+    },
+    {
+      "src": "identifier: amount [9149,9155]",
+      "dest": "identifier: amount [9149,9155]"
+    },
+    {
+      "src": "identifier: sender [5166,5172]",
+      "dest": "identifier: sender [5166,5172]"
+    },
+    {
+      "src": "(: ( [2370,2371]",
+      "dest": "(: ( [2370,2371]"
+    },
+    {
+      "src": "string [5279,5321]",
+      "dest": "string [5279,5321]"
+    },
+    {
+      "src": ",: , [5076,5077]",
+      "dest": ",: , [5076,5077]"
+    },
+    {
+      "src": "=: = [11209,11210]",
+      "dest": "=: = [11209,11210]"
+    },
+    {
+      "src": "primitive_type [5035,5042]",
+      "dest": "primitive_type [5035,5042]"
+    },
+    {
+      "src": "parameter [7313,7327]",
+      "dest": "parameter [7313,7327]"
+    },
+    {
+      "src": "assignment_expression [11177,11191]",
+      "dest": "assignment_expression [11177,11191]"
+    },
+    {
+      "src": "identifier: amount [3998,4004]",
+      "dest": "identifier: amount [3998,4004]"
+    },
+    {
+      "src": "public: public [5810,5816]",
+      "dest": "public: public [5810,5816]"
+    },
+    {
+      "src": "function_definition [2528,2613]",
+      "dest": "function_definition [2528,2613]"
+    },
+    {
+      "src": "address: address [9137,9144]",
+      "dest": "address: address [9137,9144]"
+    },
+    {
+      "src": "comment: /**      * @dev Sets {decimals} to a value other than the default one of 18.      *      * WARNING: This function should only be called from the constructor. Most      * applications that interact with token contracts will not expect      * {decimals} to ever change, and may work incorrectly if it does.      */ [9964,10276]",
+      "dest": "comment: /**      * @dev Sets {decimals} to a value other than the default one of 18.      *      * WARNING: This function should only be called from the constructor. Most      * applications that interact with token contracts will not expect      * {decimals} to ever change, and may work incorrectly if it does.      */ [9964,10276]"
+    },
+    {
+      "src": "visibility [2546,2552]",
+      "dest": "visibility [2546,2552]"
+    },
+    {
+      "src": "string: string [11112,11118]",
+      "dest": "string: string [11112,11118]"
+    },
+    {
+      "src": "function: function [6448,6456]",
+      "dest": "function: function [6448,6456]"
+    },
+    {
+      "src": "return: return [4199,4205]",
+      "dest": "return: return [4199,4205]"
+    },
+    {
+      "src": "!=: != [9805,9807]",
+      "dest": "!=: != [9805,9807]"
+    },
+    {
+      "src": "uint256: uint256 [3438,3445]",
+      "dest": "uint256: uint256 [3438,3445]"
+    },
+    {
+      "src": "parameter [3947,3951]",
+      "dest": "parameter [3947,3951]"
+    },
+    {
+      "src": "comment: /**      * @dev Atomically increases the allowance granted to `spender` by the caller.      *      * This is an alternative to {approve} that can be used as a mitigation for      * problems described in {IERC20-approve}.      *      * Emits an {Approval} event indicating the updated allowance.      *      * Requirements:      *      * - `spender` cannot be the zero address.      */ [5357,5741]",
+      "dest": "comment: /**      * @dev Atomically increases the allowance granted to `spender` by the caller.      *      * This is an alternative to {approve} that can be used as a mitigation for      * problems described in {IERC20-approve}.      *      * Emits an {Approval} event indicating the updated allowance.      *      * Requirements:      *      * - `spender` cannot be the zero address.      */ [5357,5741]"
+    },
+    {
+      "src": "primitive_type [5834,5838]",
+      "dest": "primitive_type [5834,5838]"
+    },
+    {
+      "src": "address: address [9615,9622]",
+      "dest": "address: address [9615,9622]"
+    },
+    {
+      "src": "state_mutability [2357,2361]",
+      "dest": "state_mutability [2357,2361]"
+    },
+    {
+      "src": "[: [ [7691,7692]",
+      "dest": "[: [ [7691,7692]"
+    },
+    {
+      "src": "identifier: require [7361,7368]",
+      "dest": "identifier: require [7361,7368]"
+    },
+    {
+      "src": "identifier: recipient [7449,7458]",
+      "dest": "identifier: recipient [7449,7458]"
+    },
+    {
+      "src": "identifier: __symbol [11148,11156]",
+      "dest": "identifier: __symbol [11148,11156]"
+    },
+    {
+      "src": "primitive_type [4412,4419]",
+      "dest": "primitive_type [4412,4419]"
+    },
+    {
+      "src": "parameter [11134,11156]",
+      "dest": "parameter [11134,11156]"
+    },
+    {
+      "src": "]: ] [9885,9886]",
+      "dest": "]: ] [9885,9886]"
+    },
+    {
+      "src": "type_name [1538,1565]",
+      "dest": "type_name [1538,1565]"
+    },
+    {
+      "src": "visibility [1706,1713]",
+      "dest": "visibility [1706,1713]"
+    },
+    {
+      "src": ",: , [8255,8256]",
+      "dest": ",: , [8255,8256]"
+    },
+    {
+      "src": "]: ] [4223,4224]",
+      "dest": "]: ] [4223,4224]"
+    },
+    {
+      "src": "member_expression [5882,5920]",
+      "dest": "member_expression [5882,5920]"
+    },
+    {
+      "src": "identifier: spender [5908,5915]",
+      "dest": "identifier: spender [5908,5915]"
+    },
+    {
+      "src": ".: . [5916,5917]",
+      "dest": ".: . [5916,5917]"
+    },
+    {
+      "src": "for: for [1520,1523]",
+      "dest": "for: for [1520,1523]"
+    },
+    {
+      "src": "{: { [8129,8130]",
+      "dest": "{: { [8129,8130]"
+    },
+    {
+      "src": "mapping: mapping [1538,1545]",
+      "dest": "mapping: mapping [1538,1545]"
+    },
+    {
+      "src": "{: { [3447,3448]",
+      "dest": "{: { [3447,3448]"
+    },
+    {
+      "src": ",: , [8418,8419]",
+      "dest": ",: , [8418,8419]"
+    },
+    {
+      "src": "): ) [5838,5839]",
+      "dest": "): ) [5838,5839]"
+    },
+    {
+      "src": "visibility [4142,4148]",
+      "dest": "visibility [4142,4148]"
+    },
+    {
+      "src": "return: return [4526,4532]",
+      "dest": "return: return [4526,4532]"
+    },
+    {
+      "src": "): ) [8894,8895]",
+      "dest": "): ) [8894,8895]"
+    },
+    {
+      "src": "expression_statement [9065,9105]",
+      "dest": "expression_statement [9065,9105]"
+    },
+    {
+      "src": "uint256: uint256 [3607,3614]",
+      "dest": "uint256: uint256 [3607,3614]"
+    },
+    {
+      "src": "virtual: virtual [5114,5121]",
+      "dest": "virtual: virtual [5114,5121]"
+    },
+    {
+      "src": "}: } [2268,2269]",
+      "dest": "}: } [2268,2269]"
+    },
+    {
+      "src": "primitive_type [10995,11002]",
+      "dest": "primitive_type [10995,11002]"
+    },
+    {
+      "src": "): ) [7786,7787]",
+      "dest": "): ) [7786,7787]"
+    },
+    {
+      "src": "address: address [8158,8165]",
+      "dest": "address: address [8158,8165]"
+    },
+    {
+      "src": "virtual: virtual [4435,4442]",
+      "dest": "virtual: virtual [4435,4442]"
+    },
+    {
+      "src": "return_type_definition [5131,5145]",
+      "dest": "return_type_definition [5131,5145]"
+    },
+    {
+      "src": "identifier: to [11025,11027]",
+      "dest": "identifier: to [11025,11027]"
+    },
+    {
+      "src": "primitive_type [1493,1500]",
+      "dest": "primitive_type [1493,1500]"
+    },
+    {
+      "src": ",: , [11027,11028]",
+      "dest": ",: , [11027,11028]"
+    },
+    {
+      "src": "identifier: IERC20 [1461,1467]",
+      "dest": "identifier: IERC20 [1461,1467]"
+    },
+    {
+      "src": "call_argument [8944,8945]",
+      "dest": "call_argument [8944,8945]"
+    },
+    {
+      "src": "assignment_expression [8966,9055]",
+      "dest": "assignment_expression [8966,9055]"
+    },
+    {
+      "src": "=>: => [1554,1556]",
+      "dest": "=>: => [1554,1556]"
+    },
+    {
+      "src": "call_argument [7769,7778]",
+      "dest": "call_argument [7769,7778]"
+    },
+    {
+      "src": "import_directive [131,165]",
+      "dest": "import_directive [131,165]"
+    },
+    {
+      "src": "type_name [4125,4132]",
+      "dest": "type_name [4125,4132]"
+    },
+    {
+      "src": "{: { [173,174]",
+      "dest": "{: { [173,174]"
+    },
+    {
+      "src": "contract: contract [1419,1427]",
+      "dest": "contract: contract [1419,1427]"
+    },
+    {
+      "src": "public: public [2546,2552]",
+      "dest": "public: public [2546,2552]"
+    },
+    {
+      "src": "member_expression [5233,5270]",
+      "dest": "member_expression [5233,5270]"
+    },
+    {
+      "src": ",: , [9653,9654]",
+      "dest": ",: , [9653,9654]"
+    },
+    {
+      "src": "(: ( [3284,3285]",
+      "dest": "(: ( [3284,3285]"
+    },
+    {
+      "src": "parameter [6541,6545]",
+      "dest": "parameter [6541,6545]"
+    },
+    {
+      "src": "identifier: _balances [7705,7714]",
+      "dest": "identifier: _balances [7705,7714]"
+    },
+    {
+      "src": "(: ( [2347,2348]",
+      "dest": "(: ( [2347,2348]"
+    },
+    {
+      "src": "call_argument [5279,5321]",
+      "dest": "call_argument [5279,5321]"
+    },
+    {
+      "src": "comment: /**      * @dev See {IERC20-allowance}.      */ [4039,4086]",
+      "dest": "comment: /**      * @dev See {IERC20-allowance}.      */ [4039,4086]"
+    },
+    {
+      "src": "(: ( [8243,8244]",
+      "dest": "(: ( [8243,8244]"
+    },
+    {
+      "src": "array_access [4206,4224]",
+      "dest": "array_access [4206,4224]"
+    },
+    {
+      "src": "state_mutability [3593,3597]",
+      "dest": "state_mutability [3593,3597]"
+    },
+    {
+      "src": "virtual: virtual [6524,6531]",
+      "dest": "virtual: virtual [6524,6531]"
+    },
+    {
+      "src": "): ) [3614,3615]",
+      "dest": "): ) [3614,3615]"
+    },
+    {
+      "src": "call_argument [7563,7569]",
+      "dest": "call_argument [7563,7569]"
+    },
+    {
+      "src": "type_name [4395,4402]",
+      "dest": "type_name [4395,4402]"
+    },
+    {
+      "src": "call_argument [3973,3985]",
+      "dest": "call_argument [3973,3985]"
+    },
+    {
+      "src": "identifier: increaseAllowance [5755,5772]",
+      "dest": "identifier: increaseAllowance [5755,5772]"
+    },
+    {
+      "src": "[: [ [9886,9887]",
+      "dest": "[: [ [9886,9887]"
+    },
+    {
+      "src": "): ) [6721,6722]",
+      "dest": "): ) [6721,6722]"
+    },
+    {
+      "src": "number_literal: 0 [8855,8856]",
+      "dest": "number_literal: 0 [8855,8856]"
+    },
+    {
+      "src": "{: { [1468,1469]",
+      "dest": "{: { [1468,1469]"
+    },
+    {
+      "src": "type_name [4180,4187]",
+      "dest": "type_name [4180,4187]"
+    },
+    {
+      "src": "call_expression [5850,5933]",
+      "dest": "call_expression [5850,5933]"
+    },
+    {
+      "src": "(: ( [8854,8855]",
+      "dest": "(: ( [8854,8855]"
+    },
+    {
+      "src": "member_expression [8345,8367]",
+      "dest": "member_expression [8345,8367]"
+    },
+    {
+      "src": "emit_statement [9914,9952]",
+      "dest": "emit_statement [9914,9952]"
+    },
+    {
+      "src": "comment: /**      * @dev See {IERC20-approve}.      *      * Requirements:      *      * - `spender` cannot be the zero address.      */ [4246,4373]",
+      "dest": "comment: /**      * @dev See {IERC20-approve}.      *      * Requirements:      *      * - `spender` cannot be the zero address.      */ [4246,4373]"
+    },
+    {
+      "src": "expression_statement [11177,11192]",
+      "dest": "expression_statement [11177,11192]"
+    },
+    {
+      "src": "array_access [5882,5907]",
+      "dest": "array_access [5882,5907]"
+    },
+    {
+      "src": "address: address [6475,6482]",
+      "dest": "address: address [6475,6482]"
+    },
+    {
+      "src": "assignment_expression [8324,8375]",
+      "dest": "assignment_expression [8324,8375]"
+    },
+    {
+      "src": "): ) [4004,4005]",
+      "dest": "): ) [4004,4005]"
+    },
+    {
+      "src": "array_access [7581,7598]",
+      "dest": "array_access [7581,7598]"
+    },
+    {
+      "src": "visibility [11058,11066]",
+      "dest": "visibility [11058,11066]"
+    },
+    {
+      "src": "virtual: virtual [3921,3928]",
+      "dest": "virtual: virtual [3921,3928]"
+    },
+    {
+      "src": "): ) [7671,7672]",
+      "dest": "): ) [7671,7672]"
+    },
+    {
+      "src": "identifier: require [7441,7448]",
+      "dest": "identifier: require [7441,7448]"
+    },
+    {
+      "src": "identifier: name [2208,2212]",
+      "dest": "identifier: name [2208,2212]"
+    },
+    {
+      "src": "string: string [1725,1731]",
+      "dest": "string: string [1725,1731]"
+    },
+    {
+      "src": "): ) [5105,5106]",
+      "dest": "): ) [5105,5106]"
+    },
+    {
+      "src": "visibility [5810,5816]",
+      "dest": "visibility [5810,5816]"
+    },
+    {
+      "src": "from: from [74,78]",
+      "dest": "from: from [74,78]"
+    },
+    {
+      "src": "call_argument [7730,7736]",
+      "dest": "call_argument [7730,7736]"
+    },
+    {
+      "src": "}: } [72,73]",
+      "dest": "}: } [72,73]"
+    },
+    {
+      "src": "function: function [3541,3549]",
+      "dest": "function: function [3541,3549]"
+    },
+    {
+      "src": "type_name [11134,11140]",
+      "dest": "type_name [11134,11140]"
+    },
+    {
+      "src": "identifier: amount [9671,9677]",
+      "dest": "identifier: amount [9671,9677]"
+    },
+    {
+      "src": "public: public [2350,2356]",
+      "dest": "public: public [2350,2356]"
+    },
+    {
+      "src": "override_specifier [5122,5130]",
+      "dest": "override_specifier [5122,5130]"
+    },
+    {
+      "src": "string: string [2567,2573]",
+      "dest": "string: string [2567,2573]"
+    },
+    {
+      "src": "): ) [7332,7333]",
+      "dest": "): ) [7332,7333]"
+    },
+    {
+      "src": "): ) [5264,5265]",
+      "dest": "): ) [5264,5265]"
+    },
+    {
+      "src": "call_argument [9145,9146]",
+      "dest": "call_argument [9145,9146]"
+    },
+    {
+      "src": "primitive_type [3879,3886]",
+      "dest": "primitive_type [3879,3886]"
+    },
+    {
+      "src": "array_access [3633,3651]",
+      "dest": "array_access [3633,3651]"
+    },
+    {
+      "src": "returns: returns [3429,3436]",
+      "dest": "returns: returns [3429,3436]"
+    },
+    {
+      "src": "member_expression [6626,6664]",
+      "dest": "member_expression [6626,6664]"
+    },
+    {
+      "src": "(: ( [8926,8927]",
+      "dest": "(: ( [8926,8927]"
+    },
+    {
+      "src": "view: view [3424,3428]",
+      "dest": "view: view [3424,3428]"
+    },
+    {
+      "src": "\": \" [5279,5280]",
+      "dest": "\": \" [5279,5280]"
+    },
+    {
+      "src": "true: true [5340,5344]",
+      "dest": "true: true [5340,5344]"
+    },
+    {
+      "src": ",: , [4410,4411]",
+      "dest": ",: , [4410,4411]"
+    },
+    {
+      "src": "string [234,253]",
+      "dest": "string [234,253]"
+    },
+    {
+      "src": "call_expression [7601,7672]",
+      "dest": "call_expression [7601,7672]"
+    },
+    {
+      "src": "call_argument [8936,8946]",
+      "dest": "call_argument [8936,8946]"
+    },
+    {
+      "src": "identifier: amount [8948,8954]",
+      "dest": "identifier: amount [8948,8954]"
+    },
+    {
+      "src": "assignment_expression [10341,10362]",
+      "dest": "assignment_expression [10341,10362]"
+    },
+    {
+      "src": "identifier: spender [9646,9653]",
+      "dest": "identifier: spender [9646,9653]"
+    },
+    {
+      "src": "override: override [3415,3423]",
+      "dest": "override: override [3415,3423]"
+    },
+    {
+      "src": "primitive_type [8096,8103]",
+      "dest": "primitive_type [8096,8103]"
+    },
+    {
+      "src": "private: private [1732,1739]",
+      "dest": "private: private [1732,1739]"
+    },
+    {
+      "src": "parameter [4125,4140]",
+      "dest": "parameter [4125,4140]"
+    },
+    {
+      "src": "assignment_expression [2222,2238]",
+      "dest": "assignment_expression [2222,2238]"
+    },
+    {
+      "src": "number_literal: 0 [7387,7388]",
+      "dest": "number_literal: 0 [7387,7388]"
+    },
+    {
+      "src": "identifier: totalSupply [3394,3405]",
+      "dest": "identifier: totalSupply [3394,3405]"
+    },
+    {
+      "src": ".: . [5266,5267]",
+      "dest": ".: . [5266,5267]"
+    },
+    {
+      "src": "}: } [8433,8434]",
+      "dest": "}: } [8433,8434]"
+    },
+    {
+      "src": "identifier: _allowances [4206,4217]",
+      "dest": "identifier: _allowances [4206,4217]"
+    },
+    {
+      "src": "array_access [9868,9895]",
+      "dest": "array_access [9868,9895]"
+    },
+    {
+      "src": "uint256: uint256 [1664,1671]",
+      "dest": "uint256: uint256 [1664,1671]"
+    },
+    {
+      "src": ",: , [8946,8947]",
+      "dest": ",: , [8946,8947]"
+    },
+    {
+      "src": "uint8: uint8 [3285,3290]",
+      "dest": "uint8: uint8 [3285,3290]"
+    },
+    {
+      "src": "parameter [5059,5076]",
+      "dest": "parameter [5059,5076]"
+    },
+    {
+      "src": "call_argument [8420,8426]",
+      "dest": "call_argument [8420,8426]"
+    },
+    {
+      "src": "): ) [5931,5932]",
+      "dest": "): ) [5931,5932]"
+    },
+    {
+      "src": "solidity_version:  0.6.10 [47,54]",
+      "dest": "solidity_version:  0.6.10 [47,54]"
+    },
+    {
+      "src": "import: import [94,100]",
+      "dest": "import: import [94,100]"
+    },
+    {
+      "src": "}: } [182,183]",
+      "dest": "}: } [182,183]"
+    },
+    {
+      "src": "expression_statement [9789,9858]",
+      "dest": "expression_statement [9789,9858]"
+    },
+    {
+      "src": "type_name [1493,1500]",
+      "dest": "type_name [1493,1500]"
+    },
+    {
+      "src": "]: ] [3650,3651]",
+      "dest": "]: ] [3650,3651]"
+    },
+    {
+      "src": "override: override [3584,3592]",
+      "dest": "override: override [3584,3592]"
+    },
+    {
+      "src": "function_body [7351,7794]",
+      "dest": "function_body [7351,7794]"
+    },
+    {
+      "src": "identifier: sender [7544,7550]",
+      "dest": "identifier: sender [7544,7550]"
+    },
+    {
+      "src": "view: view [2553,2557]",
+      "dest": "view: view [2553,2557]"
+    },
+    {
+      "src": "type_name [3285,3290]",
+      "dest": "type_name [3285,3290]"
+    },
+    {
+      "src": "identifier: addedValue [5921,5931]",
+      "dest": "identifier: addedValue [5921,5931]"
+    },
+    {
+      "src": "(: ( [9605,9606]",
+      "dest": "(: ( [9605,9606]"
+    },
+    {
+      "src": "expression_statement [2248,2263]",
+      "dest": "expression_statement [2248,2263]"
+    },
+    {
+      "src": "parameter [4180,4187]",
+      "dest": "parameter [4180,4187]"
+    },
+    {
+      "src": "\": \" [9740,9741]",
+      "dest": "\": \" [9740,9741]"
+    },
+    {
+      "src": "function_definition [3385,3483]",
+      "dest": "function_definition [3385,3483]"
+    },
+    {
+      "src": "): ) [6545,6546]",
+      "dest": "): ) [6545,6546]"
+    },
+    {
+      "src": "identifier: account [8411,8418]",
+      "dest": "identifier: account [8411,8418]"
+    },
+    {
+      "src": "assignment_expression [2248,2262]",
+      "dest": "assignment_expression [2248,2262]"
+    },
+    {
+      "src": "identifier: _msgSender [5859,5869]",
+      "dest": "identifier: _msgSender [5859,5869]"
+    },
+    {
+      "src": "): ) [8799,8800]",
+      "dest": "): ) [8799,8800]"
+    },
+    {
+      "src": "identifier: symbol [2537,2543]",
+      "dest": "identifier: symbol [2537,2543]"
+    },
+    {
+      "src": "(: ( [8165,8166]",
+      "dest": "(: ( [8165,8166]"
+    },
+    {
+      "src": "identifier: decreaseAllowance [6457,6474]",
+      "dest": "identifier: decreaseAllowance [6457,6474]"
+    },
+    {
+      "src": "identifier: _name [2200,2205]",
+      "dest": "identifier: _name [2200,2205]"
+    },
+    {
+      "src": "identifier: _decimals [10341,10350]",
+      "dest": "identifier: _decimals [10341,10350]"
+    },
+    {
+      "src": "{: { [11167,11168]",
+      "dest": "{: { [11167,11168]"
+    },
+    {
+      "src": "]: ] [5906,5907]",
+      "dest": "]: ] [5906,5907]"
+    },
+    {
+      "src": "expression_statement [9711,9780]",
+      "dest": "expression_statement [9711,9780]"
+    },
+    {
+      "src": "parameter [10995,11007]",
+      "dest": "parameter [10995,11007]"
+    },
+    {
+      "src": "true [4022,4026]",
+      "dest": "true [4022,4026]"
+    },
+    {
+      "src": "identifier: spender [4403,4410]",
+      "dest": "identifier: spender [4403,4410]"
+    },
+    {
+      "src": "identifier: account [9128,9135]",
+      "dest": "identifier: account [9128,9135]"
+    },
+    {
+      "src": "parameter [9615,9628]",
+      "dest": "parameter [9615,9628]"
+    },
+    {
+      "src": "emit: emit [7747,7751]",
+      "dest": "emit: emit [7747,7751]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns the name of the token.      */ [2275,2329]",
+      "dest": "comment: /**      * @dev Returns the name of the token.      */ [2275,2329]"
+    },
+    {
+      "src": "return_type_definition [5825,5839]",
+      "dest": "return_type_definition [5825,5839]"
+    },
+    {
+      "src": "function: function [5004,5012]",
+      "dest": "function: function [5004,5012]"
+    },
+    {
+      "src": ",: , [7629,7630]",
+      "dest": ",: , [7629,7630]"
+    },
+    {
+      "src": "type_name [3898,3905]",
+      "dest": "type_name [3898,3905]"
+    },
+    {
+      "src": "}: } [5350,5351]",
+      "dest": "}: } [5350,5351]"
+    },
+    {
+      "src": "identifier: owner [9928,9933]",
+      "dest": "identifier: owner [9928,9933]"
+    },
+    {
+      "src": "call_expression [6557,6732]",
+      "dest": "call_expression [6557,6732]"
+    },
+    {
+      "src": "identifier: account [8147,8154]",
+      "dest": "identifier: account [8147,8154]"
+    },
+    {
+      "src": "\": \" [8170,8171]",
+      "dest": "\": \" [8170,8171]"
+    },
+    {
+      "src": "expression_statement [7682,7738]",
+      "dest": "expression_statement [7682,7738]"
+    },
+    {
+      "src": "!=: != [7376,7378]",
+      "dest": "!=: != [7376,7378]"
+    },
+    {
+      "src": "identifier: _beforeTokenTransfer [8906,8926]",
+      "dest": "identifier: _beforeTokenTransfer [8906,8926]"
+    },
+    {
+      "src": "visibility [10322,10330]",
+      "dest": "visibility [10322,10330]"
+    },
+    {
+      "src": "): ) [9146,9147]",
+      "dest": "): ) [9146,9147]"
+    },
+    {
+      "src": "visibility [2169,2177]",
+      "dest": "visibility [2169,2177]"
+    },
+    {
+      "src": "expression_statement [7361,7432]",
+      "dest": "expression_statement [7361,7432]"
+    },
+    {
+      "src": "assignment_expression [7682,7737]",
+      "dest": "assignment_expression [7682,7737]"
+    },
+    {
+      "src": "state_mutability [2553,2557]",
+      "dest": "state_mutability [2553,2557]"
+    },
+    {
+      "src": "primitive_type [3560,3567]",
+      "dest": "primitive_type [3560,3567]"
+    },
+    {
+      "src": "return_statement [3457,3477]",
+      "dest": "return_statement [3457,3477]"
+    },
+    {
+      "src": "return: return [5943,5949]",
+      "dest": "return: return [5943,5949]"
+    },
+    {
+      "src": "primitive_type [1753,1758]",
+      "dest": "primitive_type [1753,1758]"
+    },
+    {
+      "src": "primitive_type [8936,8943]",
+      "dest": "primitive_type [8936,8943]"
+    },
+    {
+      "src": "identifier: sub [9093,9096]",
+      "dest": "identifier: sub [9093,9096]"
+    },
+    {
+      "src": "]: ] [7724,7725]",
+      "dest": "]: ] [7724,7725]"
+    },
+    {
+      "src": "primitive_type [9137,9144]",
+      "dest": "primitive_type [9137,9144]"
+    },
+    {
+      "src": "function_body [10331,10369]",
+      "dest": "function_body [10331,10369]"
+    },
+    {
+      "src": "}: } [10368,10369]",
+      "dest": "}: } [10368,10369]"
+    },
+    {
+      "src": "string_literal [8859,8894]",
+      "dest": "string_literal [8859,8894]"
+    },
+    {
+      "src": "(: ( [2543,2544]",
+      "dest": "(: ( [2543,2544]"
+    },
+    {
+      "src": "(: ( [5263,5264]",
+      "dest": "(: ( [5263,5264]"
+    },
+    {
+      "src": "call_argument [6665,6680]",
+      "dest": "call_argument [6665,6680]"
+    },
+    {
+      "src": "primitive_type [6492,6499]",
+      "dest": "primitive_type [6492,6499]"
+    },
+    {
+      "src": "identifier: recipient [7715,7724]",
+      "dest": "identifier: recipient [7715,7724]"
+    },
+    {
+      "src": "true: true [6749,6753]",
+      "dest": "true: true [6749,6753]"
+    },
+    {
+      "src": "\": \" [9018,9019]",
+      "dest": "\": \" [9018,9019]"
+    },
+    {
+      "src": "): ) [3290,3291]",
+      "dest": "): ) [3290,3291]"
+    },
+    {
+      "src": "return_statement [3302,3319]",
+      "dest": "return_statement [3302,3319]"
+    },
+    {
+      "src": "primitive_type [11037,11044]",
+      "dest": "primitive_type [11037,11044]"
+    },
+    {
+      "src": "uint256: uint256 [1557,1564]",
+      "dest": "uint256: uint256 [1557,1564]"
+    },
+    {
+      "src": "]: ] [7617,7618]",
+      "dest": "]: ] [7617,7618]"
+    },
+    {
+      "src": "view: view [2357,2361]",
+      "dest": "view: view [2357,2361]"
+    },
+    {
+      "src": "): ) [6649,6650]",
+      "dest": "): ) [6649,6650]"
+    },
+    {
+      "src": ",: , [8857,8858]",
+      "dest": ",: , [8857,8858]"
+    },
+    {
+      "src": "\": \" [8859,8860]",
+      "dest": "\": \" [8859,8860]"
+    },
+    {
+      "src": "type_name [2371,2377]",
+      "dest": "type_name [2371,2377]"
+    },
+    {
+      "src": ",: , [8168,8169]",
+      "dest": ",: , [8168,8169]"
+    },
+    {
+      "src": "): ) [11156,11157]",
+      "dest": "): ) [11156,11157]"
+    },
+    {
+      "src": "identifier: recipient [3987,3996]",
+      "dest": "identifier: recipient [3987,3996]"
+    },
+    {
+      "src": "type_name [7262,7269]",
+      "dest": "type_name [7262,7269]"
+    },
+    {
+      "src": "\": \" [7474,7475]",
+      "dest": "\": \" [7474,7475]"
+    },
+    {
+      "src": "identifier: sender [5211,5217]",
+      "dest": "identifier: sender [5211,5217]"
+    },
+    {
+      "src": ",: , [8934,8935]",
+      "dest": ",: , [8934,8935]"
+    },
+    {
+      "src": "address: address [5773,5780]",
+      "dest": "address: address [5773,5780]"
+    },
+    {
+      "src": "(: ( [9927,9928]",
+      "dest": "(: ( [9927,9928]"
+    },
+    {
+      "src": "identifier: amount [8307,8313]",
+      "dest": "identifier: amount [8307,8313]"
+    },
+    {
+      "src": "import_directive [94,130]",
+      "dest": "import_directive [94,130]"
+    },
+    {
+      "src": "address: address [8768,8775]",
+      "dest": "address: address [8768,8775]"
+    },
+    {
+      "src": "function: function [2528,2536]",
+      "dest": "function: function [2528,2536]"
+    },
+    {
+      "src": "{: { [5146,5147]",
+      "dest": "{: { [5146,5147]"
+    },
+    {
+      "src": "number_literal: 0 [8407,8408]",
+      "dest": "number_literal: 0 [8407,8408]"
+    },
+    {
+      "src": "call_argument [7449,7472]",
+      "dest": "call_argument [7449,7472]"
+    },
+    {
+      "src": "\": \" [7391,7392]",
+      "dest": "\": \" [7391,7392]"
+    },
+    {
+      "src": "identifier: Transfer [9119,9127]",
+      "dest": "identifier: Transfer [9119,9127]"
+    },
+    {
+      "src": "binary_expression [9719,9738]",
+      "dest": "binary_expression [9719,9738]"
+    },
+    {
+      "src": "{: { [4189,4190]",
+      "dest": "{: { [4189,4190]"
+    },
+    {
+      "src": "expression_statement [4477,4517]",
+      "dest": "expression_statement [4477,4517]"
+    },
+    {
+      "src": "return: return [2396,2402]",
+      "dest": "return: return [2396,2402]"
+    },
+    {
+      "src": "): ) [3406,3407]",
+      "dest": "): ) [3406,3407]"
+    },
+    {
+      "src": "primitive_type [11112,11118]",
+      "dest": "primitive_type [11112,11118]"
+    },
+    {
+      "src": "primitive_type [6541,6545]",
+      "dest": "primitive_type [6541,6545]"
+    },
+    {
+      "src": "): ) [8313,8314]",
+      "dest": "): ) [8313,8314]"
+    },
+    {
+      "src": "(: ( [8367,8368]",
+      "dest": "(: ( [8367,8368]"
+    },
+    {
+      "src": "parameter [8079,8094]",
+      "dest": "parameter [8079,8094]"
+    },
+    {
+      "src": "identifier: decimals [3245,3253]",
+      "dest": "identifier: decimals [3245,3253]"
+    },
+    {
+      "src": "(: ( [3946,3947]",
+      "dest": "(: ( [3946,3947]"
+    },
+    {
+      "src": "call_expression [5202,5323]",
+      "dest": "call_expression [5202,5323]"
+    },
+    {
+      "src": "=: = [2258,2259]",
+      "dest": "=: = [2258,2259]"
+    },
+    {
+      "src": "parameter [8785,8799]",
+      "dest": "parameter [8785,8799]"
+    },
+    {
+      "src": "): ) [6515,6516]",
+      "dest": "): ) [6515,6516]"
+    },
+    {
+      "src": "address: address [1598,1605]",
+      "dest": "address: address [1598,1605]"
+    },
+    {
+      "src": "(: ( [6474,6475]",
+      "dest": "(: ( [6474,6475]"
+    },
+    {
+      "src": "function_definition [6448,6760]",
+      "dest": "function_definition [6448,6760]"
+    },
+    {
+      "src": "number_literal: 0 [8244,8245]",
+      "dest": "number_literal: 0 [8244,8245]"
+    },
+    {
+      "src": "type_name [1557,1564]",
+      "dest": "type_name [1557,1564]"
+    },
+    {
+      "src": "true [5340,5344]",
+      "dest": "true [5340,5344]"
+    },
+    {
+      "src": "identifier: sub [9006,9009]",
+      "dest": "identifier: sub [9006,9009]"
+    },
+    {
+      "src": "call_expression [8987,9055]",
+      "dest": "call_expression [8987,9055]"
+    },
+    {
+      "src": "private: private [1566,1573]",
+      "dest": "private: private [1566,1573]"
+    },
+    {
+      "src": "function_body [2190,2269]",
+      "dest": "function_body [2190,2269]"
+    },
+    {
+      "src": "call_expression [9711,9779]",
+      "dest": "call_expression [9711,9779]"
+    },
+    {
+      "src": "visibility [9684,9692]",
+      "dest": "visibility [9684,9692]"
+    },
+    {
+      "src": "identifier: _symbol [2222,2229]",
+      "dest": "identifier: _symbol [2222,2229]"
+    },
+    {
+      "src": "expression_statement [5156,5193]",
+      "dest": "expression_statement [5156,5193]"
+    },
+    {
+      "src": "identifier: spender [9797,9804]",
+      "dest": "identifier: spender [9797,9804]"
+    },
+    {
+      "src": ",: , [4507,4508]",
+      "dest": ",: , [4507,4508]"
+    },
+    {
+      "src": "string_literal [5279,5321]",
+      "dest": "string_literal [5279,5321]"
+    },
+    {
+      "src": ",: , [7276,7277]",
+      "dest": ",: , [7276,7277]"
+    },
+    {
+      "src": "identifier: _transfer [5156,5165]",
+      "dest": "identifier: _transfer [5156,5165]"
+    },
+    {
+      "src": "function_definition [3861,4033]",
+      "dest": "function_definition [3861,4033]"
+    },
+    {
+      "src": "identifier: approve [4387,4394]",
+      "dest": "identifier: approve [4387,4394]"
+    },
+    {
+      "src": "true [6749,6753]",
+      "dest": "true [6749,6753]"
+    },
+    {
+      "src": "string_literal [9018,9054]",
+      "dest": "string_literal [9018,9054]"
+    },
+    {
+      "src": "return_statement [4015,4027]",
+      "dest": "return_statement [4015,4027]"
+    },
+    {
+      "src": "call_argument [7391,7430]",
+      "dest": "call_argument [7391,7430]"
+    },
+    {
+      "src": "address: address [3879,3886]",
+      "dest": "address: address [3879,3886]"
+    },
+    {
+      "src": "identifier: _name [2403,2408]",
+      "dest": "identifier: _name [2403,2408]"
+    },
+    {
+      "src": "identifier: updateNameAndSymbol [11092,11111]",
+      "dest": "identifier: updateNameAndSymbol [11092,11111]"
+    },
+    {
+      "src": "private: private [1672,1679]",
+      "dest": "private: private [1672,1679]"
+    },
+    {
+      "src": "): ) [9778,9779]",
+      "dest": "): ) [9778,9779]"
+    },
+    {
+      "src": ".: . [8302,8303]",
+      "dest": ".: . [8302,8303]"
+    },
+    {
+      "src": "call_argument [6579,6591]",
+      "dest": "call_argument [6579,6591]"
+    },
+    {
+      "src": "expression_statement [6557,6733]",
+      "dest": "expression_statement [6557,6733]"
+    },
+    {
+      "src": "expression_statement [3963,4006]",
+      "dest": "expression_statement [3963,4006]"
+    },
+    {
+      "src": "=: = [9896,9897]",
+      "dest": "=: = [9896,9897]"
+    },
+    {
+      "src": "emit: emit [9914,9918]",
+      "dest": "emit: emit [9914,9918]"
+    },
+    {
+      "src": "type_name [9638,9645]",
+      "dest": "type_name [9638,9645]"
+    },
+    {
+      "src": "): ) [3984,3985]",
+      "dest": "): ) [3984,3985]"
+    },
+    {
+      "src": "type_name [7286,7293]",
+      "dest": "type_name [7286,7293]"
+    },
+    {
+      "src": ",: , [7561,7562]",
+      "dest": ",: , [7561,7562]"
+    },
+    {
+      "src": "identifier: balanceOf [3550,3559]",
+      "dest": "identifier: balanceOf [3550,3559]"
+    },
+    {
+      "src": "address: address [5059,5066]",
+      "dest": "address: address [5059,5066]"
+    },
+    {
+      "src": "]: ] [8341,8342]",
+      "dest": "]: ] [8341,8342]"
+    },
+    {
+      "src": "contract_body [1468,11228]",
+      "dest": "contract_body [1468,11228]"
+    },
+    {
+      "src": "call_expression [7705,7737]",
+      "dest": "call_expression [7705,7737]"
+    },
+    {
+      "src": "{: { [8818,8819]",
+      "dest": "{: { [8818,8819]"
+    },
+    {
+      "src": "uint256: uint256 [1493,1500]",
+      "dest": "uint256: uint256 [1493,1500]"
+    },
+    {
+      "src": "identifier: account [3643,3650]",
+      "dest": "identifier: account [3643,3650]"
+    },
+    {
+      "src": "string [8170,8203]",
+      "dest": "string [8170,8203]"
+    },
+    {
+      "src": "]: ] [4232,4233]",
+      "dest": "]: ] [4232,4233]"
+    },
+    {
+      "src": "{: { [4467,4468]",
+      "dest": "{: { [4467,4468]"
+    },
+    {
+      "src": "type_name [11037,11044]",
+      "dest": "type_name [11037,11044]"
+    },
+    {
+      "src": "public: public [5107,5113]",
+      "dest": "public: public [5107,5113]"
+    },
+    {
+      "src": "(: ( [4460,4461]",
+      "dest": "(: ( [4460,4461]"
+    },
+    {
+      "src": "identifier: spender [5873,5880]",
+      "dest": "identifier: spender [5873,5880]"
+    },
+    {
+      "src": "public: public [4142,4148]",
+      "dest": "public: public [4142,4148]"
+    },
+    {
+      "src": "comment: /**      * @dev Atomically decreases the allowance granted to `spender` by the caller.      *      * This is an alternative to {approve} that can be used as a mitigation for      * problems described in {IERC20-approve}.      *      * Emits an {Approval} event indicating the updated allowance.      *      * Requirements:      *      * - `spender` cannot be the zero address.      * - `spender` must have allowance for the caller of at least      * `subtractedValue`.      */ [5967,6443]",
+      "dest": "comment: /**      * @dev Atomically decreases the allowance granted to `spender` by the caller.      *      * This is an alternative to {approve} that can be used as a mitigation for      * problems described in {IERC20-approve}.      *      * Emits an {Approval} event indicating the updated allowance.      *      * Requirements:      *      * - `spender` cannot be the zero address.      * - `spender` must have allowance for the caller of at least      * `subtractedValue`.      */ [5967,6443]"
+    },
+    {
+      "src": "(: ( [6540,6541]",
+      "dest": "(: ( [6540,6541]"
+    },
+    {
+      "src": "comment: /**      * @dev See {IERC20-transfer}.      *      * Requirements:      *      * - `recipient` cannot be the zero address.      * - the caller must have a balance of at least `amount`.      */ [3664,3856]",
+      "dest": "comment: /**      * @dev See {IERC20-transfer}.      *      * Requirements:      *      * - `recipient` cannot be the zero address.      * - the caller must have a balance of at least `amount`.      */ [3664,3856]"
+    },
+    {
+      "src": "): ) [6590,6591]",
+      "dest": "): ) [6590,6591]"
+    },
+    {
+      "src": "call_expression [7523,7570]",
+      "dest": "call_expression [7523,7570]"
+    },
+    {
+      "src": "return: return [3457,3463]",
+      "dest": "return: return [3457,3463]"
+    },
+    {
+      "src": "identifier: _totalSupply [9065,9077]",
+      "dest": "identifier: _totalSupply [9065,9077]"
+    },
+    {
+      "src": "array_access [7682,7702]",
+      "dest": "array_access [7682,7702]"
+    },
+    {
+      "src": "internal: internal [2169,2177]",
+      "dest": "internal: internal [2169,2177]"
+    },
+    {
+      "src": "(: ( [3606,3607]",
+      "dest": "(: ( [3606,3607]"
+    },
+    {
+      "src": "returns: returns [5131,5138]",
+      "dest": "returns: returns [5131,5138]"
+    },
+    {
+      "src": "}: } [11225,11226]",
+      "dest": "}: } [11225,11226]"
+    },
+    {
+      "src": "function_body [2582,2613]",
+      "dest": "function_body [2582,2613]"
+    },
+    {
+      "src": "type_cast_expression [8236,8246]",
+      "dest": "type_cast_expression [8236,8246]"
+    },
+    {
+      "src": "]: ] [6659,6660]",
+      "dest": "]: ] [6659,6660]"
+    },
+    {
+      "src": "call_expression [5253,5265]",
+      "dest": "call_expression [5253,5265]"
+    },
+    {
+      "src": "identifier: amount [11045,11051]",
+      "dest": "identifier: amount [11045,11051]"
+    },
+    {
+      "src": "primitive_type [8079,8086]",
+      "dest": "primitive_type [8079,8086]"
+    },
+    {
+      "src": "identifier: subtractedValue [6500,6515]",
+      "dest": "identifier: subtractedValue [6500,6515]"
+    },
+    {
+      "src": "string: string [2147,2153]",
+      "dest": "string: string [2147,2153]"
+    },
+    {
+      "src": "type_name [3947,3951]",
+      "dest": "type_name [3947,3951]"
+    },
+    {
+      "src": "(: ( [6565,6566]",
+      "dest": "(: ( [6565,6566]"
+    },
+    {
+      "src": ",: , [11132,11133]",
+      "dest": ",: , [11132,11133]"
+    },
+    {
+      "src": "function_definition [4378,4544]",
+      "dest": "function_definition [4378,4544]"
+    },
+    {
+      "src": "!=: != [8844,8846]",
+      "dest": "!=: != [8844,8846]"
+    },
+    {
+      "src": "): ) [7471,7472]",
+      "dest": "): ) [7471,7472]"
+    },
+    {
+      "src": "): ) [8954,8955]",
+      "dest": "): ) [8954,8955]"
+    },
+    {
+      "src": "type_name [5059,5066]",
+      "dest": "type_name [5059,5066]"
+    },
+    {
+      "src": "function_definition [3236,3325]",
+      "dest": "function_definition [3236,3325]"
+    },
+    {
+      "src": "): ) [2167,2168]",
+      "dest": "): ) [2167,2168]"
+    },
+    {
+      "src": "(: ( [6648,6649]",
+      "dest": "(: ( [6648,6649]"
+    },
+    {
+      "src": "=: = [8288,8289]",
+      "dest": "=: = [8288,8289]"
+    },
+    {
+      "src": "call_argument [8855,8856]",
+      "dest": "call_argument [8855,8856]"
+    },
+    {
+      "src": ",: , [4123,4124]",
+      "dest": ",: , [4123,4124]"
+    },
+    {
+      "src": "uint256: uint256 [8096,8103]",
+      "dest": "uint256: uint256 [8096,8103]"
+    },
+    {
+      "src": "function_definition [10281,10369]",
+      "dest": "function_definition [10281,10369]"
+    },
+    {
+      "src": "): ) [2580,2581]",
+      "dest": "): ) [2580,2581]"
+    },
+    {
+      "src": "(: ( [10304,10305]",
+      "dest": "(: ( [10304,10305]"
+    },
+    {
+      "src": "identifier: __name [11185,11191]",
+      "dest": "identifier: __name [11185,11191]"
+    },
+    {
+      "src": "function_body [5840,5961]",
+      "dest": "function_body [5840,5961]"
+    },
+    {
+      "src": "identifier: _totalSupply [1680,1692]",
+      "dest": "identifier: _totalSupply [1680,1692]"
+    },
+    {
+      "src": "identifier: _decimals [2248,2257]",
+      "dest": "identifier: _decimals [2248,2257]"
+    },
+    {
+      "src": "(: ( [3878,3879]",
+      "dest": "(: ( [3878,3879]"
+    },
+    {
+      "src": "): ) [9817,9818]",
+      "dest": "): ) [9817,9818]"
+    },
+    {
+      "src": "state_mutability [3424,3428]",
+      "dest": "state_mutability [3424,3428]"
+    },
+    {
+      "src": "public: public [3577,3583]",
+      "dest": "public: public [3577,3583]"
+    },
+    {
+      "src": ",: , [3985,3986]",
+      "dest": ",: , [3985,3986]"
+    },
+    {
+      "src": "solidity: solidity [39,47]",
+      "dest": "solidity: solidity [39,47]"
+    },
+    {
+      "src": "string [8859,8894]",
+      "dest": "string [8859,8894]"
+    },
+    {
+      "src": "bool: bool [5834,5838]",
+      "dest": "bool: bool [5834,5838]"
+    },
+    {
+      "src": "visibility [8112,8120]",
+      "dest": "visibility [8112,8120]"
+    },
+    {
+      "src": "identifier: account [8087,8094]",
+      "dest": "identifier: account [8087,8094]"
+    },
+    {
+      "src": "address: address [5035,5042]",
+      "dest": "address: address [5035,5042]"
+    },
+    {
+      "src": ",: , [9942,9943]",
+      "dest": ",: , [9942,9943]"
+    },
+    {
+      "src": "call_argument [8399,8409]",
+      "dest": "call_argument [8399,8409]"
+    },
+    {
+      "src": "(: ( [4394,4395]",
+      "dest": "(: ( [4394,4395]"
+    },
+    {
+      "src": "return: return [5333,5339]",
+      "dest": "return: return [5333,5339]"
+    },
+    {
+      "src": "returns: returns [6532,6539]",
+      "dest": "returns: returns [6532,6539]"
+    },
+    {
+      "src": "): ) [5932,5933]",
+      "dest": "): ) [5932,5933]"
+    },
+    {
+      "src": "type_name [4110,4117]",
+      "dest": "type_name [4110,4117]"
+    },
+    {
+      "src": "identifier: SafeMath [174,182]",
+      "dest": "identifier: SafeMath [174,182]"
+    },
+    {
+      "src": "identifier: amount [9898,9904]",
+      "dest": "identifier: amount [9898,9904]"
+    },
+    {
+      "src": "returns: returns [2362,2369]",
+      "dest": "returns: returns [2362,2369]"
+    },
+    {
+      "src": "address: address [9728,9735]",
+      "dest": "address: address [9728,9735]"
+    },
+    {
+      "src": "identifier: symbol [2161,2167]",
+      "dest": "identifier: symbol [2161,2167]"
+    },
+    {
+      "src": "primitive_type [1699,1705]",
+      "dest": "primitive_type [1699,1705]"
+    },
+    {
+      "src": "mapping: mapping [1609,1616]",
+      "dest": "mapping: mapping [1609,1616]"
+    },
+    {
+      "src": "string [7391,7430]",
+      "dest": "string [7391,7430]"
+    },
+    {
+      "src": "array_access [9868,9886]",
+      "dest": "array_access [9868,9886]"
+    },
+    {
+      "src": "}: } [2414,2415]",
+      "dest": "}: } [2414,2415]"
+    },
+    {
+      "src": "import: import [131,137]",
+      "dest": "import: import [131,137]"
+    },
+    {
+      "src": "array_access [8966,8984]",
+      "dest": "array_access [8966,8984]"
+    },
+    {
+      "src": "\": \" [116,117]",
+      "dest": "\": \" [116,117]"
+    },
+    {
+      "src": "public: public [4428,4434]",
+      "dest": "public: public [4428,4434]"
+    },
+    {
+      "src": "call_expression [8215,8264]",
+      "dest": "call_expression [8215,8264]"
+    },
+    {
+      "src": "): ) [1564,1565]",
+      "dest": "): ) [1564,1565]"
+    },
+    {
+      "src": "[: [ [5907,5908]",
+      "dest": "[: [ [5907,5908]"
+    },
+    {
+      "src": "}: } [9162,9163]",
+      "dest": "}: } [9162,9163]"
+    },
+    {
+      "src": "call_argument [7631,7671]",
+      "dest": "call_argument [7631,7671]"
+    },
+    {
+      "src": "(: ( [4496,4497]",
+      "dest": "(: ( [4496,4497]"
+    },
+    {
+      "src": "string [7631,7671]",
+      "dest": "string [7631,7671]"
+    },
+    {
+      "src": "call_argument [9018,9054]",
+      "dest": "call_argument [9018,9054]"
+    },
+    {
+      "src": "): ) [7736,7737]",
+      "dest": "): ) [7736,7737]"
+    },
+    {
+      "src": "array_access [5882,5916]",
+      "dest": "array_access [5882,5916]"
+    },
+    {
+      "src": "{: { [3953,3954]",
+      "dest": "{: { [3953,3954]"
+    },
+    {
+      "src": "visibility [1566,1573]",
+      "dest": "visibility [1566,1573]"
+    },
+    {
+      "src": "override_specifier [4157,4165]",
+      "dest": "override_specifier [4157,4165]"
+    },
+    {
+      "src": "virtual: virtual [5817,5824]",
+      "dest": "virtual: virtual [5817,5824]"
+    },
+    {
+      "src": "primitive_type [5140,5144]",
+      "dest": "primitive_type [5140,5144]"
+    },
+    {
+      "src": "\": \" [9820,9821]",
+      "dest": "\": \" [9820,9821]"
+    },
+    {
+      "src": "(: ( [1597,1598]",
+      "dest": "(: ( [1597,1598]"
+    },
+    {
+      "src": "parameter [9638,9653]",
+      "dest": "parameter [9638,9653]"
+    },
+    {
+      "src": "binary_expression [8147,8168]",
+      "dest": "binary_expression [8147,8168]"
+    },
+    {
+      "src": "identifier: _beforeTokenTransfer [8215,8235]",
+      "dest": "identifier: _beforeTokenTransfer [8215,8235]"
+    },
+    {
+      "src": "function: function [9588,9596]",
+      "dest": "function: function [9588,9596]"
+    },
+    {
+      "src": "returns: returns [3276,3283]",
+      "dest": "returns: returns [3276,3283]"
+    },
+    {
+      "src": "call_argument [4509,4515]",
+      "dest": "call_argument [4509,4515]"
+    },
+    {
+      "src": "type_alias [1480,1488]",
+      "dest": "type_alias [1480,1488]"
+    },
+    {
+      "src": "override: override [4157,4165]",
+      "dest": "override: override [4157,4165]"
+    },
+    {
+      "src": "using_directive [1506,1532]",
+      "dest": "using_directive [1506,1532]"
+    },
+    {
+      "src": "identifier: _balances [7581,7590]",
+      "dest": "identifier: _balances [7581,7590]"
+    },
+    {
+      "src": "function_body [8129,8434]",
+      "dest": "function_body [8129,8434]"
+    },
+    {
+      "src": "string [9740,9778]",
+      "dest": "string [9740,9778]"
+    },
+    {
+      "src": "identifier: __ERC20_initialize [2108,2126]",
+      "dest": "identifier: __ERC20_initialize [2108,2126]"
+    },
+    {
+      "src": "!=: != [7459,7461]",
+      "dest": "!=: != [7459,7461]"
+    },
+    {
+      "src": "call_argument [7761,7767]",
+      "dest": "call_argument [7761,7767]"
+    },
+    {
+      "src": "(: ( [7386,7387]",
+      "dest": "(: ( [7386,7387]"
+    },
+    {
+      "src": "[: [ [5893,5894]",
+      "dest": "[: [ [5893,5894]"
+    },
+    {
+      "src": "identifier: recipient [7769,7778]",
+      "dest": "identifier: recipient [7769,7778]"
+    },
+    {
+      "src": "public: public [6517,6523]",
+      "dest": "public: public [6517,6523]"
+    },
+    {
+      "src": "identifier: account [8976,8983]",
+      "dest": "identifier: account [8976,8983]"
+    },
+    {
+      "src": "identifier: amount [5094,5100]",
+      "dest": "identifier: amount [5094,5100]"
+    },
+    {
+      "src": ",: , [7550,7551]",
+      "dest": ",: , [7550,7551]"
+    },
+    {
+      "src": "): ) [4426,4427]",
+      "dest": "): ) [4426,4427]"
+    },
+    {
+      "src": "primitive_type [7262,7269]",
+      "dest": "primitive_type [7262,7269]"
+    },
+    {
+      "src": "(: ( [5025,5026]",
+      "dest": "(: ( [5025,5026]"
+    },
+    {
+      "src": "member_expression [8987,9009]",
+      "dest": "member_expression [8987,9009]"
+    },
+    {
+      "src": ",: , [7389,7390]",
+      "dest": ",: , [7389,7390]"
+    },
+    {
+      "src": "string [152,164]",
+      "dest": "string [152,164]"
+    },
+    {
+      "src": "{: { [5840,5841]",
+      "dest": "{: { [5840,5841]"
+    },
+    {
+      "src": "primitive_type [7313,7320]",
+      "dest": "primitive_type [7313,7320]"
+    },
+    {
+      "src": "identifier: _msgSender [4486,4496]",
+      "dest": "identifier: _msgSender [4486,4496]"
+    },
+    {
+      "src": "\": \" [79,80]",
+      "dest": "\": \" [79,80]"
+    },
+    {
+      "src": "uint256: uint256 [7313,7320]",
+      "dest": "uint256: uint256 [7313,7320]"
+    },
+    {
+      "src": "state_variable_declaration [1699,1720]",
+      "dest": "state_variable_declaration [1699,1720]"
+    },
+    {
+      "src": "call_argument [9719,9738]",
+      "dest": "call_argument [9719,9738]"
+    },
+    {
+      "src": "array_access [5233,5266]",
+      "dest": "array_access [5233,5266]"
+    },
+    {
+      "src": "identifier: account [8997,9004]",
+      "dest": "identifier: account [8997,9004]"
+    },
+    {
+      "src": "string [79,92]",
+      "dest": "string [79,92]"
+    },
+    {
+      "src": "(: ( [1545,1546]",
+      "dest": "(: ( [1545,1546]"
+    },
+    {
+      "src": "identifier: Initializable [1437,1450]",
+      "dest": "identifier: Initializable [1437,1450]"
+    },
+    {
+      "src": "=: = [2230,2231]",
+      "dest": "=: = [2230,2231]"
+    },
+    {
+      "src": "(: ( [5165,5166]",
+      "dest": "(: ( [5165,5166]"
+    },
+    {
+      "src": "\": \" [6682,6683]",
+      "dest": "\": \" [6682,6683]"
+    },
+    {
+      "src": "type_name [9615,9622]",
+      "dest": "type_name [9615,9622]"
+    },
+    {
+      "src": "primitive_type [3607,3614]",
+      "dest": "primitive_type [3607,3614]"
+    },
+    {
+      "src": "identifier: spender [4500,4507]",
+      "dest": "identifier: spender [4500,4507]"
+    },
+    {
+      "src": ",: , [8409,8410]",
+      "dest": ",: , [8409,8410]"
+    },
+    {
+      "src": "return_statement [6742,6754]",
+      "dest": "return_statement [6742,6754]"
+    },
+    {
+      "src": "identifier: Context [102,109]",
+      "dest": "identifier: Context [102,109]"
+    },
+    {
+      "src": "identifier: Transfer [7752,7760]",
+      "dest": "identifier: Transfer [7752,7760]"
+    },
+    {
+      "src": "return_type_definition [6532,6546]",
+      "dest": "return_type_definition [6532,6546]"
+    },
+    {
+      "src": "comment: /**      * @dev See {IERC20-totalSupply}.      */ [3331,3380]",
+      "dest": "comment: /**      * @dev See {IERC20-totalSupply}.      */ [3331,3380]"
+    },
+    {
+      "src": "parameter [6475,6490]",
+      "dest": "parameter [6475,6490]"
+    },
+    {
+      "src": "call_argument [9010,9016]",
+      "dest": "call_argument [9010,9016]"
+    },
+    {
+      "src": "primitive_type [7462,7469]",
+      "dest": "primitive_type [7462,7469]"
+    },
+    {
+      "src": "(: ( [3437,3438]",
+      "dest": "(: ( [3437,3438]"
+    },
+    {
+      "src": "assignment_expression [9868,9904]",
+      "dest": "assignment_expression [9868,9904]"
+    },
+    {
+      "src": "}: } [11076,11077]",
+      "dest": "}: } [11076,11077]"
+    },
+    {
+      "src": "inheritance_specifier [1461,1467]",
+      "dest": "inheritance_specifier [1461,1467]"
+    },
+    {
+      "src": "type_name [8096,8103]",
+      "dest": "type_name [8096,8103]"
+    },
+    {
+      "src": "(: ( [7469,7470]",
+      "dest": "(: ( [7469,7470]"
+    },
+    {
+      "src": "call_argument [8411,8418]",
+      "dest": "call_argument [8411,8418]"
+    },
+    {
+      "src": "primitive_type [9808,9815]",
+      "dest": "primitive_type [9808,9815]"
+    },
+    {
+      "src": "return: return [3302,3308]",
+      "dest": "return: return [3302,3308]"
+    },
+    {
+      "src": ",: , [5871,5872]",
+      "dest": ",: , [5871,5872]"
+    },
+    {
+      "src": "array_access [6626,6651]",
+      "dest": "array_access [6626,6651]"
+    },
+    {
+      "src": "(: ( [3972,3973]",
+      "dest": "(: ( [3972,3973]"
+    },
+    {
+      "src": "): ) [6731,6732]",
+      "dest": "): ) [6731,6732]"
+    },
+    {
+      "src": ",: , [9818,9819]",
+      "dest": ",: , [9818,9819]"
+    },
+    {
+      "src": "parameter [3438,3445]",
+      "dest": "parameter [3438,3445]"
+    },
+    {
+      "src": "identifier: amount [5185,5191]",
+      "dest": "identifier: amount [5185,5191]"
+    },
+    {
+      "src": "primitive_type [8236,8243]",
+      "dest": "primitive_type [8236,8243]"
+    },
+    {
+      "src": "identifier: initializer [2178,2189]",
+      "dest": "identifier: initializer [2178,2189]"
+    },
+    {
+      "src": "type_name [1699,1705]",
+      "dest": "type_name [1699,1705]"
+    },
+    {
+      "src": "identifier: decimals_ [10353,10362]",
+      "dest": "identifier: decimals_ [10353,10362]"
+    },
+    {
+      "src": "): ) [5870,5871]",
+      "dest": "): ) [5870,5871]"
+    },
+    {
+      "src": "internal: internal [10322,10330]",
+      "dest": "internal: internal [10322,10330]"
+    },
+    {
+      "src": "]: ] [5265,5266]",
+      "dest": "]: ] [5265,5266]"
+    },
+    {
+      "src": "memory: memory [11141,11147]",
+      "dest": "memory: memory [11141,11147]"
+    },
+    {
+      "src": "[: [ [3642,3643]",
+      "dest": "[: [ [3642,3643]"
+    },
+    {
+      "src": "call_argument [3998,4004]",
+      "dest": "call_argument [3998,4004]"
+    },
+    {
+      "src": "call_expression [6579,6591]",
+      "dest": "call_expression [6579,6591]"
+    },
+    {
+      "src": "identifier: decimals_ [10311,10320]",
+      "dest": "identifier: decimals_ [10311,10320]"
+    },
+    {
+      "src": "binary_expression [8836,8857]",
+      "dest": "binary_expression [8836,8857]"
+    },
+    {
+      "src": "(: ( [5210,5211]",
+      "dest": "(: ( [5210,5211]"
+    },
+    {
+      "src": "state_mutability [4166,4170]",
+      "dest": "state_mutability [4166,4170]"
+    },
+    {
+      "src": "}: } [3482,3483]",
+      "dest": "}: } [3482,3483]"
+    },
+    {
+      "src": "expression_statement [5850,5934]",
+      "dest": "expression_statement [5850,5934]"
+    },
+    {
+      "src": "function: function [8753,8761]",
+      "dest": "function: function [8753,8761]"
+    },
+    {
+      "src": "primitive_type [4395,4402]",
+      "dest": "primitive_type [4395,4402]"
+    },
+    {
+      "src": "identifier: Address [65,72]",
+      "dest": "identifier: Address [65,72]"
+    },
+    {
+      "src": "call_expression [3963,4005]",
+      "dest": "call_expression [3963,4005]"
+    },
+    {
+      "src": "call_argument [5873,5880]",
+      "dest": "call_argument [5873,5880]"
+    },
+    {
+      "src": "primitive_type [2147,2153]",
+      "dest": "primitive_type [2147,2153]"
+    },
+    {
+      "src": "returns: returns [2558,2565]",
+      "dest": "returns: returns [2558,2565]"
+    },
+    {
+      "src": "call_expression [5859,5871]",
+      "dest": "call_expression [5859,5871]"
+    },
+    {
+      "src": "identifier: owner [4118,4123]",
+      "dest": "identifier: owner [4118,4123]"
+    },
+    {
+      "src": "memory: memory [2378,2384]",
+      "dest": "memory: memory [2378,2384]"
+    },
+    {
+      "src": "number_literal: 18 [2260,2262]",
+      "dest": "number_literal: 18 [2260,2262]"
+    },
+    {
+      "src": "import_directive [166,204]",
+      "dest": "import_directive [166,204]"
+    },
+    {
+      "src": "expression_statement [8966,9056]",
+      "dest": "expression_statement [8966,9056]"
+    },
+    {
+      "src": "identifier: _allowances [6626,6637]",
+      "dest": "identifier: _allowances [6626,6637]"
+    },
+    {
+      "src": "call_argument [9137,9147]",
+      "dest": "call_argument [9137,9147]"
+    },
+    {
+      "src": "\": \" [202,203]",
+      "dest": "\": \" [202,203]"
+    },
+    {
+      "src": "call_argument [5219,5231]",
+      "dest": "call_argument [5219,5231]"
+    },
+    {
+      "src": "uint256: uint256 [4412,4419]",
+      "dest": "uint256: uint256 [4412,4419]"
+    },
+    {
+      "src": "]: ] [6650,6651]",
+      "dest": "]: ] [6650,6651]"
+    },
+    {
+      "src": "state_variable_declaration [1664,1693]",
+      "dest": "state_variable_declaration [1664,1693]"
+    },
+    {
+      "src": "call_argument [9797,9818]",
+      "dest": "call_argument [9797,9818]"
+    },
+    {
+      "src": "function_body [11075,11077]",
+      "dest": "function_body [11075,11077]"
+    },
+    {
+      "src": "call_argument [8307,8313]",
+      "dest": "call_argument [8307,8313]"
+    },
+    {
+      "src": ",: , [5880,5881]",
+      "dest": ",: , [5880,5881]"
+    },
+    {
+      "src": "source_file [0,11229]",
+      "dest": "source_file [0,11229]"
+    },
+    {
+      "src": "private: private [1706,1713]",
+      "dest": "private: private [1706,1713]"
+    },
+    {
+      "src": "function_body [4189,4240]",
+      "dest": "function_body [4189,4240]"
+    },
+    {
+      "src": "call_argument [8927,8934]",
+      "dest": "call_argument [8927,8934]"
+    },
+    {
+      "src": "}: } [3324,3325]",
+      "dest": "}: } [3324,3325]"
+    },
+    {
+      "src": ",: , [8783,8784]",
+      "dest": ",: , [8783,8784]"
+    },
+    {
+      "src": "type_name [9663,9670]",
+      "dest": "type_name [9663,9670]"
+    },
+    {
+      "src": "function_body [5146,5351]",
+      "dest": "function_body [5146,5351]"
+    },
+    {
+      "src": "identifier: _balances [1574,1583]",
+      "dest": "identifier: _balances [1574,1583]"
+    },
+    {
+      "src": "visibility [11158,11166]",
+      "dest": "visibility [11158,11166]"
+    },
+    {
+      "src": "(: ( [3253,3254]",
+      "dest": "(: ( [3253,3254]"
+    },
+    {
+      "src": ",: , [7778,7779]",
+      "dest": ",: , [7778,7779]"
+    },
+    {
+      "src": "identifier: Approval [9919,9927]",
+      "dest": "identifier: Approval [9919,9927]"
+    },
+    {
+      "src": "address: address [7379,7386]",
+      "dest": "address: address [7379,7386]"
+    },
+    {
+      "src": "call_argument [7552,7561]",
+      "dest": "call_argument [7552,7561]"
+    },
+    {
+      "src": "identifier: sub [7619,7622]",
+      "dest": "identifier: sub [7619,7622]"
+    },
+    {
+      "src": "array_access [8324,8342]",
+      "dest": "array_access [8324,8342]"
+    },
+    {
+      "src": "string [116,129]",
+      "dest": "string [116,129]"
+    },
+    {
+      "src": "string [6682,6721]",
+      "dest": "string [6682,6721]"
+    },
+    {
+      "src": "memory: memory [2154,2160]",
+      "dest": "memory: memory [2154,2160]"
+    },
+    {
+      "src": "(: ( [10985,10986]",
+      "dest": "(: ( [10985,10986]"
+    },
+    {
+      "src": "visibility [6517,6523]",
+      "dest": "visibility [6517,6523]"
+    },
+    {
+      "src": "comment: /**      * @dev Hook that is called before any transfer of tokens. This includes      * minting and burning.      *      * Calling conditions:      *      * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens      * will be to transferred to `to`.      * - when `from` is zero, `amount` tokens will be minted for `to`.      * - when `to` is zero, `amount` of ``from``'s tokens will be burned.      * - `from` and `to` are never both zero.      *      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].      */ [10375,10951]",
+      "dest": "comment: /**      * @dev Hook that is called before any transfer of tokens. This includes      * minting and burning.      *      * Calling conditions:      *      * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens      * will be to transferred to `to`.      * - when `from` is zero, `amount` tokens will be minted for `to`.      * - when `to` is zero, `amount` of ``from``'s tokens will be burned.      * - `from` and `to` are never both zero.      *      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].      */ [10375,10951]"
+    },
+    {
+      "src": "private: private [1759,1766]",
+      "dest": "private: private [1759,1766]"
+    },
+    {
+      "src": "parameter [3285,3290]",
+      "dest": "parameter [3285,3290]"
+    },
+    {
+      "src": "identifier: _msgSender [3973,3983]",
+      "dest": "identifier: _msgSender [3973,3983]"
+    },
+    {
+      "src": ",: , [8094,8095]",
+      "dest": ",: , [8094,8095]"
+    },
+    {
+      "src": "address: address [9808,9815]",
+      "dest": "address: address [9808,9815]"
+    },
+    {
+      "src": "): ) [7388,7389]",
+      "dest": "): ) [7388,7389]"
+    },
+    {
+      "src": "call_expression [8139,8204]",
+      "dest": "call_expression [8139,8204]"
+    },
+    {
+      "src": "comment: /**      * @dev Sets the values for {name} and {symbol}, initializes {decimals} with      * a default value of 18.      *      * To select a different value for {decimals}, use {_setupDecimals}.      *      * All three of these values are immutable: they can only be set once during      * construction.      */ [1783,2094]",
+      "dest": "comment: /**      * @dev Sets the values for {name} and {symbol}, initializes {decimals} with      * a default value of 18.      *      * To select a different value for {decimals}, use {_setupDecimals}.      *      * All three of these values are immutable: they can only be set once during      * construction.      */ [1783,2094]"
+    },
+    {
+      "src": "identifier: _msgSender [5219,5229]",
+      "dest": "identifier: _msgSender [5219,5229]"
+    },
+    {
+      "src": "internal: internal [11158,11166]",
+      "dest": "internal: internal [11158,11166]"
+    },
+    {
+      "src": "primitive_type [2567,2573]",
+      "dest": "primitive_type [2567,2573]"
+    },
+    {
+      "src": "]: ] [9894,9895]",
+      "dest": "]: ] [9894,9895]"
+    },
+    {
+      "src": "true: true [4533,4537]",
+      "dest": "true: true [4533,4537]"
+    },
+    {
+      "src": "(: ( [7448,7449]",
+      "dest": "(: ( [7448,7449]"
+    },
+    {
+      "src": "address: address [7262,7269]",
+      "dest": "address: address [7262,7269]"
+    },
+    {
+      "src": "from: from [111,115]",
+      "dest": "from: from [111,115]"
+    },
+    {
+      "src": "assignment_expression [11201,11219]",
+      "dest": "assignment_expression [11201,11219]"
+    },
+    {
+      "src": "identifier: recipient [7692,7701]",
+      "dest": "identifier: recipient [7692,7701]"
+    },
+    {
+      "src": "type_cast_expression [8847,8857]",
+      "dest": "type_cast_expression [8847,8857]"
+    },
+    {
+      "src": "identifier: _msgSender [6579,6589]",
+      "dest": "identifier: _msgSender [6579,6589]"
+    },
+    {
+      "src": "call_expression [9789,9857]",
+      "dest": "call_expression [9789,9857]"
+    },
+    {
+      "src": "function_definition [8064,8434]",
+      "dest": "function_definition [8064,8434]"
+    },
+    {
+      "src": "virtual: virtual [8810,8817]",
+      "dest": "virtual: virtual [8810,8817]"
+    },
+    {
+      "src": "): ) [9737,9738]",
+      "dest": "): ) [9737,9738]"
+    },
+    {
+      "src": ",: , [7472,7473]",
+      "dest": ",: , [7472,7473]"
+    },
+    {
+      "src": "=: = [7703,7704]",
+      "dest": "=: = [7703,7704]"
+    },
+    {
+      "src": "number_literal: 0 [9145,9146]",
+      "dest": "number_literal: 0 [9145,9146]"
+    },
+    {
+      "src": "\": \" [91,92]",
+      "dest": "\": \" [91,92]"
+    },
+    {
+      "src": "type_name [11017,11024]",
+      "dest": "type_name [11017,11024]"
+    },
+    {
+      "src": "): ) [8374,8375]",
+      "dest": "): ) [8374,8375]"
+    },
+    {
+      "src": "=: = [9078,9079]",
+      "dest": "=: = [9078,9079]"
+    },
+    {
+      "src": "identifier: allowance [4100,4109]",
+      "dest": "identifier: allowance [4100,4109]"
+    },
+    {
+      "src": "]: ] [5915,5916]",
+      "dest": "]: ] [5915,5916]"
+    },
+    {
+      "src": "virtual: virtual [8121,8128]",
+      "dest": "virtual: virtual [8121,8128]"
+    },
+    {
+      "src": ",: , [5183,5184]",
+      "dest": ",: , [5183,5184]"
+    },
+    {
+      "src": ",: , [7303,7304]",
+      "dest": ",: , [7303,7304]"
+    },
+    {
+      "src": "]: ] [7597,7598]",
+      "dest": "]: ] [7597,7598]"
+    },
+    {
+      "src": "identifier: _transfer [3963,3972]",
+      "dest": "identifier: _transfer [3963,3972]"
+    },
+    {
+      "src": "identifier: Address [1512,1519]",
+      "dest": "identifier: Address [1512,1519]"
+    },
+    {
+      "src": "call_argument [8836,8857]",
+      "dest": "call_argument [8836,8857]"
+    },
+    {
+      "src": "expression_statement [2200,2213]",
+      "dest": "expression_statement [2200,2213]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: MIT [0,31]",
+      "dest": "comment: // SPDX-License-Identifier: MIT [0,31]"
+    },
+    {
+      "src": "identifier: _msgSender [6638,6648]",
+      "dest": "identifier: _msgSender [6638,6648]"
+    },
+    {
+      "src": "address: address [10995,11002]",
+      "dest": "address: address [10995,11002]"
+    },
+    {
+      "src": ".: . [8363,8364]",
+      "dest": ".: . [8363,8364]"
+    },
+    {
+      "src": "): ) [3575,3576]",
+      "dest": "): ) [3575,3576]"
+    },
+    {
+      "src": "primitive_type [1628,1635]",
+      "dest": "primitive_type [1628,1635]"
+    },
+    {
+      "src": "uint256: uint256 [5086,5093]",
+      "dest": "uint256: uint256 [5086,5093]"
+    },
+    {
+      "src": "identifier: recipient [5174,5183]",
+      "dest": "identifier: recipient [5174,5183]"
+    },
+    {
+      "src": "\": \" [8202,8203]",
+      "dest": "\": \" [8202,8203]"
+    },
+    {
+      "src": "primitive_type [1557,1564]",
+      "dest": "primitive_type [1557,1564]"
+    },
+    {
+      "src": "primitive_type [3285,3290]",
+      "dest": "primitive_type [3285,3290]"
+    },
+    {
+      "src": "array_access [6626,6660]",
+      "dest": "array_access [6626,6660]"
+    },
+    {
+      "src": "primitive_type [10305,10310]",
+      "dest": "primitive_type [10305,10310]"
+    },
+    {
+      "src": "primitive_type [3438,3445]",
+      "dest": "primitive_type [3438,3445]"
+    },
+    {
+      "src": "identifier: sender [7611,7617]",
+      "dest": "identifier: sender [7611,7617]"
+    },
+    {
+      "src": "identifier: Transfer [8390,8398]",
+      "dest": "identifier: Transfer [8390,8398]"
+    },
+    {
+      "src": "primitive_type [11134,11140]",
+      "dest": "primitive_type [11134,11140]"
+    },
+    {
+      "src": "virtual: virtual [7343,7350]",
+      "dest": "virtual: virtual [7343,7350]"
+    },
+    {
+      "src": "): ) [4515,4516]",
+      "dest": "): ) [4515,4516]"
+    },
+    {
+      "src": "identifier: _allowances [9868,9879]",
+      "dest": "identifier: _allowances [9868,9879]"
+    },
+    {
+      "src": "call_expression [5882,5932]",
+      "dest": "call_expression [5882,5932]"
+    },
+    {
+      "src": "string_literal [7631,7671]",
+      "dest": "string_literal [7631,7671]"
+    },
+    {
+      "src": "): ) [5905,5906]",
+      "dest": "): ) [5905,5906]"
+    },
+    {
+      "src": "visibility [7334,7342]",
+      "dest": "visibility [7334,7342]"
+    },
+    {
+      "src": "visibility [1638,1645]",
+      "dest": "visibility [1638,1645]"
+    },
+    {
+      "src": "\": \" [163,164]",
+      "dest": "\": \" [163,164]"
+    },
+    {
+      "src": "call_expression [5156,5192]",
+      "dest": "call_expression [5156,5192]"
+    },
+    {
+      "src": "(: ( [5904,5905]",
+      "dest": "(: ( [5904,5905]"
+    },
+    {
+      "src": "identifier: add [8303,8306]",
+      "dest": "identifier: add [8303,8306]"
+    },
+    {
+      "src": "(: ( [7368,7369]",
+      "dest": "(: ( [7368,7369]"
+    },
+    {
+      "src": "identifier: _balances [7601,7610]",
+      "dest": "identifier: _balances [7601,7610]"
+    },
+    {
+      "src": "): ) [9856,9857]",
+      "dest": "): ) [9856,9857]"
+    },
+    {
+      "src": "type_cast_expression [9728,9738]",
+      "dest": "type_cast_expression [9728,9738]"
+    },
+    {
+      "src": "[: [ [4224,4225]",
+      "dest": "[: [ [4224,4225]"
+    },
+    {
+      "src": "\": \" [7631,7632]",
+      "dest": "\": \" [7631,7632]"
+    },
+    {
+      "src": "identifier: Context [1452,1459]",
+      "dest": "identifier: Context [1452,1459]"
+    },
+    {
+      "src": "type_name [8785,8792]",
+      "dest": "type_name [8785,8792]"
+    },
+    {
+      "src": "identifier: account [3568,3575]",
+      "dest": "identifier: account [3568,3575]"
+    },
+    {
+      "src": "[: [ [5244,5245]",
+      "dest": "[: [ [5244,5245]"
+    },
+    {
+      "src": "parameter [8096,8110]",
+      "dest": "parameter [8096,8110]"
+    },
+    {
+      "src": "call_expression [4486,4498]",
+      "dest": "call_expression [4486,4498]"
+    },
+    {
+      "src": "assignment_expression [7581,7672]",
+      "dest": "assignment_expression [7581,7672]"
+    },
+    {
+      "src": "parameter [9663,9677]",
+      "dest": "parameter [9663,9677]"
+    },
+    {
+      "src": "identifier: _balances [8966,8975]",
+      "dest": "identifier: _balances [8966,8975]"
+    },
+    {
+      "src": "identifier: amount [8368,8374]",
+      "dest": "identifier: amount [8368,8374]"
+    },
+    {
+      "src": "import: import [166,172]",
+      "dest": "import: import [166,172]"
+    },
+    {
+      "src": "contract_declaration [1419,11228]",
+      "dest": "contract_declaration [1419,11228]"
+    },
+    {
+      "src": "call_expression [6626,6722]",
+      "dest": "call_expression [6626,6722]"
+    },
+    {
+      "src": "identifier: from [11003,11007]",
+      "dest": "identifier: from [11003,11007]"
+    },
+    {
+      "src": "array_access [8987,9005]",
+      "dest": "array_access [8987,9005]"
+    },
+    {
+      "src": "call_argument [8948,8954]",
+      "dest": "call_argument [8948,8954]"
+    },
+    {
+      "src": "array_access [7601,7618]",
+      "dest": "array_access [7601,7618]"
+    },
+    {
+      "src": "primitive_type [4461,4465]",
+      "dest": "primitive_type [4461,4465]"
+    },
+    {
+      "src": "type_name [1590,1637]",
+      "dest": "type_name [1590,1637]"
+    },
+    {
+      "src": "(: ( [3983,3984]",
+      "dest": "(: ( [3983,3984]"
+    },
+    {
+      "src": "identifier: _name [11177,11182]",
+      "dest": "identifier: _name [11177,11182]"
+    },
+    {
+      "src": "uint256: uint256 [4180,4187]",
+      "dest": "uint256: uint256 [4180,4187]"
+    },
+    {
+      "src": "): ) [5808,5809]",
+      "dest": "): ) [5808,5809]"
+    },
+    {
+      "src": "parameter [3560,3575]",
+      "dest": "parameter [3560,3575]"
+    },
+    {
+      "src": "=: = [8343,8344]",
+      "dest": "=: = [8343,8344]"
+    },
+    {
+      "src": "identifier: amount [4420,4426]",
+      "dest": "identifier: amount [4420,4426]"
+    },
+    {
+      "src": "(: ( [6589,6590]",
+      "dest": "(: ( [6589,6590]"
+    },
+    {
+      "src": "[: [ [8996,8997]",
+      "dest": "[: [ [8996,8997]"
+    },
+    {
+      "src": "override: override [5122,5130]",
+      "dest": "override: override [5122,5130]"
+    },
+    {
+      "src": "identifier: _allowances [1646,1657]",
+      "dest": "identifier: _allowances [1646,1657]"
+    },
+    {
+      "src": "visibility [3577,3583]",
+      "dest": "visibility [3577,3583]"
+    },
+    {
+      "src": "state_variable_declaration [1753,1777]",
+      "dest": "state_variable_declaration [1753,1777]"
+    },
+    {
+      "src": "identifier: require [9789,9796]",
+      "dest": "identifier: require [9789,9796]"
+    },
+    {
+      "src": "override: override [3929,3937]",
+      "dest": "override: override [3929,3937]"
+    },
+    {
+      "src": "function: function [4091,4099]",
+      "dest": "function: function [4091,4099]"
+    },
+    {
+      "src": "(: ( [5869,5870]",
+      "dest": "(: ( [5869,5870]"
+    },
+    {
+      "src": "return: return [6742,6748]",
+      "dest": "return: return [6742,6748]"
+    },
+    {
+      "src": "identifier: sub [5267,5270]",
+      "dest": "identifier: sub [5267,5270]"
+    },
+    {
+      "src": "virtual: virtual [3263,3270]",
+      "dest": "virtual: virtual [3263,3270]"
+    },
+    {
+      "src": "public: public [3914,3920]",
+      "dest": "public: public [3914,3920]"
+    },
+    {
+      "src": "(: ( [7622,7623]",
+      "dest": "(: ( [7622,7623]"
+    },
+    {
+      "src": "public: public [3408,3414]",
+      "dest": "public: public [3408,3414]"
+    },
+    {
+      "src": "identifier: transfer [3870,3878]",
+      "dest": "identifier: transfer [3870,3878]"
+    },
+    {
+      "src": "): ) [5322,5323]",
+      "dest": "): ) [5322,5323]"
+    },
+    {
+      "src": "primitive_type [8768,8775]",
+      "dest": "primitive_type [8768,8775]"
+    },
+    {
+      "src": "solidity_pragma_token [39,54]",
+      "dest": "solidity_pragma_token [39,54]"
+    },
+    {
+      "src": "uint256: uint256 [6492,6499]",
+      "dest": "uint256: uint256 [6492,6499]"
+    },
+    {
+      "src": "return_type_definition [2558,2581]",
+      "dest": "return_type_definition [2558,2581]"
+    },
+    {
+      "src": "type_name [3879,3886]",
+      "dest": "type_name [3879,3886]"
+    },
+    {
+      "src": "call_argument [9128,9135]",
+      "dest": "call_argument [9128,9135]"
+    },
+    {
+      "src": "call_argument [5921,5931]",
+      "dest": "call_argument [5921,5931]"
+    },
+    {
+      "src": "}: } [5960,5961]",
+      "dest": "}: } [5960,5961]"
+    },
+    {
+      "src": "primitive_type [9638,9645]",
+      "dest": "primitive_type [9638,9645]"
+    },
+    {
+      "src": "primitive_type [11017,11024]",
+      "dest": "primitive_type [11017,11024]"
+    },
+    {
+      "src": "(: ( [4179,4180]",
+      "dest": "(: ( [4179,4180]"
+    },
+    {
+      "src": "function_body [9701,9958]",
+      "dest": "function_body [9701,9958]"
+    },
+    {
+      "src": "type_name [5790,5797]",
+      "dest": "type_name [5790,5797]"
+    },
+    {
+      "src": "(: ( [6664,6665]",
+      "dest": "(: ( [6664,6665]"
+    },
+    {
+      "src": "bool: bool [3947,3951]",
+      "dest": "bool: bool [3947,3951]"
+    },
+    {
+      "src": "member_expression [7601,7622]",
+      "dest": "member_expression [7601,7622]"
+    },
+    {
+      "src": "type_name [1609,1636]",
+      "dest": "type_name [1609,1636]"
+    },
+    {
+      "src": "parameter [4395,4410]",
+      "dest": "parameter [4395,4410]"
+    },
+    {
+      "src": "type_name [1664,1671]",
+      "dest": "type_name [1664,1671]"
+    },
+    {
+      "src": "identifier: amount [7321,7327]",
+      "dest": "identifier: amount [7321,7327]"
+    },
+    {
+      "src": "memory: memory [2134,2140]",
+      "dest": "memory: memory [2134,2140]"
+    },
+    {
+      "src": "(: ( [3405,3406]",
+      "dest": "(: ( [3405,3406]"
+    },
+    {
+      "src": "visibility [4428,4434]",
+      "dest": "visibility [4428,4434]"
+    },
+    {
+      "src": "identifier: _beforeTokenTransfer [7523,7543]",
+      "dest": "identifier: _beforeTokenTransfer [7523,7543]"
+    },
+    {
+      "src": "}: } [6759,6760]",
+      "dest": "}: } [6759,6760]"
+    },
+    {
+      "src": "identifier: _mint [8073,8078]",
+      "dest": "identifier: _mint [8073,8078]"
+    },
+    {
+      "src": "identifier: _allowances [5233,5244]",
+      "dest": "identifier: _allowances [5233,5244]"
+    },
+    {
+      "src": "address: address [8079,8086]",
+      "dest": "address: address [8079,8086]"
+    },
+    {
+      "src": "call_argument [5166,5172]",
+      "dest": "call_argument [5166,5172]"
+    },
+    {
+      "src": "identifier: account [8334,8341]",
+      "dest": "identifier: account [8334,8341]"
+    },
+    {
+      "src": "visibility [3408,3414]",
+      "dest": "visibility [3408,3414]"
+    },
+    {
+      "src": "identifier: add [8364,8367]",
+      "dest": "identifier: add [8364,8367]"
+    },
+    {
+      "src": "string: string [11134,11140]",
+      "dest": "string: string [11134,11140]"
+    },
+    {
+      "src": "(: ( [5920,5921]",
+      "dest": "(: ( [5920,5921]"
+    },
+    {
+      "src": "call_argument [9097,9103]",
+      "dest": "call_argument [9097,9103]"
+    },
+    {
+      "src": "return_statement [5333,5345]",
+      "dest": "return_statement [5333,5345]"
+    },
+    {
+      "src": "(: ( [5833,5834]",
+      "dest": "(: ( [5833,5834]"
+    },
+    {
+      "src": "(: ( [9127,9128]",
+      "dest": "(: ( [9127,9128]"
+    },
+    {
+      "src": "return_type_definition [2362,2385]",
+      "dest": "return_type_definition [2362,2385]"
+    },
+    {
+      "src": "identifier: _balances [8324,8333]",
+      "dest": "identifier: _balances [8324,8333]"
+    },
+    {
+      "src": ",: , [5217,5218]",
+      "dest": ",: , [5217,5218]"
+    },
+    {
+      "src": "parameter [5773,5788]",
+      "dest": "parameter [5773,5788]"
+    },
+    {
+      "src": "address: address [8847,8854]",
+      "dest": "address: address [8847,8854]"
+    },
+    {
+      "src": "call_argument [8368,8374]",
+      "dest": "call_argument [8368,8374]"
+    },
+    {
+      "src": "identifier: account [8927,8934]",
+      "dest": "identifier: account [8927,8934]"
+    },
+    {
+      "src": "{: { [10331,10332]",
+      "dest": "{: { [10331,10332]"
+    },
+    {
+      "src": "): ) [8167,8168]",
+      "dest": "): ) [8167,8168]"
+    },
+    {
+      "src": "string_literal [8170,8203]",
+      "dest": "string_literal [8170,8203]"
+    },
+    {
+      "src": "user_defined_type [1461,1467]",
+      "dest": "user_defined_type [1461,1467]"
+    },
+    {
+      "src": "uint256: uint256 [9663,9670]",
+      "dest": "uint256: uint256 [9663,9670]"
+    },
+    {
+      "src": "import: import [206,212]",
+      "dest": "import: import [206,212]"
+    },
+    {
+      "src": "function: function [10956,10964]",
+      "dest": "function: function [10956,10964]"
+    },
+    {
+      "src": "parameter [11037,11051]",
+      "dest": "parameter [11037,11051]"
+    },
+    {
+      "src": "true [4533,4537]",
+      "dest": "true [4533,4537]"
+    },
+    {
+      "src": "identifier: spender [9935,9942]",
+      "dest": "identifier: spender [9935,9942]"
+    },
+    {
+      "src": "identifier: name [2141,2145]",
+      "dest": "identifier: name [2141,2145]"
+    },
+    {
+      "src": "return_type_definition [4452,4466]",
+      "dest": "return_type_definition [4452,4466]"
+    },
+    {
+      "src": "(: ( [8306,8307]",
+      "dest": "(: ( [8306,8307]"
+    },
+    {
+      "src": "]: ] [7701,7702]",
+      "dest": "]: ] [7701,7702]"
+    },
+    {
+      "src": "type_name [8079,8086]",
+      "dest": "type_name [8079,8086]"
+    },
+    {
+      "src": "number_literal: 0 [9816,9817]",
+      "dest": "number_literal: 0 [9816,9817]"
+    },
+    {
+      "src": "expression_statement [10341,10363]",
+      "dest": "expression_statement [10341,10363]"
+    },
+    {
+      "src": "identifier: _totalSupply [3464,3476]",
+      "dest": "identifier: _totalSupply [3464,3476]"
+    },
+    {
+      "src": "identifier: _approve [6557,6565]",
+      "dest": "identifier: _approve [6557,6565]"
+    },
+    {
+      "src": "identifier: sender [7270,7276]",
+      "dest": "identifier: sender [7270,7276]"
+    },
+    {
+      "src": "identifier: recipient [7294,7303]",
+      "dest": "identifier: recipient [7294,7303]"
+    },
+    {
+      "src": "primitive_type [4180,4187]",
+      "dest": "primitive_type [4180,4187]"
+    },
+    {
+      "src": "(: ( [9718,9719]",
+      "dest": "(: ( [9718,9719]"
+    },
+    {
+      "src": "(: ( [8235,8236]",
+      "dest": "(: ( [8235,8236]"
+    },
+    {
+      "src": "function: function [5746,5754]",
+      "dest": "function: function [5746,5754]"
+    },
+    {
+      "src": "type_alias [1512,1519]",
+      "dest": "type_alias [1512,1519]"
+    },
+    {
+      "src": "{: { [2190,2191]",
+      "dest": "{: { [2190,2191]"
+    },
+    {
+      "src": "call_argument [3987,3996]",
+      "dest": "call_argument [3987,3996]"
+    },
+    {
+      "src": "from: from [147,151]",
+      "dest": "from: from [147,151]"
+    },
+    {
+      "src": "call_expression [7441,7512]",
+      "dest": "call_expression [7441,7512]"
+    },
+    {
+      "src": ",: , [5788,5789]",
+      "dest": ",: , [5788,5789]"
+    },
+    {
+      "src": "function_body [11167,11226]",
+      "dest": "function_body [11167,11226]"
+    },
+    {
+      "src": "): ) [9054,9055]",
+      "dest": "): ) [9054,9055]"
+    },
+    {
+      "src": "\": \" [7670,7671]",
+      "dest": "\": \" [7670,7671]"
+    },
+    {
+      "src": "(: ( [8943,8944]",
+      "dest": "(: ( [8943,8944]"
+    },
+    {
+      "src": "type_name [1725,1731]",
+      "dest": "type_name [1725,1731]"
+    },
+    {
+      "src": "member_expression [7705,7729]",
+      "dest": "member_expression [7705,7729]"
+    },
+    {
+      "src": "): ) [4187,4188]",
+      "dest": "): ) [4187,4188]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns the number of decimals used to get its user representation.      * For example, if `decimals` equals `2`, a balance of `505` tokens should      * be displayed to a user as `5,05` (`505 / 10 ** 2`).      *      * Tokens usually opt for a value of 18, imitating the relationship between      * Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is      * called.      *      * NOTE: This information is only used for _display_ purposes: it in      * no way affects any of the arithmetic of the contract, including      * {IERC20-balanceOf} and {IERC20-transfer}.      */ [2619,3231]",
+      "dest": "comment: /**      * @dev Returns the number of decimals used to get its user representation.      * For example, if `decimals` equals `2`, a balance of `505` tokens should      * be displayed to a user as `5,05` (`505 / 10 ** 2`).      *      * Tokens usually opt for a value of 18, imitating the relationship between      * Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is      * called.      *      * NOTE: This information is only used for _display_ purposes: it in      * no way affects any of the arithmetic of the contract, including      * {IERC20-balanceOf} and {IERC20-transfer}.      */ [2619,3231]"
+    },
+    {
+      "src": "call_argument [9935,9942]",
+      "dest": "call_argument [9935,9942]"
+    },
+    {
+      "src": "emit: emit [8385,8389]",
+      "dest": "emit: emit [8385,8389]"
+    },
+    {
+      "src": "visibility [3256,3262]",
+      "dest": "visibility [3256,3262]"
+    },
+    {
+      "src": "identifier: transferFrom [5013,5025]",
+      "dest": "identifier: transferFrom [5013,5025]"
+    },
+    {
+      "src": "): ) [3254,3255]",
+      "dest": "): ) [3254,3255]"
+    },
+    {
+      "src": "call_argument [9736,9737]",
+      "dest": "call_argument [9736,9737]"
+    },
+    {
+      "src": "): ) [8245,8246]",
+      "dest": "): ) [8245,8246]"
+    },
+    {
+      "src": "(: ( [5229,5230]",
+      "dest": "(: ( [5229,5230]"
+    },
+    {
+      "src": "(: ( [5772,5773]",
+      "dest": "(: ( [5772,5773]"
+    },
+    {
+      "src": "identifier: _totalSupply [8275,8287]",
+      "dest": "identifier: _totalSupply [8275,8287]"
+    },
+    {
+      "src": "emit_statement [9114,9157]",
+      "dest": "emit_statement [9114,9157]"
+    },
+    {
+      "src": "internal: internal [9684,9692]",
+      "dest": "internal: internal [9684,9692]"
+    },
+    {
+      "src": "): ) [5191,5192]",
+      "dest": "): ) [5191,5192]"
+    },
+    {
+      "src": "call_argument [8147,8168]",
+      "dest": "call_argument [8147,8168]"
+    },
+    {
+      "src": "[: [ [7714,7715]",
+      "dest": "[: [ [7714,7715]"
+    },
+    {
+      "src": "string: string [1699,1705]",
+      "dest": "string: string [1699,1705]"
+    },
+    {
+      "src": "parameter [5035,5049]",
+      "dest": "parameter [5035,5049]"
+    },
+    {
+      "src": "number_literal: 0 [7470,7471]",
+      "dest": "number_literal: 0 [7470,7471]"
+    },
+    {
+      "src": "type_cast_expression [8936,8946]",
+      "dest": "type_cast_expression [8936,8946]"
+    },
+    {
+      "src": ",: , [8246,8247]",
+      "dest": ",: , [8246,8247]"
+    },
+    {
+      "src": "(: ( [9096,9097]",
+      "dest": "(: ( [9096,9097]"
+    },
+    {
+      "src": "primitive_type [2127,2133]",
+      "dest": "primitive_type [2127,2133]"
+    },
+    {
+      "src": "type_name [6492,6499]",
+      "dest": "type_name [6492,6499]"
+    },
+    {
+      "src": "call_argument [9820,9856]",
+      "dest": "call_argument [9820,9856]"
+    },
+    {
+      "src": "{: { [3616,3617]",
+      "dest": "{: { [3616,3617]"
+    },
+    {
+      "src": "identifier: sender [5245,5251]",
+      "dest": "identifier: sender [5245,5251]"
+    },
+    {
+      "src": "(: ( [7729,7730]",
+      "dest": "(: ( [7729,7730]"
+    },
+    {
+      "src": "(: ( [8767,8768]",
+      "dest": "(: ( [8767,8768]"
+    },
+    {
+      "src": "identifier: _approve [5202,5210]",
+      "dest": "identifier: _approve [5202,5210]"
+    },
+    {
+      "src": "): ) [3445,3446]",
+      "dest": "): ) [3445,3446]"
+    },
+    {
+      "src": "]: ] [9004,9005]",
+      "dest": "]: ] [9004,9005]"
+    },
+    {
+      "src": "\": \" [9053,9054]",
+      "dest": "\": \" [9053,9054]"
+    },
+    {
+      "src": "assignment_expression [2200,2212]",
+      "dest": "assignment_expression [2200,2212]"
+    },
+    {
+      "src": "true [5950,5954]",
+      "dest": "true [5950,5954]"
+    },
+    {
+      "src": "function: function [8064,8072]",
+      "dest": "function: function [8064,8072]"
+    },
+    {
+      "src": "identifier: owner [9623,9628]",
+      "dest": "identifier: owner [9623,9628]"
+    },
+    {
+      "src": "function_definition [10956,11077]",
+      "dest": "function_definition [10956,11077]"
+    },
+    {
+      "src": "\": \" [7429,7430]",
+      "dest": "\": \" [7429,7430]"
+    },
+    {
+      "src": "visibility [1672,1679]",
+      "dest": "visibility [1672,1679]"
+    },
+    {
+      "src": "): ) [8263,8264]",
+      "dest": "): ) [8263,8264]"
+    },
+    {
+      "src": "call_argument [9928,9933]",
+      "dest": "call_argument [9928,9933]"
+    },
+    {
+      "src": "state_variable_declaration [1590,1658]",
+      "dest": "state_variable_declaration [1590,1658]"
+    },
+    {
+      "src": "assignment_expression [8275,8314]",
+      "dest": "assignment_expression [8275,8314]"
+    },
+    {
+      "src": "): ) [8110,8111]",
+      "dest": "): ) [8110,8111]"
+    },
+    {
+      "src": "expression_statement [5202,5324]",
+      "dest": "expression_statement [5202,5324]"
+    },
+    {
+      "src": "boolean_literal [4533,4537]",
+      "dest": "boolean_literal [4533,4537]"
+    },
+    {
+      "src": "function: function [7234,7242]",
+      "dest": "function: function [7234,7242]"
+    },
+    {
+      "src": "address: address [8936,8943]",
+      "dest": "address: address [8936,8943]"
+    },
+    {
+      "src": "number_literal: 0 [8166,8167]",
+      "dest": "number_literal: 0 [8166,8167]"
+    },
+    {
+      "src": "expression_statement [9868,9905]",
+      "dest": "expression_statement [9868,9905]"
+    },
+    {
+      "src": "call_argument [8170,8203]",
+      "dest": "call_argument [8170,8203]"
+    },
+    {
+      "src": "override: override [4443,4451]",
+      "dest": "override: override [4443,4451]"
+    },
+    {
+      "src": "identifier: spender [6483,6490]",
+      "dest": "identifier: spender [6483,6490]"
+    },
+    {
+      "src": "): ) [5144,5145]",
+      "dest": "): ) [5144,5145]"
+    },
+    {
+      "src": "primitive_type [9663,9670]",
+      "dest": "primitive_type [9663,9670]"
+    },
+    {
+      "src": "call_argument [7474,7511]",
+      "dest": "call_argument [7474,7511]"
+    },
+    {
+      "src": "primitive_type [5086,5093]",
+      "dest": "primitive_type [5086,5093]"
+    },
+    {
+      "src": "parameter [5834,5838]",
+      "dest": "parameter [5834,5838]"
+    },
+    {
+      "src": "bool: bool [6541,6545]",
+      "dest": "bool: bool [6541,6545]"
+    },
+    {
+      "src": "identifier: _approve [4477,4485]",
+      "dest": "identifier: _approve [4477,4485]"
+    },
+    {
+      "src": "call_argument [5271,5277]",
+      "dest": "call_argument [5271,5277]"
+    },
+    {
+      "src": "parameter [5140,5144]",
+      "dest": "parameter [5140,5144]"
+    },
+    {
+      "src": "address: address [3560,3567]",
+      "dest": "address: address [3560,3567]"
+    },
+    {
+      "src": "{: { [11075,11076]",
+      "dest": "{: { [11075,11076]"
+    },
+    {
+      "src": "comment: /**      * @dev Sets `amount` as the allowance of `spender` over the `owner`s tokens.      *      * This is internal function is equivalent to `approve`, and can be used to      * e.g. set automatic allowances for certain subsystems, etc.      *      * Emits an {Approval} event.      *      * Requirements:      *      * - `owner` cannot be the zero address.      * - `spender` cannot be the zero address.      */ [9169,9583]",
+      "dest": "comment: /**      * @dev Sets `amount` as the allowance of `spender` over the `owner`s tokens.      *      * This is internal function is equivalent to `approve`, and can be used to      * e.g. set automatic allowances for certain subsystems, etc.      *      * Emits an {Approval} event.      *      * Requirements:      *      * - `owner` cannot be the zero address.      * - `spender` cannot be the zero address.      */ [9169,9583]"
+    },
+    {
+      "src": "expression_statement [2222,2239]",
+      "dest": "expression_statement [2222,2239]"
+    },
+    {
+      "src": "call_expression [5894,5906]",
+      "dest": "call_expression [5894,5906]"
+    },
+    {
+      "src": "identifier: Initializable [214,227]",
+      "dest": "identifier: Initializable [214,227]"
+    },
+    {
+      "src": "boolean_literal [5950,5954]",
+      "dest": "boolean_literal [5950,5954]"
+    },
+    {
+      "src": "identifier: add [7726,7729]",
+      "dest": "identifier: add [7726,7729]"
+    },
+    {
+      "src": "function_definition [11083,11226]",
+      "dest": "function_definition [11083,11226]"
+    },
+    {
+      "src": "identifier: _approve [5850,5858]",
+      "dest": "identifier: _approve [5850,5858]"
+    },
+    {
+      "src": "=>: => [1625,1627]",
+      "dest": "=>: => [1625,1627]"
+    },
+    {
+      "src": ".: . [7618,7619]",
+      "dest": ".: . [7618,7619]"
+    },
+    {
+      "src": ",: , [5277,5278]",
+      "dest": ",: , [5277,5278]"
+    },
+    {
+      "src": "type_name [11112,11118]",
+      "dest": "type_name [11112,11118]"
+    },
+    {
+      "src": "identifier: amount [8793,8799]",
+      "dest": "identifier: amount [8793,8799]"
+    },
+    {
+      "src": "}: } [109,110]",
+      "dest": "}: } [109,110]"
+    },
+    {
+      "src": "member_expression [8290,8306]",
+      "dest": "member_expression [8290,8306]"
+    },
+    {
+      "src": "}: } [145,146]",
+      "dest": "}: } [145,146]"
+    },
+    {
+      "src": "): ) [9155,9156]",
+      "dest": "): ) [9155,9156]"
+    },
+    {
+      "src": "return_statement [5943,5955]",
+      "dest": "return_statement [5943,5955]"
+    },
+    {
+      "src": "function_definition [3541,3658]",
+      "dest": "function_definition [3541,3658]"
+    },
+    {
+      "src": "primitive_type [7379,7386]",
+      "dest": "primitive_type [7379,7386]"
+    },
+    {
+      "src": ",: , [3996,3997]",
+      "dest": ",: , [3996,3997]"
+    },
+    {
+      "src": "parameter [4461,4465]",
+      "dest": "parameter [4461,4465]"
+    },
+    {
+      "src": "identifier: _balances [7682,7691]",
+      "dest": "identifier: _balances [7682,7691]"
+    },
+    {
+      "src": "expression_statement [8828,8896]",
+      "dest": "expression_statement [8828,8896]"
+    },
+    {
+      "src": "\": \" [252,253]",
+      "dest": "\": \" [252,253]"
+    },
+    {
+      "src": "function_body [2386,2415]",
+      "dest": "function_body [2386,2415]"
+    },
+    {
+      "src": "returns: returns [4171,4178]",
+      "dest": "returns: returns [4171,4178]"
+    },
+    {
+      "src": "identifier: _allowances [5882,5893]",
+      "dest": "identifier: _allowances [5882,5893]"
+    },
+    {
+      "src": "call_expression [8906,8955]",
+      "dest": "call_expression [8906,8955]"
+    },
+    {
+      "src": "expression_statement [11201,11220]",
+      "dest": "expression_statement [11201,11220]"
+    },
+    {
+      "src": "view: view [4166,4170]",
+      "dest": "view: view [4166,4170]"
+    },
+    {
+      "src": "(: ( [7760,7761]",
+      "dest": "(: ( [7760,7761]"
+    },
+    {
+      "src": "bool: bool [4461,4465]",
+      "dest": "bool: bool [4461,4465]"
+    },
+    {
+      "src": "identifier: _symbol [11201,11208]",
+      "dest": "identifier: _symbol [11201,11208]"
+    },
+    {
+      "src": "\": \" [234,235]",
+      "dest": "\": \" [234,235]"
+    },
+    {
+      "src": "identifier: subtractedValue [6665,6680]",
+      "dest": "identifier: subtractedValue [6665,6680]"
+    },
+    {
+      "src": "identifier: amount [5271,5277]",
+      "dest": "identifier: amount [5271,5277]"
+    },
+    {
+      "src": "internal: internal [8112,8120]",
+      "dest": "internal: internal [8112,8120]"
+    },
+    {
+      "src": "function_definition [7234,7794]",
+      "dest": "function_definition [7234,7794]"
+    },
+    {
+      "src": "=>: => [1606,1608]",
+      "dest": "=>: => [1606,1608]"
+    },
+    {
+      "src": "identifier: spender [4225,4232]",
+      "dest": "identifier: spender [4225,4232]"
+    },
+    {
+      "src": "identifier: _decimals [1767,1776]",
+      "dest": "identifier: _decimals [1767,1776]"
+    },
+    {
+      "src": "(: ( [2566,2567]",
+      "dest": "(: ( [2566,2567]"
+    },
+    {
+      "src": "expression_statement [8324,8376]",
+      "dest": "expression_statement [8324,8376]"
+    },
+    {
+      "src": "identifier: _msgSender [5894,5904]",
+      "dest": "identifier: _msgSender [5894,5904]"
+    },
+    {
+      "src": "identifier: name [2343,2347]",
+      "dest": "identifier: name [2343,2347]"
+    },
+    {
+      "src": "identifier: account [8248,8255]",
+      "dest": "identifier: account [8248,8255]"
+    },
+    {
+      "src": "address: address [7462,7469]",
+      "dest": "address: address [7462,7469]"
+    },
+    {
+      "src": "[: [ [8333,8334]",
+      "dest": "[: [ [8333,8334]"
+    },
+    {
+      "src": "pragma: pragma [32,38]",
+      "dest": "pragma: pragma [32,38]"
+    },
+    {
+      "src": "array_access [7705,7725]",
+      "dest": "array_access [7705,7725]"
+    },
+    {
+      "src": "=: = [10351,10352]",
+      "dest": "=: = [10351,10352]"
+    },
+    {
+      "src": "parameter [11112,11132]",
+      "dest": "parameter [11112,11132]"
+    },
+    {
+      "src": "return_type_definition [3276,3291]",
+      "dest": "return_type_definition [3276,3291]"
+    },
+    {
+      "src": "identifier: owner [4218,4223]",
+      "dest": "identifier: owner [4218,4223]"
+    },
+    {
+      "src": "identifier: add [5917,5920]",
+      "dest": "identifier: add [5917,5920]"
+    },
+    {
+      "src": "function_body [6547,6760]",
+      "dest": "function_body [6547,6760]"
+    },
+    {
+      "src": "identifier: spender [6605,6612]",
+      "dest": "identifier: spender [6605,6612]"
+    },
+    {
+      "src": "import: import [57,63]",
+      "dest": "import: import [57,63]"
+    },
+    {
+      "src": "return_statement [3626,3652]",
+      "dest": "return_statement [3626,3652]"
+    },
+    {
+      "src": "\": \" [8893,8894]",
+      "dest": "\": \" [8893,8894]"
+    },
+    {
+      "src": "identifier: _symbol [1740,1747]",
+      "dest": "identifier: _symbol [1740,1747]"
+    },
+    {
+      "src": "call_argument [9944,9950]",
+      "dest": "call_argument [9944,9950]"
+    },
+    {
+      "src": "expression_statement [8139,8205]",
+      "dest": "expression_statement [8139,8205]"
+    },
+    {
+      "src": ".: . [9005,9006]",
+      "dest": ".: . [9005,9006]"
+    },
+    {
+      "src": "(: ( [9796,9797]",
+      "dest": "(: ( [9796,9797]"
+    },
+    {
+      "src": "memory: memory [11119,11125]",
+      "dest": "memory: memory [11119,11125]"
+    },
+    {
+      "src": "primitive_type [8847,8854]",
+      "dest": "primitive_type [8847,8854]"
+    },
+    {
+      "src": "call_argument [5859,5871]",
+      "dest": "call_argument [5859,5871]"
+    },
+    {
+      "src": "function: function [11083,11091]",
+      "dest": "function: function [11083,11091]"
+    },
+    {
+      "src": "virtual: virtual [9693,9700]",
+      "dest": "virtual: virtual [9693,9700]"
+    },
+    {
+      "src": "call_expression [6638,6650]",
+      "dest": "call_expression [6638,6650]"
+    },
+    {
+      "src": "function: function [3861,3869]",
+      "dest": "function: function [3861,3869]"
+    },
+    {
+      "src": "return: return [4015,4021]",
+      "dest": "return: return [4015,4021]"
+    },
+    {
+      "src": "}: } [4543,4544]",
+      "dest": "}: } [4543,4544]"
+    },
+    {
+      "src": "function_definition [2099,2269]",
+      "dest": "function_definition [2099,2269]"
+    },
+    {
+      "src": "address: address [7286,7293]",
+      "dest": "address: address [7286,7293]"
+    },
+    {
+      "src": "): ) [9103,9104]",
+      "dest": "): ) [9103,9104]"
+    },
+    {
+      "src": "identifier: amount [9010,9016]",
+      "dest": "identifier: amount [9010,9016]"
+    },
+    {
+      "src": ",: , [9628,9629]",
+      "dest": ",: , [9628,9629]"
+    },
+    {
+      "src": "primitive_type [1725,1731]",
+      "dest": "primitive_type [1725,1731]"
+    },
+    {
+      "src": "address: address [4110,4117]",
+      "dest": "address: address [4110,4117]"
+    },
+    {
+      "src": ",: , [5172,5173]",
+      "dest": ",: , [5172,5173]"
+    },
+    {
+      "src": "type_cast_expression [7379,7389]",
+      "dest": "type_cast_expression [7379,7389]"
+    },
+    {
+      "src": "override_specifier [3415,3423]",
+      "dest": "override_specifier [3415,3423]"
+    },
+    {
+      "src": "(: ( [5858,5859]",
+      "dest": "(: ( [5858,5859]"
+    },
+    {
+      "src": "parameter [7286,7303]",
+      "dest": "parameter [7286,7303]"
+    },
+    {
+      "src": "call_argument [5211,5217]",
+      "dest": "call_argument [5211,5217]"
+    },
+    {
+      "src": "identifier: _symbol [2599,2606]",
+      "dest": "identifier: _symbol [2599,2606]"
+    },
+    {
+      "src": "): ) [5321,5322]",
+      "dest": "): ) [5321,5322]"
+    },
+    {
+      "src": "identifier: require [8828,8835]",
+      "dest": "identifier: require [8828,8835]"
+    },
+    {
+      "src": "{: { [138,139]",
+      "dest": "{: { [138,139]"
+    },
+    {
+      "src": "call_expression [4477,4516]",
+      "dest": "call_expression [4477,4516]"
+    },
+    {
+      "src": "}: } [9957,9958]",
+      "dest": "}: } [9957,9958]"
+    },
+    {
+      "src": "identifier: _decimals [3309,3318]",
+      "dest": "identifier: _decimals [3309,3318]"
+    },
+    {
+      "src": "call_argument [6682,6721]",
+      "dest": "call_argument [6682,6721]"
+    },
+    {
+      "src": "modifier_invocation [2178,2189]",
+      "dest": "modifier_invocation [2178,2189]"
+    },
+    {
+      "src": "}: } [4239,4240]",
+      "dest": "}: } [4239,4240]"
+    },
+    {
+      "src": "call_argument [5882,5932]",
+      "dest": "call_argument [5882,5932]"
+    },
+    {
+      "src": "address: address [4395,4402]",
+      "dest": "address: address [4395,4402]"
+    },
+    {
+      "src": "type_name [6475,6482]",
+      "dest": "type_name [6475,6482]"
+    },
+    {
+      "src": "uint256: uint256 [3898,3905]",
+      "dest": "uint256: uint256 [3898,3905]"
+    },
+    {
+      "src": "boolean_literal [5340,5344]",
+      "dest": "boolean_literal [5340,5344]"
+    },
+    {
+      "src": "identifier: _balances [8987,8996]",
+      "dest": "identifier: _balances [8987,8996]"
+    },
+    {
+      "src": "identifier: _transfer [7243,7252]",
+      "dest": "identifier: _transfer [7243,7252]"
+    },
+    {
+      "src": ",: , [6612,6613]",
+      "dest": ",: , [6612,6613]"
+    },
+    {
+      "src": "(: ( [11111,11112]",
+      "dest": "(: ( [11111,11112]"
+    },
+    {
+      "src": "identifier: sub [6661,6664]",
+      "dest": "identifier: sub [6661,6664]"
+    },
+    {
+      "src": "): ) [8426,8427]",
+      "dest": "): ) [8426,8427]"
+    },
+    {
+      "src": ",: , [11007,11008]",
+      "dest": ",: , [11007,11008]"
+    },
+    {
+      "src": "primitive_type [5059,5066]",
+      "dest": "primitive_type [5059,5066]"
+    },
+    {
+      "src": "}: } [11227,11228]",
+      "dest": "}: } [11227,11228]"
+    },
+    {
+      "src": "type_name [10305,10310]",
+      "dest": "type_name [10305,10310]"
+    },
+    {
+      "src": "string: string [2371,2377]",
+      "dest": "string: string [2371,2377]"
+    },
+    {
+      "src": "emit_statement [8385,8428]",
+      "dest": "emit_statement [8385,8428]"
+    },
+    {
+      "src": "type_name [2127,2133]",
+      "dest": "type_name [2127,2133]"
+    },
+    {
+      "src": "(: ( [9009,9010]",
+      "dest": "(: ( [9009,9010]"
+    },
+    {
+      "src": "identifier: _msgSender [5253,5263]",
+      "dest": "identifier: _msgSender [5253,5263]"
+    },
+    {
+      "src": "visibility [5107,5113]",
+      "dest": "visibility [5107,5113]"
+    },
+    {
+      "src": "function_definition [5746,5961]",
+      "dest": "function_definition [5746,5961]"
+    },
+    {
+      "src": "uint8: uint8 [1753,1758]",
+      "dest": "uint8: uint8 [1753,1758]"
+    },
+    {
+      "src": "inheritance_specifier [1437,1450]",
+      "dest": "inheritance_specifier [1437,1450]"
+    },
+    {
+      "src": "public: public [3256,3262]",
+      "dest": "public: public [3256,3262]"
+    },
+    {
+      "src": "): ) [8856,8857]",
+      "dest": "): ) [8856,8857]"
+    },
+    {
+      "src": "identifier: spender [5781,5788]",
+      "dest": "identifier: spender [5781,5788]"
+    },
+    {
+      "src": "binary_expression [9797,9818]",
+      "dest": "binary_expression [9797,9818]"
+    },
+    {
+      "src": "private: private [1638,1645]",
+      "dest": "private: private [1638,1645]"
+    },
+    {
+      "src": "array_access [4206,4233]",
+      "dest": "array_access [4206,4233]"
+    },
+    {
+      "src": "(: ( [7252,7253]",
+      "dest": "(: ( [7252,7253]"
+    },
+    {
+      "src": "identifier: owner [9880,9885]",
+      "dest": "identifier: owner [9880,9885]"
+    },
+    {
+      "src": "expression_statement [7441,7513]",
+      "dest": "expression_statement [7441,7513]"
+    },
+    {
+      "src": ",: , [9933,9934]",
+      "dest": ",: , [9933,9934]"
+    },
+    {
+      "src": ".: . [7725,7726]",
+      "dest": ".: . [7725,7726]"
+    },
+    {
+      "src": "type_cast_expression [9808,9818]",
+      "dest": "type_cast_expression [9808,9818]"
+    },
+    {
+      "src": ",: , [9147,9148]",
+      "dest": ",: , [9147,9148]"
+    },
+    {
+      "src": "primitive_type [8785,8792]",
+      "dest": "primitive_type [8785,8792]"
+    },
+    {
+      "src": "bool: bool [5140,5144]",
+      "dest": "bool: bool [5140,5144]"
+    },
+    {
+      "src": "(: ( [9815,9816]",
+      "dest": "(: ( [9815,9816]"
+    },
+    {
+      "src": "(: ( [4109,4110]",
+      "dest": "(: ( [4109,4110]"
+    },
+    {
+      "src": "uint256: uint256 [11037,11044]",
+      "dest": "uint256: uint256 [11037,11044]"
+    },
+    {
+      "src": "function: function [2334,2342]",
+      "dest": "function: function [2334,2342]"
+    },
+    {
+      "src": "primitive_type [5773,5780]",
+      "dest": "primitive_type [5773,5780]"
+    },
+    {
+      "src": "]: ] [5251,5252]",
+      "dest": "]: ] [5251,5252]"
+    },
+    {
+      "src": "{: { [101,102]",
+      "dest": "{: { [101,102]"
+    },
+    {
+      "src": "=: = [8985,8986]",
+      "dest": "=: = [8985,8986]"
+    },
+    {
+      "src": "\": \" [7510,7511]",
+      "dest": "\": \" [7510,7511]"
+    },
+    {
+      "src": "identifier: SafeMath [1480,1488]",
+      "dest": "identifier: SafeMath [1480,1488]"
+    },
+    {
+      "src": "=: = [2206,2207]",
+      "dest": "=: = [2206,2207]"
+    },
+    {
+      "src": "type_name [4412,4419]",
+      "dest": "type_name [4412,4419]"
+    },
+    {
+      "src": "(: ( [7543,7544]",
+      "dest": "(: ( [7543,7544]"
+    },
+    {
+      "src": "parameter [3607,3614]",
+      "dest": "parameter [3607,3614]"
+    },
+    {
+      "src": "parameter [4110,4123]",
+      "dest": "parameter [4110,4123]"
+    },
+    {
+      "src": "call_expression [5233,5322]",
+      "dest": "call_expression [5233,5322]"
+    },
+    {
+      "src": "(: ( [8835,8836]",
+      "dest": "(: ( [8835,8836]"
+    },
+    {
+      "src": "parameter [5086,5100]",
+      "dest": "parameter [5086,5100]"
+    },
+    {
+      "src": "number_literal: 0 [8944,8945]",
+      "dest": "number_literal: 0 [8944,8945]"
+    },
+    {
+      "src": "call_argument [6626,6722]",
+      "dest": "call_argument [6626,6722]"
+    },
+    {
+      "src": "[: [ [4217,4218]",
+      "dest": "[: [ [4217,4218]"
+    },
+    {
+      "src": "identifier: _beforeTokenTransfer [10965,10985]",
+      "dest": "identifier: _beforeTokenTransfer [10965,10985]"
+    },
+    {
+      "src": "function_body [3292,3325]",
+      "dest": "function_body [3292,3325]"
+    },
+    {
+      "src": "return_statement [2592,2607]",
+      "dest": "return_statement [2592,2607]"
+    },
+    {
+      "src": "user_defined_type [1437,1450]",
+      "dest": "user_defined_type [1437,1450]"
+    },
+    {
+      "src": "state_variable_declaration [1725,1748]",
+      "dest": "state_variable_declaration [1725,1748]"
+    },
+    {
+      "src": "function: function [3236,3244]",
+      "dest": "function: function [3236,3244]"
+    },
+    {
+      "src": "identifier: amount [8257,8263]",
+      "dest": "identifier: amount [8257,8263]"
+    },
+    {
+      "src": "[: [ [8354,8355]",
+      "dest": "[: [ [8354,8355]"
+    },
+    {
+      "src": "identifier: _burn [8762,8767]",
+      "dest": "identifier: _burn [8762,8767]"
+    },
+    {
+      "src": "return_type_definition [3938,3952]",
+      "dest": "return_type_definition [3938,3952]"
+    },
+    {
+      "src": "call_argument [8407,8408]",
+      "dest": "call_argument [8407,8408]"
+    },
+    {
+      "src": "): ) [4497,4498]",
+      "dest": "): ) [4497,4498]"
+    },
+    {
+      "src": "[: [ [8975,8976]",
+      "dest": "[: [ [8975,8976]"
+    },
+    {
+      "src": "return_statement [4199,4234]",
+      "dest": "return_statement [4199,4234]"
+    },
+    {
+      "src": "(: ( [8146,8147]",
+      "dest": "(: ( [8146,8147]"
+    },
+    {
+      "src": "[: [ [6651,6652]",
+      "dest": "[: [ [6651,6652]"
+    },
+    {
+      "src": "primitive_type [9728,9735]",
+      "dest": "primitive_type [9728,9735]"
+    },
+    {
+      "src": "): ) [9950,9951]",
+      "dest": "): ) [9950,9951]"
+    },
+    {
+      "src": "expression_statement [7523,7571]",
+      "dest": "expression_statement [7523,7571]"
+    },
+    {
+      "src": "type_name [1628,1635]",
+      "dest": "type_name [1628,1635]"
+    },
+    {
+      "src": "]: ] [8362,8363]",
+      "dest": "]: ] [8362,8363]"
+    },
+    {
+      "src": "internal: internal [11058,11066]",
+      "dest": "internal: internal [11058,11066]"
+    },
+    {
+      "src": "parameter [8768,8783]",
+      "dest": "parameter [8768,8783]"
+    },
+    {
+      "src": "override_specifier [3929,3937]",
+      "dest": "override_specifier [3929,3937]"
+    },
+    {
+      "src": "from: from [184,188]",
+      "dest": "from: from [184,188]"
+    },
+    {
+      "src": "\": \" [128,129]",
+      "dest": "\": \" [128,129]"
+    },
+    {
+      "src": "member_expression [9080,9096]",
+      "dest": "member_expression [9080,9096]"
+    },
+    {
+      "src": "!=: != [9725,9727]",
+      "dest": "!=: != [9725,9727]"
+    },
+    {
+      "src": "identifier: amount [7780,7786]",
+      "dest": "identifier: amount [7780,7786]"
+    },
+    {
+      "src": "type_cast_expression [7462,7472]",
+      "dest": "type_cast_expression [7462,7472]"
+    },
+    {
+      "src": "primitive_type [1546,1553]",
+      "dest": "primitive_type [1546,1553]"
+    },
+    {
+      "src": ",: , [1459,1460]",
+      "dest": ",: , [1459,1460]"
+    },
+    {
+      "src": "{: { [2582,2583]",
+      "dest": "{: { [2582,2583]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns the symbol of the token, usually a shorter version of the      * name.      */ [2421,2523]",
+      "dest": "comment: /**      * @dev Returns the symbol of the token, usually a shorter version of the      * name.      */ [2421,2523]"
+    },
+    {
+      "src": "}: } [4032,4033]",
+      "dest": "}: } [4032,4033]"
+    },
+    {
+      "src": "identifier: spender [9887,9894]",
+      "dest": "identifier: spender [9887,9894]"
+    },
+    {
+      "src": "comment: /** @dev Creates `amount` tokens and assigns them to `account`, increasing      * the total supply.      *      * Emits a {Transfer} event with `from` set to the zero address.      *      * Requirements      *      * - `to` cannot be the zero address.      */ [7800,8059]",
+      "dest": "comment: /** @dev Creates `amount` tokens and assigns them to `account`, increasing      * the total supply.      *      * Emits a {Transfer} event with `from` set to the zero address.      *      * Requirements      *      * - `to` cannot be the zero address.      */ [7800,8059]"
+    },
+    {
+      "src": "identifier: amount [3906,3912]",
+      "dest": "identifier: amount [3906,3912]"
+    },
+    {
+      "src": "string_literal [7391,7430]",
+      "dest": "string_literal [7391,7430]"
+    },
+    {
+      "src": "type_cast_expression [8158,8168]",
+      "dest": "type_cast_expression [8158,8168]"
+    },
+    {
+      "src": "identifier: ERC20 [1428,1433]",
+      "dest": "identifier: ERC20 [1428,1433]"
+    },
+    {
+      "src": "call_expression [8345,8375]",
+      "dest": "call_expression [8345,8375]"
+    },
+    {
+      "src": "!=: != [8155,8157]",
+      "dest": "!=: != [8155,8157]"
+    },
+    {
+      "src": ",: , [9738,9739]",
+      "dest": ",: , [9738,9739]"
+    },
+    {
+      "src": "returns: returns [5825,5832]",
+      "dest": "returns: returns [5825,5832]"
+    },
+    {
+      "src": "address: address [9638,9645]",
+      "dest": "address: address [9638,9645]"
+    },
+    {
+      "src": ".: . [6660,6661]",
+      "dest": ".: . [6660,6661]"
+    },
+    {
+      "src": "function: function [4378,4386]",
+      "dest": "function: function [4378,4386]"
+    },
+    {
+      "src": "visibility [2350,2356]",
+      "dest": "visibility [2350,2356]"
+    },
+    {
+      "src": "): ) [5230,5231]",
+      "dest": "): ) [5230,5231]"
+    },
+    {
+      "src": "visibility [3914,3920]",
+      "dest": "visibility [3914,3920]"
+    },
+    {
+      "src": "identifier: sender [5043,5049]",
+      "dest": "identifier: sender [5043,5049]"
+    },
+    {
+      "src": "using: using [1474,1479]",
+      "dest": "using: using [1474,1479]"
+    },
+    {
+      "src": "): ) [2384,2385]",
+      "dest": "): ) [2384,2385]"
+    },
+    {
+      "src": "uint256: uint256 [1628,1635]",
+      "dest": "uint256: uint256 [1628,1635]"
+    },
+    {
+      "src": "identifier: _totalSupply [8290,8302]",
+      "dest": "identifier: _totalSupply [8290,8302]"
+    },
+    {
+      "src": "pragma_directive [32,55]",
+      "dest": "pragma_directive [32,55]"
+    },
+    {
+      "src": "comment: /**      * @dev Moves tokens `amount` from `sender` to `recipient`.      *      * This is internal function is equivalent to {transfer}, and can be used to      * e.g. implement automatic token fees, slashing mechanisms, etc.      *      * Emits a {Transfer} event.      *      * Requirements:      *      * - `sender` cannot be the zero address.      * - `recipient` cannot be the zero address.      * - `sender` must have a balance of at least `amount`.      */ [6766,7229]",
+      "dest": "comment: /**      * @dev Moves tokens `amount` from `sender` to `recipient`.      *      * This is internal function is equivalent to {transfer}, and can be used to      * e.g. implement automatic token fees, slashing mechanisms, etc.      *      * Emits a {Transfer} event.      *      * Requirements:      *      * - `sender` cannot be the zero address.      * - `recipient` cannot be the zero address.      * - `sender` must have a balance of at least `amount`.      */ [6766,7229]"
+    },
+    {
+      "src": "virtual: virtual [11067,11074]",
+      "dest": "virtual: virtual [11067,11074]"
+    },
+    {
+      "src": "identifier: _balances [3633,3642]",
+      "dest": "identifier: _balances [3633,3642]"
+    },
+    {
+      "src": "(: ( [9144,9145]",
+      "dest": "(: ( [9144,9145]"
+    },
+    {
+      "src": "assignment_expression [9065,9104]",
+      "dest": "assignment_expression [9065,9104]"
+    },
+    {
+      "src": "comment: /**      * @dev Destroys `amount` tokens from `account`, reducing the      * total supply.      *      * Emits a {Transfer} event with `to` set to the zero address.      *      * Requirements      *      * - `account` cannot be the zero address.      * - `account` must have at least `amount` tokens.      */ [8440,8748]",
+      "dest": "comment: /**      * @dev Destroys `amount` tokens from `account`, reducing the      * total supply.      *      * Emits a {Transfer} event with `to` set to the zero address.      *      * Requirements      *      * - `account` cannot be the zero address.      * - `account` must have at least `amount` tokens.      */ [8440,8748]"
+    },
+    {
+      "src": "function_definition [2334,2415]",
+      "dest": "function_definition [2334,2415]"
+    },
+    {
+      "src": "parameter [4412,4426]",
+      "dest": "parameter [4412,4426]"
+    },
+    {
+      "src": "call_argument [5185,5191]",
+      "dest": "call_argument [5185,5191]"
+    },
+    {
+      "src": "call_argument [4500,4507]",
+      "dest": "call_argument [4500,4507]"
+    },
+    {
+      "src": "identifier: recipient [7552,7561]",
+      "dest": "identifier: recipient [7552,7561]"
+    },
+    {
+      "src": "(: ( [9735,9736]",
+      "dest": "(: ( [9735,9736]"
+    },
+    {
+      "src": "primitive_type [1598,1605]",
+      "dest": "primitive_type [1598,1605]"
+    },
+    {
+      "src": "call_argument [9816,9817]",
+      "dest": "call_argument [9816,9817]"
+    },
+    {
+      "src": "parameter [3879,3896]",
+      "dest": "parameter [3879,3896]"
+    },
+    {
+      "src": "string [9820,9856]",
+      "dest": "string [9820,9856]"
+    },
+    {
+      "src": "(: ( [5270,5271]",
+      "dest": "(: ( [5270,5271]"
+    },
+    {
+      "src": "identifier: _totalSupply [9080,9092]",
+      "dest": "identifier: _totalSupply [9080,9092]"
+    },
+    {
+      "src": "return_statement [4526,4538]",
+      "dest": "return_statement [4526,4538]"
+    },
+    {
+      "src": "): ) [11056,11057]",
+      "dest": "): ) [11056,11057]"
+    },
+    {
+      "src": "identifier: recipient [3887,3896]",
+      "dest": "identifier: recipient [3887,3896]"
+    },
+    {
+      "src": "function_body [4467,4544]",
+      "dest": "function_body [4467,4544]"
+    },
+    {
+      "src": "): ) [3951,3952]",
+      "dest": "): ) [3951,3952]"
+    },
+    {
+      "src": "identifier: recipient [5067,5076]",
+      "dest": "identifier: recipient [5067,5076]"
+    },
+    {
+      "src": "{: { [3292,3293]",
+      "dest": "{: { [3292,3293]"
+    },
+    {
+      "src": "function_body [8818,9163]",
+      "dest": "function_body [8818,9163]"
+    },
+    {
+      "src": "type_name [3438,3445]",
+      "dest": "type_name [3438,3445]"
+    },
+    {
+      "src": "identifier: IERC20 [139,145]",
+      "dest": "identifier: IERC20 [139,145]"
+    },
+    {
+      "src": "identifier: symbol [2232,2238]",
+      "dest": "identifier: symbol [2232,2238]"
+    },
+    {
+      "src": "override_specifier [3584,3592]",
+      "dest": "override_specifier [3584,3592]"
+    },
+    {
+      "src": ",: , [6680,6681]",
+      "dest": ",: , [6680,6681]"
+    },
+    {
+      "src": "(: ( [8398,8399]",
+      "dest": "(: ( [8398,8399]"
+    },
+    {
+      "src": "inheritance_specifier [1452,1459]",
+      "dest": "inheritance_specifier [1452,1459]"
+    },
+    {
+      "src": "primitive_type [8399,8406]",
+      "dest": "primitive_type [8399,8406]"
+    },
+    {
+      "src": "identifier: require [9711,9718]",
+      "dest": "identifier: require [9711,9718]"
+    },
+    {
+      "src": "call_argument [8257,8263]",
+      "dest": "call_argument [8257,8263]"
+    },
+    {
+      "src": ",: , [2145,2146]",
+      "dest": ",: , [2145,2146]"
+    },
+    {
+      "src": "call_argument [7470,7471]",
+      "dest": "call_argument [7470,7471]"
+    },
+    {
+      "src": "call_argument [8244,8245]",
+      "dest": "call_argument [8244,8245]"
+    },
+    {
+      "src": "string_literal [9740,9778]",
+      "dest": "string_literal [9740,9778]"
+    },
+    {
+      "src": "{: { [213,214]",
+      "dest": "{: { [213,214]"
+    },
+    {
+      "src": "type_name [7313,7320]",
+      "dest": "type_name [7313,7320]"
+    },
+    {
+      "src": ",: , [7767,7768]",
+      "dest": ",: , [7767,7768]"
+    },
+    {
+      "src": "type_cast_expression [9137,9147]",
+      "dest": "type_cast_expression [9137,9147]"
+    },
+    {
+      "src": "parameter [7262,7276]",
+      "dest": "parameter [7262,7276]"
+    },
+    {
+      "src": "[: [ [7590,7591]",
+      "dest": "[: [ [7590,7591]"
+    },
+    {
+      "src": "primitive_type [4110,4117]",
+      "dest": "primitive_type [4110,4117]"
+    },
+    {
+      "src": "{: { [64,65]",
+      "dest": "{: { [64,65]"
+    },
+    {
+      "src": "function_definition [9588,9958]",
+      "dest": "function_definition [9588,9958]"
+    },
+    {
+      "src": "type_name [5086,5093]",
+      "dest": "type_name [5086,5093]"
+    },
+    {
+      "src": "call_argument [5174,5183]",
+      "dest": "call_argument [5174,5183]"
+    },
+    {
+      "src": "identifier: __symbol [11211,11219]",
+      "dest": "identifier: __symbol [11211,11219]"
+    },
+    {
+      "src": "type_name [5773,5780]",
+      "dest": "type_name [5773,5780]"
+    },
+    {
+      "src": "): ) [1636,1637]",
+      "dest": "): ) [1636,1637]"
+    },
+    {
+      "src": "expression_statement [8906,8956]",
+      "dest": "expression_statement [8906,8956]"
+    },
+    {
+      "src": "uint256: uint256 [5790,5797]",
+      "dest": "uint256: uint256 [5790,5797]"
+    },
+    {
+      "src": "type_name [6541,6545]",
+      "dest": "type_name [6541,6545]"
+    },
+    {
+      "src": "}: } [2612,2613]",
+      "dest": "}: } [2612,2613]"
+    },
+    {
+      "src": "expression_statement [8215,8265]",
+      "dest": "expression_statement [8215,8265]"
+    },
+    {
+      "src": "function_body [3616,3658]",
+      "dest": "function_body [3616,3658]"
+    },
+    {
+      "src": "): ) [7430,7431]",
+      "dest": "): ) [7430,7431]"
+    },
+    {
+      "src": "): ) [8945,8946]",
+      "dest": "): ) [8945,8946]"
+    },
+    {
+      "src": "return_statement [2396,2409]",
+      "dest": "return_statement [2396,2409]"
+    },
+    {
+      "src": "identifier: amount [8104,8110]",
+      "dest": "identifier: amount [8104,8110]"
+    },
+    {
+      "src": "internal: internal [8801,8809]",
+      "dest": "internal: internal [8801,8809]"
+    },
+    {
+      "src": "address: address [1617,1624]",
+      "dest": "address: address [1617,1624]"
+    },
+    {
+      "src": "{: { [9701,9702]",
+      "dest": "{: { [9701,9702]"
+    },
+    {
+      "src": "): ) [3912,3913]",
+      "dest": "): ) [3912,3913]"
+    },
+    {
+      "src": "return_type_definition [4171,4188]",
+      "dest": "return_type_definition [4171,4188]"
+    },
+    {
+      "src": "(: ( [1616,1617]",
+      "dest": "(: ( [1616,1617]"
+    },
+    {
+      "src": "}: } [3657,3658]",
+      "dest": "}: } [3657,3658]"
+    },
+    {
+      "src": "for: for [1489,1492]",
+      "dest": "for: for [1489,1492]"
+    },
+    {
+      "src": "boolean_literal [6749,6753]",
+      "dest": "boolean_literal [6749,6753]"
+    },
+    {
+      "src": "type_name [3607,3614]",
+      "dest": "type_name [3607,3614]"
+    },
+    {
+      "src": "identifier: amount [9097,9103]",
+      "dest": "identifier: amount [9097,9103]"
+    },
+    {
+      "src": "call_expression [5219,5231]",
+      "dest": "call_expression [5219,5231]"
+    },
+    {
+      "src": "call_argument [4486,4498]",
+      "dest": "call_argument [4486,4498]"
+    },
+    {
+      "src": "string [189,203]",
+      "dest": "string [189,203]"
+    },
+    {
+      "src": "): ) [2348,2349]",
+      "dest": "): ) [2348,2349]"
+    },
+    {
+      "src": "comment: /**      * @dev See {IERC20-transferFrom}.      *      * Emits an {Approval} event indicating the updated allowance. This is not      * required by the EIP. See the note at the beginning of {ERC20};      *      * Requirements:      * - `sender` and `recipient` cannot be the zero address.      * - `sender` must have a balance of at least `amount`.      * - the caller must have allowance for ``sender``'s tokens of at least      * `amount`.      */ [4550,4999]",
+      "dest": "comment: /**      * @dev See {IERC20-transferFrom}.      *      * Emits an {Approval} event indicating the updated allowance. This is not      * required by the EIP. See the note at the beginning of {ERC20};      *      * Requirements:      * - `sender` and `recipient` cannot be the zero address.      * - `sender` must have a balance of at least `amount`.      * - the caller must have allowance for ``sender``'s tokens of at least      * `amount`.      */ [4550,4999]"
+    },
+    {
+      "src": "function_body [3953,4033]",
+      "dest": "function_body [3953,4033]"
+    },
+    {
+      "src": "address: address [8236,8243]",
+      "dest": "address: address [8236,8243]"
+    },
+    {
+      "src": "call_expression [9080,9104]",
+      "dest": "call_expression [9080,9104]"
+    },
+    {
+      "src": "emit: emit [9114,9118]",
+      "dest": "emit: emit [9114,9118]"
+    },
+    {
+      "src": "): ) [9682,9683]",
+      "dest": "): ) [9682,9683]"
+    },
+    {
+      "src": "identifier: sender [7591,7597]",
+      "dest": "identifier: sender [7591,7597]"
+    },
+    {
+      "src": "parameter [3898,3912]",
+      "dest": "parameter [3898,3912]"
+    },
+    {
+      "src": ",: , [9135,9136]",
+      "dest": ",: , [9135,9136]"
+    },
+    {
+      "src": "(: ( [5139,5140]",
+      "dest": "(: ( [5139,5140]"
+    },
+    {
+      "src": "primitive_type [1617,1624]",
+      "dest": "primitive_type [1617,1624]"
+    },
+    {
+      "src": "call_argument [8859,8894]",
+      "dest": "call_argument [8859,8894]"
+    },
+    {
+      "src": "call_argument [7623,7629]",
+      "dest": "call_argument [7623,7629]"
+    },
+    {
+      "src": "address: address [11017,11024]",
+      "dest": "address: address [11017,11024]"
+    },
+    {
+      "src": "(: ( [3559,3560]",
+      "dest": "(: ( [3559,3560]"
+    },
+    {
+      "src": "return: return [2592,2598]",
+      "dest": "return: return [2592,2598]"
+    },
+    {
+      "src": ",: , [6591,6592]",
+      "dest": ",: , [6591,6592]"
+    },
+    {
+      "src": "function_definition [4091,4240]",
+      "dest": "function_definition [4091,4240]"
+    },
+    {
+      "src": "type_cast_expression [8399,8409]",
+      "dest": "type_cast_expression [8399,8409]"
+    },
+    {
+      "src": "type_name [1753,1758]",
+      "dest": "type_name [1753,1758]"
+    },
+    {
+      "src": "[: [ [6637,6638]",
+      "dest": "[: [ [6637,6638]"
+    },
+    {
+      "src": "primitive_type [4125,4132]",
+      "dest": "primitive_type [4125,4132]"
+    },
+    {
+      "src": "call_expression [7361,7431]",
+      "dest": "call_expression [7361,7431]"
+    },
+    {
+      "src": "view: view [3593,3597]",
+      "dest": "view: view [3593,3597]"
+    },
+    {
+      "src": "string: string [2127,2133]",
+      "dest": "string: string [2127,2133]"
+    },
+    {
+      "src": "state_mutability [3271,3275]",
+      "dest": "state_mutability [3271,3275]"
+    },
+    {
+      "src": "string [7474,7511]",
+      "dest": "string [7474,7511]"
+    },
+    {
+      "src": "[: [ [7610,7611]",
+      "dest": "[: [ [7610,7611]"
+    },
+    {
+      "src": "identifier: _name [1714,1719]",
+      "dest": "identifier: _name [1714,1719]"
+    },
+    {
+      "src": ",: , [1450,1451]",
+      "dest": ",: , [1450,1451]"
+    },
+    {
+      "src": "return_type_definition [3598,3615]",
+      "dest": "return_type_definition [3598,3615]"
+    },
+    {
+      "src": "identifier: spender [6652,6659]",
+      "dest": "identifier: spender [6652,6659]"
+    },
+    {
+      "src": "): ) [7511,7512]",
+      "dest": "): ) [7511,7512]"
+    },
+    {
+      "src": "): ) [7569,7570]",
+      "dest": "): ) [7569,7570]"
+    },
+    {
+      "src": "expression_statement [8275,8315]",
+      "dest": "expression_statement [8275,8315]"
+    },
+    {
+      "src": "call_expression [3973,3985]",
+      "dest": "call_expression [3973,3985]"
+    },
+    {
+      "src": "internal: internal [7334,7342]",
+      "dest": "internal: internal [7334,7342]"
+    },
+    {
+      "src": "using: using [1506,1511]",
+      "dest": "using: using [1506,1511]"
+    },
+    {
+      "src": "true: true [5950,5954]",
+      "dest": "true: true [5950,5954]"
+    },
+    {
+      "src": "]: ] [8983,8984]",
+      "dest": "]: ] [8983,8984]"
+    },
+    {
+      "src": "return: return [3626,3632]",
+      "dest": "return: return [3626,3632]"
+    },
+    {
+      "src": "true: true [4022,4026]",
+      "dest": "true: true [4022,4026]"
+    },
+    {
+      "src": "call_argument [6605,6612]",
+      "dest": "call_argument [6605,6612]"
+    },
+    {
+      "src": "parameter [2371,2384]",
+      "dest": "parameter [2371,2384]"
+    },
+    {
+      "src": "from: from [229,233]",
+      "dest": "from: from [229,233]"
+    },
+    {
+      "src": "parameter [11017,11027]",
+      "dest": "parameter [11017,11027]"
+    },
+    {
+      "src": "type_name [10995,11002]",
+      "dest": "type_name [10995,11002]"
+    },
+    {
+      "src": "call_argument [7544,7550]",
+      "dest": "call_argument [7544,7550]"
+    },
+    {
+      "src": "override_specifier [4443,4451]",
+      "dest": "override_specifier [4443,4451]"
+    },
+    {
+      "src": "identifier: __name [11126,11132]",
+      "dest": "identifier: __name [11126,11132]"
+    },
+    {
+      "src": "type_name [3560,3567]",
+      "dest": "type_name [3560,3567]"
+    },
+    {
+      "src": "(: ( [8406,8407]",
+      "dest": "(: ( [8406,8407]"
+    },
+    {
+      "src": "uint256: uint256 [8785,8792]",
+      "dest": "uint256: uint256 [8785,8792]"
+    },
+    {
+      "src": "string_literal [9820,9856]",
+      "dest": "string_literal [9820,9856]"
+    },
+    {
+      "src": "return_type_definition [3429,3446]",
+      "dest": "return_type_definition [3429,3446]"
+    },
+    {
+      "src": "string_literal [7474,7511]",
+      "dest": "string_literal [7474,7511]"
+    },
+    {
+      "src": "call_argument [8166,8167]",
+      "dest": "call_argument [8166,8167]"
+    },
+    {
+      "src": "call_argument [5233,5322]",
+      "dest": "call_argument [5233,5322]"
+    },
+    {
+      "src": "returns: returns [4452,4459]",
+      "dest": "returns: returns [4452,4459]"
+    },
+    {
+      "src": "address: address [4125,4132]",
+      "dest": "address: address [4125,4132]"
+    },
+    {
+      "src": "}: } [7793,7794]",
+      "dest": "}: } [7793,7794]"
+    },
+    {
+      "src": "call_argument [8248,8255]",
+      "dest": "call_argument [8248,8255]"
+    },
+    {
+      "src": "address: address [1546,1553]",
+      "dest": "address: address [1546,1553]"
+    },
+    {
+      "src": "function_definition [5004,5351]",
+      "dest": "function_definition [5004,5351]"
+    },
+    {
+      "src": "identifier: amount [7623,7629]",
+      "dest": "identifier: amount [7623,7629]"
+    },
+    {
+      "src": "emit_statement [7747,7788]",
+      "dest": "emit_statement [7747,7788]"
+    },
+    {
+      "src": "call_argument [7369,7389]",
+      "dest": "call_argument [7369,7389]"
+    },
+    {
+      "src": "primitive_type [5790,5797]",
+      "dest": "primitive_type [5790,5797]"
+    },
+    {
+      "src": "type_name [4461,4465]",
+      "dest": "type_name [4461,4465]"
+    },
+    {
+      "src": "function: function [2099,2107]",
+      "dest": "function: function [2099,2107]"
+    },
+    {
+      "src": "binary_expression [7369,7389]",
+      "dest": "binary_expression [7369,7389]"
+    },
+    {
+      "src": "[: [ [9879,9880]",
+      "dest": "[: [ [9879,9880]"
+    },
+    {
+      "src": "import_directive [206,254]",
+      "dest": "import_directive [206,254]"
+    },
+    {
+      "src": "number_literal: 0 [9736,9737]",
+      "dest": "number_literal: 0 [9736,9737]"
+    },
+    {
+      "src": "primitive_type [1664,1671]",
+      "dest": "primitive_type [1664,1671]"
+    },
+    {
+      "src": "identifier: account [8776,8783]",
+      "dest": "identifier: account [8776,8783]"
+    },
+    {
+      "src": "(: ( [4485,4486]",
+      "dest": "(: ( [4485,4486]"
+    },
+    {
+      "src": "import_directive [57,93]",
+      "dest": "import_directive [57,93]"
+    },
+    {
+      "src": "identifier: account [8836,8843]",
+      "dest": "identifier: account [8836,8843]"
+    },
+    {
+      "src": "call_argument [7387,7388]",
+      "dest": "call_argument [7387,7388]"
+    },
+    {
+      "src": "array_access [8345,8363]",
+      "dest": "array_access [8345,8363]"
+    },
+    {
+      "src": "\": \" [5320,5321]",
+      "dest": "\": \" [5320,5321]"
+    },
+    {
+      "src": "comment: /**      * @dev See {IERC20-balanceOf}.      */ [3489,3536]",
+      "dest": "comment: /**      * @dev See {IERC20-balanceOf}.      */ [3489,3536]"
+    },
+    {
+      "src": ",: , [9016,9017]",
+      "dest": ",: , [9016,9017]"
+    },
+    {
+      "src": "type_name [5035,5042]",
+      "dest": "type_name [5035,5042]"
+    },
+    {
+      "src": "\": \" [9777,9778]",
+      "dest": "\": \" [9777,9778]"
+    },
+    {
+      "src": "): ) [4140,4141]",
+      "dest": "): ) [4140,4141]"
+    },
+    {
+      "src": "type_name [8768,8775]",
+      "dest": "type_name [8768,8775]"
+    },
+    {
+      "src": "call_expression [8290,8314]",
+      "dest": "call_expression [8290,8314]"
+    },
+    {
+      "src": "): ) [10320,10321]",
+      "dest": "): ) [10320,10321]"
+    },
+    {
+      "src": "identifier: amount [8420,8426]",
+      "dest": "identifier: amount [8420,8426]"
+    },
+    {
+      "src": "primitive_type [9615,9622]",
+      "dest": "primitive_type [9615,9622]"
+    },
+    {
+      "src": "primitive_type [2371,2377]",
+      "dest": "primitive_type [2371,2377]"
+    },
+    {
+      "src": "view: view [3271,3275]",
+      "dest": "view: view [3271,3275]"
+    },
+    {
+      "src": "function_definition [8753,9163]",
+      "dest": "function_definition [8753,9163]"
+    },
+    {
+      "src": "call_argument [9740,9778]",
+      "dest": "call_argument [9740,9778]"
+    },
+    {
+      "src": "): ) [2544,2545]",
+      "dest": "): ) [2544,2545]"
+    },
+    {
+      "src": "identifier: addedValue [5798,5808]",
+      "dest": "identifier: addedValue [5798,5808]"
+    },
+    {
+      "src": ",: , [5049,5050]",
+      "dest": ",: , [5049,5050]"
+    },
+    {
+      "src": "): ) [8408,8409]",
+      "dest": "): ) [8408,8409]"
+    },
+    {
+      "src": "{: { [7351,7352]",
+      "dest": "{: { [7351,7352]"
+    },
+    {
+      "src": ",: , [5231,5232]",
+      "dest": ",: , [5231,5232]"
+    }
+  ],
+  "actions": []
+}

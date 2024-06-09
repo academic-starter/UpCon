@@ -1,0 +1,274 @@
+{
+  "matches": [
+    {
+      "src": "parameter [707,726]",
+      "dest": "parameter [749,768]"
+    },
+    {
+      "src": "parameter [816,823]",
+      "dest": "parameter [858,865]"
+    },
+    {
+      "src": "type_name [816,823]",
+      "dest": "type_name [858,865]"
+    },
+    {
+      "src": "pragma_directive [596,619]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "string [628,642]",
+      "dest": "string [669,683]"
+    },
+    {
+      "src": "contract_body [680,828]",
+      "dest": "contract_body [722,869]"
+    },
+    {
+      "src": "}: } [827,828]",
+      "dest": "}: } [868,869]"
+    },
+    {
+      "src": "function: function [687,695]",
+      "dest": "function: function [729,737]"
+    },
+    {
+      "src": "function_definition [751,825]",
+      "dest": "function_definition [793,867]"
+    },
+    {
+      "src": "returns: returns [808,815]",
+      "dest": "returns: returns [850,857]"
+    },
+    {
+      "src": "identifier: initializerSize [760,775]",
+      "dest": "identifier: initializerSize [802,817]"
+    },
+    {
+      "src": "function: function [751,759]",
+      "dest": "function: function [793,801]"
+    },
+    {
+      "src": "solidity_pragma_token [603,618]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "identifier: data [722,726]",
+      "dest": "identifier: data [764,768]"
+    },
+    {
+      "src": "): ) [726,727]",
+      "dest": "): ) [768,769]"
+    },
+    {
+      "src": "\": \" [641,642]",
+      "dest": "\": \" [682,683]"
+    },
+    {
+      "src": "^:  ^ [611,613]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "source_file [0,829]",
+      "dest": "source_file [0,870]"
+    },
+    {
+      "src": "function_definition [687,745]",
+      "dest": "function_definition [729,787]"
+    },
+    {
+      "src": "visibility [786,794]",
+      "dest": "visibility [828,836]"
+    },
+    {
+      "src": "bytes: bytes [707,712]",
+      "dest": "bytes: bytes [749,754]"
+    },
+    {
+      "src": "solidity_version: 0.5.2 [613,618]",
+      "dest": "solidity_version: 0.6.11 [653,659]"
+    },
+    {
+      "src": "type_name [707,712]",
+      "dest": "type_name [749,754]"
+    },
+    {
+      "src": "import: import [621,627]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "uint256: uint256 [816,823]",
+      "dest": "uint256: uint256 [858,865]"
+    },
+    {
+      "src": "): ) [823,824]",
+      "dest": "): ) [865,866]"
+    },
+    {
+      "src": "{: { [680,681]",
+      "dest": "{: { [722,723]"
+    },
+    {
+      "src": "visibility [736,744]",
+      "dest": "visibility [778,786]"
+    },
+    {
+      "src": "user_defined_type [671,679]",
+      "dest": "user_defined_type [713,721]"
+    },
+    {
+      "src": "\": \" [628,629]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "primitive_type [816,823]",
+      "dest": "primitive_type [858,865]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [611,613]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "pragma: pragma [596,602]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "primitive_type [707,712]",
+      "dest": "primitive_type [749,754]"
+    },
+    {
+      "src": "external: external [786,794]",
+      "dest": "external: external [828,836]"
+    },
+    {
+      "src": "external: external [736,744]",
+      "dest": "external: external [778,786]"
+    },
+    {
+      "src": "identifier: Identity [671,679]",
+      "dest": "identifier: Identity [713,721]"
+    },
+    {
+      "src": "view: view [795,799]",
+      "dest": "view: view [837,841]"
+    },
+    {
+      "src": "state_mutability [795,799]",
+      "dest": "state_mutability [837,841]"
+    },
+    {
+      "src": "inheritance_specifier [671,679]",
+      "dest": "inheritance_specifier [713,721]"
+    },
+    {
+      "src": "calldata: calldata [713,721]",
+      "dest": "calldata: calldata [755,763]"
+    },
+    {
+      "src": "return_type_definition [808,824]",
+      "dest": "return_type_definition [850,866]"
+    },
+    {
+      "src": "(: ( [706,707]",
+      "dest": "(: ( [748,749]"
+    },
+    {
+      "src": "identifier: initialize [696,706]",
+      "dest": "identifier: initialize [738,748]"
+    },
+    {
+      "src": "(: ( [815,816]",
+      "dest": "(: ( [857,858]"
+    },
+    {
+      "src": "import_directive [621,643]",
+      "dest": "import_directive [662,684]"
+    },
+    {
+      "src": "(: ( [775,776]",
+      "dest": "(: ( [817,818]"
+    },
+    {
+      "src": "solidity: solidity [603,611]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "): ) [776,777]",
+      "dest": "): ) [818,819]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "label": "/*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "parent": "source_file [0,870]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "interface_declaration [686,869]",
+      "parent": "source_file [0,870]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "interface: interface [686,695]",
+      "parent": "interface_declaration [686,869]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: SubContractor [696,709]",
+      "parent": "interface_declaration [686,869]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "is: is [710,712]",
+      "parent": "interface_declaration [686,869]",
+      "at": 2
+    },
+    {
+      "action": "move-tree",
+      "tree": "inheritance_specifier [671,679]",
+      "parent": "interface_declaration [686,869]",
+      "at": 3
+    },
+    {
+      "action": "move-tree",
+      "tree": "contract_body [680,828]",
+      "parent": "interface_declaration [686,869]",
+      "at": 4
+    },
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.5.2 [613,618]",
+      "label": "0.6.11"
+    },
+    {
+      "action": "delete-node",
+      "tree": "contract: contract [645,653]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: SubContractor [654,667]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "is: is [668,670]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "contract_declaration [645,828]"
+    }
+  ]
+}

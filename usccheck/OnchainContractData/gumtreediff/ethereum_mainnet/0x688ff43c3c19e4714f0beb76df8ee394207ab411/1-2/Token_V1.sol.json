@@ -1,0 +1,685 @@
+{
+  "matches": [
+    {
+      "src": "string [415,423]",
+      "dest": "string [409,418]"
+    },
+    {
+      "src": "string: string [104,110]",
+      "dest": "string: string [104,110]"
+    },
+    {
+      "src": "number_literal: 22 [427,429]",
+      "dest": "number_literal: 30 [422,424]"
+    },
+    {
+      "src": "parameter [481,498]",
+      "dest": "parameter [519,536]"
+    },
+    {
+      "src": "array_access [358,383]",
+      "dest": "array_access [351,376]"
+    },
+    {
+      "src": "string_literal [242,255]",
+      "dest": "string_literal [244,250]"
+    },
+    {
+      "src": "contract: contract [60,68]",
+      "dest": "contract: contract [60,68]"
+    },
+    {
+      "src": "modifier_invocation [181,203]",
+      "dest": "modifier_invocation [182,204]"
+    },
+    {
+      "src": "solidity_version: 0.4.21 [18,24]",
+      "dest": "solidity_version: 0.4.21 [18,24]"
+    },
+    {
+      "src": "state_variable_declaration [96,137]",
+      "dest": "state_variable_declaration [96,138]"
+    },
+    {
+      "src": "contract_declaration [60,595]",
+      "dest": "contract_declaration [60,634]"
+    },
+    {
+      "src": "(: ( [189,190]",
+      "dest": "(: ( [190,191]"
+    },
+    {
+      "src": "number_literal: 11 [346,348]",
+      "dest": "number_literal: 7 [340,341]"
+    },
+    {
+      "src": "number_literal: 34 [302,304]",
+      "dest": "number_literal: 5 [296,297]"
+    },
+    {
+      "src": "primitive_type [104,110]",
+      "dest": "primitive_type [104,110]"
+    },
+    {
+      "src": "[: [ [241,242]",
+      "dest": "[: [ [243,244]"
+    },
+    {
+      "src": "assignment_expression [546,586]",
+      "dest": "assignment_expression [584,625]"
+    },
+    {
+      "src": "': ' [422,423]",
+      "dest": "': ' [417,418]"
+    },
+    {
+      "src": "{: { [215,216]",
+      "dest": "{: { [216,217]"
+    },
+    {
+      "src": "}: } [435,436]",
+      "dest": "}: } [472,473]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [15,18]",
+      "dest": "solidity_version_comparison_operator [15,18]"
+    },
+    {
+      "src": "state_mutability [507,511]",
+      "dest": "state_mutability [545,549]"
+    },
+    {
+      "src": "mapping: mapping [96,103]",
+      "dest": "mapping: mapping [96,103]"
+    },
+    {
+      "src": "expression_statement [398,430]",
+      "dest": "expression_statement [391,425]"
+    },
+    {
+      "src": "is: is [78,80]",
+      "dest": "is: is [78,80]"
+    },
+    {
+      "src": "[: [ [575,576]",
+      "dest": "[: [ [614,615]"
+    },
+    {
+      "src": "): ) [498,499]",
+      "dest": "): ) [536,537]"
+    },
+    {
+      "src": "=: = [300,301]",
+      "dest": "=: = [294,295]"
+    },
+    {
+      "src": "identifier: fundDistribution [225,241]",
+      "dest": "identifier: tokenDistribution [226,243]"
+    },
+    {
+      "src": "expression_statement [225,262]",
+      "dest": "expression_statement [226,256]"
+    },
+    {
+      "src": "assignment_expression [314,348]",
+      "dest": "assignment_expression [307,341]"
+    },
+    {
+      "src": "public: public [500,506]",
+      "dest": "public: public [538,544]"
+    },
+    {
+      "src": "]: ] [423,424]",
+      "dest": "]: ] [418,419]"
+    },
+    {
+      "src": "function_body [215,436]",
+      "dest": "function_body [216,473]"
+    },
+    {
+      "src": "primitive_type [155,162]",
+      "dest": "primitive_type [156,163]"
+    },
+    {
+      "src": "user_defined_type [81,89]",
+      "dest": "user_defined_type [81,89]"
+    },
+    {
+      "src": "import_directive [34,58]",
+      "dest": "import_directive [34,58]"
+    },
+    {
+      "src": "primitive_type [481,487]",
+      "dest": "primitive_type [519,525]"
+    },
+    {
+      "src": "string [41,57]",
+      "dest": "string [41,57]"
+    },
+    {
+      "src": "<:  < [24,26]",
+      "dest": "<:  < [24,26]"
+    },
+    {
+      "src": "\": \" [56,57]",
+      "dest": "\": \" [56,57]"
+    },
+    {
+      "src": "parameter [155,175]",
+      "dest": "parameter [156,176]"
+    },
+    {
+      "src": "primitive_type [114,118]",
+      "dest": "primitive_type [114,118]"
+    },
+    {
+      "src": "constructor_definition [143,436]",
+      "dest": "constructor_definition [144,473]"
+    },
+    {
+      "src": "function_body [536,593]",
+      "dest": "function_body [574,632]"
+    },
+    {
+      "src": "}: } [592,593]",
+      "dest": "}: } [631,632]"
+    },
+    {
+      "src": "string [242,255]",
+      "dest": "string [244,250]"
+    },
+    {
+      "src": "string_literal [288,298]",
+      "dest": "string_literal [283,292]"
+    },
+    {
+      "src": "=: = [384,385]",
+      "dest": "=: = [377,378]"
+    },
+    {
+      "src": "=: = [257,258]",
+      "dest": "=: = [252,253]"
+    },
+    {
+      "src": "array_access [271,299]",
+      "dest": "array_access [265,293]"
+    },
+    {
+      "src": "': ' [381,382]",
+      "dest": "': ' [374,375]"
+    },
+    {
+      "src": "identifier: fundDistribution [120,136]",
+      "dest": "identifier: tokenDistribution [120,137]"
+    },
+    {
+      "src": "string: string [481,487]",
+      "dest": "string: string [519,525]"
+    },
+    {
+      "src": "': ' [297,298]",
+      "dest": "': ' [291,292]"
+    },
+    {
+      "src": "': ' [415,416]",
+      "dest": "': ' [409,410]"
+    },
+    {
+      "src": "identifier: fundDistribution [358,374]",
+      "dest": "identifier: tokenDistribution [351,368]"
+    },
+    {
+      "src": "assignment_expression [358,388]",
+      "dest": "assignment_expression [351,381]"
+    },
+    {
+      "src": "=>: => [111,113]",
+      "dest": "=>: => [111,113]"
+    },
+    {
+      "src": "view: view [507,511]",
+      "dest": "view: view [545,549]"
+    },
+    {
+      "src": "primitive_type [520,524]",
+      "dest": "primitive_type [558,562]"
+    },
+    {
+      "src": "identifier: fundDistribution [314,330]",
+      "dest": "identifier: tokenDistribution [307,324]"
+    },
+    {
+      "src": "{: { [536,537]",
+      "dest": "{: { [574,575]"
+    },
+    {
+      "src": "': ' [375,376]",
+      "dest": "': ' [369,370]"
+    },
+    {
+      "src": "return_type_definition [512,536]",
+      "dest": "return_type_definition [550,574]"
+    },
+    {
+      "src": "number_literal: 11 [386,388]",
+      "dest": "number_literal: 50 [379,381]"
+    },
+    {
+      "src": "assignment_expression [225,261]",
+      "dest": "assignment_expression [226,255]"
+    },
+    {
+      "src": "identifier: fundDistribution [271,287]",
+      "dest": "identifier: tokenDistribution [265,282]"
+    },
+    {
+      "src": "): ) [175,176]",
+      "dest": "): ) [176,177]"
+    },
+    {
+      "src": "expression_statement [358,389]",
+      "dest": "expression_statement [351,382]"
+    },
+    {
+      "src": "[: [ [287,288]",
+      "dest": "[: [ [282,283]"
+    },
+    {
+      "src": "address: address [155,162]",
+      "dest": "address: address [156,163]"
+    },
+    {
+      "src": "array_access [398,424]",
+      "dest": "array_access [391,419]"
+    },
+    {
+      "src": "pragma_directive [0,32]",
+      "dest": "pragma_directive [0,32]"
+    },
+    {
+      "src": "returns: returns [512,519]",
+      "dest": "returns: returns [550,557]"
+    },
+    {
+      "src": "visibility [500,506]",
+      "dest": "visibility [538,544]"
+    },
+    {
+      "src": "constructor: constructor [143,154]",
+      "dest": "constructor: constructor [144,155]"
+    },
+    {
+      "src": "inheritance_specifier [81,89]",
+      "dest": "inheritance_specifier [81,89]"
+    },
+    {
+      "src": "{: { [89,90]",
+      "dest": "{: { [89,90]"
+    },
+    {
+      "src": "string [375,382]",
+      "dest": "string [369,375]"
+    },
+    {
+      "src": "string_literal [375,382]",
+      "dest": "string_literal [369,375]"
+    },
+    {
+      "src": "[: [ [374,375]",
+      "dest": "[: [ [368,369]"
+    },
+    {
+      "src": "[: [ [330,331]",
+      "dest": "[: [ [324,325]"
+    },
+    {
+      "src": "expression_statement [314,349]",
+      "dest": "expression_statement [307,342]"
+    },
+    {
+      "src": "identifier: allocatee [489,498]",
+      "dest": "identifier: allocatee [527,536]"
+    },
+    {
+      "src": "number_literal: 22 [259,261]",
+      "dest": "number_literal: 7 [254,255]"
+    },
+    {
+      "src": "identifier: Token_V0 [81,89]",
+      "dest": "identifier: Token_V0 [81,89]"
+    },
+    {
+      "src": "contract_body [89,595]",
+      "dest": "contract_body [89,634]"
+    },
+    {
+      "src": ">=:  >= [15,18]",
+      "dest": ">=:  >= [15,18]"
+    },
+    {
+      "src": "': ' [254,255]",
+      "dest": "': ' [249,250]"
+    },
+    {
+      "src": "identifier: Token_V0 [181,189]",
+      "dest": "identifier: Token_V0 [182,190]"
+    },
+    {
+      "src": "function_definition [442,593]",
+      "dest": "function_definition [479,632]"
+    },
+    {
+      "src": "identifier: allocatee [576,585]",
+      "dest": "identifier: allocatee [615,624]"
+    },
+    {
+      "src": "): ) [535,536]",
+      "dest": "): ) [573,574]"
+    },
+    {
+      "src": "(: ( [103,104]",
+      "dest": "(: ( [103,104]"
+    },
+    {
+      "src": "array_access [314,343]",
+      "dest": "array_access [307,337]"
+    },
+    {
+      "src": "': ' [242,243]",
+      "dest": "': ' [244,245]"
+    },
+    {
+      "src": "\": \" [41,42]",
+      "dest": "\": \" [41,42]"
+    },
+    {
+      "src": "string [288,298]",
+      "dest": "string [283,292]"
+    },
+    {
+      "src": "': ' [341,342]",
+      "dest": "': ' [335,336]"
+    },
+    {
+      "src": "]: ] [585,586]",
+      "dest": "]: ] [624,625]"
+    },
+    {
+      "src": "pragma: pragma [0,6]",
+      "dest": "pragma: pragma [0,6]"
+    },
+    {
+      "src": "public: public [208,214]",
+      "dest": "public: public [209,215]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [24,26]",
+      "dest": "solidity_version_comparison_operator [24,26]"
+    },
+    {
+      "src": "]: ] [342,343]",
+      "dest": "]: ] [336,337]"
+    },
+    {
+      "src": "import: import [34,40]",
+      "dest": "import: import [34,40]"
+    },
+    {
+      "src": "identifier: percentage [546,556]",
+      "dest": "identifier: percentage [584,594]"
+    },
+    {
+      "src": "assignment_expression [271,304]",
+      "dest": "assignment_expression [265,297]"
+    },
+    {
+      "src": "source_file [0,596]",
+      "dest": "source_file [0,635]"
+    },
+    {
+      "src": "identifier: getFundDistributionPercentage [451,480]",
+      "dest": "identifier: getTokenDistributionPercentage [488,518]"
+    },
+    {
+      "src": "parameter [520,535]",
+      "dest": "parameter [558,573]"
+    },
+    {
+      "src": "type_name [155,162]",
+      "dest": "type_name [156,163]"
+    },
+    {
+      "src": "expression_statement [546,587]",
+      "dest": "expression_statement [584,626]"
+    },
+    {
+      "src": "identifier: fundDistribution [398,414]",
+      "dest": "identifier: tokenDistribution [391,408]"
+    },
+    {
+      "src": "=: = [425,426]",
+      "dest": "=: = [420,421]"
+    },
+    {
+      "src": "type_name [114,118]",
+      "dest": "type_name [114,118]"
+    },
+    {
+      "src": "solidity_version: 0.6.0 [26,31]",
+      "dest": "solidity_version: 0.6.0 [26,31]"
+    },
+    {
+      "src": "]: ] [382,383]",
+      "dest": "]: ] [375,376]"
+    },
+    {
+      "src": "(: ( [154,155]",
+      "dest": "(: ( [155,156]"
+    },
+    {
+      "src": "array_access [225,256]",
+      "dest": "array_access [226,251]"
+    },
+    {
+      "src": "type_name [481,487]",
+      "dest": "type_name [519,525]"
+    },
+    {
+      "src": "solidity_pragma_token [7,31]",
+      "dest": "solidity_pragma_token [7,31]"
+    },
+    {
+      "src": "): ) [118,119]",
+      "dest": "): ) [118,119]"
+    },
+    {
+      "src": "type_name [520,524]",
+      "dest": "type_name [558,562]"
+    },
+    {
+      "src": "identifier: storeAddress [190,202]",
+      "dest": "identifier: storeAddress [191,203]"
+    },
+    {
+      "src": "]: ] [298,299]",
+      "dest": "]: ] [292,293]"
+    },
+    {
+      "src": "': ' [331,332]",
+      "dest": "': ' [325,326]"
+    },
+    {
+      "src": "function: function [442,450]",
+      "dest": "function: function [479,487]"
+    },
+    {
+      "src": "uint: uint [520,524]",
+      "dest": "uint: uint [558,562]"
+    },
+    {
+      "src": "assignment_expression [398,429]",
+      "dest": "assignment_expression [391,424]"
+    },
+    {
+      "src": "string_literal [415,423]",
+      "dest": "string_literal [409,418]"
+    },
+    {
+      "src": "]: ] [255,256]",
+      "dest": "]: ] [250,251]"
+    },
+    {
+      "src": "identifier: storeAddress [163,175]",
+      "dest": "identifier: storeAddress [164,176]"
+    },
+    {
+      "src": "type_name [96,119]",
+      "dest": "type_name [96,119]"
+    },
+    {
+      "src": "=: = [557,558]",
+      "dest": "=: = [595,596]"
+    },
+    {
+      "src": "string [331,342]",
+      "dest": "string [325,336]"
+    },
+    {
+      "src": "=: = [344,345]",
+      "dest": "=: = [338,339]"
+    },
+    {
+      "src": "array_access [559,586]",
+      "dest": "array_access [597,625]"
+    },
+    {
+      "src": "': ' [288,289]",
+      "dest": "': ' [283,284]"
+    },
+    {
+      "src": "string_literal [331,342]",
+      "dest": "string_literal [325,336]"
+    },
+    {
+      "src": "(: ( [480,481]",
+      "dest": "(: ( [518,519]"
+    },
+    {
+      "src": "uint: uint [114,118]",
+      "dest": "uint: uint [114,118]"
+    },
+    {
+      "src": "call_argument [190,202]",
+      "dest": "call_argument [191,203]"
+    },
+    {
+      "src": "identifier: percentage [525,535]",
+      "dest": "identifier: percentage [563,573]"
+    },
+    {
+      "src": "): ) [202,203]",
+      "dest": "): ) [203,204]"
+    },
+    {
+      "src": "solidity: solidity [7,15]",
+      "dest": "solidity: solidity [7,15]"
+    },
+    {
+      "src": "expression_statement [271,305]",
+      "dest": "expression_statement [265,298]"
+    },
+    {
+      "src": "}: } [594,595]",
+      "dest": "}: } [633,634]"
+    },
+    {
+      "src": "identifier: fundDistribution [559,575]",
+      "dest": "identifier: tokenDistribution [597,614]"
+    },
+    {
+      "src": "(: ( [519,520]",
+      "dest": "(: ( [557,558]"
+    },
+    {
+      "src": "[: [ [414,415]",
+      "dest": "[: [ [408,409]"
+    },
+    {
+      "src": "identifier: Token_V1 [69,77]",
+      "dest": "identifier: Token_V1 [69,77]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "identifier: fundDistribution [120,136]",
+      "label": "tokenDistribution"
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: getFundDistributionPercentage [451,480]",
+      "label": "getTokenDistributionPercentage"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "expression_statement [434,467]",
+      "parent": "function_body [216,473]",
+      "at": 6
+    },
+    {
+      "action": "update-node",
+      "tree": "number_literal: 22 [259,261]",
+      "label": "7"
+    },
+    {
+      "action": "update-node",
+      "tree": "number_literal: 34 [302,304]",
+      "label": "5"
+    },
+    {
+      "action": "update-node",
+      "tree": "number_literal: 11 [346,348]",
+      "label": "7"
+    },
+    {
+      "action": "update-node",
+      "tree": "number_literal: 11 [386,388]",
+      "label": "50"
+    },
+    {
+      "action": "update-node",
+      "tree": "number_literal: 22 [427,429]",
+      "label": "30"
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: fundDistribution [225,241]",
+      "label": "tokenDistribution"
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: fundDistribution [271,287]",
+      "label": "tokenDistribution"
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: fundDistribution [314,330]",
+      "label": "tokenDistribution"
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: fundDistribution [358,374]",
+      "label": "tokenDistribution"
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: fundDistribution [398,414]",
+      "label": "tokenDistribution"
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: fundDistribution [559,575]",
+      "label": "tokenDistribution"
+    }
+  ]
+}

@@ -1,0 +1,569 @@
+{
+  "matches": [
+    {
+      "src": "import: import [662,668]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "expression_statement [1309,1354]",
+      "dest": "expression_statement [1309,1354]"
+    },
+    {
+      "src": "event: event [918,923]",
+      "dest": "event: event [918,923]"
+    },
+    {
+      "src": "identifier: Finalized [924,933]",
+      "dest": "identifier: Finalized [924,933]"
+    },
+    {
+      "src": "parameter [1074,1078]",
+      "dest": "parameter [1074,1078]"
+    },
+    {
+      "src": "primitive_type [942,948]",
+      "dest": "primitive_type [942,948]"
+    },
+    {
+      "src": "\": \" [972,973]",
+      "dest": "\": \" [972,973]"
+    },
+    {
+      "src": "identifier: getBoolValue [1110,1122]",
+      "dest": "identifier: getBoolValue [1110,1122]"
+    },
+    {
+      "src": "function_body [1080,1142]",
+      "dest": "function_body [1080,1142]"
+    },
+    {
+      "src": "identifier: STORAGE_TAG [958,969]",
+      "dest": "identifier: STORAGE_TAG [958,969]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "call_argument [1123,1134]",
+      "dest": "call_argument [1123,1134]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "call_argument [1348,1352]",
+      "dest": "call_argument [1348,1352]"
+    },
+    {
+      "src": "modifier_definition [1148,1236]",
+      "dest": "modifier_definition [1148,1236]"
+    },
+    {
+      "src": "member_expression [1097,1122]",
+      "dest": "member_expression [1097,1122]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "comment: /**   A Governor controlled finalizable contract.   The inherited contract (the one that is GovernedFinalizable) implements the Governance. */ [716,858]",
+      "dest": "comment: /**   A Governor controlled finalizable contract.   The inherited contract (the one that is GovernedFinalizable) implements the Governance. */ [716,858]"
+    },
+    {
+      "src": "}: } [1235,1236]",
+      "dest": "}: } [1235,1236]"
+    },
+    {
+      "src": "state_mutability [1060,1064]",
+      "dest": "state_mutability [1060,1064]"
+    },
+    {
+      "src": "string_literal [1206,1217]",
+      "dest": "string_literal [1206,1217]"
+    },
+    {
+      "src": "contract_declaration [859,1388]",
+      "dest": "contract_declaration [859,1388]"
+    },
+    {
+      "src": "return_statement [1090,1136]",
+      "dest": "return_statement [1090,1136]"
+    },
+    {
+      "src": "string [695,713]",
+      "dest": "string [695,713]"
+    },
+    {
+      "src": "function_definition [1030,1142]",
+      "dest": "function_definition [1030,1142]"
+    },
+    {
+      "src": "identifier: isFinalized [1039,1050]",
+      "dest": "identifier: isFinalized [1039,1050]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "(: ( [1050,1051]",
+      "dest": "(: ( [1050,1051]"
+    },
+    {
+      "src": "!: ! [1190,1191]",
+      "dest": "!: ! [1190,1191]"
+    },
+    {
+      "src": "(: ( [1202,1203]",
+      "dest": "(: ( [1202,1203]"
+    },
+    {
+      "src": "): ) [1170,1171]",
+      "dest": "): ) [1170,1171]"
+    },
+    {
+      "src": "\": \" [685,686]",
+      "dest": "\": \" [685,686]"
+    },
+    {
+      "src": "string [669,686]",
+      "dest": "string [669,686]"
+    },
+    {
+      "src": "string [972,1023]",
+      "dest": "string [972,1023]"
+    },
+    {
+      "src": "expression_statement [1182,1219]",
+      "dest": "expression_statement [1182,1219]"
+    },
+    {
+      "src": "unary_expression [1190,1204]",
+      "dest": "unary_expression [1190,1204]"
+    },
+    {
+      "src": "identifier: require [1182,1189]",
+      "dest": "identifier: require [1182,1189]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "\": \" [695,696]",
+      "dest": "\": \" [695,696]"
+    },
+    {
+      "src": "(: ( [1334,1335]",
+      "dest": "(: ( [1334,1335]"
+    },
+    {
+      "src": "\": \" [1022,1023]",
+      "dest": "\": \" [1022,1023]"
+    },
+    {
+      "src": "modifier_invocation [1271,1285]",
+      "dest": "modifier_invocation [1271,1285]"
+    },
+    {
+      "src": "identifier: NamedStorage [1097,1109]",
+      "dest": "identifier: NamedStorage [1097,1109]"
+    },
+    {
+      "src": "(: ( [1377,1378]",
+      "dest": "(: ( [1377,1378]"
+    },
+    {
+      "src": "): ) [1134,1135]",
+      "dest": "): ) [1134,1135]"
+    },
+    {
+      "src": "): ) [1051,1052]",
+      "dest": "): ) [1051,1052]"
+    },
+    {
+      "src": "function: function [1030,1038]",
+      "dest": "function: function [1030,1038]"
+    },
+    {
+      "src": ",: , [1204,1205]",
+      "dest": ",: , [1204,1205]"
+    },
+    {
+      "src": "string_literal [972,1023]",
+      "dest": "string_literal [972,1023]"
+    },
+    {
+      "src": "member_expression [1309,1334]",
+      "dest": "member_expression [1309,1334]"
+    },
+    {
+      "src": "call_expression [1191,1204]",
+      "dest": "call_expression [1191,1204]"
+    },
+    {
+      "src": "user_defined_type [900,911]",
+      "dest": "user_defined_type [900,911]"
+    },
+    {
+      "src": "): ) [1260,1261]",
+      "dest": "): ) [1260,1261]"
+    },
+    {
+      "src": "emit: emit [1363,1367]",
+      "dest": "emit: emit [1363,1367]"
+    },
+    {
+      "src": "import_directive [688,714]",
+      "dest": "import_directive [688,714]"
+    },
+    {
+      "src": "type_name [1074,1078]",
+      "dest": "type_name [1074,1078]"
+    },
+    {
+      "src": "{: { [1080,1081]",
+      "dest": "{: { [1080,1081]"
+    },
+    {
+      "src": "import_directive [662,687]",
+      "dest": "import_directive [662,687]"
+    },
+    {
+      "src": "identifier: Finalized [1368,1377]",
+      "dest": "identifier: Finalized [1368,1377]"
+    },
+    {
+      "src": "event_definition [918,936]",
+      "dest": "event_definition [918,936]"
+    },
+    {
+      "src": "string: string [942,948]",
+      "dest": "string: string [942,948]"
+    },
+    {
+      "src": "contract: contract [868,876]",
+      "dest": "contract: contract [868,876]"
+    },
+    {
+      "src": "(: ( [1189,1190]",
+      "dest": "(: ( [1189,1190]"
+    },
+    {
+      "src": "return: return [1090,1096]",
+      "dest": "return: return [1090,1096]"
+    },
+    {
+      "src": "call_expression [1097,1135]",
+      "dest": "call_expression [1097,1135]"
+    },
+    {
+      "src": ".: . [1109,1110]",
+      "dest": ".: . [1109,1110]"
+    },
+    {
+      "src": "identifier: STORAGE_TAG [1335,1346]",
+      "dest": "identifier: STORAGE_TAG [1335,1346]"
+    },
+    {
+      "src": ",: , [1346,1347]",
+      "dest": ",: , [1346,1347]"
+    },
+    {
+      "src": "(: ( [1122,1123]",
+      "dest": "(: ( [1122,1123]"
+    },
+    {
+      "src": "source_file [0,1389]",
+      "dest": "source_file [0,1389]"
+    },
+    {
+      "src": "(: ( [1259,1260]",
+      "dest": "(: ( [1259,1260]"
+    },
+    {
+      "src": "function: function [1242,1250]",
+      "dest": "function: function [1242,1250]"
+    },
+    {
+      "src": "): ) [1352,1353]",
+      "dest": "): ) [1352,1353]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "function_body [1172,1236]",
+      "dest": "function_body [1172,1236]"
+    },
+    {
+      "src": "public: public [1053,1059]",
+      "dest": "public: public [1053,1059]"
+    },
+    {
+      "src": "\": \" [1216,1217]",
+      "dest": "\": \" [1216,1217]"
+    },
+    {
+      "src": "}: } [1141,1142]",
+      "dest": "}: } [1141,1142]"
+    },
+    {
+      "src": "type_name [942,948]",
+      "dest": "type_name [942,948]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "function_definition [1242,1386]",
+      "dest": "function_definition [1242,1386]"
+    },
+    {
+      "src": ".: . [1321,1322]",
+      "dest": ".: . [1321,1322]"
+    },
+    {
+      "src": "true [1348,1352]",
+      "dest": "true [1348,1352]"
+    },
+    {
+      "src": "{: { [912,913]",
+      "dest": "{: { [912,913]"
+    },
+    {
+      "src": "identifier: _ [1228,1229]",
+      "dest": "identifier: _ [1228,1229]"
+    },
+    {
+      "src": "call_argument [1335,1346]",
+      "dest": "call_argument [1335,1346]"
+    },
+    {
+      "src": "(: ( [1073,1074]",
+      "dest": "(: ( [1073,1074]"
+    },
+    {
+      "src": "call_expression [1182,1218]",
+      "dest": "call_expression [1182,1218]"
+    },
+    {
+      "src": "}: } [1387,1388]",
+      "dest": "}: } [1387,1388]"
+    },
+    {
+      "src": "abstract: abstract [859,867]",
+      "dest": "abstract: abstract [859,867]"
+    },
+    {
+      "src": "identifier: isFinalized [1191,1202]",
+      "dest": "identifier: isFinalized [1191,1202]"
+    },
+    {
+      "src": "bool: bool [1074,1078]",
+      "dest": "bool: bool [1074,1078]"
+    },
+    {
+      "src": "constant: constant [949,957]",
+      "dest": "constant: constant [949,957]"
+    },
+    {
+      "src": "{: { [1172,1173]",
+      "dest": "{: { [1172,1173]"
+    },
+    {
+      "src": "identifier: notFinalized [1286,1298]",
+      "dest": "identifier: notFinalized [1286,1298]"
+    },
+    {
+      "src": "call_argument [1206,1217]",
+      "dest": "call_argument [1206,1217]"
+    },
+    {
+      "src": "import: import [688,694]",
+      "dest": "import: import [688,694]"
+    },
+    {
+      "src": "boolean_literal [1348,1352]",
+      "dest": "boolean_literal [1348,1352]"
+    },
+    {
+      "src": "): ) [1203,1204]",
+      "dest": "): ) [1203,1204]"
+    },
+    {
+      "src": "is: is [897,899]",
+      "dest": "is: is [897,899]"
+    },
+    {
+      "src": "expression_statement [1228,1230]",
+      "dest": "expression_statement [1228,1230]"
+    },
+    {
+      "src": "identifier: STORAGE_TAG [1123,1134]",
+      "dest": "identifier: STORAGE_TAG [1123,1134]"
+    },
+    {
+      "src": "): ) [934,935]",
+      "dest": "): ) [934,935]"
+    },
+    {
+      "src": "function_body [1299,1386]",
+      "dest": "function_body [1299,1386]"
+    },
+    {
+      "src": "state_variable_declaration [942,1024]",
+      "dest": "state_variable_declaration [942,1024]"
+    },
+    {
+      "src": "identifier: onlyGovernance [1271,1285]",
+      "dest": "identifier: onlyGovernance [1271,1285]"
+    },
+    {
+      "src": "view: view [1060,1064]",
+      "dest": "view: view [1060,1064]"
+    },
+    {
+      "src": "): ) [1378,1379]",
+      "dest": "): ) [1378,1379]"
+    },
+    {
+      "src": "=: = [970,971]",
+      "dest": "=: = [970,971]"
+    },
+    {
+      "src": "returns: returns [1065,1072]",
+      "dest": "returns: returns [1065,1072]"
+    },
+    {
+      "src": "visibility [1262,1270]",
+      "dest": "visibility [1262,1270]"
+    },
+    {
+      "src": "(: ( [933,934]",
+      "dest": "(: ( [933,934]"
+    },
+    {
+      "src": "call_expression [1309,1353]",
+      "dest": "call_expression [1309,1353]"
+    },
+    {
+      "src": "true: true [1348,1352]",
+      "dest": "true: true [1348,1352]"
+    },
+    {
+      "src": "): ) [1217,1218]",
+      "dest": "): ) [1217,1218]"
+    },
+    {
+      "src": "\": \" [669,670]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "inheritance_specifier [900,911]",
+      "dest": "inheritance_specifier [900,911]"
+    },
+    {
+      "src": "identifier: notFinalized [1157,1169]",
+      "dest": "identifier: notFinalized [1157,1169]"
+    },
+    {
+      "src": "identifier: setBoolValue [1322,1334]",
+      "dest": "identifier: setBoolValue [1322,1334]"
+    },
+    {
+      "src": "\": \" [712,713]",
+      "dest": "\": \" [712,713]"
+    },
+    {
+      "src": "identifier: NamedStorage [1309,1321]",
+      "dest": "identifier: NamedStorage [1309,1321]"
+    },
+    {
+      "src": "identifier: MGovernance [900,911]",
+      "dest": "identifier: MGovernance [900,911]"
+    },
+    {
+      "src": "): ) [1078,1079]",
+      "dest": "): ) [1078,1079]"
+    },
+    {
+      "src": "\": \" [1206,1207]",
+      "dest": "\": \" [1206,1207]"
+    },
+    {
+      "src": "visibility [1053,1059]",
+      "dest": "visibility [1053,1059]"
+    },
+    {
+      "src": "return_type_definition [1065,1079]",
+      "dest": "return_type_definition [1065,1079]"
+    },
+    {
+      "src": "call_argument [1190,1204]",
+      "dest": "call_argument [1190,1204]"
+    },
+    {
+      "src": "{: { [1299,1300]",
+      "dest": "{: { [1299,1300]"
+    },
+    {
+      "src": "}: } [1385,1386]",
+      "dest": "}: } [1385,1386]"
+    },
+    {
+      "src": "modifier: modifier [1148,1156]",
+      "dest": "modifier: modifier [1148,1156]"
+    },
+    {
+      "src": "contract_body [912,1388]",
+      "dest": "contract_body [912,1388]"
+    },
+    {
+      "src": "string [1206,1217]",
+      "dest": "string [1206,1217]"
+    },
+    {
+      "src": "primitive_type [1074,1078]",
+      "dest": "primitive_type [1074,1078]"
+    },
+    {
+      "src": "(: ( [1169,1170]",
+      "dest": "(: ( [1169,1170]"
+    },
+    {
+      "src": "identifier: finalize [1251,1259]",
+      "dest": "identifier: finalize [1251,1259]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "modifier_invocation [1286,1298]",
+      "dest": "modifier_invocation [1286,1298]"
+    },
+    {
+      "src": "emit_statement [1363,1380]",
+      "dest": "emit_statement [1363,1380]"
+    },
+    {
+      "src": "external: external [1262,1270]",
+      "dest": "external: external [1262,1270]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "identifier: GovernedFinalizable [877,896]",
+      "dest": "identifier: GovernedFinalizable [877,896]"
+    }
+  ],
+  "actions": []
+}

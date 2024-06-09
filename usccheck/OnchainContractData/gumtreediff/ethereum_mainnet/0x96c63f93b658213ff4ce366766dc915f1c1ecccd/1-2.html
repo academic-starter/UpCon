@@ -1,0 +1,609 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>0xebbbf447502d6d028807daf9eaf81dc2ee65778a.etherscan.io-Castle.sol</h5><pre class="pre-scrollable">pragma solidity 0.8.7;
+
+
+// SPDX-License-Identifier: Unlicense
+interface ITraits {
+  function tokenURI(uint256 tokenId) external view returns (string memory);
+}
+
+interface IDogewood {
+    // struct to store each token's traits
+    struct Doge2 {
+        uint8 head;
+        uint8 breed;
+        uint8 color;
+        uint8 class;
+        uint8 armor;
+        uint8 offhand;
+        uint8 mainhand;
+        uint16 level;
+        uint16 breedRerollCount;
+        uint16 classRerollCount;
+    }
+
+    function getTokenTraits(uint256 tokenId) external view returns (Doge2 memory);
+    function getGenesisSupply() external view returns (uint256);
+    function pull(address owner, uint256[] calldata ids) external;
+    function manuallyAdjustDoge(uint256 id, uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level, uint16 breedRerollCount, uint16 classRerollCount) external;
+    function transfer(address to, uint256 tokenId) external;
+    // function doges(uint256 id) external view returns(uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level);
+}
+
+// interface DogeLike {
+//     function pull(address owner, uint256[] calldata ids) external;
+//     function manuallyAdjustDoge(uint256 id, uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level) external;
+//     function transfer(address to, uint256 tokenId) external;
+//     function doges(uint256 id) external view returns(uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level);
+// }
+interface PortalLike {
+    function sendMessage(bytes calldata message_) external;
+}
+
+interface CastleLike {
+    function pullCallback(address owner, uint256[] calldata ids) external;
+}
+
+// interface DogewoodLike {
+//     function ownerOf(uint256 id) external view returns (address owner_);
+//     function activities(uint256 id) external view returns (address owner, uint88 timestamp, uint8 action);
+//     function doges(uint256 dogeId) external view returns (uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level);
+// }
+interface ERC20Like {
+    function balanceOf(address from) external view returns(uint256 balance);
+    function burn(address from, uint256 amount) external;
+    function mint(address from, uint256 amount) external;
+    function transfer(address to, uint256 amount) external;
+}
+
+interface ERC1155Like {
+    function mint(address to, uint256 id, uint256 amount) external;
+    function burn(address from, uint256 id, uint256 amount) external;
+}
+
+interface ERC721Like {
+    function transferFrom(address from, address to, uint256 id) external;   
+    function transfer(address to, uint256 id) external;
+    function ownerOf(uint256 id) external returns (address owner);
+    function mint(address to, uint256 tokenid) external;
+}
+
+/// @dev A simple contract to orchestrate comings and going from the DogewoodPortal
+contract Castle {
+
+    address implementation_;
+    address public admin;
+    
+    address public portal;
+    address public dogewood;
+    address public treat;
+
+    mapping (address =&gt; address) public reflection;
+    mapping (uint256 =&gt; address) public dogeOwner;
+
+    function initialize(address portal_, address dogewood_, address treat_) external {
+        require(msg.sender == admin);
+        portal = portal_;
+        dogewood   = dogewood_;
+        treat = treat_;
+    }
+
+    function setReflection(address key_, address reflection_) external {
+        require(msg.sender == admin);
+        reflection[key_] = reflection_;
+        reflection[reflection_] = key_;
+    }
+
+    /// @dev Send Doges and tokens to PolyLand
+    function travel(uint256[] calldata dogeIds, uint256 treatAmount) external {
+        address target = reflection[address(this)];
+
+        uint256 dogesLen   = dogeIds.length;
+        uint256 currIndex = 0;
+
+        bytes[] memory calls = new bytes[]((dogesLen &gt; 0 ? dogesLen + 1 : 0) + (treatAmount &gt; 0 ? 1 : 0));
+
+        if (dogesLen &gt; 0) {
+            _pullIds(dogewood, dogeIds);
+
+            // This will create doges exactly as they exist in this chain
+            for (uint256 i = 0; i &lt; dogeIds.length; i++) {
+                calls[i] = _buildData(dogeIds[i]);
+            }
+
+            calls[dogesLen] = abi.encodeWithSelector(this.unstakeMany.selector,reflection[dogewood], msg.sender,  dogeIds);
+            currIndex += dogesLen + 1;
+        }
+
+        if (treatAmount &gt; 0) {
+            ERC20Like(treat).burn(msg.sender, treatAmount);
+            calls[currIndex] = abi.encodeWithSelector(this.mintToken.selector, reflection[address(treat)], msg.sender, treatAmount);
+            currIndex++;
+        }
+
+        PortalLike(portal).sendMessage(abi.encode(target, calls));
+    }
+
+    function callDogewood(bytes calldata data) external {
+        _onlyPortal();
+
+        (bool succ, ) = dogewood.call(data);
+        require(succ);
+    }
+
+    event D(uint tt);
+    event DAD(address al);
+
+    function unstakeMany(address token, address owner, uint256[] calldata ids) external {
+        _onlyPortal();
+
+        emit DAD(token);
+
+        for (uint256 i = 0; i &lt; ids.length; i++) {  
+            emit D(ids[i]);
+            if (token == dogewood)   delete dogeOwner[ids[i]];
+            ERC721Like(token).transfer(owner, ids[i]);
+        }
+    }
+
+    function mintToken(address token, address to, uint256 amount) external { 
+        _onlyPortal();
+
+        ERC20Like(token).mint(to, amount);
+    }
+
+    function _pullIds(address token, uint256[] calldata ids) internal {
+        // The ownership will be checked to the token contract
+        IDogewood(token).pull(msg.sender, ids);
+    }
+
+    function pullCallback(address owner, uint256[] calldata ids) external {
+        require(msg.sender == dogewood);
+        for (uint256 i = 0; i &lt; ids.length; i++) {
+            _stake(msg.sender, ids[i], owner);
+        }
+    }
+
+    function _buildData(uint256 id) internal view returns (bytes memory data) {
+        // (uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level);
+        IDogewood.Doge2 memory doge_ = IDogewood(dogewood).getTokenTraits(id);
+        data = abi.encodeWithSelector(this.callDogewood.selector, abi.encodeWithSelector(IDogewood.manuallyAdjustDoge.selector, id, doge_.head, doge_.breed, doge_.color, doge_.class, doge_.armor, doge_.offhand, doge_.mainhand, doge_.level, doge_.breedRerollCount, doge_.classRerollCount));
+    }
+
+    function _stake(address token, uint256 id, address owner) internal {
+        require(dogeOwner[id] == address(0), "already staked");
+        require(msg.sender == token, "not dogewood contract");
+        require(ERC721Like(token).ownerOf(id) == address(this), "doge not transferred");
+
+        if (token == dogewood)   dogeOwner[id]  = owner;
+    }
+
+    function _onlyPortal() view internal {
+        require(msg.sender == portal, "not portal");
+    } 
+
+    /// @notice dev method to track migration process
+    function _emergencyBuildData(uint256 id) external view returns (bytes memory data) {
+        require(msg.sender == admin, "not admin");
+        return _buildData(id);
+    } 
+}</pre></div><div class="col-6"><h5>0xe3581bf5edc1c399f97f47c5fc1b604fd605d766.etherscan.io-Castle.sol</h5><pre class="pre-scrollable">pragma solidity 0.8.7;
+
+
+// SPDX-License-Identifier: Unlicense
+interface ITraits {
+  function tokenURI(uint256 tokenId) external view returns (string memory);
+}
+
+<span class="marker" id="mapping-1"></span><span class="token add" data-title="source_file/interface_declaration">interface IDrawSvg {
+  function drawSvg(
+    string memory svgBreedColor, string memory svgBreedHead, string memory svgOffhand, string memory svgArmor, string memory svgMainhand
+  ) external view returns (string memory);
+  function drawSvgNew(
+    string memory svgBreedColor, string memory svgBreedHead, string memory svgOffhand, string memory svgArmor, string memory svgMainhand
+  ) external view returns (string memory);
+}</span>
+
+<span class="marker" id="mapping-2"></span><span class="token add" data-title="source_file/interface_declaration">interface INameChange {
+  function changeName(address owner, uint256 id, string memory newName) external;
+}</span>
+
+interface IDogewood {
+    // struct to store each token's traits
+    struct Doge2 {
+        uint8 head;
+        uint8 breed;
+        uint8 color;
+        uint8 class;
+        uint8 armor;
+        uint8 offhand;
+        uint8 mainhand;
+        uint16 level;
+        uint16 breedRerollCount;
+        uint16 classRerollCount;
+        <span class="marker" id="mapping-3"></span><span class="token add" data-title="struct_declaration/struct_member">uint8 artStyle;</span> <span class="marker" id="mapping-4"></span><span class="token add" data-title="struct_declaration/comment">// 0: new, 1: old</span>
+    }
+
+    function getTokenTraits(uint256 tokenId) external view returns (Doge2 memory);
+    function getGenesisSupply() external view returns (uint256);
+    function pull(address owner, uint256[] calldata ids) external;
+    function manuallyAdjustDoge(uint256 id, uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level, uint16 breedRerollCount, uint16 classRerollCount<span class="marker" id="mapping-5"></span><span class="token add" data-title="function_definition/,">,</span> <span class="marker" id="mapping-6"></span><span class="token add" data-title="function_definition/parameter">uint8 artStyle</span>) external;
+    function transfer(address to, uint256 tokenId) external;
+    // function doges(uint256 id) external view returns(uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level);
+}
+
+// interface DogeLike {
+//     function pull(address owner, uint256[] calldata ids) external;
+//     function manuallyAdjustDoge(uint256 id, uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level) external;
+//     function transfer(address to, uint256 tokenId) external;
+//     function doges(uint256 id) external view returns(uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level);
+// }
+interface PortalLike {
+    function sendMessage(bytes calldata message_) external;
+}
+
+interface CastleLike {
+    function pullCallback(address owner, uint256[] calldata ids) external;
+}
+
+// interface DogewoodLike {
+//     function ownerOf(uint256 id) external view returns (address owner_);
+//     function activities(uint256 id) external view returns (address owner, uint88 timestamp, uint8 action);
+//     function doges(uint256 dogeId) external view returns (uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level);
+// }
+interface ERC20Like {
+    function balanceOf(address from) external view returns(uint256 balance);
+    function burn(address from, uint256 amount) external;
+    function mint(address from, uint256 amount) external;
+    function transfer(address to, uint256 amount) external;
+}
+
+interface ERC1155Like {
+    function mint(address to, uint256 id, uint256 amount) external;
+    function burn(address from, uint256 id, uint256 amount) external;
+}
+
+interface ERC721Like {
+    function transferFrom(address from, address to, uint256 id) external;   
+    function transfer(address to, uint256 id) external;
+    function ownerOf(uint256 id) external returns (address owner);
+    function mint(address to, uint256 tokenid) external;
+}
+
+/// @dev A simple contract to orchestrate comings and going from the DogewoodPortal
+contract Castle {
+
+    address implementation_;
+    address public admin;
+    
+    address public portal;
+    address public dogewood;
+    address public treat;
+
+    mapping (address =&gt; address) public reflection;
+    mapping (uint256 =&gt; address) public dogeOwner;
+
+    function initialize(address portal_, address dogewood_, address treat_) external {
+        require(msg.sender == admin);
+        portal = portal_;
+        dogewood   = dogewood_;
+        treat = treat_;
+    }
+
+    function setReflection(address key_, address reflection_) external {
+        require(msg.sender == admin);
+        reflection[key_] = reflection_;
+        reflection[reflection_] = key_;
+    }
+
+    /// @dev Send Doges and tokens to PolyLand
+    function travel(uint256[] calldata dogeIds, uint256 treatAmount) external {
+        address target = reflection[address(this)];
+
+        uint256 dogesLen   = dogeIds.length;
+        uint256 currIndex = 0;
+
+        bytes[] memory calls = new bytes[]((dogesLen &gt; 0 ? dogesLen + 1 : 0) + (treatAmount &gt; 0 ? 1 : 0));
+
+        if (dogesLen &gt; 0) {
+            _pullIds(dogewood, dogeIds);
+
+            // This will create doges exactly as they exist in this chain
+            for (uint256 i = 0; i &lt; dogeIds.length; i++) {
+                calls[i] = _buildData(dogeIds[i]);
+            }
+
+            calls[dogesLen] = abi.encodeWithSelector(this.unstakeMany.selector,reflection[dogewood], msg.sender,  dogeIds);
+            currIndex += dogesLen + 1;
+        }
+
+        if (treatAmount &gt; 0) {
+            ERC20Like(treat).burn(msg.sender, treatAmount);
+            calls[currIndex] = abi.encodeWithSelector(this.mintToken.selector, reflection[address(treat)], msg.sender, treatAmount);
+            currIndex++;
+        }
+
+        PortalLike(portal).sendMessage(abi.encode(target, calls));
+    }
+
+    function callDogewood(bytes calldata data) external {
+        _onlyPortal();
+
+        (bool succ, ) = dogewood.call(data);
+        require(succ);
+    }
+
+    event D(uint tt);
+    event DAD(address al);
+
+    function unstakeMany(address token, address owner, uint256[] calldata ids) external {
+        _onlyPortal();
+
+        emit DAD(token);
+
+        for (uint256 i = 0; i &lt; ids.length; i++) {  
+            emit D(ids[i]);
+            if (token == dogewood)   delete dogeOwner[ids[i]];
+            ERC721Like(token).transfer(owner, ids[i]);
+        }
+    }
+
+    function mintToken(address token, address to, uint256 amount) external { 
+        _onlyPortal();
+
+        ERC20Like(token).mint(to, amount);
+    }
+
+    function _pullIds(address token, uint256[] calldata ids) internal {
+        // The ownership will be checked to the token contract
+        IDogewood(token).pull(msg.sender, ids);
+    }
+
+    function pullCallback(address owner, uint256[] calldata ids) external {
+        require(msg.sender == dogewood);
+        for (uint256 i = 0; i &lt; ids.length; i++) {
+            _stake(msg.sender, ids[i], owner);
+        }
+    }
+
+    function _buildData(uint256 id) internal view returns (bytes memory data) {
+        // (uint8 head, uint8 breed, uint8 color, uint8 class, uint8 armor, uint8 offhand, uint8 mainhand, uint16 level);
+        IDogewood.Doge2 memory doge_ = IDogewood(dogewood).getTokenTraits(id);
+        data = abi.encodeWithSelector(this.callDogewood.selector, abi.encodeWithSelector(IDogewood.manuallyAdjustDoge.selector, id, doge_.head, doge_.breed, doge_.color, doge_.class, doge_.armor, doge_.offhand, doge_.mainhand, doge_.level, doge_.breedRerollCount, doge_.classRerollCount<span class="marker" id="mapping-7"></span><span class="token add" data-title="call_expression/,">,</span> <span class="marker" id="mapping-8"></span><span class="token add" data-title="call_expression/call_argument">doge_.artStyle</span>));
+    }
+
+    function _stake(address token, uint256 id, address owner) internal {
+        require(dogeOwner[id] == address(0), "already staked");
+        require(msg.sender == token, "not dogewood contract");
+        require(ERC721Like(token).ownerOf(id) == address(this), "doge not transferred");
+
+        if (token == dogewood)   dogeOwner[id]  = owner;
+    }
+
+    function _onlyPortal() view internal {
+        require(msg.sender == portal, "not portal");
+    } 
+
+    /// @notice dev method to track migration process
+    function _emergencyBuildData(uint256 id) external view returns (bytes memory data) {
+        require(msg.sender == admin, "not admin");
+        return _buildData(id);
+    } 
+}</pre></div></div></div></body></html>

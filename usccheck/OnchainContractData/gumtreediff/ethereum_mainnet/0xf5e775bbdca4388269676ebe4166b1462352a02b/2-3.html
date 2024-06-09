@@ -1,0 +1,1027 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>0x28fe2046b1ab4461cc5cb8e29afcc36d1ddac4bb.etherscan.io-RevenuePoolV3.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="source_file/comment"><span class="cupd">// hevm: flattened sources of contracts/auction/RevenuePoolV</span>2<span class="cupd">.sol</span></span>
+
+pragma solidity &gt;=<span class="marker" id="mapping-2"></span><span class="token mv" id="move-src-2" data-title="solidity_pragma_token/solidity_version"><span class="marker" id="mapping-3"></span><span class="token upd" id="move-src-3" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.4.2</span>3</span></span><span class="marker" id="mapping-4"></span><span class="token del" data-title="solidity_pragma_token/solidity_version_comparison_operator"> &lt;</span><span class="marker" id="mapping-5"></span><span class="token del" data-title="solidity_pragma_token/solidity_version">0.5.0</span><span class="marker" id="mapping-6"></span><span class="token mv" id="move-src-4" data-title="solidity_pragma_token/solidity_version_comparison_operator"> &gt;=</span>0.4.24 &lt;0.5.0;
+
+////// lib/common-contracts/contracts/SettingIds.sol
+/* pragma solidity ^0.4.24; */
+
+/**
+    Id definitions for SettingsRegistry.sol
+    Can be used in conjunction with the settings registry to get properties
+*/
+contract SettingIds {
+    // 0x434f4e54524143545f52494e475f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_RING_ERC20_TOKEN = "CONTRACT_RING_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f4b544f4e5f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_KTON_ERC20_TOKEN = "CONTRACT_KTON_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f474f4c445f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_GOLD_ERC20_TOKEN = "CONTRACT_GOLD_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f574f4f445f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_WOOD_ERC20_TOKEN = "CONTRACT_WOOD_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f57415445525f45524332305f544f4b454e000000000000
+    bytes32 public constant CONTRACT_WATER_ERC20_TOKEN = "CONTRACT_WATER_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f464952455f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_FIRE_ERC20_TOKEN = "CONTRACT_FIRE_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f534f494c5f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_SOIL_ERC20_TOKEN = "CONTRACT_SOIL_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f4f424a4543545f4f574e45525348495000000000000000
+    bytes32 public constant CONTRACT_OBJECT_OWNERSHIP = "CONTRACT_OBJECT_OWNERSHIP";
+
+    // 0x434f4e54524143545f544f4b454e5f4c4f434154494f4e000000000000000000
+    bytes32 public constant CONTRACT_TOKEN_LOCATION = "CONTRACT_TOKEN_LOCATION";
+
+    // 0x434f4e54524143545f4c414e445f424153450000000000000000000000000000
+    bytes32 public constant CONTRACT_LAND_BASE = "CONTRACT_LAND_BASE";
+
+    // 0x434f4e54524143545f555345525f504f494e5453000000000000000000000000
+    bytes32 public constant CONTRACT_USER_POINTS = "CONTRACT_USER_POINTS";
+
+    // 0x434f4e54524143545f494e5445525354454c4c41525f454e434f444552000000
+    bytes32 public constant CONTRACT_INTERSTELLAR_ENCODER = "CONTRACT_INTERSTELLAR_ENCODER";
+
+    // 0x434f4e54524143545f4449564944454e44535f504f4f4c000000000000000000
+    bytes32 public constant CONTRACT_DIVIDENDS_POOL = "CONTRACT_DIVIDENDS_POOL";
+
+    // 0x434f4e54524143545f544f4b454e5f5553450000000000000000000000000000
+    bytes32 public constant CONTRACT_TOKEN_USE = "CONTRACT_TOKEN_USE";
+
+    // 0x434f4e54524143545f524556454e55455f504f4f4c0000000000000000000000
+    bytes32 public constant CONTRACT_REVENUE_POOL = "CONTRACT_REVENUE_POOL";
+
+    // 0x434f4e54524143545f4252494447455f504f4f4c000000000000000000000000
+    bytes32 public constant CONTRACT_BRIDGE_POOL = "CONTRACT_BRIDGE_POOL";
+
+    // 0x434f4e54524143545f4552433732315f42524944474500000000000000000000
+    bytes32 public constant CONTRACT_ERC721_BRIDGE = "CONTRACT_ERC721_BRIDGE";
+
+    // 0x434f4e54524143545f5045545f42415345000000000000000000000000000000
+    bytes32 public constant CONTRACT_PET_BASE = "CONTRACT_PET_BASE";
+
+    // Cut owner takes on each auction, measured in basis points (1/100 of a percent).
+    // this can be considered as transaction fee.
+    // Values 0-10,000 map to 0%-100%
+    // set ownerCut to 4%
+    // ownerCut = 400;
+    // 0x55494e545f41554354494f4e5f43555400000000000000000000000000000000
+    bytes32 public constant UINT_AUCTION_CUT = "UINT_AUCTION_CUT";  // Denominator is 10000
+
+    // 0x55494e545f544f4b454e5f4f464645525f435554000000000000000000000000
+    bytes32 public constant UINT_TOKEN_OFFER_CUT = "UINT_TOKEN_OFFER_CUT";  // Denominator is 10000
+
+    // Cut referer takes on each auction, measured in basis points (1/100 of a percent).
+    // which cut from transaction fee.
+    // Values 0-10,000 map to 0%-100%
+    // set refererCut to 4%
+    // refererCut = 400;
+    // 0x55494e545f524546455245525f43555400000000000000000000000000000000
+    bytes32 public constant UINT_REFERER_CUT = "UINT_REFERER_CUT";
+
+    // 0x55494e545f4252494447455f4645450000000000000000000000000000000000
+    bytes32 public constant UINT_BRIDGE_FEE = "UINT_BRIDGE_FEE";
+
+    // 0x434f4e54524143545f4c414e445f5245534f5552434500000000000000000000
+    bytes32 public constant CONTRACT_LAND_RESOURCE = "CONTRACT_LAND_RESOURCE";
+}
+
+////// contracts/auction/AuctionSettingIds.sol
+/* pragma solidity ^0.4.24; */
+
+/* import "@evolutionland/common/contracts/SettingIds.sol"; */
+
+contract AuctionSettingIds is SettingIds {
+
+    bytes32 public constant CONTRACT_CLOCK_AUCTION = "CONTRACT_CLOCK_AUCTION";
+
+    // BidWaitingTime in seconds, default is 30 minutes
+    // necessary period of time from invoking bid action to successfully taking the land asset.
+    // if someone else bid the same auction with higher price and within bidWaitingTime, your bid failed.
+    bytes32 public constant UINT_AUCTION_BID_WAITING_TIME = "UINT_AUCTION_BID_WAITING_TIME";
+
+
+    bytes32 public constant CONTRACT_MYSTERIOUS_TREASURE = "CONTRACT_MYSTERIOUS_TREASURE";
+
+    // users change eth(in wei) into ring with bancor exchange
+    // which introduce bancor protocol to regulate the price of ring
+    // bytes32 public constant CONTRACT_BANCOR_EXCHANGE = "BANCOR_EXCHANGE";
+
+    bytes32 public constant CONTRACT_POINTS_REWARD_POOL = "CONTRACT_POINTS_REWARD_POOL";
+
+    // value belongs to [0, 10000000]
+    // bytes32 public constant UINT_EXCHANGE_ERROR_SPACE = "UINT_EXCHANGE_ERROR_SPACE";
+
+    // "CONTRACT_CONTRIBUTION_INCENTIVE_POOL" is too long for byted32
+    // so compress it to what states below
+    bytes32 public constant CONTRACT_CONTRIBUTION_INCENTIVE_POOL = "CONTRACT_CONTRIBUTION_POOL";
+
+    bytes32 public constant CONTRACT_DEV_POOL = "CONTRACT_DEV_POOL";
+
+    bytes32 public constant CONTRACT_GENESIS_HOLDER = "CONTRACT_GENESIS_HOLDER";
+
+    bytes32 public constant CONTRACT_FARM_POOL = "CONTRACT_FARM_POOL";
+}
+
+<span class="marker" id="mapping-7"></span><span class="token upd" id="move-src-5" data-title="source_file/comment"><span class="cupd">////// contracts/auction/interfaces/I</span>GovernorPool<span class="cupd">.sol</span></span>
+/* pragma solidity ^0.4.24; */
+
+<span class="marker" id="mapping-8"></span><span class="token del" data-title="source_file/contract_declaration">contract IGovernorPool <span class="marker" id="mapping-9"></span><span class="token del" data-title="contract_declaration/contract_body">{
+    <span class="marker" id="mapping-10"></span><span class="token mv" id="move-src-6" data-title="contract_body/function_definition">function <span class="marker" id="mapping-11"></span><span class="token upd" id="move-src-7" data-title="function_definition/identifier">checkRewa<span class="cupd">r</span>dAv<span class="cupd">a</span>ilable</span>(<span class="marker" id="mapping-12"></span><span class="token mv" id="move-src-8" data-title="function_definition/parameter">address _token</span>) external <span class="marker" id="mapping-13"></span><span class="token del" data-title="function_definition/state_mutability">view</span> returns(bool);</span>
+    <span class="marker" id="mapping-14"></span><span class="token del" data-title="contract_body/function_definition">function rewardAmount(<span class="marker" id="mapping-15"></span><span class="token mv" id="move-src-9" data-title="function_definition/parameter">uint256 <span class="marker" id="mapping-16"></span><span class="token upd" id="move-src-10" data-title="parameter/identifier">_<span class="cupd">amount</span></span></span>) <span class="marker" id="mapping-17"></span><span class="token mv" id="move-src-11" data-title="function_definition/visibility">external</span>;</span> 
+}</span></span>
+
+////// lib/common-contracts/contracts/interfaces/IAuthority.sol
+/* pragma solidity ^0.4.24; */
+
+contract IAuthority {
+    function canCall(
+        address src, address dst, bytes4 sig
+    ) public view returns (bool);
+}
+
+////// lib/common-contracts/contracts/DSAuth.sol
+/* pragma solidity ^0.4.24; */
+
+/* import './interfaces/IAuthority.sol'; */
+
+contract DSAuthEvents {
+    event LogSetAuthority (address indexed authority);
+    event LogSetOwner     (address indexed owner);
+}
+
+/**
+ * @title DSAuth
+ * @dev The DSAuth contract is reference implement of https://github.com/dapphub/ds-auth
+ * But in the isAuthorized method, the src from address(this) is remove for safty concern.
+ */
+contract DSAuth is DSAuthEvents {
+    IAuthority   public  authority;
+    address      public  owner;
+
+    constructor() public {
+        owner = msg.sender;
+        emit LogSetOwner(msg.sender);
+    }
+
+    function setOwner(address owner_)
+        public
+        auth
+    {
+        owner = owner_;
+        emit LogSetOwner(owner);
+    }
+
+    function setAuthority(IAuthority authority_)
+        public
+        auth
+    {
+        authority = authority_;
+        emit LogSetAuthority(authority);
+    }
+
+    modifier auth {
+        require(isAuthorized(msg.sender, msg.sig));
+        _;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    function isAuthorized(address src, bytes4 sig) internal view returns (bool) {
+        if (src == owner) {
+            return true;
+        } else if (authority == IAuthority(0)) {
+            return false;
+        } else {
+            return authority.canCall(src, this, sig);
+        }
+    }
+}
+
+<span class="marker" id="mapping-18"></span><span class="token mv" id="move-src-12" data-title="source_file/comment"><span class="marker" id="mapping-19"></span><span class="token upd" id="move-src-13" data-title="source_file/comment"><span class="cupd">////// </span>lib/<span class="cupd">co</span>mmo<span class="cupd">n</span>-con<span class="cupd">tracts/</span><span class="cupd">c</span><span class="cupd">on</span>tracts<span class="cupd">/interfaces/</span>ERC223Rece<span class="cupd">i</span>vi<span class="cupd">ng</span>Cont<span class="cupd">r</span><span class="cupd">act</span><span class="cupd">.sol</span></span></span>
+<span class="marker" id="mapping-20"></span><span class="token mv" id="move-src-14" data-title="source_file/comment"><span class="marker" id="mapping-21"></span><span class="token upd" id="move-src-15" data-title="source_file/comment"><span class="cupd">/* pragma solidity </span>^<span class="cupd">0.4.2</span>3<span class="cupd">; */</span></span></span>
+
+ <span class="marker" id="mapping-22"></span><span class="token mv" id="move-src-16" data-title="source_file/comment"><span class="marker" id="mapping-23"></span><span class="token upd" id="move-src-17" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"></span>
+ * <span class="cupd">Contrac</span>t t<span class="cupd">h</span><span class="cupd">a</span>t<span class="cupd"> </span>is <span class="cupd">w</span>ork<span class="cupd">i</span>ng with <span class="cupd">E</span>RC223 to<span class="cupd">k</span><span class="cupd">e</span>ns
+ * https://gi<span class="cupd">t</span>hub.co<span class="cupd">m</span>/ethereum/<span class="cupd">E</span>IPs/issues/223
+ */</span></span>
+
+<span class="marker" id="mapping-24"></span><span class="token mv" id="move-src-18" data-title="source_file/comment"><span class="marker" id="mapping-25"></span><span class="token upd" id="move-src-19" data-title="source_file/comment"><span class="cupd">/</span>//<span class="cupd"> </span>@t<span class="cupd">i</span>tle ERC223ReceivingC<span class="cupd">o</span>nt<span class="cupd">r</span>ac<span class="cupd">t </span>- Sta<span class="cupd">n</span>dard con<span class="cupd">t</span><span class="cupd">r</span><span class="cupd">ac</span>t impl<span class="cupd">e</span>mentation for compatibility with <span class="cupd">ERC2</span>23 tokens.</span></span>
+<span class="marker" id="mapping-26"></span><span class="token del" data-title="source_file/contract_declaration">contract ERC223ReceivingContract <span class="marker" id="mapping-27"></span><span class="token del" data-title="contract_declaration/contract_body">{
+
+    /// @dev Function that is called when a user or another contract wants to transfer funds.
+    /// @param _from Transaction initiator, analogue of msg.sender
+    /// @param _value Number of tokens to transfer.
+    /// @param _data Data containig a function signature and/or parameters
+    <span class="marker" id="mapping-28"></span><span class="token del" data-title="contract_body/function_definition">function tokenFallback(<span class="marker" id="mapping-29"></span><span class="token mv" id="move-src-20" data-title="function_definition/parameter">address <span class="marker" id="mapping-30"></span><span class="token upd" id="move-src-21" data-title="parameter/identifier">_from</span></span>, <span class="marker" id="mapping-31"></span><span class="token del" data-title="function_definition/parameter">uint256 _value</span>, <span class="marker" id="mapping-32"></span><span class="token del" data-title="function_definition/parameter">bytes _data</span>) <span class="marker" id="mapping-33"></span><span class="token mv" id="move-src-22" data-title="function_definition/visibility">public</span>;</span>
+
+}</span></span>
+
+////// lib/common-contracts/contracts/interfaces/ISettingsRegistry.sol
+/* pragma solidity ^0.4.24; */
+
+contract ISettingsRegistry {
+    enum SettingsValueTypes { NONE, UINT, STRING, ADDRESS, BYTES, BOOL, INT }
+
+    function uintOf(bytes32 _propertyName) public view returns (uint256);
+
+    function stringOf(bytes32 _propertyName) public view returns (string);
+
+    function addressOf(bytes32 _propertyName) public view returns (address);
+
+    function bytesOf(bytes32 _propertyName) public view returns (bytes);
+
+    function boolOf(bytes32 _propertyName) public view returns (bool);
+
+    function intOf(bytes32 _propertyName) public view returns (int);
+
+    function setUintProperty(bytes32 _propertyName, uint _value) public;
+
+    function setStringProperty(bytes32 _propertyName, string _value) public;
+
+    function setAddressProperty(bytes32 _propertyName, address _value) public;
+
+    function setBytesProperty(bytes32 _propertyName, bytes _value) public;
+
+    function setBoolProperty(bytes32 _propertyName, bool _value) public;
+
+    function setIntProperty(bytes32 _propertyName, int _value) public;
+
+    function getValueTypeOf(bytes32 _propertyName) public view returns (uint /* SettingsValueTypes */ );
+
+    event ChangeProperty(bytes32 indexed _propertyName, uint256 _type);
+}
+
+////// lib/common-contracts/contracts/interfaces/IUserPoints.sol
+/* pragma solidity ^0.4.24; */
+
+contract IUserPoints {
+    event AddedPoints(address indexed user, uint256 pointAmount);
+    event SubedPoints(address indexed user, uint256 pointAmount);
+
+    function addPoints(address _user, uint256 _pointAmount) public;
+
+    function subPoints(address _user, uint256 _pointAmount) public;
+
+    function pointsSupply() public view returns (uint256);
+
+    function pointsBalanceOf(address _user) public view returns (uint256);
+}
+
+<span class="marker" id="mapping-34"></span><span class="token mv" id="move-src-23" data-title="source_file/comment"><span class="marker" id="mapping-35"></span><span class="token upd" id="move-src-24" data-title="source_file/comment"><span class="cupd">/</span>/////<span class="cupd"> </span>l<span class="cupd">i</span>b/ze<span class="cupd">p</span>pelin-s<span class="cupd">o</span>lidi<span class="cupd">t</span>y<span class="cupd">/</span>co<span class="cupd">nt</span><span class="cupd">r</span><span class="cupd">ac</span>t<span class="cupd">s/</span><span class="cupd">t</span>o<span class="cupd">k</span>e<span class="cupd">n</span>/E<span class="cupd">R</span>C20/ERC20B<span class="cupd">a</span><span class="cupd">s</span>i<span class="cupd">c</span><span class="cupd">.sol</span></span></span>
+/* pragma solidity ^0.4.24; */
+
+
+<span class="marker" id="mapping-36"></span><span class="token del" data-title="source_file/comment">/**
+ * @title ERC20Basic
+ * @dev Simpler version of ERC20 interface
+ * See https://github.com/ethereum/EIPs/issues/179
+ */</span>
+<span class="marker" id="mapping-37"></span><span class="token del" data-title="source_file/contract_declaration">contract ERC20Basic <span class="marker" id="mapping-38"></span><span class="token mv" id="move-src-25" data-title="contract_declaration/contract_body">{
+  function totalSupply() <span class="marker" id="mapping-39"></span><span class="token del" data-title="visibility/public">public</span> view returns (uint256);
+  function balanceOf(address <span class="marker" id="mapping-40"></span><span class="token upd" id="move-src-26" data-title="parameter/identifier">_who</span>) <span class="marker" id="mapping-41"></span><span class="token del" data-title="function_definition/visibility">public</span> view returns (uint256);
+  function <span class="marker" id="mapping-42"></span><span class="token upd" id="move-src-27" data-title="function_definition/identifier">t<span class="cupd">r</span>ansfer</span>(<span class="marker" id="mapping-43"></span><span class="token mv" id="move-src-28" data-title="function_definition/parameter">address <span class="marker" id="mapping-44"></span><span class="token upd" id="move-src-29" data-title="parameter/identifier">_to</span></span>, uint256 <span class="marker" id="mapping-45"></span><span class="token upd" id="move-src-30" data-title="parameter/identifier">_v<span class="cupd">a</span>lue</span>) <span class="marker" id="mapping-46"></span><span class="token del" data-title="visibility/public">public</span> returns (bool);
+  <span class="marker" id="mapping-47"></span><span class="token del" data-title="contract_body/event_definition">event Transfer(<span class="marker" id="mapping-48"></span><span class="token del" data-title="event_definition/event_paramater">address indexed from</span>, <span class="marker" id="mapping-49"></span><span class="token del" data-title="event_definition/event_paramater">address indexed to</span>, <span class="marker" id="mapping-50"></span><span class="token del" data-title="event_definition/event_paramater"><span class="marker" id="mapping-51"></span><span class="token mv" id="move-src-31" data-title="event_paramater/type_name">uint256</span> value</span>);</span>
+}</span></span>
+
+<span class="marker" id="mapping-52"></span><span class="token del" data-title="source_file/comment">////// lib/zeppelin-solidity/contracts/token/ERC20/ERC20.sol</span>
+<span class="marker" id="mapping-53"></span><span class="token del" data-title="source_file/comment">/* pragma solidity ^0.4.24; */</span>
+
+<span class="marker" id="mapping-54"></span><span class="token del" data-title="source_file/comment">/* import "./ERC20Basic.sol"; */</span>
+
+
+<span class="marker" id="mapping-55"></span><span class="token del" data-title="source_file/comment">/**
+ * @title ERC20 interface
+ * @dev see https://github.com/ethereum/EIPs/issues/20
+ */</span>
+<span class="marker" id="mapping-56"></span><span class="token del" data-title="source_file/contract_declaration">contract ERC20 is <span class="marker" id="mapping-57"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">ERC20Basic</span> <span class="marker" id="mapping-58"></span><span class="token del" data-title="contract_declaration/contract_body">{
+  <span class="marker" id="mapping-59"></span><span class="token mv" id="move-src-32" data-title="contract_body/function_definition">function allowance(<span class="marker" id="mapping-60"></span><span class="token del" data-title="function_definition/parameter">address _owner</span>, <span class="marker" id="mapping-61"></span><span class="token mv" id="move-src-33" data-title="function_definition/parameter">address <span class="marker" id="mapping-62"></span><span class="token upd" id="move-src-34" data-title="parameter/identifier">_s<span class="cupd">p</span><span class="cupd">en</span>der</span></span>)
+    <span class="marker" id="mapping-63"></span><span class="token del" data-title="visibility/public">public</span> view returns (uint256);</span>
+
+  <span class="marker" id="mapping-64"></span><span class="token del" data-title="contract_body/function_definition">function transferFrom(<span class="marker" id="mapping-65"></span><span class="token mv" id="move-src-35" data-title="function_definition/parameter">address <span class="marker" id="mapping-66"></span><span class="token upd" id="move-src-36" data-title="parameter/identifier">_from</span></span>, <span class="marker" id="mapping-67"></span><span class="token mv" id="move-src-37" data-title="function_definition/parameter">address <span class="marker" id="mapping-68"></span><span class="token upd" id="move-src-38" data-title="parameter/identifier">_to</span></span>, <span class="marker" id="mapping-69"></span><span class="token del" data-title="function_definition/parameter">uint256 _value</span>)
+    <span class="marker" id="mapping-70"></span><span class="token del" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-71"></span><span class="token del" data-title="function_definition/return_type_definition">returns (bool)</span>;</span>
+
+  <span class="marker" id="mapping-72"></span><span class="token mv" id="move-src-39" data-title="contract_body/function_definition">function <span class="marker" id="mapping-73"></span><span class="token upd" id="move-src-40" data-title="function_definition/identifier"><span class="cupd">a</span>pp<span class="cupd">r</span>ove</span>(<span class="marker" id="mapping-74"></span><span class="token mv" id="move-src-41" data-title="function_definition/parameter">address <span class="marker" id="mapping-75"></span><span class="token upd" id="move-src-42" data-title="parameter/identifier">_spe<span class="cupd">n</span>d<span class="cupd">er</span></span></span>, <span class="marker" id="mapping-76"></span><span class="token del" data-title="parameter/type_name">uint256</span> <span class="marker" id="mapping-77"></span><span class="token upd" id="move-src-43" data-title="parameter/identifier">_v<span class="cupd">a</span>lue</span>) <span class="marker" id="mapping-78"></span><span class="token del" data-title="visibility/public">public</span> returns (bool);</span>
+  <span class="marker" id="mapping-79"></span><span class="token del" data-title="contract_body/event_definition">event Approval(
+    <span class="marker" id="mapping-80"></span><span class="token del" data-title="event_definition/event_paramater">address indexed owner</span>,
+    <span class="marker" id="mapping-81"></span><span class="token del" data-title="event_definition/event_paramater">address indexed spender</span>,
+    <span class="marker" id="mapping-82"></span><span class="token del" data-title="event_definition/event_paramater"><span class="marker" id="mapping-83"></span><span class="token mv" id="move-src-44" data-title="event_paramater/type_name">uint256</span> value</span>
+  );</span>
+}</span></span>
+
+<span class="marker" id="mapping-84"></span><span class="token del" data-title="source_file/comment">////// contracts/auction/RevenuePoolV2.sol</span>
+<span class="marker" id="mapping-85"></span><span class="token del" data-title="source_file/comment">/* pragma solidity ^0.4.24; */</span>
+
+/* import "@evolutionland/common/contracts/interfaces/ISettingsRegistry.sol"; */
+<span class="marker" id="mapping-86"></span><span class="token del" data-title="source_file/comment">/* import "@evolutionland/common/contracts/interfaces/ERC223ReceivingContract.sol"; */</span>
+/* import "@evolutionland/common/contracts/interfaces/IUserPoints.sol"; */
+/* import "@evolutionland/common/contracts/DSAuth.sol"; */
+<span class="marker" id="mapping-87"></span><span class="token del" data-title="source_file/comment">/* import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol"; */</span>
+/* import "./AuctionSettingIds.sol"; */
+<span class="marker" id="mapping-88"></span><span class="token del" data-title="source_file/comment">/* import "./interfaces/IGovernorPool.sol"; */</span>
+
+/**
+ * @title RevenuePool
+ * difference between LandResourceV1:
+     change DividendPool into governorPool for reward
+ */
+
+// Use proxy mode
+contract RevenuePoolV3 is DSAuth, <span class="marker" id="mapping-89"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">ERC223ReceivingContract</span><span class="marker" id="mapping-90"></span><span class="token del" data-title="contract_declaration/,">,</span> AuctionSettingIds {
+
+    bool private singletonLock = false;
+
+//    // 10%
+//    address public pointsRewardPool;
+//    // 30%
+//    address public contributionIncentivePool;
+//    // 30%
+<span class="marker" id="mapping-91"></span><span class="token upd" id="move-src-45" data-title="contract_body/comment"><span class="cupd">//    address public dividendsPool</span>;</span>
+//    // 30%
+//    address public devPool;
+
+    ISettingsRegistry public registry;
+
+    // claimedToken event
+    event ClaimedTokens(address indexed token, address indexed owner, uint amount);
+
+    /*
+     *  Modifiers
+     */
+    modifier singletonLockCall() {
+        require(!singletonLock, "Only can call once");
+        _;
+        singletonLock = true;
+    }
+
+    function initializeContract(address _registry) public singletonLockCall {
+        owner = msg.sender;
+        emit LogSetOwner(msg.sender);
+
+        registry = ISettingsRegistry(_registry);
+    }
+
+    function <span class="marker" id="mapping-92"></span><span class="token upd" id="move-src-46" data-title="function_definition/identifier">tok<span class="cupd">e</span>nFallback</span>(<span class="marker" id="mapping-93"></span><span class="token mv" id="move-src-47" data-title="function_definition/parameter">address</span> <span class="marker" id="mapping-94"></span><span class="token del" data-title="function_definition/comment">/*_from*/</span>, uint256 _value, <span class="marker" id="mapping-95"></span><span class="token del" data-title="function_definition/parameter">bytes _data</span>) public {
+
+        address ring = registry.addressOf(SettingIds.CONTRACT_RING_ERC20_TOKEN);
+        <span class="marker" id="mapping-96"></span><span class="token mv" id="move-src-48" data-title="function_body/variable_declaration_statement">address userPoints = registry.addressOf(SettingIds.CONTRACT_USER_POINTS);</span>
+
+        if(<span class="marker" id="mapping-97"></span><span class="token mv" id="move-src-49" data-title="binary_expression/member_expression">msg.sender</span> == ring) {
+            <span class="marker" id="mapping-98"></span><span class="token del" data-title="block_statement/variable_declaration_statement">address buyer = bytesToAddress(_data);</span>
+            // should same with trading reward percentage in settleToken;
+
+            IUserPoints(userPoints).addPoints(<span class="marker" id="mapping-99"></span><span class="token upd" id="move-src-50" data-title="call_argument/identifier"><span class="cupd">buyer</span></span>, _value / 1000);
+        }
+    }
+
+
+    function settleToken(address _tokenAddress) public {
+        uint balance = <span class="marker" id="mapping-100"></span><span class="token upd" id="move-src-51" data-title="call_expression/identifier"><span class="cupd">ERC20</span></span>(_tokenAddress).balanceOf(address(this));
+
+        // to save gas when playing
+        if (balance &gt; <span class="marker" id="mapping-101"></span><span class="token upd" id="move-src-52" data-title="binary_expression/number_literal"><span class="cupd">10</span></span>) {
+            address pointsRewardPool = registry.addressOf(AuctionSettingIds.CONTRACT_POINTS_REWARD_POOL);
+            address contributionIncentivePool = registry.addressOf(AuctionSettingIds.CONTRACT_CONTRIBUTION_INCENTIVE_POOL);
+            address <span class="marker" id="mapping-102"></span><span class="token upd" id="move-src-53" data-title="variable_declaration/identifier">gove<span class="cupd">r</span>nor<span class="cupd">Pool</span></span> = registry.addressOf(CONTRACT_DIVIDENDS_POOL);
+            address devPool = registry.addressOf(AuctionSettingIds.CONTRACT_DEV_POOL);
+
+            require(pointsRewardPool != 0x0 &amp;&amp; contributionIncentivePool != 0x0 &amp;&amp; <span class="marker" id="mapping-103"></span><span class="token upd" id="move-src-54" data-title="binary_expression/identifier">gove<span class="cupd">r</span>nor<span class="cupd">Pool</span></span> != 0x0 &amp;&amp; devPool != 0x0, "invalid addr");
+
+            require(<span class="marker" id="mapping-104"></span><span class="token upd" id="move-src-55" data-title="call_expression/identifier"><span class="cupd">ERC20</span></span>(_tokenAddress).transfer(pointsRewardPool, <span class="marker" id="mapping-105"></span><span class="token del" data-title="binary_expression/identifier">balance</span> / 10));
+            require(<span class="marker" id="mapping-106"></span><span class="token upd" id="move-src-56" data-title="call_expression/identifier"><span class="cupd">ERC20</span></span>(_tokenAddress).transfer(contributionIncentivePool, balance * 3 / 10));
+            <span class="marker" id="mapping-107"></span><span class="token del" data-title="block_statement/if_statement">if (<span class="marker" id="mapping-108"></span><span class="token del" data-title="if_statement/call_expression">IGovernorPool(governorPool).checkRewardAvailable(_tokenAddress)</span>) <span class="marker" id="mapping-109"></span><span class="token del" data-title="if_statement/block_statement">{
+                <span class="marker" id="mapping-110"></span><span class="token mv" id="move-src-57" data-title="block_statement/expression_statement"><span class="marker" id="mapping-111"></span><span class="token mv" id="move-src-58" data-title="expression_statement/call_expression"><span class="marker" id="mapping-112"></span><span class="token upd" id="move-src-59" data-title="call_expression/identifier"><span class="cupd">ERC20</span></span>(_tokenAddress).<span class="marker" id="mapping-113"></span><span class="token upd" id="move-src-60" data-title="member_expression/identifier"><span class="cupd">a</span>pprove</span>(<span class="marker" id="mapping-114"></span><span class="token upd" id="move-src-61" data-title="call_argument/identifier">gove<span class="cupd">r</span>nor<span class="cupd">Pool</span></span>, balance * 3 / 10)</span>;</span>
+                <span class="marker" id="mapping-115"></span><span class="token del" data-title="block_statement/expression_statement">IGovernorPool(governorPool).rewardAmount(balance * 3 / 10);</span>
+            }</span></span>
+            require(<span class="marker" id="mapping-116"></span><span class="token upd" id="move-src-62" data-title="call_expression/identifier"><span class="cupd">ERC20</span></span>(_tokenAddress).transfer(devPool, balance * 3 / 10));
+        }
+
+    }
+
+
+    /// @notice This method can be used by the owner to extract mistakenly
+    ///  sent tokens to this contract.
+    /// @param _token The address of the token contract that you want to recover
+    ///  set to 0 in case you want to extract ether.
+    function claimTokens(address _token) public auth {
+        if (_token == 0x0) {
+            owner.transfer(address(this).balance);
+            return;
+        }
+        <span class="marker" id="mapping-117"></span><span class="token upd" id="move-src-63" data-title="user_defined_type/identifier"><span class="cupd">ERC20</span></span> token = <span class="marker" id="mapping-118"></span><span class="token upd" id="move-src-64" data-title="call_expression/identifier"><span class="cupd">ERC20</span></span>(_token);
+        uint balance = token.balanceOf(address(this));
+        token.transfer(owner, balance);
+
+        emit ClaimedTokens(_token, msg.sender, balance);
+    }
+
+    <span class="marker" id="mapping-119"></span><span class="token del" data-title="contract_body/function_definition">function bytesToAddress(<span class="marker" id="mapping-120"></span><span class="token del" data-title="function_definition/parameter">bytes b</span>) <span class="marker" id="mapping-121"></span><span class="token mv" id="move-src-65" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-122"></span><span class="token del" data-title="function_definition/state_mutability">pure</span> <span class="marker" id="mapping-123"></span><span class="token del" data-title="function_definition/return_type_definition">returns (address)</span> <span class="marker" id="mapping-124"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-125"></span><span class="token del" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-126"></span><span class="token del" data-title="variable_declaration_statement/variable_declaration"><span class="marker" id="mapping-127"></span><span class="token mv" id="move-src-66" data-title="variable_declaration/type_name">bytes32</span> out</span>;</span>
+
+        <span class="marker" id="mapping-128"></span><span class="token del" data-title="function_body/for_statement">for (uint i = 0; i &lt; 32; i++) {
+            out |= bytes32(b[i] &amp; 0xFF) &gt;&gt; (i * 8);
+        }</span>
+        <span class="marker" id="mapping-129"></span><span class="token del" data-title="function_body/return_statement">return address(out);</span>
+    }</span></span>
+
+}</pre></div><div class="col-6"><h5>0xe4d978a2ee310c8465fc5aa1357d05c191acc917.etherscan.io-RevenuePoolV3.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-130"></span><span class="token upd" id="move-dst-1" data-title="source_file/comment"><span class="cupd">// hevm: flattened sources of contracts/auction/RevenuePoolV</span>3<span class="cupd">.sol</span></span>
+
+pragma solidity &gt;=0.4.24<span class="marker" id="mapping-131"></span><span class="token mv" id="move-dst-4" data-title="solidity_pragma_token/solidity_version_comparison_operator"> &gt;=</span><span class="marker" id="mapping-132"></span><span class="token mv" id="move-dst-3" data-title="solidity_pragma_token/solidity_version"><span class="marker" id="mapping-133"></span><span class="token upd" id="move-dst-3" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.4.2</span>4</span></span> &lt;0.5.0;
+
+////// lib/common-contracts/contracts/SettingIds.sol
+/* pragma solidity ^0.4.24; */
+
+/**
+    Id definitions for SettingsRegistry.sol
+    Can be used in conjunction with the settings registry to get properties
+*/
+contract SettingIds {
+    // 0x434f4e54524143545f52494e475f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_RING_ERC20_TOKEN = "CONTRACT_RING_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f4b544f4e5f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_KTON_ERC20_TOKEN = "CONTRACT_KTON_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f474f4c445f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_GOLD_ERC20_TOKEN = "CONTRACT_GOLD_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f574f4f445f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_WOOD_ERC20_TOKEN = "CONTRACT_WOOD_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f57415445525f45524332305f544f4b454e000000000000
+    bytes32 public constant CONTRACT_WATER_ERC20_TOKEN = "CONTRACT_WATER_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f464952455f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_FIRE_ERC20_TOKEN = "CONTRACT_FIRE_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f534f494c5f45524332305f544f4b454e00000000000000
+    bytes32 public constant CONTRACT_SOIL_ERC20_TOKEN = "CONTRACT_SOIL_ERC20_TOKEN";
+
+    // 0x434f4e54524143545f4f424a4543545f4f574e45525348495000000000000000
+    bytes32 public constant CONTRACT_OBJECT_OWNERSHIP = "CONTRACT_OBJECT_OWNERSHIP";
+
+    // 0x434f4e54524143545f544f4b454e5f4c4f434154494f4e000000000000000000
+    bytes32 public constant CONTRACT_TOKEN_LOCATION = "CONTRACT_TOKEN_LOCATION";
+
+    // 0x434f4e54524143545f4c414e445f424153450000000000000000000000000000
+    bytes32 public constant CONTRACT_LAND_BASE = "CONTRACT_LAND_BASE";
+
+    // 0x434f4e54524143545f555345525f504f494e5453000000000000000000000000
+    bytes32 public constant CONTRACT_USER_POINTS = "CONTRACT_USER_POINTS";
+
+    // 0x434f4e54524143545f494e5445525354454c4c41525f454e434f444552000000
+    bytes32 public constant CONTRACT_INTERSTELLAR_ENCODER = "CONTRACT_INTERSTELLAR_ENCODER";
+
+    // 0x434f4e54524143545f4449564944454e44535f504f4f4c000000000000000000
+    bytes32 public constant CONTRACT_DIVIDENDS_POOL = "CONTRACT_DIVIDENDS_POOL";
+
+    // 0x434f4e54524143545f544f4b454e5f5553450000000000000000000000000000
+    bytes32 public constant CONTRACT_TOKEN_USE = "CONTRACT_TOKEN_USE";
+
+    // 0x434f4e54524143545f524556454e55455f504f4f4c0000000000000000000000
+    bytes32 public constant CONTRACT_REVENUE_POOL = "CONTRACT_REVENUE_POOL";
+
+    // 0x434f4e54524143545f4252494447455f504f4f4c000000000000000000000000
+    bytes32 public constant CONTRACT_BRIDGE_POOL = "CONTRACT_BRIDGE_POOL";
+
+    // 0x434f4e54524143545f4552433732315f42524944474500000000000000000000
+    bytes32 public constant CONTRACT_ERC721_BRIDGE = "CONTRACT_ERC721_BRIDGE";
+
+    // 0x434f4e54524143545f5045545f42415345000000000000000000000000000000
+    bytes32 public constant CONTRACT_PET_BASE = "CONTRACT_PET_BASE";
+
+    // Cut owner takes on each auction, measured in basis points (1/100 of a percent).
+    // this can be considered as transaction fee.
+    // Values 0-10,000 map to 0%-100%
+    // set ownerCut to 4%
+    // ownerCut = 400;
+    // 0x55494e545f41554354494f4e5f43555400000000000000000000000000000000
+    bytes32 public constant UINT_AUCTION_CUT = "UINT_AUCTION_CUT";  // Denominator is 10000
+
+    // 0x55494e545f544f4b454e5f4f464645525f435554000000000000000000000000
+    bytes32 public constant UINT_TOKEN_OFFER_CUT = "UINT_TOKEN_OFFER_CUT";  // Denominator is 10000
+
+    // Cut referer takes on each auction, measured in basis points (1/100 of a percent).
+    // which cut from transaction fee.
+    // Values 0-10,000 map to 0%-100%
+    // set refererCut to 4%
+    // refererCut = 400;
+    // 0x55494e545f524546455245525f43555400000000000000000000000000000000
+    bytes32 public constant UINT_REFERER_CUT = "UINT_REFERER_CUT";
+
+    // 0x55494e545f4252494447455f4645450000000000000000000000000000000000
+    bytes32 public constant UINT_BRIDGE_FEE = "UINT_BRIDGE_FEE";
+
+    // 0x434f4e54524143545f4c414e445f5245534f5552434500000000000000000000
+    bytes32 public constant CONTRACT_LAND_RESOURCE = "CONTRACT_LAND_RESOURCE";
+}
+
+////// contracts/auction/AuctionSettingIds.sol
+/* pragma solidity ^0.4.24; */
+
+/* import "@evolutionland/common/contracts/SettingIds.sol"; */
+
+contract AuctionSettingIds is SettingIds {
+
+    bytes32 public constant CONTRACT_CLOCK_AUCTION = "CONTRACT_CLOCK_AUCTION";
+
+    // BidWaitingTime in seconds, default is 30 minutes
+    // necessary period of time from invoking bid action to successfully taking the land asset.
+    // if someone else bid the same auction with higher price and within bidWaitingTime, your bid failed.
+    bytes32 public constant UINT_AUCTION_BID_WAITING_TIME = "UINT_AUCTION_BID_WAITING_TIME";
+
+    <span class="marker" id="mapping-134"></span><span class="token add" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-135"></span><span class="token mv" id="move-dst-66" data-title="state_variable_declaration/type_name">bytes32</span> <span class="marker" id="mapping-136"></span><span class="token mv" id="move-dst-65" data-title="state_variable_declaration/visibility">public</span> constant UINT_SMALL_TICKET_FEE = <span class="marker" id="mapping-137"></span><span class="token add" data-title="state_variable_declaration/string_literal">"UINT_SMALL_TICKET_FEE"</span>;</span>
+    <span class="marker" id="mapping-138"></span><span class="token add" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-139"></span><span class="token add" data-title="state_variable_declaration/type_name">bytes32</span> <span class="marker" id="mapping-140"></span><span class="token mv" id="move-dst-22" data-title="state_variable_declaration/visibility">public</span> constant UINT_LARGE_TICKET_FEE = <span class="marker" id="mapping-141"></span><span class="token add" data-title="state_variable_declaration/string_literal">"UINT_LARGE_TICKET_FEE"</span>;</span>
+
+
+    bytes32 public constant CONTRACT_MYSTERIOUS_TREASURE = "CONTRACT_MYSTERIOUS_TREASURE";
+
+    // users change eth(in wei) into ring with bancor exchange
+    // which introduce bancor protocol to regulate the price of ring
+    // bytes32 public constant CONTRACT_BANCOR_EXCHANGE = "BANCOR_EXCHANGE";
+
+    bytes32 public constant CONTRACT_POINTS_REWARD_POOL = "CONTRACT_POINTS_REWARD_POOL";
+
+    // value belongs to [0, 10000000]
+    // bytes32 public constant UINT_EXCHANGE_ERROR_SPACE = "UINT_EXCHANGE_ERROR_SPACE";
+
+    // "CONTRACT_CONTRIBUTION_INCENTIVE_POOL" is too long for byted32
+    // so compress it to what states below
+    bytes32 public constant CONTRACT_CONTRIBUTION_INCENTIVE_POOL = "CONTRACT_CONTRIBUTION_POOL";
+
+    bytes32 public constant CONTRACT_DEV_POOL = "CONTRACT_DEV_POOL";
+
+    bytes32 public constant CONTRACT_GENESIS_HOLDER = "CONTRACT_GENESIS_HOLDER";
+
+    bytes32 public constant CONTRACT_FARM_POOL = "CONTRACT_FARM_POOL";
+}
+
+<span class="marker" id="mapping-142"></span><span class="token upd" id="move-dst-5" data-title="source_file/comment"><span class="cupd">////// contracts/auction/interfaces/I</span>ERC20<span class="cupd">.sol</span></span>
+
+/* pragma solidity ^0.4.24; */
+
+<span class="marker" id="mapping-143"></span><span class="token add" data-title="source_file/interface_declaration">interface IERC20 <span class="marker" id="mapping-144"></span><span class="token mv" id="move-dst-25" data-title="interface_declaration/contract_body">{
+    function totalSupply() <span class="marker" id="mapping-145"></span><span class="token add" data-title="visibility/external">external</span> view returns (uint256);
+    function balanceOf(address <span class="marker" id="mapping-146"></span><span class="token upd" id="move-dst-26" data-title="parameter/identifier">account</span>) <span class="marker" id="mapping-147"></span><span class="token mv" id="move-dst-11" data-title="function_definition/visibility">external</span> view returns (uint256);
+    <span class="marker" id="mapping-148"></span><span class="token mv" id="move-dst-6" data-title="contract_body/function_definition">function <span class="marker" id="mapping-149"></span><span class="token upd" id="move-dst-7" data-title="function_definition/identifier">t<span class="cupd">r</span><span class="cupd">a</span>nsfer</span>(<span class="marker" id="mapping-150"></span><span class="token mv" id="move-dst-28" data-title="function_definition/parameter">address <span class="marker" id="mapping-151"></span><span class="token upd" id="move-dst-29" data-title="parameter/identifier">recipient</span></span><span class="marker" id="mapping-152"></span><span class="token add" data-title="function_definition/,">,</span> <span class="marker" id="mapping-153"></span><span class="token mv" id="move-dst-9" data-title="function_definition/parameter">uint256 <span class="marker" id="mapping-154"></span><span class="token upd" id="move-dst-10" data-title="parameter/identifier"><span class="cupd">amount</span></span></span>) external returns (bool);</span>
+    <span class="marker" id="mapping-155"></span><span class="token mv" id="move-dst-32" data-title="contract_body/function_definition">function allowance(<span class="marker" id="mapping-156"></span><span class="token mv" id="move-dst-41" data-title="function_definition/parameter">address <span class="marker" id="mapping-157"></span><span class="token upd" id="move-dst-42" data-title="parameter/identifier">ow<span class="cupd">n</span><span class="cupd">er</span></span></span>, <span class="marker" id="mapping-158"></span><span class="token mv" id="move-dst-37" data-title="function_definition/parameter">address <span class="marker" id="mapping-159"></span><span class="token upd" id="move-dst-38" data-title="parameter/identifier">spender</span></span>) <span class="marker" id="mapping-160"></span><span class="token add" data-title="visibility/external">external</span> view returns (uint256);</span>
+    function <span class="marker" id="mapping-161"></span><span class="token upd" id="move-dst-27" data-title="function_definition/identifier">app<span class="cupd">r</span>ove</span>(<span class="marker" id="mapping-162"></span><span class="token mv" id="move-dst-20" data-title="function_definition/parameter">address <span class="marker" id="mapping-163"></span><span class="token upd" id="move-dst-21" data-title="parameter/identifier">spender</span></span>, uint256 <span class="marker" id="mapping-164"></span><span class="token upd" id="move-dst-30" data-title="parameter/identifier"><span class="cupd">a</span>mount</span>) <span class="marker" id="mapping-165"></span><span class="token add" data-title="visibility/external">external</span> returns (bool);
+    <span class="marker" id="mapping-166"></span><span class="token mv" id="move-dst-39" data-title="contract_body/function_definition">function <span class="marker" id="mapping-167"></span><span class="token upd" id="move-dst-40" data-title="function_definition/identifier">tr<span class="cupd">a</span>nsfe<span class="cupd">r</span>From</span>(<span class="marker" id="mapping-168"></span><span class="token mv" id="move-dst-35" data-title="function_definition/parameter">address <span class="marker" id="mapping-169"></span><span class="token upd" id="move-dst-36" data-title="parameter/identifier">sender</span></span>, <span class="marker" id="mapping-170"></span><span class="token mv" id="move-dst-33" data-title="function_definition/parameter">address <span class="marker" id="mapping-171"></span><span class="token upd" id="move-dst-34" data-title="parameter/identifier">reci<span class="cupd">p</span>i<span class="cupd">en</span>t</span></span><span class="marker" id="mapping-172"></span><span class="token add" data-title="function_definition/,">,</span> <span class="marker" id="mapping-173"></span><span class="token mv" id="move-dst-44" data-title="parameter/type_name">uint256</span> <span class="marker" id="mapping-174"></span><span class="token upd" id="move-dst-43" data-title="parameter/identifier"><span class="cupd">a</span>mount</span>) <span class="marker" id="mapping-175"></span><span class="token add" data-title="visibility/external">external</span> returns (bool);</span>
+}</span></span>
+
+<span class="marker" id="mapping-176"></span><span class="token mv" id="move-dst-13" data-title="source_file/comment"><span class="marker" id="mapping-177"></span><span class="token upd" id="move-dst-13" data-title="source_file/comment"><span class="cupd">////// </span><span class="cupd">co</span><span class="cupd">n</span><span class="cupd">tracts/</span>au<span class="cupd">c</span>ti<span class="cupd">on</span><span class="cupd">/interfaces/</span>IStak<span class="cupd">i</span><span class="cupd">ng</span>Rewa<span class="cupd">r</span>dsF<span class="cupd">act</span>ory<span class="cupd">.sol</span></span></span>
+<span class="marker" id="mapping-178"></span><span class="token mv" id="move-dst-15" data-title="source_file/comment"><span class="marker" id="mapping-179"></span><span class="token upd" id="move-dst-15" data-title="source_file/comment"><span class="cupd">/* pragma solidity </span>&gt;=<span class="cupd">0.4.2</span>4<span class="cupd">; */</span></span></span>
+
+<span class="marker" id="mapping-180"></span><span class="token add" data-title="source_file/interface_declaration">interface IStakingRewardsFactory <span class="marker" id="mapping-181"></span><span class="token add" data-title="interface_declaration/contract_body">{
+    <span class="marker" id="mapping-182"></span><span class="token add" data-title="contract_body/function_definition">function notifyRewardAmounts(<span class="marker" id="mapping-183"></span><span class="token add" data-title="function_definition/parameter"><span class="marker" id="mapping-184"></span><span class="token mv" id="move-dst-31" data-title="parameter/type_name">uint256</span> rewardAmount</span>)  <span class="marker" id="mapping-185"></span><span class="token add" data-title="function_definition/visibility">external</span>;</span>
+}</span></span>
+
+////// lib/common-contracts/contracts/interfaces/IAuthority.sol
+/* pragma solidity ^0.4.24; */
+
+contract IAuthority {
+    function canCall(
+        address src, address dst, bytes4 sig
+    ) public view returns (bool);
+}
+
+////// lib/common-contracts/contracts/DSAuth.sol
+/* pragma solidity ^0.4.24; */
+
+/* import './interfaces/IAuthority.sol'; */
+
+contract DSAuthEvents {
+    event LogSetAuthority (address indexed authority);
+    event LogSetOwner     (address indexed owner);
+}
+
+/**
+ * @title DSAuth
+ * @dev The DSAuth contract is reference implement of https://github.com/dapphub/ds-auth
+ * But in the isAuthorized method, the src from address(this) is remove for safty concern.
+ */
+contract DSAuth is DSAuthEvents {
+    IAuthority   public  authority;
+    address      public  owner;
+
+    constructor() public {
+        owner = msg.sender;
+        emit LogSetOwner(msg.sender);
+    }
+
+    function setOwner(address owner_)
+        public
+        auth
+    {
+        owner = owner_;
+        emit LogSetOwner(owner);
+    }
+
+    function setAuthority(IAuthority authority_)
+        public
+        auth
+    {
+        authority = authority_;
+        emit LogSetAuthority(authority);
+    }
+
+    modifier auth {
+        require(isAuthorized(msg.sender, msg.sig));
+        _;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    function isAuthorized(address src, bytes4 sig) internal view returns (bool) {
+        if (src == owner) {
+            return true;
+        } else if (authority == IAuthority(0)) {
+            return false;
+        } else {
+            return authority.canCall(src, this, sig);
+        }
+    }
+}
+
+////// lib/common-contracts/contracts/interfaces/ISettingsRegistry.sol
+/* pragma solidity ^0.4.24; */
+
+contract ISettingsRegistry {
+    enum SettingsValueTypes { NONE, UINT, STRING, ADDRESS, BYTES, BOOL, INT }
+
+    function uintOf(bytes32 _propertyName) public view returns (uint256);
+
+    function stringOf(bytes32 _propertyName) public view returns (string);
+
+    function addressOf(bytes32 _propertyName) public view returns (address);
+
+    function bytesOf(bytes32 _propertyName) public view returns (bytes);
+
+    function boolOf(bytes32 _propertyName) public view returns (bool);
+
+    function intOf(bytes32 _propertyName) public view returns (int);
+
+    function setUintProperty(bytes32 _propertyName, uint _value) public;
+
+    function setStringProperty(bytes32 _propertyName, string _value) public;
+
+    function setAddressProperty(bytes32 _propertyName, address _value) public;
+
+    function setBytesProperty(bytes32 _propertyName, bytes _value) public;
+
+    function setBoolProperty(bytes32 _propertyName, bool _value) public;
+
+    function setIntProperty(bytes32 _propertyName, int _value) public;
+
+    function getValueTypeOf(bytes32 _propertyName) public view returns (uint /* SettingsValueTypes */ );
+
+    event ChangeProperty(bytes32 indexed _propertyName, uint256 _type);
+}
+
+////// lib/common-contracts/contracts/interfaces/IUserPoints.sol
+/* pragma solidity ^0.4.24; */
+
+contract IUserPoints {
+    event AddedPoints(address indexed user, uint256 pointAmount);
+    event SubedPoints(address indexed user, uint256 pointAmount);
+
+    function addPoints(address _user, uint256 _pointAmount) public;
+
+    function subPoints(address _user, uint256 _pointAmount) public;
+
+    function pointsSupply() public view returns (uint256);
+
+    function pointsBalanceOf(address _user) public view returns (uint256);
+}
+
+<span class="marker" id="mapping-186"></span><span class="token mv" id="move-dst-17" data-title="source_file/comment"><span class="marker" id="mapping-187"></span><span class="token upd" id="move-dst-17" data-title="source_file/comment"><span class="cupd">/</span>/////<span class="cupd"> </span>c<span class="cupd">ontract</span>s/<span class="cupd">a</span>uc<span class="cupd">t</span><span class="cupd">i</span><span class="cupd">o</span><span class="cupd">n</span>/<span class="cupd">R</span><span class="cupd">e</span>ve<span class="cupd">n</span><span class="cupd">u</span><span class="cupd">e</span><span class="cupd">P</span>oolV3.sol</span></span>
+/* pragma solidity ^0.4.24; */
+
+/* import "@evolutionland/common/contracts/interfaces/ISettingsRegistry.sol"; */
+/* import "@evolutionland/common/contracts/interfaces/IUserPoints.sol"; */
+/* import "@evolutionland/common/contracts/DSAuth.sol"; */
+<span class="marker" id="mapping-188"></span><span class="token mv" id="move-dst-19" data-title="source_file/comment"><span class="marker" id="mapping-189"></span><span class="token upd" id="move-dst-19" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span><span class="cupd">i</span>mp<span class="cupd">o</span><span class="cupd">r</span><span class="cupd">t </span>"./i<span class="cupd">n</span><span class="cupd">t</span>e<span class="cupd">r</span>f<span class="cupd">ac</span><span class="cupd">e</span>s/I<span class="cupd">ERC2</span>0.sol"; */</span></span>
+/* import "./AuctionSettingIds.sol"; */
+<span class="marker" id="mapping-190"></span><span class="token mv" id="move-dst-24" data-title="source_file/comment"><span class="marker" id="mapping-191"></span><span class="token upd" id="move-dst-24" data-title="source_file/comment"><span class="cupd">/</span>*<span class="cupd"> </span><span class="cupd">i</span>m<span class="cupd">p</span><span class="cupd">o</span>r<span class="cupd">t</span> ".<span class="cupd">/</span>i<span class="cupd">nt</span>e<span class="cupd">r</span>f<span class="cupd">ac</span>e<span class="cupd">s/</span>IS<span class="cupd">t</span>a<span class="cupd">k</span>i<span class="cupd">n</span>g<span class="cupd">R</span>ew<span class="cupd">a</span>rd<span class="cupd">s</span>Fa<span class="cupd">c</span>tory<span class="cupd">.sol</span>"; */</span></span>
+
+/**
+ * @title RevenuePool
+ * difference between LandResourceV1:
+     change DividendPool into governorPool for reward
+ */
+
+// Use proxy mode
+contract RevenuePoolV3 is DSAuth, AuctionSettingIds {
+
+    bool private singletonLock = false;
+
+//    // 10%
+//    address public pointsRewardPool;
+//    // 30%
+//    address public contributionIncentivePool;
+//    // 30%
+<span class="marker" id="mapping-192"></span><span class="token upd" id="move-dst-45" data-title="contract_body/comment"><span class="cupd">//    address public dividendsPool</span>(farm);</span>
+//    // 30%
+//    address public devPool;
+
+    ISettingsRegistry public registry;
+
+    // claimedToken event
+    event ClaimedTokens(address indexed token, address indexed owner, uint amount);
+
+    /*
+     *  Modifiers
+     */
+    modifier singletonLockCall() {
+        require(!singletonLock, "Only can call once");
+        _;
+        singletonLock = true;
+    }
+
+    function initializeContract(address _registry) public singletonLockCall {
+        owner = msg.sender;
+        emit LogSetOwner(msg.sender);
+
+        registry = ISettingsRegistry(_registry);
+    }
+
+    function <span class="marker" id="mapping-193"></span><span class="token upd" id="move-dst-46" data-title="function_definition/identifier">r<span class="cupd">e</span>ward</span>(<span class="marker" id="mapping-194"></span><span class="token mv" id="move-dst-8" data-title="function_definition/parameter">address _token</span>, uint256 _value, <span class="marker" id="mapping-195"></span><span class="token mv" id="move-dst-47" data-title="function_definition/parameter">address <span class="marker" id="mapping-196"></span><span class="token add" data-title="parameter/identifier">_buyer</span></span>) public {
+        <span class="marker" id="mapping-197"></span><span class="token add" data-title="function_body/expression_statement"><span class="marker" id="mapping-198"></span><span class="token add" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-199"></span><span class="token add" data-title="call_expression/call_argument"><span class="marker" id="mapping-200"></span><span class="token add" data-title="call_argument/parenthesized_expression">(<span class="marker" id="mapping-201"></span><span class="token add" data-title="parenthesized_expression/call_expression"><span class="marker" id="mapping-202"></span><span class="token add" data-title="call_expression/member_expression">IERC20(_token).transferFrom</span>(<span class="marker" id="mapping-203"></span><span class="token add" data-title="call_expression/call_argument"><span class="marker" id="mapping-204"></span><span class="token mv" id="move-dst-49" data-title="call_argument/member_expression">msg.sender</span></span>, <span class="marker" id="mapping-205"></span><span class="token add" data-title="call_expression/call_argument">address(this)</span>, <span class="marker" id="mapping-206"></span><span class="token add" data-title="call_expression/call_argument">_value</span>)</span>)</span></span>, <span class="marker" id="mapping-207"></span><span class="token add" data-title="call_expression/call_argument">"transfer failed!"</span>)</span>;</span>
+        address ring = registry.addressOf(SettingIds.CONTRACT_RING_ERC20_TOKEN);
+        if(<span class="marker" id="mapping-208"></span><span class="token add" data-title="binary_expression/identifier">_token</span> == ring) {
+            <span class="marker" id="mapping-209"></span><span class="token mv" id="move-dst-48" data-title="block_statement/variable_declaration_statement">address userPoints = registry.addressOf(SettingIds.CONTRACT_USER_POINTS);</span>
+            // should same with trading reward percentage in settleToken;
+            IUserPoints(userPoints).addPoints(<span class="marker" id="mapping-210"></span><span class="token upd" id="move-dst-50" data-title="call_argument/identifier">_<span class="cupd">buyer</span></span>, _value / 1000);
+        }
+    }
+
+
+    function settleToken(address _tokenAddress) public {
+        <span class="marker" id="mapping-211"></span><span class="token add" data-title="function_body/variable_declaration_statement">address ring = registry.addressOf(SettingIds.CONTRACT_RING_ERC20_TOKEN);</span>
+        <span class="marker" id="mapping-212"></span><span class="token add" data-title="function_body/expression_statement">require(ring == _tokenAddress, "only ring");</span>
+
+        uint balance = <span class="marker" id="mapping-213"></span><span class="token upd" id="move-dst-51" data-title="call_expression/identifier">I<span class="cupd">ERC20</span></span>(_tokenAddress).balanceOf(address(this));
+
+        // to save gas when playing
+        if (balance &gt; <span class="marker" id="mapping-214"></span><span class="token upd" id="move-dst-52" data-title="binary_expression/number_literal"><span class="cupd">10</span>0</span>) {
+            address pointsRewardPool = registry.addressOf(AuctionSettingIds.CONTRACT_POINTS_REWARD_POOL);
+            address contributionIncentivePool = registry.addressOf(AuctionSettingIds.CONTRACT_CONTRIBUTION_INCENTIVE_POOL);
+            address <span class="marker" id="mapping-215"></span><span class="token upd" id="move-dst-53" data-title="variable_declaration/identifier">fa<span class="cupd">r</span>m<span class="cupd">Pool</span></span> = registry.addressOf(CONTRACT_DIVIDENDS_POOL);
+            address devPool = registry.addressOf(AuctionSettingIds.CONTRACT_DEV_POOL);
+
+            require(pointsRewardPool != 0x0 &amp;&amp; contributionIncentivePool != 0x0 &amp;&amp; <span class="marker" id="mapping-216"></span><span class="token upd" id="move-dst-54" data-title="binary_expression/identifier">fa<span class="cupd">r</span>m<span class="cupd">Pool</span></span> != 0x0  &amp;&amp; devPool != 0x0, "invalid addr");
+
+            require(<span class="marker" id="mapping-217"></span><span class="token upd" id="move-dst-55" data-title="call_expression/identifier">I<span class="cupd">ERC20</span></span>(_tokenAddress).transfer(pointsRewardPool, <span class="marker" id="mapping-218"></span><span class="token add" data-title="binary_expression/binary_expression">balance * 1</span> / 10));
+            require(<span class="marker" id="mapping-219"></span><span class="token upd" id="move-dst-56" data-title="call_expression/identifier">I<span class="cupd">ERC20</span></span>(_tokenAddress).transfer(contributionIncentivePool, balance * 3 / 10));
+            <span class="marker" id="mapping-220"></span><span class="token mv" id="move-dst-57" data-title="block_statement/expression_statement"><span class="marker" id="mapping-221"></span><span class="token add" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-222"></span><span class="token add" data-title="call_expression/call_argument"><span class="marker" id="mapping-223"></span><span class="token mv" id="move-dst-58" data-title="call_argument/call_expression"><span class="marker" id="mapping-224"></span><span class="token upd" id="move-dst-59" data-title="call_expression/identifier">I<span class="cupd">ERC20</span></span>(_tokenAddress).<span class="marker" id="mapping-225"></span><span class="token upd" id="move-dst-60" data-title="member_expression/identifier">tr<span class="cupd">a</span>nsfer</span>(<span class="marker" id="mapping-226"></span><span class="token upd" id="move-dst-61" data-title="call_argument/identifier">fa<span class="cupd">r</span>m<span class="cupd">Pool</span></span>, balance * 3 / 10)</span></span>)</span>;</span>
+            <span class="marker" id="mapping-227"></span><span class="token add" data-title="block_statement/expression_statement">IStakingRewardsFactory(farmPool).notifyRewardAmounts(balance * 2 / 10);</span>
+            require(<span class="marker" id="mapping-228"></span><span class="token upd" id="move-dst-62" data-title="call_expression/identifier">I<span class="cupd">ERC20</span></span>(_tokenAddress).transfer(devPool, balance * 3 / 10));
+        }
+
+    }
+
+
+    /// @notice This method can be used by the owner to extract mistakenly
+    ///  sent tokens to this contract.
+    /// @param _token The address of the token contract that you want to recover
+    ///  set to 0 in case you want to extract ether.
+    function claimTokens(address _token) public auth {
+        if (_token == 0x0) {
+            owner.transfer(address(this).balance);
+            return;
+        }
+        <span class="marker" id="mapping-229"></span><span class="token upd" id="move-dst-63" data-title="user_defined_type/identifier">I<span class="cupd">ERC20</span></span> token = <span class="marker" id="mapping-230"></span><span class="token upd" id="move-dst-64" data-title="call_expression/identifier">I<span class="cupd">ERC20</span></span>(_token);
+        uint balance = token.balanceOf(address(this));
+        token.transfer(owner, balance);
+
+        emit ClaimedTokens(_token, msg.sender, balance);
+    }
+}</pre></div></div></div></body></html>

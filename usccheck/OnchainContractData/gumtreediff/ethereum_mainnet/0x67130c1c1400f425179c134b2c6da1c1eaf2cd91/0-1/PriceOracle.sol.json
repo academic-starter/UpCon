@@ -1,0 +1,225 @@
+{
+  "matches": [
+    {
+      "src": "primitive_type [162,166]",
+      "dest": "primitive_type [156,160]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [15,17]",
+      "dest": "solidity_version_comparison_operator [15,17]"
+    },
+    {
+      "src": "comment: /**       * @notice Get the underlying price of a cToken asset       * @param cToken The cToken to get the underlying price of       * @return The underlying asset price mantissa (scaled by 1e18).       *  Zero means the price is unavailable.       */ [212,468]",
+      "dest": "comment: /**       * @notice Get the underlying price of a cToken asset       * @param cToken The cToken to get the underlying price of       * @return The underlying asset price mantissa (scaled by 1e18).       *  Zero means the price is unavailable.       */ [204,455]"
+    },
+    {
+      "src": "string [35,49]",
+      "dest": "string [33,47]"
+    },
+    {
+      "src": "true: true [199,203]",
+      "dest": "true: true [193,197]"
+    },
+    {
+      "src": "identifier: PriceOracle [63,74]",
+      "dest": "identifier: PriceOracle [59,70]"
+    },
+    {
+      "src": "returns: returns [531,538]",
+      "dest": "returns: returns [517,524]"
+    },
+    {
+      "src": "return_type_definition [531,545]",
+      "dest": "return_type_definition [517,531]"
+    },
+    {
+      "src": "boolean_literal [199,203]",
+      "dest": "boolean_literal [193,197]"
+    },
+    {
+      "src": "contract: contract [54,62]",
+      "dest": "contract: contract [50,58]"
+    },
+    {
+      "src": "type_name [162,166]",
+      "dest": "type_name [156,160]"
+    },
+    {
+      "src": "type_name [502,508]",
+      "dest": "type_name [488,494]"
+    },
+    {
+      "src": "identifier: getUnderlyingPrice [483,501]",
+      "dest": "identifier: getUnderlyingPrice [469,487]"
+    },
+    {
+      "src": "true [199,203]",
+      "dest": "true [193,197]"
+    },
+    {
+      "src": "view: view [526,530]",
+      "dest": "view: view [512,516]"
+    },
+    {
+      "src": "contract_declaration [54,549]",
+      "dest": "contract_declaration [50,534]"
+    },
+    {
+      "src": "\": \" [48,49]",
+      "dest": "\": \" [46,47]"
+    },
+    {
+      "src": "\": \" [35,36]",
+      "dest": "\": \" [33,34]"
+    },
+    {
+      "src": "=: = [197,198]",
+      "dest": "=: = [191,192]"
+    },
+    {
+      "src": "pragma_directive [0,24]",
+      "dest": "pragma_directive [0,24]"
+    },
+    {
+      "src": "visibility [517,525]",
+      "dest": "visibility [503,511]"
+    },
+    {
+      "src": "(: ( [539,540]",
+      "dest": "(: ( [525,526]"
+    },
+    {
+      "src": "state_variable_declaration [162,204]",
+      "dest": "state_variable_declaration [156,198]"
+    },
+    {
+      "src": "import: import [28,34]",
+      "dest": "import: import [26,32]"
+    },
+    {
+      "src": "identifier: isPriceOracle [183,196]",
+      "dest": "identifier: isPriceOracle [177,190]"
+    },
+    {
+      "src": "source_file [0,551]",
+      "dest": "source_file [0,535]"
+    },
+    {
+      "src": "solidity: solidity [7,15]",
+      "dest": "solidity: solidity [7,15]"
+    },
+    {
+      "src": "visibility [167,173]",
+      "dest": "visibility [161,167]"
+    },
+    {
+      "src": "): ) [515,516]",
+      "dest": "): ) [501,502]"
+    },
+    {
+      "src": "uint: uint [540,544]",
+      "dest": "uint: uint [526,530]"
+    },
+    {
+      "src": "primitive_type [540,544]",
+      "dest": "primitive_type [526,530]"
+    },
+    {
+      "src": "identifier: CToken [502,508]",
+      "dest": "identifier: CToken [488,494]"
+    },
+    {
+      "src": "public: public [167,173]",
+      "dest": "public: public [161,167]"
+    },
+    {
+      "src": "parameter [540,544]",
+      "dest": "parameter [526,530]"
+    },
+    {
+      "src": "function_definition [474,546]",
+      "dest": "function_definition [460,532]"
+    },
+    {
+      "src": "type_name [540,544]",
+      "dest": "type_name [526,530]"
+    },
+    {
+      "src": "function: function [474,482]",
+      "dest": "function: function [460,468]"
+    },
+    {
+      "src": "external: external [517,525]",
+      "dest": "external: external [503,511]"
+    },
+    {
+      "src": "bool: bool [162,166]",
+      "dest": "bool: bool [156,160]"
+    },
+    {
+      "src": "solidity_version: 0.5.16 [17,23]",
+      "dest": "solidity_version: 0.5.16 [17,23]"
+    },
+    {
+      "src": "constant: constant [174,182]",
+      "dest": "constant: constant [168,176]"
+    },
+    {
+      "src": "^:  ^ [15,17]",
+      "dest": "^:  ^ [15,17]"
+    },
+    {
+      "src": "contract_body [75,549]",
+      "dest": "contract_body [71,534]"
+    },
+    {
+      "src": "{: { [75,76]",
+      "dest": "{: { [71,72]"
+    },
+    {
+      "src": "user_defined_type [502,508]",
+      "dest": "user_defined_type [488,494]"
+    },
+    {
+      "src": "parameter [502,515]",
+      "dest": "parameter [488,501]"
+    },
+    {
+      "src": "}: } [548,549]",
+      "dest": "}: } [533,534]"
+    },
+    {
+      "src": "solidity_pragma_token [7,23]",
+      "dest": "solidity_pragma_token [7,23]"
+    },
+    {
+      "src": "identifier: cToken [509,515]",
+      "dest": "identifier: cToken [495,501]"
+    },
+    {
+      "src": "comment: /// @notice Indicator that this is a PriceOracle contract (for inspection) [82,156]",
+      "dest": "comment: /// @notice Indicator that this is a PriceOracle contract (for inspection) [77,151]"
+    },
+    {
+      "src": "pragma: pragma [0,6]",
+      "dest": "pragma: pragma [0,6]"
+    },
+    {
+      "src": "import_directive [28,50]",
+      "dest": "import_directive [26,48]"
+    },
+    {
+      "src": "(: ( [501,502]",
+      "dest": "(: ( [487,488]"
+    },
+    {
+      "src": "state_mutability [526,530]",
+      "dest": "state_mutability [512,516]"
+    },
+    {
+      "src": "): ) [544,545]",
+      "dest": "): ) [530,531]"
+    }
+  ],
+  "actions": []
+}

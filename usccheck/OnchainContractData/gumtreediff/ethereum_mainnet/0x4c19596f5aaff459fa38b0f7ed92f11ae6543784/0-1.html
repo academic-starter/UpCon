@@ -1,0 +1,2329 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>0x6927f668feca20b6e8e1a235f5cb683716ce66bb.etherscan.io-TrustToken.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="source_file/comment"><span class="cupd">// </span>F<span class="cupd">i</span>l<span class="cupd">e</span>: ope<span class="cupd">n</span>z<span class="cupd">e</span>ppelin<span class="cupd">-</span>soli<span class="cupd">d</span>ity/co<span class="cupd">nt</span>racts/math/Sa<span class="cupd">f</span><span class="cupd">e</span>Math.sol</span>
+
+pragma solidity ^<span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-2" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.</span>5<span class="cupd">.0</span></span>;
+
+/**
+ * @dev Wrappers over Solidity's arithmetic operations with added overflow
+ * checks.
+ *
+ * Arithmetic operations in Solidity wrap on overflow. This can easily result
+ * in bugs, because programmers usually assume that an overflow raises an
+ * error, which is the standard behavior in high level programming languages.
+ * `SafeMath` restores this intuition by reverting the transaction when an
+ * operation overflows.
+ *
+ * Using this library instead of the unchecked operations eliminates an entire
+ * class of bugs, so it's recommended to use it always.
+ */
+library SafeMath {
+    <span class="marker" id="mapping-3"></span><span class="token upd" id="move-src-3" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the addition of two unsigned integers, reverting on
+     * overflow.
+     *
+     * Counterpart to Solidity's `+` operator.
+     *
+     * Requirements:
+</span><span class="cupd">     * - Addition cannot overflow.</span>
+     */</span>
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c &gt;= a, "SafeMath: addition overflow");
+
+        return c;
+    }
+
+    <span class="marker" id="mapping-4"></span><span class="token upd" id="move-src-4" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the subtraction of two unsigned integers, reverting on
+     * overflow (when the result is negative).
+     *
+     * Counterpart to Solidity's `-` operator.
+     *
+     * Requirements:
+</span><span class="cupd">     * - Subtraction cannot overflow.</span>
+     */</span>
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        return sub(a, b, "SafeMath: subtraction overflow");
+    }
+
+    <span class="marker" id="mapping-5"></span><span class="token upd" id="move-src-5" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
+     * overflow (when the result is negative).
+     *
+     * Counterpart to Solidity's `-` operator.
+     *
+     * Requirements:
+</span><span class="cupd">     * - Subtraction cannot overflow.</span>
+     *
+     * _Available since v2.4.0._
+     */</span>
+    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        require(b &lt;= a, errorMessage);
+        uint256 c = a - b;
+
+        return c;
+    }
+
+    <span class="marker" id="mapping-6"></span><span class="token upd" id="move-src-6" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the multiplication of two unsigned integers, reverting on
+     * overflow.
+     *
+     * Counterpart to Solidity's `*` operator.
+     *
+     * Requirements:
+</span><span class="cupd">     * - Multiplication cannot overflow.</span>
+     */</span>
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+        // benefit is lost if 'b' is also tested.
+        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b, "SafeMath: multiplication overflow");
+
+        return c;
+    }
+
+    <span class="marker" id="mapping-7"></span><span class="token upd" id="move-src-7" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the integer division of two unsigned integers. Reverts on
+     * division by zero. The result is rounded towards zero.
+     *
+     * Counterpart to Solidity's `/` operator. Note: this function uses a
+     * `revert` opcode (which leaves remaining gas untouched) while Solidity
+     * uses an invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:</span><span class="cupd">
+     * - The divisor cannot be zero</span>.
+     */</span>
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        return div(a, b, "SafeMath: division by zero");
+    }
+
+    <span class="marker" id="mapping-8"></span><span class="token upd" id="move-src-8" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the integer division of two unsigned integers. Reverts with custom message on
+     * division by zero. The result is rounded towards zero.
+     *
+     * Counterpart to Solidity's `/` operator. Note: this function uses a
+     * `revert` opcode (which leaves remaining gas untouched) while Solidity
+     * uses an invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:</span><span class="cupd">
+     * - The divisor cannot be zer</span>o.
+     *
+     * _Available since v2.4.0._
+     */</span>
+    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        <span class="marker" id="mapping-9"></span><span class="token del" data-title="function_body/comment">// Solidity only automatically asserts when dividing by 0</span>
+        require(b &gt; 0, errorMessage);
+        uint256 c = a / b;
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+        return c;
+    }
+
+    <span class="marker" id="mapping-10"></span><span class="token upd" id="move-src-9" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
+     * Reverts when dividing by zero.
+     *
+     * Counterpart to Solidity's `%` operator. This function uses a `revert`
+     * opcode (which leaves remaining gas untouched) while Solidity uses an
+     * invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:</span><span class="cupd">
+     * - The divisor cannot be zero</span>.
+     */</span>
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+        return mod(a, b, "SafeMath: modulo by zero");
+    }
+
+    <span class="marker" id="mapping-11"></span><span class="token upd" id="move-src-10" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
+     * Reverts with custom message when dividing by zero.
+     *
+     * Counterpart to Solidity's `%` operator. This function uses a `revert`
+     * opcode (which leaves remaining gas untouched) while Solidity uses an
+     * invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:</span><span class="cupd">
+     * - The divisor cannot be zer</span>o.
+     *
+     * _Available since v2.4.0._
+     */</span>
+    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        require(b != 0, errorMessage);
+        return a % b;
+    }
+}
+
+<span class="marker" id="mapping-12"></span><span class="token mv" id="move-src-11" data-title="source_file/comment"><span class="marker" id="mapping-13"></span><span class="token upd" id="move-src-12" data-title="source_file/comment"><span class="cupd">// File: </span><span class="cupd">openzeppelin</span>-solidity<span class="cupd">/contracts/</span><span class="cupd">t</span>ok<span class="cupd">e</span>n/ERC20/IERC20<span class="cupd">.sol</span></span></span>
+
+<span class="marker" id="mapping-14"></span><span class="token mv" id="move-src-13" data-title="source_file/pragma_directive">pragma solidity ^<span class="marker" id="mapping-15"></span><span class="token upd" id="move-src-14" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.</span>5<span class="cupd">.0</span></span>;</span>
+
+<span class="marker" id="mapping-16"></span><span class="token upd" id="move-src-15" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span><span class="cupd">
+</span> *<span class="cupd"> </span>@dev Interface<span class="cupd"> </span>of t<span class="cupd">h</span>e ERC20 st<span class="cupd">a</span>ndard as <span class="cupd">d</span>efi<span class="cupd">n</span>ed<span class="cupd"> i</span>n the EIP. <span class="cupd">D</span>oes<span class="cupd"> </span>n<span class="cupd">o</span>t include
+ * the opti<span class="cupd">o</span>nal f<span class="cupd">un</span>cti<span class="cupd">o</span>ns<span class="cupd">; </span>to a<span class="cupd">c</span>cess them see<span class="cupd"> {ERC</span>20Detailed}.
+ */</span>
+<span class="marker" id="mapping-17"></span><span class="token mv" id="move-src-16" data-title="source_file/interface_declaration">interface IERC20 {
+    /**
+     * @dev Returns the amount of tokens in existence.
+     */
+    function totalSupply() external view returns (uint256);
+
+    /**
+     * @dev Returns the amount of tokens owned by `account`.
+     */
+    function balanceOf(address account) external view returns (uint256);
+
+    /**
+     * @dev Moves `amount` tokens from the caller's account to `recipient`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transfer(address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Returns the remaining number of tokens that `spender` will be
+     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+     * zero by default.
+     *
+     * This value changes when {approve} or {transferFrom} are called.
+     */
+    function allowance(address owner, address spender) external view returns (uint256);
+
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+     * that someone may use both the old and the new allowance by unfortunate
+     * transaction ordering. One possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and set the
+     * desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address spender, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Moves `amount` tokens from `sender` to `recipient` using the
+     * allowance mechanism. `amount` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+     * another (`to`).
+     *
+     * Note that `value` may be zero.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    /**
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+     * a call to {approve}. `value` is the new allowance.
+     */
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}</span>
+
+<span class="marker" id="mapping-18"></span><span class="token upd" id="move-src-17" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>Fil<span class="cupd">e</span>:<span class="cupd"> </span>@<span class="cupd">t</span><span class="cupd">r</span>us<span class="cupd">t</span>tok<span class="cupd">e</span>n/regi<span class="cupd">st</span>ry/co<span class="cupd">n</span>t<span class="cupd">r</span><span class="cupd">a</span>ct<span class="cupd">s</span>/R<span class="cupd">e</span>g<span class="cupd">i</span>s<span class="cupd">t</span>ry.sol</span>
+
+<span class="marker" id="mapping-19"></span><span class="token del" data-title="source_file/pragma_directive">pragma solidity ^0.5.13;</span>
+
+
+interface RegistryClone {
+    function syncAttributeValue(address _who, bytes32 _attribute, uint256 _value) external;
+}
+
+contract Registry {
+    struct AttributeData {
+        uint256 value;
+        bytes32 notes;
+        address adminAddr;
+        uint256 timestamp;
+    }
+    
+    // never remove any storage variables
+    address public owner;
+    address public pendingOwner;
+    bool initialized;
+
+    // Stores arbitrary attributes for users. An example use case is an IERC20
+    // token that requires its users to go through a KYC/AML check - in this case
+    // a validator can set an account's "hasPassedKYC/AML" attribute to 1 to indicate
+    // that account can use the token. This mapping stores that value (1, in the
+    // example) as well as which validator last set the value and at what time,
+    // so that e.g. the check can be renewed at appropriate intervals.
+    mapping(address =&gt; mapping(bytes32 =&gt; AttributeData)) attributes;
+    // The logic governing who is allowed to set what attributes is abstracted as
+    // this accessManager, so that it may be replaced by the owner as needed
+    bytes32 constant WRITE_PERMISSION = keccak256("canWriteTo-");
+    mapping(bytes32 =&gt; RegistryClone[]) subscribers;
+
+    event OwnershipTransferred(
+        address indexed previousOwner,
+        address indexed newOwner
+    );
+    event SetAttribute(address indexed who, bytes32 attribute, uint256 value, bytes32 notes, address indexed adminAddr);
+    event SetManager(address indexed oldManager, address indexed newManager);
+    event StartSubscription(bytes32 indexed attribute, RegistryClone indexed subscriber);
+    event StopSubscription(bytes32 indexed attribute, RegistryClone indexed subscriber);
+
+    // Allows a write if either a) the writer is that Registry's owner, or
+    // b) the writer is writing to attribute foo and that writer already has
+    // the canWriteTo-foo attribute set (in that same Registry)
+    function confirmWrite(bytes32 _attribute, address _admin) internal view returns (bool) {
+        return (_admin == owner || hasAttribute(_admin, keccak256(abi.encodePacked(WRITE_PERMISSION ^ _attribute))));
+    }
+
+    // Writes are allowed only if the accessManager approves
+    function setAttribute(address _who, bytes32 _attribute, uint256 _value, bytes32 _notes) public {
+        require(confirmWrite(_attribute, msg.sender));
+        attributes[_who][_attribute] = AttributeData(_value, _notes, msg.sender, block.timestamp);
+        emit SetAttribute(_who, _attribute, _value, _notes, msg.sender);
+
+        RegistryClone[] storage targets = subscribers[_attribute];
+        uint256 index = targets.length;
+        while (index --&gt; 0) {
+            targets[index].syncAttributeValue(_who, _attribute, _value);
+        }
+    }
+
+    function subscribe(bytes32 _attribute, RegistryClone _syncer) external onlyOwner {
+        subscribers[_attribute].push(_syncer);
+        emit StartSubscription(_attribute, _syncer);
+    }
+
+    function unsubscribe(bytes32 _attribute, uint256 _index) external onlyOwner {
+        uint256 length = subscribers[_attribute].length;
+        require(_index &lt; length);
+        emit StopSubscription(_attribute, subscribers[_attribute][_index]);
+        subscribers[_attribute][_index] = subscribers[_attribute][length - 1];
+        <span class="marker" id="mapping-20"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-21"></span><span class="token mv" id="move-src-18" data-title="assignment_expression/member_expression">subscribers[_attribute].<span class="marker" id="mapping-22"></span><span class="token upd" id="move-src-19" data-title="member_expression/identifier">length</span></span> = <span class="marker" id="mapping-23"></span><span class="token del" data-title="assignment_expression/binary_expression">length - 1</span></span>;
+    }
+
+    function subscriberCount(bytes32 _attribute) public view returns (uint256) {
+        return subscribers[_attribute].length;
+    }
+
+    function setAttributeValue(address _who, bytes32 _attribute, uint256 _value) public {
+        require(confirmWrite(_attribute, msg.sender));
+        attributes[_who][_attribute] = AttributeData(_value, "", msg.sender, block.timestamp);
+        emit SetAttribute(_who, _attribute, _value, "", msg.sender);
+        RegistryClone[] storage targets = subscribers[_attribute];
+        uint256 index = targets.length;
+        while (index --&gt; 0) {
+            targets[index].syncAttributeValue(_who, _attribute, _value);
+        }
+    }
+
+    // Returns true if the uint256 value stored for this attribute is non-zero
+    function hasAttribute(address _who, bytes32 _attribute) public view returns (bool) {
+        return attributes[_who][_attribute].value != 0;
+    }
+
+
+    // Returns the exact value of the attribute, as well as its metadata
+    function getAttribute(address _who, bytes32 _attribute) public view returns (uint256, bytes32, address, uint256) {
+        AttributeData memory data = attributes[_who][_attribute];
+        return (data.value, data.notes, data.adminAddr, data.timestamp);
+    }
+
+    function getAttributeValue(address _who, bytes32 _attribute) public view returns (uint256) {
+        return attributes[_who][_attribute].value;
+    }
+
+    function getAttributeAdminAddr(address _who, bytes32 _attribute) public view returns (address) {
+        return attributes[_who][_attribute].adminAddr;
+    }
+
+    function getAttributeTimestamp(address _who, bytes32 _attribute) public view returns (uint256) {
+        return attributes[_who][_attribute].timestamp;
+    }
+
+    function syncAttribute(bytes32 _attribute, uint256 _startIndex, address[] calldata _addresses) external {
+        RegistryClone[] storage targets = subscribers[_attribute];
+        uint256 index = targets.length;
+        while (index --&gt; _startIndex) {
+            RegistryClone target = targets[index];
+            for (uint256 i = _addresses.length; i --&gt; 0; ) {
+                address who = _addresses[i];
+                target.syncAttributeValue(who, _attribute, attributes[who][_attribute].value);
+            }
+        }
+    }
+
+    function reclaimEther(address payable _to) external onlyOwner {
+        _to.transfer(address(this).balance);
+    }
+
+    function reclaimToken(IERC20 token, address _to) external onlyOwner {
+        uint256 balance = token.balanceOf(address(this));
+        token.transfer(_to, balance);
+    }
+
+   <span class="marker" id="mapping-24"></span><span class="token upd" id="move-src-20" data-title="contract_body/comment"><span class="cupd">/**
+   </span><span class="cupd"> * @dev Throws if called by any account other than the owner.
+  </span><span class="cupd">  </span>*/</span>
+    modifier onlyOwner() {
+        require(msg.sender == owner, "only Owner");
+        _;
+    }
+
+    <span class="marker" id="mapping-25"></span><span class="token upd" id="move-src-21" data-title="contract_body/comment"><span class="cupd">/**
+   </span><span class="cupd"> * @dev Modifier throws if called by any account other than the pendingOwner.
+  </span><span class="cupd">  </span>*/</span>
+    modifier onlyPendingOwner() {
+        require(msg.sender == pendingOwner);
+        _;
+    }
+
+    <span class="marker" id="mapping-26"></span><span class="token upd" id="move-src-22" data-title="contract_body/comment"><span class="cupd">/**
+   </span><span class="cupd"> * @dev Allows the current owner to set the pendingOwner address.
+  </span><span class="cupd">  * @param newOwner The address to transfer ownership to.
+ </span><span class="cupd">  </span> */</span>
+    function transferOwnership(address newOwner) public onlyOwner {
+        pendingOwner = newOwner;
+    }
+
+    <span class="marker" id="mapping-27"></span><span class="token upd" id="move-src-23" data-title="contract_body/comment"><span class="cupd">/**
+   </span><span class="cupd"> * @dev Allows the pendingOwner address to finalize the transfer.
+  </span><span class="cupd">  </span>*/</span>
+    function claimOwnership() public onlyPendingOwner {
+        emit OwnershipTransferred(owner, pendingOwner);
+        owner = pendingOwner;
+        pendingOwner = address(0);
+    }
+}
+
+<span class="marker" id="mapping-28"></span><span class="token mv" id="move-src-24" data-title="source_file/comment"><span class="marker" id="mapping-29"></span><span class="token upd" id="move-src-25" data-title="source_file/comment"><span class="cupd">// File: </span>@trusttoken/trusttokens/<span class="cupd">contracts/</span>P<span class="cupd">r</span>ox<span class="cupd">y</span>S<span class="cupd">t</span>o<span class="cupd">r</span>age<span class="cupd">.sol</span></span></span>
+
+<span class="marker" id="mapping-30"></span><span class="token del" data-title="source_file/pragma_directive">pragma solidity ^0.5.13;</span>
+
+
+/**
+ * All storage must be declared here
+ * New storage must be appended to the end
+ * Never remove items from this list
+ */
+contract ProxyStorage {
+    bool initalized;
+    uint256 public totalSupply;
+
+    mapping (address =&gt; uint256) public balanceOf;
+    mapping (address =&gt; mapping (address =&gt; uint256)) public allowance;
+    mapping (uint144 =&gt; uint256) attributes; // see RegistrySubscriber
+
+    address owner_;
+    address pendingOwner_;
+
+    <span class="marker" id="mapping-31"></span><span class="token upd" id="move-src-26" data-title="contract_body/comment"><span class="cupd">/* Additionally, we have several keccak-based storage locations.
+     * If you add more keccak-based storage mappings, such as mappings, you must document them here.
+     * If the length of the keccak input is the same as an existing mapping, it is possible there could be a preimage collision.
+     * A preimage collision can be used to attack the contract by treating one storage location as another,
+     * which would always be a critical issue.
+     * Carefully examine future keccak-based storage to ensure there can be no preimage collisions.
+     *******************************************************************************************************
+     ** length     input                                                         usage
+     *******************************************************************************************************
+     ** 19         "trueXXX.proxy.owner"                                         Proxy Owner
+     ** 27         "trueXXX.pending.proxy.owner"                                 Pending Proxy Owner
+     ** 28         "trueXXX.proxy.implementation"                                Proxy Implementation
+     ** 64         uint256(address),uint256(1)                                   balanceOf
+     ** 64         uint256(address),keccak256(uint256(address),uint256(2))       allowance
+     ** 64         uint256(address),keccak256(bytes32,uint256(3))                a</span><span class="cupd">ttr</span>ibutes
+    **/</span>
+}
+
+<span class="marker" id="mapping-32"></span><span class="token mv" id="move-src-27" data-title="source_file/comment"><span class="marker" id="mapping-33"></span><span class="token upd" id="move-src-28" data-title="source_file/comment"><span class="cupd">// File: </span>@<span class="cupd">tr</span>u<span class="cupd">s</span>ttoken<span class="cupd">/trusttokens/</span>c<span class="cupd">o</span>n<span class="cupd">t</span><span class="cupd">ra</span>cts/ValSaf<span class="cupd">e</span>Math<span class="cupd">.sol</span></span></span>
+
+<span class="marker" id="mapping-34"></span><span class="token del" data-title="source_file/pragma_directive">pragma solidity ^0.5.13;</span>
+
+/**
+ * Forked subset of Openzeppelin SafeMath allowing custom underflow/overflow messages
+ * Useful for debugging, replaceable with standard SafeMath
+ */
+library ValSafeMath {
+    function add(uint256 a, uint256 b, string memory overflowMessage) internal pure returns (uint256 result) {
+        result = a + b;
+        require(result &gt;= a, overflowMessage);
+    }
+    function sub(uint256 a, uint256 b, string memory underflowMessage) internal pure returns (uint256 result) {
+        require(b &lt;= a, underflowMessage);
+        result = a - b;
+    }
+    function mul(uint256 a, uint256 b, string memory overflowMessage) internal pure returns (uint256 result) {
+        if (a == 0) {
+            return 0;
+        }
+        result = a * b;
+        require(result / a == b, overflowMessage);
+    }
+    function div(uint256 a, uint256 b, string memory divideByZeroMessage) internal pure returns (uint256 result) {
+        require(b &gt; 0, divideByZeroMessage);
+        result = a / b;
+    }
+}
+
+<span class="marker" id="mapping-35"></span><span class="token mv" id="move-src-29" data-title="source_file/comment"><span class="marker" id="mapping-36"></span><span class="token upd" id="move-src-30" data-title="source_file/comment"><span class="cupd">// File: </span>@<span class="cupd">tr</span>u<span class="cupd">s</span>ttoken<span class="cupd">/trusttokens/</span>contr<span class="cupd">a</span>c<span class="cupd">t</span>s/ERC20<span class="cupd">.sol</span></span></span>
+
+<span class="marker" id="mapping-37"></span><span class="token del" data-title="source_file/pragma_directive">pragma solidity ^0.5.13;</span>
+
+
+
+
+// Fork of OpenZeppelin's BasicToken
+/**
+ * @title Basic token
+ * @dev Basic version of StandardToken, with no allowances.
+ */
+contract ModularBasicToken is ProxyStorage {
+    using ValSafeMath for uint256;
+
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    function _addBalance(address _who, uint256 _value) internal returns (uint256 priorBalance) {
+        priorBalance = balanceOf[_who];
+        balanceOf[_who] = priorBalance.add(_value, "balance overflow");
+    }
+
+    function _subBalance(address _who, uint256 _value) internal returns (uint256 result) {
+        result = balanceOf[_who].sub(_value, "insufficient balance");
+        balanceOf[_who] = result;
+    }
+
+    function _setBalance(address _who, uint256 _value) internal {
+        balanceOf[_who] = _value;
+    }
+}
+
+/**
+ * @title Standard ERC20 token
+ *
+ * @dev Implementation of the basic standard token.
+ * @dev https://github.com/ethereum/EIPs/issues/20
+ * @dev Based on code by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
+ */
+contract ModularStandardToken is ModularBasicToken {
+    using ValSafeMath for uint256;
+    uint256 constant INFINITE_ALLOWANCE = 0xfe00000000000000000000000000000000000000000000000000000000000000;
+    
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+    
+    /**
+     * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
+     *
+     * Beware that changing an allowance with this method brings the risk that someone may use both the old
+     * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this
+     * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     * @param _spender The address which will spend the funds.
+     * @param _value The amount of tokens to be spent.
+     */
+    function approve(address _spender, uint256 _value) public returns (bool) {
+        _approveAllArgs(_spender, _value, msg.sender);
+        return true;
+    }
+
+    function _approveAllArgs(address _spender, uint256 _value, address _tokenHolder) internal {
+        _setAllowance(_tokenHolder, _spender, _value);
+        emit Approval(_tokenHolder, _spender, _value);
+    }
+
+    /**
+     * @dev Increase the amount of tokens that an owner allowed to a spender.
+     *
+     * approve should be called when allowed[_spender] == 0. To increment
+     * allowed value is better to use this function to avoid 2 calls (and wait until
+     * the first transaction is mined)
+     * From MonolithDAO Token.sol
+     * @param _spender The address which will spend the funds.
+     * @param _addedValue The amount of tokens to increase the allowance by.
+     */
+    function increaseApproval(address _spender, <span class="marker" id="mapping-38"></span><span class="token del" data-title="primitive_type/uint">uint</span> _addedValue) public returns (bool) {
+        _increaseApprovalAllArgs(_spender, _addedValue, msg.sender);
+        return true;
+    }
+
+    function _increaseApprovalAllArgs(address _spender, uint256 _addedValue, address _tokenHolder) internal {
+        _addAllowance(_tokenHolder, _spender, _addedValue);
+        emit Approval(_tokenHolder, _spender, allowance[_tokenHolder][_spender]);
+    }
+
+    /**
+     * @dev Decrease the amount of tokens that an owner allowed to a spender.
+     *
+     * approve should be called when allowed[_spender] == 0. To decrement
+     * allowed value is better to use this function to avoid 2 calls (and wait until
+     * the first transaction is mined)
+     * From MonolithDAO Token.sol
+     * @param _spender The address which will spend the funds.
+     * @param _subtractedValue The amount of tokens to decrease the allowance by.
+     */
+    function decreaseApproval(address _spender, <span class="marker" id="mapping-39"></span><span class="token del" data-title="primitive_type/uint">uint</span> _subtractedValue) public returns (bool) {
+        _decreaseApprovalAllArgs(_spender, _subtractedValue, msg.sender);
+        return true;
+    }
+
+    function _decreaseApprovalAllArgs(address _spender, uint256 _subtractedValue, address _tokenHolder) internal {
+        uint256 oldValue = allowance[_tokenHolder][_spender];
+        uint256 newValue;
+        if (_subtractedValue &gt; oldValue) {
+            newValue = 0;
+        } else {
+            newValue = oldValue - _subtractedValue;
+        }
+        _setAllowance(_tokenHolder, _spender, newValue);
+        emit Approval(_tokenHolder,_spender, newValue);
+    }
+
+    function _addAllowance(address _who, address _spender, uint256 _value) internal {
+        allowance[_who][_spender] = allowance[_who][_spender].add(_value, "allowance overflow");
+    }
+
+    function _subAllowance(address _who, address _spender, uint256 _value) internal returns (uint256 newAllowance){
+        newAllowance = allowance[_who][_spender].sub(_value, "insufficient allowance");
+        if (newAllowance &lt; INFINITE_ALLOWANCE) {
+            allowance[_who][_spender] = newAllowance;
+        }
+    }
+
+    function _setAllowance(address _who, address _spender, uint256 _value) internal {
+        allowance[_who][_spender] = _value;
+    }
+}
+
+<span class="marker" id="mapping-40"></span><span class="token mv" id="move-src-31" data-title="source_file/comment"><span class="marker" id="mapping-41"></span><span class="token upd" id="move-src-32" data-title="source_file/comment"><span class="cupd">// File: </span>@<span class="cupd">tr</span>u<span class="cupd">s</span>ttoken<span class="cupd">/trusttokens/</span>contracts/<span class="cupd">R</span>egistrySubscriber<span class="cupd">.sol</span></span></span>
+
+<span class="marker" id="mapping-42"></span><span class="token del" data-title="source_file/pragma_directive">pragma solidity ^0.5.13;</span>
+
+
+<span class="marker" id="mapping-43"></span><span class="token mv" id="move-src-33" data-title="source_file/contract_declaration">contract RegistrySubscriber is ProxyStorage {
+    // Registry Attributes
+    bytes32 constant PASSED_KYCAML = "hasPassedKYC/AML";
+    bytes32 constant IS_DEPOSIT_ADDRESS = "isDepositAddress";
+    bytes32 constant BLACKLISTED = 0x6973426c61636b6c697374656400000000000000000000000000000000000000;
+    bytes32 constant REGISTERED_CONTRACT = 0x697352656769737465726564436f6e7472616374000000000000000000000000;
+
+    // attributes Bitmasks
+    uint256 constant ACCOUNT_BLACKLISTED     = 0xff00000000000000000000000000000000000000000000000000000000000000;
+    uint256 constant ACCOUNT_BLACKLISTED_INV = 0x00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+    uint256 constant ACCOUNT_KYC             = 0x00ff000000000000000000000000000000000000000000000000000000000000;
+    uint256 constant ACCOUNT_KYC_INV         = 0xff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+    uint256 constant ACCOUNT_ADDRESS         = 0x000000000000000000000000ffffffffffffffffffffffffffffffffffffffff;
+    uint256 constant ACCOUNT_ADDRESS_INV     = 0xffffffffffffffffffffffff0000000000000000000000000000000000000000;
+    uint256 constant ACCOUNT_HOOK            = 0x0000ff0000000000000000000000000000000000000000000000000000000000;
+    uint256 constant ACCOUNT_HOOK_INV        = 0xffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+
+    function registry() <span class="marker" id="mapping-44"></span><span class="token mv" id="move-src-34" data-title="function_definition/visibility">internal</span> view returns (Registry);
+
+    modifier onlyRegistry {
+        require(msg.sender == address(registry()));
+        _;
+    }
+
+    /**
+        Attributes are set per autosweep account
+        The layout of attributes is detailed here
+        lower bytes -&gt; upper bytes
+        [0, 20)  recipient address
+        [29, 30) REGISTERED_CONTRACT
+        [30, 31) PASSED_KYCAML
+        [31, 32) BLACKLISTED
+    */
+    function syncAttributeValue(address _who, bytes32 _attribute, uint256 _value) public onlyRegistry {
+        uint144 who = uint144(uint160(_who) &gt;&gt; 20);
+        uint256 prior = attributes[who];
+        if (prior == 0) {
+            prior = uint256(_who);
+        }
+        if (_attribute == IS_DEPOSIT_ADDRESS) {
+            <span class="marker" id="mapping-45"></span><span class="token del" data-title="block_statement/if_statement">if (<span class="marker" id="mapping-46"></span><span class="token mv" id="move-src-35" data-title="if_statement/binary_expression"><span class="marker" id="mapping-47"></span><span class="token del" data-title="binary_expression/type_cast_expression"><span class="marker" id="mapping-48"></span><span class="token mv" id="move-src-36" data-title="type_cast_expression/primitive_type">address</span>(<span class="marker" id="mapping-49"></span><span class="token del" data-title="type_cast_expression/call_argument">prior</span>)</span> != address(<span class="marker" id="mapping-50"></span><span class="token mv" id="move-src-37" data-title="type_cast_expression/call_argument">_value</span>)</span>) <span class="marker" id="mapping-51"></span><span class="token del" data-title="if_statement/block_statement">{
+                // TODO sweep balance from address(prior) to address(_value)
+            }</span></span>
+            attributes[who] = (prior &amp; ACCOUNT_ADDRESS_INV) | uint256(address(_value));
+        } else if (_attribute == BLACKLISTED) {
+            if (_value != 0) {
+                attributes[who] = prior | ACCOUNT_BLACKLISTED;
+            } else  {
+                attributes[who] = prior &amp; ACCOUNT_BLACKLISTED_INV;
+            }
+        } else if (_attribute == PASSED_KYCAML) {
+            if (_value != 0) {
+                attributes[who] = prior | ACCOUNT_KYC;
+            } else {
+                attributes[who] = prior &amp; ACCOUNT_KYC_INV;
+            }
+        } else if (_attribute == REGISTERED_CONTRACT) {
+            if (_value != 0) {
+                attributes[who] = prior | ACCOUNT_HOOK;
+            } else {
+                attributes[who] = prior &amp; ACCOUNT_HOOK_INV;
+            }
+        }
+    }
+}</span>
+
+<span class="marker" id="mapping-52"></span><span class="token upd" id="move-src-38" data-title="source_file/comment"><span class="cupd">// File: </span>@<span class="cupd">tr</span>u<span class="cupd">s</span>ttoken<span class="cupd">/trusttokens/</span>con<span class="cupd">tr</span>a<span class="cupd">c</span>ts/T<span class="cupd">r</span>ueCo<span class="cupd">i</span>nR<span class="cupd">e</span>ceive<span class="cupd">r.sol</span></span>
+
+<span class="marker" id="mapping-53"></span><span class="token del" data-title="source_file/pragma_directive">pragma solidity ^0.5.13;</span>
+
+<span class="marker" id="mapping-54"></span><span class="token mv" id="move-src-39" data-title="source_file/contract_declaration">contract <span class="marker" id="mapping-55"></span><span class="token upd" id="move-src-40" data-title="contract_declaration/identifier"><span class="cupd">T</span>ru<span class="cupd">e</span>C<span class="cupd">o</span>inRe<span class="cupd">c</span><span class="cupd">e</span>iver</span> <span class="marker" id="mapping-56"></span><span class="token mv" id="move-src-41" data-title="contract_declaration/contract_body">{
+    function tokenFallback( address from, uint256 value ) external;
+}</span></span>
+
+<span class="marker" id="mapping-57"></span><span class="token upd" id="move-src-42" data-title="source_file/comment"><span class="cupd">// File: </span>@<span class="cupd">tr</span>u<span class="cupd">s</span>ttoken<span class="cupd">/trusttokens/</span>c<span class="cupd">o</span><span class="cupd">n</span>tra<span class="cupd">c</span>ts/ValTok<span class="cupd">e</span>nW<span class="cupd">i</span>thHook<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-58"></span><span class="token del" data-title="source_file/pragma_directive">pragma solidity ^0.5.13;</span>
+
+
+
+
+<span class="marker" id="mapping-59"></span><span class="token mv" id="move-src-43" data-title="source_file/contract_declaration">contract ValTokenWithHook is <span class="marker" id="mapping-60"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">IERC20</span><span class="marker" id="mapping-61"></span><span class="token mv" id="move-src-44" data-title="contract_declaration/,">,</span> ModularStandardToken<span class="marker" id="mapping-62"></span><span class="token del" data-title="contract_declaration/,">,</span> RegistrySubscriber {
+
+    event Burn(address indexed from, uint256 indexed amount);
+    event Mint(address indexed to, uint256 indexed amount);
+
+    function _resolveRecipient(address _to) internal view returns (address to, bool hook) {
+        uint256 flags = (attributes[uint144(uint160(_to) &gt;&gt; 20)]);
+        if (flags == 0) {
+            to = _to;
+            // attributes[uint144(uint160(to) &gt;&gt; 20)] = uint256(to);
+            hook = false;
+        } else {
+            to = address(flags);
+            hook = (flags &amp; ACCOUNT_HOOK) != 0;
+        }
+    }
+
+    modifier resolveSender(address _from) {
+        uint256 flags = (attributes[uint144(uint160(_from) &gt;&gt; 20)]);
+        address from = address(flags);
+        if (from != address(0)) {
+            require(from == _from, "account collision");
+        }
+        _;
+    }
+
+    function _transferFromAllArgs(address _from, address _to, uint256 _value, address _spender) internal {
+        _subAllowance(_from, _spender, _value);
+        _transferAllArgs(_from, _to, _value);
+    }
+    function transferFrom(address _from, address _to, uint256 _value) external returns (bool) {
+        _transferFromAllArgs(_from, _to, _value, msg.sender);
+        return true;
+    }
+    function transfer(address _to, uint256 _value) external returns (bool) {
+        _transferAllArgs(msg.sender, _to, _value);
+        return true;
+    }
+    function _transferAllArgs(address _from, address _to, uint256 _value) internal resolveSender(_from) {
+        _subBalance(_from, _value);
+        emit Transfer(_from, _to, _value);
+        bool hasHook;
+        address to;
+        (to, hasHook) = _resolveRecipient(_to);
+        _addBalance(to, _value);
+        if (_to != to) {
+            emit Transfer(_to, to, _value);
+        }
+        if (hasHook) {
+            TrueCoinReceiver(to).tokenFallback(_from, _value);
+        }
+    }
+
+    function _burn(address _from, uint256 _value) internal returns (uint256 resultBalance_, uint256 resultSupply_) {
+        emit Transfer(_from, address(0), _value);
+        emit Burn(_from, _value);
+        resultBalance_ = _subBalance(_from, _value);
+        resultSupply_ = totalSupply.sub(_value, "removing more stake than in supply");
+        totalSupply = resultSupply_;
+    }
+
+    function _mint(address _to, uint256 _value) internal {
+        emit Transfer(address(0), _to, _value);
+        emit Mint(_to, _value);
+        (address to, bool hook) = _resolveRecipient(_to);
+        if (_to != to) {
+            emit Transfer(_to, to, _value);
+        }
+        _addBalance(to, _value);
+        totalSupply = totalSupply.add(_value, "totalSupply overflow");
+        if (hook) {
+            TrueCoinReceiver(to).tokenFallback(address(0x0), _value);
+        }
+    }
+}</span>
+
+<span class="marker" id="mapping-63"></span><span class="token upd" id="move-src-45" data-title="source_file/comment"><span class="cupd">// File: </span>@<span class="cupd">tr</span>u<span class="cupd">s</span>ttoken<span class="cupd">/trusttokens/</span>contr<span class="cupd">a</span>cts/C<span class="cupd">l</span>aimabl<span class="cupd">e</span>Co<span class="cupd">n</span><span class="cupd">t</span>ract<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-64"></span><span class="token del" data-title="source_file/pragma_directive">pragma solidity ^0.5.13;</span>
+
+
+<span class="marker" id="mapping-65"></span><span class="token upd" id="move-src-46" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+ * @<span class="cupd">t</span>i<span class="cupd">tl</span><span class="cupd">e</span> Claimable<span class="cupd">Contrac</span>t
+ * @dev The ClaimableC<span class="cupd">on</span>tr<span class="cupd">a</span>ct<span class="cupd"> </span><span class="cupd">c</span>ontract<span class="cupd"> </span>is a copy o<span class="cupd">f Claimab</span>l<span class="cupd">e Contra</span>ct by Zeppel<span class="cupd">i</span>n. 
+ and prov<span class="cupd">i</span>des basic a<span class="cupd">u</span>thorization control functions. Inherits storage layout of 
+ ProxyStorage.
+ */</span>
+<span class="marker" id="mapping-66"></span><span class="token mv" id="move-src-47" data-title="source_file/contract_declaration">contract ClaimableContract is ProxyStorage {
+
+    function owner() public view returns (address) {
+        return owner_;
+    }
+
+    function pendingOwner() public view returns (address) {
+        return pendingOwner_;
+    }
+
+    event OwnershipTransferred(
+        address indexed previousOwner,
+        address indexed newOwner
+    );
+
+    <span class="marker" id="mapping-67"></span><span class="token upd" id="move-src-48" data-title="contract_body/comment"><span class="cupd">/**
+   </span><span class="cupd"> * @dev sets the original `owner` of the contract to the sender
+  </span><span class="cupd">  * at construction. Must then be reinitialized 
+   </span> */</span>
+    constructor() public {
+        owner_ = msg.sender;
+        emit OwnershipTransferred(address(0), msg.sender);
+    }
+
+    <span class="marker" id="mapping-68"></span><span class="token upd" id="move-src-49" data-title="contract_body/comment"><span class="cupd">/**
+   </span><span class="cupd"> * @dev Throws if called by any account other than the owner.
+  </span><span class="cupd">  </span>*/</span>
+    modifier onlyOwner() {
+        require(msg.sender == owner_, "only owner");
+        _;
+    }
+
+    <span class="marker" id="mapping-69"></span><span class="token upd" id="move-src-50" data-title="contract_body/comment"><span class="cupd">/**
+   </span><span class="cupd"> * @dev Modifier throws if called by any account other than the pendingOwner.
+  </span><span class="cupd">  </span>*/</span>
+    modifier onlyPendingOwner() {
+        require(msg.sender == pendingOwner_);
+        _;
+    }
+
+    <span class="marker" id="mapping-70"></span><span class="token upd" id="move-src-51" data-title="contract_body/comment"><span class="cupd">/**
+   </span><span class="cupd"> * @dev Allows the current owner to set the pendingOwner address.
+  </span><span class="cupd">  * @param newOwner The address to transfer ownership to.
+ </span><span class="cupd">  </span> */</span>
+    function transferOwnership(address newOwner) public onlyOwner {
+        pendingOwner_ = newOwner;
+    }
+
+    <span class="marker" id="mapping-71"></span><span class="token upd" id="move-src-52" data-title="contract_body/comment"><span class="cupd">/**
+   </span><span class="cupd"> * @dev Allows the pendingOwner address to finalize the transfer.
+  </span><span class="cupd">  </span>*/</span>
+    function claimOwnership() public onlyPendingOwner {
+        address _pendingOwner = pendingOwner_;
+        emit OwnershipTransferred(owner_, _pendingOwner);
+        owner_ = _pendingOwner;
+        pendingOwner_ = address(0);
+    }
+}</span>
+
+<span class="marker" id="mapping-72"></span><span class="token upd" id="move-src-53" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>F<span class="cupd">i</span><span class="cupd">le</span>:<span class="cupd"> </span><span class="cupd">@</span><span class="cupd">tr</span>us<span class="cupd">t</span><span class="cupd">t</span><span class="cupd">o</span>k<span class="cupd">e</span><span class="cupd">n</span>/<span class="cupd">tr</span><span class="cupd">u</span>s<span class="cupd">t</span><span class="cupd">t</span><span class="cupd">o</span>ke<span class="cupd">n</span>s/<span class="cupd">contr</span>a<span class="cupd">ct</span><span class="cupd">s</span>/T<span class="cupd">r</span>u<span class="cupd">s</span><span class="cupd">t</span>T<span class="cupd">o</span>k<span class="cupd">e</span>n.sol</span>
+
+<span class="marker" id="mapping-73"></span><span class="token del" data-title="source_file/pragma_directive">pragma solidity ^0.5.13;</span>
+
+
+
+
+/**
+ * @title TrustToken
+ * @dev The TrustToken contract is a claimable contract where the
+ * owner can only mint or transfer ownership. TrustTokens use 8 decimals
+ * in order to prevent rewards from getting stuck in the remainder on division.
+ * Tolerates dilution to slash stake and accept rewards.
+ */
+contract TrustToken is <span class="marker" id="mapping-74"></span><span class="token mv" id="move-src-54" data-title="contract_declaration/inheritance_specifier">ValTokenWithHook</span><span class="marker" id="mapping-75"></span><span class="token del" data-title="contract_declaration/,">,</span> <span class="marker" id="mapping-76"></span><span class="token mv" id="move-src-55" data-title="contract_declaration/inheritance_specifier">ClaimableContract</span> {
+    using SafeMath for uint256;
+    Registry registry_;
+    uint256 constant MAX_SUPPLY = 145000000000000000;
+    /**
+     * @dev initialize trusttoken and give ownership to sender
+     * This is necessary to set ownership for proxy
+     */
+    function initialize(Registry _registry) public {
+        require(!initalized, "already initalized");
+        registry_ = _registry;
+        owner_ = msg.sender;
+        initalized = true;
+    }
+
+    function registry() <span class="marker" id="mapping-77"></span><span class="token mv" id="move-src-56" data-title="function_definition/visibility">internal</span> view returns (Registry) {
+        return registry_;
+    }
+
+    /**
+     * @dev mint TRU
+     * Can never mint more than MAX_SUPPLY = 1.45 billion
+     */
+    function mint(address _to, uint256 _amount) external onlyOwner {
+        if (totalSupply.add(_amount) &lt;= MAX_SUPPLY) {
+            _mint(_to, _amount);
+        }
+        else {
+            revert("Max supply exceeded");
+        }
+    }
+
+    function decimals() public pure returns (uint8) {
+        return 8;
+    }
+
+    function rounding() public pure returns (uint8) {
+        return 8;
+    }
+
+    function name() public pure returns (string memory) {
+        return "TrustToken";
+    }
+
+    function symbol() public pure returns (string memory) {
+        return "TRU";
+    }
+}</pre></div><div class="col-6"><h5>0xacedb4eb28eedc7fc05583abe829b7e19a17e50d.etherscan.io-TrustToken.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-78"></span><span class="token upd" id="move-dst-1" data-title="source_file/comment"><span class="cupd">// </span>SPDX-L<span class="cupd">i</span>c<span class="cupd">e</span><span class="cupd">n</span>s<span class="cupd">e</span><span class="cupd">-</span>I<span class="cupd">d</span>e<span class="cupd">nt</span>i<span class="cupd">f</span>i<span class="cupd">e</span>r: MIT</span>
+
+<span class="marker" id="mapping-79"></span><span class="token mv" id="move-dst-12" data-title="source_file/comment"><span class="marker" id="mapping-80"></span><span class="token upd" id="move-dst-12" data-title="source_file/comment"><span class="cupd">// File: </span>@<span class="cupd">openzeppelin</span><span class="cupd">/contracts/</span>ma<span class="cupd">t</span>h/Saf<span class="cupd">e</span>Math<span class="cupd">.sol</span></span></span>
+
+
+pragma solidity ^<span class="marker" id="mapping-81"></span><span class="token upd" id="move-dst-2" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.</span>6<span class="cupd">.0</span></span>;
+
+/**
+ * @dev Wrappers over Solidity's arithmetic operations with added overflow
+ * checks.
+ *
+ * Arithmetic operations in Solidity wrap on overflow. This can easily result
+ * in bugs, because programmers usually assume that an overflow raises an
+ * error, which is the standard behavior in high level programming languages.
+ * `SafeMath` restores this intuition by reverting the transaction when an
+ * operation overflows.
+ *
+ * Using this library instead of the unchecked operations eliminates an entire
+ * class of bugs, so it's recommended to use it always.
+ */
+library SafeMath {
+    <span class="marker" id="mapping-82"></span><span class="token upd" id="move-dst-3" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the addition of two unsigned integers, reverting on
+     * overflow.
+     *
+     * Counterpart to Solidity's `+` operator.
+     *
+     * Requirements:
+</span>     *<span class="cupd">
+     * - Addition cannot overflow.</span>
+     */</span>
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c &gt;= a, "SafeMath: addition overflow");
+
+        return c;
+    }
+
+    <span class="marker" id="mapping-83"></span><span class="token upd" id="move-dst-4" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the subtraction of two unsigned integers, reverting on
+     * overflow (when the result is negative).
+     *
+     * Counterpart to Solidity's `-` operator.
+     *
+     * Requirements:
+</span>     *<span class="cupd">
+     * - Subtraction cannot overflow.</span>
+     */</span>
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        return sub(a, b, "SafeMath: subtraction overflow");
+    }
+
+    <span class="marker" id="mapping-84"></span><span class="token upd" id="move-dst-5" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
+     * overflow (when the result is negative).
+     *
+     * Counterpart to Solidity's `-` operator.
+     *
+     * Requirements:
+</span>     *<span class="cupd">
+     * - Subtraction cannot overflow</span>.
+     */</span>
+    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        require(b &lt;= a, errorMessage);
+        uint256 c = a - b;
+
+        return c;
+    }
+
+    <span class="marker" id="mapping-85"></span><span class="token upd" id="move-dst-6" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the multiplication of two unsigned integers, reverting on
+     * overflow.
+     *
+     * Counterpart to Solidity's `*` operator.
+     *
+     * Requirements:
+</span>     *<span class="cupd">
+     * - Multiplication cannot overflow.</span>
+     */</span>
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+        // benefit is lost if 'b' is also tested.
+        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b, "SafeMath: multiplication overflow");
+
+        return c;
+    }
+
+    <span class="marker" id="mapping-86"></span><span class="token upd" id="move-dst-7" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the integer division of two unsigned integers. Reverts on
+     * division by zero. The result is rounded towards zero.
+     *
+     * Counterpart to Solidity's `/` operator. Note: this function uses a
+     * `revert` opcode (which leaves remaining gas untouched) while Solidity
+     * uses an invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:</span>
+     <span class="cupd">*
+     * - The divisor cannot be zer</span>o.
+     */</span>
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        return div(a, b, "SafeMath: division by zero");
+    }
+
+    <span class="marker" id="mapping-87"></span><span class="token upd" id="move-dst-8" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the integer division of two unsigned integers. Reverts with custom message on
+     * division by zero. The result is rounded towards zero.
+     *
+     * Counterpart to Solidity's `/` operator. Note: this function uses a
+     * `revert` opcode (which leaves remaining gas untouched) while Solidity
+     * uses an invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:</span>
+     <span class="cupd">*
+     * - The divisor cannot be ze</span>ro.
+     */</span>
+    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        require(b &gt; 0, errorMessage);
+        uint256 c = a / b;
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+        return c;
+    }
+
+    <span class="marker" id="mapping-88"></span><span class="token upd" id="move-dst-9" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
+     * Reverts when dividing by zero.
+     *
+     * Counterpart to Solidity's `%` operator. This function uses a `revert`
+     * opcode (which leaves remaining gas untouched) while Solidity uses an
+     * invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:</span>
+     <span class="cupd">*
+     * - The divisor cannot be zer</span>o.
+     */</span>
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+        return mod(a, b, "SafeMath: modulo by zero");
+    }
+
+    <span class="marker" id="mapping-89"></span><span class="token upd" id="move-dst-10" data-title="contract_body/comment"><span class="cupd">/**
+     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
+     * Reverts with custom message when dividing by zero.
+     *
+     * Counterpart to Solidity's `%` operator. This function uses a `revert`
+     * opcode (which leaves remaining gas untouched) while Solidity uses an
+     * invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:</span>
+     <span class="cupd">*
+     * - The divisor cannot be ze</span>ro.
+     */</span>
+    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        require(b != 0, errorMessage);
+        return a % b;
+    }
+}
+
+<span class="marker" id="mapping-90"></span><span class="token upd" id="move-dst-15" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>File:<span class="cupd"> </span><span class="cupd">@</span><span class="cupd">o</span>p<span class="cupd">e</span><span class="cupd">n</span>z<span class="cupd">e</span>pp<span class="cupd">e</span>l<span class="cupd">in</span>/c<span class="cupd">o</span><span class="cupd">n</span><span class="cupd">t</span>r<span class="cupd">a</span><span class="cupd">ct</span><span class="cupd">s</span>/<span class="cupd">to</span>k<span class="cupd">e</span>n/<span class="cupd">ERC20</span>/IERC20.sol</span>
+
+
+<span class="marker" id="mapping-91"></span><span class="token mv" id="move-dst-13" data-title="source_file/pragma_directive">pragma solidity ^<span class="marker" id="mapping-92"></span><span class="token upd" id="move-dst-14" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.</span>6<span class="cupd">.0</span></span>;</span>
+
+<span class="marker" id="mapping-93"></span><span class="token upd" id="move-dst-17" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+ * @<span class="cupd">d</span>e<span class="cupd">v</span> I<span class="cupd">n</span>t<span class="cupd">e</span>rface of<span class="cupd"> </span>t<span class="cupd">h</span>e ERC20<span class="cupd"> s</span>t<span class="cupd">a</span>nd<span class="cupd">a</span>rd<span class="cupd"> </span><span class="cupd">a</span>s <span class="cupd">d</span>e<span class="cupd">f</span>ined in<span class="cupd"> </span>the EIP.
+ */</span>
+<span class="marker" id="mapping-94"></span><span class="token mv" id="move-dst-16" data-title="source_file/interface_declaration">interface IERC20 {
+    /**
+     * @dev Returns the amount of tokens in existence.
+     */
+    function totalSupply() external view returns (uint256);
+
+    /**
+     * @dev Returns the amount of tokens owned by `account`.
+     */
+    function balanceOf(address account) external view returns (uint256);
+
+    /**
+     * @dev Moves `amount` tokens from the caller's account to `recipient`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transfer(address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Returns the remaining number of tokens that `spender` will be
+     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+     * zero by default.
+     *
+     * This value changes when {approve} or {transferFrom} are called.
+     */
+    function allowance(address owner, address spender) external view returns (uint256);
+
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+     * that someone may use both the old and the new allowance by unfortunate
+     * transaction ordering. One possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and set the
+     * desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address spender, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Moves `amount` tokens from `sender` to `recipient` using the
+     * allowance mechanism. `amount` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+     * another (`to`).
+     *
+     * Note that `value` may be zero.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    /**
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+     * a call to {approve}. `value` is the new allowance.
+     */
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}</span>
+
+<span class="marker" id="mapping-95"></span><span class="token mv" id="move-dst-25" data-title="source_file/comment"><span class="marker" id="mapping-96"></span><span class="token upd" id="move-dst-25" data-title="source_file/comment"><span class="cupd">// File: </span><span class="cupd">contracts/</span><span class="cupd">r</span>egistr<span class="cupd">y</span>/Regis<span class="cupd">t</span><span class="cupd">r</span>y<span class="cupd">.sol</span></span></span>
+
+<span class="marker" id="mapping-97"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.6.10;</span>
+
+
+interface RegistryClone {
+    function syncAttributeValue(
+        address _who,
+        bytes32 _attribute,
+        uint256 _value
+    ) external;
+}
+
+contract Registry {
+    struct AttributeData {
+        uint256 value;
+        bytes32 notes;
+        address adminAddr;
+        uint256 timestamp;
+    }
+
+    // never remove any storage variables
+    address public owner;
+    address public pendingOwner;
+    bool initialized;
+
+    // Stores arbitrary attributes for users. An example use case is an IERC20
+    // token that requires its users to go through a KYC/AML check - in this case
+    // a validator can set an account's "hasPassedKYC/AML" attribute to 1 to indicate
+    // that account can use the token. This mapping stores that value (1, in the
+    // example) as well as which validator last set the value and at what time,
+    // so that e.g. the check can be renewed at appropriate intervals.
+    mapping(address =&gt; mapping(bytes32 =&gt; AttributeData)) attributes;
+    // The logic governing who is allowed to set what attributes is abstracted as
+    // this accessManager, so that it may be replaced by the owner as needed
+    bytes32 constant WRITE_PERMISSION = keccak256("canWriteTo-");
+    mapping(bytes32 =&gt; RegistryClone[]) subscribers;
+
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    event SetAttribute(address indexed who, bytes32 attribute, uint256 value, bytes32 notes, address indexed adminAddr);
+    event SetManager(address indexed oldManager, address indexed newManager);
+    event StartSubscription(bytes32 indexed attribute, RegistryClone indexed subscriber);
+    event StopSubscription(bytes32 indexed attribute, RegistryClone indexed subscriber);
+
+    // Allows a write if either a) the writer is that Registry's owner, or
+    // b) the writer is writing to attribute foo and that writer already has
+    // the canWriteTo-foo attribute set (in that same Registry)
+    function confirmWrite(bytes32 _attribute, address _admin) internal view returns (bool) {
+        return (_admin == owner || hasAttribute(_admin, keccak256(abi.encodePacked(WRITE_PERMISSION ^ _attribute))));
+    }
+
+    // Writes are allowed only if the accessManager approves
+    function setAttribute(
+        address _who,
+        bytes32 _attribute,
+        uint256 _value,
+        bytes32 _notes
+    ) public {
+        require(confirmWrite(_attribute, msg.sender));
+        attributes[_who][_attribute] = AttributeData(_value, _notes, msg.sender, block.timestamp);
+        emit SetAttribute(_who, _attribute, _value, _notes, msg.sender);
+
+        RegistryClone[] storage targets = subscribers[_attribute];
+        uint256 index = targets.length;
+        while (index-- &gt; 0) {
+            targets[index].syncAttributeValue(_who, _attribute, _value);
+        }
+    }
+
+    function subscribe(bytes32 _attribute, RegistryClone _syncer) external onlyOwner {
+        subscribers[_attribute].push(_syncer);
+        emit StartSubscription(_attribute, _syncer);
+    }
+
+    function unsubscribe(bytes32 _attribute, uint256 _index) external onlyOwner {
+        uint256 length = subscribers[_attribute].length;
+        require(_index &lt; length);
+        emit StopSubscription(_attribute, subscribers[_attribute][_index]);
+        subscribers[_attribute][_index] = subscribers[_attribute][length - 1];
+        <span class="marker" id="mapping-98"></span><span class="token add" data-title="expression_statement/call_expression"><span class="marker" id="mapping-99"></span><span class="token mv" id="move-dst-18" data-title="call_expression/member_expression">subscribers[_attribute].<span class="marker" id="mapping-100"></span><span class="token upd" id="move-dst-19" data-title="member_expression/identifier">pop</span></span>()</span>;
+    }
+
+    function subscriberCount(bytes32 _attribute) public view returns (uint256) {
+        return subscribers[_attribute].length;
+    }
+
+    function setAttributeValue(
+        address _who,
+        bytes32 _attribute,
+        uint256 _value
+    ) public {
+        require(confirmWrite(_attribute, msg.sender));
+        attributes[_who][_attribute] = AttributeData(_value, "", msg.sender, block.timestamp);
+        emit SetAttribute(_who, _attribute, _value, "", msg.sender);
+        RegistryClone[] storage targets = subscribers[_attribute];
+        uint256 index = targets.length;
+        while (index-- &gt; 0) {
+            targets[index].syncAttributeValue(_who, _attribute, _value);
+        }
+    }
+
+    // Returns true if the uint256 value stored for this attribute is non-zero
+    function hasAttribute(address _who, bytes32 _attribute) public view returns (bool) {
+        return attributes[_who][_attribute].value != 0;
+    }
+
+    // Returns the exact value of the attribute, as well as its metadata
+    function getAttribute(address _who, bytes32 _attribute)
+        public
+        view
+        returns (
+            uint256,
+            bytes32,
+            address,
+            uint256
+        )
+    {
+        AttributeData memory data = attributes[_who][_attribute];
+        return (data.value, data.notes, data.adminAddr, data.timestamp);
+    }
+
+    function getAttributeValue(address _who, bytes32 _attribute) public view returns (uint256) {
+        return attributes[_who][_attribute].value;
+    }
+
+    function getAttributeAdminAddr(address _who, bytes32 _attribute) public view returns (address) {
+        return attributes[_who][_attribute].adminAddr;
+    }
+
+    function getAttributeTimestamp(address _who, bytes32 _attribute) public view returns (uint256) {
+        return attributes[_who][_attribute].timestamp;
+    }
+
+    function syncAttribute(
+        bytes32 _attribute,
+        uint256 _startIndex,
+        address[] calldata _addresses
+    ) external {
+        RegistryClone[] storage targets = subscribers[_attribute];
+        uint256 index = targets.length;
+        while (index-- &gt; _startIndex) {
+            RegistryClone target = targets[index];
+            for (uint256 i = _addresses.length; i-- &gt; 0; ) {
+                address who = _addresses[i];
+                target.syncAttributeValue(who, _attribute, attributes[who][_attribute].value);
+            }
+        }
+    }
+
+    function reclaimEther(address payable _to) external onlyOwner {
+        _to.transfer(address(this).balance);
+    }
+
+    function reclaimToken(IERC20 token, address _to) external onlyOwner {
+        uint256 balance = token.balanceOf(address(this));
+        token.transfer(_to, balance);
+    }
+
+    <span class="marker" id="mapping-101"></span><span class="token upd" id="move-dst-20" data-title="contract_body/comment"><span class="cupd">/**
+   </span> <span class="cupd"> * @dev Throws if called by any account other than the owner.
+  </span> <span class="cupd">  </span>*/</span>
+    modifier onlyOwner() {
+        require(msg.sender == owner, "only Owner");
+        _;
+    }
+
+    <span class="marker" id="mapping-102"></span><span class="token upd" id="move-dst-21" data-title="contract_body/comment"><span class="cupd">/**
+   </span> <span class="cupd"> * @dev Modifier throws if called by any account other than the pendingOwner.
+  </span> <span class="cupd">  </span>*/</span>
+    modifier onlyPendingOwner() {
+        require(msg.sender == pendingOwner);
+        _;
+    }
+
+    <span class="marker" id="mapping-103"></span><span class="token upd" id="move-dst-22" data-title="contract_body/comment"><span class="cupd">/**
+   </span> <span class="cupd"> * @dev Allows the current owner to set the pendingOwner address.
+  </span> <span class="cupd">  * @param newOwner The address to transfer ownership to.
+ </span> <span class="cupd">  </span> */</span>
+    function transferOwnership(address newOwner) public onlyOwner {
+        pendingOwner = newOwner;
+    }
+
+    <span class="marker" id="mapping-104"></span><span class="token upd" id="move-dst-23" data-title="contract_body/comment"><span class="cupd">/**
+   </span> <span class="cupd"> * @dev Allows the pendingOwner address to finalize the transfer.
+  </span> <span class="cupd">  </span>*/</span>
+    function claimOwnership() public onlyPendingOwner {
+        emit OwnershipTransferred(owner, pendingOwner);
+        owner = pendingOwner;
+        pendingOwner = address(0);
+    }
+}
+
+<span class="marker" id="mapping-105"></span><span class="token mv" id="move-dst-28" data-title="source_file/comment"><span class="marker" id="mapping-106"></span><span class="token upd" id="move-dst-28" data-title="source_file/comment"><span class="cupd">// File: </span>con<span class="cupd">tr</span>act<span class="cupd">s</span><span class="cupd">/trusttokens/</span>Pr<span class="cupd">o</span>xyS<span class="cupd">t</span>o<span class="cupd">ra</span>g<span class="cupd">e</span><span class="cupd">.sol</span></span></span>
+
+<span class="marker" id="mapping-107"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.6.10;</span>
+
+
+/**
+ * All storage must be declared here
+ * New storage must be appended to the end
+ * Never remove items from this list
+ */
+contract ProxyStorage {
+    bool initalized;
+    uint256 public totalSupply;
+
+    mapping(address =&gt; uint256) public balanceOf;
+    mapping(address =&gt; mapping(address =&gt; uint256)) public allowance;
+    mapping(uint144 =&gt; uint256) attributes; // see RegistrySubscriber
+
+    address owner_;
+    address pendingOwner_;
+
+    <span class="marker" id="mapping-108"></span><span class="token upd" id="move-dst-26" data-title="contract_body/comment"><span class="cupd">/* Additionally, we have several keccak-based storage locations.
+     * If you add more keccak-based storage mappings, such as mappings, you must document them here.
+     * If the length of the keccak input is the same as an existing mapping, it is possible there could be a preimage collision.
+     * A preimage collision can be used to attack the contract by treating one storage location as another,
+     * which would always be a critical issue.
+     * Carefully examine future keccak-based storage to ensure there can be no preimage collisions.
+     *******************************************************************************************************
+     ** length     input                                                         usage
+     *******************************************************************************************************
+     ** 19         "trueXXX.proxy.owner"                                         Proxy Owner
+     ** 27         "trueXXX.pending.proxy.owner"                                 Pending Proxy Owner
+     ** 28         "trueXXX.proxy.implementation"                                Proxy Implementation
+     ** 64         uint256(address),uint256(1)                                   balanceOf
+     ** 64         uint256(address),keccak256(uint256(address),uint256(2))       allowance
+     ** 64         uint256(address),keccak256(bytes32,uint256(3))                a</span>t<span class="cupd">tri</span>butes
+     **/</span>
+}
+
+<span class="marker" id="mapping-109"></span><span class="token mv" id="move-dst-30" data-title="source_file/comment"><span class="marker" id="mapping-110"></span><span class="token upd" id="move-dst-30" data-title="source_file/comment"><span class="cupd">// File: </span>con<span class="cupd">tr</span>act<span class="cupd">s</span><span class="cupd">/trusttokens/</span>V<span class="cupd">a</span>lSafeMa<span class="cupd">t</span>h<span class="cupd">.sol</span></span></span>
+
+<span class="marker" id="mapping-111"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.6.10;</span>
+
+/**
+ * Forked subset of Openzeppelin SafeMath allowing custom underflow/overflow messages
+ * Useful for debugging, replaceable with standard SafeMath
+ */
+library ValSafeMath {
+    function add(
+        uint256 a,
+        uint256 b,
+        string memory overflowMessage
+    ) internal pure returns (uint256 result) {
+        result = a + b;
+        require(result &gt;= a, overflowMessage);
+    }
+
+    function sub(
+        uint256 a,
+        uint256 b,
+        string memory underflowMessage
+    ) internal pure returns (uint256 result) {
+        require(b &lt;= a, underflowMessage);
+        result = a - b;
+    }
+
+    function mul(
+        uint256 a,
+        uint256 b,
+        string memory overflowMessage
+    ) internal pure returns (uint256 result) {
+        if (a == 0) {
+            return 0;
+        }
+        result = a * b;
+        require(result / a == b, overflowMessage);
+    }
+
+    function div(
+        uint256 a,
+        uint256 b,
+        string memory divideByZeroMessage
+    ) internal pure returns (uint256 result) {
+        require(b &gt; 0, divideByZeroMessage);
+        result = a / b;
+    }
+}
+
+<span class="marker" id="mapping-112"></span><span class="token mv" id="move-dst-32" data-title="source_file/comment"><span class="marker" id="mapping-113"></span><span class="token upd" id="move-dst-32" data-title="source_file/comment"><span class="cupd">// File: </span>con<span class="cupd">tr</span>act<span class="cupd">s</span><span class="cupd">/trusttokens/</span>E<span class="cupd">R</span>C20<span class="cupd">.sol</span></span></span>
+
+<span class="marker" id="mapping-114"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.6.10;</span>
+
+
+
+// Fork of OpenZeppelin's BasicToken
+/**
+ * @title Basic token
+ * @dev Basic version of StandardToken, with no allowances.
+ */
+contract ModularBasicToken is ProxyStorage {
+    using ValSafeMath for uint256;
+
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    function _addBalance(address _who, uint256 _value) internal returns (uint256 priorBalance) {
+        priorBalance = balanceOf[_who];
+        balanceOf[_who] = priorBalance.add(_value, "balance overflow");
+    }
+
+    function _subBalance(address _who, uint256 _value) internal returns (uint256 result) {
+        result = balanceOf[_who].sub(_value, "insufficient balance");
+        balanceOf[_who] = result;
+    }
+
+    function _setBalance(address _who, uint256 _value) internal {
+        balanceOf[_who] = _value;
+    }
+}
+
+/**
+ * @title Standard ERC20 token
+ *
+ * @dev Implementation of the basic standard token.
+ * @dev https://github.com/ethereum/EIPs/issues/20
+ * @dev Based on code by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
+ */
+contract ModularStandardToken is ModularBasicToken {
+    using ValSafeMath for uint256;
+    uint256 constant INFINITE_ALLOWANCE = 0xfe00000000000000000000000000000000000000000000000000000000000000;
+
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+
+    /**
+     * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
+     *
+     * Beware that changing an allowance with this method brings the risk that someone may use both the old
+     * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this
+     * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     * @param _spender The address which will spend the funds.
+     * @param _value The amount of tokens to be spent.
+     */
+    function approve(address _spender, uint256 _value) public returns (bool) {
+        _approveAllArgs(_spender, _value, msg.sender);
+        return true;
+    }
+
+    function _approveAllArgs(
+        address _spender,
+        uint256 _value,
+        address _tokenHolder
+    ) internal {
+        _setAllowance(_tokenHolder, _spender, _value);
+        emit Approval(_tokenHolder, _spender, _value);
+    }
+
+    /**
+     * @dev Increase the amount of tokens that an owner allowed to a spender.
+     *
+     * approve should be called when allowed[_spender] == 0. To increment
+     * allowed value is better to use this function to avoid 2 calls (and wait until
+     * the first transaction is mined)
+     * From MonolithDAO Token.sol
+     * @param _spender The address which will spend the funds.
+     * @param _addedValue The amount of tokens to increase the allowance by.
+     */
+    function increaseApproval(address _spender, <span class="marker" id="mapping-115"></span><span class="token add" data-title="primitive_type/uint256">uint256</span> _addedValue) public returns (bool) {
+        _increaseApprovalAllArgs(_spender, _addedValue, msg.sender);
+        return true;
+    }
+
+    function _increaseApprovalAllArgs(
+        address _spender,
+        uint256 _addedValue,
+        address _tokenHolder
+    ) internal {
+        _addAllowance(_tokenHolder, _spender, _addedValue);
+        emit Approval(_tokenHolder, _spender, allowance[_tokenHolder][_spender]);
+    }
+
+    /**
+     * @dev Decrease the amount of tokens that an owner allowed to a spender.
+     *
+     * approve should be called when allowed[_spender] == 0. To decrement
+     * allowed value is better to use this function to avoid 2 calls (and wait until
+     * the first transaction is mined)
+     * From MonolithDAO Token.sol
+     * @param _spender The address which will spend the funds.
+     * @param _subtractedValue The amount of tokens to decrease the allowance by.
+     */
+    function decreaseApproval(address _spender, <span class="marker" id="mapping-116"></span><span class="token add" data-title="primitive_type/uint256">uint256</span> _subtractedValue) public returns (bool) {
+        _decreaseApprovalAllArgs(_spender, _subtractedValue, msg.sender);
+        return true;
+    }
+
+    function _decreaseApprovalAllArgs(
+        address _spender,
+        uint256 _subtractedValue,
+        address _tokenHolder
+    ) internal {
+        uint256 oldValue = allowance[_tokenHolder][_spender];
+        uint256 newValue;
+        if (_subtractedValue &gt; oldValue) {
+            newValue = 0;
+        } else {
+            newValue = oldValue - _subtractedValue;
+        }
+        _setAllowance(_tokenHolder, _spender, newValue);
+        emit Approval(_tokenHolder, _spender, newValue);
+    }
+
+    function _addAllowance(
+        address _who,
+        address _spender,
+        uint256 _value
+    ) internal {
+        allowance[_who][_spender] = allowance[_who][_spender].add(_value, "allowance overflow");
+    }
+
+    function _subAllowance(
+        address _who,
+        address _spender,
+        uint256 _value
+    ) internal returns (uint256 newAllowance) {
+        newAllowance = allowance[_who][_spender].sub(_value, "insufficient allowance");
+        if (newAllowance &lt; INFINITE_ALLOWANCE) {
+            allowance[_who][_spender] = newAllowance;
+        }
+    }
+
+    function _setAllowance(
+        address _who,
+        address _spender,
+        uint256 _value
+    ) internal {
+        allowance[_who][_spender] = _value;
+    }
+}
+
+<span class="marker" id="mapping-117"></span><span class="token upd" id="move-dst-38" data-title="source_file/comment"><span class="cupd">// File: </span>con<span class="cupd">tr</span>act<span class="cupd">s</span><span class="cupd">/trusttokens/</span>Regis<span class="cupd">tr</span>ySubs<span class="cupd">c</span><span class="cupd">r</span><span class="cupd">i</span>b<span class="cupd">e</span><span class="cupd">r.sol</span></span>
+
+<span class="marker" id="mapping-118"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.6.10;</span>
+
+
+<span class="marker" id="mapping-119"></span><span class="token mv" id="move-dst-33" data-title="source_file/contract_declaration"><span class="marker" id="mapping-120"></span><span class="token add" data-title="contract_declaration/abstract">abstract</span> contract RegistrySubscriber is ProxyStorage {
+    // Registry Attributes
+    bytes32 constant PASSED_KYCAML = "hasPassedKYC/AML";
+    bytes32 constant IS_DEPOSIT_ADDRESS = "isDepositAddress";
+    bytes32 constant BLACKLISTED = 0x6973426c61636b6c697374656400000000000000000000000000000000000000;
+    bytes32 constant REGISTERED_CONTRACT = 0x697352656769737465726564436f6e7472616374000000000000000000000000;
+
+    // attributes Bitmasks
+    uint256 constant ACCOUNT_BLACKLISTED = 0xff00000000000000000000000000000000000000000000000000000000000000;
+    uint256 constant ACCOUNT_BLACKLISTED_INV = 0x00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+    uint256 constant ACCOUNT_KYC = 0x00ff000000000000000000000000000000000000000000000000000000000000;
+    uint256 constant ACCOUNT_KYC_INV = 0xff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+    uint256 constant ACCOUNT_ADDRESS = 0x000000000000000000000000ffffffffffffffffffffffffffffffffffffffff;
+    uint256 constant ACCOUNT_ADDRESS_INV = 0xffffffffffffffffffffffff0000000000000000000000000000000000000000;
+    uint256 constant ACCOUNT_HOOK = 0x0000ff0000000000000000000000000000000000000000000000000000000000;
+    uint256 constant ACCOUNT_HOOK_INV = 0xffff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+
+    function registry() <span class="marker" id="mapping-121"></span><span class="token add" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-122"></span><span class="token add" data-title="function_definition/virtual">virtual</span> view returns (Registry);
+
+    modifier onlyRegistry {
+        require(msg.sender == address(registry()));
+        _;
+    }
+
+    /**
+        Attributes are set per autosweep account
+        The layout of attributes is detailed here
+        lower bytes -&gt; upper bytes
+        [0, 20)  recipient address
+        [29, 30) REGISTERED_CONTRACT
+        [30, 31) PASSED_KYCAML
+        [31, 32) BLACKLISTED
+    */
+    function syncAttributeValue(
+        address _who,
+        bytes32 _attribute,
+        uint256 _value
+    ) public onlyRegistry {
+        uint144 who = uint144(uint160(_who) &gt;&gt; 20);
+        uint256 prior = attributes[who];
+        if (prior == 0) {
+            prior = uint256(_who);
+        }
+        if (_attribute == IS_DEPOSIT_ADDRESS) {
+            attributes[who] = (prior &amp; ACCOUNT_ADDRESS_INV) | uint256(address(_value));
+        } else if (_attribute == BLACKLISTED) {
+            if (_value != 0) {
+                attributes[who] = prior | ACCOUNT_BLACKLISTED;
+            } else {
+                attributes[who] = prior &amp; ACCOUNT_BLACKLISTED_INV;
+            }
+        } else if (_attribute == PASSED_KYCAML) {
+            if (_value != 0) {
+                attributes[who] = prior | ACCOUNT_KYC;
+            } else {
+                attributes[who] = prior &amp; ACCOUNT_KYC_INV;
+            }
+        } else if (_attribute == REGISTERED_CONTRACT) {
+            if (_value != 0) {
+                attributes[who] = prior | ACCOUNT_HOOK;
+            } else {
+                attributes[who] = prior &amp; ACCOUNT_HOOK_INV;
+            }
+        }
+    }
+}</span>
+
+<span class="marker" id="mapping-123"></span><span class="token upd" id="move-dst-42" data-title="source_file/comment"><span class="cupd">// File: </span>con<span class="cupd">tr</span>act<span class="cupd">s</span><span class="cupd">/trusttokens/</span>TrueC<span class="cupd">o</span>i<span class="cupd">n</span>Re<span class="cupd">c</span><span class="cupd">e</span><span class="cupd">i</span>ver<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-124"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.6.10;</span>
+
+<span class="marker" id="mapping-125"></span><span class="token add" data-title="source_file/interface_declaration">interface TrueCoinReceiver <span class="marker" id="mapping-126"></span><span class="token mv" id="move-dst-41" data-title="interface_declaration/contract_body">{
+    function tokenFallback(address from, uint256 value) external;
+}</span></span>
+
+<span class="marker" id="mapping-127"></span><span class="token upd" id="move-dst-45" data-title="source_file/comment"><span class="cupd">// File: </span>con<span class="cupd">tr</span>act<span class="cupd">s</span><span class="cupd">/trusttokens/</span>V<span class="cupd">a</span><span class="cupd">l</span>Tok<span class="cupd">e</span><span class="cupd">n</span>Wi<span class="cupd">t</span>hHook<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-128"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.6.10;</span>
+
+
+
+
+<span class="marker" id="mapping-129"></span><span class="token mv" id="move-dst-43" data-title="source_file/contract_declaration"><span class="marker" id="mapping-130"></span><span class="token add" data-title="contract_declaration/abstract">abstract</span> contract ValTokenWithHook is ModularStandardToken<span class="marker" id="mapping-131"></span><span class="token mv" id="move-dst-44" data-title="contract_declaration/,">,</span> RegistrySubscriber {
+    event Burn(address indexed from, uint256 indexed amount);
+    event Mint(address indexed to, uint256 indexed amount);
+
+    function _resolveRecipient(address _to) internal view returns (address to, bool hook) {
+        uint256 flags = (attributes[uint144(uint160(_to) &gt;&gt; 20)]);
+        if (flags == 0) {
+            to = _to;
+            // attributes[uint144(uint160(to) &gt;&gt; 20)] = uint256(to);
+            hook = false;
+        } else {
+            to = address(flags);
+            hook = (flags &amp; ACCOUNT_HOOK) != 0;
+        }
+    }
+
+    modifier resolveSender(address _from) {
+        uint256 flags = (attributes[uint144(uint160(_from) &gt;&gt; 20)]);
+        address from = address(flags);
+        if (from != address(0)) {
+            require(from == _from, "account collision");
+        }
+        _;
+    }
+
+    function _transferFromAllArgs(
+        address _from,
+        address _to,
+        uint256 _value,
+        address _spender
+    ) internal <span class="marker" id="mapping-132"></span><span class="token add" data-title="function_definition/virtual">virtual</span> {
+        _subAllowance(_from, _spender, _value);
+        _transferAllArgs(_from, _to, _value);
+    }
+
+    function transferFrom(
+        address _from,
+        address _to,
+        uint256 _value
+    ) external returns (bool) {
+        _transferFromAllArgs(_from, _to, _value, msg.sender);
+        return true;
+    }
+
+    function transfer(address _to, uint256 _value) external returns (bool) {
+        _transferAllArgs(msg.sender, _to, _value);
+        return true;
+    }
+
+    function _transferAllArgs(
+        address _from,
+        address _to,
+        uint256 _value
+    ) internal <span class="marker" id="mapping-133"></span><span class="token add" data-title="function_definition/virtual">virtual</span> resolveSender(_from) {
+        _subBalance(_from, _value);
+        emit Transfer(_from, _to, _value);
+        bool hasHook;
+        address to;
+        (to, hasHook) = _resolveRecipient(_to);
+        _addBalance(to, _value);
+        if (_to != to) {
+            emit Transfer(_to, to, _value);
+        }
+        if (hasHook) {
+            TrueCoinReceiver(to).tokenFallback(_from, _value);
+        }
+    }
+
+    function _burn(address _from, uint256 _value) internal <span class="marker" id="mapping-134"></span><span class="token add" data-title="function_definition/virtual">virtual</span> returns (uint256 resultBalance_, uint256 resultSupply_) {
+        emit Transfer(_from, address(0), _value);
+        emit Burn(_from, _value);
+        resultBalance_ = _subBalance(_from, _value);
+        resultSupply_ = totalSupply.sub(_value, "removing more stake than in supply");
+        totalSupply = resultSupply_;
+    }
+
+    function _mint(address _to, uint256 _value) internal <span class="marker" id="mapping-135"></span><span class="token add" data-title="function_definition/virtual">virtual</span> {
+        emit Transfer(address(0), _to, _value);
+        emit Mint(_to, _value);
+        (address to, bool hook) = _resolveRecipient(_to);
+        if (_to != to) {
+            emit Transfer(_to, to, _value);
+        }
+        _addBalance(to, _value);
+        totalSupply = totalSupply.add(_value, "totalSupply overflow");
+        if (hook) {
+            TrueCoinReceiver(to).tokenFallback(address(0x0), _value);
+        }
+    }
+}</span>
+
+<span class="marker" id="mapping-136"></span><span class="token upd" id="move-dst-46" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>F<span class="cupd">i</span><span class="cupd">le</span>:<span class="cupd"> </span>c<span class="cupd">ontract</span>s/<span class="cupd">tr</span>us<span class="cupd">t</span>t<span class="cupd">o</span>ke<span class="cupd">n</span><span class="cupd">s</span>/<span class="cupd">Claimable</span><span class="cupd">Contract</span><span class="cupd">.</span><span class="cupd">s</span><span class="cupd">o</span>l</span>
+
+<span class="marker" id="mapping-137"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.6.10;</span>
+
+
+<span class="marker" id="mapping-138"></span><span class="token upd" id="move-dst-53" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+ * @<span class="cupd">t</span>i<span class="cupd">tl</span><span class="cupd">e</span> ClaimableContract
+ <span class="cupd">*</span> @dev The ClaimableC<span class="cupd">on</span>tr<span class="cupd">a</span>ct c<span class="cupd">o</span>ntract is a<span class="cupd"> </span>copy of Claima<span class="cupd">b</span>le <span class="cupd">C</span><span class="cupd">on</span>tract by Zeppelin.
+ and provides basi<span class="cupd">c</span><span class="cupd"> </span>author<span class="cupd">i</span>z<span class="cupd">a</span><span class="cupd">t</span>i<span class="cupd">on co</span>ntrol <span class="cupd">fu</span>nct<span class="cupd">i</span>ons. I<span class="cupd">n</span>he<span class="cupd">r</span>it<span class="cupd">s</span><span class="cupd"> </span>sto<span class="cupd">r</span>age layout of
+ ProxyStorage.
+ */</span>
+<span class="marker" id="mapping-139"></span><span class="token mv" id="move-dst-47" data-title="source_file/contract_declaration">contract ClaimableContract is ProxyStorage {
+    function owner() public view returns (address) {
+        return owner_;
+    }
+
+    function pendingOwner() public view returns (address) {
+        return pendingOwner_;
+    }
+
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+    <span class="marker" id="mapping-140"></span><span class="token upd" id="move-dst-48" data-title="contract_body/comment"><span class="cupd">/**
+   </span> <span class="cupd"> * @dev sets the original `owner` of the contract to the sender
+  </span> <span class="cupd">  * at construction. Must then be reinitialized
+    </span> */</span>
+    constructor() public {
+        owner_ = msg.sender;
+        emit OwnershipTransferred(address(0), msg.sender);
+    }
+
+    <span class="marker" id="mapping-141"></span><span class="token upd" id="move-dst-49" data-title="contract_body/comment"><span class="cupd">/**
+   </span> <span class="cupd"> * @dev Throws if called by any account other than the owner.
+  </span> <span class="cupd">  </span>*/</span>
+    modifier onlyOwner() {
+        require(msg.sender == owner_, "only owner");
+        _;
+    }
+
+    <span class="marker" id="mapping-142"></span><span class="token upd" id="move-dst-50" data-title="contract_body/comment"><span class="cupd">/**
+   </span> <span class="cupd"> * @dev Modifier throws if called by any account other than the pendingOwner.
+  </span> <span class="cupd">  </span>*/</span>
+    modifier onlyPendingOwner() {
+        require(msg.sender == pendingOwner_);
+        _;
+    }
+
+    <span class="marker" id="mapping-143"></span><span class="token upd" id="move-dst-51" data-title="contract_body/comment"><span class="cupd">/**
+   </span> <span class="cupd"> * @dev Allows the current owner to set the pendingOwner address.
+  </span> <span class="cupd">  * @param newOwner The address to transfer ownership to.
+ </span> <span class="cupd">  </span> */</span>
+    function transferOwnership(address newOwner) public onlyOwner {
+        pendingOwner_ = newOwner;
+    }
+
+    <span class="marker" id="mapping-144"></span><span class="token upd" id="move-dst-52" data-title="contract_body/comment"><span class="cupd">/**
+   </span> <span class="cupd"> * @dev Allows the pendingOwner address to finalize the transfer.
+  </span> <span class="cupd">  </span>*/</span>
+    function claimOwnership() public onlyPendingOwner {
+        address _pendingOwner = pendingOwner_;
+        emit OwnershipTransferred(owner_, _pendingOwner);
+        owner_ = _pendingOwner;
+        pendingOwner_ = address(0);
+    }
+}</span>
+
+<span class="marker" id="mapping-145"></span><span class="token add" data-title="source_file/comment">// File: contracts/trusttokens/TimeLockedToken.sol</span>
+
+<span class="marker" id="mapping-146"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.6.10;</span>
+
+
+
+
+<span class="marker" id="mapping-147"></span><span class="token add" data-title="source_file/comment">/**
+ * @title TimeLockedToken
+ * @notice Time Locked ERC20 Token
+ * @author Harold Hyatt
+ * @dev Contract which gives the ability to time-lock tokens
+ *
+ * The registerLockup() function allows an account to transfer
+ * its tokens to another account, locking them according to the
+ * distribution epoch periods
+ *
+ * By overriding the balanceOf(), transfer(), and transferFrom()
+ * functions in ERC20, an account can show its full, post-distribution
+ * balance but only transfer or spend up to an allowed amount
+ *
+ * Every time an epoch passes, a portion of previously non-spendable tokens
+ * are allowed to be transferred, and after all epochs have passed, the full
+ * account balance is unlocked
+ */</span>
+<span class="marker" id="mapping-148"></span><span class="token mv" id="move-dst-39" data-title="source_file/contract_declaration"><span class="marker" id="mapping-149"></span><span class="token add" data-title="contract_declaration/abstract">abstract</span> contract <span class="marker" id="mapping-150"></span><span class="token upd" id="move-dst-40" data-title="contract_declaration/identifier"><span class="cupd">T</span>im<span class="cupd">e</span>L<span class="cupd">o</span><span class="cupd">c</span>k<span class="cupd">e</span>dToken</span> <span class="marker" id="mapping-151"></span><span class="token add" data-title="contract_declaration/is">is</span> <span class="marker" id="mapping-152"></span><span class="token mv" id="move-dst-54" data-title="contract_declaration/inheritance_specifier">ValTokenWithHook</span><span class="marker" id="mapping-153"></span><span class="token add" data-title="contract_declaration/,">,</span> <span class="marker" id="mapping-154"></span><span class="token mv" id="move-dst-55" data-title="contract_declaration/inheritance_specifier">ClaimableContract</span> <span class="marker" id="mapping-155"></span><span class="token add" data-title="contract_declaration/contract_body">{
+    <span class="marker" id="mapping-156"></span><span class="token add" data-title="contract_body/using_directive">using SafeMath for uint256;</span>
+
+    // represents total distribution for locked balances
+    <span class="marker" id="mapping-157"></span><span class="token add" data-title="contract_body/state_variable_declaration">mapping(address =&gt; uint256) distribution;</span>
+
+    // start of the lockup period
+    // Friday, July 24, 2020 4:58:31 PM GMT
+    <span class="marker" id="mapping-158"></span><span class="token add" data-title="contract_body/state_variable_declaration">uint256 constant LOCK_START = 1595609911;</span>
+    // length of time to delay first epoch
+    <span class="marker" id="mapping-159"></span><span class="token add" data-title="contract_body/state_variable_declaration">uint256 constant FIRST_EPOCH_DELAY = 30 days;</span>
+    // how long does an epoch last
+    <span class="marker" id="mapping-160"></span><span class="token add" data-title="contract_body/state_variable_declaration">uint256 constant EPOCH_DURATION = 90 days;</span>
+    // number of epochs
+    <span class="marker" id="mapping-161"></span><span class="token add" data-title="contract_body/state_variable_declaration">uint256 constant TOTAL_EPOCHS = 8;</span>
+    // registry of locked addresses
+    <span class="marker" id="mapping-162"></span><span class="token add" data-title="contract_body/state_variable_declaration">address public timeLockRegistry;</span>
+
+    <span class="marker" id="mapping-163"></span><span class="token add" data-title="contract_body/modifier_definition">modifier onlyTimeLockRegistry() {
+        require(msg.sender == timeLockRegistry, "only TimeLockRegistry");
+        _;
+    }</span>
+
+    /**
+     * @dev Set TimeLockRegistry address
+     * @param newTimeLockRegistry Address of TimeLockRegistry contract
+     */
+    <span class="marker" id="mapping-164"></span><span class="token add" data-title="contract_body/function_definition">function setTimeLockRegistry(<span class="marker" id="mapping-165"></span><span class="token add" data-title="function_definition/parameter"><span class="marker" id="mapping-166"></span><span class="token add" data-title="parameter/type_name"><span class="marker" id="mapping-167"></span><span class="token mv" id="move-dst-36" data-title="type_name/primitive_type">address</span></span> newTimeLockRegistry</span>) <span class="marker" id="mapping-168"></span><span class="token add" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-169"></span><span class="token add" data-title="function_definition/modifier_invocation">onlyOwner</span> <span class="marker" id="mapping-170"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-171"></span><span class="token add" data-title="function_body/expression_statement"><span class="marker" id="mapping-172"></span><span class="token add" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-173"></span><span class="token add" data-title="call_expression/call_argument"><span class="marker" id="mapping-174"></span><span class="token mv" id="move-dst-35" data-title="call_argument/binary_expression"><span class="marker" id="mapping-175"></span><span class="token add" data-title="binary_expression/identifier">newTimeLockRegistry</span> != address(<span class="marker" id="mapping-176"></span><span class="token add" data-title="type_cast_expression/call_argument">0</span>)</span></span>, <span class="marker" id="mapping-177"></span><span class="token add" data-title="call_expression/call_argument">"cannot be zero address"</span>)</span>;</span>
+        <span class="marker" id="mapping-178"></span><span class="token add" data-title="function_body/expression_statement">require(newTimeLockRegistry != timeLockRegistry, "must be new TimeLockRegistry");</span>
+        <span class="marker" id="mapping-179"></span><span class="token add" data-title="function_body/expression_statement">timeLockRegistry = newTimeLockRegistry;</span>
+    }</span></span>
+
+    /**
+     * @dev Transfer function which includes unlocked tokens
+     * @param _from The address to send tokens from
+     * @param _to The address that will receive the tokens
+     * @param _value The amount of tokens to be transferred
+     */
+    <span class="marker" id="mapping-180"></span><span class="token add" data-title="contract_body/function_definition">function _transferAllArgs(
+        <span class="marker" id="mapping-181"></span><span class="token add" data-title="function_definition/parameter">address _from</span>,
+        <span class="marker" id="mapping-182"></span><span class="token add" data-title="function_definition/parameter">address _to</span>,
+        <span class="marker" id="mapping-183"></span><span class="token add" data-title="function_definition/parameter">uint256 _value</span>
+    ) <span class="marker" id="mapping-184"></span><span class="token mv" id="move-dst-56" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-185"></span><span class="token add" data-title="function_definition/override_specifier">override</span> <span class="marker" id="mapping-186"></span><span class="token add" data-title="function_definition/modifier_invocation">resolveSender(_from)</span> <span class="marker" id="mapping-187"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-188"></span><span class="token add" data-title="function_body/expression_statement">require(balanceOf[_from] &gt;= _value, "insufficient balance");</span>
+        <span class="marker" id="mapping-189"></span><span class="token add" data-title="function_body/expression_statement">require(unlockedBalance(_from) &gt;= _value, "attempting to transfer locked funds");</span>
+
+        <span class="marker" id="mapping-190"></span><span class="token add" data-title="function_body/expression_statement"><span class="marker" id="mapping-191"></span><span class="token add" data-title="expression_statement/call_expression"><span class="marker" id="mapping-192"></span><span class="token add" data-title="call_expression/member_expression">super._transferAllArgs</span>(<span class="marker" id="mapping-193"></span><span class="token add" data-title="call_expression/call_argument">_from</span>, <span class="marker" id="mapping-194"></span><span class="token add" data-title="call_expression/call_argument">_to</span>, <span class="marker" id="mapping-195"></span><span class="token mv" id="move-dst-37" data-title="call_expression/call_argument">_value</span>)</span>;</span>
+    }</span></span>
+
+    /**
+     * @dev transferFrom function which includes unlocked tokens
+     * @param _from The address to send tokens from
+     * @param _to The address that will receive the tokens
+     * @param _value The amount of tokens to be transferred
+     * @param _spender The address allowed to make the transfer
+     */
+    <span class="marker" id="mapping-196"></span><span class="token add" data-title="contract_body/function_definition">function _transferFromAllArgs(
+        address _from,
+        address _to,
+        uint256 _value,
+        address _spender
+    ) internal override {
+        require(balanceOf[_from] &gt;= _value, "insufficient balance");
+        require(unlockedBalance(_from) &gt;= _value, "attempting to transfer locked funds");
+
+        super._transferFromAllArgs(_from, _to, _value, _spender);
+    }</span>
+
+    /**
+     * @dev Check if amount we want to burn is unlocked before burning
+     * @param _from The address whose tokens will burn
+     * @param _value The amount of tokens to be burnt
+     */
+    <span class="marker" id="mapping-197"></span><span class="token add" data-title="contract_body/function_definition">function _burn(<span class="marker" id="mapping-198"></span><span class="token add" data-title="function_definition/parameter">address _from</span>, <span class="marker" id="mapping-199"></span><span class="token add" data-title="function_definition/parameter">uint256 _value</span>) <span class="marker" id="mapping-200"></span><span class="token mv" id="move-dst-34" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-201"></span><span class="token add" data-title="function_definition/override_specifier">override</span> <span class="marker" id="mapping-202"></span><span class="token add" data-title="function_definition/return_type_definition">returns (uint256 resultBalance_, uint256 resultSupply_)</span> <span class="marker" id="mapping-203"></span><span class="token add" data-title="function_definition/function_body">{
+        require(unlockedBalance(_from) &gt;= _value, "attempting to burn locked funds");
+
+        (resultBalance_, resultSupply_) = super._burn(_from, _value);
+    }</span></span>
+
+    /**
+     * @dev Transfer tokens to another account under the lockup schedule
+     * Emits a transfer event showing a transfer to the recipient
+     * Only the registry can call this function
+     * Once registered, the distribution cannot be registered again
+     * @param receiver Address to receive the tokens
+     * @param amount Tokens to be transferred
+     */
+    <span class="marker" id="mapping-204"></span><span class="token add" data-title="contract_body/function_definition">function registerLockup(address receiver, uint256 amount) external onlyTimeLockRegistry {
+        require(balanceOf[msg.sender] &gt;= amount, "insufficient balance");
+        require(distribution[receiver] == 0, "distribution already set");
+
+        // set distribution to lockup amount
+        distribution[receiver] = amount;
+
+        // transfer to recipient
+        _transferAllArgs(msg.sender, receiver, amount);
+    }</span>
+
+    /**
+     * @dev Get locked balance for an account
+     * @param account Account to check
+     * @return Amount locked
+     */
+    <span class="marker" id="mapping-205"></span><span class="token add" data-title="contract_body/function_definition">function lockedBalance(address account) public view returns (uint256) {
+        // distribution * (epochsLeft / totalEpochs)
+        uint256 epochsLeft = TOTAL_EPOCHS.sub(epochsPassed());
+        return distribution[account].mul(epochsLeft).div(TOTAL_EPOCHS);
+    }</span>
+
+    /**
+     * @dev Get unlocked balance for an account
+     * @param account Account to check
+     * @return Amount that is unlocked and available eg. to transfer
+     */
+    <span class="marker" id="mapping-206"></span><span class="token add" data-title="contract_body/function_definition">function unlockedBalance(address account) public view returns (uint256) {
+        // totalBalance - lockedBalance
+        return balanceOf[account].sub(lockedBalance(account));
+    }</span>
+
+    /*
+     * @dev Get number of epochs passed
+     * @return Value between 0 and 8 of lockup epochs already passed
+     */
+    <span class="marker" id="mapping-207"></span><span class="token add" data-title="contract_body/function_definition">function epochsPassed() public view returns (uint256) {
+        // return 0 if timestamp is lower than start time
+        if (block.timestamp &lt; LOCK_START) {
+            return 0;
+        }
+
+        // how long it has been since the beginning of lockup period
+        uint256 timePassed = block.timestamp.sub(LOCK_START);
+
+        // 1st epoch is FIRST_EPOCH_DELAY longer; we check to prevent subtraction underflow
+        if (timePassed &lt; FIRST_EPOCH_DELAY) {
+            return 0;
+        }
+
+        // subtract the FIRST_EPOCH_DELAY, so that we can count all epochs as lasting EPOCH_DURATION
+        uint256 totalEpochsPassed = timePassed.sub(FIRST_EPOCH_DELAY).div(EPOCH_DURATION);
+
+        // epochs don't count over TOTAL_EPOCHS
+        if (totalEpochsPassed &gt; TOTAL_EPOCHS) {
+            return TOTAL_EPOCHS;
+        }
+
+        return totalEpochsPassed;
+    }</span>
+
+    /**
+     * @dev Get timestamp of next epoch
+     * Will revert if all epochs have passed
+     * @return Timestamp of when the next epoch starts
+     */
+    <span class="marker" id="mapping-208"></span><span class="token add" data-title="contract_body/function_definition">function nextEpoch() public view returns (uint256) {
+        // get number of epochs passed
+        uint256 passed = epochsPassed();
+
+        // if all epochs passed, return
+        if (passed == TOTAL_EPOCHS) {
+            // return INT_MAX
+            return uint256(-1);
+        }
+
+        // if no epochs passed, return latest epoch + delay + standard duration
+        if (passed == 0) {
+            return latestEpoch().add(FIRST_EPOCH_DELAY).add(EPOCH_DURATION);
+        }
+
+        // otherwise return latest epoch + epoch duration
+        return latestEpoch().add(EPOCH_DURATION);
+    }</span>
+
+    /**
+     * @dev Get timestamp of latest epoch
+     * @return Timestamp of when the current epoch has started
+     */
+    <span class="marker" id="mapping-209"></span><span class="token add" data-title="contract_body/function_definition">function latestEpoch() public view returns (uint256) {
+        // get number of epochs passed
+        uint256 passed = epochsPassed();
+
+        // if no epochs passed, return lock start time
+        if (passed == 0) {
+            return LOCK_START;
+        }
+
+        // accounts for first epoch being longer
+        // lockStart + firstEpochDelay + (epochsPassed * epochDuration)
+        return LOCK_START.add(FIRST_EPOCH_DELAY).add(passed.mul(EPOCH_DURATION));
+    }</span>
+
+    /**
+     * @dev Get timestamp of final epoch
+     * @return Timestamp of when the last epoch ends and all funds are released
+     */
+    <span class="marker" id="mapping-210"></span><span class="token add" data-title="contract_body/function_definition">function finalEpoch() public pure returns (uint256) {
+        // lockStart + firstEpochDelay + (epochDuration * totalEpochs)
+        return LOCK_START.add(FIRST_EPOCH_DELAY).add(EPOCH_DURATION.mul(TOTAL_EPOCHS));
+    }</span>
+
+    /**
+     * @dev Get timestamp of locking period start
+     * @return Timestamp of locking period start
+     */
+    <span class="marker" id="mapping-211"></span><span class="token add" data-title="contract_body/function_definition">function lockStart() public pure returns (uint256) {
+        return LOCK_START;
+    }</span>
+}</span></span>
+
+<span class="marker" id="mapping-212"></span><span class="token add" data-title="source_file/comment">// File: contracts/trusttokens/TrustToken.sol</span>
+
+<span class="marker" id="mapping-213"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.6.10;</span>
+
+
+
+
+/**
+ * @title TrustToken
+ * @dev The TrustToken contract is a claimable contract where the
+ * owner can only mint or transfer ownership. TrustTokens use 8 decimals
+ * in order to prevent rewards from getting stuck in the remainder on division.
+ * Tolerates dilution to slash stake and accept rewards.
+ */
+contract TrustToken is <span class="marker" id="mapping-214"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">TimeLockedToken</span> {
+    using SafeMath for uint256;
+    Registry registry_;
+    uint256 constant MAX_SUPPLY = 145000000000000000;
+
+    /**
+     * @dev initialize trusttoken and give ownership to sender
+     * This is necessary to set ownership for proxy
+     */
+    function initialize(Registry _registry) public {
+        require(!initalized, "already initalized");
+        registry_ = _registry;
+        owner_ = msg.sender;
+        initalized = true;
+    }
+
+    function registry() <span class="marker" id="mapping-215"></span><span class="token add" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-216"></span><span class="token add" data-title="function_definition/override_specifier">override</span> view returns (Registry) {
+        return registry_;
+    }
+
+    /**
+     * @dev mint TRU
+     * Can never mint more than MAX_SUPPLY = 1.45 billion
+     */
+    function mint(address _to, uint256 _amount) external onlyOwner {
+        if (totalSupply.add(_amount) &lt;= MAX_SUPPLY) {
+            _mint(_to, _amount);
+        } else {
+            revert("Max supply exceeded");
+        }
+    }
+
+    function decimals() public pure returns (uint8) {
+        return 8;
+    }
+
+    function rounding() public pure returns (uint8) {
+        return 8;
+    }
+
+    function name() public pure returns (string memory) {
+        return "TrustToken";
+    }
+
+    function symbol() public pure returns (string memory) {
+        return "TRU";
+    }
+}</pre></div></div></div></body></html>

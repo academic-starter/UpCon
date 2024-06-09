@@ -1,0 +1,469 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>Governance.sol</h5><pre class="pre-scrollable">/*
+  Copyright 2019-2022 StarkWare Industries Ltd.
+
+  Licensed under the Apache License, Version 2.0 (the "License").
+  You may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  https://www.starkware.co/open-source-license/
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions
+  and limitations under the License.
+*/
+// SPDX-License-Identifier: Apache-2.0.
+pragma solidity ^0.6.12;
+
+import "MGovernance.sol";
+
+/*
+  Implements Generic Governance, applicable for both proxy and main contract, and possibly others.
+  Notes:
+   The use of the same function names by both the Proxy and a delegated implementation
+   is not possible since calling the implementation functions is done via the default function
+   of the Proxy. For this reason, for example, the implementation of MainContract (MainGovernance)
+   exposes mainIsGovernor, which calls the internal _isGovernor method.
+*/
+struct GovernanceInfoStruct {
+    mapping(address =&gt; bool) effectiveGovernors;
+    address candidateGovernor;
+    bool initialized;
+}
+
+abstract contract Governance is MGovernance {
+    event LogNominatedGovernor(address nominatedGovernor);
+    event LogNewGovernorAccepted(address acceptedGovernor);
+    event LogRemovedGovernor(address removedGovernor);
+    event LogNominationCancelled();
+
+    function getGovernanceInfo() internal view virtual returns (GovernanceInfoStruct storage);
+
+    /*
+      Current code intentionally prevents governance re-initialization.
+      This may be a problem in an upgrade situation, in a case that the upgrade-to implementation
+      performs an initialization (for real) and within that calls initGovernance().
+
+      Possible workarounds:
+      1. Clearing the governance info altogether by changing the MAIN_GOVERNANCE_INFO_TAG.
+         This will remove existing main governance information.
+      2. Modify the require part in this function, so that it will exit quietly
+         when trying to re-initialize (uncomment the lines below).
+    */
+    function initGovernance() internal {
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        require(!gub.initialized, "ALREADY_INITIALIZED");
+        gub.initialized = true; <span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="function_body/comment"><span class="cupd">// to ensure a</span>dd<span class="cupd">Governor() won't fail.</span></span>
+        // Add the initial governer.
+        <span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-2" data-title="call_expression/identifier"><span class="cupd">a</span>dd<span class="cupd">Governor</span></span>(msg.sender);
+
+        <span class="marker" id="mapping-3"></span><span class="token del" data-title="function_body/comment">// Emit governance information.</span>
+        <span class="marker" id="mapping-4"></span><span class="token del" data-title="function_body/emit_statement">emit LogNominatedGovernor(msg.sender);</span>
+        <span class="marker" id="mapping-5"></span><span class="token del" data-title="function_body/emit_statement">emit LogNewGovernorAccepted(msg.sender);</span>
+    }
+
+    function _isGovernor(address user) internal view override returns (bool) {
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        return gub.effectiveGovernors[user];
+    }
+
+    /*
+      Cancels the nomination of a governor candidate.
+    */
+    function _cancelNomination() internal onlyGovernance {
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        if (gub.candidateGovernor != address(0x0)) {
+            gub.candidateGovernor = address(0x0);
+            emit LogNominationCancelled();
+        }
+    }
+
+    function _nominateNewGovernor(address newGovernor) internal onlyGovernance {
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        require(newGovernor != address(0x0), "BAD_ADDRESS");
+        require(!_isGovernor(newGovernor), "ALREADY_GOVERNOR");
+        require(gub.candidateGovernor == address(0x0), "OTHER_CANDIDATE_PENDING");
+        gub.candidateGovernor = newGovernor;
+        emit LogNominatedGovernor(newGovernor);
+    }
+
+    <span class="marker" id="mapping-6"></span><span class="token upd" id="move-src-3" data-title="contract_body/comment"><span class="cupd">/*
+      The a</span>dd<span class="cupd">Governor is called in two cases:
+      1. by _acceptGovernance when a new governor accepts its role.
+      2. by initGovernance to add the initial governor.
+      The difference is that the init path skips the nominate step
+      that would fail because of the onlyGovernance modifier.
+    */</span></span>
+    function <span class="marker" id="mapping-7"></span><span class="token upd" id="move-src-4" data-title="function_definition/identifier"><span class="cupd">a</span>dd<span class="cupd">Governor</span></span>(address newGovernor) private {
+        require(!_isGovernor(newGovernor), "ALREADY_GOVERNOR");
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        gub.effectiveGovernors[newGovernor] = true;
+    }
+
+    function _acceptGovernance() internal {
+        // The new governor was proposed as a candidate by the current governor.
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        require(msg.sender == gub.candidateGovernor, "ONLY_CANDIDATE_GOVERNOR");
+
+        // Update state.
+        <span class="marker" id="mapping-8"></span><span class="token upd" id="move-src-5" data-title="call_expression/identifier"><span class="cupd">a</span>dd<span class="cupd">Governor</span></span>(gub.candidateGovernor);
+        gub.candidateGovernor = address(0x0);
+
+        <span class="marker" id="mapping-9"></span><span class="token del" data-title="function_body/comment">// Send a notification about the change of governor.</span>
+        <span class="marker" id="mapping-10"></span><span class="token del" data-title="function_body/emit_statement">emit LogNewGovernorAccepted(msg.sender);</span>
+    }
+
+    /*
+      Remove a governor from office.
+    */
+    function _removeGovernor(address governorForRemoval) internal onlyGovernance {
+        require(msg.sender != governorForRemoval, "GOVERNOR_SELF_REMOVE");
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        require(_isGovernor(governorForRemoval), "NOT_GOVERNOR");
+        gub.effectiveGovernors[governorForRemoval] = false;
+        emit LogRemovedGovernor(governorForRemoval);
+    }
+}
+</pre></div><div class="col-6"><h5>Governance.sol</h5><pre class="pre-scrollable">/*
+  Copyright 2019-2022 StarkWare Industries Ltd.
+
+  Licensed under the Apache License, Version 2.0 (the "License").
+  You may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  https://www.starkware.co/open-source-license/
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions
+  and limitations under the License.
+*/
+// SPDX-License-Identifier: Apache-2.0.
+pragma solidity ^0.6.12;
+
+import "MGovernance.sol";
+
+/*
+  Implements Generic Governance, applicable for both proxy and main contract, and possibly others.
+  Notes:
+   The use of the same function names by both the Proxy and a delegated implementation
+   is not possible since calling the implementation functions is done via the default function
+   of the Proxy. For this reason, for example, the implementation of MainContract (MainGovernance)
+   exposes mainIsGovernor, which calls the internal _isGovernor method.
+*/
+struct GovernanceInfoStruct {
+    mapping(address =&gt; bool) effectiveGovernors;
+    address candidateGovernor;
+    bool initialized;
+}
+
+abstract contract Governance is MGovernance {
+    event LogNominatedGovernor(address nominatedGovernor);
+    event LogNewGovernorAccepted(address acceptedGovernor);
+    event LogRemovedGovernor(address removedGovernor);
+    event LogNominationCancelled();
+
+    function getGovernanceInfo() internal view virtual returns (GovernanceInfoStruct storage);
+
+    /*
+      Current code intentionally prevents governance re-initialization.
+      This may be a problem in an upgrade situation, in a case that the upgrade-to implementation
+      performs an initialization (for real) and within that calls initGovernance().
+
+      Possible workarounds:
+      1. Clearing the governance info altogether by changing the MAIN_GOVERNANCE_INFO_TAG.
+         This will remove existing main governance information.
+      2. Modify the require part in this function, so that it will exit quietly
+         when trying to re-initialize (uncomment the lines below).
+    */
+    function initGovernance() internal {
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        require(!gub.initialized, "ALREADY_INITIALIZED");
+        gub.initialized = true; <span class="marker" id="mapping-11"></span><span class="token upd" id="move-dst-1" data-title="function_body/comment"><span class="cupd">// to ensure a</span>cceptNew<span class="cupd">Governor() won't fail.</span></span>
+        // Add the initial governer.
+        <span class="marker" id="mapping-12"></span><span class="token upd" id="move-dst-2" data-title="call_expression/identifier"><span class="cupd">a</span>cceptNew<span class="cupd">Governor</span></span>(msg.sender);
+    }
+
+    function _isGovernor(address user) internal view override returns (bool) {
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        return gub.effectiveGovernors[user];
+    }
+
+    /*
+      Cancels the nomination of a governor candidate.
+    */
+    function _cancelNomination() internal onlyGovernance {
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        if (gub.candidateGovernor != address(0x0)) {
+            gub.candidateGovernor = address(0x0);
+            emit LogNominationCancelled();
+        }
+    }
+
+    function _nominateNewGovernor(address newGovernor) internal onlyGovernance {
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        require(newGovernor != address(0x0), "BAD_ADDRESS");
+        require(!_isGovernor(newGovernor), "ALREADY_GOVERNOR");
+        require(gub.candidateGovernor == address(0x0), "OTHER_CANDIDATE_PENDING");
+        gub.candidateGovernor = newGovernor;
+        emit LogNominatedGovernor(newGovernor);
+    }
+
+    <span class="marker" id="mapping-13"></span><span class="token upd" id="move-dst-3" data-title="contract_body/comment"><span class="cupd">/*
+      The a</span>cceptNew<span class="cupd">Governor is called in two cases:
+      1. by _acceptGovernance when a new governor accepts its role.
+      2. by initGovernance to add the initial governor.
+      The difference is that the init path skips the nominate step
+      that would fail because of the onlyGovernance modifier.
+    */</span></span>
+    function <span class="marker" id="mapping-14"></span><span class="token upd" id="move-dst-4" data-title="function_definition/identifier"><span class="cupd">a</span>cceptNew<span class="cupd">Governor</span></span>(address newGovernor) private {
+        require(!_isGovernor(newGovernor), "ALREADY_GOVERNOR");
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        gub.effectiveGovernors[newGovernor] = true;
+
+        <span class="marker" id="mapping-15"></span><span class="token add" data-title="function_body/comment">// Emit governance information.</span>
+        <span class="marker" id="mapping-16"></span><span class="token add" data-title="function_body/emit_statement">emit LogNewGovernorAccepted(newGovernor);</span>
+    }
+
+    function _acceptGovernance() internal {
+        // The new governor was proposed as a candidate by the current governor.
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        require(msg.sender == gub.candidateGovernor, "ONLY_CANDIDATE_GOVERNOR");
+
+        // Update state.
+        <span class="marker" id="mapping-17"></span><span class="token upd" id="move-dst-5" data-title="call_expression/identifier"><span class="cupd">a</span>cceptNew<span class="cupd">Governor</span></span>(gub.candidateGovernor);
+        gub.candidateGovernor = address(0x0);
+    }
+
+    /*
+      Remove a governor from office.
+    */
+    function _removeGovernor(address governorForRemoval) internal onlyGovernance {
+        require(msg.sender != governorForRemoval, "GOVERNOR_SELF_REMOVE");
+        GovernanceInfoStruct storage gub = getGovernanceInfo();
+        require(_isGovernor(governorForRemoval), "NOT_GOVERNOR");
+        gub.effectiveGovernors[governorForRemoval] = false;
+        emit LogRemovedGovernor(governorForRemoval);
+    }
+}
+</pre></div></div></div></body></html>

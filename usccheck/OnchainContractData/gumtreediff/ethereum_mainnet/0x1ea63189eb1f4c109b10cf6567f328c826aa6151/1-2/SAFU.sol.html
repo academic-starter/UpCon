@@ -1,0 +1,547 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>SAFU.sol</h5><pre class="pre-scrollable">// SPDX-License-Identifier: MIT
+pragma solidity 0.6.10;
+pragma experimental ABIEncoderV2;
+
+import {SafeMath} from "SafeMath.sol";
+import {SafeERC20} from "SafeERC20.sol";
+import {IERC20} from "IERC20.sol";
+
+import {ERC20} from "UpgradeableERC20.sol";
+import {DeficiencyToken} from "DeficiencyToken.sol";
+import {IDeficiencyToken} from "IDeficiencyToken.sol";
+import {UpgradeableClaimable} from "UpgradeableClaimable.sol";
+import {ILoanToken2} from "ILoanToken2.sol";
+import {ITrueFiPool2} from "ITrueFiPool2.sol";
+import {ILoanFactory2} from "ILoanFactory2.sol";
+import {ILiquidator2} from "ILiquidator2.sol";
+import {I1Inch3} from "I1Inch3.sol";
+import {OneInchExchange} from "OneInchExchange.sol";
+import {ISAFU} from "ISAFU.sol";
+
+contract SAFU is ISAFU, UpgradeableClaimable {
+    using SafeMath for uint256;
+    using SafeERC20 for IERC20;
+    using SafeERC20 for IDeficiencyToken;
+    using SafeERC20 for ERC20;
+    using OneInchExchange for I1Inch3;
+
+    // ================ WARNING ==================
+    // ===== THIS CONTRACT IS INITIALIZABLE ======
+    // === STORAGE VARIABLES ARE DECLARED BELOW ==
+    // REMOVAL OR REORDER OF VARIABLES WILL RESULT
+    // ========= IN STORAGE CORRUPTION ===========
+
+    ILoanFactory2 public loanFactory;
+    ILiquidator2 public liquidator;
+    I1Inch3 public _1Inch;
+
+    mapping(ILoanToken2 =&gt; IDeficiencyToken) public override deficiencyToken;
+    mapping(address =&gt; uint256) public internalPoolDeficit;
+
+    // ======= STORAGE DECLARATION END ============
+
+    /**
+     * @dev Emitted when a loan is redeemed
+     * @param loan Loan that has been liquidated
+     * @param burnedAmount Amount of loan tokens that were burned
+     * @param redeemedAmount Amount of tokens that were received
+     */
+    event Redeemed(ILoanToken2 loan, uint256 burnedAmount, uint256 redeemedAmount);
+
+    /**
+     * @dev Emitted when a loan gets liquidated
+     * @param loan Loan that has been liquidated
+     * @param repaid DEPRECATED Amount repaid to the pool
+     * @param deficiencyToken Deficiency token representing a deficit that is owed to the pool by SAFU
+     * @param deficit Deficit amount that SAFU still owes the pool
+     */
+    event Liquidated(ILoanToken2 loan, uint256 repaid, IDeficiencyToken deficiencyToken, uint256 deficit);
+
+    /**
+     * @dev Emitted when a loan deficit is reclaimed
+     * @param loan Defaulted loan, which deficit was reclaimed
+     * @param reclaimed Amount reclaimed by the pool
+     */
+    event Reclaimed(ILoanToken2 loan, uint256 reclaimed);
+
+    /**
+     * @dev Emitted when SAFU swaps assets
+     */
+    event Swapped(uint256 amount, address srcToken, uint256 returnAmount, address dstToken);
+
+    function initialize(
+        ILoanFactory2 _loanFactory,
+        ILiquidator2 _liquidator,
+        I1Inch3 __1Inch
+    ) public initializer {
+        UpgradeableClaimable.initialize(msg.sender);
+        loanFactory = _loanFactory;
+        liquidator = _liquidator;
+        _1Inch = __1Inch;
+    }
+
+    /**
+     * @dev Dummy view so that tfTOKEN.deficitValue() discounts deficiency tokens to zero value.
+     * Does not affect SAFU internal deficiency token tracking.
+     */
+    function poolDeficit(address) external override view returns (uint256) {
+        return 0;
+    }
+
+    /**
+     * @dev Liquidates a defaulted Loan and withdraws a portion of tru from staking pool
+     * to compensate TrueFiPool. Deficit is saved to be redeemed later
+     * @param loan Loan to be liquidated
+     */
+    function liquidate(ILoanToken2 loan) external {
+        require(loanFactory.isLoanToken(address(loan)), "SAFU: Unknown loan");
+        require(loan.status() == ILoanToken2.Status.Defaulted, "SAFU: Loan is not defaulted");
+
+        ITrueFiPool2 pool = ITrueFiPool2(loan.pool());
+
+        liquidator.liquidate(loan);
+        pool.liquidate(loan);
+
+        uint256 deficit = loan.debt().mul(tokenBalance(loan)).div(loan.totalSupply());
+        deficiencyToken[loan] = new DeficiencyToken(loan, deficit);
+        internalPoolDeficit[address(pool)] = internalPoolDeficit[address(pool)].add(deficit);
+
+        emit Liquidated(loan, 0, deficiencyToken[loan], deficit);
+    }
+
+    /**
+     * @dev Returns SAFU's balance of a specific token
+     * @param token A token which balance is to be returned
+     */
+    function tokenBalance(IERC20 token) public view returns (uint256) {
+        return token.balanceOf(address(this));
+    }
+
+    /**
+     * @dev Redeems a loan for underlying repaid debt
+     * @param loan Loan token to be redeemed
+     */
+    function redeem(ILoanToken2 loan) public onlyOwner {
+        require(loanFactory.isLoanToken(address(loan)), "SAFU: Unknown loan");
+        uint256 amountToBurn = tokenBalance(loan);
+        uint256 balanceBeforeRedeem = tokenBalance(loan.token());
+        loan.redeem(amountToBurn);
+        uint256 redeemedAmount = tokenBalance(loan.token()).sub(balanceBeforeRedeem);
+        emit Redeemed(loan, amountToBurn, redeemedAmount);
+    }
+
+    /**
+     * @dev Reclaims deficit funds, after a loan is repaid and transfers them to the pool
+     * @param loan Loan with a deficit to be reclaimed
+     * @param amount Amount of deficiency tokens to be reclaimed
+     */
+    function reclaim(ILoanToken2 loan, uint256 amount) external override {
+        require(loanFactory.isLoanToken(address(loan)), "SAFU: Unknown loan");
+        address poolAddress = address(loan.pool());
+        require(msg.sender == poolAddress, "SAFU: caller is not the loan's pool");
+        require(tokenBalance(loan) == 0, "SAFU: Loan has to be fully redeemed by SAFU");
+        IDeficiencyToken dToken = deficiencyToken[loan];
+        require(address(dToken) != address(0), "SAFU: No deficiency token found for loan");
+        require(dToken.balanceOf(poolAddress) &gt; 0, "SAFU: Pool does not have deficiency tokens to be reclaimed");
+
+        internalPoolDeficit[poolAddress] = internalPoolDeficit[poolAddress].sub(amount);
+        dToken.burnFrom(msg.sender, amount);
+        loan.token().safeTransfer(poolAddress, amount);
+
+        emit Reclaimed(loan, amount);
+    }
+
+    /**
+     * @dev Swap any asset owned by SAFU to any other asset, using 1inch protocol
+     */
+    function swap(bytes calldata data, uint256 minReturnAmount) external onlyOwner {
+        (I1Inch3.SwapDescription memory swapResult, uint256 returnAmount) = _1Inch.exchange(data);
+        require(swapResult.dstReceiver == address(this), "SAFU: Receiver is not SAFU");
+        require(returnAmount &gt;= minReturnAmount, "SAFU: Not enough tokens returned from swap");
+
+        emit Swapped(swapResult.amount, swapResult.srcToken, returnAmount, swapResult.dstToken);
+    }
+}
+</pre></div><div class="col-6"><h5>SAFU.sol</h5><pre class="pre-scrollable">// SPDX-License-Identifier: MIT
+pragma solidity 0.6.10;
+pragma experimental ABIEncoderV2;
+
+import {SafeMath} from "SafeMath.sol";
+import {SafeERC20} from "SafeERC20.sol";
+import {IERC20} from "IERC20.sol";
+
+import {ERC20} from "UpgradeableERC20.sol";
+import {DeficiencyToken} from "DeficiencyToken.sol";
+import {IDeficiencyToken} from "IDeficiencyToken.sol";
+import {UpgradeableClaimable} from "UpgradeableClaimable.sol";
+import {ILoanToken2} from "ILoanToken2.sol";
+import {ITrueFiPool2} from "ITrueFiPool2.sol";
+import {ILoanFactory2} from "ILoanFactory2.sol";
+import {ILiquidator2} from "ILiquidator2.sol";
+import {I1Inch3} from "I1Inch3.sol";
+import {OneInchExchange} from "OneInchExchange.sol";
+import {ISAFU} from "ISAFU.sol";
+
+contract SAFU is ISAFU, UpgradeableClaimable {
+    using SafeMath for uint256;
+    using SafeERC20 for IERC20;
+    using SafeERC20 for IDeficiencyToken;
+    using SafeERC20 for ERC20;
+    using OneInchExchange for I1Inch3;
+
+    // ================ WARNING ==================
+    // ===== THIS CONTRACT IS INITIALIZABLE ======
+    // === STORAGE VARIABLES ARE DECLARED BELOW ==
+    // REMOVAL OR REORDER OF VARIABLES WILL RESULT
+    // ========= IN STORAGE CORRUPTION ===========
+
+    ILoanFactory2 public loanFactory;
+    ILiquidator2 public liquidator;
+    I1Inch3 public _1Inch;
+
+    mapping(ILoanToken2 =&gt; IDeficiencyToken) public override deficiencyToken;
+    mapping(address =&gt; uint256) public internalPoolDeficit;
+
+    // ======= STORAGE DECLARATION END ============
+
+    /**
+     * @dev Emitted when a loan is redeemed
+     * @param loan Loan that has been liquidated
+     * @param burnedAmount Amount of loan tokens that were burned
+     * @param redeemedAmount Amount of tokens that were received
+     */
+    event Redeemed(ILoanToken2 loan, uint256 burnedAmount, uint256 redeemedAmount);
+
+    /**
+     * @dev Emitted when a loan gets liquidated
+     * @param loan Loan that has been liquidated
+     * @param repaid DEPRECATED Amount repaid to the pool
+     * @param deficiencyToken Deficiency token representing a deficit that is owed to the pool by SAFU
+     * @param deficit Deficit amount that SAFU still owes the pool
+     */
+    event Liquidated(ILoanToken2 loan, uint256 repaid, IDeficiencyToken deficiencyToken, uint256 deficit);
+
+    /**
+     * @dev Emitted when a loan deficit is reclaimed
+     * @param loan Defaulted loan, which deficit was reclaimed
+     * @param reclaimed Amount reclaimed by the pool
+     */
+    event Reclaimed(ILoanToken2 loan, uint256 reclaimed);
+
+    /**
+     * @dev Emitted when SAFU swaps assets
+     */
+    event Swapped(uint256 amount, address srcToken, uint256 returnAmount, address dstToken);
+
+    function initialize(
+        ILoanFactory2 _loanFactory,
+        ILiquidator2 _liquidator,
+        I1Inch3 __1Inch
+    ) public initializer {
+        UpgradeableClaimable.initialize(msg.sender);
+        loanFactory = _loanFactory;
+        liquidator = _liquidator;
+        _1Inch = __1Inch;
+    }
+
+    /**
+     * @dev Dummy view so that tfTOKEN.deficitValue() discounts deficiency tokens to zero value.
+     * Does not affect SAFU internal deficiency token tracking.
+     */
+    function poolDeficit(address) external override view returns (uint256) {
+        return 0;
+    }
+
+    /**
+     * @dev Liquidates a defaulted Loan and withdraws a portion of tru from staking pool
+     * to compensate TrueFiPool. Deficit is saved to be redeemed later
+     * @param loan Loan to be liquidated
+     */
+    function liquidate(ILoanToken2 loan) external <span class="marker" id="mapping-1"></span><span class="token add" data-title="function_definition/modifier_invocation">onlyOwner</span> {
+        require(loanFactory.isLoanToken(address(loan)), "SAFU: Unknown loan");
+        require(loan.status() == ILoanToken2.Status.Defaulted, "SAFU: Loan is not defaulted");
+
+        ITrueFiPool2 pool = ITrueFiPool2(loan.pool());
+
+        liquidator.liquidate(loan);
+        pool.liquidate(loan);
+
+        uint256 deficit = loan.debt().mul(tokenBalance(loan)).div(loan.totalSupply());
+        deficiencyToken[loan] = new DeficiencyToken(loan, deficit);
+        internalPoolDeficit[address(pool)] = internalPoolDeficit[address(pool)].add(deficit);
+
+        emit Liquidated(loan, 0, deficiencyToken[loan], deficit);
+    }
+
+    /**
+     * @dev Returns SAFU's balance of a specific token
+     * @param token A token which balance is to be returned
+     */
+    function tokenBalance(IERC20 token) public view returns (uint256) {
+        return token.balanceOf(address(this));
+    }
+
+    /**
+     * @dev Redeems a loan for underlying repaid debt
+     * @param loan Loan token to be redeemed
+     */
+    function redeem(ILoanToken2 loan) public onlyOwner {
+        require(loanFactory.isLoanToken(address(loan)), "SAFU: Unknown loan");
+        uint256 amountToBurn = tokenBalance(loan);
+        uint256 balanceBeforeRedeem = tokenBalance(loan.token());
+        loan.redeem(amountToBurn);
+        uint256 redeemedAmount = tokenBalance(loan.token()).sub(balanceBeforeRedeem);
+        emit Redeemed(loan, amountToBurn, redeemedAmount);
+    }
+
+    /**
+     * @dev Reclaims deficit funds, after a loan is repaid and transfers them to the pool
+     * @param loan Loan with a deficit to be reclaimed
+     * @param amount Amount of deficiency tokens to be reclaimed
+     */
+    function reclaim(ILoanToken2 loan, uint256 amount) external override {
+        require(loanFactory.isLoanToken(address(loan)), "SAFU: Unknown loan");
+        address poolAddress = address(loan.pool());
+        require(msg.sender == poolAddress, "SAFU: caller is not the loan's pool");
+        require(tokenBalance(loan) == 0, "SAFU: Loan has to be fully redeemed by SAFU");
+        IDeficiencyToken dToken = deficiencyToken[loan];
+        require(address(dToken) != address(0), "SAFU: No deficiency token found for loan");
+        require(dToken.balanceOf(poolAddress) &gt; 0, "SAFU: Pool does not have deficiency tokens to be reclaimed");
+
+        internalPoolDeficit[poolAddress] = internalPoolDeficit[poolAddress].sub(amount);
+        dToken.burnFrom(msg.sender, amount);
+        loan.token().safeTransfer(poolAddress, amount);
+
+        emit Reclaimed(loan, amount);
+    }
+
+    /**
+     * @dev Swap any asset owned by SAFU to any other asset, using 1inch protocol
+     */
+    function swap(bytes calldata data, uint256 minReturnAmount) external onlyOwner {
+        (I1Inch3.SwapDescription memory swapResult, uint256 returnAmount) = _1Inch.exchange(data);
+        require(swapResult.dstReceiver == address(this), "SAFU: Receiver is not SAFU");
+        require(returnAmount &gt;= minReturnAmount, "SAFU: Not enough tokens returned from swap");
+
+        emit Swapped(swapResult.amount, swapResult.srcToken, returnAmount, swapResult.dstToken);
+    }
+}
+</pre></div></div></div></body></html>

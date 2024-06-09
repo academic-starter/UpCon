@@ -1,0 +1,1501 @@
+{
+  "matches": [
+    {
+      "src": "\": \" [5407,5408]",
+      "dest": "\": \" [5407,5408]"
+    },
+    {
+      "src": "function_definition [6519,6612]",
+      "dest": "function_definition [6519,6612]"
+    },
+    {
+      "src": "{: { [2415,2416]",
+      "dest": "{: { [2415,2416]"
+    },
+    {
+      "src": "identifier: isTopLevelCall [3273,3287]",
+      "dest": "identifier: isTopLevelCall [3273,3287]"
+    },
+    {
+      "src": "identifier: version [4888,4895]",
+      "dest": "identifier: version [4888,4895]"
+    },
+    {
+      "src": "identifier: _initialized [3410,3422]",
+      "dest": "identifier: _initialized [3410,3422]"
+    },
+    {
+      "src": "assignment_expression [3655,3676]",
+      "dest": "assignment_expression [3655,3676]"
+    },
+    {
+      "src": "emit: emit [3690,3694]",
+      "dest": "emit: emit [3690,3694]"
+    },
+    {
+      "src": "(: ( [3321,3322]",
+      "dest": "(: ( [3321,3322]"
+    },
+    {
+      "src": "(: ( [3383,3384]",
+      "dest": "(: ( [3383,3384]"
+    },
+    {
+      "src": "parenthesized_expression [3375,3428]",
+      "dest": "parenthesized_expression [3375,3428]"
+    },
+    {
+      "src": "identifier: code [3390,3394]",
+      "dest": "identifier: code [3390,3394]"
+    },
+    {
+      "src": "function_body [4837,5092]",
+      "dest": "function_body [4837,5092]"
+    },
+    {
+      "src": "identifier: _getInitializedVersion [6312,6334]",
+      "dest": "identifier: _getInitializedVersion [6312,6334]"
+    },
+    {
+      "src": "returns: returns [6351,6358]",
+      "dest": "returns: returns [6351,6358]"
+    },
+    {
+      "src": "false [3671,3676]",
+      "dest": "false [3671,3676]"
+    },
+    {
+      "src": "comment: /**  * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed  * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an  * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer  * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.  *  * The initialization functions use a version number. Once a version number is used, it is consumed and cannot be  * reused. This mechanism prevents re-execution of each \"step\" but allows the creation of new initialization steps in  * case an upgrade adds a module that needs to be initialized.  *  * For example:  *  * [.hljs-theme-light.nopadding]  * ```solidity  * contract MyToken is ERC20Upgradeable {  *     function initialize() initializer public {  *         __ERC20_init(\"MyToken\", \"MTK\");  *     }  * }  *  * contract MyTokenV2 is MyToken, ERC20PermitUpgradeable {  *     function initializeV2() reinitializer(2) public {  *         __ERC20Permit_init(\"MyToken\");  *     }  * }  * ```  *  * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as  * possible by providing the encoded function call as the `_data` argument to {ERC1967Proxy-constructor}.  *  * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure  * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.  *  * [CAUTION]  * ====  * Avoid leaving a contract uninitialized.  *  * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation  * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke  * the {_disableInitializers} function in the constructor to automatically lock it when it is deployed:  *  * [.hljs-theme-light.nopadding]  * ```  * /// @custom:oz-upgrades-unsafe-allow constructor  * constructor() {  *     _disableInitializers();  * }  * ```  * ====  */ [173,2382]",
+      "dest": "comment: /**  * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed  * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an  * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer  * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.  *  * The initialization functions use a version number. Once a version number is used, it is consumed and cannot be  * reused. This mechanism prevents re-execution of each \"step\" but allows the creation of new initialization steps in  * case an upgrade adds a module that needs to be initialized.  *  * For example:  *  * [.hljs-theme-light.nopadding]  * ```solidity  * contract MyToken is ERC20Upgradeable {  *     function initialize() initializer public {  *         __ERC20_init(\"MyToken\", \"MTK\");  *     }  * }  *  * contract MyTokenV2 is MyToken, ERC20PermitUpgradeable {  *     function initializeV2() reinitializer(2) public {  *         __ERC20Permit_init(\"MyToken\");  *     }  * }  * ```  *  * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as  * possible by providing the encoded function call as the `_data` argument to {ERC1967Proxy-constructor}.  *  * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure  * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.  *  * [CAUTION]  * ====  * Avoid leaving a contract uninitialized.  *  * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation  * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke  * the {_disableInitializers} function in the constructor to automatically lock it when it is deployed:  *  * [.hljs-theme-light.nopadding]  * ```  * /// @custom:oz-upgrades-unsafe-allow constructor  * constructor() {  *     _disableInitializers();  * }  * ```  * ====  */ [173,2382]"
+    },
+    {
+      "src": "identifier: version [2816,2823]",
+      "dest": "identifier: version [2816,2823]"
+    },
+    {
+      "src": "binary_expression [3376,3427]",
+      "dest": "binary_expression [3376,3427]"
+    },
+    {
+      "src": "!: ! [4855,4856]",
+      "dest": "!: ! [4855,4856]"
+    },
+    {
+      "src": "number_literal: 0 [3405,3406]",
+      "dest": "number_literal: 0 [3405,3406]"
+    },
+    {
+      "src": "identifier: _ [3610,3611]",
+      "dest": "identifier: _ [3610,3611]"
+    },
+    {
+      "src": "(: ( [5327,5328]",
+      "dest": "(: ( [5327,5328]"
+    },
+    {
+      "src": "identifier: Initialized [3695,3706]",
+      "dest": "identifier: Initialized [3695,3706]"
+    },
+    {
+      "src": "): ) [6037,6038]",
+      "dest": "): ) [6037,6038]"
+    },
+    {
+      "src": "function: function [6303,6311]",
+      "dest": "function: function [6303,6311]"
+    },
+    {
+      "src": "type_name [6360,6365]",
+      "dest": "type_name [6360,6365]"
+    },
+    {
+      "src": "returns: returns [6560,6567]",
+      "dest": "returns: returns [6560,6567]"
+    },
+    {
+      "src": "number_literal: 1 [3369,3370]",
+      "dest": "number_literal: 1 [3369,3370]"
+    },
+    {
+      "src": ",: , [5361,5362]",
+      "dest": ",: , [5361,5362]"
+    },
+    {
+      "src": "visibility [2541,2548]",
+      "dest": "visibility [2541,2548]"
+    },
+    {
+      "src": "view: view [6346,6350]",
+      "dest": "view: view [6346,6350]"
+    },
+    {
+      "src": "expression_statement [4847,4947]",
+      "dest": "expression_statement [4847,4947]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: MIT [0,31]",
+      "dest": "comment: // SPDX-License-Identifier: MIT [0,31]"
+    },
+    {
+      "src": "call_argument [5980,5994]",
+      "dest": "call_argument [5980,5994]"
+    },
+    {
+      "src": "boolean_literal [5045,5050]",
+      "dest": "boolean_literal [5045,5050]"
+    },
+    {
+      "src": "block_statement [3556,3601]",
+      "dest": "block_statement [3556,3601]"
+    },
+    {
+      "src": "comment: /**      * @dev A modifier that defines a protected reinitializer function that can be invoked at most once, and only if the      * contract hasn't been initialized to a greater version before. In its scope, `onlyInitializing` functions can be      * used to initialize parent contracts.      *      * A reinitializer may be used after the original initialization step. This is essential to configure modules that      * are added through upgrades and that require initialization.      *      * When `version` is 1, this modifier is similar to `initializer`, except that functions marked with `reinitializer`      * cannot be nested. If one is invoked in the context of another, execution will revert.      *      * Note that versions can jump in increments greater than 1; this implies that if multiple reinitializers coexist in      * a contract, executing them in the right order is up to the developer or operator.      *      * WARNING: setting the version to 255 will prevent any future reinitialization.      *      * Emits an {Initialized} event.      */ [3732,4794]",
+      "dest": "comment: /**      * @dev A modifier that defines a protected reinitializer function that can be invoked at most once, and only if the      * contract hasn't been initialized to a greater version before. In its scope, `onlyInitializing` functions can be      * used to initialize parent contracts.      *      * A reinitializer may be used after the original initialization step. This is essential to configure modules that      * are added through upgrades and that require initialization.      *      * When `version` is 1, this modifier is similar to `initializer`, except that functions marked with `reinitializer`      * cannot be nested. If one is invoked in the context of another, execution will revert.      *      * Note that versions can jump in increments greater than 1; this implies that if multiple reinitializers coexist in      * a contract, executing them in the right order is up to the developer or operator.      *      * WARNING: setting the version to 255 will prevent any future reinitialization.      *      * Emits an {Initialized} event.      */ [3732,4794]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns `true` if the contract is currently initializing. See {onlyInitializing}.      */ [6409,6514]",
+      "dest": "comment: /**      * @dev Returns `true` if the contract is currently initializing. See {onlyInitializing}.      */ [6409,6514]"
+    },
+    {
+      "src": "view: view [6555,6559]",
+      "dest": "view: view [6555,6559]"
+    },
+    {
+      "src": "assignment_expression [5029,5050]",
+      "dest": "assignment_expression [5029,5050]"
+    },
+    {
+      "src": "type_name [6119,6124]",
+      "dest": "type_name [6119,6124]"
+    },
+    {
+      "src": "\": \" [3489,3490]",
+      "dest": "\": \" [3489,3490]"
+    },
+    {
+      "src": "identifier: version [4828,4835]",
+      "dest": "identifier: version [4828,4835]"
+    },
+    {
+      "src": "identifier: Initialized [2798,2809]",
+      "dest": "identifier: Initialized [2798,2809]"
+    },
+    {
+      "src": "): ) [6573,6574]",
+      "dest": "): ) [6573,6574]"
+    },
+    {
+      "src": "identifier: initializer [3244,3255]",
+      "dest": "identifier: initializer [3244,3255]"
+    },
+    {
+      "src": "call_argument [3384,3388]",
+      "dest": "call_argument [3384,3388]"
+    },
+    {
+      "src": "primitive_type [6360,6365]",
+      "dest": "primitive_type [6360,6365]"
+    },
+    {
+      "src": "virtual: virtual [5954,5961]",
+      "dest": "virtual: virtual [5954,5961]"
+    },
+    {
+      "src": "assignment_expression [6099,6129]",
+      "dest": "assignment_expression [6099,6129]"
+    },
+    {
+      "src": "call_expression [3314,3500]",
+      "dest": "call_expression [3314,3500]"
+    },
+    {
+      "src": "expression_statement [3510,3527]",
+      "dest": "expression_statement [3510,3527]"
+    },
+    {
+      "src": "{: { [3258,3259]",
+      "dest": "{: { [3258,3259]"
+    },
+    {
+      "src": "type: type [6068,6072]",
+      "dest": "type: type [6068,6072]"
+    },
+    {
+      "src": "&&: && [3351,3353]",
+      "dest": "&&: && [3351,3353]"
+    },
+    {
+      "src": "(: ( [3375,3376]",
+      "dest": "(: ( [3375,3376]"
+    },
+    {
+      "src": "}: } [6186,6187]",
+      "dest": "}: } [6186,6187]"
+    },
+    {
+      "src": "(: ( [6543,6544]",
+      "dest": "(: ( [6543,6544]"
+    },
+    {
+      "src": "type_name [2664,2668]",
+      "dest": "type_name [2664,2668]"
+    },
+    {
+      "src": "modifier_definition [4799,5092]",
+      "dest": "modifier_definition [4799,5092]"
+    },
+    {
+      "src": "true: true [5004,5008]",
+      "dest": "true: true [5004,5008]"
+    },
+    {
+      "src": "identifier: _initialized [3510,3522]",
+      "dest": "identifier: _initialized [3510,3522]"
+    },
+    {
+      "src": "): ) [5328,5329]",
+      "dest": "): ) [5328,5329]"
+    },
+    {
+      "src": "primitive_type [2664,2668]",
+      "dest": "primitive_type [2664,2668]"
+    },
+    {
+      "src": "(: ( [3706,3707]",
+      "dest": "(: ( [3706,3707]"
+    },
+    {
+      "src": "identifier: Initialized [6148,6159]",
+      "dest": "identifier: Initialized [6148,6159]"
+    },
+    {
+      "src": "function_definition [6303,6403]",
+      "dest": "function_definition [6303,6403]"
+    },
+    {
+      "src": "expression_statement [3655,3677]",
+      "dest": "expression_statement [3655,3677]"
+    },
+    {
+      "src": ".: . [6079,6080]",
+      "dest": ".: . [6079,6080]"
+    },
+    {
+      "src": "variable_declaration_statement [3268,3305]",
+      "dest": "variable_declaration_statement [3268,3305]"
+    },
+    {
+      "src": "}: } [5426,5427]",
+      "dest": "}: } [5426,5427]"
+    },
+    {
+      "src": "uint8: uint8 [4822,4827]",
+      "dest": "uint8: uint8 [4822,4827]"
+    },
+    {
+      "src": "expression_statement [5340,5410]",
+      "dest": "expression_statement [5340,5410]"
+    },
+    {
+      "src": "(: ( [6159,6160]",
+      "dest": "(: ( [6159,6160]"
+    },
+    {
+      "src": "=: = [3523,3524]",
+      "dest": "=: = [3523,3524]"
+    },
+    {
+      "src": "identifier: require [5340,5347]",
+      "dest": "identifier: require [5340,5347]"
+    },
+    {
+      "src": "||: || [3372,3374]",
+      "dest": "||: || [3372,3374]"
+    },
+    {
+      "src": "primitive_type [6073,6078]",
+      "dest": "primitive_type [6073,6078]"
+    },
+    {
+      "src": "=: = [3288,3289]",
+      "dest": "=: = [3288,3289]"
+    },
+    {
+      "src": "identifier: reinitializer [4808,4821]",
+      "dest": "identifier: reinitializer [4808,4821]"
+    },
+    {
+      "src": "(: ( [6118,6119]",
+      "dest": "(: ( [6118,6119]"
+    },
+    {
+      "src": "identifier: _isInitializing [6528,6543]",
+      "dest": "identifier: _isInitializing [6528,6543]"
+    },
+    {
+      "src": "if: if [3621,3623]",
+      "dest": "if: if [3621,3623]"
+    },
+    {
+      "src": "\": \" [4897,4898]",
+      "dest": "\": \" [4897,4898]"
+    },
+    {
+      "src": "contract: contract [2392,2400]",
+      "dest": "contract: contract [2392,2400]"
+    },
+    {
+      "src": "string [5363,5408]",
+      "dest": "string [5363,5408]"
+    },
+    {
+      "src": "type_name [4822,4827]",
+      "dest": "type_name [4822,4827]"
+    },
+    {
+      "src": "parenthesized_expression [3335,3371]",
+      "dest": "parenthesized_expression [3335,3371]"
+    },
+    {
+      "src": "(: ( [4854,4855]",
+      "dest": "(: ( [4854,4855]"
+    },
+    {
+      "src": "visibility [2669,2676]",
+      "dest": "visibility [2669,2676]"
+    },
+    {
+      "src": "(: ( [3255,3256]",
+      "dest": "(: ( [3255,3256]"
+    },
+    {
+      "src": ",: , [5994,5995]",
+      "dest": ",: , [5994,5995]"
+    },
+    {
+      "src": "call_argument [6160,6175]",
+      "dest": "call_argument [6160,6175]"
+    },
+    {
+      "src": "call_expression [5340,5409]",
+      "dest": "call_expression [5340,5409]"
+    },
+    {
+      "src": "{: { [3556,3557]",
+      "dest": "{: { [3556,3557]"
+    },
+    {
+      "src": "<: < [4886,4887]",
+      "dest": "<: < [4886,4887]"
+    },
+    {
+      "src": "): ) [6335,6336]",
+      "dest": "): ) [6335,6336]"
+    },
+    {
+      "src": "expression_statement [5972,6039]",
+      "dest": "expression_statement [5972,6039]"
+    },
+    {
+      "src": "if: if [6048,6050]",
+      "dest": "if: if [6048,6050]"
+    },
+    {
+      "src": "uint8: uint8 [6119,6124]",
+      "dest": "uint8: uint8 [6119,6124]"
+    },
+    {
+      "src": "function_body [6575,6612]",
+      "dest": "function_body [6575,6612]"
+    },
+    {
+      "src": "solidity_pragma_token [120,136]",
+      "dest": "solidity_pragma_token [120,136]"
+    },
+    {
+      "src": "identifier: _initializing [4988,5001]",
+      "dest": "identifier: _initializing [4988,5001]"
+    },
+    {
+      "src": "==: == [3402,3404]",
+      "dest": "==: == [3402,3404]"
+    },
+    {
+      "src": "bool: bool [6569,6573]",
+      "dest": "bool: bool [6569,6573]"
+    },
+    {
+      "src": "call_argument [5348,5361]",
+      "dest": "call_argument [5348,5361]"
+    },
+    {
+      "src": "=: = [6112,6113]",
+      "dest": "=: = [6112,6113]"
+    },
+    {
+      "src": "}: } [6611,6612]",
+      "dest": "}: } [6611,6612]"
+    },
+    {
+      "src": "variable_declaration [3268,3287]",
+      "dest": "variable_declaration [3268,3287]"
+    },
+    {
+      "src": "}: } [3600,3601]",
+      "dest": "}: } [3600,3601]"
+    },
+    {
+      "src": "\": \" [5363,5364]",
+      "dest": "\": \" [5363,5364]"
+    },
+    {
+      "src": "emit_statement [5060,5086]",
+      "dest": "emit_statement [5060,5086]"
+    },
+    {
+      "src": "number_literal: 1 [3525,3526]",
+      "dest": "number_literal: 1 [3525,3526]"
+    },
+    {
+      "src": "}: } [6402,6403]",
+      "dest": "}: } [6402,6403]"
+    },
+    {
+      "src": "primitive_type [6119,6124]",
+      "dest": "primitive_type [6119,6124]"
+    },
+    {
+      "src": "identifier: version [5077,5084]",
+      "dest": "identifier: version [5077,5084]"
+    },
+    {
+      "src": "identifier: _initializing [2677,2690]",
+      "dest": "identifier: _initializing [2677,2690]"
+    },
+    {
+      "src": "): ) [3639,3640]",
+      "dest": "): ) [3639,3640]"
+    },
+    {
+      "src": "identifier: _initialized [6384,6396]",
+      "dest": "identifier: _initialized [6384,6396]"
+    },
+    {
+      "src": "assignment_expression [4988,5008]",
+      "dest": "assignment_expression [4988,5008]"
+    },
+    {
+      "src": "comment: /**      * @dev Locks the contract, preventing any future reinitialization. This cannot be part of an initializer call.      * Calling this in the constructor of a contract will prevent that contract from being initialized or reinitialized      * to any version. It is recommended to use this to lock implementation contracts that are designed to be called      * through proxies.      *      * Emits an {Initialized} event the first time it is successfully executed.      */ [5433,5908]",
+      "dest": "comment: /**      * @dev Locks the contract, preventing any future reinitialization. This cannot be part of an initializer call.      * Calling this in the constructor of a contract will prevent that contract from being initialized or reinitialized      * to any version. It is recommended to use this to lock implementation contracts that are designed to be called      * through proxies.      *      * Emits an {Initialized} event the first time it is successfully executed.      */ [5433,5908]"
+    },
+    {
+      "src": "{: { [6367,6368]",
+      "dest": "{: { [6367,6368]"
+    },
+    {
+      "src": "(: ( [6072,6073]",
+      "dest": "(: ( [6072,6073]"
+    },
+    {
+      "src": "function: function [6519,6527]",
+      "dest": "function: function [6519,6527]"
+    },
+    {
+      "src": "parameter [4822,4835]",
+      "dest": "parameter [4822,4835]"
+    },
+    {
+      "src": "\": \" [6036,6037]",
+      "dest": "\": \" [6036,6037]"
+    },
+    {
+      "src": "(: ( [6334,6335]",
+      "dest": "(: ( [6334,6335]"
+    },
+    {
+      "src": "identifier: _initializing [3570,3583]",
+      "dest": "identifier: _initializing [3570,3583]"
+    },
+    {
+      "src": "=: = [4969,4970]",
+      "dest": "=: = [4969,4970]"
+    },
+    {
+      "src": "): ) [3427,3428]",
+      "dest": "): ) [3427,3428]"
+    },
+    {
+      "src": "binary_expression [3376,3406]",
+      "dest": "binary_expression [3376,3406]"
+    },
+    {
+      "src": "boolean_literal [3586,3590]",
+      "dest": "boolean_literal [3586,3590]"
+    },
+    {
+      "src": "false [5045,5050]",
+      "dest": "false [5045,5050]"
+    },
+    {
+      "src": "uint8: uint8 [2535,2540]",
+      "dest": "uint8: uint8 [2535,2540]"
+    },
+    {
+      "src": "): ) [3370,3371]",
+      "dest": "): ) [3370,3371]"
+    },
+    {
+      "src": "member_expression [3376,3401]",
+      "dest": "member_expression [3376,3401]"
+    },
+    {
+      "src": "pragma: pragma [113,119]",
+      "dest": "pragma: pragma [113,119]"
+    },
+    {
+      "src": "\": \" [3442,3443]",
+      "dest": "\": \" [3442,3443]"
+    },
+    {
+      "src": "state_variable_declaration [2535,2562]",
+      "dest": "state_variable_declaration [2535,2562]"
+    },
+    {
+      "src": "modifier_definition [5302,5427]",
+      "dest": "modifier_definition [5302,5427]"
+    },
+    {
+      "src": "uint8: uint8 [6073,6078]",
+      "dest": "uint8: uint8 [6073,6078]"
+    },
+    {
+      "src": "internal: internal [6337,6345]",
+      "dest": "internal: internal [6337,6345]"
+    },
+    {
+      "src": "): ) [3388,3389]",
+      "dest": "): ) [3388,3389]"
+    },
+    {
+      "src": "return: return [6377,6383]",
+      "dest": "return: return [6377,6383]"
+    },
+    {
+      "src": "): ) [6544,6545]",
+      "dest": "): ) [6544,6545]"
+    },
+    {
+      "src": "event_definition [2792,2825]",
+      "dest": "event_definition [2792,2825]"
+    },
+    {
+      "src": "number_literal: 1 [3426,3427]",
+      "dest": "number_literal: 1 [3426,3427]"
+    },
+    {
+      "src": "type_name [2535,2540]",
+      "dest": "type_name [2535,2540]"
+    },
+    {
+      "src": "if: if [3536,3538]",
+      "dest": "if: if [3536,3538]"
+    },
+    {
+      "src": "): ) [3708,3709]",
+      "dest": "): ) [3708,3709]"
+    },
+    {
+      "src": "string_literal [5996,6037]",
+      "dest": "string_literal [5996,6037]"
+    },
+    {
+      "src": "type_cast_expression [3376,3389]",
+      "dest": "type_cast_expression [3376,3389]"
+    },
+    {
+      "src": "type: type [6160,6164]",
+      "dest": "type: type [6160,6164]"
+    },
+    {
+      "src": "unary_expression [3290,3304]",
+      "dest": "unary_expression [3290,3304]"
+    },
+    {
+      "src": "(: ( [5347,5348]",
+      "dest": "(: ( [5347,5348]"
+    },
+    {
+      "src": "call_argument [4897,4945]",
+      "dest": "call_argument [4897,4945]"
+    },
+    {
+      "src": "false: false [5045,5050]",
+      "dest": "false: false [5045,5050]"
+    },
+    {
+      "src": "state_mutability [6555,6559]",
+      "dest": "state_mutability [6555,6559]"
+    },
+    {
+      "src": ".: . [3389,3390]",
+      "dest": ".: . [3389,3390]"
+    },
+    {
+      "src": "\": \" [5996,5997]",
+      "dest": "\": \" [5996,5997]"
+    },
+    {
+      "src": "uint8: uint8 [6360,6365]",
+      "dest": "uint8: uint8 [6360,6365]"
+    },
+    {
+      "src": "function_body [3258,3726]",
+      "dest": "function_body [3258,3726]"
+    },
+    {
+      "src": "&&: && [3407,3409]",
+      "dest": "&&: && [3407,3409]"
+    },
+    {
+      "src": "identifier: isTopLevelCall [3336,3350]",
+      "dest": "identifier: isTopLevelCall [3336,3350]"
+    },
+    {
+      "src": "expression_statement [3314,3501]",
+      "dest": "expression_statement [3314,3501]"
+    },
+    {
+      "src": "(: ( [5942,5943]",
+      "dest": "(: ( [5942,5943]"
+    },
+    {
+      "src": "address: address [3376,3383]",
+      "dest": "address: address [3376,3383]"
+    },
+    {
+      "src": "expression_statement [4988,5009]",
+      "dest": "expression_statement [4988,5009]"
+    },
+    {
+      "src": "primitive_type [2535,2540]",
+      "dest": "primitive_type [2535,2540]"
+    },
+    {
+      "src": "binary_expression [3335,3428]",
+      "dest": "binary_expression [3335,3428]"
+    },
+    {
+      "src": "private: private [2669,2676]",
+      "dest": "private: private [2669,2676]"
+    },
+    {
+      "src": "): ) [3256,3257]",
+      "dest": "): ) [3256,3257]"
+    },
+    {
+      "src": "assignment_expression [4956,4978]",
+      "dest": "assignment_expression [4956,4978]"
+    },
+    {
+      "src": "): ) [5084,5085]",
+      "dest": "): ) [5084,5085]"
+    },
+    {
+      "src": "binary_expression [3354,3370]",
+      "dest": "binary_expression [3354,3370]"
+    },
+    {
+      "src": "function_body [6367,6403]",
+      "dest": "function_body [6367,6403]"
+    },
+    {
+      "src": "): ) [5943,5944]",
+      "dest": "): ) [5943,5944]"
+    },
+    {
+      "src": "call_argument [3335,3428]",
+      "dest": "call_argument [3335,3428]"
+    },
+    {
+      "src": "emit_statement [3690,3710]",
+      "dest": "emit_statement [3690,3710]"
+    },
+    {
+      "src": "identifier: _ [5018,5019]",
+      "dest": "identifier: _ [5018,5019]"
+    },
+    {
+      "src": "): ) [3499,3500]",
+      "dest": "): ) [3499,3500]"
+    },
+    {
+      "src": "): ) [4945,4946]",
+      "dest": "): ) [4945,4946]"
+    },
+    {
+      "src": "identifier: _initializing [3291,3304]",
+      "dest": "identifier: _initializing [3291,3304]"
+    },
+    {
+      "src": "comment: // OpenZeppelin Contracts (last updated v4.9.0) (proxy/utils/Initializable.sol) [32,111]",
+      "dest": "comment: // OpenZeppelin Contracts (last updated v4.9.0) (proxy/utils/Initializable.sol) [32,111]"
+    },
+    {
+      "src": "identifier: max [6126,6129]",
+      "dest": "identifier: max [6126,6129]"
+    },
+    {
+      "src": "type_name [2810,2815]",
+      "dest": "type_name [2810,2815]"
+    },
+    {
+      "src": "(: ( [6164,6165]",
+      "dest": "(: ( [6164,6165]"
+    },
+    {
+      "src": "identifier: max [6172,6175]",
+      "dest": "identifier: max [6172,6175]"
+    },
+    {
+      "src": "}: } [3719,3720]",
+      "dest": "}: } [3719,3720]"
+    },
+    {
+      "src": "string [4897,4945]",
+      "dest": "string [4897,4945]"
+    },
+    {
+      "src": "parameter [6569,6573]",
+      "dest": "parameter [6569,6573]"
+    },
+    {
+      "src": "binary_expression [3410,3427]",
+      "dest": "binary_expression [3410,3427]"
+    },
+    {
+      "src": "identifier: max [6080,6083]",
+      "dest": "identifier: max [6080,6083]"
+    },
+    {
+      "src": "visibility [6337,6345]",
+      "dest": "visibility [6337,6345]"
+    },
+    {
+      "src": "return_type_definition [6351,6366]",
+      "dest": "return_type_definition [6351,6366]"
+    },
+    {
+      "src": "state_variable_declaration [2664,2691]",
+      "dest": "state_variable_declaration [2664,2691]"
+    },
+    {
+      "src": "<: < [3367,3368]",
+      "dest": "<: < [3367,3368]"
+    },
+    {
+      "src": "{: { [4837,4838]",
+      "dest": "{: { [4837,4838]"
+    },
+    {
+      "src": "visibility [6546,6554]",
+      "dest": "visibility [6546,6554]"
+    },
+    {
+      "src": "{: { [6575,6576]",
+      "dest": "{: { [6575,6576]"
+    },
+    {
+      "src": "comment: /**      * @dev Indicates that the contract is in the process of being initialized.      */ [2568,2659]",
+      "dest": "comment: /**      * @dev Indicates that the contract is in the process of being initialized.      */ [2568,2659]"
+    },
+    {
+      "src": "identifier: require [3314,3321]",
+      "dest": "identifier: require [3314,3321]"
+    },
+    {
+      "src": "call_expression [5972,6038]",
+      "dest": "call_expression [5972,6038]"
+    },
+    {
+      "src": "meta_type_expression [6068,6079]",
+      "dest": "meta_type_expression [6068,6079]"
+    },
+    {
+      "src": "private: private [2541,2548]",
+      "dest": "private: private [2541,2548]"
+    },
+    {
+      "src": "&&: && [4870,4872]",
+      "dest": "&&: && [4870,4872]"
+    },
+    {
+      "src": "): ) [6124,6125]",
+      "dest": "): ) [6124,6125]"
+    },
+    {
+      "src": "}: } [6613,6614]",
+      "dest": "}: } [6613,6614]"
+    },
+    {
+      "src": "bool: bool [3268,3272]",
+      "dest": "bool: bool [3268,3272]"
+    },
+    {
+      "src": "\": \" [169,170]",
+      "dest": "\": \" [169,170]"
+    },
+    {
+      "src": "return_statement [6377,6397]",
+      "dest": "return_statement [6377,6397]"
+    },
+    {
+      "src": "}: } [3725,3726]",
+      "dest": "}: } [3725,3726]"
+    },
+    {
+      "src": "expression_statement [3570,3591]",
+      "dest": "expression_statement [3570,3591]"
+    },
+    {
+      "src": "call_argument [4855,4895]",
+      "dest": "call_argument [4855,4895]"
+    },
+    {
+      "src": "expression_statement [3610,3612]",
+      "dest": "expression_statement [3610,3612]"
+    },
+    {
+      "src": "if_statement [3621,3720]",
+      "dest": "if_statement [3621,3720]"
+    },
+    {
+      "src": "primitive_type [2810,2815]",
+      "dest": "primitive_type [2810,2815]"
+    },
+    {
+      "src": "\": \" [146,147]",
+      "dest": "\": \" [146,147]"
+    },
+    {
+      "src": "string [146,170]",
+      "dest": "string [146,170]"
+    },
+    {
+      "src": "member_expression [3376,3394]",
+      "dest": "member_expression [3376,3394]"
+    },
+    {
+      "src": "string_literal [5363,5408]",
+      "dest": "string_literal [5363,5408]"
+    },
+    {
+      "src": "import: import [139,145]",
+      "dest": "import: import [139,145]"
+    },
+    {
+      "src": "type_name [3268,3272]",
+      "dest": "type_name [3268,3272]"
+    },
+    {
+      "src": "expression_statement [6099,6130]",
+      "dest": "expression_statement [6099,6130]"
+    },
+    {
+      "src": "identifier: _initializing [4856,4869]",
+      "dest": "identifier: _initializing [4856,4869]"
+    },
+    {
+      "src": "identifier: _initialized [4956,4968]",
+      "dest": "identifier: _initialized [4956,4968]"
+    },
+    {
+      "src": "{: { [5330,5331]",
+      "dest": "{: { [5330,5331]"
+    },
+    {
+      "src": "meta_type_expression [6160,6171]",
+      "dest": "meta_type_expression [6160,6171]"
+    },
+    {
+      "src": "identifier: _ [5419,5420]",
+      "dest": "identifier: _ [5419,5420]"
+    },
+    {
+      "src": "expression_statement [5419,5421]",
+      "dest": "expression_statement [5419,5421]"
+    },
+    {
+      "src": "identifier: Initializable [2401,2414]",
+      "dest": "identifier: Initializable [2401,2414]"
+    },
+    {
+      "src": "solidity_version: 0.8.19 [130,136]",
+      "dest": "solidity_version: 0.8.19 [130,136]"
+    },
+    {
+      "src": "state_mutability [6346,6350]",
+      "dest": "state_mutability [6346,6350]"
+    },
+    {
+      "src": ".: . [6171,6172]",
+      "dest": ".: . [6171,6172]"
+    },
+    {
+      "src": "binary_expression [6052,6079]",
+      "dest": "binary_expression [6052,6079]"
+    },
+    {
+      "src": "!: ! [5980,5981]",
+      "dest": "!: ! [5980,5981]"
+    },
+    {
+      "src": "identifier: _initialized [6052,6064]",
+      "dest": "identifier: _initialized [6052,6064]"
+    },
+    {
+      "src": "(: ( [6051,6052]",
+      "dest": "(: ( [6051,6052]"
+    },
+    {
+      "src": "assignment_expression [3510,3526]",
+      "dest": "assignment_expression [3510,3526]"
+    },
+    {
+      "src": "=: = [3584,3585]",
+      "dest": "=: = [3584,3585]"
+    },
+    {
+      "src": "comment: /**      * @dev A modifier that defines a protected initializer function that can be invoked at most once. In its scope,      * `onlyInitializing` functions can be used to initialize parent contracts.      *      * Similar to `reinitializer(1)`, except that functions marked with `initializer` can be nested in the context of a      * constructor.      *      * Emits an {Initialized} event.      */ [2831,3230]",
+      "dest": "comment: /**      * @dev A modifier that defines a protected initializer function that can be invoked at most once. In its scope,      * `onlyInitializing` functions can be used to initialize parent contracts.      *      * Similar to `reinitializer(1)`, except that functions marked with `initializer` can be nested in the context of a      * constructor.      *      * Emits an {Initialized} event.      */ [2831,3230]"
+    },
+    {
+      "src": "!: ! [3290,3291]",
+      "dest": "!: ! [3290,3291]"
+    },
+    {
+      "src": "call_argument [3707,3708]",
+      "dest": "call_argument [3707,3708]"
+    },
+    {
+      "src": "call_argument [5363,5408]",
+      "dest": "call_argument [5363,5408]"
+    },
+    {
+      "src": "primitive_type [6165,6170]",
+      "dest": "primitive_type [6165,6170]"
+    },
+    {
+      "src": "if_statement [6048,6187]",
+      "dest": "if_statement [6048,6187]"
+    },
+    {
+      "src": "type_name [6165,6170]",
+      "dest": "type_name [6165,6170]"
+    },
+    {
+      "src": "(: ( [5979,5980]",
+      "dest": "(: ( [5979,5980]"
+    },
+    {
+      "src": "(: ( [3624,3625]",
+      "dest": "(: ( [3624,3625]"
+    },
+    {
+      "src": "identifier: _initializing [5029,5042]",
+      "dest": "identifier: _initializing [5029,5042]"
+    },
+    {
+      "src": "unary_expression [4855,4869]",
+      "dest": "unary_expression [4855,4869]"
+    },
+    {
+      "src": "(: ( [6568,6569]",
+      "dest": "(: ( [6568,6569]"
+    },
+    {
+      "src": "string_literal [3442,3490]",
+      "dest": "string_literal [3442,3490]"
+    },
+    {
+      "src": "call_argument [5996,6037]",
+      "dest": "call_argument [5996,6037]"
+    },
+    {
+      "src": "type_name [6073,6078]",
+      "dest": "type_name [6073,6078]"
+    },
+    {
+      "src": "identifier: isTopLevelCall [3540,3554]",
+      "dest": "identifier: isTopLevelCall [3540,3554]"
+    },
+    {
+      "src": "call_expression [4847,4946]",
+      "dest": "call_expression [4847,4946]"
+    },
+    {
+      "src": "function_body [5962,6193]",
+      "dest": "function_body [5962,6193]"
+    },
+    {
+      "src": "): ) [6365,6366]",
+      "dest": "): ) [6365,6366]"
+    },
+    {
+      "src": ",: , [3428,3429]",
+      "dest": ",: , [3428,3429]"
+    },
+    {
+      "src": "!=: != [6065,6067]",
+      "dest": "!=: != [6065,6067]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns the highest version that has been initialized. See {reinitializer}.      */ [6199,6298]",
+      "dest": "comment: /**      * @dev Returns the highest version that has been initialized. See {reinitializer}.      */ [6199,6298]"
+    },
+    {
+      "src": "(: ( [3335,3336]",
+      "dest": "(: ( [3335,3336]"
+    },
+    {
+      "src": "solidity: solidity [120,128]",
+      "dest": "solidity: solidity [120,128]"
+    },
+    {
+      "src": "abstract: abstract [2383,2391]",
+      "dest": "abstract: abstract [2383,2391]"
+    },
+    {
+      "src": "comment: /**      * @dev Triggered when the contract has been initialized or reinitialized.      */ [2697,2787]",
+      "dest": "comment: /**      * @dev Triggered when the contract has been initialized or reinitialized.      */ [2697,2787]"
+    },
+    {
+      "src": "binary_expression [3336,3370]",
+      "dest": "binary_expression [3336,3370]"
+    },
+    {
+      "src": "}: } [6192,6193]",
+      "dest": "}: } [6192,6193]"
+    },
+    {
+      "src": ".: . [6125,6126]",
+      "dest": ".: . [6125,6126]"
+    },
+    {
+      "src": "member_expression [6160,6175]",
+      "dest": "member_expression [6160,6175]"
+    },
+    {
+      "src": "): ) [4835,4836]",
+      "dest": "): ) [4835,4836]"
+    },
+    {
+      "src": "): ) [3554,3555]",
+      "dest": "): ) [3554,3555]"
+    },
+    {
+      "src": "assignment_expression [3570,3590]",
+      "dest": "assignment_expression [3570,3590]"
+    },
+    {
+      "src": "comment: /**      * @dev Modifier to protect an initialization function so that it can only be invoked by functions with the      * {initializer} and {reinitializer} modifiers, directly or indirectly.      */ [5098,5297]",
+      "dest": "comment: /**      * @dev Modifier to protect an initialization function so that it can only be invoked by functions with the      * {initializer} and {reinitializer} modifiers, directly or indirectly.      */ [5098,5297]"
+    },
+    {
+      "src": "identifier: length [3395,3401]",
+      "dest": "identifier: length [3395,3401]"
+    },
+    {
+      "src": "internal: internal [5945,5953]",
+      "dest": "internal: internal [5945,5953]"
+    },
+    {
+      "src": "event: event [2792,2797]",
+      "dest": "event: event [2792,2797]"
+    },
+    {
+      "src": "expression_statement [4956,4979]",
+      "dest": "expression_statement [4956,4979]"
+    },
+    {
+      "src": "binary_expression [4873,4895]",
+      "dest": "binary_expression [4873,4895]"
+    },
+    {
+      "src": "internal: internal [6546,6554]",
+      "dest": "internal: internal [6546,6554]"
+    },
+    {
+      "src": "identifier: _initializing [5981,5994]",
+      "dest": "identifier: _initializing [5981,5994]"
+    },
+    {
+      "src": "identifier: _initialized [4873,4885]",
+      "dest": "identifier: _initialized [4873,4885]"
+    },
+    {
+      "src": "identifier: Initialized [5065,5076]",
+      "dest": "identifier: Initialized [5065,5076]"
+    },
+    {
+      "src": "): ) [6175,6176]",
+      "dest": "): ) [6175,6176]"
+    },
+    {
+      "src": "identifier: _initializing [6592,6605]",
+      "dest": "identifier: _initializing [6592,6605]"
+    },
+    {
+      "src": "identifier: require [4847,4854]",
+      "dest": "identifier: require [4847,4854]"
+    },
+    {
+      "src": "(: ( [6359,6360]",
+      "dest": "(: ( [6359,6360]"
+    },
+    {
+      "src": "call_argument [3442,3490]",
+      "dest": "call_argument [3442,3490]"
+    },
+    {
+      "src": "): ) [6083,6084]",
+      "dest": "): ) [6083,6084]"
+    },
+    {
+      "src": "identifier: _initialized [6099,6111]",
+      "dest": "identifier: _initialized [6099,6111]"
+    },
+    {
+      "src": "identifier: _initializing [5348,5361]",
+      "dest": "identifier: _initializing [5348,5361]"
+    },
+    {
+      "src": "string_literal [4897,4945]",
+      "dest": "string_literal [4897,4945]"
+    },
+    {
+      "src": "parameter [6360,6365]",
+      "dest": "parameter [6360,6365]"
+    },
+    {
+      "src": "type: type [6114,6118]",
+      "dest": "type: type [6114,6118]"
+    },
+    {
+      "src": "import_directive [139,171]",
+      "dest": "import_directive [139,171]"
+    },
+    {
+      "src": "block_statement [3641,3720]",
+      "dest": "block_statement [3641,3720]"
+    },
+    {
+      "src": "return_type_definition [6560,6574]",
+      "dest": "return_type_definition [6560,6574]"
+    },
+    {
+      "src": "binary_expression [4855,4895]",
+      "dest": "binary_expression [4855,4895]"
+    },
+    {
+      "src": "uint8: uint8 [2810,2815]",
+      "dest": "uint8: uint8 [2810,2815]"
+    },
+    {
+      "src": "modifier: modifier [4799,4807]",
+      "dest": "modifier: modifier [4799,4807]"
+    },
+    {
+      "src": "modifier: modifier [5302,5310]",
+      "dest": "modifier: modifier [5302,5310]"
+    },
+    {
+      "src": "emit_statement [6143,6177]",
+      "dest": "emit_statement [6143,6177]"
+    },
+    {
+      "src": "number_literal: 1 [3707,3708]",
+      "dest": "number_literal: 1 [3707,3708]"
+    },
+    {
+      "src": "function_definition [5913,6193]",
+      "dest": "function_definition [5913,6193]"
+    },
+    {
+      "src": "string [3442,3490]",
+      "dest": "string [3442,3490]"
+    },
+    {
+      "src": "contract_body [2415,6614]",
+      "dest": "contract_body [2415,6614]"
+    },
+    {
+      "src": "expression_statement [5018,5020]",
+      "dest": "expression_statement [5018,5020]"
+    },
+    {
+      "src": ",: , [4895,4896]",
+      "dest": ",: , [4895,4896]"
+    },
+    {
+      "src": "true: true [3586,3590]",
+      "dest": "true: true [3586,3590]"
+    },
+    {
+      "src": "bool: bool [2664,2668]",
+      "dest": "bool: bool [2664,2668]"
+    },
+    {
+      "src": "primitive_type [3268,3272]",
+      "dest": "primitive_type [3268,3272]"
+    },
+    {
+      "src": "emit: emit [6143,6147]",
+      "dest": "emit: emit [6143,6147]"
+    },
+    {
+      "src": "identifier: _initialized [2549,2561]",
+      "dest": "identifier: _initialized [2549,2561]"
+    },
+    {
+      "src": "type_name [6569,6573]",
+      "dest": "type_name [6569,6573]"
+    },
+    {
+      "src": "primitive_type [4822,4827]",
+      "dest": "primitive_type [4822,4827]"
+    },
+    {
+      "src": "}: } [5091,5092]",
+      "dest": "}: } [5091,5092]"
+    },
+    {
+      "src": "meta_type_expression [6114,6125]",
+      "dest": "meta_type_expression [6114,6125]"
+    },
+    {
+      "src": "identifier: _initialized [3354,3366]",
+      "dest": "identifier: _initialized [3354,3366]"
+    },
+    {
+      "src": "): ) [6078,6079]",
+      "dest": "): ) [6078,6079]"
+    },
+    {
+      "src": "): ) [6170,6171]",
+      "dest": "): ) [6170,6171]"
+    },
+    {
+      "src": "(: ( [2809,2810]",
+      "dest": "(: ( [2809,2810]"
+    },
+    {
+      "src": "{: { [3641,3642]",
+      "dest": "{: { [3641,3642]"
+    },
+    {
+      "src": "=: = [5002,5003]",
+      "dest": "=: = [5002,5003]"
+    },
+    {
+      "src": "): ) [2823,2824]",
+      "dest": "): ) [2823,2824]"
+    },
+    {
+      "src": "{: { [6085,6086]",
+      "dest": "{: { [6085,6086]"
+    },
+    {
+      "src": "if_statement [3536,3601]",
+      "dest": "if_statement [3536,3601]"
+    },
+    {
+      "src": "return: return [6585,6591]",
+      "dest": "return: return [6585,6591]"
+    },
+    {
+      "src": "source_file [0,6615]",
+      "dest": "source_file [0,6615]"
+    },
+    {
+      "src": "member_expression [6114,6129]",
+      "dest": "member_expression [6114,6129]"
+    },
+    {
+      "src": "modifier: modifier [3235,3243]",
+      "dest": "modifier: modifier [3235,3243]"
+    },
+    {
+      "src": "(: ( [5076,5077]",
+      "dest": "(: ( [5076,5077]"
+    },
+    {
+      "src": "true [3586,3590]",
+      "dest": "true [3586,3590]"
+    },
+    {
+      "src": "member_expression [6052,6083]",
+      "dest": "member_expression [6052,6083]"
+    },
+    {
+      "src": "unary_expression [5980,5994]",
+      "dest": "unary_expression [5980,5994]"
+    },
+    {
+      "src": "expression_statement [5029,5051]",
+      "dest": "expression_statement [5029,5051]"
+    },
+    {
+      "src": "{: { [5962,5963]",
+      "dest": "{: { [5962,5963]"
+    },
+    {
+      "src": "identifier: require [5972,5979]",
+      "dest": "identifier: require [5972,5979]"
+    },
+    {
+      "src": "primitive_type [3376,3383]",
+      "dest": "primitive_type [3376,3383]"
+    },
+    {
+      "src": "identifier: this [3384,3388]",
+      "dest": "identifier: this [3384,3388]"
+    },
+    {
+      "src": "modifier_definition [3235,3726]",
+      "dest": "modifier_definition [3235,3726]"
+    },
+    {
+      "src": "identifier: version [4971,4978]",
+      "dest": "identifier: version [4971,4978]"
+    },
+    {
+      "src": ".: . [3394,3395]",
+      "dest": ".: . [3394,3395]"
+    },
+    {
+      "src": "==: == [3423,3425]",
+      "dest": "==: == [3423,3425]"
+    },
+    {
+      "src": "false: false [3671,3676]",
+      "dest": "false: false [3671,3676]"
+    },
+    {
+      "src": "boolean_literal [5004,5008]",
+      "dest": "boolean_literal [5004,5008]"
+    },
+    {
+      "src": "): ) [5408,5409]",
+      "dest": "): ) [5408,5409]"
+    },
+    {
+      "src": "event_paramater [2810,2823]",
+      "dest": "event_paramater [2810,2823]"
+    },
+    {
+      "src": "return_statement [6585,6606]",
+      "dest": "return_statement [6585,6606]"
+    },
+    {
+      "src": "=: = [3669,3670]",
+      "dest": "=: = [3669,3670]"
+    },
+    {
+      "src": "identifier: onlyInitializing [5311,5327]",
+      "dest": "identifier: onlyInitializing [5311,5327]"
+    },
+    {
+      "src": "(: ( [3539,3540]",
+      "dest": "(: ( [3539,3540]"
+    },
+    {
+      "src": "comment: /**      * @dev Indicates that the contract has been initialized.      * @custom:oz-retyped-from bool      */ [2421,2530]",
+      "dest": "comment: /**      * @dev Indicates that the contract has been initialized.      * @custom:oz-retyped-from bool      */ [2421,2530]"
+    },
+    {
+      "src": "\": \" [4944,4945]",
+      "dest": "\": \" [4944,4945]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [128,130]",
+      "dest": "solidity_version_comparison_operator [128,130]"
+    },
+    {
+      "src": "contract_declaration [2383,6614]",
+      "dest": "contract_declaration [2383,6614]"
+    },
+    {
+      "src": "emit: emit [5060,5064]",
+      "dest": "emit: emit [5060,5064]"
+    },
+    {
+      "src": "(: ( [4821,4822]",
+      "dest": "(: ( [4821,4822]"
+    },
+    {
+      "src": "pragma_directive [113,137]",
+      "dest": "pragma_directive [113,137]"
+    },
+    {
+      "src": "identifier: _disableInitializers [5922,5942]",
+      "dest": "identifier: _disableInitializers [5922,5942]"
+    },
+    {
+      "src": "block_statement [6085,6187]",
+      "dest": "block_statement [6085,6187]"
+    },
+    {
+      "src": "identifier: _initializing [3655,3668]",
+      "dest": "identifier: _initializing [3655,3668]"
+    },
+    {
+      "src": "visibility [5945,5953]",
+      "dest": "visibility [5945,5953]"
+    },
+    {
+      "src": "primitive_type [6569,6573]",
+      "dest": "primitive_type [6569,6573]"
+    },
+    {
+      "src": "boolean_literal [3671,3676]",
+      "dest": "boolean_literal [3671,3676]"
+    },
+    {
+      "src": "^:  ^ [128,130]",
+      "dest": "^:  ^ [128,130]"
+    },
+    {
+      "src": "function_body [5330,5427]",
+      "dest": "function_body [5330,5427]"
+    },
+    {
+      "src": "true [5004,5008]",
+      "dest": "true [5004,5008]"
+    },
+    {
+      "src": "=: = [5043,5044]",
+      "dest": "=: = [5043,5044]"
+    },
+    {
+      "src": "function: function [5913,5921]",
+      "dest": "function: function [5913,5921]"
+    },
+    {
+      "src": "string [5996,6037]",
+      "dest": "string [5996,6037]"
+    },
+    {
+      "src": "uint8: uint8 [6165,6170]",
+      "dest": "uint8: uint8 [6165,6170]"
+    },
+    {
+      "src": "identifier: isTopLevelCall [3625,3639]",
+      "dest": "identifier: isTopLevelCall [3625,3639]"
+    },
+    {
+      "src": "call_argument [5077,5084]",
+      "dest": "call_argument [5077,5084]"
+    }
+  ],
+  "actions": []
+}

@@ -1,0 +1,2745 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>CToken.sol</h5><pre class="pre-scrollable">pragma solidity ^0.5.16;
+
+import "./ComptrollerInterface.sol";
+import "./CTokenInterfaces.sol";
+import "./ErrorReporter.sol";
+import "./Exponential.sol";
+import "./EIP20Interface.sol";
+import "./EIP20NonStandardInterface.sol";
+import "./InterestRateModel.sol";
+
+/**
+ * @title Compound's CToken Contract
+ * @notice Abstract base for CTokens
+ * @author Compound
+ */
+contract CToken is CTokenInterface, Exponential, TokenErrorReporter {
+    /**
+     * @notice Initialize the money market
+     * @param comptroller_ The address of the Comptroller
+     * @param interestRateModel_ The address of the interest rate model
+     * @param initialExchangeRateMantissa_ The initial exchange rate, scaled by 1e18
+     * @param name_ EIP-20 name of this token
+     * @param symbol_ EIP-20 symbol of this token
+     * @param decimals_ EIP-20 decimal precision of this token
+     */
+    function initialize(ComptrollerInterface comptroller_,
+                        InterestRateModel interestRateModel_,
+                        uint initialExchangeRateMantissa_,
+                        string memory name_,
+                        string memory symbol_,
+                        uint8 decimals_) public {
+        require(msg.sender == admin, "only admin may initialize the market");
+        require(accrualBlockNumber == 0 &amp;&amp; borrowIndex == 0, "market may only be initialized once");
+
+        // Set initial exchange rate
+        initialExchangeRateMantissa = initialExchangeRateMantissa_;
+        require(initialExchangeRateMantissa &gt; 0, "initial exchange rate must be greater than zero.");
+
+        // Set the comptroller
+        uint err = _setComptroller(comptroller_);
+        require(err == uint(Error.NO_ERROR), "setting comptroller failed");
+
+        // Initialize block number and borrow index (block number mocks depend on comptroller being set)
+        accrualBlockNumber = getBlockNumber();
+        borrowIndex = mantissaOne;
+
+        // Set the interest rate model (depends on block number / borrow index)
+        err = _setInterestRateModelFresh(interestRateModel_);
+        require(err == uint(Error.NO_ERROR), "setting interest rate model failed");
+
+        name = name_;
+        symbol = symbol_;
+        decimals = decimals_;
+
+        // The counter starts true to prevent changing it from zero to non-zero (i.e. smaller cost/refund)
+        _notEntered = true;
+    }
+
+    <span class="marker" id="mapping-1"></span><span class="token mv" id="move-src-1" data-title="contract_body/comment"><span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-2" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice </span>T<span class="cupd">r</span>a<span class="cupd">ns</span>fer<span class="cupd"> </span>`<span class="cupd">t</span>ok<span class="cupd">e</span>ns`<span class="cupd"> </span>tok<span class="cupd">e</span>n<span class="cupd">s</span> fro<span class="cupd">m</span> `src` <span class="cupd">t</span>o `<span class="cupd">d</span>st`<span class="cupd"> </span>by `s<span class="cupd">pe</span>nde<span class="cupd">r</span>`
+     * @dev Ca<span class="cupd">l</span>led<span class="cupd"> b</span>y b<span class="cupd">o</span>th `t<span class="cupd">r</span>ansfe<span class="cupd">r</span>` and `transferFr<span class="cupd">o</span>m`<span class="cupd"> inter</span>nally
+     * @param sp<span class="cupd">e</span>nder The addre<span class="cupd">s</span>s of <span class="cupd">t</span>he<span class="cupd"> </span><span class="cupd">a</span>ccoun<span class="cupd">t</span><span class="cupd"> </span>per<span class="cupd">for</span>ming<span class="cupd"> th</span>e tran<span class="cupd">s</span>fer<span class="cupd">
+</span>     * @param sr<span class="cupd">c</span> <span class="cupd">T</span>h<span class="cupd">e</span><span class="cupd"> a</span>ddress o<span class="cupd">f</span> <span class="cupd">t</span>h<span class="cupd">e</span><span class="cupd"> so</span>urc<span class="cupd">e </span><span class="cupd">a</span>ccou<span class="cupd">n</span>t<span class="cupd">
+     * @</span>pa<span class="cupd">r</span>am dst Th<span class="cupd">e</span> address of <span class="cupd">t</span>he destination acco<span class="cupd">u</span>nt
+     * @pa<span class="cupd">r</span>am toke<span class="cupd">n</span>s<span class="cupd"> The </span>num<span class="cupd">b</span>e<span class="cupd">r</span> <span class="cupd">o</span>f<span class="cupd"> </span><span class="cupd">t</span>ok<span class="cupd">e</span>n<span class="cupd">s</span> <span class="cupd">t</span>o<span class="cupd"> </span>t<span class="cupd">ra</span>nsf<span class="cupd">e</span>r<span class="cupd">
+</span>     * @r<span class="cupd">e</span>tu<span class="cupd">r</span>n<span class="cupd"> </span>Whether <span class="cupd">o</span>r<span class="cupd"> </span>not the tran<span class="cupd">s</span>fer su<span class="cupd">c</span>c<span class="cupd">e</span>e<span class="cupd">d</span><span class="cupd">e</span>d<span class="cupd">
+     */</span></span></span>
+    <span class="marker" id="mapping-3"></span><span class="token del" data-title="contract_body/function_definition">function transferTokens(<span class="marker" id="mapping-4"></span><span class="token mv" id="move-src-3" data-title="function_definition/parameter">address spender</span>, <span class="marker" id="mapping-5"></span><span class="token mv" id="move-src-4" data-title="function_definition/parameter">address src</span>, <span class="marker" id="mapping-6"></span><span class="token mv" id="move-src-5" data-title="function_definition/parameter">address dst</span>, <span class="marker" id="mapping-7"></span><span class="token mv" id="move-src-6" data-title="function_definition/parameter">uint tokens</span>) <span class="marker" id="mapping-8"></span><span class="token mv" id="move-src-7" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-9"></span><span class="token mv" id="move-src-8" data-title="function_definition/return_type_definition">returns (uint)</span> <span class="marker" id="mapping-10"></span><span class="token del" data-title="function_definition/function_body">{
+        /* Fail if transfer not allowed */
+        <span class="marker" id="mapping-11"></span><span class="token del" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-12"></span><span class="token mv" id="move-src-9" data-title="variable_declaration_statement/variable_declaration">uint <span class="marker" id="mapping-13"></span><span class="token upd" id="move-src-10" data-title="variable_declaration/identifier"><span class="cupd">a</span>llowed</span></span> = <span class="marker" id="mapping-14"></span><span class="token del" data-title="variable_declaration_statement/call_expression">comptroller.transferAllowed(address(this), src, dst, tokens)</span>;</span>
+        <span class="marker" id="mapping-15"></span><span class="token del" data-title="function_body/if_statement">if (allowed != 0) {
+            return failOpaque(Error.COMPTROLLER_REJECTION, FailureInfo.TRANSFER_COMPTROLLER_REJECTION, allowed);
+        }</span>
+
+        /* Do not allow self-transfers */
+        <span class="marker" id="mapping-16"></span><span class="token del" data-title="function_body/if_statement">if (src == dst) {
+            return fail(Error.BAD_INPUT, FailureInfo.TRANSFER_NOT_ALLOWED);
+        }</span>
+
+        /* Get the allowance, infinite for the account owner */
+        <span class="marker" id="mapping-17"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint startingAllowance = 0;</span>
+        <span class="marker" id="mapping-18"></span><span class="token del" data-title="function_body/if_statement">if (spender == src) {
+            startingAllowance = uint(-1);
+        } else {
+            startingAllowance = transferAllowances[src][spender];
+        }</span>
+
+        /* Do the calculations, checking for {under,over}flow */
+        <span class="marker" id="mapping-19"></span><span class="token del" data-title="function_body/variable_declaration_statement">MathError mathErr;</span>
+        <span class="marker" id="mapping-20"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint allowanceNew;</span>
+        <span class="marker" id="mapping-21"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint srcTokensNew;</span>
+        <span class="marker" id="mapping-22"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint dstTokensNew;</span>
+
+        <span class="marker" id="mapping-23"></span><span class="token del" data-title="function_body/expression_statement">(mathErr, allowanceNew) = subUInt(startingAllowance, tokens);</span>
+        <span class="marker" id="mapping-24"></span><span class="token del" data-title="function_body/if_statement">if (mathErr != MathError.NO_ERROR) {
+            return fail(Error.MATH_ERROR, FailureInfo.TRANSFER_NOT_ALLOWED);
+        }</span>
+
+        <span class="marker" id="mapping-25"></span><span class="token del" data-title="function_body/expression_statement">(mathErr, srcTokensNew) = subUInt(accountTokens[src], tokens);</span>
+        <span class="marker" id="mapping-26"></span><span class="token del" data-title="function_body/if_statement">if (mathErr != MathError.NO_ERROR) {
+            return fail(Error.MATH_ERROR, FailureInfo.TRANSFER_NOT_ENOUGH);
+        }</span>
+
+        <span class="marker" id="mapping-27"></span><span class="token del" data-title="function_body/expression_statement">(mathErr, dstTokensNew) = addUInt(accountTokens[dst], tokens);</span>
+        <span class="marker" id="mapping-28"></span><span class="token del" data-title="function_body/if_statement">if (mathErr != MathError.NO_ERROR) {
+            return fail(Error.MATH_ERROR, FailureInfo.TRANSFER_TOO_MUCH);
+        }</span>
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        <span class="marker" id="mapping-29"></span><span class="token del" data-title="function_body/expression_statement">accountTokens[src] = srcTokensNew;</span>
+        <span class="marker" id="mapping-30"></span><span class="token del" data-title="function_body/expression_statement">accountTokens[dst] = dstTokensNew;</span>
+
+        /* Eat some of the allowance (if necessary) */
+        <span class="marker" id="mapping-31"></span><span class="token del" data-title="function_body/if_statement">if (startingAllowance != uint(-1)) {
+            transferAllowances[src][spender] = allowanceNew;
+        }</span>
+
+        /* We emit a Transfer event */
+        <span class="marker" id="mapping-32"></span><span class="token del" data-title="function_body/emit_statement">emit Transfer(src, dst, tokens);</span>
+
+        <span class="marker" id="mapping-33"></span><span class="token del" data-title="function_body/expression_statement">comptroller.transferVerify(address(this), src, dst, tokens);</span>
+
+        <span class="marker" id="mapping-34"></span><span class="token mv" id="move-src-11" data-title="function_body/return_statement">return uint(Error.NO_ERROR);</span>
+    }</span></span>
+
+    /**
+     * @notice Transfer `amount` tokens from `msg.sender` to `dst`
+     * @param dst The address of the destination account
+     * @param amount The number of tokens to transfer
+     * @return Whether or not the transfer succeeded
+     */
+    function transfer(address dst, uint256 amount) external nonReentrant returns (bool) {
+        return transferTokens(msg.sender, msg.sender, dst, amount) == uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice Transfer `amount` tokens from `src` to `dst`
+     * @param src The address of the source account
+     * @param dst The address of the destination account
+     * @param amount The number of tokens to transfer
+     * @return Whether or not the transfer succeeded
+     */
+    function transferFrom(address src, address dst, uint256 amount) external nonReentrant returns (bool) {
+        return transferTokens(msg.sender, src, dst, amount) == uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice Approve `spender` to transfer up to `amount` from `src`
+     * @dev This will overwrite the approval amount for `spender`
+     *  and is subject to issues noted [here](https://eips.ethereum.org/EIPS/eip-20#approve)
+     * @param spender The address of the account which may transfer tokens
+     * @param amount The number of tokens that are approved (-1 means infinite)
+     * @return Whether or not the approval succeeded
+     */
+    function approve(address spender, uint256 amount) external returns (bool) {
+        address src = msg.sender;
+        transferAllowances[src][spender] = amount;
+        emit Approval(src, spender, amount);
+        return true;
+    }
+
+    /**
+     * @notice Get the current allowance from `owner` for `spender`
+     * @param owner The address of the account which owns the tokens to be spent
+     * @param spender The address of the account which may transfer tokens
+     * @return The number of tokens allowed to be spent (-1 means infinite)
+     */
+    function allowance(address owner, address spender) external view returns (uint256) {
+        return transferAllowances[owner][spender];
+    }
+
+    /**
+     * @notice Get the token balance of the `owner`
+     * @param owner The address of the account to query
+     * @return The number of tokens owned by `owner`
+     */
+    function balanceOf(address owner) external view returns (uint256) {
+        return accountTokens[owner];
+    }
+
+    /**
+     * @notice Get the underlying balance of the `owner`
+     * @dev This also accrues interest in a transaction
+     * @param owner The address of the account to query
+     * @return The amount of underlying owned by `owner`
+     */
+    function balanceOfUnderlying(address owner) external returns (uint) {
+        Exp memory exchangeRate = Exp({mantissa: exchangeRateCurrent()});
+        <span class="marker" id="mapping-35"></span><span class="token del" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-36"></span><span class="token del" data-title="variable_declaration_statement/variable_declaration_tuple">(MathError mErr, uint balance)</span> = <span class="marker" id="mapping-37"></span><span class="token mv" id="move-src-12" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-38"></span><span class="token upd" id="move-src-13" data-title="call_expression/identifier"><span class="cupd">mul</span><span class="cupd">ScalarTruncate</span></span>(exchangeRate, accountTokens[owner])</span>;</span>
+        <span class="marker" id="mapping-39"></span><span class="token del" data-title="function_body/expression_statement">require(mErr == MathError.NO_ERROR, "balance could not be calculated");</span>
+        return <span class="marker" id="mapping-40"></span><span class="token del" data-title="return_statement/identifier">balance</span>;
+    }
+
+    /**
+     * @notice Get a snapshot of the account's balances, and the cached exchange rate
+     * @dev This is used by comptroller to more efficiently perform liquidity checks.
+     * @param account Address of the account to snapshot
+     * @return (possible error, token balance, borrow balance, exchange rate mantissa)
+     */
+    function getAccountSnapshot(address account) external view returns (uint, uint, uint, uint) {
+        uint cTokenBalance = <span class="marker" id="mapping-41"></span><span class="token del" data-title="variable_declaration_statement/array_access">accountTokens[account]</span>;
+        uint borrowBalance;
+        uint exchangeRateMantissa;
+
+        <span class="marker" id="mapping-42"></span><span class="token del" data-title="function_body/variable_declaration_statement">MathError mErr;</span>
+
+        <span class="marker" id="mapping-43"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-44"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-45"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mErr, borrowBalance)</span> = <span class="marker" id="mapping-46"></span><span class="token mv" id="move-src-14" data-title="assignment_expression/call_expression">borrowBalanceStoredInternal(account)</span></span>;</span>
+        <span class="marker" id="mapping-47"></span><span class="token del" data-title="function_body/if_statement">if (mErr != MathError.NO_ERROR) {
+            return (uint(Error.MATH_ERROR), 0, 0, 0);
+        }</span>
+
+        <span class="marker" id="mapping-48"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-49"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-50"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mErr, exchangeRateMantissa)</span> = <span class="marker" id="mapping-51"></span><span class="token mv" id="move-src-15" data-title="assignment_expression/call_expression">exchangeRateStoredInternal()</span></span>;</span>
+        <span class="marker" id="mapping-52"></span><span class="token del" data-title="function_body/if_statement">if (mErr != MathError.NO_ERROR) {
+            return (uint(Error.MATH_ERROR), 0, 0, 0);
+        }</span>
+
+        return (uint(Error.NO_ERROR), cTokenBalance, borrowBalance, exchangeRateMantissa);
+    }
+
+    /**
+     * @dev Function to simply retrieve block number
+     *  This exists mainly for inheriting test contracts to stub this result.
+     */
+    function getBlockNumber() internal view returns (uint) {
+        return block.number;
+    }
+
+    /**
+     * @notice Returns the current per-block borrow interest rate for this cToken
+     * @return The borrow interest rate per block, scaled by 1e18
+     */
+    function borrowRatePerBlock() external view returns (uint) {
+        return interestRateModel.getBorrowRate(getCashPrior(), totalBorrows, totalReserves);
+    }
+
+    /**
+     * @notice Returns the current per-block supply interest rate for this cToken
+     * @return The supply interest rate per block, scaled by 1e18
+     */
+    function supplyRatePerBlock() external view returns (uint) {
+        return interestRateModel.getSupplyRate(getCashPrior(), totalBorrows, totalReserves, reserveFactorMantissa);
+    }
+
+    /**
+     * @notice Returns the current total borrows plus accrued interest
+     * @return The total borrows with interest
+     */
+    function totalBorrowsCurrent() external nonReentrant returns (uint) {
+        require(accrueInterest() == uint(Error.NO_ERROR), "accrue interest failed");
+        return totalBorrows;
+    }
+
+    /**
+     * @notice Accrue interest to updated borrowIndex and then calculate account's borrow balance using the updated borrowIndex
+     * @param account The address whose balance should be calculated after updating borrowIndex
+     * @return The calculated balance
+     */
+    function borrowBalanceCurrent(address account) external nonReentrant returns (uint) {
+        require(accrueInterest() == uint(Error.NO_ERROR), "accrue interest failed");
+        return borrowBalanceStored(account);
+    }
+
+    /**
+     * @notice Return the borrow balance of account based on stored data
+     * @param account The address whose balance should be calculated
+     * @return The calculated balance
+     */
+    function borrowBalanceStored(address account) public view returns (uint) {
+        <span class="marker" id="mapping-53"></span><span class="token del" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-54"></span><span class="token del" data-title="variable_declaration_statement/variable_declaration_tuple">(MathError err, uint result)</span> = <span class="marker" id="mapping-55"></span><span class="token mv" id="move-src-16" data-title="variable_declaration_statement/call_expression">borrowBalanceStoredInternal(account)</span>;</span>
+        <span class="marker" id="mapping-56"></span><span class="token del" data-title="function_body/expression_statement">require(err == MathError.NO_ERROR, "borrowBalanceStored: borrowBalanceStoredInternal failed");</span>
+        return <span class="marker" id="mapping-57"></span><span class="token del" data-title="return_statement/identifier">result</span>;
+    }
+
+    <span class="marker" id="mapping-58"></span><span class="token mv" id="move-src-17" data-title="contract_body/comment"><span class="marker" id="mapping-59"></span><span class="token upd" id="move-src-18" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice Return</span><span class="cupd"> the </span>bo<span class="cupd">r</span>row <span class="cupd">b</span>a<span class="cupd">l</span>ance <span class="cupd">o</span>f a<span class="cupd">c</span>count<span class="cupd"> </span>ba<span class="cupd">s</span>ed<span class="cupd"> </span>o<span class="cupd">n</span> s<span class="cupd">t</span>o<span class="cupd">re</span>d<span class="cupd"> </span>d<span class="cupd">at</span>a<span class="cupd">
+</span>     * @pa<span class="cupd">r</span>am<span class="cupd"> </span>accoun<span class="cupd">t</span> T<span class="cupd">h</span>e addre<span class="cupd">s</span>s<span class="cupd"> </span>wh<span class="cupd">o</span>s<span class="cupd">e</span><span class="cupd"> </span>b<span class="cupd">a</span>lanc<span class="cupd">e</span><span class="cupd"> s</span>h<span class="cupd">o</span>uld b<span class="cupd">e c</span><span class="cupd">a</span>lculat<span class="cupd">e</span>d<span class="cupd">
+     * @return </span>(<span class="cupd">e</span>rror<span class="cupd"> </span>code,<span class="cupd"> </span><span class="cupd">t</span>h<span class="cupd">e</span><span class="cupd"> </span>c<span class="cupd">a</span>lcula<span class="cupd">te</span>d<span class="cupd"> </span>balanc<span class="cupd">e</span> o<span class="cupd">r </span>0 if err<span class="cupd">o</span>r<span class="cupd"> </span><span class="cupd">c</span>o<span class="cupd">d</span>e<span class="cupd"> </span>is<span class="cupd"> </span>non-z<span class="cupd">e</span>ro)<span class="cupd">
+     */</span></span></span>
+    function borrowBalanceStoredInternal(address account) internal view returns (<span class="marker" id="mapping-60"></span><span class="token del" data-title="return_type_definition/parameter">MathError</span><span class="marker" id="mapping-61"></span><span class="token del" data-title="return_type_definition/,">,</span> uint) {
+        <span class="marker" id="mapping-62"></span><span class="token del" data-title="function_body/comment">/* Note: we do not assert that the market is up to date */</span>
+        <span class="marker" id="mapping-63"></span><span class="token del" data-title="function_body/variable_declaration_statement">MathError mathErr;</span>
+        <span class="marker" id="mapping-64"></span><span class="token mv" id="move-src-19" data-title="function_body/variable_declaration_statement">uint principalTimesIndex;</span>
+        <span class="marker" id="mapping-65"></span><span class="token mv" id="move-src-20" data-title="function_body/variable_declaration_statement">uint result;</span>
+
+        /* Get borrowBalance and borrowIndex */
+        BorrowSnapshot storage borrowSnapshot = accountBorrows[account];
+
+        /* If borrowBalance = 0 then borrowIndex is likely also 0.
+         * Rather than failing the calculation with a division by 0, we immediately return 0 in this case.
+         */
+        if (borrowSnapshot.principal == 0) {
+            return <span class="marker" id="mapping-66"></span><span class="token del" data-title="return_statement/tuple_expression">(MathError.NO_ERROR, 0)</span>;
+        }
+
+        /* Calculate new borrow balance using the interest index:
+         *  recentBorrowBalance = borrower.borrowBalance * market.borrowIndex / borrower.borrowIndex
+         */
+        <span class="marker" id="mapping-67"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-68"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-69"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mathErr, principalTimesIndex)</span> = <span class="marker" id="mapping-70"></span><span class="token mv" id="move-src-21" data-title="assignment_expression/call_expression"><span class="marker" id="mapping-71"></span><span class="token upd" id="move-src-22" data-title="call_expression/identifier"><span class="cupd">mul</span>UInt</span>(borrowSnapshot.principal, borrowIndex)</span></span>;</span>
+        <span class="marker" id="mapping-72"></span><span class="token del" data-title="function_body/if_statement">if (mathErr != MathError.NO_ERROR) {
+            return (mathErr, 0);
+        }</span>
+
+        <span class="marker" id="mapping-73"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-74"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-75"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mathErr, result)</span> = <span class="marker" id="mapping-76"></span><span class="token mv" id="move-src-23" data-title="assignment_expression/call_expression"><span class="marker" id="mapping-77"></span><span class="token upd" id="move-src-24" data-title="call_expression/identifier"><span class="cupd">div</span>UInt</span>(principalTimesIndex, borrowSnapshot.interestIndex)</span></span>;</span>
+        <span class="marker" id="mapping-78"></span><span class="token del" data-title="function_body/if_statement">if (mathErr != MathError.NO_ERROR) {
+            return (mathErr, 0);
+        }</span>
+
+        <span class="marker" id="mapping-79"></span><span class="token del" data-title="function_body/return_statement">return (MathError.NO_ERROR, result);</span>
+    }
+
+    /**
+     * @notice Accrue interest then return the up-to-date exchange rate
+     * @return Calculated exchange rate scaled by 1e18
+     */
+    function exchangeRateCurrent() public nonReentrant returns (uint) {
+        require(accrueInterest() == uint(Error.NO_ERROR), "accrue interest failed");
+        return exchangeRateStored();
+    }
+
+    /**
+     * @notice Calculates the exchange rate from the underlying to the CToken
+     * @dev This function does not accrue interest before calculating the exchange rate
+     * @return Calculated exchange rate scaled by 1e18
+     */
+    function exchangeRateStored() public view returns (uint) {
+        <span class="marker" id="mapping-80"></span><span class="token del" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-81"></span><span class="token del" data-title="variable_declaration_statement/variable_declaration_tuple">(MathError err, uint result)</span> = <span class="marker" id="mapping-82"></span><span class="token mv" id="move-src-25" data-title="variable_declaration_statement/call_expression">exchangeRateStoredInternal()</span>;</span>
+        <span class="marker" id="mapping-83"></span><span class="token del" data-title="function_body/expression_statement">require(err == MathError.NO_ERROR, "exchangeRateStored: exchangeRateStoredInternal failed");</span>
+        <span class="marker" id="mapping-84"></span><span class="token mv" id="move-src-26" data-title="function_body/return_statement">return result;</span>
+    }
+
+    <span class="marker" id="mapping-85"></span><span class="token mv" id="move-src-27" data-title="contract_body/comment"><span class="marker" id="mapping-86"></span><span class="token upd" id="move-src-28" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice </span>Calc<span class="cupd">u</span>lates<span class="cupd"> the </span>exch<span class="cupd">a</span><span class="cupd">n</span>g<span class="cupd">e </span>r<span class="cupd">a</span><span class="cupd">t</span><span class="cupd">e</span><span class="cupd"> </span>fr<span class="cupd">o</span>m<span class="cupd"> </span><span class="cupd">t</span>h<span class="cupd">e</span><span class="cupd"> </span>un<span class="cupd">d</span>erlying <span class="cupd">t</span>o<span class="cupd"> </span>the<span class="cupd"> </span>CToken<span class="cupd">
+   </span>  <span class="cupd">* @</span>dev<span class="cupd"> </span>This f<span class="cupd">un</span>c<span class="cupd">t</span>ion<span class="cupd"> </span><span class="cupd">d</span>o<span class="cupd">es</span><span class="cupd"> </span>n<span class="cupd">o</span>t<span class="cupd"> </span><span class="cupd">a</span><span class="cupd">c</span>cru<span class="cupd">e </span>intere<span class="cupd">s</span>t<span class="cupd"> be</span>fore<span class="cupd"> calculat</span>ing th<span class="cupd">e</span><span class="cupd"> </span>exchange<span class="cupd"> </span>rate<span class="cupd">
+   </span>  <span class="cupd">* @return </span>(<span class="cupd">e</span>rror<span class="cupd"> c</span>ode, c<span class="cupd">alculated </span>exch<span class="cupd">a</span><span class="cupd">n</span>g<span class="cupd">e </span><span class="cupd">r</span>at<span class="cupd">e</span><span class="cupd"> </span>s<span class="cupd">c</span>al<span class="cupd">e</span>d<span class="cupd"> </span>by<span class="cupd"> </span>1<span class="cupd">e</span>18)<span class="cupd">
+     */</span></span></span>
+    function exchangeRateStoredInternal() internal view returns (<span class="marker" id="mapping-87"></span><span class="token del" data-title="return_type_definition/parameter">MathError</span><span class="marker" id="mapping-88"></span><span class="token del" data-title="return_type_definition/,">,</span> uint) {
+        uint _totalSupply = totalSupply;
+        if (_totalSupply == 0) {
+            /*
+             * If there are no tokens minted:
+             *  exchangeRate = initialExchangeRate
+             */
+            return <span class="marker" id="mapping-89"></span><span class="token del" data-title="return_statement/tuple_expression">(MathError.NO_ERROR, initialExchangeRateMantissa)</span>;
+        } else {
+            /*
+             * Otherwise:
+             *  exchangeRate = (totalCash + totalBorrows - totalReserves) / totalSupply
+             */
+            uint totalCash = getCashPrior();
+            <span class="marker" id="mapping-90"></span><span class="token del" data-title="block_statement/variable_declaration_statement"><span class="marker" id="mapping-91"></span><span class="token mv" id="move-src-29" data-title="variable_declaration_statement/variable_declaration">uint cashPlusBorrowsMinusReserves</span>;</span>
+            <span class="marker" id="mapping-92"></span><span class="token del" data-title="block_statement/variable_declaration_statement">Exp memory exchangeRate;</span>
+            <span class="marker" id="mapping-93"></span><span class="token del" data-title="block_statement/variable_declaration_statement">MathError mathErr;</span>
+
+            <span class="marker" id="mapping-94"></span><span class="token del" data-title="block_statement/expression_statement"><span class="marker" id="mapping-95"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-96"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mathErr, cashPlusBorrowsMinusReserves)</span> = <span class="marker" id="mapping-97"></span><span class="token mv" id="move-src-30" data-title="assignment_expression/call_expression"><span class="marker" id="mapping-98"></span><span class="token upd" id="move-src-31" data-title="call_expression/identifier">addThenS<span class="cupd">ub</span>UInt</span>(<span class="marker" id="mapping-99"></span><span class="token mv" id="move-src-32" data-title="call_expression/call_argument">totalCash</span>, <span class="marker" id="mapping-100"></span><span class="token mv" id="move-src-33" data-title="call_expression/call_argument">totalBorrows</span><span class="marker" id="mapping-101"></span><span class="token del" data-title="call_expression/,">,</span> totalReserves)</span></span>;</span>
+            <span class="marker" id="mapping-102"></span><span class="token del" data-title="block_statement/if_statement">if (mathErr != MathError.NO_ERROR) {
+                return (mathErr, 0);
+            }</span>
+
+            <span class="marker" id="mapping-103"></span><span class="token del" data-title="block_statement/expression_statement"><span class="marker" id="mapping-104"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-105"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mathErr, exchangeRate)</span> = <span class="marker" id="mapping-106"></span><span class="token del" data-title="assignment_expression/call_expression">getExp(<span class="marker" id="mapping-107"></span><span class="token mv" id="move-src-34" data-title="call_expression/call_argument">cashPlusBorrowsMinusReserves</span>, <span class="marker" id="mapping-108"></span><span class="token del" data-title="call_expression/call_argument">_totalSupply</span>)</span></span>;</span>
+            <span class="marker" id="mapping-109"></span><span class="token del" data-title="block_statement/if_statement">if (mathErr != MathError.NO_ERROR) {
+                return (mathErr, 0);
+            }</span>
+
+            return <span class="marker" id="mapping-110"></span><span class="token del" data-title="return_statement/tuple_expression">(MathError.NO_ERROR, exchangeRate.mantissa)</span>;
+        }
+    }
+
+    /**
+     * @notice Get cash balance of this cToken in the underlying asset
+     * @return The quantity of underlying asset owned by this contract
+     */
+    function getCash() external view returns (uint) {
+        return getCashPrior();
+    }
+
+    /**
+     * @notice Applies accrued interest to total borrows and reserves
+     * @dev This calculates interest accrued from the last checkpointed block
+     *   up to the current block and writes new checkpoint to storage.
+     */
+    function accrueInterest() public returns (uint) {
+        /* Remember the initial block number */
+        uint currentBlockNumber = getBlockNumber();
+        uint accrualBlockNumberPrior = accrualBlockNumber;
+
+        /* Short-circuit accumulating 0 interest */
+        if (accrualBlockNumberPrior == currentBlockNumber) {
+            return uint(Error.NO_ERROR);
+        }
+
+        /* Read the previous values out of storage */
+        uint cashPrior = getCashPrior();
+        uint borrowsPrior = totalBorrows;
+        uint reservesPrior = totalReserves;
+        uint borrowIndexPrior = borrowIndex;
+
+        /* Calculate the current borrow interest rate */
+        uint borrowRateMantissa = interestRateModel.getBorrowRate(cashPrior, borrowsPrior, reservesPrior);
+        require(borrowRateMantissa &lt;= borrowRateMaxMantissa, "borrow rate is absurdly high");
+
+        /* Calculate the number of blocks elapsed since the last accrual */
+        <span class="marker" id="mapping-111"></span><span class="token del" data-title="variable_declaration_statement/variable_declaration_tuple">(<span class="marker" id="mapping-112"></span><span class="token del" data-title="variable_declaration_tuple/variable_declaration">MathError mathErr</span>, <span class="marker" id="mapping-113"></span><span class="token mv" id="move-src-35" data-title="variable_declaration_tuple/variable_declaration">uint blockDelta</span>)</span> = <span class="marker" id="mapping-114"></span><span class="token upd" id="move-src-36" data-title="call_expression/identifier"><span class="cupd">sub</span>UInt</span>(currentBlockNumber, accrualBlockNumberPrior);
+        <span class="marker" id="mapping-115"></span><span class="token del" data-title="function_body/expression_statement">require(mathErr == MathError.NO_ERROR, "could not calculate block delta");</span>
+
+        /*
+         * Calculate the interest accumulated into borrows and reserves and the new index:
+         *  simpleInterestFactor = borrowRate * blockDelta
+         *  interestAccumulated = simpleInterestFactor * totalBorrows
+         *  totalBorrowsNew = interestAccumulated + totalBorrows
+         *  totalReservesNew = interestAccumulated * reserveFactor + totalReserves
+         *  borrowIndexNew = simpleInterestFactor * borrowIndex + borrowIndex
+         */
+
+        Exp memory simpleInterestFactor;
+        uint interestAccumulated;
+        uint totalBorrowsNew;
+        <span class="marker" id="mapping-116"></span><span class="token del" data-title="variable_declaration/type_name">uint</span> totalReservesNew;
+        uint borrowIndexNew;
+
+        <span class="marker" id="mapping-117"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-118"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-119"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mathErr, simpleInterestFactor)</span> = <span class="marker" id="mapping-120"></span><span class="token mv" id="move-src-37" data-title="assignment_expression/call_expression"><span class="marker" id="mapping-121"></span><span class="token upd" id="move-src-38" data-title="call_expression/identifier"><span class="cupd">mul</span>Scalar</span>(Exp({mantissa: borrowRateMantissa}), blockDelta)</span></span>;</span>
+        <span class="marker" id="mapping-122"></span><span class="token del" data-title="function_body/if_statement">if (mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.ACCRUE_INTEREST_SIMPLE_INTEREST_FACTOR_CALCULATION_FAILED, uint(mathErr));
+        }</span>
+
+        <span class="marker" id="mapping-123"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-124"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-125"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mathErr, interestAccumulated)</span> = <span class="marker" id="mapping-126"></span><span class="token mv" id="move-src-39" data-title="assignment_expression/call_expression"><span class="marker" id="mapping-127"></span><span class="token upd" id="move-src-40" data-title="call_expression/identifier"><span class="cupd">mul</span><span class="cupd">ScalarTruncate</span></span>(simpleInterestFactor, borrowsPrior)</span></span>;</span>
+        <span class="marker" id="mapping-128"></span><span class="token del" data-title="function_body/if_statement">if (mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.ACCRUE_INTEREST_ACCUMULATED_INTEREST_CALCULATION_FAILED, uint(mathErr));
+        }</span>
+
+        <span class="marker" id="mapping-129"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-130"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-131"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mathErr, totalBorrowsNew)</span> = <span class="marker" id="mapping-132"></span><span class="token mv" id="move-src-41" data-title="assignment_expression/call_expression"><span class="marker" id="mapping-133"></span><span class="token upd" id="move-src-42" data-title="call_expression/identifier"><span class="cupd">add</span>UInt</span>(interestAccumulated, borrowsPrior)</span></span>;</span>
+        <span class="marker" id="mapping-134"></span><span class="token del" data-title="function_body/if_statement">if (mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.ACCRUE_INTEREST_NEW_TOTAL_BORROWS_CALCULATION_FAILED, uint(mathErr));
+        }</span>
+
+        <span class="marker" id="mapping-135"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-136"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-137"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mathErr, totalReservesNew)</span> = <span class="marker" id="mapping-138"></span><span class="token mv" id="move-src-43" data-title="assignment_expression/call_expression"><span class="marker" id="mapping-139"></span><span class="token upd" id="move-src-44" data-title="call_expression/identifier"><span class="cupd">mul</span><span class="cupd">ScalarTruncateAddUInt</span></span>(Exp({mantissa: reserveFactorMantissa}), interestAccumulated, reservesPrior)</span></span>;</span>
+        <span class="marker" id="mapping-140"></span><span class="token del" data-title="function_body/if_statement">if (mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.ACCRUE_INTEREST_NEW_TOTAL_RESERVES_CALCULATION_FAILED, uint(mathErr));
+        }</span>
+
+        <span class="marker" id="mapping-141"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-142"></span><span class="token del" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-143"></span><span class="token del" data-title="assignment_expression/tuple_expression">(mathErr, borrowIndexNew)</span> = <span class="marker" id="mapping-144"></span><span class="token mv" id="move-src-45" data-title="assignment_expression/call_expression"><span class="marker" id="mapping-145"></span><span class="token upd" id="move-src-46" data-title="call_expression/identifier"><span class="cupd">mul</span><span class="cupd">ScalarTruncateAddUInt</span></span>(simpleInterestFactor, borrowIndexPrior, borrowIndexPrior)</span></span>;</span>
+        <span class="marker" id="mapping-146"></span><span class="token del" data-title="function_body/if_statement">if (mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.ACCRUE_INTEREST_NEW_BORROW_INDEX_CALCULATION_FAILED, uint(mathErr));
+        }</span>
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /* We write the previously calculated values into storage */
+        accrualBlockNumber = currentBlockNumber;
+        borrowIndex = borrowIndexNew;
+        totalBorrows = totalBorrowsNew;
+        totalReserves = totalReservesNew;
+
+        /* We emit an AccrueInterest event */
+        emit AccrueInterest(cashPrior, interestAccumulated, borrowIndexNew, totalBorrowsNew);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice Sender supplies assets into the market and receives cTokens in exchange
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @param mintAmount The amount of the underlying asset to supply
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual mint amount.
+     */
+    function mintInternal(uint mintAmount) internal nonReentrant returns (uint, uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted borrow failed
+            return (fail(Error(error), FailureInfo.MINT_ACCRUE_INTEREST_FAILED), 0);
+        }
+        // mintFresh emits the actual Mint event if successful and logs on errors, so we don't need to
+        return mintFresh(msg.sender, mintAmount);
+    }
+
+    <span class="marker" id="mapping-147"></span><span class="token del" data-title="contract_body/struct_declaration">struct MintLocalVars {
+        Error err;
+        MathError mathErr;
+        uint exchangeRateMantissa;
+        uint mintTokens;
+        uint totalSupplyNew;
+        uint accountTokensNew;
+        uint actualMintAmount;
+    }</span>
+
+    <span class="marker" id="mapping-148"></span><span class="token mv" id="move-src-47" data-title="contract_body/comment"><span class="marker" id="mapping-149"></span><span class="token upd" id="move-src-48" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice </span>User s<span class="cupd">u</span>pp<span class="cupd">l</span>ies <span class="cupd">a</span>ss<span class="cupd">e</span>t<span class="cupd">s </span>in<span class="cupd">t</span>o t<span class="cupd">he </span>mark<span class="cupd">e</span>t and receives cTokens in e<span class="cupd">xchange
+</span><span class="cupd"> </span><span class="cupd"> </span>   * @d<span class="cupd">e</span>v<span class="cupd"> </span>Ass<span class="cupd">u</span>mes i<span class="cupd">n</span>t<span class="cupd">er</span>est has a<span class="cupd">l</span>read<span class="cupd">y</span> bee<span class="cupd">n</span><span class="cupd"> </span>accrued up <span class="cupd">to the </span>curr<span class="cupd">en</span>t<span class="cupd"> </span>block<span class="cupd">
+    </span> <span class="cupd">* @</span>param<span class="cupd"> </span>m<span class="cupd">i</span><span class="cupd">n</span><span class="cupd">t</span>er<span class="cupd"> </span>The a<span class="cupd">d</span>dr<span class="cupd">es</span>s<span class="cupd"> </span><span class="cupd">o</span>f <span class="cupd">t</span>he<span class="cupd"> acc</span>o<span class="cupd">u</span>nt<span class="cupd"> </span>wh<span class="cupd">i</span>ch is supplyi<span class="cupd">n</span>g <span class="cupd">t</span>h<span class="cupd">e</span> ass<span class="cupd">e</span>t<span class="cupd">s</span>
+     * @param min<span class="cupd">t</span>Amount<span class="cupd"> </span>Th<span class="cupd">e</span><span class="cupd"> </span><span class="cupd">a</span>mo<span class="cupd">u</span><span class="cupd">n</span>t<span class="cupd"> </span>of <span class="cupd">the </span>und<span class="cupd">e</span>rlyi<span class="cupd">ng</span><span class="cupd"> </span><span class="cupd">a</span>ss<span class="cupd">e</span>t<span class="cupd"> </span>to<span class="cupd"> </span>supply<span class="cupd">
+   </span>  <span class="cupd">* @return </span>(<span class="cupd">u</span>in<span class="cupd">t</span>, uint) An <span class="cupd">e</span>rror<span class="cupd"> </span>cod<span class="cupd">e</span> (0=su<span class="cupd">c</span>cess, ot<span class="cupd">h</span>erwise <span class="cupd">a</span> failur<span class="cupd">e</span>,<span class="cupd"> </span>see E<span class="cupd">r</span>rorReporter.sol), <span class="cupd">a</span>nd <span class="cupd">t</span>h<span class="cupd">e </span>a<span class="cupd">c</span>tu<span class="cupd">al</span><span class="cupd"> </span>mint<span class="cupd"> </span>amount.<span class="cupd">
+     */</span></span></span>
+    <span class="marker" id="mapping-150"></span><span class="token del" data-title="contract_body/function_definition">function mintFresh(<span class="marker" id="mapping-151"></span><span class="token mv" id="move-src-49" data-title="function_definition/parameter">address minter</span>, <span class="marker" id="mapping-152"></span><span class="token mv" id="move-src-50" data-title="function_definition/parameter">uint mintAmount</span>) <span class="marker" id="mapping-153"></span><span class="token mv" id="move-src-51" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-154"></span><span class="token mv" id="move-src-52" data-title="function_definition/return_type_definition">returns (uint, uint)</span> <span class="marker" id="mapping-155"></span><span class="token del" data-title="function_definition/function_body">{
+        /* Fail if mint not allowed */
+        <span class="marker" id="mapping-156"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint allowed = comptroller.mintAllowed(address(this), minter, mintAmount);</span>
+        <span class="marker" id="mapping-157"></span><span class="token del" data-title="function_body/if_statement">if (allowed != 0) {
+            return (failOpaque(Error.COMPTROLLER_REJECTION, FailureInfo.MINT_COMPTROLLER_REJECTION, allowed), 0);
+        }</span>
+
+        /* Verify market's block number equals current block number */
+        <span class="marker" id="mapping-158"></span><span class="token del" data-title="function_body/if_statement">if (accrualBlockNumber != getBlockNumber()) {
+            return (fail(Error.MARKET_NOT_FRESH, FailureInfo.MINT_FRESHNESS_CHECK), 0);
+        }</span>
+
+        <span class="marker" id="mapping-159"></span><span class="token del" data-title="function_body/variable_declaration_statement">MintLocalVars memory vars;</span>
+
+        <span class="marker" id="mapping-160"></span><span class="token del" data-title="function_body/expression_statement">(vars.mathErr, vars.exchangeRateMantissa) = exchangeRateStoredInternal();</span>
+        <span class="marker" id="mapping-161"></span><span class="token del" data-title="function_body/if_statement">if (vars.mathErr != MathError.NO_ERROR) {
+            return (failOpaque(Error.MATH_ERROR, FailureInfo.MINT_EXCHANGE_RATE_READ_FAILED, uint(vars.mathErr)), 0);
+        }</span>
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /*
+         *  We call `doTransferIn` for the minter and the mintAmount.
+         *  Note: The cToken must handle variations between ERC-20 and ETH underlying.
+         *  `doTransferIn` reverts if anything goes wrong, since we can't be sure if
+         *  side-effects occurred. The function returns the amount actually transferred,
+         *  in case of a fee. On success, the cToken holds an additional `actualMintAmount`
+         *  of cash.
+         */
+        <span class="marker" id="mapping-162"></span><span class="token del" data-title="function_body/expression_statement">vars.actualMintAmount = doTransferIn(minter, mintAmount);</span>
+
+        /*
+         * We get the current exchange rate and calculate the number of cTokens to be minted:
+         *  mintTokens = actualMintAmount / exchangeRate
+         */
+
+        <span class="marker" id="mapping-163"></span><span class="token del" data-title="function_body/expression_statement">(vars.mathErr, vars.mintTokens) = divScalarByExpTruncate(vars.actualMintAmount, Exp({mantissa: vars.exchangeRateMantissa}));</span>
+        <span class="marker" id="mapping-164"></span><span class="token del" data-title="function_body/expression_statement">require(vars.mathErr == MathError.NO_ERROR, "MINT_EXCHANGE_CALCULATION_FAILED");</span>
+
+        /*
+         * We calculate the new total supply of cTokens and minter token balance, checking for overflow:
+         *  totalSupplyNew = totalSupply + mintTokens
+         *  accountTokensNew = accountTokens[minter] + mintTokens
+         */
+        <span class="marker" id="mapping-165"></span><span class="token del" data-title="function_body/expression_statement">(vars.mathErr, vars.totalSupplyNew) = addUInt(totalSupply, vars.mintTokens);</span>
+        <span class="marker" id="mapping-166"></span><span class="token del" data-title="function_body/expression_statement">require(vars.mathErr == MathError.NO_ERROR, "MINT_NEW_TOTAL_SUPPLY_CALCULATION_FAILED");</span>
+
+        <span class="marker" id="mapping-167"></span><span class="token del" data-title="function_body/expression_statement">(vars.mathErr, vars.accountTokensNew) = addUInt(accountTokens[minter], vars.mintTokens);</span>
+        <span class="marker" id="mapping-168"></span><span class="token del" data-title="function_body/expression_statement">require(vars.mathErr == MathError.NO_ERROR, "MINT_NEW_ACCOUNT_BALANCE_CALCULATION_FAILED");</span>
+
+        /* We write previously calculated values into storage */
+        <span class="marker" id="mapping-169"></span><span class="token del" data-title="function_body/expression_statement">totalSupply = vars.totalSupplyNew;</span>
+        <span class="marker" id="mapping-170"></span><span class="token del" data-title="function_body/expression_statement">accountTokens[minter] = vars.accountTokensNew;</span>
+
+        /* We emit a Mint event, and a Transfer event */
+        <span class="marker" id="mapping-171"></span><span class="token del" data-title="function_body/emit_statement">emit Mint(minter, vars.actualMintAmount, vars.mintTokens);</span>
+        <span class="marker" id="mapping-172"></span><span class="token del" data-title="function_body/emit_statement">emit Transfer(address(this), minter, vars.mintTokens);</span>
+
+        /* We call the defense hook */
+        <span class="marker" id="mapping-173"></span><span class="token del" data-title="function_body/expression_statement">comptroller.mintVerify(address(this), minter, vars.actualMintAmount, vars.mintTokens);</span>
+
+        <span class="marker" id="mapping-174"></span><span class="token mv" id="move-src-53" data-title="function_body/return_statement">return (uint(Error.NO_ERROR), <span class="marker" id="mapping-175"></span><span class="token del" data-title="tuple_expression/member_expression">vars.actualMintAmount</span>);</span>
+    }</span></span>
+
+    /**
+     * @notice Sender redeems cTokens in exchange for the underlying asset
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @param redeemTokens The number of cTokens to redeem into underlying
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function redeemInternal(uint redeemTokens) internal nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted redeem failed
+            return fail(Error(error), FailureInfo.REDEEM_ACCRUE_INTEREST_FAILED);
+        }
+        // redeemFresh emits redeem-specific logs on errors, so we don't need to
+        return redeemFresh(msg.sender, redeemTokens, 0);
+    }
+
+    /**
+     * @notice Sender redeems cTokens in exchange for a specified amount of underlying asset
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @param redeemAmount The amount of underlying to receive from redeeming cTokens
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function redeemUnderlyingInternal(uint redeemAmount) internal nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted redeem failed
+            return fail(Error(error), FailureInfo.REDEEM_ACCRUE_INTEREST_FAILED);
+        }
+        // redeemFresh emits redeem-specific logs on errors, so we don't need to
+        return redeemFresh(msg.sender, 0, redeemAmount);
+    }
+
+    <span class="marker" id="mapping-176"></span><span class="token del" data-title="contract_body/struct_declaration">struct RedeemLocalVars {
+        Error err;
+        MathError mathErr;
+        uint exchangeRateMantissa;
+        uint redeemTokens;
+        uint redeemAmount;
+        uint totalSupplyNew;
+        uint accountTokensNew;
+    }</span>
+
+    <span class="marker" id="mapping-177"></span><span class="token mv" id="move-src-54" data-title="contract_body/comment"><span class="marker" id="mapping-178"></span><span class="token upd" id="move-src-55" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice </span>User redeems c<span class="cupd">T</span>okens in exchange fo<span class="cupd">r</span> the underlying <span class="cupd">a</span>sset
+     * @dev Assumes i<span class="cupd">n</span>tere<span class="cupd">s</span>t has alr<span class="cupd">e</span>ady been acc<span class="cupd">r</span>ued<span class="cupd"> </span>up <span class="cupd">to</span> the current bloc<span class="cupd">k</span>
+     * @param r<span class="cupd">e</span>deemer The address of the accou<span class="cupd">n</span>t which i<span class="cupd">s</span><span class="cupd"> </span>redeeming <span class="cupd">t</span>he t<span class="cupd">okens
+</span>     * @pa<span class="cupd">r</span>a<span class="cupd">m </span>redeemToken<span class="cupd">s</span>In The numbe<span class="cupd">r</span> of <span class="cupd">c</span>Tokens<span class="cupd"> to </span>re<span class="cupd">d</span>eem in<span class="cupd">t</span>o<span class="cupd"> </span>underl<span class="cupd">y</span>ing<span class="cupd"> </span>(only on<span class="cupd">e</span> of redeemToke<span class="cupd">n</span>sIn or re<span class="cupd">de</span>emAmountIn may be non-ze<span class="cupd">r</span>o)<span class="cupd">
+     * @</span>param re<span class="cupd">de</span>emAmountIn<span class="cupd"> </span>Th<span class="cupd">e</span><span class="cupd"> </span>num<span class="cupd">b</span>er<span class="cupd"> </span><span class="cupd">o</span>f underlying <span class="cupd">t</span>okens<span class="cupd"> </span><span class="cupd">t</span>o <span class="cupd">r</span>eceive from redeemi<span class="cupd">n</span>g cToken<span class="cupd">s</span> (only one o<span class="cupd">f</span> r<span class="cupd">e</span>deemTokensIn o<span class="cupd">r</span><span class="cupd"> </span>redeemAmountIn m<span class="cupd">a</span>y be <span class="cupd">n</span>on-zero)<span class="cupd">
+</span>     * @re<span class="cupd">t</span>u<span class="cupd">r</span><span class="cupd">n</span> uint 0=<span class="cupd">s</span>uccess, otherwise a <span class="cupd">f</span>ailur<span class="cupd">e</span> (see E<span class="cupd">r</span><span class="cupd">ro</span>rRepor<span class="cupd">ter</span>.sol for det<span class="cupd">a</span>i<span class="cupd">l</span>s)<span class="cupd">
+     */</span></span></span>
+    <span class="marker" id="mapping-179"></span><span class="token del" data-title="contract_body/function_definition">function redeemFresh(<span class="marker" id="mapping-180"></span><span class="token mv" id="move-src-56" data-title="function_definition/parameter">address payable redeemer</span>, <span class="marker" id="mapping-181"></span><span class="token mv" id="move-src-57" data-title="function_definition/parameter">uint redeemTokensIn</span>, <span class="marker" id="mapping-182"></span><span class="token mv" id="move-src-58" data-title="function_definition/parameter">uint redeemAmountIn</span>) <span class="marker" id="mapping-183"></span><span class="token mv" id="move-src-59" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-184"></span><span class="token mv" id="move-src-60" data-title="function_definition/return_type_definition">returns (uint)</span> <span class="marker" id="mapping-185"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-186"></span><span class="token del" data-title="function_body/expression_statement">require(redeemTokensIn == 0 || redeemAmountIn == 0, "one of redeemTokensIn or redeemAmountIn must be zero");</span>
+
+        <span class="marker" id="mapping-187"></span><span class="token del" data-title="function_body/variable_declaration_statement">RedeemLocalVars memory vars;</span>
+
+        /* exchangeRate = invoke Exchange Rate Stored() */
+        <span class="marker" id="mapping-188"></span><span class="token del" data-title="function_body/expression_statement">(vars.mathErr, vars.exchangeRateMantissa) = exchangeRateStoredInternal();</span>
+        <span class="marker" id="mapping-189"></span><span class="token del" data-title="function_body/if_statement">if (vars.mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.REDEEM_EXCHANGE_RATE_READ_FAILED, uint(vars.mathErr));
+        }</span>
+
+        /* If redeemTokensIn &gt; 0: */
+        <span class="marker" id="mapping-190"></span><span class="token del" data-title="function_body/if_statement">if (redeemTokensIn &gt; 0) {
+            /*
+             * We calculate the exchange rate and the amount of underlying to be redeemed:
+             *  redeemTokens = redeemTokensIn
+             *  redeemAmount = redeemTokensIn x exchangeRateCurrent
+             */
+            vars.redeemTokens = redeemTokensIn;
+
+            (vars.mathErr, vars.redeemAmount) = mulScalarTruncate(Exp({mantissa: vars.exchangeRateMantissa}), redeemTokensIn);
+            if (vars.mathErr != MathError.NO_ERROR) {
+                return failOpaque(Error.MATH_ERROR, FailureInfo.REDEEM_EXCHANGE_TOKENS_CALCULATION_FAILED, uint(vars.mathErr));
+            }
+        } else {
+            /*
+             * We get the current exchange rate and calculate the amount to be redeemed:
+             *  redeemTokens = redeemAmountIn / exchangeRate
+             *  redeemAmount = redeemAmountIn
+             */
+
+            (vars.mathErr, vars.redeemTokens) = divScalarByExpTruncate(redeemAmountIn, Exp({mantissa: vars.exchangeRateMantissa}));
+            if (vars.mathErr != MathError.NO_ERROR) {
+                return failOpaque(Error.MATH_ERROR, FailureInfo.REDEEM_EXCHANGE_AMOUNT_CALCULATION_FAILED, uint(vars.mathErr));
+            }
+
+            vars.redeemAmount = redeemAmountIn;
+        }</span>
+
+        /* Fail if redeem not allowed */
+        <span class="marker" id="mapping-191"></span><span class="token del" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-192"></span><span class="token del" data-title="variable_declaration_statement/variable_declaration"><span class="marker" id="mapping-193"></span><span class="token mv" id="move-src-61" data-title="variable_declaration/type_name">uint</span> allowed</span> = <span class="marker" id="mapping-194"></span><span class="token del" data-title="variable_declaration_statement/call_expression">comptroller.redeemAllowed(address(this), redeemer, vars.redeemTokens)</span>;</span>
+        <span class="marker" id="mapping-195"></span><span class="token del" data-title="function_body/if_statement">if (allowed != 0) {
+            return failOpaque(Error.COMPTROLLER_REJECTION, FailureInfo.REDEEM_COMPTROLLER_REJECTION, allowed);
+        }</span>
+
+        /* Verify market's block number equals current block number */
+        <span class="marker" id="mapping-196"></span><span class="token del" data-title="function_body/if_statement">if (accrualBlockNumber != getBlockNumber()) {
+            return fail(Error.MARKET_NOT_FRESH, FailureInfo.REDEEM_FRESHNESS_CHECK);
+        }</span>
+
+        /*
+         * We calculate the new total supply and redeemer balance, checking for underflow:
+         *  totalSupplyNew = totalSupply - redeemTokens
+         *  accountTokensNew = accountTokens[redeemer] - redeemTokens
+         */
+        <span class="marker" id="mapping-197"></span><span class="token del" data-title="function_body/expression_statement">(vars.mathErr, vars.totalSupplyNew) = subUInt(totalSupply, vars.redeemTokens);</span>
+        <span class="marker" id="mapping-198"></span><span class="token del" data-title="function_body/if_statement">if (vars.mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.REDEEM_NEW_TOTAL_SUPPLY_CALCULATION_FAILED, uint(vars.mathErr));
+        }</span>
+
+        <span class="marker" id="mapping-199"></span><span class="token del" data-title="function_body/expression_statement">(vars.mathErr, vars.accountTokensNew) = subUInt(accountTokens[redeemer], vars.redeemTokens);</span>
+        <span class="marker" id="mapping-200"></span><span class="token del" data-title="function_body/if_statement">if (vars.mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.REDEEM_NEW_ACCOUNT_BALANCE_CALCULATION_FAILED, uint(vars.mathErr));
+        }</span>
+
+        /* Fail gracefully if protocol has insufficient cash */
+        <span class="marker" id="mapping-201"></span><span class="token del" data-title="function_body/if_statement">if (<span class="marker" id="mapping-202"></span><span class="token del" data-title="if_statement/binary_expression"><span class="marker" id="mapping-203"></span><span class="token mv" id="move-src-62" data-title="binary_expression/call_expression">getCashPrior()</span> &lt; <span class="marker" id="mapping-204"></span><span class="token del" data-title="binary_expression/member_expression">vars.redeemAmount</span></span>) <span class="marker" id="mapping-205"></span><span class="token del" data-title="if_statement/block_statement">{
+            return fail(Error.TOKEN_INSUFFICIENT_CASH, FailureInfo.REDEEM_TRANSFER_OUT_NOT_POSSIBLE);
+        }</span></span>
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /*
+         * We invoke doTransferOut for the redeemer and the redeemAmount.
+         *  Note: The cToken must handle variations between ERC-20 and ETH underlying.
+         *  On success, the cToken has redeemAmount less of cash.
+         *  doTransferOut reverts if anything goes wrong, since we can't be sure if side effects occurred.
+         */
+        <span class="marker" id="mapping-206"></span><span class="token del" data-title="function_body/expression_statement">doTransferOut(redeemer, vars.redeemAmount);</span>
+
+        /* We write previously calculated values into storage */
+        <span class="marker" id="mapping-207"></span><span class="token del" data-title="function_body/expression_statement">totalSupply = vars.totalSupplyNew;</span>
+        <span class="marker" id="mapping-208"></span><span class="token del" data-title="function_body/expression_statement">accountTokens[redeemer] = vars.accountTokensNew;</span>
+
+        /* We emit a Transfer event, and a Redeem event */
+        <span class="marker" id="mapping-209"></span><span class="token del" data-title="function_body/emit_statement">emit Transfer(redeemer, address(this), vars.redeemTokens);</span>
+        <span class="marker" id="mapping-210"></span><span class="token del" data-title="function_body/emit_statement">emit Redeem(redeemer, vars.redeemAmount, vars.redeemTokens);</span>
+
+        /* We call the defense hook */
+        <span class="marker" id="mapping-211"></span><span class="token del" data-title="function_body/expression_statement">comptroller.redeemVerify(address(this), redeemer, vars.redeemAmount, vars.redeemTokens);</span>
+
+        <span class="marker" id="mapping-212"></span><span class="token del" data-title="function_body/return_statement">return uint(Error.NO_ERROR);</span>
+    }</span></span>
+
+    /**
+      * @notice Sender borrows assets from the protocol to their own address
+      * @param borrowAmount The amount of the underlying asset to borrow
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function borrowInternal(uint borrowAmount) internal nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted borrow failed
+            return fail(Error(error), FailureInfo.BORROW_ACCRUE_INTEREST_FAILED);
+        }
+        // borrowFresh emits borrow-specific logs on errors, so we don't need to
+        return borrowFresh(msg.sender, borrowAmount);
+    }
+
+    struct BorrowLocalVars {
+        MathError mathErr;
+        uint accountBorrows;
+        uint accountBorrowsNew;
+        uint totalBorrowsNew;
+    }
+
+    /**
+      * @notice Users borrow assets from the protocol to their own address
+      * @param borrowAmount The amount of the underlying asset to borrow
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function borrowFresh(address payable borrower, uint borrowAmount) internal returns (uint) {
+        /* Fail if borrow not allowed */
+        uint allowed = comptroller.borrowAllowed(address(this), borrower, borrowAmount);
+        if (allowed != 0) {
+            return failOpaque(Error.COMPTROLLER_REJECTION, FailureInfo.BORROW_COMPTROLLER_REJECTION, allowed);
+        }
+
+        /* Verify market's block number equals current block number */
+        if (accrualBlockNumber != getBlockNumber()) {
+            return fail(Error.MARKET_NOT_FRESH, FailureInfo.BORROW_FRESHNESS_CHECK);
+        }
+
+        /* Fail gracefully if protocol has insufficient underlying cash */
+        if (getCashPrior() &lt; borrowAmount) {
+            return fail(Error.TOKEN_INSUFFICIENT_CASH, FailureInfo.BORROW_CASH_NOT_AVAILABLE);
+        }
+
+        BorrowLocalVars memory vars;
+
+        /*
+         * We calculate the new borrower and total borrow balances, failing on overflow:
+         *  accountBorrowsNew = accountBorrows + borrowAmount
+         *  totalBorrowsNew = totalBorrows + borrowAmount
+         */
+        <span class="marker" id="mapping-213"></span><span class="token mv" id="move-src-63" data-title="function_body/expression_statement"><span class="marker" id="mapping-214"></span><span class="token del" data-title="assignment_expression/tuple_expression">(<span class="marker" id="mapping-215"></span><span class="token del" data-title="tuple_expression/member_expression">vars.mathErr</span>, <span class="marker" id="mapping-216"></span><span class="token mv" id="move-src-64" data-title="tuple_expression/member_expression">vars.accountBorrows</span>)</span> = borrowBalanceStoredInternal(borrower);</span>
+        <span class="marker" id="mapping-217"></span><span class="token del" data-title="function_body/if_statement">if (vars.mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.BORROW_ACCUMULATED_BALANCE_CALCULATION_FAILED, uint(vars.mathErr));
+        }</span>
+
+        <span class="marker" id="mapping-218"></span><span class="token del" data-title="assignment_expression/tuple_expression">(<span class="marker" id="mapping-219"></span><span class="token del" data-title="tuple_expression/member_expression">vars.mathErr</span>, <span class="marker" id="mapping-220"></span><span class="token mv" id="move-src-65" data-title="tuple_expression/member_expression">vars.accountBorrowsNew</span>)</span> = <span class="marker" id="mapping-221"></span><span class="token upd" id="move-src-66" data-title="call_expression/identifier"><span class="cupd">add</span>UInt</span>(vars.accountBorrows, borrowAmount);
+        <span class="marker" id="mapping-222"></span><span class="token del" data-title="function_body/if_statement">if (vars.mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.BORROW_NEW_ACCOUNT_BORROW_BALANCE_CALCULATION_FAILED, uint(vars.mathErr));
+        }</span>
+
+        <span class="marker" id="mapping-223"></span><span class="token del" data-title="assignment_expression/tuple_expression">(<span class="marker" id="mapping-224"></span><span class="token del" data-title="tuple_expression/member_expression">vars.mathErr</span>, <span class="marker" id="mapping-225"></span><span class="token mv" id="move-src-67" data-title="tuple_expression/member_expression">vars.totalBorrowsNew</span>)</span> = <span class="marker" id="mapping-226"></span><span class="token upd" id="move-src-68" data-title="call_expression/identifier"><span class="cupd">add</span>UInt</span>(totalBorrows, borrowAmount);
+        <span class="marker" id="mapping-227"></span><span class="token del" data-title="function_body/if_statement">if (vars.mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.BORROW_NEW_TOTAL_BALANCE_CALCULATION_FAILED, uint(vars.mathErr));
+        }</span>
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /*
+         * We invoke doTransferOut for the borrower and the borrowAmount.
+         *  Note: The cToken must handle variations between ERC-20 and ETH underlying.
+         *  On success, the cToken borrowAmount less of cash.
+         *  doTransferOut reverts if anything goes wrong, since we can't be sure if side effects occurred.
+         */
+        doTransferOut(borrower, borrowAmount);
+
+        /* We write the previously calculated values into storage */
+        accountBorrows[borrower].principal = vars.accountBorrowsNew;
+        accountBorrows[borrower].interestIndex = borrowIndex;
+        totalBorrows = vars.totalBorrowsNew;
+
+        /* We emit a Borrow event */
+        emit Borrow(borrower, borrowAmount, vars.accountBorrowsNew, vars.totalBorrowsNew);
+
+        /* We call the defense hook */
+        <span class="marker" id="mapping-228"></span><span class="token mv" id="move-src-69" data-title="function_body/expression_statement"><span class="marker" id="mapping-229"></span><span class="token del" data-title="expression_statement/call_expression">comptroller.borrowVerify(address(this), borrower, borrowAmount)</span>;</span>
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice Sender repays their own borrow
+     * @param repayAmount The amount to repay
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual repayment amount.
+     */
+    function repayBorrowInternal(uint repayAmount) internal nonReentrant returns (uint, uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted borrow failed
+            return (fail(Error(error), FailureInfo.REPAY_BORROW_ACCRUE_INTEREST_FAILED), 0);
+        }
+        // repayBorrowFresh emits repay-borrow-specific logs on errors, so we don't need to
+        return repayBorrowFresh(msg.sender, msg.sender, repayAmount);
+    }
+
+    /**
+     * @notice Sender repays a borrow belonging to borrower
+     * @param borrower the account with the debt being payed off
+     * @param repayAmount The amount to repay
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual repayment amount.
+     */
+    function repayBorrowBehalfInternal(address borrower, uint repayAmount) internal nonReentrant returns (uint, uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted borrow failed
+            return (fail(Error(error), FailureInfo.REPAY_BEHALF_ACCRUE_INTEREST_FAILED), 0);
+        }
+        // repayBorrowFresh emits repay-borrow-specific logs on errors, so we don't need to
+        return repayBorrowFresh(msg.sender, borrower, repayAmount);
+    }
+
+    struct RepayBorrowLocalVars {
+        Error err;
+        MathError mathErr;
+        uint repayAmount;
+        uint borrowerIndex;
+        uint accountBorrows;
+        uint accountBorrowsNew;
+        uint totalBorrowsNew;
+        uint actualRepayAmount;
+    }
+
+    /**
+     * @notice Borrows are repaid by another user (possibly the borrower).
+     * @param payer the account paying off the borrow
+     * @param borrower the account with the debt being payed off
+     * @param repayAmount the amount of undelrying tokens being returned
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual repayment amount.
+     */
+    function repayBorrowFresh(address payer, address borrower, uint repayAmount) internal returns (uint, uint) {
+        /* Fail if repayBorrow not allowed */
+        uint allowed = comptroller.repayBorrowAllowed(address(this), payer, borrower, repayAmount);
+        if (allowed != 0) {
+            return (failOpaque(Error.COMPTROLLER_REJECTION, FailureInfo.REPAY_BORROW_COMPTROLLER_REJECTION, allowed), 0);
+        }
+
+        /* Verify market's block number equals current block number */
+        if (accrualBlockNumber != getBlockNumber()) {
+            return (fail(Error.MARKET_NOT_FRESH, FailureInfo.REPAY_BORROW_FRESHNESS_CHECK), 0);
+        }
+
+        RepayBorrowLocalVars memory vars;
+
+        /* We remember the original borrowerIndex for verification purposes */
+        vars.borrowerIndex = accountBorrows[borrower].interestIndex;
+
+        /* We fetch the amount the borrower owes, with accumulated interest */
+        <span class="marker" id="mapping-230"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-231"></span><span class="token mv" id="move-src-70" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-232"></span><span class="token del" data-title="assignment_expression/tuple_expression">(<span class="marker" id="mapping-233"></span><span class="token del" data-title="tuple_expression/member_expression">vars.mathErr</span>, <span class="marker" id="mapping-234"></span><span class="token mv" id="move-src-71" data-title="tuple_expression/member_expression">vars.accountBorrows</span>)</span> = borrowBalanceStoredInternal(borrower)</span>;</span>
+        <span class="marker" id="mapping-235"></span><span class="token mv" id="move-src-72" data-title="function_body/if_statement">if (<span class="marker" id="mapping-236"></span><span class="token del" data-title="binary_expression/member_expression">vars.mathErr</span> <span class="marker" id="mapping-237"></span><span class="token del" data-title="binary_expression/!=">!=</span> <span class="marker" id="mapping-238"></span><span class="token del" data-title="binary_expression/member_expression">MathError.NO_ERROR</span>) {
+            <span class="marker" id="mapping-239"></span><span class="token del" data-title="block_statement/return_statement">return (failOpaque(Error.MATH_ERROR, FailureInfo.REPAY_BORROW_ACCUMULATED_BALANCE_CALCULATION_FAILED, uint(vars.mathErr)), 0);</span>
+        }</span>
+
+        /* If repayAmount == -1, repayAmount = accountBorrows */
+        if (repayAmount == uint(-1)) {
+            vars.repayAmount = vars.accountBorrows;
+        } else {
+            vars.repayAmount = repayAmount;
+        }
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /*
+         * We call doTransferIn for the payer and the repayAmount
+         *  Note: The cToken must handle variations between ERC-20 and ETH underlying.
+         *  On success, the cToken holds an additional repayAmount of cash.
+         *  doTransferIn reverts if anything goes wrong, since we can't be sure if side effects occurred.
+         *   it returns the amount actually transferred, in case of a fee.
+         */
+        vars.actualRepayAmount = doTransferIn(payer, vars.repayAmount);
+
+        /*
+         * We calculate the new borrower and total borrow balances, failing on underflow:
+         *  accountBorrowsNew = accountBorrows - actualRepayAmount
+         *  totalBorrowsNew = totalBorrows - actualRepayAmount
+         */
+        <span class="marker" id="mapping-240"></span><span class="token del" data-title="assignment_expression/tuple_expression">(<span class="marker" id="mapping-241"></span><span class="token del" data-title="tuple_expression/member_expression">vars.mathErr</span>, <span class="marker" id="mapping-242"></span><span class="token mv" id="move-src-73" data-title="tuple_expression/member_expression">vars.accountBorrowsNew</span>)</span> = <span class="marker" id="mapping-243"></span><span class="token upd" id="move-src-74" data-title="call_expression/identifier"><span class="cupd">sub</span>UInt</span>(vars.accountBorrows, vars.actualRepayAmount);
+        <span class="marker" id="mapping-244"></span><span class="token del" data-title="function_body/expression_statement">require(vars.mathErr == MathError.NO_ERROR, "REPAY_BORROW_NEW_ACCOUNT_BORROW_BALANCE_CALCULATION_FAILED");</span>
+
+        <span class="marker" id="mapping-245"></span><span class="token del" data-title="assignment_expression/tuple_expression">(<span class="marker" id="mapping-246"></span><span class="token del" data-title="tuple_expression/member_expression">vars.mathErr</span>, <span class="marker" id="mapping-247"></span><span class="token mv" id="move-src-75" data-title="tuple_expression/member_expression">vars.totalBorrowsNew</span>)</span> = <span class="marker" id="mapping-248"></span><span class="token upd" id="move-src-76" data-title="call_expression/identifier"><span class="cupd">sub</span>UInt</span>(totalBorrows, vars.actualRepayAmount);
+        <span class="marker" id="mapping-249"></span><span class="token del" data-title="function_body/expression_statement">require(vars.mathErr == MathError.NO_ERROR, "REPAY_BORROW_NEW_TOTAL_BALANCE_CALCULATION_FAILED");</span>
+
+        /* We write the previously calculated values into storage */
+        accountBorrows[borrower].principal = vars.accountBorrowsNew;
+        accountBorrows[borrower].interestIndex = borrowIndex;
+        totalBorrows = vars.totalBorrowsNew;
+
+        /* We emit a RepayBorrow event */
+        emit RepayBorrow(payer, borrower, vars.actualRepayAmount, vars.accountBorrowsNew, vars.totalBorrowsNew);
+
+        /* We call the defense hook */
+        <span class="marker" id="mapping-250"></span><span class="token del" data-title="function_body/expression_statement">comptroller.repayBorrowVerify(address(this), payer, borrower, vars.actualRepayAmount, vars.borrowerIndex);</span>
+
+        return (uint(Error.NO_ERROR), vars.actualRepayAmount);
+    }
+
+    /**
+     * @notice The sender liquidates the borrowers collateral.
+     *  The collateral seized is transferred to the liquidator.
+     * @param borrower The borrower of this cToken to be liquidated
+     * @param cTokenCollateral The market in which to seize collateral from the borrower
+     * @param repayAmount The amount of the underlying borrowed asset to repay
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual repayment amount.
+     */
+    function liquidateBorrowInternal(address borrower, uint repayAmount, CTokenInterface cTokenCollateral) internal nonReentrant returns (uint, uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted liquidation failed
+            return (fail(Error(error), FailureInfo.LIQUIDATE_ACCRUE_BORROW_INTEREST_FAILED), 0);
+        }
+
+        error = cTokenCollateral.accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted liquidation failed
+            return (fail(Error(error), FailureInfo.LIQUIDATE_ACCRUE_COLLATERAL_INTEREST_FAILED), 0);
+        }
+
+        // liquidateBorrowFresh emits borrow-specific logs on errors, so we don't need to
+        return liquidateBorrowFresh(msg.sender, borrower, repayAmount, cTokenCollateral);
+    }
+
+    /**
+     * @notice The liquidator liquidates the borrowers collateral.
+     *  The collateral seized is transferred to the liquidator.
+     * @param borrower The borrower of this cToken to be liquidated
+     * @param liquidator The address repaying the borrow and seizing collateral
+     * @param cTokenCollateral The market in which to seize collateral from the borrower
+     * @param repayAmount The amount of the underlying borrowed asset to repay
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual repayment amount.
+     */
+    function liquidateBorrowFresh(address liquidator, address borrower, uint repayAmount, CTokenInterface cTokenCollateral) internal returns (uint, uint) {
+        /* Fail if liquidate not allowed */
+        uint allowed = comptroller.liquidateBorrowAllowed(address(this), address(cTokenCollateral), liquidator, borrower, repayAmount);
+        if (allowed != 0) {
+            return (failOpaque(Error.COMPTROLLER_REJECTION, FailureInfo.LIQUIDATE_COMPTROLLER_REJECTION, allowed), 0);
+        }
+
+        /* Verify market's block number equals current block number */
+        if (accrualBlockNumber != getBlockNumber()) {
+            return (fail(Error.MARKET_NOT_FRESH, FailureInfo.LIQUIDATE_FRESHNESS_CHECK), 0);
+        }
+
+        /* Verify cTokenCollateral market's block number equals current block number */
+        if (cTokenCollateral.accrualBlockNumber() != getBlockNumber()) {
+            return (fail(Error.MARKET_NOT_FRESH, FailureInfo.LIQUIDATE_COLLATERAL_FRESHNESS_CHECK), 0);
+        }
+
+        /* Fail if borrower = liquidator */
+        if (borrower == liquidator) {
+            return (fail(Error.INVALID_ACCOUNT_PAIR, FailureInfo.LIQUIDATE_LIQUIDATOR_IS_BORROWER), 0);
+        }
+
+        /* Fail if repayAmount = 0 */
+        if (repayAmount == 0) {
+            return (fail(Error.INVALID_CLOSE_AMOUNT_REQUESTED, FailureInfo.LIQUIDATE_CLOSE_AMOUNT_IS_ZERO), 0);
+        }
+
+        /* Fail if repayAmount = -1 */
+        if (repayAmount == uint(-1)) {
+            return (fail(Error.INVALID_CLOSE_AMOUNT_REQUESTED, FailureInfo.LIQUIDATE_CLOSE_AMOUNT_IS_UINT_MAX), 0);
+        }
+
+
+        /* Fail if repayBorrow fails */
+        (uint repayBorrowError, uint actualRepayAmount) = repayBorrowFresh(liquidator, borrower, repayAmount);
+        if (repayBorrowError != uint(Error.NO_ERROR)) {
+            return (fail(Error(repayBorrowError), FailureInfo.LIQUIDATE_REPAY_BORROW_FRESH_FAILED), 0);
+        }
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /* We calculate the number of collateral tokens that will be seized */
+        (uint amountSeizeError, uint seizeTokens) = comptroller.liquidateCalculateSeizeTokens(address(this), address(cTokenCollateral), actualRepayAmount);
+        require(amountSeizeError == uint(Error.NO_ERROR), "LIQUIDATE_COMPTROLLER_CALCULATE_AMOUNT_SEIZE_FAILED");
+
+        /* Revert if borrower collateral token balance &lt; seizeTokens */
+        require(cTokenCollateral.balanceOf(borrower) &gt;= seizeTokens, "LIQUIDATE_SEIZE_TOO_MUCH");
+
+        // If this is also the collateral, run seizeInternal to avoid re-entrancy, otherwise make an external call
+        uint seizeError;
+        if (address(cTokenCollateral) == address(this)) {
+            seizeError = seizeInternal(address(this), liquidator, borrower, seizeTokens);
+        } else {
+            seizeError = cTokenCollateral.seize(liquidator, borrower, seizeTokens);
+        }
+
+        /* Revert if seize tokens fails (since we cannot be sure of side effects) */
+        require(seizeError == uint(Error.NO_ERROR), "token seizure failed");
+
+        /* We emit a LiquidateBorrow event */
+        emit LiquidateBorrow(liquidator, borrower, actualRepayAmount, address(cTokenCollateral), seizeTokens);
+
+        /* We call the defense hook */
+        <span class="marker" id="mapping-251"></span><span class="token del" data-title="function_body/expression_statement">comptroller.liquidateBorrowVerify(address(this), address(cTokenCollateral), liquidator, borrower, actualRepayAmount, seizeTokens);</span>
+
+        return (uint(Error.NO_ERROR), actualRepayAmount);
+    }
+
+    /**
+     * @notice Transfers collateral tokens (this market) to the liquidator.
+     * @dev Will fail unless called by another cToken during the process of liquidation.
+     *  Its absolutely critical to use msg.sender as the borrowed cToken and not a parameter.
+     * @param liquidator The account receiving seized collateral
+     * @param borrower The account having collateral seized
+     * @param seizeTokens The number of cTokens to seize
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function seize(address liquidator, address borrower, uint seizeTokens) external nonReentrant returns (uint) {
+        return seizeInternal(msg.sender, liquidator, borrower, seizeTokens);
+    }
+
+    <span class="marker" id="mapping-252"></span><span class="token mv" id="move-src-77" data-title="contract_body/comment"><span class="marker" id="mapping-253"></span><span class="token upd" id="move-src-78" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice </span>Transf<span class="cupd">e</span>rs colla<span class="cupd">t</span>eral<span class="cupd"> t</span>okens (t<span class="cupd">h</span>is mark<span class="cupd">e</span>t)<span class="cupd"> </span>to the liquid<span class="cupd">a</span>tor.
+     * @dev Called only during an in-kind liquidation, or by liquidateBorrow during the liquidation of another CToken.
+     *  Its absolutely <span class="cupd">c</span>riti<span class="cupd">c</span>al t<span class="cupd">o</span> <span class="cupd">u</span>se msg.se<span class="cupd">n</span>der as <span class="cupd">t</span>he <span class="cupd">s</span>eizer<span class="cupd"> cToken </span>and not a parameter.
+     * @param seizerToken The contract seizing the collateral (i.e. <span class="cupd">b</span>orrowed cToken)
+     * @p<span class="cupd">a</span>ram <span class="cupd">l</span>iquid<span class="cupd">a</span>tor The accou<span class="cupd">n</span>t re<span class="cupd">ce</span>iving <span class="cupd">s</span>eized<span class="cupd"> </span>collateral<span class="cupd">
+    </span> <span class="cupd">*</span> @param borrower The account having collateral seized
+     * @param seizeTokens The number of cTokens to seize
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */</span></span>
+    <span class="marker" id="mapping-254"></span><span class="token del" data-title="contract_body/function_definition">function seizeInternal(<span class="marker" id="mapping-255"></span><span class="token mv" id="move-src-79" data-title="function_definition/parameter">address seizerToken</span>, <span class="marker" id="mapping-256"></span><span class="token mv" id="move-src-80" data-title="function_definition/parameter">address liquidator</span>, <span class="marker" id="mapping-257"></span><span class="token mv" id="move-src-81" data-title="function_definition/parameter">address borrower</span>, <span class="marker" id="mapping-258"></span><span class="token mv" id="move-src-82" data-title="function_definition/parameter">uint seizeTokens</span>) <span class="marker" id="mapping-259"></span><span class="token mv" id="move-src-83" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-260"></span><span class="token mv" id="move-src-84" data-title="function_definition/return_type_definition">returns (uint)</span> <span class="marker" id="mapping-261"></span><span class="token del" data-title="function_definition/function_body">{
+        /* Fail if seize not allowed */
+        uint allowed = comptroller.seizeAllowed(address(this), seizerToken, liquidator, borrower, seizeTokens);
+        if (allowed != 0) {
+            return failOpaque(Error.COMPTROLLER_REJECTION, FailureInfo.LIQUIDATE_SEIZE_COMPTROLLER_REJECTION, allowed);
+        }
+
+        /* Fail if borrower = liquidator */
+        if (borrower == liquidator) {
+            return fail(Error.INVALID_ACCOUNT_PAIR, FailureInfo.LIQUIDATE_SEIZE_LIQUIDATOR_IS_BORROWER);
+        }
+
+        MathError mathErr;
+        uint borrowerTokensNew;
+        uint liquidatorTokensNew;
+
+        /*
+         * We calculate the new borrower and liquidator token balances, failing on underflow/overflow:
+         *  borrowerTokensNew = accountTokens[borrower] - seizeTokens
+         *  liquidatorTokensNew = accountTokens[liquidator] + seizeTokens
+         */
+        (mathErr, borrowerTokensNew) = subUInt(accountTokens[borrower], seizeTokens);
+        if (mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.LIQUIDATE_SEIZE_BALANCE_DECREMENT_FAILED, uint(mathErr));
+        }
+
+        (mathErr, liquidatorTokensNew) = addUInt(accountTokens[liquidator], seizeTokens);
+        if (mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.LIQUIDATE_SEIZE_BALANCE_INCREMENT_FAILED, uint(mathErr));
+        }
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /* We write the previously calculated values into storage */
+        accountTokens[borrower] = borrowerTokensNew;
+        accountTokens[liquidator] = liquidatorTokensNew;
+
+        /* Emit a Transfer event */
+        emit Transfer(borrower, liquidator, seizeTokens);
+
+        /* We call the defense hook */
+        comptroller.seizeVerify(address(this), seizerToken, liquidator, borrower, seizeTokens);
+
+        return uint(Error.NO_ERROR);
+    }</span></span>
+
+
+    /*** Admin Functions ***/
+
+    /**
+      * @notice Begins transfer of admin rights. The newPendingAdmin must call `_acceptAdmin` to finalize the transfer.
+      * @dev Admin function to begin change of admin. The newPendingAdmin must call `_acceptAdmin` to finalize the transfer.
+      * @param newPendingAdmin New pending admin.
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function _setPendingAdmin(address payable newPendingAdmin) external returns (uint) {
+        // Check caller = admin
+        if (msg.sender != admin) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.SET_PENDING_ADMIN_OWNER_CHECK);
+        }
+
+        // Save current value, if any, for inclusion in log
+        address oldPendingAdmin = pendingAdmin;
+
+        // Store pendingAdmin with value newPendingAdmin
+        pendingAdmin = newPendingAdmin;
+
+        // Emit NewPendingAdmin(oldPendingAdmin, newPendingAdmin)
+        emit NewPendingAdmin(oldPendingAdmin, newPendingAdmin);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+      * @notice Accepts transfer of admin rights. msg.sender must be pendingAdmin
+      * @dev Admin function for pending admin to accept role and update admin
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function _acceptAdmin() external returns (uint) {
+        // Check caller is pendingAdmin and pendingAdmin ≠ address(0)
+        if (msg.sender != pendingAdmin || msg.sender == address(0)) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.ACCEPT_ADMIN_PENDING_ADMIN_CHECK);
+        }
+
+        // Save current values for inclusion in log
+        address oldAdmin = admin;
+        address oldPendingAdmin = pendingAdmin;
+
+        // Store admin with value pendingAdmin
+        admin = pendingAdmin;
+
+        // Clear the pending value
+        pendingAdmin = address(0);
+
+        emit NewAdmin(oldAdmin, admin);
+        emit NewPendingAdmin(oldPendingAdmin, pendingAdmin);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+      * @notice Sets a new comptroller for the market
+      * @dev Admin function to set a new comptroller
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function _setComptroller(ComptrollerInterface newComptroller) public returns (uint) {
+        // Check caller is admin
+        if (msg.sender != admin) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.SET_COMPTROLLER_OWNER_CHECK);
+        }
+
+        ComptrollerInterface oldComptroller = comptroller;
+        // Ensure invoke comptroller.isComptroller() returns true
+        require(newComptroller.isComptroller(), "marker method returned false");
+
+        // Set market's comptroller to newComptroller
+        comptroller = newComptroller;
+
+        // Emit NewComptroller(oldComptroller, newComptroller)
+        emit NewComptroller(oldComptroller, newComptroller);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+      * @notice accrues interest and sets a new reserve factor for the protocol using _setReserveFactorFresh
+      * @dev Admin function to accrue interest and set a new reserve factor
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function _setReserveFactor(uint newReserveFactorMantissa) external nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but on top of that we want to log the fact that an attempted reserve factor change failed.
+            return fail(Error(error), FailureInfo.SET_RESERVE_FACTOR_ACCRUE_INTEREST_FAILED);
+        }
+        // _setReserveFactorFresh emits reserve-factor-specific logs on errors, so we don't need to.
+        return _setReserveFactorFresh(newReserveFactorMantissa);
+    }
+
+    /**
+      * @notice Sets a new reserve factor for the protocol (*requires fresh interest accrual)
+      * @dev Admin function to set a new reserve factor
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function _setReserveFactorFresh(uint newReserveFactorMantissa) internal returns (uint) {
+        // Check caller is admin
+        if (msg.sender != admin) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.SET_RESERVE_FACTOR_ADMIN_CHECK);
+        }
+
+        // Verify market's block number equals current block number
+        if (accrualBlockNumber != getBlockNumber()) {
+            return fail(Error.MARKET_NOT_FRESH, FailureInfo.SET_RESERVE_FACTOR_FRESH_CHECK);
+        }
+
+        // Check newReserveFactor ≤ maxReserveFactor
+        if (newReserveFactorMantissa &gt; reserveFactorMaxMantissa) {
+            return fail(Error.BAD_INPUT, FailureInfo.SET_RESERVE_FACTOR_BOUNDS_CHECK);
+        }
+
+        uint oldReserveFactorMantissa = reserveFactorMantissa;
+        reserveFactorMantissa = newReserveFactorMantissa;
+
+        emit NewReserveFactor(oldReserveFactorMantissa, newReserveFactorMantissa);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice Accrues interest and reduces reserves by transferring from msg.sender
+     * @param addAmount Amount of addition to reserves
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function _addReservesInternal(uint addAmount) internal nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but on top of that we want to log the fact that an attempted reduce reserves failed.
+            return fail(Error(error), FailureInfo.ADD_RESERVES_ACCRUE_INTEREST_FAILED);
+        }
+
+        // _addReservesFresh emits reserve-addition-specific logs on errors, so we don't need to.
+        (error, ) = _addReservesFresh(addAmount);
+        return error;
+    }
+
+    /**
+     * @notice Add reserves by transferring from caller
+     * @dev Requires fresh interest accrual
+     * @param addAmount Amount of addition to reserves
+     * @return (uint, uint) An error code (0=success, otherwise a failure (see ErrorReporter.sol for details)) and the actual amount added, net token fees
+     */
+    function _addReservesFresh(uint addAmount) internal returns (uint, uint) {
+        // totalReserves + actualAddAmount
+        uint totalReservesNew;
+        uint actualAddAmount;
+
+        // We fail gracefully unless market's block number equals current block number
+        if (accrualBlockNumber != getBlockNumber()) {
+            return (fail(Error.MARKET_NOT_FRESH, FailureInfo.ADD_RESERVES_FRESH_CHECK), actualAddAmount);
+        }
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /*
+         * We call doTransferIn for the caller and the addAmount
+         *  Note: The cToken must handle variations between ERC-20 and ETH underlying.
+         *  On success, the cToken holds an additional addAmount of cash.
+         *  doTransferIn reverts if anything goes wrong, since we can't be sure if side effects occurred.
+         *  it returns the amount actually transferred, in case of a fee.
+         */
+
+        actualAddAmount = doTransferIn(msg.sender, addAmount);
+
+        <span class="marker" id="mapping-262"></span><span class="token del" data-title="function_body/expression_statement">totalReservesNew = totalReserves + actualAddAmount;</span>
+
+        <span class="marker" id="mapping-263"></span><span class="token del" data-title="function_body/comment">/* Revert on overflow */</span>
+        <span class="marker" id="mapping-264"></span><span class="token del" data-title="function_body/expression_statement">require(totalReservesNew &gt;= totalReserves, "add reserves unexpected overflow");</span>
+
+        // Store reserves[n+1] = reserves[n] + actualAddAmount
+        totalReserves = totalReservesNew;
+
+        /* Emit NewReserves(admin, actualAddAmount, reserves[n+1]) */
+        emit ReservesAdded(msg.sender, actualAddAmount, totalReservesNew);
+
+        /* Return (NO_ERROR, actualAddAmount) */
+        return (uint(Error.NO_ERROR), actualAddAmount);
+    }
+
+
+    /**
+     * @notice Accrues interest and reduces reserves by transferring to admin
+     * @param reduceAmount Amount of reduction to reserves
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function _reduceReserves(uint reduceAmount) external nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but on top of that we want to log the fact that an attempted reduce reserves failed.
+            return fail(Error(error), FailureInfo.REDUCE_RESERVES_ACCRUE_INTEREST_FAILED);
+        }
+        // _reduceReservesFresh emits reserve-reduction-specific logs on errors, so we don't need to.
+        return _reduceReservesFresh(reduceAmount);
+    }
+
+    /**
+     * @notice Reduces reserves by transferring to admin
+     * @dev Requires fresh interest accrual
+     * @param reduceAmount Amount of reduction to reserves
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function _reduceReservesFresh(uint reduceAmount) internal returns (uint) {
+        // totalReserves - reduceAmount
+        uint totalReservesNew;
+
+        // Check caller is admin
+        if (msg.sender != admin) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.REDUCE_RESERVES_ADMIN_CHECK);
+        }
+
+        // We fail gracefully unless market's block number equals current block number
+        if (accrualBlockNumber != getBlockNumber()) {
+            return fail(Error.MARKET_NOT_FRESH, FailureInfo.REDUCE_RESERVES_FRESH_CHECK);
+        }
+
+        // Fail gracefully if protocol has insufficient underlying cash
+        if (getCashPrior() &lt; reduceAmount) {
+            return fail(Error.TOKEN_INSUFFICIENT_CASH, FailureInfo.REDUCE_RESERVES_CASH_NOT_AVAILABLE);
+        }
+
+        // Check reduceAmount ≤ reserves[n] (totalReserves)
+        if (reduceAmount &gt; totalReserves) {
+            return fail(Error.BAD_INPUT, FailureInfo.REDUCE_RESERVES_VALIDATION);
+        }
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        <span class="marker" id="mapping-265"></span><span class="token del" data-title="function_body/expression_statement">totalReservesNew = totalReserves - reduceAmount;</span>
+        <span class="marker" id="mapping-266"></span><span class="token del" data-title="function_body/comment">// We checked reduceAmount &lt;= totalReserves above, so this should never revert.</span>
+        <span class="marker" id="mapping-267"></span><span class="token del" data-title="function_body/expression_statement">require(totalReservesNew &lt;= totalReserves, "reduce reserves unexpected underflow");</span>
+
+        // Store reserves[n+1] = reserves[n] - reduceAmount
+        totalReserves = totalReservesNew;
+
+        // doTransferOut reverts if anything goes wrong, since we can't be sure if side effects occurred.
+        doTransferOut(admin, reduceAmount);
+
+        emit ReservesReduced(admin, reduceAmount, totalReservesNew);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice accrues interest and updates the interest rate model using _setInterestRateModelFresh
+     * @dev Admin function to accrue interest and update the interest rate model
+     * @param newInterestRateModel the new interest rate model to use
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function _setInterestRateModel(InterestRateModel newInterestRateModel) public returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but on top of that we want to log the fact that an attempted change of interest rate model failed
+            return fail(Error(error), FailureInfo.SET_INTEREST_RATE_MODEL_ACCRUE_INTEREST_FAILED);
+        }
+        // _setInterestRateModelFresh emits interest-rate-model-update-specific logs on errors, so we don't need to.
+        return _setInterestRateModelFresh(newInterestRateModel);
+    }
+
+    /**
+     * @notice updates the interest rate model (*requires fresh interest accrual)
+     * @dev Admin function to update the interest rate model
+     * @param newInterestRateModel the new interest rate model to use
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function _setInterestRateModelFresh(InterestRateModel newInterestRateModel) internal returns (uint) {
+
+        // Used to store old model for use in the event that is emitted on success
+        InterestRateModel oldInterestRateModel;
+
+        // Check caller is admin
+        if (msg.sender != admin) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.SET_INTEREST_RATE_MODEL_OWNER_CHECK);
+        }
+
+        // We fail gracefully unless market's block number equals current block number
+        if (accrualBlockNumber != getBlockNumber()) {
+            return fail(Error.MARKET_NOT_FRESH, FailureInfo.SET_INTEREST_RATE_MODEL_FRESH_CHECK);
+        }
+
+        // Track the market's current interest rate model
+        oldInterestRateModel = interestRateModel;
+
+        // Ensure invoke newInterestRateModel.isInterestRateModel() returns true
+        require(newInterestRateModel.isInterestRateModel(), "marker method returned false");
+
+        // Set the interest rate model to newInterestRateModel
+        interestRateModel = newInterestRateModel;
+
+        // Emit NewMarketInterestRateModel(oldInterestRateModel, newInterestRateModel)
+        emit NewMarketInterestRateModel(oldInterestRateModel, newInterestRateModel);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /*** Safe Token ***/
+
+    /**
+     * @notice Gets balance of this contract in terms of the underlying
+     * @dev This excludes the value of the current message, if any
+     * @return The quantity of underlying owned by this contract
+     */
+    function getCashPrior() internal view returns (uint);
+
+    /**
+     * @dev Performs a transfer in, reverting upon failure. Returns the amount actually transferred to the protocol, in case of a fee.
+     *  This may revert due to insufficient balance or insufficient allowance.
+     */
+    function doTransferIn(address from, uint amount) internal returns (uint);
+
+    /**
+     * @dev Performs a transfer out, ideally returning an explanatory error code upon failure tather than reverting.
+     *  If caller has not called checked protocol's balance, may revert due to insufficient cash held in the contract.
+     *  If caller has checked protocol's balance, and verified it is &gt;= amount, this should not revert in normal conditions.
+     */
+    function doTransferOut(address payable to, uint amount) internal;
+
+
+    /*** Reentrancy Guard ***/
+
+    /**
+     * @dev Prevents a contract from calling itself, directly or indirectly.
+     */
+    modifier nonReentrant() {
+        require(_notEntered, "re-entered");
+        _notEntered = false;
+        _;
+        _notEntered = true; // get a gas-refund post-Istanbul
+    }
+}
+</pre></div><div class="col-6"><h5>CToken.sol</h5><pre class="pre-scrollable">pragma solidity ^0.5.16;
+
+import "./ComptrollerInterface.sol";
+import "./CTokenInterfaces.sol";
+import "./ErrorReporter.sol";
+import "./Exponential.sol";
+import "./EIP20Interface.sol";
+import "./EIP20NonStandardInterface.sol";
+import "./InterestRateModel.sol";
+
+/**
+ * @title Compound's CToken Contract
+ * @notice Abstract base for CTokens
+ * @author Compound
+ */
+contract CToken is CTokenInterface, Exponential, TokenErrorReporter {
+    /**
+     * @notice Initialize the money market
+     * @param comptroller_ The address of the Comptroller
+     * @param interestRateModel_ The address of the interest rate model
+     * @param initialExchangeRateMantissa_ The initial exchange rate, scaled by 1e18
+     * @param name_ EIP-20 name of this token
+     * @param symbol_ EIP-20 symbol of this token
+     * @param decimals_ EIP-20 decimal precision of this token
+     */
+    function initialize(ComptrollerInterface comptroller_,
+                        InterestRateModel interestRateModel_,
+                        uint initialExchangeRateMantissa_,
+                        string memory name_,
+                        string memory symbol_,
+                        uint8 decimals_) public {
+        require(msg.sender == admin, "only admin may initialize the market");
+        require(accrualBlockNumber == 0 &amp;&amp; borrowIndex == 0, "market may only be initialized once");
+
+        // Set initial exchange rate
+        initialExchangeRateMantissa = initialExchangeRateMantissa_;
+        require(initialExchangeRateMantissa &gt; 0, "initial exchange rate must be greater than zero.");
+
+        // Set the comptroller
+        uint err = _setComptroller(comptroller_);
+        require(err == uint(Error.NO_ERROR), "setting comptroller failed");
+
+        // Initialize block number and borrow index (block number mocks depend on comptroller being set)
+        accrualBlockNumber = getBlockNumber();
+        borrowIndex = mantissaOne;
+
+        // Set the interest rate model (depends on block number / borrow index)
+        err = _setInterestRateModelFresh(interestRateModel_);
+        require(err == uint(Error.NO_ERROR), "setting interest rate model failed");
+
+        name = name_;
+        symbol = symbol_;
+        decimals = decimals_;
+
+        // The counter starts true to prevent changing it from zero to non-zero (i.e. smaller cost/refund)
+        _notEntered = true;
+    }
+
+    /**
+     * @notice Transfer `amount` tokens from `msg.sender` to `dst`
+     * @param dst The address of the destination account
+     * @param amount The number of tokens to transfer
+     * @return Whether or not the transfer succeeded
+     */
+    function transfer(address dst, uint256 amount) external nonReentrant returns (bool) {
+        return transferTokens(msg.sender, msg.sender, dst, amount) == uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice Transfer `amount` tokens from `src` to `dst`
+     * @param src The address of the source account
+     * @param dst The address of the destination account
+     * @param amount The number of tokens to transfer
+     * @return Whether or not the transfer succeeded
+     */
+    function transferFrom(address src, address dst, uint256 amount) external nonReentrant returns (bool) {
+        return transferTokens(msg.sender, src, dst, amount) == uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice Approve `spender` to transfer up to `amount` from `src`
+     * @dev This will overwrite the approval amount for `spender`
+     *  and is subject to issues noted [here](https://eips.ethereum.org/EIPS/eip-20#approve)
+     * @param spender The address of the account which may transfer tokens
+     * @param amount The number of tokens that are approved (-1 means infinite)
+     * @return Whether or not the approval succeeded
+     */
+    function approve(address spender, uint256 amount) external returns (bool) {
+        address src = msg.sender;
+        transferAllowances[src][spender] = amount;
+        emit Approval(src, spender, amount);
+        return true;
+    }
+
+    /**
+     * @notice Get the current allowance from `owner` for `spender`
+     * @param owner The address of the account which owns the tokens to be spent
+     * @param spender The address of the account which may transfer tokens
+     * @return The number of tokens allowed to be spent (-1 means infinite)
+     */
+    function allowance(address owner, address spender) external view returns (uint256) {
+        return transferAllowances[owner][spender];
+    }
+
+    /**
+     * @notice Get the token balance of the `owner`
+     * @param owner The address of the account to query
+     * @return The number of tokens owned by `owner`
+     */
+    function balanceOf(address owner) external view returns (uint256) {
+        return accountTokens[owner];
+    }
+
+    /**
+     * @notice Get the underlying balance of the `owner`
+     * @dev This also accrues interest in a transaction
+     * @param owner The address of the account to query
+     * @return The amount of underlying owned by `owner`
+     */
+    function balanceOfUnderlying(address owner) external returns (uint) {
+        Exp memory exchangeRate = Exp({mantissa: exchangeRateCurrent()});
+        return <span class="marker" id="mapping-268"></span><span class="token mv" id="move-dst-12" data-title="return_statement/call_expression"><span class="marker" id="mapping-269"></span><span class="token upd" id="move-dst-13" data-title="call_expression/identifier"><span class="cupd">mul</span>_<span class="cupd">ScalarTruncate</span></span>(exchangeRate, accountTokens[owner])</span>;
+    }
+
+    /**
+     * @notice Get a snapshot of the account's balances, and the cached exchange rate
+     * @dev This is used by comptroller to more efficiently perform liquidity checks.
+     * @param account Address of the account to snapshot
+     * @return (possible error, token balance, borrow balance, exchange rate mantissa)
+     */
+    function getAccountSnapshot(address account) external view returns (uint, uint, uint, uint) {
+        uint cTokenBalance = <span class="marker" id="mapping-270"></span><span class="token add" data-title="variable_declaration_statement/call_expression">getCTokenBalanceInternal(account)</span>;
+        uint borrowBalance <span class="marker" id="mapping-271"></span><span class="token add" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-272"></span><span class="token mv" id="move-dst-16" data-title="variable_declaration_statement/call_expression">borrowBalanceStoredInternal(account)</span>;
+        uint exchangeRateMantissa <span class="marker" id="mapping-273"></span><span class="token add" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-274"></span><span class="token mv" id="move-dst-25" data-title="variable_declaration_statement/call_expression">exchangeRateStoredInternal()</span>;
+
+        return (uint(Error.NO_ERROR), cTokenBalance, borrowBalance, exchangeRateMantissa);
+    }
+
+    /**
+     * @dev Function to simply retrieve block number
+     *  This exists mainly for inheriting test contracts to stub this result.
+     */
+    function getBlockNumber() internal view returns (uint) {
+        return block.number;
+    }
+
+    /**
+     * @notice Returns the current per-block borrow interest rate for this cToken
+     * @return The borrow interest rate per block, scaled by 1e18
+     */
+    function borrowRatePerBlock() external view returns (uint) {
+        return interestRateModel.getBorrowRate(getCashPrior(), totalBorrows, totalReserves);
+    }
+
+    /**
+     * @notice Returns the current per-block supply interest rate for this cToken
+     * @return The supply interest rate per block, scaled by 1e18
+     */
+    function supplyRatePerBlock() external view returns (uint) {
+        return interestRateModel.getSupplyRate(getCashPrior(), totalBorrows, totalReserves, reserveFactorMantissa);
+    }
+
+    <span class="marker" id="mapping-275"></span><span class="token mv" id="move-dst-2" data-title="contract_body/comment"><span class="marker" id="mapping-276"></span><span class="token upd" id="move-dst-2" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice </span>Retu<span class="cupd">r</span><span class="cupd">ns</span><span class="cupd"> </span><span class="cupd">t</span>h<span class="cupd">e</span><span class="cupd"> </span><span class="cupd">e</span><span class="cupd">s</span>ti<span class="cupd">m</span>a<span class="cupd">t</span>e<span class="cupd">d</span><span class="cupd"> </span><span class="cupd">pe</span><span class="cupd">r</span>-b<span class="cupd">l</span>ock<span class="cupd"> b</span><span class="cupd">o</span><span class="cupd">r</span><span class="cupd">r</span><span class="cupd">o</span>w<span class="cupd"> inter</span><span class="cupd">e</span><span class="cupd">s</span><span class="cupd">t</span><span class="cupd"> </span>r<span class="cupd">a</span><span class="cupd">t</span>e<span class="cupd"> </span><span class="cupd">for</span><span class="cupd"> th</span>i<span class="cupd">s</span><span class="cupd"> </span><span class="cupd">c</span><span class="cupd">T</span>ok<span class="cupd">e</span>n<span class="cupd"> a</span><span class="cupd">f</span><span class="cupd">t</span><span class="cupd">e</span>r<span class="cupd"> so</span>m<span class="cupd">e </span>ch<span class="cupd">a</span><span class="cupd">n</span>ge<span class="cupd">
+     * @</span><span class="cupd">r</span><span class="cupd">e</span><span class="cupd">t</span><span class="cupd">u</span><span class="cupd">r</span><span class="cupd">n</span><span class="cupd"> The </span><span class="cupd">b</span>o<span class="cupd">r</span>r<span class="cupd">o</span>w<span class="cupd"> </span>in<span class="cupd">t</span><span class="cupd">e</span>re<span class="cupd">s</span><span class="cupd">t</span><span class="cupd"> </span><span class="cupd">ra</span>t<span class="cupd">e</span><span class="cupd"> </span>p<span class="cupd">e</span><span class="cupd">r</span><span class="cupd"> </span>bl<span class="cupd">o</span>ck,<span class="cupd"> </span><span class="cupd">s</span><span class="cupd">c</span>al<span class="cupd">e</span><span class="cupd">d</span> by 1<span class="cupd">e</span>18<span class="cupd">
+     */</span></span></span>
+    <span class="marker" id="mapping-277"></span><span class="token add" data-title="contract_body/function_definition">function estimateBorrowRatePerBlockAfterChange(uint256 change, bool repay) external view returns (uint) {
+        uint256 cashPriorNew;
+        uint256 totalBorrowsNew;
+
+        if (repay) {
+            cashPriorNew = add_(getCashPrior(), change);
+            totalBorrowsNew = sub_(totalBorrows, change);
+        } else {
+            cashPriorNew = sub_(getCashPrior(), change);
+            totalBorrowsNew = add_(totalBorrows, change);
+        }
+        return interestRateModel.getBorrowRate(cashPriorNew, totalBorrowsNew, totalReserves);
+    }</span>
+
+    <span class="marker" id="mapping-278"></span><span class="token mv" id="move-dst-18" data-title="contract_body/comment"><span class="marker" id="mapping-279"></span><span class="token upd" id="move-dst-18" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice Return</span>s<span class="cupd"> the </span>estimated pe<span class="cupd">r</span>-<span class="cupd">b</span><span class="cupd">l</span><span class="cupd">o</span><span class="cupd">c</span>k<span class="cupd"> </span><span class="cupd">s</span>upply<span class="cupd"> </span>i<span class="cupd">n</span><span class="cupd">t</span>e<span class="cupd">re</span>st<span class="cupd"> </span>r<span class="cupd">at</span>e<span class="cupd"> </span>fo<span class="cupd">r</span><span class="cupd"> </span><span class="cupd">t</span><span class="cupd">h</span>i<span class="cupd">s</span><span class="cupd"> </span>cT<span class="cupd">o</span>k<span class="cupd">e</span>n<span class="cupd"> </span><span class="cupd">a</span>ft<span class="cupd">e</span>r<span class="cupd"> s</span><span class="cupd">o</span>m<span class="cupd">e c</span>h<span class="cupd">a</span>ng<span class="cupd">e</span><span class="cupd">
+     * @return </span>Th<span class="cupd">e</span><span class="cupd"> </span>supply<span class="cupd"> </span>in<span class="cupd">t</span><span class="cupd">e</span>rest<span class="cupd"> </span>r<span class="cupd">a</span><span class="cupd">te</span><span class="cupd"> </span>p<span class="cupd">e</span><span class="cupd">r </span>bl<span class="cupd">o</span>ck,<span class="cupd"> </span>s<span class="cupd">c</span>ale<span class="cupd">d</span><span class="cupd"> </span>by<span class="cupd"> </span>1<span class="cupd">e</span>18<span class="cupd">
+     */</span></span></span>
+    <span class="marker" id="mapping-280"></span><span class="token add" data-title="contract_body/function_definition">function estimateSupplyRatePerBlockAfterChange(<span class="marker" id="mapping-281"></span><span class="token add" data-title="function_definition/parameter">uint256 change</span>, <span class="marker" id="mapping-282"></span><span class="token add" data-title="function_definition/parameter">bool repay</span>) <span class="marker" id="mapping-283"></span><span class="token add" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-284"></span><span class="token add" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-285"></span><span class="token add" data-title="function_definition/return_type_definition">returns (uint)</span> <span class="marker" id="mapping-286"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-287"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 cashPriorNew;</span>
+        <span class="marker" id="mapping-288"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 totalBorrowsNew;</span>
+
+        <span class="marker" id="mapping-289"></span><span class="token add" data-title="function_body/if_statement">if (repay) <span class="marker" id="mapping-290"></span><span class="token add" data-title="if_statement/block_statement">{
+            cashPriorNew = add_(getCashPrior(), change);
+            totalBorrowsNew = sub_(totalBorrows, change);
+        }</span> else <span class="marker" id="mapping-291"></span><span class="token add" data-title="if_statement/block_statement">{
+            <span class="marker" id="mapping-292"></span><span class="token add" data-title="block_statement/expression_statement"><span class="marker" id="mapping-293"></span><span class="token add" data-title="expression_statement/assignment_expression">cashPriorNew = <span class="marker" id="mapping-294"></span><span class="token add" data-title="assignment_expression/call_expression">sub_(<span class="marker" id="mapping-295"></span><span class="token add" data-title="call_expression/call_argument"><span class="marker" id="mapping-296"></span><span class="token mv" id="move-dst-62" data-title="call_argument/call_expression">getCashPrior()</span></span>, <span class="marker" id="mapping-297"></span><span class="token add" data-title="call_expression/call_argument">change</span>)</span></span>;</span>
+            <span class="marker" id="mapping-298"></span><span class="token add" data-title="block_statement/expression_statement">totalBorrowsNew = add_(totalBorrows, change);</span>
+        }</span></span>
+
+        <span class="marker" id="mapping-299"></span><span class="token add" data-title="function_body/return_statement">return interestRateModel.getSupplyRate(cashPriorNew, totalBorrowsNew, totalReserves, reserveFactorMantissa);</span>
+    }</span></span>
+
+    /**
+     * @notice Returns the current total borrows plus accrued interest
+     * @return The total borrows with interest
+     */
+    function totalBorrowsCurrent() external nonReentrant returns (uint) {
+        require(accrueInterest() == uint(Error.NO_ERROR), "accrue interest failed");
+        return totalBorrows;
+    }
+
+    /**
+     * @notice Accrue interest to updated borrowIndex and then calculate account's borrow balance using the updated borrowIndex
+     * @param account The address whose balance should be calculated after updating borrowIndex
+     * @return The calculated balance
+     */
+    function borrowBalanceCurrent(address account) external nonReentrant returns (uint) {
+        require(accrueInterest() == uint(Error.NO_ERROR), "accrue interest failed");
+        return borrowBalanceStored(account);
+    }
+
+    /**
+     * @notice Return the borrow balance of account based on stored data
+     * @param account The address whose balance should be calculated
+     * @return The calculated balance
+     */
+    function borrowBalanceStored(address account) public view returns (uint) {
+        return <span class="marker" id="mapping-300"></span><span class="token mv" id="move-dst-14" data-title="return_statement/call_expression">borrowBalanceStoredInternal(account)</span>;
+    }
+
+    <span class="marker" id="mapping-301"></span><span class="token mv" id="move-dst-28" data-title="contract_body/comment"><span class="marker" id="mapping-302"></span><span class="token upd" id="move-dst-28" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice </span>Ret<span class="cupd">u</span>rn<span class="cupd"> the </span>borrow b<span class="cupd">a</span>la<span class="cupd">n</span>c<span class="cupd">e </span>of <span class="cupd">a</span>ccoun<span class="cupd">t</span> bas<span class="cupd">e</span>d<span class="cupd"> </span><span class="cupd">o</span>n<span class="cupd"> </span>s<span class="cupd">t</span>or<span class="cupd">e</span>d<span class="cupd"> </span><span class="cupd">d</span>a<span class="cupd">t</span>a<span class="cupd">
+</span><span class="cupd"> </span><span class="cupd">    </span><span class="cupd">* @</span>param<span class="cupd"> </span>acco<span class="cupd">un</span><span class="cupd">t</span><span class="cupd"> </span>The a<span class="cupd">d</span>dr<span class="cupd">es</span>s<span class="cupd"> </span>wh<span class="cupd">o</span>se<span class="cupd"> </span>b<span class="cupd">a</span>lan<span class="cupd">c</span><span class="cupd">e </span><span class="cupd">s</span>hould<span class="cupd"> be</span><span class="cupd"> calculat</span><span class="cupd">e</span>d<span class="cupd">
+</span><span class="cupd"> </span><span class="cupd">    </span><span class="cupd">* @return </span>th<span class="cupd">e</span><span class="cupd"> c</span><span class="cupd">alculated </span>b<span class="cupd">a</span>la<span class="cupd">n</span>c<span class="cupd">e </span>o<span class="cupd">r</span> 0 if <span class="cupd">e</span>rror<span class="cupd"> </span><span class="cupd">c</span>od<span class="cupd">e</span><span class="cupd"> </span>is<span class="cupd"> </span>non-z<span class="cupd">e</span>ro<span class="cupd">
+     */</span></span></span>
+    function borrowBalanceStoredInternal(address account) internal view returns (uint) {
+        /* Get borrowBalance and borrowIndex */
+        BorrowSnapshot storage borrowSnapshot = accountBorrows[account];
+
+        /* If borrowBalance = 0 then borrowIndex is likely also 0.
+         * Rather than failing the calculation with a division by 0, we immediately return 0 in this case.
+         */
+        if (borrowSnapshot.principal == 0) {
+            return <span class="marker" id="mapping-303"></span><span class="token add" data-title="return_statement/number_literal">0</span>;
+        }
+
+        /* Calculate new borrow balance using the interest index:
+         *  recentBorrowBalance = borrower.borrowBalance * market.borrowIndex / borrower.borrowIndex
+         */
+        <span class="marker" id="mapping-304"></span><span class="token mv" id="move-dst-19" data-title="function_body/variable_declaration_statement">uint principalTimesIndex <span class="marker" id="mapping-305"></span><span class="token add" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-306"></span><span class="token mv" id="move-dst-21" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-307"></span><span class="token upd" id="move-dst-22" data-title="call_expression/identifier"><span class="cupd">mul</span>_</span>(borrowSnapshot.principal, borrowIndex)</span>;</span>
+        <span class="marker" id="mapping-308"></span><span class="token mv" id="move-dst-20" data-title="function_body/variable_declaration_statement">uint result <span class="marker" id="mapping-309"></span><span class="token add" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-310"></span><span class="token mv" id="move-dst-23" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-311"></span><span class="token upd" id="move-dst-24" data-title="call_expression/identifier"><span class="cupd">div</span>_</span>(principalTimesIndex, borrowSnapshot.interestIndex)</span>;</span>
+        <span class="marker" id="mapping-312"></span><span class="token mv" id="move-dst-26" data-title="function_body/return_statement">return result;</span>
+    }
+
+    /**
+     * @notice Accrue interest then return the up-to-date exchange rate
+     * @return Calculated exchange rate scaled by 1e18
+     */
+    function exchangeRateCurrent() public nonReentrant returns (uint) {
+        require(accrueInterest() == uint(Error.NO_ERROR), "accrue interest failed");
+        return exchangeRateStored();
+    }
+
+    /**
+     * @notice Calculates the exchange rate from the underlying to the CToken
+     * @dev This function does not accrue interest before calculating the exchange rate
+     * @return Calculated exchange rate scaled by 1e18
+     */
+    function exchangeRateStored() public view returns (uint) {
+        <span class="marker" id="mapping-313"></span><span class="token add" data-title="function_body/return_statement">return <span class="marker" id="mapping-314"></span><span class="token mv" id="move-dst-15" data-title="return_statement/call_expression">exchangeRateStoredInternal()</span>;</span>
+    }
+
+    <span class="marker" id="mapping-315"></span><span class="token mv" id="move-dst-48" data-title="contract_body/comment"><span class="marker" id="mapping-316"></span><span class="token upd" id="move-dst-48" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice </span>Calc<span class="cupd">u</span><span class="cupd">l</span><span class="cupd">a</span>t<span class="cupd">e</span><span class="cupd">s </span><span class="cupd">t</span><span class="cupd">he </span><span class="cupd">e</span><span class="cupd">xchange </span>rate<span class="cupd"> </span>from<span class="cupd"> </span>th<span class="cupd">e</span><span class="cupd"> </span><span class="cupd">u</span><span class="cupd">n</span>d<span class="cupd">er</span><span class="cupd">l</span><span class="cupd">y</span>i<span class="cupd">n</span>g<span class="cupd"> </span><span class="cupd">to the </span>CTok<span class="cupd">en</span><span class="cupd">
+</span><span class="cupd">     </span><span class="cupd">* @</span>dev<span class="cupd"> </span>Th<span class="cupd">i</span>s fu<span class="cupd">n</span>c<span class="cupd">t</span>ion<span class="cupd"> </span><span class="cupd">d</span>o<span class="cupd">es</span><span class="cupd"> </span>n<span class="cupd">o</span><span class="cupd">t</span><span class="cupd"> acc</span>r<span class="cupd">u</span>e<span class="cupd"> </span><span class="cupd">i</span><span class="cupd">n</span><span class="cupd">t</span><span class="cupd">e</span>r<span class="cupd">e</span><span class="cupd">s</span><span class="cupd">t</span><span class="cupd"> </span>b<span class="cupd">e</span>fore<span class="cupd"> </span>c<span class="cupd">a</span>lc<span class="cupd">u</span>lati<span class="cupd">n</span>g<span class="cupd"> </span><span class="cupd">the </span><span class="cupd">e</span>xcha<span class="cupd">ng</span>e<span class="cupd"> </span>r<span class="cupd">a</span>t<span class="cupd">e</span><span class="cupd">
+</span><span class="cupd"> </span><span class="cupd">    </span><span class="cupd">* @return </span>calc<span class="cupd">u</span>la<span class="cupd">t</span><span class="cupd">e</span>d<span class="cupd"> </span><span class="cupd">e</span>x<span class="cupd">c</span><span class="cupd">h</span><span class="cupd">a</span>ng<span class="cupd">e</span><span class="cupd"> </span><span class="cupd">r</span><span class="cupd">a</span><span class="cupd">t</span><span class="cupd">e </span>s<span class="cupd">c</span><span class="cupd">al</span>ed<span class="cupd"> </span>by<span class="cupd"> </span>1e18<span class="cupd">
+     */</span></span></span>
+    function exchangeRateStoredInternal() internal view returns (uint) {
+        uint _totalSupply = totalSupply;
+        if (_totalSupply == 0) {
+            /*
+             * If there are no tokens minted:
+             *  exchangeRate = initialExchangeRate
+             */
+            return <span class="marker" id="mapping-317"></span><span class="token add" data-title="return_statement/identifier">initialExchangeRateMantissa</span>;
+        } else {
+            /*
+             * Otherwise:
+             *  exchangeRate = (totalCash + totalBorrows - totalReserves) / totalSupply
+             */
+            uint totalCash = getCashPrior();
+            <span class="marker" id="mapping-318"></span><span class="token add" data-title="block_statement/variable_declaration_statement"><span class="marker" id="mapping-319"></span><span class="token mv" id="move-dst-29" data-title="variable_declaration_statement/variable_declaration">uint cashPlusBorrowsMinusReserves</span> = <span class="marker" id="mapping-320"></span><span class="token mv" id="move-dst-30" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-321"></span><span class="token upd" id="move-dst-31" data-title="call_expression/identifier">s<span class="cupd">ub</span>_</span>(<span class="marker" id="mapping-322"></span><span class="token add" data-title="call_expression/call_argument"><span class="marker" id="mapping-323"></span><span class="token add" data-title="call_argument/call_expression">add_(<span class="marker" id="mapping-324"></span><span class="token mv" id="move-dst-32" data-title="call_expression/call_argument">totalCash</span>, <span class="marker" id="mapping-325"></span><span class="token mv" id="move-dst-33" data-title="call_expression/call_argument">totalBorrows</span>)</span></span>, totalReserves)</span>;</span>
+            <span class="marker" id="mapping-326"></span><span class="token add" data-title="block_statement/variable_declaration_statement"><span class="marker" id="mapping-327"></span><span class="token mv" id="move-dst-9" data-title="variable_declaration_statement/variable_declaration">uint <span class="marker" id="mapping-328"></span><span class="token upd" id="move-dst-10" data-title="variable_declaration/identifier">exch<span class="cupd">a</span>ngeRate</span></span> = <span class="marker" id="mapping-329"></span><span class="token add" data-title="variable_declaration_statement/call_expression">div_(<span class="marker" id="mapping-330"></span><span class="token mv" id="move-dst-34" data-title="call_expression/call_argument">cashPlusBorrowsMinusReserves</span>, <span class="marker" id="mapping-331"></span><span class="token add" data-title="call_expression/call_argument">Exp({mantissa: _totalSupply})</span>)</span>;</span>
+            return <span class="marker" id="mapping-332"></span><span class="token add" data-title="return_statement/identifier">exchangeRate</span>;
+        }
+    }
+
+    /**
+     * @notice Get cash balance of this cToken in the underlying asset
+     * @return The quantity of underlying asset owned by this contract
+     */
+    function getCash() external view returns (uint) {
+        return getCashPrior();
+    }
+
+    /**
+     * @notice Applies accrued interest to total borrows and reserves
+     * @dev This calculates interest accrued from the last checkpointed block
+     *   up to the current block and writes new checkpoint to storage.
+     */
+    function accrueInterest() public returns (uint) {
+        /* Remember the initial block number */
+        uint currentBlockNumber = getBlockNumber();
+        uint accrualBlockNumberPrior = accrualBlockNumber;
+
+        /* Short-circuit accumulating 0 interest */
+        if (accrualBlockNumberPrior == currentBlockNumber) {
+            return uint(Error.NO_ERROR);
+        }
+
+        /* Read the previous values out of storage */
+        uint cashPrior = getCashPrior();
+        uint borrowsPrior = totalBorrows;
+        uint reservesPrior = totalReserves;
+        uint borrowIndexPrior = borrowIndex;
+
+        /* Calculate the current borrow interest rate */
+        uint borrowRateMantissa = interestRateModel.getBorrowRate(cashPrior, borrowsPrior, reservesPrior);
+        require(borrowRateMantissa &lt;= borrowRateMaxMantissa, "borrow rate is absurdly high");
+
+        /* Calculate the number of blocks elapsed since the last accrual */
+        <span class="marker" id="mapping-333"></span><span class="token mv" id="move-dst-35" data-title="variable_declaration_statement/variable_declaration">uint blockDelta</span> = <span class="marker" id="mapping-334"></span><span class="token upd" id="move-dst-36" data-title="call_expression/identifier"><span class="cupd">sub</span>_</span>(currentBlockNumber, accrualBlockNumberPrior);
+
+        /*
+         * Calculate the interest accumulated into borrows and reserves and the new index:
+         *  simpleInterestFactor = borrowRate * blockDelta
+         *  interestAccumulated = simpleInterestFactor * totalBorrows
+         *  totalBorrowsNew = interestAccumulated + totalBorrows
+         *  totalReservesNew = interestAccumulated * reserveFactor + totalReserves
+         *  borrowIndexNew = simpleInterestFactor * borrowIndex + borrowIndex
+         */
+
+        Exp memory simpleInterestFactor <span class="marker" id="mapping-335"></span><span class="token add" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-336"></span><span class="token mv" id="move-dst-37" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-337"></span><span class="token upd" id="move-dst-38" data-title="call_expression/identifier"><span class="cupd">mul</span>_</span>(Exp({mantissa: borrowRateMantissa}), blockDelta)</span>;
+        uint interestAccumulated <span class="marker" id="mapping-338"></span><span class="token add" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-339"></span><span class="token mv" id="move-dst-39" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-340"></span><span class="token upd" id="move-dst-40" data-title="call_expression/identifier"><span class="cupd">mul</span>_<span class="cupd">ScalarTruncate</span></span>(simpleInterestFactor, borrowsPrior)</span>;
+        uint totalBorrowsNew <span class="marker" id="mapping-341"></span><span class="token add" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-342"></span><span class="token mv" id="move-dst-41" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-343"></span><span class="token upd" id="move-dst-42" data-title="call_expression/identifier"><span class="cupd">add</span>_</span>(interestAccumulated, borrowsPrior)</span>;
+        <span class="marker" id="mapping-344"></span><span class="token mv" id="move-dst-61" data-title="variable_declaration/type_name">uint</span> totalReservesNew <span class="marker" id="mapping-345"></span><span class="token add" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-346"></span><span class="token mv" id="move-dst-43" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-347"></span><span class="token upd" id="move-dst-44" data-title="call_expression/identifier"><span class="cupd">mul</span>_<span class="cupd">ScalarTruncateAddUInt</span></span>(Exp({mantissa: reserveFactorMantissa}), interestAccumulated, reservesPrior)</span>;
+        uint borrowIndexNew <span class="marker" id="mapping-348"></span><span class="token add" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-349"></span><span class="token mv" id="move-dst-45" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-350"></span><span class="token upd" id="move-dst-46" data-title="call_expression/identifier"><span class="cupd">mul</span>_<span class="cupd">ScalarTruncateAddUInt</span></span>(simpleInterestFactor, borrowIndexPrior, borrowIndexPrior)</span>;
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /* We write the previously calculated values into storage */
+        accrualBlockNumber = currentBlockNumber;
+        borrowIndex = borrowIndexNew;
+        totalBorrows = totalBorrowsNew;
+        totalReserves = totalReservesNew;
+
+        /* We emit an AccrueInterest event */
+        emit AccrueInterest(cashPrior, interestAccumulated, borrowIndexNew, totalBorrowsNew);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice Sender supplies assets into the market and receives cTokens in exchange
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @param mintAmount The amount of the underlying asset to supply
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual mint amount.
+     */
+    function mintInternal(uint mintAmount) internal nonReentrant returns (uint, uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted borrow failed
+            return (fail(Error(error), FailureInfo.MINT_ACCRUE_INTEREST_FAILED), 0);
+        }
+        // mintFresh emits the actual Mint event if successful and logs on errors, so we don't need to
+        return mintFresh(msg.sender, mintAmount);
+    }
+
+    /**
+     * @notice Sender redeems cTokens in exchange for the underlying asset
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @param redeemTokens The number of cTokens to redeem into underlying
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function redeemInternal(uint redeemTokens) internal nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted redeem failed
+            return fail(Error(error), FailureInfo.REDEEM_ACCRUE_INTEREST_FAILED);
+        }
+        // redeemFresh emits redeem-specific logs on errors, so we don't need to
+        return redeemFresh(msg.sender, redeemTokens, 0);
+    }
+
+    /**
+     * @notice Sender redeems cTokens in exchange for a specified amount of underlying asset
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @param redeemAmount The amount of underlying to receive from redeeming cTokens
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function redeemUnderlyingInternal(uint redeemAmount) internal nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted redeem failed
+            return fail(Error(error), FailureInfo.REDEEM_ACCRUE_INTEREST_FAILED);
+        }
+        // redeemFresh emits redeem-specific logs on errors, so we don't need to
+        return redeemFresh(msg.sender, 0, redeemAmount);
+    }
+
+    /**
+      * @notice Sender borrows assets from the protocol to their own address
+      * @param borrowAmount The amount of the underlying asset to borrow
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function borrowInternal(uint borrowAmount) internal nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted borrow failed
+            return fail(Error(error), FailureInfo.BORROW_ACCRUE_INTEREST_FAILED);
+        }
+        // borrowFresh emits borrow-specific logs on errors, so we don't need to
+        return borrowFresh(msg.sender, borrowAmount);
+    }
+
+    struct BorrowLocalVars {
+        MathError mathErr;
+        uint accountBorrows;
+        uint accountBorrowsNew;
+        uint totalBorrowsNew;
+    }
+
+    /**
+      * @notice Users borrow assets from the protocol to their own address
+      * @param borrowAmount The amount of the underlying asset to borrow
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function borrowFresh(address payable borrower, uint borrowAmount) internal returns (uint) {
+        /* Fail if borrow not allowed */
+        uint allowed = comptroller.borrowAllowed(address(this), borrower, borrowAmount);
+        if (allowed != 0) {
+            return failOpaque(Error.COMPTROLLER_REJECTION, FailureInfo.BORROW_COMPTROLLER_REJECTION, allowed);
+        }
+
+        <span class="marker" id="mapping-351"></span><span class="token add" data-title="function_body/comment">/*
+         * Return if borrowAmount is zero.
+         * Put behind `borrowAllowed` for accuring potential COMP rewards.
+         */</span>
+        <span class="marker" id="mapping-352"></span><span class="token add" data-title="function_body/if_statement">if (<span class="marker" id="mapping-353"></span><span class="token add" data-title="if_statement/binary_expression">borrowAmount == 0</span>) <span class="marker" id="mapping-354"></span><span class="token add" data-title="if_statement/block_statement">{
+            <span class="marker" id="mapping-355"></span><span class="token add" data-title="block_statement/expression_statement">accountBorrows[borrower].interestIndex = borrowIndex;</span>
+            <span class="marker" id="mapping-356"></span><span class="token mv" id="move-dst-11" data-title="block_statement/return_statement">return uint(Error.NO_ERROR);</span>
+        }</span></span>
+
+        /* Verify market's block number equals current block number */
+        if (accrualBlockNumber != getBlockNumber()) {
+            return fail(Error.MARKET_NOT_FRESH, FailureInfo.BORROW_FRESHNESS_CHECK);
+        }
+
+        /* Fail gracefully if protocol has insufficient underlying cash */
+        if (getCashPrior() &lt; borrowAmount) {
+            return fail(Error.TOKEN_INSUFFICIENT_CASH, FailureInfo.BORROW_CASH_NOT_AVAILABLE);
+        }
+
+        BorrowLocalVars memory vars;
+
+        /*
+         * We calculate the new borrower and total borrow balances, failing on overflow:
+         *  accountBorrowsNew = accountBorrows + borrowAmount
+         *  totalBorrowsNew = totalBorrows + borrowAmount
+         */
+        <span class="marker" id="mapping-357"></span><span class="token mv" id="move-dst-69" data-title="function_body/expression_statement"><span class="marker" id="mapping-358"></span><span class="token mv" id="move-dst-70" data-title="expression_statement/assignment_expression"><span class="marker" id="mapping-359"></span><span class="token mv" id="move-dst-64" data-title="assignment_expression/member_expression">vars.accountBorrows</span> = borrowBalanceStoredInternal(borrower)</span>;</span>
+        <span class="marker" id="mapping-360"></span><span class="token mv" id="move-dst-65" data-title="assignment_expression/member_expression">vars.accountBorrowsNew</span> = <span class="marker" id="mapping-361"></span><span class="token upd" id="move-dst-66" data-title="call_expression/identifier"><span class="cupd">add</span>_</span>(vars.accountBorrows, borrowAmount);
+        <span class="marker" id="mapping-362"></span><span class="token mv" id="move-dst-67" data-title="assignment_expression/member_expression">vars.totalBorrowsNew</span> = <span class="marker" id="mapping-363"></span><span class="token upd" id="move-dst-68" data-title="call_expression/identifier"><span class="cupd">add</span>_</span>(totalBorrows, borrowAmount);
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /*
+         * We invoke doTransferOut for the borrower and the borrowAmount.
+         *  Note: The cToken must handle variations between ERC-20 and ETH underlying.
+         *  On success, the cToken borrowAmount less of cash.
+         *  doTransferOut reverts if anything goes wrong, since we can't be sure if side effects occurred.
+         */
+        doTransferOut(borrower, borrowAmount);
+
+        /* We write the previously calculated values into storage */
+        accountBorrows[borrower].principal = vars.accountBorrowsNew;
+        accountBorrows[borrower].interestIndex = borrowIndex;
+        totalBorrows = vars.totalBorrowsNew;
+
+        /* We emit a Borrow event */
+        emit Borrow(borrower, borrowAmount, vars.accountBorrowsNew, vars.totalBorrowsNew);
+
+        /* We call the defense hook */
+        <span class="marker" id="mapping-364"></span><span class="token add" data-title="function_body/comment">// unused function</span>
+        <span class="marker" id="mapping-365"></span><span class="token add" data-title="function_body/comment">// comptroller.borrowVerify(address(this), borrower, borrowAmount);</span>
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice Sender repays their own borrow
+     * @param repayAmount The amount to repay
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual repayment amount.
+     */
+    function repayBorrowInternal(uint repayAmount) internal nonReentrant returns (uint, uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted borrow failed
+            return (fail(Error(error), FailureInfo.REPAY_BORROW_ACCRUE_INTEREST_FAILED), 0);
+        }
+        // repayBorrowFresh emits repay-borrow-specific logs on errors, so we don't need to
+        return repayBorrowFresh(msg.sender, msg.sender, repayAmount);
+    }
+
+    /**
+     * @notice Sender repays a borrow belonging to borrower
+     * @param borrower the account with the debt being payed off
+     * @param repayAmount The amount to repay
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual repayment amount.
+     */
+    function repayBorrowBehalfInternal(address borrower, uint repayAmount) internal nonReentrant returns (uint, uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted borrow failed
+            return (fail(Error(error), FailureInfo.REPAY_BEHALF_ACCRUE_INTEREST_FAILED), 0);
+        }
+        // repayBorrowFresh emits repay-borrow-specific logs on errors, so we don't need to
+        return repayBorrowFresh(msg.sender, borrower, repayAmount);
+    }
+
+    struct RepayBorrowLocalVars {
+        Error err;
+        MathError mathErr;
+        uint repayAmount;
+        uint borrowerIndex;
+        uint accountBorrows;
+        uint accountBorrowsNew;
+        uint totalBorrowsNew;
+        uint actualRepayAmount;
+    }
+
+    /**
+     * @notice Borrows are repaid by another user (possibly the borrower).
+     * @param payer the account paying off the borrow
+     * @param borrower the account with the debt being payed off
+     * @param repayAmount the amount of undelrying tokens being returned
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual repayment amount.
+     */
+    function repayBorrowFresh(address payer, address borrower, uint repayAmount) internal returns (uint, uint) {
+        /* Fail if repayBorrow not allowed */
+        uint allowed = comptroller.repayBorrowAllowed(address(this), payer, borrower, repayAmount);
+        if (allowed != 0) {
+            return (failOpaque(Error.COMPTROLLER_REJECTION, FailureInfo.REPAY_BORROW_COMPTROLLER_REJECTION, allowed), 0);
+        }
+
+        <span class="marker" id="mapping-366"></span><span class="token add" data-title="function_body/comment">/*
+         * Return if repayAmount is zero.
+         * Put behind `repayBorrowAllowed` for accuring potential COMP rewards.
+         */</span>
+        <span class="marker" id="mapping-367"></span><span class="token mv" id="move-dst-72" data-title="function_body/if_statement">if (<span class="marker" id="mapping-368"></span><span class="token add" data-title="binary_expression/identifier">repayAmount</span> <span class="marker" id="mapping-369"></span><span class="token add" data-title="binary_expression/==">==</span> <span class="marker" id="mapping-370"></span><span class="token add" data-title="binary_expression/number_literal">0</span>) {
+            <span class="marker" id="mapping-371"></span><span class="token add" data-title="block_statement/expression_statement">accountBorrows[borrower].interestIndex = borrowIndex;</span>
+            <span class="marker" id="mapping-372"></span><span class="token mv" id="move-dst-53" data-title="block_statement/return_statement">return (uint(Error.NO_ERROR), <span class="marker" id="mapping-373"></span><span class="token add" data-title="tuple_expression/number_literal">0</span>);</span>
+        }</span>
+
+        /* Verify market's block number equals current block number */
+        if (accrualBlockNumber != getBlockNumber()) {
+            return (fail(Error.MARKET_NOT_FRESH, FailureInfo.REPAY_BORROW_FRESHNESS_CHECK), 0);
+        }
+
+        RepayBorrowLocalVars memory vars;
+
+        /* We remember the original borrowerIndex for verification purposes */
+        vars.borrowerIndex = accountBorrows[borrower].interestIndex;
+
+        /* We fetch the amount the borrower owes, with accumulated interest */
+        <span class="marker" id="mapping-374"></span><span class="token mv" id="move-dst-63" data-title="function_body/expression_statement"><span class="marker" id="mapping-375"></span><span class="token mv" id="move-dst-71" data-title="assignment_expression/member_expression">vars.accountBorrows</span> = borrowBalanceStoredInternal(borrower);</span>
+
+        /* If repayAmount == -1, repayAmount = accountBorrows */
+        if (repayAmount == uint(-1)) {
+            vars.repayAmount = vars.accountBorrows;
+        } else {
+            vars.repayAmount = repayAmount;
+        }
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /*
+         * We call doTransferIn for the payer and the repayAmount
+         *  Note: The cToken must handle variations between ERC-20 and ETH underlying.
+         *  On success, the cToken holds an additional repayAmount of cash.
+         *  doTransferIn reverts if anything goes wrong, since we can't be sure if side effects occurred.
+         *   it returns the amount actually transferred, in case of a fee.
+         */
+        vars.actualRepayAmount = doTransferIn(payer, vars.repayAmount);
+
+        /*
+         * We calculate the new borrower and total borrow balances, failing on underflow:
+         *  accountBorrowsNew = accountBorrows - actualRepayAmount
+         *  totalBorrowsNew = totalBorrows - actualRepayAmount
+         */
+        <span class="marker" id="mapping-376"></span><span class="token mv" id="move-dst-73" data-title="assignment_expression/member_expression">vars.accountBorrowsNew</span> = <span class="marker" id="mapping-377"></span><span class="token upd" id="move-dst-74" data-title="call_expression/identifier"><span class="cupd">sub</span>_</span>(vars.accountBorrows, vars.actualRepayAmount);
+        <span class="marker" id="mapping-378"></span><span class="token mv" id="move-dst-75" data-title="assignment_expression/member_expression">vars.totalBorrowsNew</span> = <span class="marker" id="mapping-379"></span><span class="token upd" id="move-dst-76" data-title="call_expression/identifier"><span class="cupd">sub</span>_</span>(totalBorrows, vars.actualRepayAmount);
+
+        /* We write the previously calculated values into storage */
+        accountBorrows[borrower].principal = vars.accountBorrowsNew;
+        accountBorrows[borrower].interestIndex = borrowIndex;
+        totalBorrows = vars.totalBorrowsNew;
+
+        /* We emit a RepayBorrow event */
+        emit RepayBorrow(payer, borrower, vars.actualRepayAmount, vars.accountBorrowsNew, vars.totalBorrowsNew);
+
+        /* We call the defense hook */
+        <span class="marker" id="mapping-380"></span><span class="token add" data-title="function_body/comment">// unused function</span>
+        <span class="marker" id="mapping-381"></span><span class="token add" data-title="function_body/comment">// comptroller.repayBorrowVerify(address(this), payer, borrower, vars.actualRepayAmount, vars.borrowerIndex);</span>
+
+        return (uint(Error.NO_ERROR), vars.actualRepayAmount);
+    }
+
+    /**
+     * @notice The sender liquidates the borrowers collateral.
+     *  The collateral seized is transferred to the liquidator.
+     * @param borrower The borrower of this cToken to be liquidated
+     * @param cTokenCollateral The market in which to seize collateral from the borrower
+     * @param repayAmount The amount of the underlying borrowed asset to repay
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual repayment amount.
+     */
+    function liquidateBorrowInternal(address borrower, uint repayAmount, CTokenInterface cTokenCollateral) internal nonReentrant returns (uint, uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted liquidation failed
+            return (fail(Error(error), FailureInfo.LIQUIDATE_ACCRUE_BORROW_INTEREST_FAILED), 0);
+        }
+
+        error = cTokenCollateral.accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but we still want to log the fact that an attempted liquidation failed
+            return (fail(Error(error), FailureInfo.LIQUIDATE_ACCRUE_COLLATERAL_INTEREST_FAILED), 0);
+        }
+
+        // liquidateBorrowFresh emits borrow-specific logs on errors, so we don't need to
+        return liquidateBorrowFresh(msg.sender, borrower, repayAmount, cTokenCollateral);
+    }
+
+    /**
+     * @notice The liquidator liquidates the borrowers collateral.
+     *  The collateral seized is transferred to the liquidator.
+     * @param borrower The borrower of this cToken to be liquidated
+     * @param liquidator The address repaying the borrow and seizing collateral
+     * @param cTokenCollateral The market in which to seize collateral from the borrower
+     * @param repayAmount The amount of the underlying borrowed asset to repay
+     * @return (uint, uint) An error code (0=success, otherwise a failure, see ErrorReporter.sol), and the actual repayment amount.
+     */
+    function liquidateBorrowFresh(address liquidator, address borrower, uint repayAmount, CTokenInterface cTokenCollateral) internal returns (uint, uint) {
+        /* Fail if liquidate not allowed */
+        uint allowed = comptroller.liquidateBorrowAllowed(address(this), address(cTokenCollateral), liquidator, borrower, repayAmount);
+        if (allowed != 0) {
+            return (failOpaque(Error.COMPTROLLER_REJECTION, FailureInfo.LIQUIDATE_COMPTROLLER_REJECTION, allowed), 0);
+        }
+
+        /* Verify market's block number equals current block number */
+        if (accrualBlockNumber != getBlockNumber()) {
+            return (fail(Error.MARKET_NOT_FRESH, FailureInfo.LIQUIDATE_FRESHNESS_CHECK), 0);
+        }
+
+        /* Verify cTokenCollateral market's block number equals current block number */
+        if (cTokenCollateral.accrualBlockNumber() != getBlockNumber()) {
+            return (fail(Error.MARKET_NOT_FRESH, FailureInfo.LIQUIDATE_COLLATERAL_FRESHNESS_CHECK), 0);
+        }
+
+        /* Fail if borrower = liquidator */
+        if (borrower == liquidator) {
+            return (fail(Error.INVALID_ACCOUNT_PAIR, FailureInfo.LIQUIDATE_LIQUIDATOR_IS_BORROWER), 0);
+        }
+
+        /* Fail if repayAmount = 0 */
+        if (repayAmount == 0) {
+            return (fail(Error.INVALID_CLOSE_AMOUNT_REQUESTED, FailureInfo.LIQUIDATE_CLOSE_AMOUNT_IS_ZERO), 0);
+        }
+
+        /* Fail if repayAmount = -1 */
+        if (repayAmount == uint(-1)) {
+            return (fail(Error.INVALID_CLOSE_AMOUNT_REQUESTED, FailureInfo.LIQUIDATE_CLOSE_AMOUNT_IS_UINT_MAX), 0);
+        }
+
+
+        /* Fail if repayBorrow fails */
+        (uint repayBorrowError, uint actualRepayAmount) = repayBorrowFresh(liquidator, borrower, repayAmount);
+        if (repayBorrowError != uint(Error.NO_ERROR)) {
+            return (fail(Error(repayBorrowError), FailureInfo.LIQUIDATE_REPAY_BORROW_FRESH_FAILED), 0);
+        }
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /* We calculate the number of collateral tokens that will be seized */
+        (uint amountSeizeError, uint seizeTokens) = comptroller.liquidateCalculateSeizeTokens(address(this), address(cTokenCollateral), actualRepayAmount);
+        require(amountSeizeError == uint(Error.NO_ERROR), "LIQUIDATE_COMPTROLLER_CALCULATE_AMOUNT_SEIZE_FAILED");
+
+        /* Revert if borrower collateral token balance &lt; seizeTokens */
+        require(cTokenCollateral.balanceOf(borrower) &gt;= seizeTokens, "LIQUIDATE_SEIZE_TOO_MUCH");
+
+        // If this is also the collateral, run seizeInternal to avoid re-entrancy, otherwise make an external call
+        uint seizeError;
+        if (address(cTokenCollateral) == address(this)) {
+            seizeError = seizeInternal(address(this), liquidator, borrower, seizeTokens);
+        } else {
+            seizeError = cTokenCollateral.seize(liquidator, borrower, seizeTokens);
+        }
+
+        /* Revert if seize tokens fails (since we cannot be sure of side effects) */
+        require(seizeError == uint(Error.NO_ERROR), "token seizure failed");
+
+        /* We emit a LiquidateBorrow event */
+        emit LiquidateBorrow(liquidator, borrower, actualRepayAmount, address(cTokenCollateral), seizeTokens);
+
+        /* We call the defense hook */
+        <span class="marker" id="mapping-382"></span><span class="token add" data-title="function_body/comment">// unused function</span>
+        <span class="marker" id="mapping-383"></span><span class="token add" data-title="function_body/comment">// comptroller.liquidateBorrowVerify(address(this), address(cTokenCollateral), liquidator, borrower, actualRepayAmount, seizeTokens);</span>
+
+        return (uint(Error.NO_ERROR), actualRepayAmount);
+    }
+
+    /**
+     * @notice Transfers collateral tokens (this market) to the liquidator.
+     * @dev Will fail unless called by another cToken during the process of liquidation.
+     *  Its absolutely critical to use msg.sender as the borrowed cToken and not a parameter.
+     * @param liquidator The account receiving seized collateral
+     * @param borrower The account having collateral seized
+     * @param seizeTokens The number of cTokens to seize
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function seize(address liquidator, address borrower, uint seizeTokens) external nonReentrant returns (uint) {
+        return seizeInternal(msg.sender, liquidator, borrower, seizeTokens);
+    }
+
+    /*** Admin Functions ***/
+
+    /**
+      * @notice Begins transfer of admin rights. The newPendingAdmin must call `_acceptAdmin` to finalize the transfer.
+      * @dev Admin function to begin change of admin. The newPendingAdmin must call `_acceptAdmin` to finalize the transfer.
+      * @param newPendingAdmin New pending admin.
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function _setPendingAdmin(address payable newPendingAdmin) external returns (uint) {
+        // Check caller = admin
+        if (msg.sender != admin) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.SET_PENDING_ADMIN_OWNER_CHECK);
+        }
+
+        // Save current value, if any, for inclusion in log
+        address oldPendingAdmin = pendingAdmin;
+
+        // Store pendingAdmin with value newPendingAdmin
+        pendingAdmin = newPendingAdmin;
+
+        // Emit NewPendingAdmin(oldPendingAdmin, newPendingAdmin)
+        emit NewPendingAdmin(oldPendingAdmin, newPendingAdmin);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+      * @notice Accepts transfer of admin rights. msg.sender must be pendingAdmin
+      * @dev Admin function for pending admin to accept role and update admin
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function _acceptAdmin() external returns (uint) {
+        // Check caller is pendingAdmin and pendingAdmin ≠ address(0)
+        if (msg.sender != pendingAdmin || msg.sender == address(0)) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.ACCEPT_ADMIN_PENDING_ADMIN_CHECK);
+        }
+
+        // Save current values for inclusion in log
+        address oldAdmin = admin;
+        address oldPendingAdmin = pendingAdmin;
+
+        // Store admin with value pendingAdmin
+        admin = pendingAdmin;
+
+        // Clear the pending value
+        pendingAdmin = address(0);
+
+        emit NewAdmin(oldAdmin, admin);
+        emit NewPendingAdmin(oldPendingAdmin, pendingAdmin);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+      * @notice Sets a new comptroller for the market
+      * @dev Admin function to set a new comptroller
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function _setComptroller(ComptrollerInterface newComptroller) public returns (uint) {
+        // Check caller is admin
+        if (msg.sender != admin) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.SET_COMPTROLLER_OWNER_CHECK);
+        }
+
+        ComptrollerInterface oldComptroller = comptroller;
+        // Ensure invoke comptroller.isComptroller() returns true
+        require(newComptroller.isComptroller(), "marker method returned false");
+
+        // Set market's comptroller to newComptroller
+        comptroller = newComptroller;
+
+        // Emit NewComptroller(oldComptroller, newComptroller)
+        emit NewComptroller(oldComptroller, newComptroller);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+      * @notice accrues interest and sets a new reserve factor for the protocol using _setReserveFactorFresh
+      * @dev Admin function to accrue interest and set a new reserve factor
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function _setReserveFactor(uint newReserveFactorMantissa) external nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but on top of that we want to log the fact that an attempted reserve factor change failed.
+            return fail(Error(error), FailureInfo.SET_RESERVE_FACTOR_ACCRUE_INTEREST_FAILED);
+        }
+        // _setReserveFactorFresh emits reserve-factor-specific logs on errors, so we don't need to.
+        return _setReserveFactorFresh(newReserveFactorMantissa);
+    }
+
+    /**
+      * @notice Sets a new reserve factor for the protocol (*requires fresh interest accrual)
+      * @dev Admin function to set a new reserve factor
+      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+      */
+    function _setReserveFactorFresh(uint newReserveFactorMantissa) internal returns (uint) {
+        // Check caller is admin
+        if (msg.sender != admin) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.SET_RESERVE_FACTOR_ADMIN_CHECK);
+        }
+
+        // Verify market's block number equals current block number
+        if (accrualBlockNumber != getBlockNumber()) {
+            return fail(Error.MARKET_NOT_FRESH, FailureInfo.SET_RESERVE_FACTOR_FRESH_CHECK);
+        }
+
+        // Check newReserveFactor ≤ maxReserveFactor
+        if (newReserveFactorMantissa &gt; reserveFactorMaxMantissa) {
+            return fail(Error.BAD_INPUT, FailureInfo.SET_RESERVE_FACTOR_BOUNDS_CHECK);
+        }
+
+        uint oldReserveFactorMantissa = reserveFactorMantissa;
+        reserveFactorMantissa = newReserveFactorMantissa;
+
+        emit NewReserveFactor(oldReserveFactorMantissa, newReserveFactorMantissa);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice Accrues interest and reduces reserves by transferring from msg.sender
+     * @param addAmount Amount of addition to reserves
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function _addReservesInternal(uint addAmount) internal nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but on top of that we want to log the fact that an attempted reduce reserves failed.
+            return fail(Error(error), FailureInfo.ADD_RESERVES_ACCRUE_INTEREST_FAILED);
+        }
+
+        // _addReservesFresh emits reserve-addition-specific logs on errors, so we don't need to.
+        (error, ) = _addReservesFresh(addAmount);
+        return error;
+    }
+
+    /**
+     * @notice Add reserves by transferring from caller
+     * @dev Requires fresh interest accrual
+     * @param addAmount Amount of addition to reserves
+     * @return (uint, uint) An error code (0=success, otherwise a failure (see ErrorReporter.sol for details)) and the actual amount added, net token fees
+     */
+    function _addReservesFresh(uint addAmount) internal returns (uint, uint) {
+        // totalReserves + actualAddAmount
+        uint totalReservesNew;
+        uint actualAddAmount;
+
+        // We fail gracefully unless market's block number equals current block number
+        if (accrualBlockNumber != getBlockNumber()) {
+            return (fail(Error.MARKET_NOT_FRESH, FailureInfo.ADD_RESERVES_FRESH_CHECK), actualAddAmount);
+        }
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        /*
+         * We call doTransferIn for the caller and the addAmount
+         *  Note: The cToken must handle variations between ERC-20 and ETH underlying.
+         *  On success, the cToken holds an additional addAmount of cash.
+         *  doTransferIn reverts if anything goes wrong, since we can't be sure if side effects occurred.
+         *  it returns the amount actually transferred, in case of a fee.
+         */
+
+        actualAddAmount = doTransferIn(msg.sender, addAmount);
+
+        <span class="marker" id="mapping-384"></span><span class="token add" data-title="function_body/expression_statement">totalReservesNew = add_(totalReserves, actualAddAmount);</span>
+
+        // Store reserves[n+1] = reserves[n] + actualAddAmount
+        totalReserves = totalReservesNew;
+
+        /* Emit NewReserves(admin, actualAddAmount, reserves[n+1]) */
+        emit ReservesAdded(msg.sender, actualAddAmount, totalReservesNew);
+
+        /* Return (NO_ERROR, actualAddAmount) */
+        return (uint(Error.NO_ERROR), actualAddAmount);
+    }
+
+
+    /**
+     * @notice Accrues interest and reduces reserves by transferring to admin
+     * @param reduceAmount Amount of reduction to reserves
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function _reduceReserves(uint reduceAmount) external nonReentrant returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but on top of that we want to log the fact that an attempted reduce reserves failed.
+            return fail(Error(error), FailureInfo.REDUCE_RESERVES_ACCRUE_INTEREST_FAILED);
+        }
+        // _reduceReservesFresh emits reserve-reduction-specific logs on errors, so we don't need to.
+        return _reduceReservesFresh(reduceAmount);
+    }
+
+    /**
+     * @notice Reduces reserves by transferring to admin
+     * @dev Requires fresh interest accrual
+     * @param reduceAmount Amount of reduction to reserves
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function _reduceReservesFresh(uint reduceAmount) internal returns (uint) {
+        // totalReserves - reduceAmount
+        uint totalReservesNew;
+
+        // Check caller is admin
+        if (msg.sender != admin) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.REDUCE_RESERVES_ADMIN_CHECK);
+        }
+
+        // We fail gracefully unless market's block number equals current block number
+        if (accrualBlockNumber != getBlockNumber()) {
+            return fail(Error.MARKET_NOT_FRESH, FailureInfo.REDUCE_RESERVES_FRESH_CHECK);
+        }
+
+        // Fail gracefully if protocol has insufficient underlying cash
+        if (getCashPrior() &lt; reduceAmount) {
+            return fail(Error.TOKEN_INSUFFICIENT_CASH, FailureInfo.REDUCE_RESERVES_CASH_NOT_AVAILABLE);
+        }
+
+        // Check reduceAmount ≤ reserves[n] (totalReserves)
+        if (reduceAmount &gt; totalReserves) {
+            return fail(Error.BAD_INPUT, FailureInfo.REDUCE_RESERVES_VALIDATION);
+        }
+
+        /////////////////////////
+        // EFFECTS &amp; INTERACTIONS
+        // (No safe failures beyond this point)
+
+        <span class="marker" id="mapping-385"></span><span class="token add" data-title="function_body/expression_statement">totalReservesNew = sub_(totalReserves, reduceAmount);</span>
+
+        // Store reserves[n+1] = reserves[n] - reduceAmount
+        totalReserves = totalReservesNew;
+
+        // doTransferOut reverts if anything goes wrong, since we can't be sure if side effects occurred.
+        doTransferOut(admin, reduceAmount);
+
+        emit ReservesReduced(admin, reduceAmount, totalReservesNew);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /**
+     * @notice accrues interest and updates the interest rate model using _setInterestRateModelFresh
+     * @dev Admin function to accrue interest and update the interest rate model
+     * @param newInterestRateModel the new interest rate model to use
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function _setInterestRateModel(InterestRateModel newInterestRateModel) public returns (uint) {
+        uint error = accrueInterest();
+        if (error != uint(Error.NO_ERROR)) {
+            // accrueInterest emits logs on errors, but on top of that we want to log the fact that an attempted change of interest rate model failed
+            return fail(Error(error), FailureInfo.SET_INTEREST_RATE_MODEL_ACCRUE_INTEREST_FAILED);
+        }
+        // _setInterestRateModelFresh emits interest-rate-model-update-specific logs on errors, so we don't need to.
+        return _setInterestRateModelFresh(newInterestRateModel);
+    }
+
+    /**
+     * @notice updates the interest rate model (*requires fresh interest accrual)
+     * @dev Admin function to update the interest rate model
+     * @param newInterestRateModel the new interest rate model to use
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function _setInterestRateModelFresh(InterestRateModel newInterestRateModel) internal returns (uint) {
+
+        // Used to store old model for use in the event that is emitted on success
+        InterestRateModel oldInterestRateModel;
+
+        // Check caller is admin
+        if (msg.sender != admin) {
+            return fail(Error.UNAUTHORIZED, FailureInfo.SET_INTEREST_RATE_MODEL_OWNER_CHECK);
+        }
+
+        // We fail gracefully unless market's block number equals current block number
+        if (accrualBlockNumber != getBlockNumber()) {
+            return fail(Error.MARKET_NOT_FRESH, FailureInfo.SET_INTEREST_RATE_MODEL_FRESH_CHECK);
+        }
+
+        // Track the market's current interest rate model
+        oldInterestRateModel = interestRateModel;
+
+        // Ensure invoke newInterestRateModel.isInterestRateModel() returns true
+        require(newInterestRateModel.isInterestRateModel(), "marker method returned false");
+
+        // Set the interest rate model to newInterestRateModel
+        interestRateModel = newInterestRateModel;
+
+        // Emit NewMarketInterestRateModel(oldInterestRateModel, newInterestRateModel)
+        emit NewMarketInterestRateModel(oldInterestRateModel, newInterestRateModel);
+
+        return uint(Error.NO_ERROR);
+    }
+
+    /*** Safe Token ***/
+
+    /**
+     * @notice Gets balance of this contract in terms of the underlying
+     * @dev This excludes the value of the current message, if any
+     * @return The quantity of underlying owned by this contract
+     */
+    function getCashPrior() internal view returns (uint);
+
+    /**
+     * @dev Performs a transfer in, reverting upon failure. Returns the amount actually transferred to the protocol, in case of a fee.
+     *  This may revert due to insufficient balance or insufficient allowance.
+     */
+    function doTransferIn(address from, uint amount) internal returns (uint);
+
+    /**
+     * @dev Performs a transfer out, ideally returning an explanatory error code upon failure tather than reverting.
+     *  If caller has not called checked protocol's balance, may revert due to insufficient cash held in the contract.
+     *  If caller has checked protocol's balance, and verified it is &gt;= amount, this should not revert in normal conditions.
+     */
+    function doTransferOut(address payable to, uint amount) internal;
+
+    <span class="marker" id="mapping-386"></span><span class="token mv" id="move-dst-55" data-title="contract_body/comment"><span class="marker" id="mapping-387"></span><span class="token upd" id="move-dst-55" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice </span><span class="cupd">T</span><span class="cupd">r</span><span class="cupd">a</span><span class="cupd">n</span><span class="cupd">s</span>f<span class="cupd">e</span><span class="cupd">r</span><span class="cupd"> </span>`<span class="cupd">to</span><span class="cupd">k</span><span class="cupd">e</span><span class="cupd">n</span><span class="cupd">s</span>`<span class="cupd"> </span><span class="cupd">t</span><span class="cupd">okens </span>f<span class="cupd">r</span>o<span class="cupd">m </span>`<span class="cupd">s</span><span class="cupd">r</span><span class="cupd">c</span>`<span class="cupd"> to </span>`<span class="cupd">d</span>s<span class="cupd">t</span>`<span class="cupd"> </span>b<span class="cupd">y</span><span class="cupd"> </span>`sp<span class="cupd">e</span><span class="cupd">n</span><span class="cupd">de</span><span class="cupd">r</span>`<span class="cupd">
+     * @</span><span class="cupd">de</span>v<span class="cupd"> </span>Call<span class="cupd">e</span>d<span class="cupd"> </span><span class="cupd">b</span>y<span class="cupd"> </span>b<span class="cupd">o</span><span class="cupd">t</span>h<span class="cupd"> </span>`<span class="cupd">t</span><span class="cupd">r</span>a<span class="cupd">n</span><span class="cupd">s</span><span class="cupd">f</span><span class="cupd">e</span><span class="cupd">r</span>`<span class="cupd"> </span><span class="cupd">a</span><span class="cupd">n</span>d<span class="cupd"> </span>`<span class="cupd">t</span><span class="cupd">r</span>a<span class="cupd">n</span><span class="cupd">s</span><span class="cupd">f</span><span class="cupd">e</span><span class="cupd">r</span>F<span class="cupd">ro</span>m` in<span class="cupd">ter</span>n<span class="cupd">a</span><span class="cupd">l</span>ly<span class="cupd">
+     */</span></span></span>
+    <span class="marker" id="mapping-388"></span><span class="token add" data-title="contract_body/function_definition">function transferTokens(<span class="marker" id="mapping-389"></span><span class="token mv" id="move-dst-3" data-title="function_definition/parameter">address spender</span>, <span class="marker" id="mapping-390"></span><span class="token mv" id="move-dst-4" data-title="function_definition/parameter">address src</span>, <span class="marker" id="mapping-391"></span><span class="token mv" id="move-dst-5" data-title="function_definition/parameter">address dst</span>, <span class="marker" id="mapping-392"></span><span class="token mv" id="move-dst-6" data-title="function_definition/parameter">uint tokens</span>) <span class="marker" id="mapping-393"></span><span class="token mv" id="move-dst-7" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-394"></span><span class="token mv" id="move-dst-8" data-title="function_definition/return_type_definition">returns (uint)</span>;</span>
+
+    <span class="marker" id="mapping-395"></span><span class="token mv" id="move-dst-78" data-title="contract_body/comment"><span class="marker" id="mapping-396"></span><span class="token upd" id="move-dst-78" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice </span>G<span class="cupd">e</span><span class="cupd">t</span><span class="cupd"> t</span><span class="cupd">h</span><span class="cupd">e</span><span class="cupd"> </span><span class="cupd">a</span><span class="cupd">c</span><span class="cupd">c</span><span class="cupd">o</span><span class="cupd">u</span><span class="cupd">n</span><span class="cupd">t</span>'<span class="cupd">s</span><span class="cupd"> cToken </span><span class="cupd">b</span><span class="cupd">a</span><span class="cupd">l</span><span class="cupd">a</span><span class="cupd">n</span><span class="cupd">ce</span><span class="cupd">s</span><span class="cupd">
+</span><span class="cupd">     </span><span class="cupd">*</span>/</span></span>
+    <span class="marker" id="mapping-397"></span><span class="token add" data-title="contract_body/function_definition">function getCTokenBalanceInternal(address account) internal view returns (uint);</span>
+
+    <span class="marker" id="mapping-398"></span><span class="token add" data-title="contract_body/comment">/**
+     * @notice User supplies assets into the market and receives cTokens in exchange
+     * @dev Assumes interest has already been accrued up to the current block
+     */</span>
+    <span class="marker" id="mapping-399"></span><span class="token add" data-title="contract_body/function_definition">function mintFresh(<span class="marker" id="mapping-400"></span><span class="token mv" id="move-dst-49" data-title="function_definition/parameter">address minter</span>, <span class="marker" id="mapping-401"></span><span class="token mv" id="move-dst-50" data-title="function_definition/parameter">uint mintAmount</span>) <span class="marker" id="mapping-402"></span><span class="token mv" id="move-dst-51" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-403"></span><span class="token mv" id="move-dst-52" data-title="function_definition/return_type_definition">returns (uint, uint)</span>;</span>
+
+    <span class="marker" id="mapping-404"></span><span class="token add" data-title="contract_body/comment">/**
+     * @notice User redeems cTokens in exchange for the underlying asset
+     * @dev Assumes interest has already been accrued up to the current block
+     */</span>
+    <span class="marker" id="mapping-405"></span><span class="token add" data-title="contract_body/function_definition">function redeemFresh(<span class="marker" id="mapping-406"></span><span class="token mv" id="move-dst-56" data-title="function_definition/parameter">address payable redeemer</span>, <span class="marker" id="mapping-407"></span><span class="token mv" id="move-dst-57" data-title="function_definition/parameter">uint redeemTokensIn</span>, <span class="marker" id="mapping-408"></span><span class="token mv" id="move-dst-58" data-title="function_definition/parameter">uint redeemAmountIn</span>) <span class="marker" id="mapping-409"></span><span class="token mv" id="move-dst-59" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-410"></span><span class="token mv" id="move-dst-60" data-title="function_definition/return_type_definition">returns (uint)</span>;</span>
+
+    <span class="marker" id="mapping-411"></span><span class="token add" data-title="contract_body/comment">/**
+     * @notice Transfers collateral tokens (this market) to the liquidator.
+     * @dev Called only during an in-kind liquidation, or by liquidateBorrow during the liquidation of another CToken.
+     *  Its absolutely critical to use msg.sender as the seizer cToken and not a parameter.
+     */</span>
+    <span class="marker" id="mapping-412"></span><span class="token add" data-title="contract_body/function_definition">function seizeInternal(<span class="marker" id="mapping-413"></span><span class="token mv" id="move-dst-79" data-title="function_definition/parameter">address seizerToken</span>, <span class="marker" id="mapping-414"></span><span class="token mv" id="move-dst-80" data-title="function_definition/parameter">address liquidator</span>, <span class="marker" id="mapping-415"></span><span class="token mv" id="move-dst-81" data-title="function_definition/parameter">address borrower</span>, <span class="marker" id="mapping-416"></span><span class="token mv" id="move-dst-82" data-title="function_definition/parameter">uint seizeTokens</span>) <span class="marker" id="mapping-417"></span><span class="token mv" id="move-dst-83" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-418"></span><span class="token mv" id="move-dst-84" data-title="function_definition/return_type_definition">returns (uint)</span>;</span>
+
+    /*** Reentrancy Guard ***/
+
+    /**
+     * @dev Prevents a contract from calling itself, directly or indirectly.
+     */
+    modifier nonReentrant() {
+        require(_notEntered, "re-entered");
+        _notEntered = false;
+        _;
+        _notEntered = true; // get a gas-refund post-Istanbul
+    }
+}
+</pre></div></div></div></body></html>

@@ -1,0 +1,4751 @@
+{
+  "matches": [
+    {
+      "src": "call_argument [4188,4208]",
+      "dest": "call_argument [4163,4183]"
+    },
+    {
+      "src": "function_body [5835,7341]",
+      "dest": "function_body [5810,7316]"
+    },
+    {
+      "src": "primitive_type [1657,1663]",
+      "dest": "primitive_type [1632,1638]"
+    },
+    {
+      "src": "binary_expression [4169,4186]",
+      "dest": "binary_expression [4144,4161]"
+    },
+    {
+      "src": "identifier: configHash [2192,2202]",
+      "dest": "identifier: configHash [2167,2177]"
+    },
+    {
+      "src": "function: function [2230,2238]",
+      "dest": "function: function [2205,2213]"
+    },
+    {
+      "src": "identifier: encodeFactWithOnchainData [6161,6186]",
+      "dest": "identifier: encodeFactWithOnchainData [6136,6161]"
+    },
+    {
+      "src": "string [1705,1741]",
+      "dest": "string [1680,1716]"
+    },
+    {
+      "src": "(: ( [6357,6358]",
+      "dest": "(: ( [6332,6333]"
+    },
+    {
+      "src": "): ) [4669,4670]",
+      "dest": "): ) [4644,4645]"
+    },
+    {
+      "src": "member_expression [7296,7313]",
+      "dest": "member_expression [7271,7288]"
+    },
+    {
+      "src": "\": \" [1791,1792]",
+      "dest": "\": \" [1766,1767]"
+    },
+    {
+      "src": "parameter [3345,3358]",
+      "dest": "parameter [3320,3333]"
+    },
+    {
+      "src": "state_variable_declaration [1570,1652]",
+      "dest": "state_variable_declaration [1545,1627]"
+    },
+    {
+      "src": "identifier: HEADER_SIZE [6642,6653]",
+      "dest": "identifier: HEADER_SIZE [6617,6628]"
+    },
+    {
+      "src": "false [6968,6973]",
+      "dest": "false [6943,6948]"
+    },
+    {
+      "src": "\": \" [931,932]",
+      "dest": "\": \" [941,942]"
+    },
+    {
+      "src": "identifier: programHash_ [4426,4438]",
+      "dest": "identifier: programHash_ [4401,4413]"
+    },
+    {
+      "src": "type_name [5783,5790]",
+      "dest": "type_name [5758,5765]"
+    },
+    {
+      "src": "call_expression [6415,6497]",
+      "dest": "call_expression [6390,6472]"
+    },
+    {
+      "src": "comment: // The hash of the StarkNet config. [1839,1874]",
+      "dest": "comment: // The hash of the StarkNet config. [1814,1849]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "identifier: setProgramHash [1973,1987]",
+      "dest": "identifier: setProgramHash [1948,1962]"
+    },
+    {
+      "src": "identifier: NamedStorage [2717,2729]",
+      "dest": "identifier: NamedStorage [2692,2704]"
+    },
+    {
+      "src": "identifier: state [5310,5315]",
+      "dest": "identifier: state [5285,5290]"
+    },
+    {
+      "src": "identifier: setMessageCancellationDelay [2239,2266]",
+      "dest": "identifier: setMessageCancellationDelay [2214,2241]"
+    },
+    {
+      "src": "identifier: initialState [4732,4744]",
+      "dest": "identifier: initialState [4707,4719]"
+    },
+    {
+      "src": "address: address [3345,3352]",
+      "dest": "address: address [3320,3327]"
+    },
+    {
+      "src": "identifier: stateBlockNumber [5243,5259]",
+      "dest": "identifier: stateBlockNumber [5218,5234]"
+    },
+    {
+      "src": "expression_statement [4680,4710]",
+      "dest": "expression_statement [4655,4685]"
+    },
+    {
+      "src": "string [1009,1027]",
+      "dest": "string [1012,1030]"
+    },
+    {
+      "src": "=: = [6132,6133]",
+      "dest": "=: = [6107,6108]"
+    },
+    {
+      "src": "): ) [2289,2290]",
+      "dest": "): ) [2264,2265]"
+    },
+    {
+      "src": "identifier: NamedStorage [3379,3391]",
+      "dest": "identifier: NamedStorage [3354,3366]"
+    },
+    {
+      "src": "comment: // State variable \"programHash\" write-access function. [2603,2657]",
+      "dest": "comment: // State variable \"programHash\" write-access function. [2578,2632]"
+    },
+    {
+      "src": "}: } [7340,7341]",
+      "dest": "}: } [7315,7316]"
+    },
+    {
+      "src": "uint256: uint256 [5783,5790]",
+      "dest": "uint256: uint256 [5758,5765]"
+    },
+    {
+      "src": "import: import [893,899]",
+      "dest": "import: import [910,916]"
+    },
+    {
+      "src": "type_name [1502,1509]",
+      "dest": "type_name [1477,1484]"
+    },
+    {
+      "src": "internal: internal [1577,1585]",
+      "dest": "internal: internal [1552,1560]"
+    },
+    {
+      "src": "member_expression [6423,6456]",
+      "dest": "member_expression [6398,6431]"
+    },
+    {
+      "src": "user_defined_type [1082,1091]",
+      "dest": "user_defined_type [1058,1066]"
+    },
+    {
+      "src": "function_body [2049,2093]",
+      "dest": "function_body [2024,2068]"
+    },
+    {
+      "src": "string_literal [1614,1651]",
+      "dest": "string_literal [1589,1626]"
+    },
+    {
+      "src": "user_defined_type [1097,1114]",
+      "dest": "user_defined_type [1072,1089]"
+    },
+    {
+      "src": "pragma_value:  ABIEncoderV2 [680,693]",
+      "dest": "pragma_value:  ABIEncoderV2 [680,693]"
+    },
+    {
+      "src": "\": \" [1831,1832]",
+      "dest": "\": \" [1806,1807]"
+    },
+    {
+      "src": "call_argument [3412,3432]",
+      "dest": "call_argument [3387,3407]"
+    },
+    {
+      "src": "identifier: StarknetOutput [6627,6641]",
+      "dest": "identifier: StarknetOutput [6602,6616]"
+    },
+    {
+      "src": "int256: int256 [1378,1384]",
+      "dest": "int256: int256 [1353,1359]"
+    },
+    {
+      "src": "call_expression [3620,3654]",
+      "dest": "call_expression [3595,3629]"
+    },
+    {
+      "src": "): ) [6092,6093]",
+      "dest": "): ) [6067,6068]"
+    },
+    {
+      "src": "\": \" [965,966]",
+      "dest": "\": \" [975,976]"
+    },
+    {
+      "src": "visibility [2299,2307]",
+      "dest": "visibility [2274,2282]"
+    },
+    {
+      "src": "(: ( [4656,4657]",
+      "dest": "(: ( [4631,4632]"
+    },
+    {
+      "src": "identifier: StarknetState [3540,3553]",
+      "dest": "identifier: StarknetState [3515,3528]"
+    },
+    {
+      "src": ".: . [2729,2730]",
+      "dest": ".: . [2704,2705]"
+    },
+    {
+      "src": "identifier: OnchainDataFactTreeEncoder [6227,6253]",
+      "dest": "identifier: OnchainDataFactTreeEncoder [6202,6228]"
+    },
+    {
+      "src": "view: view [3222,3226]",
+      "dest": "view: view [3197,3201]"
+    },
+    {
+      "src": "): ) [4966,4967]",
+      "dest": "): ) [4941,4942]"
+    },
+    {
+      "src": "true: true [6748,6752]",
+      "dest": "true: true [6723,6727]"
+    },
+    {
+      "src": "primitive_type [4953,4959]",
+      "dest": "primitive_type [4928,4934]"
+    },
+    {
+      "src": "(: ( [6368,6369]",
+      "dest": "(: ( [6343,6344]"
+    },
+    {
+      "src": "call_argument [2743,2759]",
+      "dest": "call_argument [2718,2734]"
+    },
+    {
+      "src": "): ) [3917,3918]",
+      "dest": "): ) [3892,3893]"
+    },
+    {
+      "src": "[: [ [7000,7001]",
+      "dest": "[: [ [6975,6976]"
+    },
+    {
+      "src": "visibility [4376,4384]",
+      "dest": "visibility [4351,4359]"
+    },
+    {
+      "src": "string [1791,1832]",
+      "dest": "string [1766,1807]"
+    },
+    {
+      "src": "{: { [3064,3065]",
+      "dest": "{: { [3039,3040]"
+    },
+    {
+      "src": "internal: internal [3878,3886]",
+      "dest": "internal: internal [3853,3861]"
+    },
+    {
+      "src": "\": \" [4061,4062]",
+      "dest": "\": \" [4036,4037]"
+    },
+    {
+      "src": "string [900,932]",
+      "dest": "string [917,942]"
+    },
+    {
+      "src": "(: ( [5121,5122]",
+      "dest": "(: ( [5096,5097]"
+    },
+    {
+      "src": "identifier: notFinalized [2154,2166]",
+      "dest": "identifier: notFinalized [2129,2141]"
+    },
+    {
+      "src": "number_literal: 0 [3936,3937]",
+      "dest": "number_literal: 0 [3911,3912]"
+    },
+    {
+      "src": "call_argument [2928,2948]",
+      "dest": "call_argument [2903,2923]"
+    },
+    {
+      "src": "identifier: encodePacked [3624,3636]",
+      "dest": "identifier: encodePacked [3599,3611]"
+    },
+    {
+      "src": "member_expression [4119,4129]",
+      "dest": "member_expression [4094,4104]"
+    },
+    {
+      "src": "identifier: NamedStorage [2547,2559]",
+      "dest": "identifier: NamedStorage [2522,2534]"
+    },
+    {
+      "src": "bytes: bytes [4259,4264]",
+      "dest": "bytes: bytes [4234,4239]"
+    },
+    {
+      "src": "(: ( [4037,4038]",
+      "dest": "(: ( [4012,4013]"
+    },
+    {
+      "src": "state_mutability [4006,4010]",
+      "dest": "state_mutability [3981,3985]"
+    },
+    {
+      "src": "uint256: uint256 [5122,5129]",
+      "dest": "uint256: uint256 [5097,5104]"
+    },
+    {
+      "src": "(: ( [3539,3540]",
+      "dest": "(: ( [3514,3515]"
+    },
+    {
+      "src": "variable_declaration_tuple [4404,4565]",
+      "dest": "variable_declaration_tuple [4379,4540]"
+    },
+    {
+      "src": "type_name [2683,2690]",
+      "dest": "type_name [2658,2665]"
+    },
+    {
+      "src": "inheritance_specifier [1097,1114]",
+      "dest": "inheritance_specifier [1072,1089]"
+    },
+    {
+      "src": "\": \" [872,873]",
+      "dest": "\": \" [876,877]"
+    },
+    {
+      "src": "visibility [2698,2706]",
+      "dest": "visibility [2673,2681]"
+    },
+    {
+      "src": "): ) [4632,4633]",
+      "dest": "): ) [4607,4608]"
+    },
+    {
+      "src": "identifier: location [3708,3716]",
+      "dest": "identifier: location [3683,3691]"
+    },
+    {
+      "src": "internal: internal [3055,3063]",
+      "dest": "internal: internal [3030,3038]"
+    },
+    {
+      "src": "identifier: setAddressValueOnce [3392,3411]",
+      "dest": "identifier: setAddressValueOnce [3367,3386]"
+    },
+    {
+      "src": "function_definition [4322,4827]",
+      "dest": "function_definition [4297,4802]"
+    },
+    {
+      "src": ",: , [4438,4439]",
+      "dest": ",: , [4413,4414]"
+    },
+    {
+      "src": "return_statement [2540,2591]",
+      "dest": "return_statement [2515,2566]"
+    },
+    {
+      "src": "): ) [5995,5996]",
+      "dest": "): ) [5970,5971]"
+    },
+    {
+      "src": "}: } [5172,5173]",
+      "dest": "}: } [5147,5148]"
+    },
+    {
+      "src": "(: ( [5315,5316]",
+      "dest": "(: ( [5290,5291]"
+    },
+    {
+      "src": "return_statement [3811,3837]",
+      "dest": "return_statement [3786,3812]"
+    },
+    {
+      "src": "\": \" [755,756]",
+      "dest": "\": \" [752,753]"
+    },
+    {
+      "src": "state_variable_declaration [1879,1958]",
+      "dest": "state_variable_declaration [1854,1933]"
+    },
+    {
+      "src": "primitive_type [2122,2129]",
+      "dest": "primitive_type [2097,2104]"
+    },
+    {
+      "src": "identifier: isValid [6449,6456]",
+      "dest": "identifier: isValid [6424,6431]"
+    },
+    {
+      "src": "(: ( [3760,3761]",
+      "dest": "(: ( [3735,3736]"
+    },
+    {
+      "src": "identifier: initialState [4543,4555]",
+      "dest": "identifier: initialState [4518,4530]"
+    },
+    {
+      "src": ",: , [4583,4584]",
+      "dest": ",: , [4558,4559]"
+    },
+    {
+      "src": "tuple_expression [4585,4633]",
+      "dest": "tuple_expression [4560,4608]"
+    },
+    {
+      "src": "string_literal [1791,1832]",
+      "dest": "string_literal [1766,1807]"
+    },
+    {
+      "src": "=: = [6346,6347]",
+      "dest": "=: = [6321,6322]"
+    },
+    {
+      "src": "type_name [1879,1885]",
+      "dest": "type_name [1854,1860]"
+    },
+    {
+      "src": "expression_statement [3074,3124]",
+      "dest": "expression_statement [3049,3099]"
+    },
+    {
+      "src": "]: ] [6793,6794]",
+      "dest": "]: ] [6768,6769]"
+    },
+    {
+      "src": "type_name [4452,4459]",
+      "dest": "type_name [4427,4434]"
+    },
+    {
+      "src": "identifier: abi [3620,3623]",
+      "dest": "identifier: abi [3595,3598]"
+    },
+    {
+      "src": "function: function [3950,3958]",
+      "dest": "function: function [3925,3933]"
+    },
+    {
+      "src": "identifier: programOutput [7090,7103]",
+      "dest": "identifier: programOutput [7065,7078]"
+    },
+    {
+      "src": ",: , [7313,7314]",
+      "dest": ",: , [7288,7289]"
+    },
+    {
+      "src": "type_name [3236,3243]",
+      "dest": "type_name [3211,3218]"
+    },
+    {
+      "src": "number_literal: 5 [4053,4054]",
+      "dest": "number_literal: 5 [4028,4029]"
+    },
+    {
+      "src": "returns: returns [2512,2519]",
+      "dest": "returns: returns [2487,2494]"
+    },
+    {
+      "src": "call_argument [6200,6213]",
+      "dest": "call_argument [6175,6188]"
+    },
+    {
+      "src": "call_argument [6369,6382]",
+      "dest": "call_argument [6344,6357]"
+    },
+    {
+      "src": "): ) [3830,3831]",
+      "dest": "): ) [3805,3806]"
+    },
+    {
+      "src": ",: , [4059,4060]",
+      "dest": ",: , [4034,4035]"
+    },
+    {
+      "src": "string: string [1747,1753]",
+      "dest": "string: string [1722,1728]"
+    },
+    {
+      "src": "identifier: VERIFIER_ADDRESS_TAG [1682,1702]",
+      "dest": "identifier: VERIFIER_ADDRESS_TAG [1657,1677]"
+    },
+    {
+      "src": "member_expression [7183,7197]",
+      "dest": "member_expression [7158,7172]"
+    },
+    {
+      "src": "call_argument [7198,7211]",
+      "dest": "call_argument [7173,7186]"
+    },
+    {
+      "src": "internal: internal [1886,1894]",
+      "dest": "internal: internal [1861,1869]"
+    },
+    {
+      "src": "member_expression [6134,6186]",
+      "dest": "member_expression [6109,6161]"
+    },
+    {
+      "src": "primitive_type [1358,1365]",
+      "dest": "primitive_type [1333,1340]"
+    },
+    {
+      "src": "identifier: keccak256 [3610,3619]",
+      "dest": "identifier: keccak256 [3585,3594]"
+    },
+    {
+      "src": "event_definition [1473,1531]",
+      "dest": "event_definition [1448,1506]"
+    },
+    {
+      "src": "identifier: PROGRAM_HASH_TAG [1595,1611]",
+      "dest": "identifier: PROGRAM_HASH_TAG [1570,1586]"
+    },
+    {
+      "src": "internal: internal [2698,2706]",
+      "dest": "internal: internal [2673,2681]"
+    },
+    {
+      "src": "(: ( [4168,4169]",
+      "dest": "(: ( [4143,4144]"
+    },
+    {
+      "src": "type_name [2873,2880]",
+      "dest": "type_name [2848,2855]"
+    },
+    {
+      "src": "(: ( [4724,4725]",
+      "dest": "(: ( [4699,4700]"
+    },
+    {
+      "src": "identifier: CONFIG_HASH_OFFSET [6029,6047]",
+      "dest": "identifier: CONFIG_HASH_OFFSET [6004,6022]"
+    },
+    {
+      "src": "uint256: uint256 [2521,2528]",
+      "dest": "uint256: uint256 [2496,2503]"
+    },
+    {
+      "src": "type_name [4259,4264]",
+      "dest": "type_name [4234,4239]"
+    },
+    {
+      "src": "identifier: stateStruct [3568,3579]",
+      "dest": "identifier: stateStruct [3543,3554]"
+    },
+    {
+      "src": "call_argument [6437,6447]",
+      "dest": "call_argument [6412,6422]"
+    },
+    {
+      "src": "}: } [3731,3732]",
+      "dest": "}: } [3706,3707]"
+    },
+    {
+      "src": "visibility [3215,3221]",
+      "dest": "visibility [3190,3196]"
+    },
+    {
+      "src": "call_expression [4719,4745]",
+      "dest": "call_expression [4694,4720]"
+    },
+    {
+      "src": "primitive_type [3236,3243]",
+      "dest": "primitive_type [3211,3218]"
+    },
+    {
+      "src": "parameter [5783,5806]",
+      "dest": "parameter [5758,5781]"
+    },
+    {
+      "src": "parameter [3795,3799]",
+      "dest": "parameter [3770,3774]"
+    },
+    {
+      "src": "function: function [3500,3508]",
+      "dest": "function: function [3475,3483]"
+    },
+    {
+      "src": "(: ( [4354,4355]",
+      "dest": "(: ( [4329,4330]"
+    },
+    {
+      "src": "\": \" [766,767]",
+      "dest": "\": \" [775,776]"
+    },
+    {
+      "src": "function_body [4968,5019]",
+      "dest": "function_body [4943,4994]"
+    },
+    {
+      "src": "call_expression [7066,7139]",
+      "dest": "call_expression [7041,7114]"
+    },
+    {
+      "src": "string_literal [1705,1741]",
+      "dest": "string_literal [1680,1716]"
+    },
+    {
+      "src": "yul_assignment [3688,3716]",
+      "dest": "yul_assignment [3663,3691]"
+    },
+    {
+      "src": ",: , [4469,4470]",
+      "dest": ",: , [4444,4445]"
+    },
+    {
+      "src": "): ) [7054,7055]",
+      "dest": "): ) [7029,7030]"
+    },
+    {
+      "src": "=: = [6625,6626]",
+      "dest": "=: = [6600,6601]"
+    },
+    {
+      "src": "import: import [802,808]",
+      "dest": "import: import [810,816]"
+    },
+    {
+      "src": "view: view [3772,3776]",
+      "dest": "view: view [3747,3751]"
+    },
+    {
+      "src": "=: = [4566,4567]",
+      "dest": "=: = [4541,4542]"
+    },
+    {
+      "src": "call_argument [4657,4669]",
+      "dest": "call_argument [4632,4644]"
+    },
+    {
+      "src": "): ) [6554,6555]",
+      "dest": "): ) [6529,6530]"
+    },
+    {
+      "src": "parameter [3540,3579]",
+      "dest": "parameter [3515,3554]"
+    },
+    {
+      "src": "): ) [5811,5812]",
+      "dest": "): ) [5786,5787]"
+    },
+    {
+      "src": "{: { [3369,3370]",
+      "dest": "{: { [3344,3345]"
+    },
+    {
+      "src": "array_access [5984,6048]",
+      "dest": "array_access [5959,6023]"
+    },
+    {
+      "src": "return: return [5303,5309]",
+      "dest": "return: return [5278,5284]"
+    },
+    {
+      "src": "comment: // State variable \"programHash\" read-access function. [2419,2472]",
+      "dest": "comment: // State variable \"programHash\" read-access function. [2394,2447]"
+    },
+    {
+      "src": "modifier_invocation [2154,2166]",
+      "dest": "modifier_invocation [2129,2141]"
+    },
+    {
+      "src": "identifier: length [4043,4049]",
+      "dest": "identifier: length [4018,4024]"
+    },
+    {
+      "src": "variable_declaration_statement [4404,4635]",
+      "dest": "variable_declaration_statement [4379,4610]"
+    },
+    {
+      "src": "for: for [1255,1258]",
+      "dest": "for: for [1230,1233]"
+    },
+    {
+      "src": "\": \" [6082,6083]",
+      "dest": "\": \" [6057,6058]"
+    },
+    {
+      "src": "identifier: StarknetState [1241,1254]",
+      "dest": "identifier: StarknetState [1216,1229]"
+    },
+    {
+      "src": "call_argument [3100,3115]",
+      "dest": "call_argument [3075,3090]"
+    },
+    {
+      "src": "{: { [2530,2531]",
+      "dest": "{: { [2505,2506]"
+    },
+    {
+      "src": "*: * [4055,4056]",
+      "dest": "*: * [4030,4031]"
+    },
+    {
+      "src": "(: ( [2742,2743]",
+      "dest": "(: ( [2717,2718]"
+    },
+    {
+      "src": "return: return [5141,5147]",
+      "dest": "return: return [5116,5122]"
+    },
+    {
+      "src": "\": \" [4207,4208]",
+      "dest": "\": \" [4182,4183]"
+    },
+    {
+      "src": "inheritance_specifier [1191,1210]",
+      "dest": "inheritance_specifier [1166,1185]"
+    },
+    {
+      "src": "function: function [3317,3325]",
+      "dest": "function: function [3292,3300]"
+    },
+    {
+      "src": "return_statement [3255,3305]",
+      "dest": "return_statement [3230,3280]"
+    },
+    {
+      "src": "primitive_type [3040,3047]",
+      "dest": "primitive_type [3015,3022]"
+    },
+    {
+      "src": "days: days [4815,4819]",
+      "dest": "days: days [4790,4794]"
+    },
+    {
+      "src": "call_argument [7112,7138]",
+      "dest": "call_argument [7087,7113]"
+    },
+    {
+      "src": "parameter [3040,3053]",
+      "dest": "parameter [3015,3028]"
+    },
+    {
+      "src": "calldata: calldata [4265,4273]",
+      "dest": "calldata: calldata [4240,4248]"
+    },
+    {
+      "src": "{: { [4314,4315]",
+      "dest": "{: { [4289,4290]"
+    },
+    {
+      "src": "): ) [3799,3800]",
+      "dest": "): ) [3774,3775]"
+    },
+    {
+      "src": "primitive_type [1570,1576]",
+      "dest": "primitive_type [1545,1551]"
+    },
+    {
+      "src": "{: { [5835,5836]",
+      "dest": "{: { [5810,5811]"
+    },
+    {
+      "src": "\": \" [7137,7138]",
+      "dest": "\": \" [7112,7113]"
+    },
+    {
+      "src": ".: . [7190,7191]",
+      "dest": ".: . [7165,7166]"
+    },
+    {
+      "src": "identifier: configHash [3029,3039]",
+      "dest": "identifier: configHash [3004,3014]"
+    },
+    {
+      "src": "): ) [6307,6308]",
+      "dest": "): ) [6282,6283]"
+    },
+    {
+      "src": "modifier_invocation [2167,2181]",
+      "dest": "modifier_invocation [2142,2156]"
+    },
+    {
+      "src": "call_expression [3610,3655]",
+      "dest": "call_expression [3585,3630]"
+    },
+    {
+      "src": "function: function [2477,2485]",
+      "dest": "function: function [2452,2460]"
+    },
+    {
+      "src": "return_type_definition [5276,5292]",
+      "dest": "return_type_definition [5251,5267]"
+    },
+    {
+      "src": "identifier: VERIFIER_ADDRESS_TAG [2928,2948]",
+      "dest": "identifier: VERIFIER_ADDRESS_TAG [2903,2923]"
+    },
+    {
+      "src": "}: } [4215,4216]",
+      "dest": "}: } [4190,4191]"
+    },
+    {
+      "src": "identifier: l2ToL1Messages [6808,6822]",
+      "dest": "identifier: l2ToL1Messages [6783,6797]"
+    },
+    {
+      "src": "function_definition [3738,3843]",
+      "dest": "function_definition [3713,3818]"
+    },
+    {
+      "src": "string [841,863]",
+      "dest": "string [848,867]"
+    },
+    {
+      "src": "): ) [2085,2086]",
+      "dest": "): ) [2060,2061]"
+    },
+    {
+      "src": "(: ( [7188,7189]",
+      "dest": "(: ( [7163,7164]"
+    },
+    {
+      "src": "function_body [2882,2956]",
+      "dest": "function_body [2857,2931]"
+    },
+    {
+      "src": "function_body [4020,4216]",
+      "dest": "function_body [3995,4191]"
+    },
+    {
+      "src": ",: , [6794,6795]",
+      "dest": ",: , [6769,6770]"
+    },
+    {
+      "src": "primitive_type [4595,4602]",
+      "dest": "primitive_type [4570,4577]"
+    },
+    {
+      "src": "contract_body [1229,7343]",
+      "dest": "contract_body [1204,7318]"
+    },
+    {
+      "src": "identifier: State [1273,1278]",
+      "dest": "identifier: State [1248,1253]"
+    },
+    {
+      "src": "identifier: LogStateTransitionFact [1479,1501]",
+      "dest": "identifier: LogStateTransitionFact [1454,1476]"
+    },
+    {
+      "src": "primitive_type [1747,1753]",
+      "dest": "primitive_type [1722,1728]"
+    },
+    {
+      "src": "identifier: NamedStorage [3262,3274]",
+      "dest": "identifier: NamedStorage [3237,3249]"
+    },
+    {
+      "src": "): ) [3213,3214]",
+      "dest": "): ) [3188,3189]"
+    },
+    {
+      "src": "(: ( [5153,5154]",
+      "dest": "(: ( [5128,5129]"
+    },
+    {
+      "src": "type_name [5750,5757]",
+      "dest": "type_name [5725,5732]"
+    },
+    {
+      "src": "{: { [2707,2708]",
+      "dest": "{: { [2682,2683]"
+    },
+    {
+      "src": "address: address [2873,2880]",
+      "dest": "address: address [2848,2855]"
+    },
+    {
+      "src": ",: , [4593,4594]",
+      "dest": ",: , [4568,4569]"
+    },
+    {
+      "src": "visibility [2500,2506]",
+      "dest": "visibility [2475,2481]"
+    },
+    {
+      "src": "{: { [3674,3675]",
+      "dest": "{: { [3649,3650]"
+    },
+    {
+      "src": "(: ( [2927,2928]",
+      "dest": "(: ( [2902,2903]"
+    },
+    {
+      "src": "(: ( [4731,4732]",
+      "dest": "(: ( [4706,4707]"
+    },
+    {
+      "src": ":: : [6792,6793]",
+      "dest": ":: : [6767,6768]"
+    },
+    {
+      "src": "public: public [2500,2506]",
+      "dest": "public: public [2475,2481]"
+    },
+    {
+      "src": "identifier: configHash_ [4491,4502]",
+      "dest": "identifier: configHash_ [4466,4477]"
+    },
+    {
+      "src": "boolean_literal [6968,6973]",
+      "dest": "boolean_literal [6943,6948]"
+    },
+    {
+      "src": "uint256: uint256 [2683,2690]",
+      "dest": "uint256: uint256 [2658,2665]"
+    },
+    {
+      "src": "call_expression [6369,6382]",
+      "dest": "call_expression [6344,6357]"
+    },
+    {
+      "src": "): ) [4633,4634]",
+      "dest": "): ) [4608,4609]"
+    },
+    {
+      "src": "): ) [2405,2406]",
+      "dest": "): ) [2380,2381]"
+    },
+    {
+      "src": "identifier: GovernedFinalizable [1144,1163]",
+      "dest": "identifier: GovernedFinalizable [1119,1138]"
+    },
+    {
+      "src": "call_argument [4579,4583]",
+      "dest": "call_argument [4554,4558]"
+    },
+    {
+      "src": ".: . [3553,3554]",
+      "dest": ".: . [3528,3529]"
+    },
+    {
+      "src": "bool: bool [3795,3799]",
+      "dest": "bool: bool [3770,3774]"
+    },
+    {
+      "src": "import_directive [769,801]",
+      "dest": "import_directive [778,809]"
+    },
+    {
+      "src": "type_name [6104,6111]",
+      "dest": "type_name [6079,6086]"
+    },
+    {
+      "src": "(: ( [2520,2521]",
+      "dest": "(: ( [2495,2496]"
+    },
+    {
+      "src": "variable_declaration [4418,4438]",
+      "dest": "variable_declaration [4393,4413]"
+    },
+    {
+      "src": "calldata: calldata [3982,3990]",
+      "dest": "calldata: calldata [3957,3965]"
+    },
+    {
+      "src": "comment: // Validate config hash. [5930,5954]",
+      "dest": "comment: // Validate config hash. [5905,5929]"
+    },
+    {
+      "src": "primitive_type [3345,3352]",
+      "dest": "primitive_type [3320,3327]"
+    },
+    {
+      "src": "}: } [4315,4316]",
+      "dest": "}: } [4290,4291]"
+    },
+    {
+      "src": "string [776,800]",
+      "dest": "string [785,808]"
+    },
+    {
+      "src": "expression_statement [4755,4779]",
+      "dest": "expression_statement [4730,4754]"
+    },
+    {
+      "src": "identifier: abi [6358,6361]",
+      "dest": "identifier: abi [6333,6336]"
+    },
+    {
+      "src": "): ) [6404,6405]",
+      "dest": "): ) [6379,6380]"
+    },
+    {
+      "src": "binary_expression [5984,6013]",
+      "dest": "binary_expression [5959,5988]"
+    },
+    {
+      "src": "(: ( [5259,5260]",
+      "dest": "(: ( [5234,5235]"
+    },
+    {
+      "src": ",: , [7110,7111]",
+      "dest": ",: , [7085,7086]"
+    },
+    {
+      "src": "contract: contract [1057,1065]",
+      "dest": "contract: contract [1033,1041]"
+    },
+    {
+      "src": "function_body [2356,2413]",
+      "dest": "function_body [2331,2388]"
+    },
+    {
+      "src": ".: . [5155,5156]",
+      "dest": ".: . [5130,5131]"
+    },
+    {
+      "src": "call_expression [5984,5996]",
+      "dest": "call_expression [5959,5971]"
+    },
+    {
+      "src": "function_body [2707,2774]",
+      "dest": "function_body [2682,2749]"
+    },
+    {
+      "src": "): ) [3122,3123]",
+      "dest": "): ) [3097,3098]"
+    },
+    {
+      "src": "call_expression [3074,3123]",
+      "dest": "call_expression [3049,3098]"
+    },
+    {
+      "src": "primitive_type [4604,4611]",
+      "dest": "primitive_type [4579,4586]"
+    },
+    {
+      "src": "expression_statement [2192,2218]",
+      "dest": "expression_statement [2167,2193]"
+    },
+    {
+      "src": "comment: // Perform state update. [7150,7174]",
+      "dest": "comment: // Perform state update. [7125,7149]"
+    },
+    {
+      "src": "}: } [7342,7343]",
+      "dest": "}: } [7317,7318]"
+    },
+    {
+      "src": "call_argument [6062,6083]",
+      "dest": "call_argument [6037,6058]"
+    },
+    {
+      "src": ",: , [1091,1092]",
+      "dest": ",: , [1066,1067]"
+    },
+    {
+      "src": "binary_expression [7074,7110]",
+      "dest": "binary_expression [7049,7085]"
+    },
+    {
+      "src": "identifier: value [2691,2696]",
+      "dest": "identifier: value [2666,2671]"
+    },
+    {
+      "src": "\": \" [4188,4189]",
+      "dest": "\": \" [4163,4164]"
+    },
+    {
+      "src": "returns: returns [4944,4951]",
+      "dest": "returns: returns [4919,4926]"
+    },
+    {
+      "src": "identifier: setVerifierAddress [4680,4698]",
+      "dest": "identifier: setVerifierAddress [4655,4673]"
+    },
+    {
+      "src": ",: , [6048,6049]",
+      "dest": ",: , [6023,6024]"
+    },
+    {
+      "src": "\": \" [4985,4986]",
+      "dest": "\": \" [4960,4961]"
+    },
+    {
+      "src": "identifier: state_ [7296,7302]",
+      "dest": "identifier: state_ [7271,7277]"
+    },
+    {
+      "src": "{: { [2882,2883]",
+      "dest": "{: { [2857,2858]"
+    },
+    {
+      "src": "call_expression [2899,2949]",
+      "dest": "call_expression [2874,2924]"
+    },
+    {
+      "src": "=: = [1920,1921]",
+      "dest": "=: = [1895,1896]"
+    },
+    {
+      "src": ".: . [5895,5896]",
+      "dest": ".: . [5870,5871]"
+    },
+    {
+      "src": "return: return [2540,2546]",
+      "dest": "return: return [2515,2521]"
+    },
+    {
+      "src": "): ) [4919,4920]",
+      "dest": "): ) [4894,4895]"
+    },
+    {
+      "src": "(: ( [7073,7074]",
+      "dest": "(: ( [7048,7049]"
+    },
+    {
+      "src": "==: == [7087,7089]",
+      "dest": "==: == [7062,7064]"
+    },
+    {
+      "src": "identifier: getUintValue [2560,2572]",
+      "dest": "identifier: getUintValue [2535,2547]"
+    },
+    {
+      "src": ",: , [6382,6383]",
+      "dest": ",: , [6357,6358]"
+    },
+    {
+      "src": "pure: pure [3526,3530]",
+      "dest": "pure: pure [3501,3505]"
+    },
+    {
+      "src": "): ) [5097,5098]",
+      "dest": "): ) [5072,5073]"
+    },
+    {
+      "src": "primitive_type [5708,5715]",
+      "dest": "primitive_type [5683,5690]"
+    },
+    {
+      "src": "call_argument [4141,4150]",
+      "dest": "call_argument [4116,4125]"
+    },
+    {
+      "src": "\": \" [7112,7113]",
+      "dest": "\": \" [7087,7088]"
+    },
+    {
+      "src": "calldata: calldata [4361,4369]",
+      "dest": "calldata: calldata [4336,4344]"
+    },
+    {
+      "src": "\": \" [831,832]",
+      "dest": "\": \" [838,839]"
+    },
+    {
+      "src": "(: ( [6534,6535]",
+      "dest": "(: ( [6509,6510]"
+    },
+    {
+      "src": ".: . [1272,1273]",
+      "dest": ".: . [1247,1248]"
+    },
+    {
+      "src": "call_expression [6899,7055]",
+      "dest": "call_expression [6874,7030]"
+    },
+    {
+      "src": "primitive_type [2683,2690]",
+      "dest": "primitive_type [2658,2665]"
+    },
+    {
+      "src": "type_name [4096,4103]",
+      "dest": "type_name [4071,4078]"
+    },
+    {
+      "src": "slice_access [6766,6794]",
+      "dest": "slice_access [6741,6769]"
+    },
+    {
+      "src": "call_expression [5310,5317]",
+      "dest": "call_expression [5285,5292]"
+    },
+    {
+      "src": "int256: int256 [5285,5291]",
+      "dest": "int256: int256 [5260,5266]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "yul_path [3708,3716]",
+      "dest": "yul_path [3683,3691]"
+    },
+    {
+      "src": "override_specifier [3892,3900]",
+      "dest": "override_specifier [3867,3875]"
+    },
+    {
+      "src": "function: function [2662,2670]",
+      "dest": "function: function [2637,2645]"
+    },
+    {
+      "src": "}: } [2955,2956]",
+      "dest": "}: } [2930,2931]"
+    },
+    {
+      "src": ".: . [4726,4727]",
+      "dest": ".: . [4701,4702]"
+    },
+    {
+      "src": "call_argument [6535,6554]",
+      "dest": "call_argument [6510,6529]"
+    },
+    {
+      "src": "+=: += [6676,6678]",
+      "dest": "+=: += [6651,6653]"
+    },
+    {
+      "src": ".: . [6253,6254]",
+      "dest": ".: . [6228,6229]"
+    },
+    {
+      "src": "(: ( [2847,2848]",
+      "dest": "(: ( [2822,2823]"
+    },
+    {
+      "src": ".: . [3391,3392]",
+      "dest": ".: . [3366,3367]"
+    },
+    {
+      "src": ":: : [4135,4136]",
+      "dest": ":: : [4110,4111]"
+    },
+    {
+      "src": "view: view [2507,2511]",
+      "dest": "view: view [2482,2486]"
+    },
+    {
+      "src": ".: . [6913,6914]",
+      "dest": ".: . [6888,6889]"
+    },
+    {
+      "src": "identifier: verifier_ [4699,4708]",
+      "dest": "identifier: verifier_ [4674,4683]"
+    },
+    {
+      "src": "type_name [1988,1995]",
+      "dest": "type_name [1963,1970]"
+    },
+    {
+      "src": "expression_statement [4645,4671]",
+      "dest": "expression_statement [4620,4646]"
+    },
+    {
+      "src": "identifier: State [4627,4632]",
+      "dest": "identifier: State [4602,4607]"
+    },
+    {
+      "src": "identifier: verifier [6437,6445]",
+      "dest": "identifier: verifier [6412,6420]"
+    },
+    {
+      "src": "constant: constant [1895,1903]",
+      "dest": "constant: constant [1870,1878]"
+    },
+    {
+      "src": "function_body [4314,4316]",
+      "dest": "function_body [4289,4291]"
+    },
+    {
+      "src": "(: ( [7264,7265]",
+      "dest": "(: ( [7239,7240]"
+    },
+    {
+      "src": "identifier: StarknetState [7222,7235]",
+      "dest": "identifier: StarknetState [7197,7210]"
+    },
+    {
+      "src": "\": \" [1922,1923]",
+      "dest": "\": \" [1897,1898]"
+    },
+    {
+      "src": "identifier: messageCancellationDelay [2366,2390]",
+      "dest": "identifier: messageCancellationDelay [2341,2365]"
+    },
+    {
+      "src": "identifier: programHash [2486,2497]",
+      "dest": "identifier: programHash [2461,2472]"
+    },
+    {
+      "src": "primitive_type [4096,4103]",
+      "dest": "primitive_type [4071,4078]"
+    },
+    {
+      "src": "return_statement [3929,3938]",
+      "dest": "return_statement [3904,3913]"
+    },
+    {
+      "src": "primitive_type [4259,4264]",
+      "dest": "primitive_type [4234,4239]"
+    },
+    {
+      "src": "view: view [5108,5112]",
+      "dest": "view: view [5083,5087]"
+    },
+    {
+      "src": "identifier: programHash_ [4104,4116]",
+      "dest": "identifier: programHash_ [4079,4091]"
+    },
+    {
+      "src": "(: ( [3287,3288]",
+      "dest": "(: ( [3262,3263]"
+    },
+    {
+      "src": "return_type_definition [3786,3800]",
+      "dest": "return_type_definition [3761,3775]"
+    },
+    {
+      "src": "string [4985,5012]",
+      "dest": "string [4960,4987]"
+    },
+    {
+      "src": "call_argument [7296,7313]",
+      "dest": "call_argument [7271,7288]"
+    },
+    {
+      "src": "type_name [3540,3559]",
+      "dest": "type_name [3515,3534]"
+    },
+    {
+      "src": "parameter [5285,5291]",
+      "dest": "parameter [5260,5266]"
+    },
+    {
+      "src": "identifier: setVerifierAddress [3326,3344]",
+      "dest": "identifier: setVerifierAddress [3301,3319]"
+    },
+    {
+      "src": "identifier: programHash [2671,2682]",
+      "dest": "identifier: programHash [2646,2657]"
+    },
+    {
+      "src": "function_definition [2099,2224]",
+      "dest": "function_definition [2074,2199]"
+    },
+    {
+      "src": "): ) [6496,6497]",
+      "dest": "): ) [6471,6472]"
+    },
+    {
+      "src": "(: ( [4765,4766]",
+      "dest": "(: ( [4740,4741]"
+    },
+    {
+      "src": "): ) [4744,4745]",
+      "dest": "): ) [4719,4720]"
+    },
+    {
+      "src": "): ) [3439,3440]",
+      "dest": "): ) [3414,3415]"
+    },
+    {
+      "src": "\": \" [975,976]",
+      "dest": "\": \" [985,986]"
+    },
+    {
+      "src": "string [809,832]",
+      "dest": "string [817,839]"
+    },
+    {
+      "src": "visibility [3517,3525]",
+      "dest": "visibility [3492,3500]"
+    },
+    {
+      "src": "returns: returns [5113,5120]",
+      "dest": "returns: returns [5088,5095]"
+    },
+    {
+      "src": ",: , [5773,5774]",
+      "dest": ",: , [5748,5749]"
+    },
+    {
+      "src": "identifier: CONFIG_HASH_TAG [3100,3115]",
+      "dest": "identifier: CONFIG_HASH_TAG [3075,3090]"
+    },
+    {
+      "src": "call_expression [4030,4086]",
+      "dest": "call_expression [4005,4061]"
+    },
+    {
+      "src": "primitive_type [6604,6611]",
+      "dest": "primitive_type [6579,6586]"
+    },
+    {
+      "src": "=: = [1703,1704]",
+      "dest": "=: = [1678,1679]"
+    },
+    {
+      "src": "member_expression [6014,6047]",
+      "dest": "member_expression [5989,6022]"
+    },
+    {
+      "src": "slice_access [6987,7015]",
+      "dest": "slice_access [6962,6990]"
+    },
+    {
+      "src": "visibility [1754,1762]",
+      "dest": "visibility [1729,1737]"
+    },
+    {
+      "src": "member_expression [3262,3287]",
+      "dest": "member_expression [3237,3262]"
+    },
+    {
+      "src": "): ) [6403,6404]",
+      "dest": "): ) [6378,6379]"
+    },
+    {
+      "src": "internal: internal [3763,3771]",
+      "dest": "internal: internal [3738,3746]"
+    },
+    {
+      "src": "pure: pure [3887,3891]",
+      "dest": "pure: pure [3862,3866]"
+    },
+    {
+      "src": "binary_expression [4053,4059]",
+      "dest": "binary_expression [4028,4034]"
+    },
+    {
+      "src": "function: function [3849,3857]",
+      "dest": "function: function [3824,3832]"
+    },
+    {
+      "src": "identifier: StarknetState [4516,4529]",
+      "dest": "identifier: StarknetState [4491,4504]"
+    },
+    {
+      "src": ".: . [3623,3624]",
+      "dest": ".: . [3598,3599]"
+    },
+    {
+      "src": ".: . [4626,4627]",
+      "dest": ".: . [4601,4602]"
+    },
+    {
+      "src": "identifier: state [4719,4724]",
+      "dest": "identifier: state [4694,4699]"
+    },
+    {
+      "src": "identifier: getUintValue [3275,3287]",
+      "dest": "identifier: getUintValue [3250,3262]"
+    },
+    {
+      "src": "expression_statement [4788,4821]",
+      "dest": "expression_statement [4763,4796]"
+    },
+    {
+      "src": "calldata: calldata [5718,5726]",
+      "dest": "calldata: calldata [5693,5701]"
+    },
+    {
+      "src": "member_expression [3074,3099]",
+      "dest": "member_expression [3049,3074]"
+    },
+    {
+      "src": "member_expression [7315,7333]",
+      "dest": "member_expression [7290,7308]"
+    },
+    {
+      "src": "identifier: configHash [5984,5994]",
+      "dest": "identifier: configHash [5959,5969]"
+    },
+    {
+      "src": "{: { [2356,2357]",
+      "dest": "{: { [2331,2332]"
+    },
+    {
+      "src": "return_type_definition [3227,3244]",
+      "dest": "return_type_definition [3202,3219]"
+    },
+    {
+      "src": "call_argument [4061,4085]",
+      "dest": "call_argument [4036,4060]"
+    },
+    {
+      "src": ",: , [2759,2760]",
+      "dest": ",: , [2734,2735]"
+    },
+    {
+      "src": "call_expression [6423,6448]",
+      "dest": "call_expression [6398,6423]"
+    },
+    {
+      "src": "identifier: ProxySupport [1216,1228]",
+      "dest": "identifier: ProxySupport [1191,1203]"
+    },
+    {
+      "src": "pure: pure [4930,4934]",
+      "dest": "pure: pure [4905,4909]"
+    },
+    {
+      "src": "string_literal [4188,4208]",
+      "dest": "string_literal [4163,4183]"
+    },
+    {
+      "src": "(: ( [6274,6275]",
+      "dest": "(: ( [6249,6250]"
+    },
+    {
+      "src": "call_argument [4699,4708]",
+      "dest": "call_argument [4674,4683]"
+    },
+    {
+      "src": "modifier_invocation [2316,2328]",
+      "dest": "modifier_invocation [2291,2303]"
+    },
+    {
+      "src": "(: ( [3411,3412]",
+      "dest": "(: ( [3386,3387]"
+    },
+    {
+      "src": "identifier: configHash [4755,4765]",
+      "dest": "identifier: configHash [4730,4740]"
+    },
+    {
+      "src": "override_specifier [3777,3785]",
+      "dest": "override_specifier [3752,3760]"
+    },
+    {
+      "src": "call_expression [7029,7045]",
+      "dest": "call_expression [7004,7020]"
+    },
+    {
+      "src": "identifier: updateState [5687,5698]",
+      "dest": "identifier: updateState [5662,5673]"
+    },
+    {
+      "src": "identifier: update [7191,7197]",
+      "dest": "identifier: update [7166,7172]"
+    },
+    {
+      "src": "identifier: StarknetMessaging [1097,1114]",
+      "dest": "identifier: StarknetMessaging [1072,1089]"
+    },
+    {
+      "src": "{: { [4020,4021]",
+      "dest": "{: { [3995,3996]"
+    },
+    {
+      "src": "function: function [2830,2838]",
+      "dest": "function: function [2805,2813]"
+    },
+    {
+      "src": "identifier: onlyGovernance [2337,2351]",
+      "dest": "identifier: onlyGovernance [2312,2326]"
+    },
+    {
+      "src": "(: ( [4918,4919]",
+      "dest": "(: ( [4893,4894]"
+    },
+    {
+      "src": "string_literal [6469,6496]",
+      "dest": "string_literal [6444,6471]"
+    },
+    {
+      "src": "expression_statement [7066,7140]",
+      "dest": "expression_statement [7041,7115]"
+    },
+    {
+      "src": "=: = [3608,3609]",
+      "dest": "=: = [3583,3584]"
+    },
+    {
+      "src": "): ) [6317,6318]",
+      "dest": "): ) [6292,6293]"
+    },
+    {
+      "src": "\": \" [890,891]",
+      "dest": "\": \" [907,908]"
+    },
+    {
+      "src": "identifier: PROGRAM_HASH_TAG [2743,2759]",
+      "dest": "identifier: PROGRAM_HASH_TAG [2718,2734]"
+    },
+    {
+      "src": "\": \" [900,901]",
+      "dest": "\": \" [917,918]"
+    },
+    {
+      "src": "primitive_type [4452,4459]",
+      "dest": "primitive_type [4427,4434]"
+    },
+    {
+      "src": "function: function [2099,2107]",
+      "dest": "function: function [2074,2082]"
+    },
+    {
+      "src": "state_mutability [2507,2511]",
+      "dest": "state_mutability [2482,2486]"
+    },
+    {
+      "src": "): ) [3303,3304]",
+      "dest": "): ) [3278,3279]"
+    },
+    {
+      "src": "\": \" [721,722]",
+      "dest": "\": \" [721,722]"
+    },
+    {
+      "src": "(: ( [3039,3040]",
+      "dest": "(: ( [3014,3015]"
+    },
+    {
+      "src": "identifier: configHash [3202,3212]",
+      "dest": "identifier: configHash [3177,3187]"
+    },
+    {
+      "src": "internal: internal [3517,3525]",
+      "dest": "internal: internal [3492,3500]"
+    },
+    {
+      "src": "contract_declaration [1057,7343]",
+      "dest": "contract_declaration [1033,7318]"
+    },
+    {
+      "src": "identifier: outputOffset [7074,7086]",
+      "dest": "identifier: outputOffset [7049,7061]"
+    },
+    {
+      "src": "variable_declaration [4452,4469]",
+      "dest": "variable_declaration [4427,4444]"
+    },
+    {
+      "src": "type_name [6328,6335]",
+      "dest": "type_name [6303,6310]"
+    },
+    {
+      "src": "identifier: onchainDataHash [6275,6290]",
+      "dest": "identifier: onchainDataHash [6250,6265]"
+    },
+    {
+      "src": "import_directive [934,967]",
+      "dest": "import_directive [944,977]"
+    },
+    {
+      "src": "pure: pure [4006,4010]",
+      "dest": "pure: pure [3981,3985]"
+    },
+    {
+      "src": "string [941,966]",
+      "dest": "string [951,976]"
+    },
+    {
+      "src": "call_argument [6748,6752]",
+      "dest": "call_argument [6723,6727]"
+    },
+    {
+      "src": "user_defined_type [1191,1210]",
+      "dest": "user_defined_type [1166,1185]"
+    },
+    {
+      "src": "returns: returns [3786,3793]",
+      "dest": "returns: returns [3761,3768]"
+    },
+    {
+      "src": "override_specifier [4305,4313]",
+      "dest": "override_specifier [4280,4288]"
+    },
+    {
+      "src": "call_expression [4719,4726]",
+      "dest": "call_expression [4694,4701]"
+    },
+    {
+      "src": "address: address [4595,4602]",
+      "dest": "address: address [4570,4577]"
+    },
+    {
+      "src": "type_name [3591,3598]",
+      "dest": "type_name [3566,3573]"
+    },
+    {
+      "src": "event: event [1473,1478]",
+      "dest": "event: event [1448,1453]"
+    },
+    {
+      "src": "\": \" [999,1000]",
+      "dest": "\": \" [1002,1003]"
+    },
+    {
+      "src": "member_expression [2547,2572]",
+      "dest": "member_expression [2522,2547]"
+    },
+    {
+      "src": "modifier_invocation [2337,2351]",
+      "dest": "modifier_invocation [2312,2326]"
+    },
+    {
+      "src": "parameter [2122,2143]",
+      "dest": "parameter [2097,2118]"
+    },
+    {
+      "src": "identifier: newProgramHash [1996,2010]",
+      "dest": "identifier: newProgramHash [1971,1985]"
+    },
+    {
+      "src": "primitive_type [5285,5291]",
+      "dest": "primitive_type [5260,5266]"
+    },
+    {
+      "src": "\": \" [841,842]",
+      "dest": "\": \" [848,849]"
+    },
+    {
+      "src": "(: ( [2682,2683]",
+      "dest": "(: ( [2657,2658]"
+    },
+    {
+      "src": "uint256: uint256 [1358,1365]",
+      "dest": "uint256: uint256 [1333,1340]"
+    },
+    {
+      "src": "identifier: programOutput [7198,7211]",
+      "dest": "identifier: programOutput [7173,7186]"
+    },
+    {
+      "src": "event_paramater [1358,1376]",
+      "dest": "event_paramater [1333,1351]"
+    },
+    {
+      "src": "(: ( [3829,3830]",
+      "dest": "(: ( [3804,3805]"
+    },
+    {
+      "src": "(: ( [6422,6423]",
+      "dest": "(: ( [6397,6398]"
+    },
+    {
+      "src": "string_literal [1922,1957]",
+      "dest": "string_literal [1897,1932]"
+    },
+    {
+      "src": "identifier: data [4579,4583]",
+      "dest": "identifier: data [4554,4558]"
+    },
+    {
+      "src": "expression_statement [5963,6094]",
+      "dest": "expression_statement [5938,6069]"
+    },
+    {
+      "src": "primitive_type [3910,3917]",
+      "dest": "primitive_type [3885,3892]"
+    },
+    {
+      "src": "identifier: require [5963,5970]",
+      "dest": "identifier: require [5938,5945]"
+    },
+    {
+      "src": "(: ( [7295,7296]",
+      "dest": "(: ( [7270,7271]"
+    },
+    {
+      "src": "variable_declaration_statement [6104,6319]",
+      "dest": "variable_declaration_statement [6079,6294]"
+    },
+    {
+      "src": "): ) [4564,4565]",
+      "dest": "): ) [4539,4540]"
+    },
+    {
+      "src": "identifier: value [3434,3439]",
+      "dest": "identifier: value [3409,3414]"
+    },
+    {
+      "src": "string [1922,1957]",
+      "dest": "string [1897,1932]"
+    },
+    {
+      "src": "(: ( [3636,3637]",
+      "dest": "(: ( [3611,3612]"
+    },
+    {
+      "src": "(: ( [4404,4405]",
+      "dest": "(: ( [4379,4380]"
+    },
+    {
+      "src": "\": \" [4084,4085]",
+      "dest": "\": \" [4059,4060]"
+    },
+    {
+      "src": "import: import [1002,1008]",
+      "dest": "import: import [1005,1011]"
+    },
+    {
+      "src": "(: ( [1987,1988]",
+      "dest": "(: ( [1962,1963]"
+    },
+    {
+      "src": "member_expression [6358,6368]",
+      "dest": "member_expression [6333,6343]"
+    },
+    {
+      "src": "call_argument [6423,6467]",
+      "dest": "call_argument [6398,6442]"
+    },
+    {
+      "src": "parameter [2873,2880]",
+      "dest": "parameter [2848,2855]"
+    },
+    {
+      "src": "return: return [3929,3935]",
+      "dest": "return: return [3904,3910]"
+    },
+    {
+      "src": "\": \" [1740,1741]",
+      "dest": "\": \" [1715,1716]"
+    },
+    {
+      "src": "call_argument [3637,3653]",
+      "dest": "call_argument [3612,3628]"
+    },
+    {
+      "src": "internal: internal [1754,1762]",
+      "dest": "internal: internal [1729,1737]"
+    },
+    {
+      "src": "visibility [5813,5821]",
+      "dest": "visibility [5788,5796]"
+    },
+    {
+      "src": "identifier: sharpFact [6336,6345]",
+      "dest": "identifier: sharpFact [6311,6320]"
+    },
+    {
+      "src": "function_definition [2230,2413]",
+      "dest": "function_definition [2205,2388]"
+    },
+    {
+      "src": "): ) [5316,5317]",
+      "dest": "): ) [5291,5292]"
+    },
+    {
+      "src": "identifier: stateTransitionFact [6112,6131]",
+      "dest": "identifier: stateTransitionFact [6087,6106]"
+    },
+    {
+      "src": "state_mutability [5271,5275]",
+      "dest": "state_mutability [5246,5250]"
+    },
+    {
+      "src": "member_expression [4568,4578]",
+      "dest": "member_expression [4543,4553]"
+    },
+    {
+      "src": "identifier: OnchainDataFactTreeEncoder [6134,6160]",
+      "dest": "identifier: OnchainDataFactTreeEncoder [6109,6135]"
+    },
+    {
+      "src": "expression_statement [4719,4746]",
+      "dest": "expression_statement [4694,4721]"
+    },
+    {
+      "src": "variable_declaration [7222,7256]",
+      "dest": "variable_declaration [7197,7231]"
+    },
+    {
+      "src": ".: . [4042,4043]",
+      "dest": ".: . [4017,4018]"
+    },
+    {
+      "src": "primitive_type [5750,5757]",
+      "dest": "primitive_type [5725,5732]"
+    },
+    {
+      "src": "inheritance_specifier [1082,1091]",
+      "dest": "inheritance_specifier [1058,1066]"
+    },
+    {
+      "src": "call_expression [3818,3831]",
+      "dest": "call_expression [3793,3806]"
+    },
+    {
+      "src": "visibility [5099,5107]",
+      "dest": "visibility [5074,5082]"
+    },
+    {
+      "src": "): ) [3995,3996]",
+      "dest": "): ) [3970,3971]"
+    },
+    {
+      "src": ".: . [7235,7236]",
+      "dest": ".: . [7210,7211]"
+    },
+    {
+      "src": "(: ( [5284,5285]",
+      "dest": "(: ( [5259,5260]"
+    },
+    {
+      "src": "primitive_type [1378,1384]",
+      "dest": "primitive_type [1353,1359]"
+    },
+    {
+      "src": "address: address [4452,4459]",
+      "dest": "address: address [4427,4434]"
+    },
+    {
+      "src": "function_body [5131,5173]",
+      "dest": "function_body [5106,5148]"
+    },
+    {
+      "src": "type_name [3910,3917]",
+      "dest": "type_name [3885,3892]"
+    },
+    {
+      "src": "user_defined_type [1259,1278]",
+      "dest": "user_defined_type [1234,1253]"
+    },
+    {
+      "src": "{: { [5131,5132]",
+      "dest": "{: { [5106,5107]"
+    },
+    {
+      "src": "identifier: setConfigHash [2108,2121]",
+      "dest": "identifier: setConfigHash [2083,2096]"
+    },
+    {
+      "src": "inheritance_specifier [1216,1228]",
+      "dest": "inheritance_specifier [1191,1203]"
+    },
+    {
+      "src": "call_argument [4169,4186]",
+      "dest": "call_argument [4144,4161]"
+    },
+    {
+      "src": "=: = [7257,7258]",
+      "dest": "=: = [7232,7233]"
+    },
+    {
+      "src": "type_name [1259,1278]",
+      "dest": "type_name [1234,1253]"
+    },
+    {
+      "src": "primitive_type [1879,1885]",
+      "dest": "primitive_type [1854,1860]"
+    },
+    {
+      "src": "\": \" [1650,1651]",
+      "dest": "\": \" [1625,1626]"
+    },
+    {
+      "src": "(: ( [2497,2498]",
+      "dest": "(: ( [2472,2473]"
+    },
+    {
+      "src": "=: = [4117,4118]",
+      "dest": "=: = [4092,4093]"
+    },
+    {
+      "src": "memory: memory [4960,4966]",
+      "dest": "memory: memory [4935,4941]"
+    },
+    {
+      "src": "parameter [3236,3243]",
+      "dest": "parameter [3211,3218]"
+    },
+    {
+      "src": "{: { [3919,3920]",
+      "dest": "{: { [3894,3895]"
+    },
+    {
+      "src": "[: [ [6779,6780]",
+      "dest": "[: [ [6754,6755]"
+    },
+    {
+      "src": "return_statement [4978,5013]",
+      "dest": "return_statement [4953,4988]"
+    },
+    {
+      "src": "event_definition [1337,1398]",
+      "dest": "event_definition [1312,1373]"
+    },
+    {
+      "src": "primitive_type [6104,6111]",
+      "dest": "primitive_type [6079,6086]"
+    },
+    {
+      "src": "member_expression [4719,4731]",
+      "dest": "member_expression [4694,4706]"
+    },
+    {
+      "src": "identifier: getAddressValue [2912,2927]",
+      "dest": "identifier: getAddressValue [2887,2902]"
+    },
+    {
+      "src": "call_expression [4645,4670]",
+      "dest": "call_expression [4620,4645]"
+    },
+    {
+      "src": "emit_statement [7276,7335]",
+      "dest": "emit_statement [7251,7310]"
+    },
+    {
+      "src": "identifier: blockNumber [5318,5329]",
+      "dest": "identifier: blockNumber [5293,5304]"
+    },
+    {
+      "src": "uint256: uint256 [3040,3047]",
+      "dest": "uint256: uint256 [3015,3022]"
+    },
+    {
+      "src": "import: import [834,840]",
+      "dest": "import: import [841,847]"
+    },
+    {
+      "src": "internal: internal [1664,1672]",
+      "dest": "internal: internal [1639,1647]"
+    },
+    {
+      "src": "identifier: onchainDataSize [6292,6307]",
+      "dest": "identifier: onchainDataSize [6267,6282]"
+    },
+    {
+      "src": "comment: /**       Updates the state of the StarkNet, based on a proof of the       StarkNet OS that the state transition is valid.        Arguments:         programOutput - The main part of the StarkNet OS program output.         data_availability_fact - An encoding of the on-chain data associated         with the 'programOutput'.     */ [5342,5673]",
+      "dest": "comment: /**       Updates the state of the StarkNet, based on a proof of the       StarkNet OS that the state transition is valid.        Arguments:         programOutput - The main part of the StarkNet OS program output.         data_availability_fact - An encoding of the on-chain data associated         with the 'programOutput'.     */ [5317,5648]"
+    },
+    {
+      "src": "identifier: outputOffset [6780,6792]",
+      "dest": "identifier: outputOffset [6755,6767]"
+    },
+    {
+      "src": "member_expression [2899,2927]",
+      "dest": "member_expression [2874,2902]"
+    },
+    {
+      "src": "type_name [4516,4535]",
+      "dest": "type_name [4491,4510]"
+    },
+    {
+      "src": "}: } [4826,4827]",
+      "dest": "}: } [4801,4802]"
+    },
+    {
+      "src": "import_directive [748,768]",
+      "dest": "import_directive [745,777]"
+    },
+    {
+      "src": "function_definition [3500,3732]",
+      "dest": "function_definition [3475,3707]"
+    },
+    {
+      "src": "{: { [4968,4969]",
+      "dest": "{: { [4943,4944]"
+    },
+    {
+      "src": "import: import [724,730]",
+      "dest": "import: import [724,730]"
+    },
+    {
+      "src": "identifier: value [3048,3053]",
+      "dest": "identifier: value [3023,3028]"
+    },
+    {
+      "src": "slice_access [4130,4139]",
+      "dest": "slice_access [4105,4114]"
+    },
+    {
+      "src": "identifier: IFactRegistry [6423,6436]",
+      "dest": "identifier: IFactRegistry [6398,6411]"
+    },
+    {
+      "src": "call_expression [2366,2406]",
+      "dest": "call_expression [2341,2381]"
+    },
+    {
+      "src": "(: ( [2121,2122]",
+      "dest": "(: ( [2096,2097]"
+    },
+    {
+      "src": "variable_declaration [4516,4555]",
+      "dest": "variable_declaration [4491,4530]"
+    },
+    {
+      "src": "is: is [1075,1077]",
+      "dest": "is: is [1051,1053]"
+    },
+    {
+      "src": "): ) [4208,4209]",
+      "dest": "): ) [4183,4184]"
+    },
+    {
+      "src": "user_defined_type [1216,1228]",
+      "dest": "user_defined_type [1191,1203]"
+    },
+    {
+      "src": "call_expression [3262,3304]",
+      "dest": "call_expression [3237,3279]"
+    },
+    {
+      "src": "returns: returns [3531,3538]",
+      "dest": "returns: returns [3506,3513]"
+    },
+    {
+      "src": "call_argument [4766,4777]",
+      "dest": "call_argument [4741,4752]"
+    },
+    {
+      "src": ",: , [7015,7016]",
+      "dest": ",: , [6990,6991]"
+    },
+    {
+      "src": "]: ] [4138,4139]",
+      "dest": "]: ] [4113,4114]"
+    },
+    {
+      "src": "identifier: STATE_STRUCT_TAG [3637,3653]",
+      "dest": "identifier: STATE_STRUCT_TAG [3612,3628]"
+    },
+    {
+      "src": ".: . [3086,3087]",
+      "dest": ".: . [3061,3062]"
+    },
+    {
+      "src": "identifier: verifier_ [4460,4469]",
+      "dest": "identifier: verifier_ [4435,4444]"
+    },
+    {
+      "src": "): ) [6833,6834]",
+      "dest": "): ) [6808,6809]"
+    },
+    {
+      "src": "type_name [3795,3799]",
+      "dest": "type_name [3770,3774]"
+    },
+    {
+      "src": "type_alias [1241,1254]",
+      "dest": "type_alias [1216,1229]"
+    },
+    {
+      "src": "}: } [3446,3447]",
+      "dest": "}: } [3421,3422]"
+    },
+    {
+      "src": "user_defined_type [4516,4535]",
+      "dest": "user_defined_type [4491,4510]"
+    },
+    {
+      "src": "external: external [2299,2307]",
+      "dest": "external: external [2274,2282]"
+    },
+    {
+      "src": "call_expression [2717,2767]",
+      "dest": "call_expression [2692,2742]"
+    },
+    {
+      "src": "identifier: experimental [668,680]",
+      "dest": "identifier: experimental [668,680]"
+    },
+    {
+      "src": "uint256: uint256 [4483,4490]",
+      "dest": "uint256: uint256 [4458,4465]"
+    },
+    {
+      "src": "identifier: location [3599,3607]",
+      "dest": "identifier: location [3574,3582]"
+    },
+    {
+      "src": "identifier: PROGRAM_HASH_TAG [2573,2589]",
+      "dest": "identifier: PROGRAM_HASH_TAG [2548,2564]"
+    },
+    {
+      "src": "return_type_definition [2512,2529]",
+      "dest": "return_type_definition [2487,2504]"
+    },
+    {
+      "src": "): ) [1396,1397]",
+      "dest": "): ) [1371,1372]"
+    },
+    {
+      "src": "(: ( [7197,7198]",
+      "dest": "(: ( [7172,7173]"
+    },
+    {
+      "src": "comment: /**       Returns a string that identifies the contract.     */ [4833,4896]",
+      "dest": "comment: /**       Returns a string that identifies the contract.     */ [4808,4871]"
+    },
+    {
+      "src": "import_directive [893,933]",
+      "dest": "import_directive [910,943]"
+    },
+    {
+      "src": "primitive_type [1502,1509]",
+      "dest": "primitive_type [1477,1484]"
+    },
+    {
+      "src": "(: ( [4141,4142]",
+      "dest": "(: ( [4116,4117]"
+    },
+    {
+      "src": "import_directive [696,723]",
+      "dest": "import_directive [696,723]"
+    },
+    {
+      "src": "return: return [3811,3817]",
+      "dest": "return: return [3786,3792]"
+    },
+    {
+      "src": "visibility [4921,4929]",
+      "dest": "visibility [4896,4904]"
+    },
+    {
+      "src": "(: ( [2070,2071]",
+      "dest": "(: ( [2045,2046]"
+    },
+    {
+      "src": "identifier: LogStateTransitionFact [6512,6534]",
+      "dest": "identifier: LogStateTransitionFact [6487,6509]"
+    },
+    {
+      "src": ".: . [4529,4530]",
+      "dest": ".: . [4504,4505]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "uint256: uint256 [2122,2129]",
+      "dest": "uint256: uint256 [2097,2104]"
+    },
+    {
+      "src": ":=: := [3705,3707]",
+      "dest": ":=: := [3680,3682]"
+    },
+    {
+      "src": "string_literal [7112,7138]",
+      "dest": "string_literal [7087,7113]"
+    },
+    {
+      "src": ".: . [2911,2912]",
+      "dest": ".: . [2886,2887]"
+    },
+    {
+      "src": "identifier: StarknetOutput [6899,6913]",
+      "dest": "identifier: StarknetOutput [6874,6888]"
+    },
+    {
+      "src": "variable_declaration [4096,4116]",
+      "dest": "variable_declaration [4071,4091]"
+    },
+    {
+      "src": "identifier: ContractInitializer [1191,1210]",
+      "dest": "identifier: ContractInitializer [1166,1185]"
+    },
+    {
+      "src": "\": \" [1956,1957]",
+      "dest": "\": \" [1931,1932]"
+    },
+    {
+      "src": "): ) [2848,2849]",
+      "dest": "): ) [2823,2824]"
+    },
+    {
+      "src": ".: . [6160,6161]",
+      "dest": ".: . [6135,6136]"
+    },
+    {
+      "src": "\": \" [809,810]",
+      "dest": "\": \" [817,818]"
+    },
+    {
+      "src": "external: external [5262,5270]",
+      "dest": "external: external [5237,5245]"
+    },
+    {
+      "src": "uint256: uint256 [5750,5757]",
+      "dest": "uint256: uint256 [5725,5732]"
+    },
+    {
+      "src": "(: ( [5904,5905]",
+      "dest": "(: ( [5879,5880]"
+    },
+    {
+      "src": "comment: // Process L2 -> L1 messages. [6566,6595]",
+      "dest": "comment: // Process L2 -> L1 messages. [6541,6570]"
+    },
+    {
+      "src": "(: ( [1357,1358]",
+      "dest": "(: ( [1332,1333]"
+    },
+    {
+      "src": "string: string [4953,4959]",
+      "dest": "string: string [4928,4934]"
+    },
+    {
+      "src": "identifier: notFinalized [2316,2328]",
+      "dest": "identifier: notFinalized [2291,2303]"
+    },
+    {
+      "src": "): ) [4708,4709]",
+      "dest": "): ) [4683,4684]"
+    },
+    {
+      "src": "(: ( [2202,2203]",
+      "dest": "(: ( [2177,2178]"
+    },
+    {
+      "src": "primitive_type [2873,2880]",
+      "dest": "primitive_type [2848,2855]"
+    },
+    {
+      "src": "(: ( [3514,3515]",
+      "dest": "(: ( [3489,3490]"
+    },
+    {
+      "src": "identifier: StarknetGovernance [1120,1138]",
+      "dest": "identifier: StarknetGovernance [1095,1113]"
+    },
+    {
+      "src": ",: , [6290,6291]",
+      "dest": ",: , [6265,6266]"
+    },
+    {
+      "src": "returns: returns [5276,5283]",
+      "dest": "returns: returns [5251,5258]"
+    },
+    {
+      "src": "identifier: keccak256 [6348,6357]",
+      "dest": "identifier: keccak256 [6323,6332]"
+    },
+    {
+      "src": "identifier: newConfigHash [2203,2216]",
+      "dest": "identifier: newConfigHash [2178,2191]"
+    },
+    {
+      "src": "uint256: uint256 [4142,4149]",
+      "dest": "uint256: uint256 [4117,4124]"
+    },
+    {
+      "src": "identifier: setUintValue [2730,2742]",
+      "dest": "identifier: setUintValue [2705,2717]"
+    },
+    {
+      "src": "string [975,1000]",
+      "dest": "string [985,1003]"
+    },
+    {
+      "src": "parameter [3976,3995]",
+      "dest": "parameter [3951,3970]"
+    },
+    {
+      "src": "member_expression [5310,5329]",
+      "dest": "member_expression [5285,5304]"
+    },
+    {
+      "src": "external: external [5099,5107]",
+      "dest": "external: external [5074,5082]"
+    },
+    {
+      "src": "identifier: LogStateUpdate [1343,1357]",
+      "dest": "identifier: LogStateUpdate [1318,1332]"
+    },
+    {
+      "src": "==: == [5997,5999]",
+      "dest": "==: == [5972,5974]"
+    },
+    {
+      "src": "identifier: l1ToL2Messages [7029,7043]",
+      "dest": "identifier: l1ToL2Messages [7004,7018]"
+    },
+    {
+      "src": "identifier: configHash_ [4766,4777]",
+      "dest": "identifier: configHash_ [4741,4752]"
+    },
+    {
+      "src": "call_argument [6227,6308]",
+      "dest": "call_argument [6202,6283]"
+    },
+    {
+      "src": ",: , [6973,6974]",
+      "dest": ",: , [6948,6949]"
+    },
+    {
+      "src": "(: ( [5698,5699]",
+      "dest": "(: ( [5673,5674]"
+    },
+    {
+      "src": "[: [ [6013,6014]",
+      "dest": "[: [ [5988,5989]"
+    },
+    {
+      "src": "identifier: StarknetState [1259,1272]",
+      "dest": "identifier: StarknetState [1234,1247]"
+    },
+    {
+      "src": "identifier: StarknetOutput [6679,6693]",
+      "dest": "identifier: StarknetOutput [6654,6668]"
+    },
+    {
+      "src": "identifier: state_ [7315,7321]",
+      "dest": "identifier: state_ [7290,7296]"
+    },
+    {
+      "src": "{: { [3581,3582]",
+      "dest": "{: { [3556,3557]"
+    },
+    {
+      "src": "call_argument [4585,4633]",
+      "dest": "call_argument [4560,4608]"
+    },
+    {
+      "src": "bytes32: bytes32 [6328,6335]",
+      "dest": "bytes32: bytes32 [6303,6310]"
+    },
+    {
+      "src": "(: ( [4129,4130]",
+      "dest": "(: ( [4104,4105]"
+    },
+    {
+      "src": "primitive_type [5122,5129]",
+      "dest": "primitive_type [5097,5104]"
+    },
+    {
+      "src": "identifier: onlyOperator [5822,5834]",
+      "dest": "identifier: onlyOperator [5797,5809]"
+    },
+    {
+      "src": "comment: // State variable \"state\" access function. [3453,3495]",
+      "dest": "comment: // State variable \"state\" access function. [3428,3470]"
+    },
+    {
+      "src": "=: = [1789,1790]",
+      "dest": "=: = [1764,1765]"
+    },
+    {
+      "src": "]: ] [7014,7015]",
+      "dest": "]: ] [6989,6990]"
+    },
+    {
+      "src": "call_argument [2391,2405]",
+      "dest": "call_argument [2366,2380]"
+    },
+    {
+      "src": "identifier: identify [4910,4918]",
+      "dest": "identifier: identify [4885,4893]"
+    },
+    {
+      "src": "augmented_assignment_expression [6663,6834]",
+      "dest": "augmented_assignment_expression [6638,6809]"
+    },
+    {
+      "src": "function_definition [3193,3311]",
+      "dest": "function_definition [3168,3286]"
+    },
+    {
+      "src": "modifier_invocation [2034,2048]",
+      "dest": "modifier_invocation [2009,2023]"
+    },
+    {
+      "src": "identifier: data [4038,4042]",
+      "dest": "identifier: data [4013,4017]"
+    },
+    {
+      "src": "identifier: decode [4123,4129]",
+      "dest": "identifier: decode [4098,4104]"
+    },
+    {
+      "src": "expression_statement [6415,6498]",
+      "dest": "expression_statement [6390,6473]"
+    },
+    {
+      "src": "identifier: CONFIG_HASH_TAG [1904,1919]",
+      "dest": "identifier: CONFIG_HASH_TAG [1879,1894]"
+    },
+    {
+      "src": "): ) [2880,2881]",
+      "dest": "): ) [2855,2856]"
+    },
+    {
+      "src": "): ) [4819,4820]",
+      "dest": "): ) [4794,4795]"
+    },
+    {
+      "src": "visibility [3055,3063]",
+      "dest": "visibility [3030,3038]"
+    },
+    {
+      "src": "identifier: StarknetOutput [5881,5895]",
+      "dest": "identifier: StarknetOutput [5856,5870]"
+    },
+    {
+      "src": "(: ( [6709,6710]",
+      "dest": "(: ( [6684,6685]"
+    },
+    {
+      "src": "identifier: state [5148,5153]",
+      "dest": "identifier: state [5123,5128]"
+    },
+    {
+      "src": "}: } [3943,3944]",
+      "dest": "}: } [3918,3919]"
+    },
+    {
+      "src": "\": \" [862,863]",
+      "dest": "\": \" [866,867]"
+    },
+    {
+      "src": "memory: memory [4536,4542]",
+      "dest": "memory: memory [4511,4517]"
+    },
+    {
+      "src": "call_expression [5963,6093]",
+      "dest": "call_expression [5938,6068]"
+    },
+    {
+      "src": "(: ( [4578,4579]",
+      "dest": "(: ( [4553,4554]"
+    },
+    {
+      "src": "member_expression [5148,5166]",
+      "dest": "member_expression [5123,5141]"
+    },
+    {
+      "src": "expression_statement [2059,2087]",
+      "dest": "expression_statement [2034,2062]"
+    },
+    {
+      "src": "identifier: blockNumber [1385,1396]",
+      "dest": "identifier: blockNumber [1360,1371]"
+    },
+    {
+      "src": "uint256: uint256 [4096,4103]",
+      "dest": "uint256: uint256 [4071,4078]"
+    },
+    {
+      "src": "identifier: decode [4572,4578]",
+      "dest": "identifier: decode [4547,4553]"
+    },
+    {
+      "src": "emit_statement [6507,6556]",
+      "dest": "emit_statement [6482,6531]"
+    },
+    {
+      "src": "comment: /**       Returns the current block number.     */ [5179,5229]",
+      "dest": "comment: /**       Returns the current block number.     */ [5154,5204]"
+    },
+    {
+      "src": "call_expression [5881,5919]",
+      "dest": "call_expression [5856,5894]"
+    },
+    {
+      "src": "\": \" [1009,1010]",
+      "dest": "\": \" [1012,1013]"
+    },
+    {
+      "src": "): ) [3761,3762]",
+      "dest": "): ) [3736,3737]"
+    },
+    {
+      "src": "(: ( [5970,5971]",
+      "dest": "(: ( [5945,5946]"
+    },
+    {
+      "src": "string: string [1657,1663]",
+      "dest": "string: string [1632,1638]"
+    },
+    {
+      "src": "identifier: processMessages [6914,6929]",
+      "dest": "identifier: processMessages [6889,6904]"
+    },
+    {
+      "src": "comment: // State variable \"configHash\" read-access function. [3136,3188]",
+      "dest": "comment: // State variable \"configHash\" read-access function. [3111,3163]"
+    },
+    {
+      "src": "!=: != [4182,4184]",
+      "dest": "!=: != [4157,4159]"
+    },
+    {
+      "src": "call_argument [6292,6307]",
+      "dest": "call_argument [6267,6282]"
+    },
+    {
+      "src": "parameter [3910,3917]",
+      "dest": "parameter [3885,3892]"
+    },
+    {
+      "src": "identifier: onchainDataSize [5791,5806]",
+      "dest": "identifier: onchainDataSize [5766,5781]"
+    },
+    {
+      "src": "): ) [7211,7212]",
+      "dest": "): ) [7186,7187]"
+    },
+    {
+      "src": "member_expression [6679,6709]",
+      "dest": "member_expression [6654,6684]"
+    },
+    {
+      "src": "comment: // Logs a stateTransitionFact that was used to update the state. [1404,1468]",
+      "dest": "comment: // Logs a stateTransitionFact that was used to update the state. [1379,1443]"
+    },
+    {
+      "src": "constant: constant [1586,1594]",
+      "dest": "constant: constant [1561,1569]"
+    },
+    {
+      "src": "number_unit [4815,4819]",
+      "dest": "number_unit [4790,4794]"
+    },
+    {
+      "src": "identifier: State [7236,7241]",
+      "dest": "identifier: State [7211,7216]"
+    },
+    {
+      "src": "): ) [7189,7190]",
+      "dest": "): ) [7164,7165]"
+    },
+    {
+      "src": "expression_statement [5881,5920]",
+      "dest": "expression_statement [5856,5895]"
+    },
+    {
+      "src": "): ) [3876,3877]",
+      "dest": "): ) [3851,3852]"
+    },
+    {
+      "src": "pragma: pragma [661,667]",
+      "dest": "pragma: pragma [661,667]"
+    },
+    {
+      "src": "import_directive [802,833]",
+      "dest": "import_directive [810,840]"
+    },
+    {
+      "src": "function: function [1964,1972]",
+      "dest": "function: function [1939,1947]"
+    },
+    {
+      "src": "): ) [3515,3516]",
+      "dest": "): ) [3490,3491]"
+    },
+    {
+      "src": "yul_identifier [3688,3704]",
+      "dest": "yul_identifier [3663,3679]"
+    },
+    {
+      "src": "{: { [4394,4395]",
+      "dest": "{: { [4369,4370]"
+    },
+    {
+      "src": "call_argument [3117,3122]",
+      "dest": "call_argument [3092,3097]"
+    },
+    {
+      "src": "uint256: uint256 [6604,6611]",
+      "dest": "uint256: uint256 [6579,6586]"
+    },
+    {
+      "src": "binary_expression [3818,3836]",
+      "dest": "binary_expression [3793,3811]"
+    },
+    {
+      "src": "): ) [4777,4778]",
+      "dest": "): ) [4752,4753]"
+    },
+    {
+      "src": "identifier: state_ [7250,7256]",
+      "dest": "identifier: state_ [7225,7231]"
+    },
+    {
+      "src": "identifier: IIdentity [1082,1091]",
+      "dest": "identifier: Identity [1058,1066]"
+    },
+    {
+      "src": "number_literal: 32 [4057,4059]",
+      "dest": "number_literal: 32 [4032,4034]"
+    },
+    {
+      "src": "identifier: programHash [2059,2070]",
+      "dest": "identifier: programHash [2034,2045]"
+    },
+    {
+      "src": ",: , [1114,1115]",
+      "dest": ",: , [1089,1090]"
+    },
+    {
+      "src": "function: function [3193,3201]",
+      "dest": "function: function [3168,3176]"
+    },
+    {
+      "src": "function_body [2182,2224]",
+      "dest": "function_body [2157,2199]"
+    },
+    {
+      "src": "call_expression [3379,3440]",
+      "dest": "call_expression [3354,3415]"
+    },
+    {
+      "src": "function_body [3581,3732]",
+      "dest": "function_body [3556,3707]"
+    },
+    {
+      "src": ",: , [4502,4503]",
+      "dest": ",: , [4477,4478]"
+    },
+    {
+      "src": "return: return [4978,4984]",
+      "dest": "return: return [4953,4959]"
+    },
+    {
+      "src": "function_definition [4222,4316]",
+      "dest": "function_definition [4197,4291]"
+    },
+    {
+      "src": "view: view [2859,2863]",
+      "dest": "view: view [2834,2838]"
+    },
+    {
+      "src": "function_body [3369,3447]",
+      "dest": "function_body [3344,3422]"
+    },
+    {
+      "src": "call_argument [5905,5918]",
+      "dest": "call_argument [5880,5893]"
+    },
+    {
+      "src": "function_definition [3020,3130]",
+      "dest": "function_definition [2995,3105]"
+    },
+    {
+      "src": "identifier: CONFIG_HASH_TAG [3288,3303]",
+      "dest": "identifier: CONFIG_HASH_TAG [3263,3278]"
+    },
+    {
+      "src": "visibility [4296,4304]",
+      "dest": "visibility [4271,4279]"
+    },
+    {
+      "src": "+=: += [6896,6898]",
+      "dest": "+=: += [6871,6873]"
+    },
+    {
+      "src": "(: ( [4698,4699]",
+      "dest": "(: ( [4673,4674]"
+    },
+    {
+      "src": "expression_statement [2717,2768]",
+      "dest": "expression_statement [2692,2743]"
+    },
+    {
+      "src": "function_definition [3317,3447]",
+      "dest": "function_definition [3292,3422]"
+    },
+    {
+      "src": "import_directive [724,747]",
+      "dest": "import_directive [724,744]"
+    },
+    {
+      "src": "uint256: uint256 [4586,4593]",
+      "dest": "uint256: uint256 [4561,4568]"
+    },
+    {
+      "src": "identifier: StarknetState [4613,4626]",
+      "dest": "identifier: StarknetState [4588,4601]"
+    },
+    {
+      "src": "assembly: assembly [3665,3673]",
+      "dest": "assembly: assembly [3640,3648]"
+    },
+    {
+      "src": "internal: internal [4376,4384]",
+      "dest": "internal: internal [4351,4359]"
+    },
+    {
+      "src": "return_type_definition [4944,4967]",
+      "dest": "return_type_definition [4919,4942]"
+    },
+    {
+      "src": "identifier: VERIFIER_ADDRESS_TAG [3412,3432]",
+      "dest": "identifier: VERIFIER_ADDRESS_TAG [3387,3407]"
+    },
+    {
+      "src": "comment: // Validate program output. [5845,5872]",
+      "dest": "comment: // Validate program output. [5820,5847]"
+    },
+    {
+      "src": "uint256: uint256 [1988,1995]",
+      "dest": "uint256: uint256 [1963,1970]"
+    },
+    {
+      "src": "(: ( [3794,3795]",
+      "dest": "(: ( [3769,3770]"
+    },
+    {
+      "src": "call_argument [2071,2085]",
+      "dest": "call_argument [2046,2060]"
+    },
+    {
+      "src": "return_statement [5141,5167]",
+      "dest": "return_statement [5116,5142]"
+    },
+    {
+      "src": "primitive_type [2267,2274]",
+      "dest": "primitive_type [2242,2249]"
+    },
+    {
+      "src": "): ) [2948,2949]",
+      "dest": "): ) [2923,2924]"
+    },
+    {
+      "src": "identifier: programHash [3818,3829]",
+      "dest": "identifier: programHash [3793,3804]"
+    },
+    {
+      "src": "identifier: programOutput [5727,5740]",
+      "dest": "identifier: programOutput [5702,5715]"
+    },
+    {
+      "src": "\": \" [5011,5012]",
+      "dest": "\": \" [4986,4987]"
+    },
+    {
+      "src": "identifier: Starknet [1066,1074]",
+      "dest": "identifier: Starknet [1042,1050]"
+    },
+    {
+      "src": "member_expression [6227,6274]",
+      "dest": "member_expression [6202,6249]"
+    },
+    {
+      "src": "identifier: programHash_ [4169,4181]",
+      "dest": "identifier: programHash_ [4144,4156]"
+    },
+    {
+      "src": "call_argument [6275,6290]",
+      "dest": "call_argument [6250,6265]"
+    },
+    {
+      "src": "call_expression [4119,4151]",
+      "dest": "call_expression [4094,4126]"
+    },
+    {
+      "src": "type_name [6604,6611]",
+      "dest": "type_name [6579,6586]"
+    },
+    {
+      "src": "comment: // State variable \"configHash\" write-access function. [2962,3015]",
+      "dest": "comment: // State variable \"configHash\" write-access function. [2937,2990]"
+    },
+    {
+      "src": "identifier: outputOffset [6663,6675]",
+      "dest": "identifier: outputOffset [6638,6650]"
+    },
+    {
+      "src": "primitive_type [4586,4593]",
+      "dest": "primitive_type [4561,4568]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "internal: internal [4296,4304]",
+      "dest": "internal: internal [4271,4279]"
+    },
+    {
+      "src": "primitive_type [4418,4425]",
+      "dest": "primitive_type [4393,4400]"
+    },
+    {
+      "src": "pragma_directive [661,694]",
+      "dest": "pragma_directive [661,694]"
+    },
+    {
+      "src": "call_expression [2547,2590]",
+      "dest": "call_expression [2522,2565]"
+    },
+    {
+      "src": "variable_declaration_statement [6604,6654]",
+      "dest": "variable_declaration_statement [6579,6629]"
+    },
+    {
+      "src": "parenthesized_expression [4141,4150]",
+      "dest": "parenthesized_expression [4116,4125]"
+    },
+    {
+      "src": "type_name [4355,4360]",
+      "dest": "type_name [4330,4335]"
+    },
+    {
+      "src": "): ) [7044,7045]",
+      "dest": "): ) [7019,7020]"
+    },
+    {
+      "src": "inheritance_specifier [1169,1185]",
+      "dest": "inheritance_specifier [1144,1160]"
+    },
+    {
+      "src": "call_expression [6679,6834]",
+      "dest": "call_expression [6654,6809]"
+    },
+    {
+      "src": "string [7112,7138]",
+      "dest": "string [7087,7113]"
+    },
+    {
+      "src": ",: , [1138,1139]",
+      "dest": ",: , [1113,1114]"
+    },
+    {
+      "src": "): ) [6381,6382]",
+      "dest": "): ) [6356,6357]"
+    },
+    {
+      "src": "identifier: stateTransitionFact [6384,6403]",
+      "dest": "identifier: stateTransitionFact [6359,6378]"
+    },
+    {
+      "src": "constant: constant [1673,1681]",
+      "dest": "constant: constant [1648,1656]"
+    },
+    {
+      "src": "identifier: stateTransitionFact [1510,1529]",
+      "dest": "identifier: stateTransitionFact [1485,1504]"
+    },
+    {
+      "src": "(: ( [3975,3976]",
+      "dest": "(: ( [3950,3951]"
+    },
+    {
+      "src": "import: import [934,940]",
+      "dest": "import: import [944,950]"
+    },
+    {
+      "src": "uint256: uint256 [2267,2274]",
+      "dest": "uint256: uint256 [2242,2249]"
+    },
+    {
+      "src": "}: } [3842,3843]",
+      "dest": "}: } [3817,3818]"
+    },
+    {
+      "src": "emit: emit [6507,6511]",
+      "dest": "emit: emit [6482,6486]"
+    },
+    {
+      "src": "identifier: programOutput [6000,6013]",
+      "dest": "identifier: programOutput [5975,5988]"
+    },
+    {
+      "src": "identifier: DataAvailabilityFact [6254,6274]",
+      "dest": "identifier: DataAvailabilityFact [6229,6249]"
+    },
+    {
+      "src": "\": \" [703,704]",
+      "dest": "\": \" [703,704]"
+    },
+    {
+      "src": ",: , [1185,1186]",
+      "dest": ",: , [1160,1161]"
+    },
+    {
+      "src": "identifier: NamedStorage [3074,3086]",
+      "dest": "identifier: NamedStorage [3049,3061]"
+    },
+    {
+      "src": "call_expression [4755,4778]",
+      "dest": "call_expression [4730,4753]"
+    },
+    {
+      "src": "state_mutability [5108,5112]",
+      "dest": "state_mutability [5083,5087]"
+    },
+    {
+      "src": "type_name [5122,5129]",
+      "dest": "type_name [5097,5104]"
+    },
+    {
+      "src": "yul_path [3688,3704]",
+      "dest": "yul_path [3663,3679]"
+    },
+    {
+      "src": "call_expression [6423,6467]",
+      "dest": "call_expression [6398,6442]"
+    },
+    {
+      "src": "identifier: initializeContractState [4331,4354]",
+      "dest": "identifier: initializeContractState [4306,4329]"
+    },
+    {
+      "src": "identifier: STATE_STRUCT_TAG [1772,1788]",
+      "dest": "identifier: STATE_STRUCT_TAG [1747,1763]"
+    },
+    {
+      "src": "(: ( [2390,2391]",
+      "dest": "(: ( [2365,2366]"
+    },
+    {
+      "src": "state_mutability [3526,3530]",
+      "dest": "state_mutability [3501,3505]"
+    },
+    {
+      "src": "type_name [1378,1384]",
+      "dest": "type_name [1353,1359]"
+    },
+    {
+      "src": "return_statement [5303,5330]",
+      "dest": "return_statement [5278,5305]"
+    },
+    {
+      "src": "): ) [4374,4375]",
+      "dest": "): ) [4349,4350]"
+    },
+    {
+      "src": "identifier: globalRoot [7303,7313]",
+      "dest": "identifier: globalRoot [7278,7288]"
+    },
+    {
+      "src": "call_argument [5984,6048]",
+      "dest": "call_argument [5959,6023]"
+    },
+    {
+      "src": ",: , [1210,1211]",
+      "dest": ",: , [1185,1186]"
+    },
+    {
+      "src": "user_defined_type [1144,1163]",
+      "dest": "user_defined_type [1119,1138]"
+    },
+    {
+      "src": "call_expression [7183,7212]",
+      "dest": "call_expression [7158,7187]"
+    },
+    {
+      "src": "visibility [2145,2153]",
+      "dest": "visibility [2120,2128]"
+    },
+    {
+      "src": "identifier: StarknetOutput [6014,6028]",
+      "dest": "identifier: StarknetOutput [5989,6003]"
+    },
+    {
+      "src": "identifier: stateStruct_slot [3688,3704]",
+      "dest": "identifier: stateStruct_slot [3663,3679]"
+    },
+    {
+      "src": "function_definition [2830,2956]",
+      "dest": "function_definition [2805,2931]"
+    },
+    {
+      "src": "\": \" [799,800]",
+      "dest": "\": \" [807,808]"
+    },
+    {
+      "src": "identifier: processMessages [6694,6709]",
+      "dest": "identifier: processMessages [6669,6684]"
+    },
+    {
+      "src": "internal: internal [2850,2858]",
+      "dest": "internal: internal [2825,2833]"
+    },
+    {
+      "src": "identifier: data [3991,3995]",
+      "dest": "identifier: data [3966,3970]"
+    },
+    {
+      "src": "visibility [2850,2858]",
+      "dest": "visibility [2825,2833]"
+    },
+    {
+      "src": "(: ( [6445,6446]",
+      "dest": "(: ( [6420,6421]"
+    },
+    {
+      "src": "): ) [4149,4150]",
+      "dest": "): ) [4124,4125]"
+    },
+    {
+      "src": "parameter [4355,4374]",
+      "dest": "parameter [4330,4349]"
+    },
+    {
+      "src": "call_argument [6469,6496]",
+      "dest": "call_argument [6444,6471]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "identifier: data [4130,4134]",
+      "dest": "identifier: data [4105,4109]"
+    },
+    {
+      "src": "call_expression [6358,6404]",
+      "dest": "call_expression [6333,6379]"
+    },
+    {
+      "src": "]: ] [6047,6048]",
+      "dest": "]: ] [6022,6023]"
+    },
+    {
+      "src": "type_name [2122,2129]",
+      "dest": "type_name [2097,2104]"
+    },
+    {
+      "src": "visibility [3997,4005]",
+      "dest": "visibility [3972,3980]"
+    },
+    {
+      "src": "function: function [5678,5686]",
+      "dest": "function: function [5653,5661]"
+    },
+    {
+      "src": "): ) [7138,7139]",
+      "dest": "): ) [7113,7114]"
+    },
+    {
+      "src": "): ) [6446,6447]",
+      "dest": "): ) [6421,6422]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "parameter [2267,2289]",
+      "dest": "parameter [2242,2264]"
+    },
+    {
+      "src": "call_expression [4680,4709]",
+      "dest": "call_expression [4655,4684]"
+    },
+    {
+      "src": "string [731,746]",
+      "dest": "string [731,743]"
+    },
+    {
+      "src": "): ) [3243,3244]",
+      "dest": "): ) [3218,3219]"
+    },
+    {
+      "src": "number_literal: 0 [4185,4186]",
+      "dest": "number_literal: 0 [4160,4161]"
+    },
+    {
+      "src": "\": \" [6062,6063]",
+      "dest": "\": \" [6037,6038]"
+    },
+    {
+      "src": "expression_statement [6883,7056]",
+      "dest": "expression_statement [6858,7031]"
+    },
+    {
+      "src": "number_literal: 32 [4136,4138]",
+      "dest": "number_literal: 32 [4111,4113]"
+    },
+    {
+      "src": "function_body [3064,3130]",
+      "dest": "function_body [3039,3105]"
+    },
+    {
+      "src": "call_expression [7259,7266]",
+      "dest": "call_expression [7234,7241]"
+    },
+    {
+      "src": ".: . [7302,7303]",
+      "dest": ".: . [7277,7278]"
+    },
+    {
+      "src": "identifier: delayInSeconds [2391,2405]",
+      "dest": "identifier: delayInSeconds [2366,2380]"
+    },
+    {
+      "src": ",: , [4611,4612]",
+      "dest": ",: , [4586,4587]"
+    },
+    {
+      "src": "call_expression [6227,6308]",
+      "dest": "call_expression [6202,6283]"
+    },
+    {
+      "src": "): ) [5291,5292]",
+      "dest": "): ) [5266,5267]"
+    },
+    {
+      "src": "}: } [2092,2093]",
+      "dest": "}: } [2067,2068]"
+    },
+    {
+      "src": "identifier: sharpFact [6457,6466]",
+      "dest": "identifier: sharpFact [6432,6441]"
+    },
+    {
+      "src": "import: import [769,775]",
+      "dest": "import: import [778,784]"
+    },
+    {
+      "src": "function_definition [1964,2093]",
+      "dest": "function_definition [1939,2068]"
+    },
+    {
+      "src": ",: , [6467,6468]",
+      "dest": ",: , [6442,6443]"
+    },
+    {
+      "src": "user_defined_type [1120,1138]",
+      "dest": "user_defined_type [1095,1113]"
+    },
+    {
+      "src": "variable_declaration [6328,6345]",
+      "dest": "variable_declaration [6303,6320]"
+    },
+    {
+      "src": "[: [ [4134,4135]",
+      "dest": "[: [ [4109,4110]"
+    },
+    {
+      "src": "identifier: validateInitData [3959,3975]",
+      "dest": "identifier: validateInitData [3934,3950]"
+    },
+    {
+      "src": "function_definition [5078,5173]",
+      "dest": "function_definition [5053,5148]"
+    },
+    {
+      "src": "expression_statement [7183,7213]",
+      "dest": "expression_statement [7158,7188]"
+    },
+    {
+      "src": "(: ( [6380,6381]",
+      "dest": "(: ( [6355,6356]"
+    },
+    {
+      "src": "\": \" [1026,1027]",
+      "dest": "\": \" [1029,1030]"
+    },
+    {
+      "src": "call_argument [6384,6403]",
+      "dest": "call_argument [6359,6378]"
+    },
+    {
+      "src": "number_literal: 0 [3835,3836]",
+      "dest": "number_literal: 0 [3810,3811]"
+    },
+    {
+      "src": "identifier: programHash_ [4657,4669]",
+      "dest": "identifier: programHash_ [4632,4644]"
+    },
+    {
+      "src": "variable_declaration_statement [4096,4152]",
+      "dest": "variable_declaration_statement [4071,4127]"
+    },
+    {
+      "src": "parameter [5708,5740]",
+      "dest": "parameter [5683,5715]"
+    },
+    {
+      "src": "member_expression [4038,4049]",
+      "dest": "member_expression [4013,4024]"
+    },
+    {
+      "src": "uint256: uint256 [4418,4425]",
+      "dest": "uint256: uint256 [4393,4400]"
+    },
+    {
+      "src": "identifier: copy [4727,4731]",
+      "dest": "identifier: copy [4702,4706]"
+    },
+    {
+      "src": "return_type_definition [3901,3918]",
+      "dest": "return_type_definition [3876,3893]"
+    },
+    {
+      "src": "identifier: processSubContractAddresses [4231,4258]",
+      "dest": "identifier: processSubContractAddresses [4206,4233]"
+    },
+    {
+      "src": "string [4061,4085]",
+      "dest": "string [4036,4060]"
+    },
+    {
+      "src": "}: } [3129,3130]",
+      "dest": "}: } [3104,3105]"
+    },
+    {
+      "src": "function_definition [2477,2597]",
+      "dest": "function_definition [2452,2572]"
+    },
+    {
+      "src": "identifier: abi [4568,4571]",
+      "dest": "identifier: abi [4543,4546]"
+    },
+    {
+      "src": "comment: // Random storage slot tags. [1537,1565]",
+      "dest": "comment: // Random storage slot tags. [1512,1540]"
+    },
+    {
+      "src": "uint256: uint256 [4604,4611]",
+      "dest": "uint256: uint256 [4579,4586]"
+    },
+    {
+      "src": "string [6062,6083]",
+      "dest": "string [6037,6058]"
+    },
+    {
+      "src": "identifier: StarknetOperator [1169,1185]",
+      "dest": "identifier: StarknetOperator [1144,1160]"
+    },
+    {
+      "src": "variable_declaration [4483,4502]",
+      "dest": "variable_declaration [4458,4477]"
+    },
+    {
+      "src": "modifier_invocation [2021,2033]",
+      "dest": "modifier_invocation [1996,2008]"
+    },
+    {
+      "src": "identifier: validate [5896,5904]",
+      "dest": "identifier: validate [5871,5879]"
+    },
+    {
+      "src": "parameter [4259,4294]",
+      "dest": "parameter [4234,4269]"
+    },
+    {
+      "src": "call_argument [6968,6973]",
+      "dest": "call_argument [6943,6948]"
+    },
+    {
+      "src": "event: event [1337,1342]",
+      "dest": "event: event [1312,1317]"
+    },
+    {
+      "src": "\": \" [6469,6470]",
+      "dest": "\": \" [6444,6445]"
+    },
+    {
+      "src": ",: , [1163,1164]",
+      "dest": ",: , [1138,1139]"
+    },
+    {
+      "src": "event_paramater [1378,1396]",
+      "dest": "event_paramater [1353,1371]"
+    },
+    {
+      "src": ",: , [4602,4603]",
+      "dest": ",: , [4577,4578]"
+    },
+    {
+      "src": "(: ( [3099,3100]",
+      "dest": "(: ( [3074,3075]"
+    },
+    {
+      "src": "visibility [5262,5270]",
+      "dest": "visibility [5237,5245]"
+    },
+    {
+      "src": "return_type_definition [3531,3580]",
+      "dest": "return_type_definition [3506,3555]"
+    },
+    {
+      "src": "identifier: numOfSubContracts [3858,3875]",
+      "dest": "identifier: numOfSubContracts [3833,3850]"
+    },
+    {
+      "src": "(: ( [5994,5995]",
+      "dest": "(: ( [5969,5970]"
+    },
+    {
+      "src": "identifier: programOutput [6987,7000]",
+      "dest": "identifier: programOutput [6962,6975]"
+    },
+    {
+      "src": "visibility [1577,1585]",
+      "dest": "visibility [1552,1560]"
+    },
+    {
+      "src": "}: } [2596,2597]",
+      "dest": "}: } [2571,2572]"
+    },
+    {
+      "src": "assembly_statement [3665,3726]",
+      "dest": "assembly_statement [3640,3701]"
+    },
+    {
+      "src": "call_expression [4568,4634]",
+      "dest": "call_expression [4543,4609]"
+    },
+    {
+      "src": "identifier: length [7104,7110]",
+      "dest": "identifier: length [7079,7085]"
+    },
+    {
+      "src": "): ) [3653,3654]",
+      "dest": "): ) [3628,3629]"
+    },
+    {
+      "src": "bytes32: bytes32 [6104,6111]",
+      "dest": "bytes32: bytes32 [6079,6086]"
+    },
+    {
+      "src": "visibility [3878,3886]",
+      "dest": "visibility [3853,3861]"
+    },
+    {
+      "src": "import_directive [1002,1028]",
+      "dest": "import_directive [1005,1031]"
+    },
+    {
+      "src": "string: string [1570,1576]",
+      "dest": "string: string [1545,1551]"
+    },
+    {
+      "src": "(: ( [4952,4953]",
+      "dest": "(: ( [4927,4928]"
+    },
+    {
+      "src": "(: ( [4258,4259]",
+      "dest": "(: ( [4233,4234]"
+    },
+    {
+      "src": "primitive_type [6328,6335]",
+      "dest": "primitive_type [6303,6310]"
+    },
+    {
+      "src": "comment: /**       Returns the current state root.     */ [5025,5073]",
+      "dest": "comment: /**       Returns the current state root.     */ [5000,5048]"
+    },
+    {
+      "src": "primitive_type [1988,1995]",
+      "dest": "primitive_type [1963,1970]"
+    },
+    {
+      "src": "visibility [3763,3771]",
+      "dest": "visibility [3738,3746]"
+    },
+    {
+      "src": "call_argument [2203,2216]",
+      "dest": "call_argument [2178,2191]"
+    },
+    {
+      "src": "member_expression [2717,2742]",
+      "dest": "member_expression [2692,2717]"
+    },
+    {
+      "src": "identifier: stateTransitionFact [6535,6554]",
+      "dest": "identifier: stateTransitionFact [6510,6529]"
+    },
+    {
+      "src": ".: . [4571,4572]",
+      "dest": ".: . [4546,4547]"
+    },
+    {
+      "src": "primitive_type [2521,2528]",
+      "dest": "primitive_type [2496,2503]"
+    },
+    {
+      "src": ".: . [6448,6449]",
+      "dest": ".: . [6423,6424]"
+    },
+    {
+      "src": "}: } [5335,5336]",
+      "dest": "}: } [5310,5311]"
+    },
+    {
+      "src": "variable_declaration [6604,6624]",
+      "dest": "variable_declaration [6579,6599]"
+    },
+    {
+      "src": ".: . [6028,6029]",
+      "dest": ".: . [6003,6004]"
+    },
+    {
+      "src": "(: ( [2872,2873]",
+      "dest": "(: ( [2847,2848]"
+    },
+    {
+      "src": "identifier: isInitialized [3747,3760]",
+      "dest": "identifier: isInitialized [3722,3735]"
+    },
+    {
+      "src": "(: ( [4585,4586]",
+      "dest": "(: ( [4560,4561]"
+    },
+    {
+      "src": "call_argument [4732,4744]",
+      "dest": "call_argument [4707,4719]"
+    },
+    {
+      "src": "(: ( [4812,4813]",
+      "dest": "(: ( [4787,4788]"
+    },
+    {
+      "src": "using_directive [1235,1279]",
+      "dest": "using_directive [1210,1254]"
+    },
+    {
+      "src": "function_body [3245,3311]",
+      "dest": "function_body [3220,3286]"
+    },
+    {
+      "src": "member_expression [7090,7110]",
+      "dest": "member_expression [7065,7085]"
+    },
+    {
+      "src": "identifier: onlyGovernance [2167,2181]",
+      "dest": "identifier: onlyGovernance [2142,2156]"
+    },
+    {
+      "src": "\": \" [941,942]",
+      "dest": "\": \" [951,952]"
+    },
+    {
+      "src": "call_expression [6348,6405]",
+      "dest": "call_expression [6323,6380]"
+    },
+    {
+      "src": "identifier: state [7259,7264]",
+      "dest": "identifier: state [7234,7239]"
+    },
+    {
+      "src": "(: ( [7043,7044]",
+      "dest": "(: ( [7018,7019]"
+    },
+    {
+      "src": "primitive_type [4483,4490]",
+      "dest": "primitive_type [4458,4465]"
+    },
+    {
+      "src": "function: function [4901,4909]",
+      "dest": "function: function [4876,4884]"
+    },
+    {
+      "src": "call_argument [3288,3303]",
+      "dest": "call_argument [3263,3278]"
+    },
+    {
+      "src": "user_defined_type [3540,3559]",
+      "dest": "user_defined_type [3515,3534]"
+    },
+    {
+      "src": "type_name [3976,3981]",
+      "dest": "type_name [3951,3956]"
+    },
+    {
+      "src": "): ) [2216,2217]",
+      "dest": "): ) [2191,2192]"
+    },
+    {
+      "src": "parameter [5122,5129]",
+      "dest": "parameter [5097,5104]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "emit: emit [7276,7280]",
+      "dest": "emit: emit [7251,7255]"
+    },
+    {
+      "src": "external: external [2145,2153]",
+      "dest": "external: external [2120,2128]"
+    },
+    {
+      "src": "bytes32: bytes32 [3591,3598]",
+      "dest": "bytes32: bytes32 [3566,3573]"
+    },
+    {
+      "src": "identifier: abi [4119,4122]",
+      "dest": "identifier: abi [4094,4097]"
+    },
+    {
+      "src": "): ) [5260,5261]",
+      "dest": "): ) [5235,5236]"
+    },
+    {
+      "src": "function: function [3020,3028]",
+      "dest": "function: function [2995,3003]"
+    },
+    {
+      "src": "type_name [4483,4490]",
+      "dest": "type_name [4458,4465]"
+    },
+    {
+      "src": "return_type_definition [5113,5130]",
+      "dest": "return_type_definition [5088,5105]"
+    },
+    {
+      "src": ",: , [4139,4140]",
+      "dest": ",: , [4114,4115]"
+    },
+    {
+      "src": "}: } [2773,2774]",
+      "dest": "}: } [2748,2749]"
+    },
+    {
+      "src": "): ) [4294,4295]",
+      "dest": "): ) [4269,4270]"
+    },
+    {
+      "src": "identifier: outputOffset [7001,7013]",
+      "dest": "identifier: outputOffset [6976,6988]"
+    },
+    {
+      "src": "identifier: globalRoot [1366,1376]",
+      "dest": "identifier: globalRoot [1341,1351]"
+    },
+    {
+      "src": "override: override [3892,3900]",
+      "dest": "override: override [3867,3875]"
+    },
+    {
+      "src": "string [872,891]",
+      "dest": "string [876,908]"
+    },
+    {
+      "src": "identifier: NamedStorage [2899,2911]",
+      "dest": "identifier: NamedStorage [2874,2886]"
+    },
+    {
+      "src": "type_name [4953,4959]",
+      "dest": "type_name [4928,4934]"
+    },
+    {
+      "src": "expression_statement [2366,2407]",
+      "dest": "expression_statement [2341,2382]"
+    },
+    {
+      "src": "state_mutability [3772,3776]",
+      "dest": "state_mutability [3747,3751]"
+    },
+    {
+      "src": "identifier: State [4530,4535]",
+      "dest": "identifier: State [4505,4510]"
+    },
+    {
+      "src": "primitive_type [3795,3799]",
+      "dest": "primitive_type [3770,3774]"
+    },
+    {
+      "src": "identifier: programHash [4645,4656]",
+      "dest": "identifier: programHash [4620,4631]"
+    },
+    {
+      "src": "identifier: value [3353,3358]",
+      "dest": "identifier: value [3328,3333]"
+    },
+    {
+      "src": "override: override [4305,4313]",
+      "dest": "override: override [4280,4288]"
+    },
+    {
+      "src": "storage: storage [7242,7249]",
+      "dest": "storage: storage [7217,7224]"
+    },
+    {
+      "src": "function: function [5078,5086]",
+      "dest": "function: function [5053,5061]"
+    },
+    {
+      "src": "call_argument [4813,4819]",
+      "dest": "call_argument [4788,4794]"
+    },
+    {
+      "src": "override: override [4935,4943]",
+      "dest": "override: override [4910,4918]"
+    },
+    {
+      "src": "call_expression [6808,6824]",
+      "dest": "call_expression [6783,6799]"
+    },
+    {
+      "src": "expression_statement [4030,4087]",
+      "dest": "expression_statement [4005,4062]"
+    },
+    {
+      "src": "call_argument [2573,2589]",
+      "dest": "call_argument [2548,2564]"
+    },
+    {
+      "src": ".: . [6693,6694]",
+      "dest": ".: . [6668,6669]"
+    },
+    {
+      "src": "(: ( [2266,2267]",
+      "dest": "(: ( [2241,2242]"
+    },
+    {
+      "src": "): ) [7265,7266]",
+      "dest": "): ) [7240,7241]"
+    },
+    {
+      "src": "string [4188,4208]",
+      "dest": "string [4163,4183]"
+    },
+    {
+      "src": "==: == [4050,4052]",
+      "dest": "==: == [4025,4027]"
+    },
+    {
+      "src": "function: function [4322,4330]",
+      "dest": "function: function [4297,4305]"
+    },
+    {
+      "src": "call_expression [2192,2217]",
+      "dest": "call_expression [2167,2192]"
+    },
+    {
+      "src": "string [1614,1651]",
+      "dest": "string [1589,1626]"
+    },
+    {
+      "src": "state_mutability [2859,2863]",
+      "dest": "state_mutability [2834,2838]"
+    },
+    {
+      "src": "identifier: require [7066,7073]",
+      "dest": "identifier: require [7041,7048]"
+    },
+    {
+      "src": "identifier: data [4370,4374]",
+      "dest": "identifier: data [4345,4349]"
+    },
+    {
+      "src": "call_expression [2059,2086]",
+      "dest": "call_expression [2034,2061]"
+    },
+    {
+      "src": "}: } [3725,3726]",
+      "dest": "}: } [3700,3701]"
+    },
+    {
+      "src": "identifier: stateRoot [5087,5096]",
+      "dest": "identifier: stateRoot [5062,5071]"
+    },
+    {
+      "src": "string [755,767]",
+      "dest": "string [752,776]"
+    },
+    {
+      "src": "{: { [5293,5294]",
+      "dest": "{: { [5268,5269]"
+    },
+    {
+      "src": "\": \" [776,777]",
+      "dest": "\": \" [785,786]"
+    },
+    {
+      "src": "string_literal [6062,6083]",
+      "dest": "string_literal [6037,6058]"
+    },
+    {
+      "src": "(: ( [6929,6930]",
+      "dest": "(: ( [6904,6905]"
+    },
+    {
+      "src": "): ) [4085,4086]",
+      "dest": "): ) [4060,4061]"
+    },
+    {
+      "src": "import: import [696,702]",
+      "dest": "import: import [696,702]"
+    },
+    {
+      "src": "variable_declaration_statement [3591,3656]",
+      "dest": "variable_declaration_statement [3566,3631]"
+    },
+    {
+      "src": "type_name [2521,2528]",
+      "dest": "type_name [2496,2503]"
+    },
+    {
+      "src": "bytes: bytes [4355,4360]",
+      "dest": "bytes: bytes [4330,4335]"
+    },
+    {
+      "src": ",: , [4186,4187]",
+      "dest": ",: , [4161,4162]"
+    },
+    {
+      "src": "comment: // Logs the new state following a state update. [1285,1332]",
+      "dest": "comment: // Logs the new state following a state update. [1260,1307]"
+    },
+    {
+      "src": "user_defined_type [7222,7241]",
+      "dest": "user_defined_type [7197,7216]"
+    },
+    {
+      "src": "uint256: uint256 [5708,5715]",
+      "dest": "uint256: uint256 [5683,5690]"
+    },
+    {
+      "src": "state_variable_declaration [1747,1833]",
+      "dest": "state_variable_declaration [1722,1808]"
+    },
+    {
+      "src": "}: } [2412,2413]",
+      "dest": "}: } [2387,2388]"
+    },
+    {
+      "src": "{: { [3801,3802]",
+      "dest": "{: { [3776,3777]"
+    },
+    {
+      "src": ",: , [5740,5741]",
+      "dest": ",: , [5715,5716]"
+    },
+    {
+      "src": "import_directive [865,892]",
+      "dest": "import_directive [869,909]"
+    },
+    {
+      "src": "returns: returns [3227,3234]",
+      "dest": "returns: returns [3202,3209]"
+    },
+    {
+      "src": "variable_declaration [3591,3607]",
+      "dest": "variable_declaration [3566,3582]"
+    },
+    {
+      "src": "identifier: require [4161,4168]",
+      "dest": "identifier: require [4136,4143]"
+    },
+    {
+      "src": ":: : [7013,7014]",
+      "dest": ":: : [6988,6989]"
+    },
+    {
+      "src": "call_argument [4038,4059]",
+      "dest": "call_argument [4013,4034]"
+    },
+    {
+      "src": "call_expression [7183,7190]",
+      "dest": "call_expression [7158,7165]"
+    },
+    {
+      "src": "number_literal [4813,4819]",
+      "dest": "number_literal [4788,4794]"
+    },
+    {
+      "src": "function: function [3738,3746]",
+      "dest": "function: function [3713,3721]"
+    },
+    {
+      "src": "return_statement [2892,2950]",
+      "dest": "return_statement [2867,2925]"
+    },
+    {
+      "src": "identifier: value [2761,2766]",
+      "dest": "identifier: value [2736,2741]"
+    },
+    {
+      "src": "source_file [0,7344]",
+      "dest": "source_file [0,7319]"
+    },
+    {
+      "src": "\": \" [1614,1615]",
+      "dest": "\": \" [1589,1590]"
+    },
+    {
+      "src": "): ) [2143,2144]",
+      "dest": "): ) [2118,2119]"
+    },
+    {
+      "src": "identifier: verifier [2839,2847]",
+      "dest": "identifier: verifier [2814,2822]"
+    },
+    {
+      "src": "call_argument [6457,6466]",
+      "dest": "call_argument [6432,6441]"
+    },
+    {
+      "src": ".: . [6641,6642]",
+      "dest": ".: . [6616,6617]"
+    },
+    {
+      "src": "comment: // Process L1 -> L2 messages. [6845,6874]",
+      "dest": "comment: // Process L1 -> L2 messages. [6820,6849]"
+    },
+    {
+      "src": "member_expression [3379,3411]",
+      "dest": "member_expression [3354,3386]"
+    },
+    {
+      "src": "call_argument [6766,6794]",
+      "dest": "call_argument [6741,6769]"
+    },
+    {
+      "src": "uint256: uint256 [3910,3917]",
+      "dest": "uint256: uint256 [3885,3892]"
+    },
+    {
+      "src": "variable_declaration_statement [7222,7267]",
+      "dest": "variable_declaration_statement [7197,7242]"
+    },
+    {
+      "src": "yul_identifier [3708,3716]",
+      "dest": "yul_identifier [3683,3691]"
+    },
+    {
+      "src": "call_argument [6358,6404]",
+      "dest": "call_argument [6333,6379]"
+    },
+    {
+      "src": "external: external [4921,4929]",
+      "dest": "external: external [4896,4904]"
+    },
+    {
+      "src": "inheritance_specifier [1120,1138]",
+      "dest": "inheritance_specifier [1095,1113]"
+    },
+    {
+      "src": "import: import [865,871]",
+      "dest": "import: import [869,875]"
+    },
+    {
+      "src": "]: ] [5716,5717]",
+      "dest": "]: ] [5691,5692]"
+    },
+    {
+      "src": "identifier: notFinalized [2021,2033]",
+      "dest": "identifier: notFinalized [1996,2008]"
+    },
+    {
+      "src": "expression_statement [6663,6835]",
+      "dest": "expression_statement [6638,6810]"
+    },
+    {
+      "src": "augmented_assignment_expression [6883,7055]",
+      "dest": "augmented_assignment_expression [6858,7030]"
+    },
+    {
+      "src": "expression_statement [3379,3441]",
+      "dest": "expression_statement [3354,3416]"
+    },
+    {
+      "src": "(: ( [1501,1502]",
+      "dest": "(: ( [1476,1477]"
+    },
+    {
+      "src": "type_name [1358,1365]",
+      "dest": "type_name [1333,1340]"
+    },
+    {
+      "src": "identifier: blockNumber [7322,7333]",
+      "dest": "identifier: blockNumber [7297,7308]"
+    },
+    {
+      "src": "(: ( [6186,6187]",
+      "dest": "(: ( [6161,6162]"
+    },
+    {
+      "src": ".: . [5317,5318]",
+      "dest": ".: . [5292,5293]"
+    },
+    {
+      "src": "string: string [1879,1885]",
+      "dest": "string: string [1854,1860]"
+    },
+    {
+      "src": "visibility [1664,1672]",
+      "dest": "visibility [1639,1647]"
+    },
+    {
+      "src": "call_argument [2761,2766]",
+      "dest": "call_argument [2736,2741]"
+    },
+    {
+      "src": "parameter [2683,2696]",
+      "dest": "parameter [2658,2671]"
+    },
+    {
+      "src": "storage: storage [3560,3567]",
+      "dest": "storage: storage [3535,3542]"
+    },
+    {
+      "src": "import: import [968,974]",
+      "dest": "import: import [978,984]"
+    },
+    {
+      "src": ",: , [6213,6214]",
+      "dest": ",: , [6188,6189]"
+    },
+    {
+      "src": "): ) [3358,3359]",
+      "dest": "): ) [3333,3334]"
+    },
+    {
+      "src": "type_name [5285,5291]",
+      "dest": "type_name [5260,5266]"
+    },
+    {
+      "src": "identifier: encode [6362,6368]",
+      "dest": "identifier: encode [6337,6343]"
+    },
+    {
+      "src": "=: = [1612,1613]",
+      "dest": "=: = [1587,1588]"
+    },
+    {
+      "src": "identifier: outputOffset [6612,6624]",
+      "dest": "identifier: outputOffset [6587,6599]"
+    },
+    {
+      "src": ".: . [6361,6362]",
+      "dest": ".: . [6336,6337]"
+    },
+    {
+      "src": "type_name [4418,4425]",
+      "dest": "type_name [4393,4400]"
+    },
+    {
+      "src": "override_specifier [4935,4943]",
+      "dest": "override_specifier [4910,4918]"
+    },
+    {
+      "src": "override: override [3777,3785]",
+      "dest": "override: override [3752,3760]"
+    },
+    {
+      "src": "function_body [2530,2597]",
+      "dest": "function_body [2505,2572]"
+    },
+    {
+      "src": "): ) [4150,4151]",
+      "dest": "): ) [4125,4126]"
+    },
+    {
+      "src": "internal: internal [3360,3368]",
+      "dest": "internal: internal [3335,3343]"
+    },
+    {
+      "src": "override_specifier [4011,4019]",
+      "dest": "override_specifier [3986,3994]"
+    },
+    {
+      "src": "\": \" [1705,1706]",
+      "dest": "\": \" [1680,1681]"
+    },
+    {
+      "src": "): ) [2589,2590]",
+      "dest": "): ) [2564,2565]"
+    },
+    {
+      "src": "identifier: onlyGovernance [2034,2048]",
+      "dest": "identifier: onlyGovernance [2009,2023]"
+    },
+    {
+      "src": "any_pragma_token [668,693]",
+      "dest": "any_pragma_token [668,693]"
+    },
+    {
+      "src": "\": \" [6495,6496]",
+      "dest": "\": \" [6470,6471]"
+    },
+    {
+      "src": "}: } [5018,5019]",
+      "dest": "}: } [4993,4994]"
+    },
+    {
+      "src": "return: return [3255,3261]",
+      "dest": "return: return [3230,3236]"
+    },
+    {
+      "src": "inheritance_specifier [1144,1163]",
+      "dest": "inheritance_specifier [1119,1138]"
+    },
+    {
+      "src": "call_argument [7315,7333]",
+      "dest": "call_argument [7290,7308]"
+    },
+    {
+      "src": "(: ( [6822,6823]",
+      "dest": "(: ( [6797,6798]"
+    },
+    {
+      "src": "parameter [2521,2528]",
+      "dest": "parameter [2496,2503]"
+    },
+    {
+      "src": "function_body [3801,3843]",
+      "dest": "function_body [3776,3818]"
+    },
+    {
+      "src": "call_argument [4130,4139]",
+      "dest": "call_argument [4105,4114]"
+    },
+    {
+      "src": "function_body [3919,3944]",
+      "dest": "function_body [3894,3919]"
+    },
+    {
+      "src": "identifier: onchainDataHash [5758,5773]",
+      "dest": "identifier: onchainDataHash [5733,5748]"
+    },
+    {
+      "src": "parameter [1988,2010]",
+      "dest": "parameter [1963,1985]"
+    },
+    {
+      "src": "string [703,722]",
+      "dest": "string [703,722]"
+    },
+    {
+      "src": "}: } [3310,3311]",
+      "dest": "}: } [3285,3286]"
+    },
+    {
+      "src": "\": \" [745,746]",
+      "dest": "\": \" [742,743]"
+    },
+    {
+      "src": "function: function [4222,4230]",
+      "dest": "function: function [4197,4205]"
+    },
+    {
+      "src": "): ) [7333,7334]",
+      "dest": "): ) [7308,7309]"
+    },
+    {
+      "src": "function_definition [3950,4216]",
+      "dest": "function_definition [3925,4191]"
+    },
+    {
+      "src": "(: ( [3344,3345]",
+      "dest": "(: ( [3319,3320]"
+    },
+    {
+      "src": "state_mutability [3887,3891]",
+      "dest": "state_mutability [3862,3866]"
+    },
+    {
+      "src": ",: , [3432,3433]",
+      "dest": ",: , [3407,3408]"
+    },
+    {
+      "src": "identifier: require [4030,4037]",
+      "dest": "identifier: require [4005,4012]"
+    },
+    {
+      "src": "return: return [2892,2898]",
+      "dest": "return: return [2867,2873]"
+    },
+    {
+      "src": "call_argument [6987,7015]",
+      "dest": "call_argument [6962,6990]"
+    },
+    {
+      "src": "): ) [3053,3054]",
+      "dest": "): ) [3028,3029]"
+    },
+    {
+      "src": ",: , [1376,1377]",
+      "dest": ",: , [1351,1352]"
+    },
+    {
+      "src": "): ) [2498,2499]",
+      "dest": "): ) [2473,2474]"
+    },
+    {
+      "src": "(: ( [3212,3213]",
+      "dest": "(: ( [3187,3188]"
+    },
+    {
+      "src": "parameter [4953,4966]",
+      "dest": "parameter [4928,4941]"
+    },
+    {
+      "src": "comment: // isL2ToL1= [6723,6735]",
+      "dest": "comment: // isL2ToL1= [6698,6710]"
+    },
+    {
+      "src": "type_name [1657,1663]",
+      "dest": "type_name [1632,1638]"
+    },
+    {
+      "src": "true [6748,6752]",
+      "dest": "true [6723,6727]"
+    },
+    {
+      "src": "(: ( [6456,6457]",
+      "dest": "(: ( [6431,6432]"
+    },
+    {
+      "src": "identifier: delayInSeconds [2275,2289]",
+      "dest": "identifier: delayInSeconds [2250,2264]"
+    },
+    {
+      "src": "function_definition [5678,7341]",
+      "dest": "function_definition [5653,7316]"
+    },
+    {
+      "src": "call_expression [6437,6447]",
+      "dest": "call_expression [6412,6422]"
+    },
+    {
+      "src": "): ) [1529,1530]",
+      "dest": "): ) [1504,1505]"
+    },
+    {
+      "src": "): ) [5129,5130]",
+      "dest": "): ) [5104,5105]"
+    },
+    {
+      "src": "call_expression [6134,6318]",
+      "dest": "call_expression [6109,6293]"
+    },
+    {
+      "src": "import_directive [968,1001]",
+      "dest": "import_directive [978,1004]"
+    },
+    {
+      "src": "(: ( [5096,5097]",
+      "dest": "(: ( [5071,5072]"
+    },
+    {
+      "src": "external: external [5813,5821]",
+      "dest": "external: external [5788,5796]"
+    },
+    {
+      "src": "primitive_type [3591,3598]",
+      "dest": "primitive_type [3566,3573]"
+    },
+    {
+      "src": "using: using [1235,1240]",
+      "dest": "using: using [1210,1215]"
+    },
+    {
+      "src": "binary_expression [4038,4059]",
+      "dest": "binary_expression [4013,4034]"
+    },
+    {
+      "src": ".: . [4122,4123]",
+      "dest": ".: . [4097,4098]"
+    },
+    {
+      "src": "primitive_type [4355,4360]",
+      "dest": "primitive_type [4330,4335]"
+    },
+    {
+      "src": "{: { [2049,2050]",
+      "dest": "{: { [2024,2025]"
+    },
+    {
+      "src": ".: . [7103,7104]",
+      "dest": ".: . [7078,7079]"
+    },
+    {
+      "src": "override: override [4385,4393]",
+      "dest": "override: override [4360,4368]"
+    },
+    {
+      "src": "): ) [4725,4726]",
+      "dest": "): ) [4700,4701]"
+    },
+    {
+      "src": "comment: // State variable \"verifier\" access function. [2780,2825]",
+      "dest": "comment: // State variable \"verifier\" access function. [2755,2800]"
+    },
+    {
+      "src": "identifier: require [6415,6422]",
+      "dest": "identifier: require [6390,6397]"
+    },
+    {
+      "src": "uint256: uint256 [3236,3243]",
+      "dest": "uint256: uint256 [3211,3218]"
+    },
+    {
+      "src": "function_body [5293,5336]",
+      "dest": "function_body [5268,5311]"
+    },
+    {
+      "src": "identifier: state [7183,7188]",
+      "dest": "identifier: state [7158,7163]"
+    },
+    {
+      "src": "function_definition [2662,2774]",
+      "dest": "function_definition [2637,2749]"
+    },
+    {
+      "src": "variable_declaration_statement [6328,6406]",
+      "dest": "variable_declaration_statement [6303,6381]"
+    },
+    {
+      "src": "false: false [6968,6973]",
+      "dest": "false: false [6943,6948]"
+    },
+    {
+      "src": "external: external [2012,2020]",
+      "dest": "external: external [1987,1995]"
+    },
+    {
+      "src": "visibility [3360,3368]",
+      "dest": "visibility [3335,3343]"
+    },
+    {
+      "src": "): ) [3654,3655]",
+      "dest": "): ) [3629,3630]"
+    },
+    {
+      "src": "): ) [2010,2011]",
+      "dest": "): ) [1985,1986]"
+    },
+    {
+      "src": ".: . [3274,3275]",
+      "dest": ".: . [3249,3250]"
+    },
+    {
+      "src": "type_name [1747,1753]",
+      "dest": "type_name [1722,1728]"
+    },
+    {
+      "src": "string_literal [4985,5012]",
+      "dest": "string_literal [4960,4987]"
+    },
+    {
+      "src": "(: ( [3235,3236]",
+      "dest": "(: ( [3210,3211]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "primitive_type [4142,4149]",
+      "dest": "primitive_type [4117,4124]"
+    },
+    {
+      "src": "(: ( [3909,3910]",
+      "dest": "(: ( [3884,3885]"
+    },
+    {
+      "src": "event_paramater [1502,1529]",
+      "dest": "event_paramater [1477,1504]"
+    },
+    {
+      "src": "): ) [2528,2529]",
+      "dest": "): ) [2503,2504]"
+    },
+    {
+      "src": "primitive_type [3976,3981]",
+      "dest": "primitive_type [3951,3956]"
+    },
+    {
+      "src": "call_argument [3434,3439]",
+      "dest": "call_argument [3409,3414]"
+    },
+    {
+      "src": "(: ( [6436,6437]",
+      "dest": "(: ( [6411,6412]"
+    },
+    {
+      "src": ".: . [7321,7322]",
+      "dest": ".: . [7296,7297]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "modifier_invocation [5822,5834]",
+      "dest": "modifier_invocation [5797,5809]"
+    },
+    {
+      "src": "type_name [3345,3352]",
+      "dest": "type_name [3320,3327]"
+    },
+    {
+      "src": "import_directive [834,864]",
+      "dest": "import_directive [841,868]"
+    },
+    {
+      "src": "string_literal [4061,4085]",
+      "dest": "string_literal [4036,4060]"
+    },
+    {
+      "src": "visibility [2012,2020]",
+      "dest": "visibility [1987,1995]"
+    },
+    {
+      "src": "call_argument [7074,7110]",
+      "dest": "call_argument [7049,7085]"
+    },
+    {
+      "src": "identifier: programOutput [5905,5918]",
+      "dest": "identifier: programOutput [5880,5893]"
+    },
+    {
+      "src": ",: , [3115,3116]",
+      "dest": ",: , [3090,3091]"
+    },
+    {
+      "src": "): ) [2766,2767]",
+      "dest": "): ) [2741,2742]"
+    },
+    {
+      "src": "call_expression [4788,4820]",
+      "dest": "call_expression [4763,4795]"
+    },
+    {
+      "src": "user_defined_type [1169,1185]",
+      "dest": "user_defined_type [1144,1160]"
+    },
+    {
+      "src": "): ) [3579,3580]",
+      "dest": "): ) [3554,3555]"
+    },
+    {
+      "src": "boolean_literal [6748,6752]",
+      "dest": "boolean_literal [6723,6727]"
+    },
+    {
+      "src": "{: { [2182,2183]",
+      "dest": "{: { [2157,2158]"
+    },
+    {
+      "src": "function_definition [4901,5019]",
+      "dest": "function_definition [4876,4994]"
+    },
+    {
+      "src": "(: ( [3619,3620]",
+      "dest": "(: ( [3594,3595]"
+    },
+    {
+      "src": "identifier: globalRoot [5156,5166]",
+      "dest": "identifier: globalRoot [5131,5141]"
+    },
+    {
+      "src": "public: public [3215,3221]",
+      "dest": "public: public [3190,3196]"
+    },
+    {
+      "src": "type_name [2267,2274]",
+      "dest": "type_name [2242,2249]"
+    },
+    {
+      "src": "return_type_definition [2864,2881]",
+      "dest": "return_type_definition [2839,2856]"
+    },
+    {
+      "src": "type_name [5708,5715]",
+      "dest": "type_name [5683,5690]"
+    },
+    {
+      "src": "member_expression [5881,5904]",
+      "dest": "member_expression [5856,5879]"
+    },
+    {
+      "src": "identifier: newConfigHash [2130,2143]",
+      "dest": "identifier: newConfigHash [2105,2118]"
+    },
+    {
+      "src": "state_variable_declaration [1657,1742]",
+      "dest": "state_variable_declaration [1632,1717]"
+    },
+    {
+      "src": "state_mutability [3222,3226]",
+      "dest": "state_mutability [3197,3201]"
+    },
+    {
+      "src": "state_mutability [4930,4934]",
+      "dest": "state_mutability [4905,4909]"
+    },
+    {
+      "src": "[: [ [5715,5716]",
+      "dest": "[: [ [5690,5691]"
+    },
+    {
+      "src": "primitive_type [5783,5790]",
+      "dest": "primitive_type [5758,5765]"
+    },
+    {
+      "src": "): ) [6466,6467]",
+      "dest": "): ) [6441,6442]"
+    },
+    {
+      "src": "identifier: state [3509,3514]",
+      "dest": "identifier: state [3484,3489]"
+    },
+    {
+      "src": "call_expression [5148,5155]",
+      "dest": "call_expression [5123,5130]"
+    },
+    {
+      "src": "constant: constant [1763,1771]",
+      "dest": "constant: constant [1738,1746]"
+    },
+    {
+      "src": "member_expression [4613,4632]",
+      "dest": "member_expression [4588,4607]"
+    },
+    {
+      "src": "type_name [7222,7241]",
+      "dest": "type_name [7197,7216]"
+    },
+    {
+      "src": "{: { [3245,3246]",
+      "dest": "{: { [3220,3221]"
+    },
+    {
+      "src": "identifier: State [3554,3559]",
+      "dest": "identifier: State [3529,3534]"
+    },
+    {
+      "src": "identifier: messageCancellationDelay [4788,4812]",
+      "dest": "identifier: messageCancellationDelay [4763,4787]"
+    },
+    {
+      "src": ".: . [2559,2560]",
+      "dest": ".: . [2534,2535]"
+    },
+    {
+      "src": "type_name [1570,1576]",
+      "dest": "type_name [1545,1551]"
+    },
+    {
+      "src": "parameter [5750,5773]",
+      "dest": "parameter [5725,5748]"
+    },
+    {
+      "src": "!=: != [3832,3834]",
+      "dest": "!=: != [3807,3809]"
+    },
+    {
+      "src": "identifier: value [3117,3122]",
+      "dest": "identifier: value [3092,3097]"
+    },
+    {
+      "src": ",: , [6752,6753]",
+      "dest": ",: , [6727,6728]"
+    },
+    {
+      "src": "comment: // isL2ToL1= [6943,6955]",
+      "dest": "comment: // isL2ToL1= [6918,6930]"
+    },
+    {
+      "src": "\": \" [731,732]",
+      "dest": "\": \" [731,732]"
+    },
+    {
+      "src": "type_name [3040,3047]",
+      "dest": "type_name [3015,3022]"
+    },
+    {
+      "src": "type_name [5708,5717]",
+      "dest": "type_name [5683,5692]"
+    },
+    {
+      "src": "identifier: programHash [6369,6380]",
+      "dest": "identifier: programHash [6344,6355]"
+    },
+    {
+      "src": "call_expression [4161,4209]",
+      "dest": "call_expression [4136,4184]"
+    },
+    {
+      "src": "function_definition [3849,3944]",
+      "dest": "function_definition [3824,3919]"
+    },
+    {
+      "src": "call_argument [3620,3654]",
+      "dest": "call_argument [3595,3629]"
+    },
+    {
+      "src": "identifier: programOutput [6200,6213]",
+      "dest": "identifier: programOutput [6175,6188]"
+    },
+    {
+      "src": "): ) [6447,6448]",
+      "dest": "): ) [6422,6423]"
+    },
+    {
+      "src": "visibility [1886,1894]",
+      "dest": "visibility [1861,1869]"
+    },
+    {
+      "src": "bytes: bytes [3976,3981]",
+      "dest": "bytes: bytes [3951,3956]"
+    },
+    {
+      "src": "): ) [5918,5919]",
+      "dest": "): ) [5893,5894]"
+    },
+    {
+      "src": "variable_declaration [6104,6131]",
+      "dest": "variable_declaration [6079,6106]"
+    },
+    {
+      "src": "function_definition [5234,5336]",
+      "dest": "function_definition [5209,5311]"
+    },
+    {
+      "src": "override_specifier [4385,4393]",
+      "dest": "override_specifier [4360,4368]"
+    },
+    {
+      "src": "(: ( [3875,3876]",
+      "dest": "(: ( [3850,3851]"
+    },
+    {
+      "src": "}: } [2223,2224]",
+      "dest": "}: } [2198,2199]"
+    },
+    {
+      "src": "function: function [5234,5242]",
+      "dest": "function: function [5209,5217]"
+    },
+    {
+      "src": "import: import [748,754]",
+      "dest": "import: import [745,751]"
+    },
+    {
+      "src": "bytes32: bytes32 [1502,1509]",
+      "dest": "bytes32: bytes32 [1477,1484]"
+    },
+    {
+      "src": "identifier: newProgramHash [2071,2085]",
+      "dest": "identifier: newProgramHash [2046,2060]"
+    },
+    {
+      "src": "member_expression [6899,6929]",
+      "dest": "member_expression [6874,6904]"
+    },
+    {
+      "src": "returns: returns [3901,3908]",
+      "dest": "returns: returns [3876,3883]"
+    },
+    {
+      "src": "{: { [1229,1230]",
+      "dest": "{: { [1204,1205]"
+    },
+    {
+      "src": "call_argument [7029,7045]",
+      "dest": "call_argument [7004,7020]"
+    },
+    {
+      "src": "view: view [5271,5275]",
+      "dest": "view: view [5246,5250]"
+    },
+    {
+      "src": "member_expression [6627,6653]",
+      "dest": "member_expression [6602,6628]"
+    },
+    {
+      "src": "identifier: subContractAddresses [4274,4294]",
+      "dest": "identifier: subContractAddresses [4249,4269]"
+    },
+    {
+      "src": "identifier: setUintValue [3087,3099]",
+      "dest": "identifier: setUintValue [3062,3074]"
+    },
+    {
+      "src": "identifier: LogStateUpdate [7281,7295]",
+      "dest": "identifier: LogStateUpdate [7256,7270]"
+    },
+    {
+      "src": "internal: internal [3997,4005]",
+      "dest": "internal: internal [3972,3980]"
+    },
+    {
+      "src": "member_expression [3620,3636]",
+      "dest": "member_expression [3595,3611]"
+    },
+    {
+      "src": "identifier: outputOffset [6883,6895]",
+      "dest": "identifier: outputOffset [6858,6870]"
+    },
+    {
+      "src": "string [6469,6496]",
+      "dest": "string [6444,6471]"
+    },
+    {
+      "src": "call_argument [6808,6824]",
+      "dest": "call_argument [6783,6799]"
+    },
+    {
+      "src": "(: ( [2572,2573]",
+      "dest": "(: ( [2547,2548]"
+    },
+    {
+      "src": "returns: returns [2864,2871]",
+      "dest": "returns: returns [2839,2846]"
+    },
+    {
+      "src": "): ) [6823,6824]",
+      "dest": "): ) [6798,6799]"
+    },
+    {
+      "src": "): ) [2696,2697]",
+      "dest": "): ) [2671,2672]"
+    },
+    {
+      "src": "function_body [4394,4827]",
+      "dest": "function_body [4369,4802]"
+    },
+    {
+      "src": "override: override [4011,4019]",
+      "dest": "override: override [3986,3994]"
+    },
+    {
+      "src": "identifier: programOutput [6766,6779]",
+      "dest": "identifier: programOutput [6741,6754]"
+    },
+    {
+      "src": "): ) [5154,5155]",
+      "dest": "): ) [5129,5130]"
+    },
+    {
+      "src": "expression_statement [4161,4210]",
+      "dest": "expression_statement [4136,4185]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "identifier: IIdentity [1082,1091]",
+      "label": "Identity"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "import_directive [1029,1055]"
+    }
+  ]
+}

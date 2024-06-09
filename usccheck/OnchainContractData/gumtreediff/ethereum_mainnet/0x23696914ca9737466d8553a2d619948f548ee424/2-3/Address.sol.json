@@ -1,0 +1,3449 @@
+{
+  "matches": [
+    {
+      "src": "\": \" [6238,6239]",
+      "dest": "\": \" [6238,6239]"
+    },
+    {
+      "src": ":=: := [8061,8063]",
+      "dest": ":=: := [8061,8063]"
+    },
+    {
+      "src": "parameter [2431,2456]",
+      "dest": "parameter [2431,2456]"
+    },
+    {
+      "src": ",: , [6199,6200]",
+      "dest": ",: , [6199,6200]"
+    },
+    {
+      "src": "): ) [2716,2717]",
+      "dest": "): ) [2716,2717]"
+    },
+    {
+      "src": "parameter [3488,3502]",
+      "dest": "parameter [3488,3502]"
+    },
+    {
+      "src": "type_name [2458,2465]",
+      "dest": "type_name [2458,2465]"
+    },
+    {
+      "src": "bytes: bytes [7017,7022]",
+      "dest": "bytes: bytes [7017,7022]"
+    },
+    {
+      "src": "binary_expression [2501,2532]",
+      "dest": "binary_expression [2501,2532]"
+    },
+    {
+      "src": "type_name [5062,5068]",
+      "dest": "type_name [5062,5068]"
+    },
+    {
+      "src": "member_expression [1465,1484]",
+      "dest": "member_expression [1465,1484]"
+    },
+    {
+      "src": "type_name [6600,6607]",
+      "dest": "type_name [6600,6607]"
+    },
+    {
+      "src": "{: { [7899,7900]",
+      "dest": "{: { [7899,7900]"
+    },
+    {
+      "src": "type_cast_expression [2501,2514]",
+      "dest": "type_cast_expression [2501,2514]"
+    },
+    {
+      "src": "\": \" [2564,2565]",
+      "dest": "\": \" [2564,2565]"
+    },
+    {
+      "src": "type_name [3994,3999]",
+      "dest": "type_name [3994,3999]"
+    },
+    {
+      "src": "{: { [7721,7722]",
+      "dest": "{: { [7721,7722]"
+    },
+    {
+      "src": "type_name [3488,3495]",
+      "dest": "type_name [3488,3495]"
+    },
+    {
+      "src": "bytes: bytes [7095,7100]",
+      "dest": "bytes: bytes [7095,7100]"
+    },
+    {
+      "src": "memory: memory [5069,5075]",
+      "dest": "memory: memory [5069,5075]"
+    },
+    {
+      "src": "parameter [7651,7677]",
+      "dest": "parameter [7651,7677]"
+    },
+    {
+      "src": "memory: memory [7023,7029]",
+      "dest": "memory: memory [7023,7029]"
+    },
+    {
+      "src": "primitive_type [3504,3509]",
+      "dest": "primitive_type [3504,3509]"
+    },
+    {
+      "src": "primitive_type [5113,5118]",
+      "dest": "primitive_type [5113,5118]"
+    },
+    {
+      "src": "primitive_type [3916,3921]",
+      "dest": "primitive_type [3916,3921]"
+    },
+    {
+      "src": "assembly_statement [8010,8164]",
+      "dest": "assembly_statement [8010,8164]"
+    },
+    {
+      "src": "comment: // This method relies on extcodesize/address.code.length, which returns 0 [1251,1324]",
+      "dest": "comment: // This method relies on extcodesize/address.code.length, which returns 0 [1251,1324]"
+    },
+    {
+      "src": ".: . [1477,1478]",
+      "dest": ".: . [1477,1478]"
+    },
+    {
+      "src": "struct_expression [2596,2625]",
+      "dest": "struct_expression [2596,2625]"
+    },
+    {
+      "src": "}: } [1494,1495]",
+      "dest": "}: } [1494,1495]"
+    },
+    {
+      "src": "member_expression [2501,2522]",
+      "dest": "member_expression [2501,2522]"
+    },
+    {
+      "src": "function_body [5127,5447]",
+      "dest": "function_body [5127,5447]"
+    },
+    {
+      "src": "returns: returns [1226,1233]",
+      "dest": "returns: returns [1226,1233]"
+    },
+    {
+      "src": "\": \" [5256,5257]",
+      "dest": "\": \" [5256,5257]"
+    },
+    {
+      "src": "}: } [8236,8237]",
+      "dest": "}: } [8236,8237]"
+    },
+    {
+      "src": "bytes: bytes [3504,3509]",
+      "dest": "bytes: bytes [3504,3509]"
+    },
+    {
+      "src": "parameter [7017,7034]",
+      "dest": "parameter [7017,7034]"
+    },
+    {
+      "src": "string [5177,5217]",
+      "dest": "string [5177,5217]"
+    },
+    {
+      "src": "primitive_type [3994,3999]",
+      "dest": "primitive_type [3994,3999]"
+    },
+    {
+      "src": "): ) [4692,4693]",
+      "dest": "): ) [4692,4693]"
+    },
+    {
+      "src": "=: = [7239,7240]",
+      "dest": "=: = [7239,7240]"
+    },
+    {
+      "src": "memory: memory [7220,7226]",
+      "dest": "memory: memory [7220,7226]"
+    },
+    {
+      "src": "): ) [4006,4007]",
+      "dest": "): ) [4006,4007]"
+    },
+    {
+      "src": "view: view [5696,5700]",
+      "dest": "view: view [5696,5700]"
+    },
+    {
+      "src": "call_argument [6359,6369]",
+      "dest": "call_argument [6359,6369]"
+    },
+    {
+      "src": "call_argument [2501,2532]",
+      "dest": "call_argument [2501,2532]"
+    },
+    {
+      "src": "bytes: bytes [4575,4580]",
+      "dest": "bytes: bytes [4575,4580]"
+    },
+    {
+      "src": "identifier: target [5660,5666]",
+      "dest": "identifier: target [5660,5666]"
+    },
+    {
+      "src": "memory: memory [6072,6078]",
+      "dest": "memory: memory [6072,6078]"
+    },
+    {
+      "src": "identifier: errorMessage [7321,7333]",
+      "dest": "identifier: errorMessage [7321,7333]"
+    },
+    {
+      "src": "identifier: success [2647,2654]",
+      "dest": "identifier: success [2647,2654]"
+    },
+    {
+      "src": "type_name [5710,5715]",
+      "dest": "type_name [5710,5715]"
+    },
+    {
+      "src": "bytes: bytes [4510,4515]",
+      "dest": "bytes: bytes [4510,4515]"
+    },
+    {
+      "src": "variable_declaration_tuple [5299,5338]",
+      "dest": "variable_declaration_tuple [5299,5338]"
+    },
+    {
+      "src": "internal: internal [6126,6134]",
+      "dest": "internal: internal [6126,6134]"
+    },
+    {
+      "src": "parameter [3892,3906]",
+      "dest": "parameter [3892,3906]"
+    },
+    {
+      "src": "bytes: bytes [6266,6271]",
+      "dest": "bytes: bytes [6266,6271]"
+    },
+    {
+      "src": "}: } [5820,5821]",
+      "dest": "}: } [5820,5821]"
+    },
+    {
+      "src": "call_argument [5768,5772]",
+      "dest": "call_argument [5768,5772]"
+    },
+    {
+      "src": "function_definition [7561,8253]",
+      "dest": "function_definition [7561,8253]"
+    },
+    {
+      "src": "identifier: value [5170,5175]",
+      "dest": "identifier: value [5170,5175]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a delegate call.      *      * _Available since v3.4._      */ [6397,6565]",
+      "dest": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a delegate call.      *      * _Available since v3.4._      */ [6397,6565]"
+    },
+    {
+      "src": "type_name [3943,3949]",
+      "dest": "type_name [3943,3949]"
+    },
+    {
+      "src": "): ) [3974,3975]",
+      "dest": "): ) [3974,3975]"
+    },
+    {
+      "src": "type_name [6993,7000]",
+      "dest": "type_name [6993,7000]"
+    },
+    {
+      "src": "call_expression [5341,5372]",
+      "dest": "call_expression [5341,5372]"
+    },
+    {
+      "src": "type_name [4575,4580]",
+      "dest": "type_name [4575,4580]"
+    },
+    {
+      "src": "memory: memory [5119,5125]",
+      "dest": "memory: memory [5119,5125]"
+    },
+    {
+      "src": "call_argument [6311,6315]",
+      "dest": "call_argument [6311,6315]"
+    },
+    {
+      "src": "primitive_type [6600,6607]",
+      "dest": "primitive_type [6600,6607]"
+    },
+    {
+      "src": "function_definition [3861,4084]",
+      "dest": "function_definition [3861,4084]"
+    },
+    {
+      "src": "yul_path [8130,8145]",
+      "dest": "yul_path [8130,8145]"
+    },
+    {
+      "src": "bytes: bytes [7618,7623]",
+      "dest": "bytes: bytes [7618,7623]"
+    },
+    {
+      "src": "if_statement [7731,8247]",
+      "dest": "if_statement [7731,8247]"
+    },
+    {
+      "src": "call_argument [5415,5425]",
+      "dest": "call_argument [5415,5425]"
+    },
+    {
+      "src": "primitive_type [2501,2508]",
+      "dest": "primitive_type [2501,2508]"
+    },
+    {
+      "src": "\": \" [2627,2628]",
+      "dest": "\": \" [2627,2628]"
+    },
+    {
+      "src": "{: { [5352,5353]",
+      "dest": "{: { [5352,5353]"
+    },
+    {
+      "src": "memory: memory [6659,6665]",
+      "dest": "memory: memory [6659,6665]"
+    },
+    {
+      "src": ",: , [6711,6712]",
+      "dest": ",: , [6711,6712]"
+    },
+    {
+      "src": "identifier: data [6713,6717]",
+      "dest": "identifier: data [6713,6717]"
+    },
+    {
+      "src": "(: ( [2500,2501]",
+      "dest": "(: ( [2500,2501]"
+    },
+    {
+      "src": "address: address [2501,2508]",
+      "dest": "address: address [2501,2508]"
+    },
+    {
+      "src": "memory: memory [4581,4587]",
+      "dest": "memory: memory [4581,4587]"
+    },
+    {
+      "src": "identifier: target [6608,6614]",
+      "dest": "identifier: target [6608,6614]"
+    },
+    {
+      "src": "): ) [5287,5288]",
+      "dest": "): ) [5287,5288]"
+    },
+    {
+      "src": "memory: memory [5716,5722]",
+      "dest": "memory: memory [5716,5722]"
+    },
+    {
+      "src": "identifier: functionCallWithValue [4957,4978]",
+      "dest": "identifier: functionCallWithValue [4957,4978]"
+    },
+    {
+      "src": "address: address [6042,6049]",
+      "dest": "address: address [6042,6049]"
+    },
+    {
+      "src": ",: , [3597,3598]",
+      "dest": ",: , [3597,3598]"
+    },
+    {
+      "src": "}: } [5446,5447]",
+      "dest": "}: } [5446,5447]"
+    },
+    {
+      "src": "parameter [6066,6083]",
+      "dest": "parameter [6066,6083]"
+    },
+    {
+      "src": "internal: internal [2474,2482]",
+      "dest": "internal: internal [2474,2482]"
+    },
+    {
+      "src": "identifier: recipient [2447,2456]",
+      "dest": "identifier: recipient [2447,2456]"
+    },
+    {
+      "src": "): ) [2513,2514]",
+      "dest": "): ) [2513,2514]"
+    },
+    {
+      "src": "identifier: account [1203,1210]",
+      "dest": "identifier: account [1203,1210]"
+    },
+    {
+      "src": "call_argument [5256,5287]",
+      "dest": "call_argument [5256,5287]"
+    },
+    {
+      "src": "primitive_type [1235,1239]",
+      "dest": "primitive_type [1235,1239]"
+    },
+    {
+      "src": ">: > [1485,1486]",
+      "dest": ">: > [1485,1486]"
+    },
+    {
+      "src": "visibility [3976,3984]",
+      "dest": "visibility [3976,3984]"
+    },
+    {
+      "src": "identifier: target [6192,6198]",
+      "dest": "identifier: target [6192,6198]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but also transferring `value` wei to `target`.      *      * Requirements:      *      * - the calling contract must have an ETH balance of at least `value`.      * - the called Solidity function must be `payable`.      *      * _Available since v3.1._      */ [4090,4441]",
+      "dest": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but also transferring `value` wei to `target`.      *      * Requirements:      *      * - the calling contract must have an ETH balance of at least `value`.      * - the called Solidity function must be `payable`.      *      * _Available since v3.1._      */ [4090,4441]"
+    },
+    {
+      "src": "return_type_definition [7086,7108]",
+      "dest": "return_type_definition [7086,7108]"
+    },
+    {
+      "src": "block_statement [8184,8237]",
+      "dest": "block_statement [8184,8237]"
+    },
+    {
+      "src": "\": \" [3630,3631]",
+      "dest": "\": \" [3630,3631]"
+    },
+    {
+      "src": "type_name [6266,6271]",
+      "dest": "type_name [6266,6271]"
+    },
+    {
+      "src": "expression_statement [5228,5289]",
+      "dest": "expression_statement [5228,5289]"
+    },
+    {
+      "src": "member_expression [5341,5352]",
+      "dest": "member_expression [5341,5352]"
+    },
+    {
+      "src": "string [4649,4692]",
+      "dest": "string [4649,4692]"
+    },
+    {
+      "src": "identifier: errorMessage [7058,7070]",
+      "dest": "identifier: errorMessage [7058,7070]"
+    },
+    {
+      "src": "(: ( [4978,4979]",
+      "dest": "(: ( [4978,4979]"
+    },
+    {
+      "src": "block_statement [7899,8178]",
+      "dest": "block_statement [7899,8178]"
+    },
+    {
+      "src": "return: return [5382,5388]",
+      "dest": "return: return [5382,5388]"
+    },
+    {
+      "src": "type_cast_expression [5145,5158]",
+      "dest": "type_cast_expression [5145,5158]"
+    },
+    {
+      "src": "return_statement [6326,6385]",
+      "dest": "return_statement [6326,6385]"
+    },
+    {
+      "src": "call_expression [7241,7266]",
+      "dest": "call_expression [7241,7266]"
+    },
+    {
+      "src": "parameter [2458,2472]",
+      "dest": "parameter [2458,2472]"
+    },
+    {
+      "src": "type_name [5314,5319]",
+      "dest": "type_name [5314,5319]"
+    },
+    {
+      "src": "primitive_type [6616,6621]",
+      "dest": "primitive_type [6616,6621]"
+    },
+    {
+      "src": "}: } [5365,5366]",
+      "dest": "}: } [5365,5366]"
+    },
+    {
+      "src": "function_body [6667,6768]",
+      "dest": "function_body [6667,6768]"
+    },
+    {
+      "src": "type_name [7017,7022]",
+      "dest": "type_name [7017,7022]"
+    },
+    {
+      "src": ",: , [5175,5176]",
+      "dest": ",: , [5175,5176]"
+    },
+    {
+      "src": "{: { [8019,8020]",
+      "dest": "{: { [8019,8020]"
+    },
+    {
+      "src": "returns: returns [5104,5111]",
+      "dest": "returns: returns [5104,5111]"
+    },
+    {
+      "src": "yul_path [8117,8127]",
+      "dest": "yul_path [8117,8127]"
+    },
+    {
+      "src": "memory: memory [7713,7719]",
+      "dest": "memory: memory [7713,7719]"
+    },
+    {
+      "src": "{: { [3555,3556]",
+      "dest": "{: { [3555,3556]"
+    },
+    {
+      "src": "call_argument [2647,2654]",
+      "dest": "call_argument [2647,2654]"
+    },
+    {
+      "src": "parameter [6042,6056]",
+      "dest": "parameter [6042,6056]"
+    },
+    {
+      "src": "}: } [6390,6391]",
+      "dest": "}: } [6390,6391]"
+    },
+    {
+      "src": "library: library [194,201]",
+      "dest": "library: library [194,201]"
+    },
+    {
+      "src": "): ) [8221,8222]",
+      "dest": "): ) [8221,8222]"
+    },
+    {
+      "src": "library_declaration [194,8255]",
+      "dest": "library_declaration [194,8255]"
+    },
+    {
+      "src": "identifier: functionCallWithValue [4606,4627]",
+      "dest": "identifier: functionCallWithValue [4606,4627]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with      * `errorMessage` as a fallback revert reason when `target` reverts.      *      * _Available since v3.1._      */ [3645,3856]",
+      "dest": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with      * `errorMessage` as a fallback revert reason when `target` reverts.      *      * _Available since v3.1._      */ [3645,3856]"
+    },
+    {
+      "src": "identifier: target [6050,6056]",
+      "dest": "identifier: target [6050,6056]"
+    },
+    {
+      "src": "memory: memory [4000,4006]",
+      "dest": "memory: memory [4000,4006]"
+    },
+    {
+      "src": "type_name [7596,7600]",
+      "dest": "type_name [7596,7600]"
+    },
+    {
+      "src": "(: ( [6251,6252]",
+      "dest": "(: ( [6251,6252]"
+    },
+    {
+      "src": "identifier: value [5047,5052]",
+      "dest": "identifier: value [5047,5052]"
+    },
+    {
+      "src": "identifier: target [4996,5002]",
+      "dest": "identifier: target [4996,5002]"
+    },
+    {
+      "src": "internal: internal [4557,4565]",
+      "dest": "internal: internal [4557,4565]"
+    },
+    {
+      "src": ",: , [7145,7146]",
+      "dest": ",: , [7145,7146]"
+    },
+    {
+      "src": "): ) [4555,4556]",
+      "dest": "): ) [4555,4556]"
+    },
+    {
+      "src": "memory: memory [6272,6278]",
+      "dest": "memory: memory [6272,6278]"
+    },
+    {
+      "src": "identifier: staticcall [6300,6310]",
+      "dest": "identifier: staticcall [6300,6310]"
+    },
+    {
+      "src": "call_argument [5406,5413]",
+      "dest": "call_argument [5406,5413]"
+    },
+    {
+      "src": "identifier: account [1465,1472]",
+      "dest": "identifier: account [1465,1472]"
+    },
+    {
+      "src": "yul_function_call [8064,8081]",
+      "dest": "yul_function_call [8064,8081]"
+    },
+    {
+      "src": "uint256: uint256 [4537,4544]",
+      "dest": "uint256: uint256 [4537,4544]"
+    },
+    {
+      "src": ",: , [2654,2655]",
+      "dest": ",: , [2654,2655]"
+    },
+    {
+      "src": ",: , [5254,5255]",
+      "dest": ",: , [5254,5255]"
+    },
+    {
+      "src": "return: return [3565,3571]",
+      "dest": "return: return [3565,3571]"
+    },
+    {
+      "src": "visibility [7684,7692]",
+      "dest": "visibility [7684,7692]"
+    },
+    {
+      "src": "memory: memory [4516,4522]",
+      "dest": "memory: memory [4516,4522]"
+    },
+    {
+      "src": "type_name [6252,6256]",
+      "dest": "type_name [6252,6256]"
+    },
+    {
+      "src": "identifier: target [5341,5347]",
+      "dest": "identifier: target [5341,5347]"
+    },
+    {
+      "src": ":: : [2616,2617]",
+      "dest": ":: : [2616,2617]"
+    },
+    {
+      "src": "(: ( [4476,4477]",
+      "dest": "(: ( [4476,4477]"
+    },
+    {
+      "src": "string_literal [5774,5813]",
+      "dest": "string_literal [5774,5813]"
+    },
+    {
+      "src": "\": \" [6719,6720]",
+      "dest": "\": \" [6719,6720]"
+    },
+    {
+      "src": "solidity: solidity [108,116]",
+      "dest": "solidity: solidity [108,116]"
+    },
+    {
+      "src": "function_definition [1175,1495]",
+      "dest": "function_definition [1175,1495]"
+    },
+    {
+      "src": "): ) [1239,1240]",
+      "dest": "): ) [1239,1240]"
+    },
+    {
+      "src": "visibility [2474,2482]",
+      "dest": "visibility [2474,2482]"
+    },
+    {
+      "src": "primitive_type [5012,5017]",
+      "dest": "primitive_type [5012,5017]"
+    },
+    {
+      "src": "string_literal [4649,4692]",
+      "dest": "string_literal [4649,4692]"
+    },
+    {
+      "src": ",: , [7608,7609]",
+      "dest": ",: , [7608,7609]"
+    },
+    {
+      "src": ".: . [7886,7887]",
+      "dest": ".: . [7886,7887]"
+    },
+    {
+      "src": "return_type_definition [3985,4007]",
+      "dest": "return_type_definition [3985,4007]"
+    },
+    {
+      "src": "function: function [4446,4454]",
+      "dest": "function: function [4446,4454]"
+    },
+    {
+      "src": "string [6719,6760]",
+      "dest": "string [6719,6760]"
+    },
+    {
+      "src": "call_argument [3585,3591]",
+      "dest": "call_argument [3585,3591]"
+    },
+    {
+      "src": "variable_declaration [5314,5337]",
+      "dest": "variable_declaration [5314,5337]"
+    },
+    {
+      "src": "primitive_type [4510,4515]",
+      "dest": "primitive_type [4510,4515]"
+    },
+    {
+      "src": "type_name [7095,7100]",
+      "dest": "type_name [7095,7100]"
+    },
+    {
+      "src": "identifier: target [3585,3591]",
+      "dest": "identifier: target [3585,3591]"
+    },
+    {
+      "src": "visibility [6635,6643]",
+      "dest": "visibility [6635,6643]"
+    },
+    {
+      "src": "string: string [3943,3949]",
+      "dest": "string: string [3943,3949]"
+    },
+    {
+      "src": "primitive_type [6993,7000]",
+      "dest": "primitive_type [6993,7000]"
+    },
+    {
+      "src": "): ) [3553,3554]",
+      "dest": "): ) [3553,3554]"
+    },
+    {
+      "src": "call_argument [6705,6711]",
+      "dest": "call_argument [6705,6711]"
+    },
+    {
+      "src": "\": \" [5177,5178]",
+      "dest": "\": \" [5177,5178]"
+    },
+    {
+      "src": "(: ( [5405,5406]",
+      "dest": "(: ( [5405,5406]"
+    },
+    {
+      "src": "}: } [8254,8255]",
+      "dest": "}: } [8254,8255]"
+    },
+    {
+      "src": "call_argument [3599,3631]",
+      "dest": "call_argument [3599,3631]"
+    },
+    {
+      "src": "function: function [6570,6578]",
+      "dest": "function: function [6570,6578]"
+    },
+    {
+      "src": "identifier: functionStaticCall [5741,5759]",
+      "dest": "identifier: functionStaticCall [5741,5759]"
+    },
+    {
+      "src": "yul_function_call [8109,8128]",
+      "dest": "yul_function_call [8109,8128]"
+    },
+    {
+      "src": "string: string [5062,5068]",
+      "dest": "string: string [5062,5068]"
+    },
+    {
+      "src": "(: ( [6310,6311]",
+      "dest": "(: ( [6310,6311]"
+    },
+    {
+      "src": "): ) [7107,7108]",
+      "dest": "): ) [7107,7108]"
+    },
+    {
+      "src": "yul_identifier [8117,8127]",
+      "dest": "yul_identifier [8117,8127]"
+    },
+    {
+      "src": "type_name [7651,7657]",
+      "dest": "type_name [7651,7657]"
+    },
+    {
+      "src": "return_type_definition [3532,3554]",
+      "dest": "return_type_definition [3532,3554]"
+    },
+    {
+      "src": "type_name [7618,7623]",
+      "dest": "type_name [7618,7623]"
+    },
+    {
+      "src": "identifier: returndata [8117,8127]",
+      "dest": "identifier: returndata [8117,8127]"
+    },
+    {
+      "src": "internal: internal [3976,3984]",
+      "dest": "internal: internal [3976,3984]"
+    },
+    {
+      "src": "call_argument [4636,4640]",
+      "dest": "call_argument [4636,4640]"
+    },
+    {
+      "src": "): ) [4587,4588]",
+      "dest": "): ) [4587,4588]"
+    },
+    {
+      "src": "}: } [6767,6768]",
+      "dest": "}: } [6767,6768]"
+    },
+    {
+      "src": "\": \" [2656,2657]",
+      "dest": "\": \" [2656,2657]"
+    },
+    {
+      "src": "revert: revert [8202,8208]",
+      "dest": "revert: revert [8202,8208]"
+    },
+    {
+      "src": "memory: memory [3950,3956]",
+      "dest": "memory: memory [3950,3956]"
+    },
+    {
+      "src": "variable_declaration_tuple [6251,6290]",
+      "dest": "variable_declaration_tuple [6251,6290]"
+    },
+    {
+      "src": "variable_declaration [7214,7237]",
+      "dest": "variable_declaration [7214,7237]"
+    },
+    {
+      "src": ",: , [7034,7035]",
+      "dest": ",: , [7034,7035]"
+    },
+    {
+      "src": "revert_statement [8202,8223]",
+      "dest": "revert_statement [8202,8223]"
+    },
+    {
+      "src": "call_argument [7261,7265]",
+      "dest": "call_argument [7261,7265]"
+    },
+    {
+      "src": "parameter [4486,4500]",
+      "dest": "parameter [4486,4500]"
+    },
+    {
+      "src": "address: address [4486,4493]",
+      "dest": "address: address [4486,4493]"
+    },
+    {
+      "src": ">=: >= [2523,2525]",
+      "dest": ">=: >= [2523,2525]"
+    },
+    {
+      "src": "identifier: returndata [8070,8080]",
+      "dest": "identifier: returndata [8070,8080]"
+    },
+    {
+      "src": "function: function [3861,3869]",
+      "dest": "function: function [3861,3869]"
+    },
+    {
+      "src": "variable_declaration_tuple [7199,7238]",
+      "dest": "variable_declaration_tuple [7199,7238]"
+    },
+    {
+      "src": "primitive_type [3892,3899]",
+      "dest": "primitive_type [3892,3899]"
+    },
+    {
+      "src": ".: . [5158,5159]",
+      "dest": ".: . [5158,5159]"
+    },
+    {
+      "src": "call_argument [7300,7307]",
+      "dest": "call_argument [7300,7307]"
+    },
+    {
+      "src": "{: { [7792,7793]",
+      "dest": "{: { [7792,7793]"
+    },
+    {
+      "src": "{: { [6163,6164]",
+      "dest": "{: { [6163,6164]"
+    },
+    {
+      "src": "call_argument [6350,6357]",
+      "dest": "call_argument [6350,6357]"
+    },
+    {
+      "src": "comment: /**      * @dev Returns true if `account` is a contract.      *      * [IMPORTANT]      * ====      * It is unsafe to assume that an address for which this function returns      * false is an externally-owned account (EOA) and not a contract.      *      * Among others, `isContract` will return false for the following      * types of addresses:      *      *  - an externally-owned account      *  - a contract in construction      *  - an address where a contract will be created      *  - an address where a contract lived, but was destroyed      * ====      *      * [IMPORTANT]      * ====      * You shouldn't rely on `isContract` to protect against flash loan attacks!      *      * Preventing calls from contracts is highly discouraged. It breaks composability, breaks support for smart wallets      * like Gnosis Safe, and does not provide security since it can be circumvented by calling from a contract      * constructor.      * ====      */ [216,1170]",
+      "dest": "comment: /**      * @dev Returns true if `account` is a contract.      *      * [IMPORTANT]      * ====      * It is unsafe to assume that an address for which this function returns      * false is an externally-owned account (EOA) and not a contract.      *      * Among others, `isContract` will return false for the following      * types of addresses:      *      *  - an externally-owned account      *  - a contract in construction      *  - an address where a contract will be created      *  - an address where a contract lived, but was destroyed      * ====      *      * [IMPORTANT]      * ====      * You shouldn't rely on `isContract` to protect against flash loan attacks!      *      * Preventing calls from contracts is highly discouraged. It breaks composability, breaks support for smart wallets      * like Gnosis Safe, and does not provide security since it can be circumvented by calling from a contract      * constructor.      * ====      */ [216,1170]"
+    },
+    {
+      "src": "primitive_type [3943,3949]",
+      "dest": "primitive_type [3943,3949]"
+    },
+    {
+      "src": "primitive_type [6093,6099]",
+      "dest": "primitive_type [6093,6099]"
+    },
+    {
+      "src": "function_body [7721,8253]",
+      "dest": "function_body [7721,8253]"
+    },
+    {
+      "src": "(: ( [7706,7707]",
+      "dest": "(: ( [7706,7707]"
+    },
+    {
+      "src": "): ) [5337,5338]",
+      "dest": "): ) [5337,5338]"
+    },
+    {
+      "src": "type_name [5668,5673]",
+      "dest": "type_name [5668,5673]"
+    },
+    {
+      "src": "memory: memory [3922,3928]",
+      "dest": "memory: memory [3922,3928]"
+    },
+    {
+      "src": ",: , [4527,4528]",
+      "dest": ",: , [4527,4528]"
+    },
+    {
+      "src": "(: ( [7094,7095]",
+      "dest": "(: ( [7094,7095]"
+    },
+    {
+      "src": "call_argument [4055,4059]",
+      "dest": "call_argument [4055,4059]"
+    },
+    {
+      "src": "bytes: bytes [5113,5118]",
+      "dest": "bytes: bytes [5113,5118]"
+    },
+    {
+      "src": "bytes: bytes [6149,6154]",
+      "dest": "bytes: bytes [6149,6154]"
+    },
+    {
+      "src": "call_argument [3593,3597]",
+      "dest": "call_argument [3593,3597]"
+    },
+    {
+      "src": "primitive_type [7044,7050]",
+      "dest": "primitive_type [7044,7050]"
+    },
+    {
+      "src": "variable_declaration_tuple [2577,2593]",
+      "dest": "variable_declaration_tuple [2577,2593]"
+    },
+    {
+      "src": "address: address [6993,7000]",
+      "dest": "address: address [6993,7000]"
+    },
+    {
+      "src": "parameter [6993,7007]",
+      "dest": "parameter [6993,7007]"
+    },
+    {
+      "src": ".: . [2514,2515]",
+      "dest": ".: . [2514,2515]"
+    },
+    {
+      "src": ".: . [6299,6300]",
+      "dest": ".: . [6299,6300]"
+    },
+    {
+      "src": "call_argument [2534,2565]",
+      "dest": "call_argument [2534,2565]"
+    },
+    {
+      "src": "type_name [3541,3546]",
+      "dest": "type_name [3541,3546]"
+    },
+    {
+      "src": "call_expression [3572,3632]",
+      "dest": "call_expression [3572,3632]"
+    },
+    {
+      "src": "string: string [6093,6099]",
+      "dest": "string: string [6093,6099]"
+    },
+    {
+      "src": "(: ( [5709,5710]",
+      "dest": "(: ( [5709,5710]"
+    },
+    {
+      "src": "primitive_type [6266,6271]",
+      "dest": "primitive_type [6266,6271]"
+    },
+    {
+      "src": "identifier: returndata [7309,7319]",
+      "dest": "identifier: returndata [7309,7319]"
+    },
+    {
+      "src": "identifier: errorMessage [6107,6119]",
+      "dest": "identifier: errorMessage [6107,6119]"
+    },
+    {
+      "src": "identifier: data [5025,5029]",
+      "dest": "identifier: data [5025,5029]"
+    },
+    {
+      "src": "identifier: data [5367,5371]",
+      "dest": "identifier: data [5367,5371]"
+    },
+    {
+      "src": "(: ( [7260,7261]",
+      "dest": "(: ( [7260,7261]"
+    },
+    {
+      "src": "call_argument [5177,5217]",
+      "dest": "call_argument [5177,5217]"
+    },
+    {
+      "src": "pure: pure [7693,7697]",
+      "dest": "pure: pure [7693,7697]"
+    },
+    {
+      "src": ",: , [5052,5053]",
+      "dest": ",: , [5052,5053]"
+    },
+    {
+      "src": "identifier: data [3929,3933]",
+      "dest": "identifier: data [3929,3933]"
+    },
+    {
+      "src": "}: } [2624,2625]",
+      "dest": "}: } [2624,2625]"
+    },
+    {
+      "src": "expression_statement [7119,7189]",
+      "dest": "expression_statement [7119,7189]"
+    },
+    {
+      "src": "memory: memory [7101,7107]",
+      "dest": "memory: memory [7101,7107]"
+    },
+    {
+      "src": "(: ( [5144,5145]",
+      "dest": "(: ( [5144,5145]"
+    },
+    {
+      "src": "call_argument [5153,5157]",
+      "dest": "call_argument [5153,5157]"
+    },
+    {
+      "src": "call_argument [7321,7333]",
+      "dest": "call_argument [7321,7333]"
+    },
+    {
+      "src": "): ) [7897,7898]",
+      "dest": "): ) [7897,7898]"
+    },
+    {
+      "src": "(: ( [4627,4628]",
+      "dest": "(: ( [4627,4628]"
+    },
+    {
+      "src": "\": \" [5812,5813]",
+      "dest": "\": \" [5812,5813]"
+    },
+    {
+      "src": ",: , [2456,2457]",
+      "dest": ",: , [2456,2457]"
+    },
+    {
+      "src": "}: } [8163,8164]",
+      "dest": "}: } [8163,8164]"
+    },
+    {
+      "src": "function_body [2483,2724]",
+      "dest": "function_body [2483,2724]"
+    },
+    {
+      "src": "type_name [5012,5017]",
+      "dest": "type_name [5012,5017]"
+    },
+    {
+      "src": ":: : [5358,5359]",
+      "dest": ":: : [5358,5359]"
+    },
+    {
+      "src": "parameter [5668,5685]",
+      "dest": "parameter [5668,5685]"
+    },
+    {
+      "src": "primitive_type [6042,6049]",
+      "dest": "primitive_type [6042,6049]"
+    },
+    {
+      "src": "(: ( [5651,5652]",
+      "dest": "(: ( [5651,5652]"
+    },
+    {
+      "src": "parameter [6653,6665]",
+      "dest": "parameter [6653,6665]"
+    },
+    {
+      "src": "variable_declaration_statement [5299,5373]",
+      "dest": "variable_declaration_statement [5299,5373]"
+    },
+    {
+      "src": "(: ( [6983,6984]",
+      "dest": "(: ( [6983,6984]"
+    },
+    {
+      "src": "internal: internal [7077,7085]",
+      "dest": "internal: internal [7077,7085]"
+    },
+    {
+      "src": "memory: memory [5018,5024]",
+      "dest": "memory: memory [5018,5024]"
+    },
+    {
+      "src": "call_argument [7127,7145]",
+      "dest": "call_argument [7127,7145]"
+    },
+    {
+      "src": "(: ( [7875,7876]",
+      "dest": "(: ( [7875,7876]"
+    },
+    {
+      "src": "function_body [4589,4700]",
+      "dest": "function_body [4589,4700]"
+    },
+    {
+      "src": "): ) [8127,8128]",
+      "dest": "): ) [8127,8128]"
+    },
+    {
+      "src": "returns: returns [3532,3539]",
+      "dest": "returns: returns [3532,3539]"
+    },
+    {
+      "src": "}: } [4699,4700]",
+      "dest": "}: } [4699,4700]"
+    },
+    {
+      "src": "type_name [6066,6071]",
+      "dest": "type_name [6066,6071]"
+    },
+    {
+      "src": "{: { [4008,4009]",
+      "dest": "{: { [4008,4009]"
+    },
+    {
+      "src": "primitive_type [7200,7204]",
+      "dest": "primitive_type [7200,7204]"
+    },
+    {
+      "src": "): ) [6239,6240]",
+      "dest": "): ) [6239,6240]"
+    },
+    {
+      "src": "type_name [7044,7050]",
+      "dest": "type_name [7044,7050]"
+    },
+    {
+      "src": "identifier: data [3517,3521]",
+      "dest": "identifier: data [3517,3521]"
+    },
+    {
+      "src": "): ) [5125,5126]",
+      "dest": "): ) [5125,5126]"
+    },
+    {
+      "src": "{: { [7109,7110]",
+      "dest": "{: { [7109,7110]"
+    },
+    {
+      "src": "(: ( [5366,5367]",
+      "dest": "(: ( [5366,5367]"
+    },
+    {
+      "src": "return: return [7758,7764]",
+      "dest": "return: return [7758,7764]"
+    },
+    {
+      "src": "string [5774,5813]",
+      "dest": "string [5774,5813]"
+    },
+    {
+      "src": "identifier: target [4047,4053]",
+      "dest": "identifier: target [4047,4053]"
+    },
+    {
+      "src": "internal: internal [3523,3531]",
+      "dest": "internal: internal [3523,3531]"
+    },
+    {
+      "src": "variable_declaration_statement [7199,7267]",
+      "dest": "variable_declaration_statement [7199,7267]"
+    },
+    {
+      "src": "): ) [5253,5254]",
+      "dest": "): ) [5253,5254]"
+    },
+    {
+      "src": "function_body [4008,4084]",
+      "dest": "function_body [4008,4084]"
+    },
+    {
+      "src": ",: , [6614,6615]",
+      "dest": ",: , [6614,6615]"
+    },
+    {
+      "src": "(: ( [2625,2626]",
+      "dest": "(: ( [2625,2626]"
+    },
+    {
+      "src": ",: , [3591,3592]",
+      "dest": ",: , [3591,3592]"
+    },
+    {
+      "src": "type_name [5039,5046]",
+      "dest": "type_name [5039,5046]"
+    },
+    {
+      "src": "identifier: value [4545,4550]",
+      "dest": "identifier: value [4545,4550]"
+    },
+    {
+      "src": ",: , [4647,4648]",
+      "dest": ",: , [4647,4648]"
+    },
+    {
+      "src": "identifier: this [5153,5157]",
+      "dest": "identifier: this [5153,5157]"
+    },
+    {
+      "src": "solidity_pragma_token [108,123]",
+      "dest": "solidity_pragma_token [108,123]"
+    },
+    {
+      "src": "address: address [6600,6607]",
+      "dest": "address: address [6600,6607]"
+    },
+    {
+      "src": "identifier: data [5768,5772]",
+      "dest": "identifier: data [5768,5772]"
+    },
+    {
+      "src": "): ) [5371,5372]",
+      "dest": "): ) [5371,5372]"
+    },
+    {
+      "src": "member_expression [6293,6310]",
+      "dest": "member_expression [6293,6310]"
+    },
+    {
+      "src": "visibility [7077,7085]",
+      "dest": "visibility [7077,7085]"
+    },
+    {
+      "src": "\": \" [6759,6760]",
+      "dest": "\": \" [6759,6760]"
+    },
+    {
+      "src": "identifier: isContract [5236,5246]",
+      "dest": "identifier: isContract [5236,5246]"
+    },
+    {
+      "src": "bool: bool [1235,1239]",
+      "dest": "bool: bool [1235,1239]"
+    },
+    {
+      "src": "(: ( [3882,3883]",
+      "dest": "(: ( [3882,3883]"
+    },
+    {
+      "src": "visibility [3523,3531]",
+      "dest": "visibility [3523,3531]"
+    },
+    {
+      "src": "string [2626,2628]",
+      "dest": "string [2626,2628]"
+    },
+    {
+      "src": "type_name [2578,2582]",
+      "dest": "type_name [2578,2582]"
+    },
+    {
+      "src": "returns: returns [7698,7705]",
+      "dest": "returns: returns [7698,7705]"
+    },
+    {
+      "src": ",: , [3933,3934]",
+      "dest": ",: , [3933,3934]"
+    },
+    {
+      "src": "): ) [1210,1211]",
+      "dest": "): ) [1210,1211]"
+    },
+    {
+      "src": "primitive_type [1195,1202]",
+      "dest": "primitive_type [1195,1202]"
+    },
+    {
+      "src": "): ) [5439,5440]",
+      "dest": "): ) [5439,5440]"
+    },
+    {
+      "src": "identifier: amount [2526,2532]",
+      "dest": "identifier: amount [2526,2532]"
+    },
+    {
+      "src": "identifier: target [6705,6711]",
+      "dest": "identifier: target [6705,6711]"
+    },
+    {
+      "src": "yul_evm_builtin [8109,8112]",
+      "dest": "yul_evm_builtin [8109,8112]"
+    },
+    {
+      "src": "internal: internal [5687,5695]",
+      "dest": "internal: internal [5687,5695]"
+    },
+    {
+      "src": "(: ( [8112,8113]",
+      "dest": "(: ( [8112,8113]"
+    },
+    {
+      "src": "}: } [8246,8247]",
+      "dest": "}: } [8246,8247]"
+    },
+    {
+      "src": "): ) [6665,6666]",
+      "dest": "): ) [6665,6666]"
+    },
+    {
+      "src": "identifier: require [5137,5144]",
+      "dest": "identifier: require [5137,5144]"
+    },
+    {
+      "src": ",: , [2532,2533]",
+      "dest": ",: , [2532,2533]"
+    },
+    {
+      "src": "(: ( [5299,5300]",
+      "dest": "(: ( [5299,5300]"
+    },
+    {
+      "src": "function_definition [6570,6768]",
+      "dest": "function_definition [6570,6768]"
+    },
+    {
+      "src": "identifier: data [6079,6083]",
+      "dest": "identifier: data [6079,6083]"
+    },
+    {
+      "src": "): ) [2565,2566]",
+      "dest": "): ) [2565,2566]"
+    },
+    {
+      "src": "}: } [4083,4084]",
+      "dest": "}: } [4083,4084]"
+    },
+    {
+      "src": "parameter [5710,5722]",
+      "dest": "parameter [5710,5722]"
+    },
+    {
+      "src": "uint256: uint256 [2458,2465]",
+      "dest": "uint256: uint256 [2458,2465]"
+    },
+    {
+      "src": "variable_declaration [5300,5312]",
+      "dest": "variable_declaration [5300,5312]"
+    },
+    {
+      "src": "{: { [2483,2484]",
+      "dest": "{: { [2483,2484]"
+    },
+    {
+      "src": "yul_variable_declaration [8041,8081]",
+      "dest": "yul_variable_declaration [8041,8081]"
+    },
+    {
+      "src": "(: ( [3487,3488]",
+      "dest": "(: ( [3487,3488]"
+    },
+    {
+      "src": "if: if [7731,7733]",
+      "dest": "if: if [7731,7733]"
+    },
+    {
+      "src": "identifier: errorMessage [7665,7677]",
+      "dest": "identifier: errorMessage [7665,7677]"
+    },
+    {
+      "src": "return_statement [6677,6762]",
+      "dest": "return_statement [6677,6762]"
+    },
+    {
+      "src": "memory: memory [7051,7057]",
+      "dest": "memory: memory [7051,7057]"
+    },
+    {
+      "src": "(: ( [6032,6033]",
+      "dest": "(: ( [6032,6033]"
+    },
+    {
+      "src": "identifier: length [7887,7893]",
+      "dest": "identifier: length [7887,7893]"
+    },
+    {
+      "src": "call_argument [5427,5439]",
+      "dest": "call_argument [5427,5439]"
+    },
+    {
+      "src": "identifier: success [7300,7307]",
+      "dest": "identifier: success [7300,7307]"
+    },
+    {
+      "src": "call_argument [5760,5766]",
+      "dest": "call_argument [5760,5766]"
+    },
+    {
+      "src": "state_mutability [7693,7697]",
+      "dest": "state_mutability [7693,7697]"
+    },
+    {
+      "src": "return_type_definition [1226,1240]",
+      "dest": "return_type_definition [1226,1240]"
+    },
+    {
+      "src": "parameter [6616,6633]",
+      "dest": "parameter [6616,6633]"
+    },
+    {
+      "src": "identifier: verifyCallResult [7570,7586]",
+      "dest": "identifier: verifyCallResult [7570,7586]"
+    },
+    {
+      "src": "visibility [5687,5695]",
+      "dest": "visibility [5687,5695]"
+    },
+    {
+      "src": "contract_body [210,8255]",
+      "dest": "contract_body [210,8255]"
+    },
+    {
+      "src": "(: ( [7586,7587]",
+      "dest": "(: ( [7586,7587]"
+    },
+    {
+      "src": "call_argument [2626,2628]",
+      "dest": "call_argument [2626,2628]"
+    },
+    {
+      "src": "): ) [6198,6199]",
+      "dest": "): ) [6198,6199]"
+    },
+    {
+      "src": "identifier: Address [202,209]",
+      "dest": "identifier: Address [202,209]"
+    },
+    {
+      "src": "(: ( [2508,2509]",
+      "dest": "(: ( [2508,2509]"
+    },
+    {
+      "src": "function: function [2412,2420]",
+      "dest": "function: function [2412,2420]"
+    },
+    {
+      "src": "identifier: functionCall [3572,3584]",
+      "dest": "identifier: functionCall [3572,3584]"
+    },
+    {
+      "src": "): ) [6124,6125]",
+      "dest": "): ) [6124,6125]"
+    },
+    {
+      "src": "): ) [7237,7238]",
+      "dest": "): ) [7237,7238]"
+    },
+    {
+      "src": "function: function [4948,4956]",
+      "dest": "function: function [4948,4956]"
+    },
+    {
+      "src": "returns: returns [5701,5708]",
+      "dest": "returns: returns [5701,5708]"
+    },
+    {
+      "src": "identifier: target [7241,7247]",
+      "dest": "identifier: target [7241,7247]"
+    },
+    {
+      "src": "identifier: isContract [1184,1194]",
+      "dest": "identifier: isContract [1184,1194]"
+    },
+    {
+      "src": "): ) [7075,7076]",
+      "dest": "): ) [7075,7076]"
+    },
+    {
+      "src": "type_name [4510,4515]",
+      "dest": "type_name [4510,4515]"
+    },
+    {
+      "src": "identifier: target [7001,7007]",
+      "dest": "identifier: target [7001,7007]"
+    },
+    {
+      "src": "identifier: success [7735,7742]",
+      "dest": "identifier: success [7735,7742]"
+    },
+    {
+      "src": "return_type_definition [4566,4588]",
+      "dest": "return_type_definition [4566,4588]"
+    },
+    {
+      "src": "address: address [2431,2438]",
+      "dest": "address: address [2431,2438]"
+    },
+    {
+      "src": "block_statement [7744,7786]",
+      "dest": "block_statement [7744,7786]"
+    },
+    {
+      "src": "identifier: target [4494,4500]",
+      "dest": "identifier: target [4494,4500]"
+    },
+    {
+      "src": "returns: returns [6644,6651]",
+      "dest": "returns: returns [6644,6651]"
+    },
+    {
+      "src": "string_literal [7147,7187]",
+      "dest": "string_literal [7147,7187]"
+    },
+    {
+      "src": "member_expression [5145,5166]",
+      "dest": "member_expression [5145,5166]"
+    },
+    {
+      "src": "member_expression [7241,7260]",
+      "dest": "member_expression [7241,7260]"
+    },
+    {
+      "src": "returns: returns [4566,4573]",
+      "dest": "returns: returns [4566,4573]"
+    },
+    {
+      "src": "parameter [6149,6161]",
+      "dest": "parameter [6149,6161]"
+    },
+    {
+      "src": "parameter [3541,3553]",
+      "dest": "parameter [3541,3553]"
+    },
+    {
+      "src": "string_literal [2626,2628]",
+      "dest": "string_literal [2626,2628]"
+    },
+    {
+      "src": "return_type_definition [6644,6666]",
+      "dest": "return_type_definition [6644,6666]"
+    },
+    {
+      "src": "variable_declaration [6252,6264]",
+      "dest": "variable_declaration [6252,6264]"
+    },
+    {
+      "src": "parameter [5012,5029]",
+      "dest": "parameter [5012,5029]"
+    },
+    {
+      "src": ">=: >= [5167,5169]",
+      "dest": ">=: >= [5167,5169]"
+    },
+    {
+      "src": "call_expression [7119,7188]",
+      "dest": "call_expression [7119,7188]"
+    },
+    {
+      "src": "): ) [6161,6162]",
+      "dest": "): ) [6161,6162]"
+    },
+    {
+      "src": "type_name [5300,5304]",
+      "dest": "type_name [5300,5304]"
+    },
+    {
+      "src": "return_statement [4599,4694]",
+      "dest": "return_statement [4599,4694]"
+    },
+    {
+      "src": "type_name [6616,6621]",
+      "dest": "type_name [6616,6621]"
+    },
+    {
+      "src": "call_expression [5389,5440]",
+      "dest": "call_expression [5389,5440]"
+    },
+    {
+      "src": "comment: /**  * @dev Collection of functions related to the address type  */ [126,193]",
+      "dest": "comment: /**  * @dev Collection of functions related to the address type  */ [126,193]"
+    },
+    {
+      "src": "call_argument [5145,5175]",
+      "dest": "call_argument [5145,5175]"
+    },
+    {
+      "src": "(: ( [6652,6653]",
+      "dest": "(: ( [6652,6653]"
+    },
+    {
+      "src": "memory: memory [3510,3516]",
+      "dest": "memory: memory [3510,3516]"
+    },
+    {
+      "src": "(: ( [3993,3994]",
+      "dest": "(: ( [3993,3994]"
+    },
+    {
+      "src": "): ) [6633,6634]",
+      "dest": "): ) [6633,6634]"
+    },
+    {
+      "src": "identifier: target [5247,5253]",
+      "dest": "identifier: target [5247,5253]"
+    },
+    {
+      "src": ",: , [3906,3907]",
+      "dest": ",: , [3906,3907]"
+    },
+    {
+      "src": "identifier: data [3593,3597]",
+      "dest": "identifier: data [3593,3597]"
+    },
+    {
+      "src": "parameter [1235,1239]",
+      "dest": "parameter [1235,1239]"
+    },
+    {
+      "src": "string [7147,7187]",
+      "dest": "string [7147,7187]"
+    },
+    {
+      "src": "comment: // for contracts in construction, since the code is only stored at the end [1333,1407]",
+      "dest": "comment: // for contracts in construction, since the code is only stored at the end [1333,1407]"
+    },
+    {
+      "src": "call_expression [6173,6240]",
+      "dest": "call_expression [6173,6240]"
+    },
+    {
+      "src": "identifier: returndata [5415,5425]",
+      "dest": "identifier: returndata [5415,5425]"
+    },
+    {
+      "src": "(: ( [7199,7200]",
+      "dest": "(: ( [7199,7200]"
+    },
+    {
+      "src": "{: { [2610,2611]",
+      "dest": "{: { [2610,2611]"
+    },
+    {
+      "src": "type_name [6653,6658]",
+      "dest": "type_name [6653,6658]"
+    },
+    {
+      "src": "source_file [0,8256]",
+      "dest": "source_file [0,8256]"
+    },
+    {
+      "src": "): ) [2628,2629]",
+      "dest": "): ) [2628,2629]"
+    },
+    {
+      "src": "identifier: returndata [5327,5337]",
+      "dest": "identifier: returndata [5327,5337]"
+    },
+    {
+      "src": "parameter [4510,4527]",
+      "dest": "parameter [4510,4527]"
+    },
+    {
+      "src": "type_name [6093,6099]",
+      "dest": "type_name [6093,6099]"
+    },
+    {
+      "src": "string_literal [2534,2565]",
+      "dest": "string_literal [2534,2565]"
+    },
+    {
+      "src": "identifier: data [4055,4059]",
+      "dest": "identifier: data [4055,4059]"
+    },
+    {
+      "src": "memory: memory [7658,7664]",
+      "dest": "memory: memory [7658,7664]"
+    },
+    {
+      "src": ">: > [7894,7895]",
+      "dest": ">: > [7894,7895]"
+    },
+    {
+      "src": "yul_function_call [8102,8146]",
+      "dest": "yul_function_call [8102,8146]"
+    },
+    {
+      "src": "type_name [1195,1202]",
+      "dest": "type_name [1195,1202]"
+    },
+    {
+      "src": "identifier: returndata [7227,7237]",
+      "dest": "identifier: returndata [7227,7237]"
+    },
+    {
+      "src": "): ) [3521,3522]",
+      "dest": "): ) [3521,3522]"
+    },
+    {
+      "src": "string: string [7044,7050]",
+      "dest": "string: string [7044,7050]"
+    },
+    {
+      "src": "}: } [2723,2724]",
+      "dest": "}: } [2723,2724]"
+    },
+    {
+      "src": "function_definition [4446,4700]",
+      "dest": "function_definition [4446,4700]"
+    },
+    {
+      "src": "address: address [5145,5152]",
+      "dest": "address: address [5145,5152]"
+    },
+    {
+      "src": "internal: internal [7684,7692]",
+      "dest": "internal: internal [7684,7692]"
+    },
+    {
+      "src": "function_definition [3466,3639]",
+      "dest": "function_definition [3466,3639]"
+    },
+    {
+      "src": "(: ( [6180,6181]",
+      "dest": "(: ( [6180,6181]"
+    },
+    {
+      "src": "bytes: bytes [3994,3999]",
+      "dest": "bytes: bytes [3994,3999]"
+    },
+    {
+      "src": "{: { [5724,5725]",
+      "dest": "{: { [5724,5725]"
+    },
+    {
+      "src": "): ) [7719,7720]",
+      "dest": "): ) [7719,7720]"
+    },
+    {
+      "src": ",: , [7307,7308]",
+      "dest": ",: , [7307,7308]"
+    },
+    {
+      "src": "parameter [1195,1210]",
+      "dest": "parameter [1195,1210]"
+    },
+    {
+      "src": "yul_identifier [8130,8145]",
+      "dest": "yul_identifier [8130,8145]"
+    },
+    {
+      "src": "identifier: require [7119,7126]",
+      "dest": "identifier: require [7119,7126]"
+    },
+    {
+      "src": "identifier: returndata [7765,7775]",
+      "dest": "identifier: returndata [7765,7775]"
+    },
+    {
+      "src": "): ) [8145,8146]",
+      "dest": "): ) [8145,8146]"
+    },
+    {
+      "src": "{: { [210,211]",
+      "dest": "{: { [210,211]"
+    },
+    {
+      "src": "(: ( [5235,5236]",
+      "dest": "(: ( [5235,5236]"
+    },
+    {
+      "src": "call_argument [6713,6717]",
+      "dest": "call_argument [6713,6717]"
+    },
+    {
+      "src": "returns: returns [6140,6147]",
+      "dest": "returns: returns [6140,6147]"
+    },
+    {
+      "src": "comment: /**      * @dev Tool to verifies that a low level call was successful, and revert if it wasn't, either by bubbling the      * revert reason using the provided one.      *      * _Available since v4.3._      */ [7347,7556]",
+      "dest": "comment: /**      * @dev Tool to verifies that a low level call was successful, and revert if it wasn't, either by bubbling the      * revert reason using the provided one.      *      * _Available since v4.3._      */ [7347,7556]"
+    },
+    {
+      "src": "identifier: returndata_size [8045,8060]",
+      "dest": "identifier: returndata_size [8045,8060]"
+    },
+    {
+      "src": "binary_expression [5145,5175]",
+      "dest": "binary_expression [5145,5175]"
+    },
+    {
+      "src": "identifier: require [2493,2500]",
+      "dest": "identifier: require [2493,2500]"
+    },
+    {
+      "src": "bytes: bytes [3541,3546]",
+      "dest": "bytes: bytes [3541,3546]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: MIT [0,31]",
+      "dest": "comment: // SPDX-License-Identifier: MIT [0,31]"
+    },
+    {
+      "src": "): ) [7187,7188]",
+      "dest": "): ) [7187,7188]"
+    },
+    {
+      "src": "call_argument [4642,4647]",
+      "dest": "call_argument [4642,4647]"
+    },
+    {
+      "src": "=: = [2594,2595]",
+      "dest": "=: = [2594,2595]"
+    },
+    {
+      "src": "identifier: functionStaticCall [6014,6032]",
+      "dest": "identifier: functionStaticCall [6014,6032]"
+    },
+    {
+      "src": "return_type_definition [6140,6162]",
+      "dest": "return_type_definition [6140,6162]"
+    },
+    {
+      "src": "identifier: balance [2515,2522]",
+      "dest": "identifier: balance [2515,2522]"
+    },
+    {
+      "src": "identifier: functionCallWithValue [4455,4476]",
+      "dest": "identifier: functionCallWithValue [4455,4476]"
+    },
+    {
+      "src": "call_argument [7147,7187]",
+      "dest": "call_argument [7147,7187]"
+    },
+    {
+      "src": "parameter [4575,4587]",
+      "dest": "parameter [4575,4587]"
+    },
+    {
+      "src": "yul_identifier [8070,8080]",
+      "dest": "yul_identifier [8070,8080]"
+    },
+    {
+      "src": "identifier: success [7601,7608]",
+      "dest": "identifier: success [7601,7608]"
+    },
+    {
+      "src": "primitive_type [5710,5715]",
+      "dest": "primitive_type [5710,5715]"
+    },
+    {
+      "src": "bytes: bytes [6653,6658]",
+      "dest": "bytes: bytes [6653,6658]"
+    },
+    {
+      "src": "add: add [8109,8112]",
+      "dest": "add: add [8109,8112]"
+    },
+    {
+      "src": "(: ( [6704,6705]",
+      "dest": "(: ( [6704,6705]"
+    },
+    {
+      "src": "primitive_type [7596,7600]",
+      "dest": "primitive_type [7596,7600]"
+    },
+    {
+      "src": "identifier: recipient [2596,2605]",
+      "dest": "identifier: recipient [2596,2605]"
+    },
+    {
+      "src": "(: ( [1234,1235]",
+      "dest": "(: ( [1234,1235]"
+    },
+    {
+      "src": "memory: memory [6100,6106]",
+      "dest": "memory: memory [6100,6106]"
+    },
+    {
+      "src": "identifier: functionDelegateCall [6684,6704]",
+      "dest": "identifier: functionDelegateCall [6684,6704]"
+    },
+    {
+      "src": "memory: memory [7624,7630]",
+      "dest": "memory: memory [7624,7630]"
+    },
+    {
+      "src": "(: ( [8069,8070]",
+      "dest": "(: ( [8069,8070]"
+    },
+    {
+      "src": "struct_field_assignment [5353,5365]",
+      "dest": "struct_field_assignment [5353,5365]"
+    },
+    {
+      "src": "yul_decimal_number: 32 [8113,8115]",
+      "dest": "yul_decimal_number: 32 [8113,8115]"
+    },
+    {
+      "src": "type_name [2431,2446]",
+      "dest": "type_name [2431,2446]"
+    },
+    {
+      "src": ",: , [4640,4641]",
+      "dest": ",: , [4640,4641]"
+    },
+    {
+      "src": "string_literal [6201,6239]",
+      "dest": "string_literal [6201,6239]"
+    },
+    {
+      "src": "): ) [5685,5686]",
+      "dest": "): ) [5685,5686]"
+    },
+    {
+      "src": "assembly: assembly [8010,8018]",
+      "dest": "assembly: assembly [8010,8018]"
+    },
+    {
+      "src": "type_name [1235,1239]",
+      "dest": "type_name [1235,1239]"
+    },
+    {
+      "src": "identifier: length [1478,1484]",
+      "dest": "identifier: length [1478,1484]"
+    },
+    {
+      "src": "): ) [7144,7145]",
+      "dest": "): ) [7144,7145]"
+    },
+    {
+      "src": "mload: mload [8064,8069]",
+      "dest": "mload: mload [8064,8069]"
+    },
+    {
+      "src": "primitive_type [5652,5659]",
+      "dest": "primitive_type [5652,5659]"
+    },
+    {
+      "src": "\": \" [2534,2535]",
+      "dest": "\": \" [2534,2535]"
+    },
+    {
+      "src": "(: ( [5152,5153]",
+      "dest": "(: ( [5152,5153]"
+    },
+    {
+      "src": "bytes: bytes [5314,5319]",
+      "dest": "bytes: bytes [5314,5319]"
+    },
+    {
+      "src": "): ) [6383,6384]",
+      "dest": "): ) [6383,6384]"
+    },
+    {
+      "src": "identifier: target [4628,4634]",
+      "dest": "identifier: target [4628,4634]"
+    },
+    {
+      "src": ",: , [5425,5426]",
+      "dest": ",: , [5425,5426]"
+    },
+    {
+      "src": "(: ( [7126,7127]",
+      "dest": "(: ( [7126,7127]"
+    },
+    {
+      "src": ",: , [6056,6057]",
+      "dest": ",: , [6056,6057]"
+    },
+    {
+      "src": "identifier: call [2606,2610]",
+      "dest": "identifier: call [2606,2610]"
+    },
+    {
+      "src": "identifier: value [4642,4647]",
+      "dest": "identifier: value [4642,4647]"
+    },
+    {
+      "src": "string_literal [2656,2716]",
+      "dest": "string_literal [2656,2716]"
+    },
+    {
+      "src": "parameter [5113,5125]",
+      "dest": "parameter [5113,5125]"
+    },
+    {
+      "src": "identifier: require [5228,5235]",
+      "dest": "identifier: require [5228,5235]"
+    },
+    {
+      "src": "internal: internal [6635,6643]",
+      "dest": "internal: internal [6635,6643]"
+    },
+    {
+      "src": ".: . [7247,7248]",
+      "dest": ".: . [7247,7248]"
+    },
+    {
+      "src": "primitive_type [6252,6256]",
+      "dest": "primitive_type [6252,6256]"
+    },
+    {
+      "src": ",: , [4062,4063]",
+      "dest": ",: , [4062,4063]"
+    },
+    {
+      "src": "return_type_definition [5104,5126]",
+      "dest": "return_type_definition [5104,5126]"
+    },
+    {
+      "src": "yul_evm_builtin [8102,8108]",
+      "dest": "yul_evm_builtin [8102,8108]"
+    },
+    {
+      "src": "type_name [4537,4544]",
+      "dest": "type_name [4537,4544]"
+    },
+    {
+      "src": "parameter [5039,5052]",
+      "dest": "parameter [5039,5052]"
+    },
+    {
+      "src": "=: = [6291,6292]",
+      "dest": "=: = [6291,6292]"
+    },
+    {
+      "src": "pragma: pragma [101,107]",
+      "dest": "pragma: pragma [101,107]"
+    },
+    {
+      "src": "parameter [7044,7070]",
+      "dest": "parameter [7044,7070]"
+    },
+    {
+      "src": "returns: returns [3985,3992]",
+      "dest": "returns: returns [3985,3992]"
+    },
+    {
+      "src": "uint256: uint256 [5039,5046]",
+      "dest": "uint256: uint256 [5039,5046]"
+    },
+    {
+      "src": "string_literal [6719,6760]",
+      "dest": "string_literal [6719,6760]"
+    },
+    {
+      "src": "identifier: functionDelegateCall [6963,6983]",
+      "dest": "identifier: functionDelegateCall [6963,6983]"
+    },
+    {
+      "src": ",: , [5312,5313]",
+      "dest": ",: , [5312,5313]"
+    },
+    {
+      "src": "identifier: returndata [6359,6369]",
+      "dest": "identifier: returndata [6359,6369]"
+    },
+    {
+      "src": ",: , [7212,7213]",
+      "dest": ",: , [7212,7213]"
+    },
+    {
+      "src": "{: { [5127,5128]",
+      "dest": "{: { [5127,5128]"
+    },
+    {
+      "src": "yul_evm_builtin [8064,8069]",
+      "dest": "yul_evm_builtin [8064,8069]"
+    },
+    {
+      "src": "variable_declaration [2578,2590]",
+      "dest": "variable_declaration [2578,2590]"
+    },
+    {
+      "src": "return_statement [5382,5441]",
+      "dest": "return_statement [5382,5441]"
+    },
+    {
+      "src": "struct_field_assignment [2611,2624]",
+      "dest": "struct_field_assignment [2611,2624]"
+    },
+    {
+      "src": "parameter [7596,7608]",
+      "dest": "parameter [7596,7608]"
+    },
+    {
+      "src": ",: , [3502,3503]",
+      "dest": ",: , [3502,3503]"
+    },
+    {
+      "src": "identifier: data [4523,4527]",
+      "dest": "identifier: data [4523,4527]"
+    },
+    {
+      "src": "identifier: errorMessage [5427,5439]",
+      "dest": "identifier: errorMessage [5427,5439]"
+    },
+    {
+      "src": "binary_expression [7876,7897]",
+      "dest": "binary_expression [7876,7897]"
+    },
+    {
+      "src": "identifier: data [7261,7265]",
+      "dest": "identifier: data [7261,7265]"
+    },
+    {
+      "src": "call_argument [6201,6239]",
+      "dest": "call_argument [6201,6239]"
+    },
+    {
+      "src": "visibility [6126,6134]",
+      "dest": "visibility [6126,6134]"
+    },
+    {
+      "src": "parameter [4537,4550]",
+      "dest": "parameter [4537,4550]"
+    },
+    {
+      "src": "call_argument [6719,6760]",
+      "dest": "call_argument [6719,6760]"
+    },
+    {
+      "src": "call_expression [6293,6316]",
+      "dest": "call_expression [6293,6316]"
+    },
+    {
+      "src": "(: ( [6599,6600]",
+      "dest": "(: ( [6599,6600]"
+    },
+    {
+      "src": "identifier: functionCall [3870,3882]",
+      "dest": "identifier: functionCall [3870,3882]"
+    },
+    {
+      "src": "expression_statement [6173,6241]",
+      "dest": "expression_statement [6173,6241]"
+    },
+    {
+      "src": "call_expression [6333,6384]",
+      "dest": "call_expression [6333,6384]"
+    },
+    {
+      "src": "payable: payable [2439,2446]",
+      "dest": "payable: payable [2439,2446]"
+    },
+    {
+      "src": "return_statement [1458,1489]",
+      "dest": "return_statement [1458,1489]"
+    },
+    {
+      "src": "function_body [5724,5821]",
+      "dest": "function_body [5724,5821]"
+    },
+    {
+      "src": "parameter [3504,3521]",
+      "dest": "parameter [3504,3521]"
+    },
+    {
+      "src": "function: function [5624,5632]",
+      "dest": "function: function [5624,5632]"
+    },
+    {
+      "src": "identifier: returndata_size [8130,8145]",
+      "dest": "identifier: returndata_size [8130,8145]"
+    },
+    {
+      "src": "{: { [4589,4590]",
+      "dest": "{: { [4589,4590]"
+    },
+    {
+      "src": "function_body [7109,7341]",
+      "dest": "function_body [7109,7341]"
+    },
+    {
+      "src": "call_argument [7309,7319]",
+      "dest": "call_argument [7309,7319]"
+    },
+    {
+      "src": "}: } [7340,7341]",
+      "dest": "}: } [7340,7341]"
+    },
+    {
+      "src": "primitive_type [5314,5319]",
+      "dest": "primitive_type [5314,5319]"
+    },
+    {
+      "src": "): ) [6315,6316]",
+      "dest": "): ) [6315,6316]"
+    },
+    {
+      "src": "call_expression [2493,2566]",
+      "dest": "call_expression [2493,2566]"
+    },
+    {
+      "src": "primitive_type [3541,3546]",
+      "dest": "primitive_type [3541,3546]"
+    },
+    {
+      "src": "): ) [5157,5158]",
+      "dest": "): ) [5157,5158]"
+    },
+    {
+      "src": "view: view [1221,1225]",
+      "dest": "view: view [1221,1225]"
+    },
+    {
+      "src": "bytes: bytes [7707,7712]",
+      "dest": "bytes: bytes [7707,7712]"
+    },
+    {
+      "src": ",: , [6357,6358]",
+      "dest": ",: , [6357,6358]"
+    },
+    {
+      "src": ",: , [8115,8116]",
+      "dest": ",: , [8115,8116]"
+    },
+    {
+      "src": "identifier: require [2639,2646]",
+      "dest": "identifier: require [2639,2646]"
+    },
+    {
+      "src": "}: } [8177,8178]",
+      "dest": "}: } [8177,8178]"
+    },
+    {
+      "src": "memory: memory [5320,5326]",
+      "dest": "memory: memory [5320,5326]"
+    },
+    {
+      "src": "call_argument [4047,4053]",
+      "dest": "call_argument [4047,4053]"
+    },
+    {
+      "src": "call_argument [4061,4062]",
+      "dest": "call_argument [4061,4062]"
+    },
+    {
+      "src": "(: ( [5759,5760]",
+      "dest": "(: ( [5759,5760]"
+    },
+    {
+      "src": ",: , [4059,4060]",
+      "dest": ",: , [4059,4060]"
+    },
+    {
+      "src": "call_argument [6181,6199]",
+      "dest": "call_argument [6181,6199]"
+    },
+    {
+      "src": "return: return [6326,6332]",
+      "dest": "return: return [6326,6332]"
+    },
+    {
+      "src": "type_name [6149,6154]",
+      "dest": "type_name [6149,6154]"
+    },
+    {
+      "src": "{: { [8184,8185]",
+      "dest": "{: { [8184,8185]"
+    },
+    {
+      "src": "\": \" [2626,2627]",
+      "dest": "\": \" [2626,2627]"
+    },
+    {
+      "src": "identifier: target [5760,5766]",
+      "dest": "identifier: target [5760,5766]"
+    },
+    {
+      "src": "return_statement [7758,7776]",
+      "dest": "return_statement [7758,7776]"
+    },
+    {
+      "src": "address: address [3488,3495]",
+      "dest": "address: address [3488,3495]"
+    },
+    {
+      "src": "identifier: data [7030,7034]",
+      "dest": "identifier: data [7030,7034]"
+    },
+    {
+      "src": "type_name [4988,4995]",
+      "dest": "type_name [4988,4995]"
+    },
+    {
+      "src": "string [6201,6239]",
+      "dest": "string [6201,6239]"
+    },
+    {
+      "src": "identifier: errorMessage [8209,8221]",
+      "dest": "identifier: errorMessage [8209,8221]"
+    },
+    {
+      "src": "memory: memory [6155,6161]",
+      "dest": "memory: memory [6155,6161]"
+    },
+    {
+      "src": "primitive_type [4575,4580]",
+      "dest": "primitive_type [4575,4580]"
+    },
+    {
+      "src": "memory: memory [3547,3553]",
+      "dest": "memory: memory [3547,3553]"
+    },
+    {
+      "src": "function_definition [6954,7341]",
+      "dest": "function_definition [6954,7341]"
+    },
+    {
+      "src": "parameter [7707,7719]",
+      "dest": "parameter [7707,7719]"
+    },
+    {
+      "src": "identifier: amount [2618,2624]",
+      "dest": "identifier: amount [2618,2624]"
+    },
+    {
+      "src": "string [2534,2565]",
+      "dest": "string [2534,2565]"
+    },
+    {
+      "src": "primitive_type [6149,6154]",
+      "dest": "primitive_type [6149,6154]"
+    },
+    {
+      "src": "): ) [5722,5723]",
+      "dest": "): ) [5722,5723]"
+    },
+    {
+      "src": "return: return [7276,7282]",
+      "dest": "return: return [7276,7282]"
+    },
+    {
+      "src": "function_definition [5624,5821]",
+      "dest": "function_definition [5624,5821]"
+    },
+    {
+      "src": "primitive_type [7017,7022]",
+      "dest": "primitive_type [7017,7022]"
+    },
+    {
+      "src": "parameter [6093,6119]",
+      "dest": "parameter [6093,6119]"
+    },
+    {
+      "src": "}: } [7785,7786]",
+      "dest": "}: } [7785,7786]"
+    },
+    {
+      "src": "function: function [6005,6013]",
+      "dest": "function: function [6005,6013]"
+    },
+    {
+      "src": "parameter [6600,6614]",
+      "dest": "parameter [6600,6614]"
+    },
+    {
+      "src": "parameter [7095,7107]",
+      "dest": "parameter [7095,7107]"
+    },
+    {
+      "src": "bytes: bytes [5668,5673]",
+      "dest": "bytes: bytes [5668,5673]"
+    },
+    {
+      "src": "identifier: success [6257,6264]",
+      "dest": "identifier: success [6257,6264]"
+    },
+    {
+      "src": "bytes: bytes [6066,6071]",
+      "dest": "bytes: bytes [6066,6071]"
+    },
+    {
+      "src": "identifier: data [4636,4640]",
+      "dest": "identifier: data [4636,4640]"
+    },
+    {
+      "src": "return_statement [3565,3633]",
+      "dest": "return_statement [3565,3633]"
+    },
+    {
+      "src": "return: return [6677,6683]",
+      "dest": "return: return [6677,6683]"
+    },
+    {
+      "src": "binary_expression [1465,1488]",
+      "dest": "binary_expression [1465,1488]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],      * but performing a delegate call.      *      * _Available since v3.4._      */ [6774,6949]",
+      "dest": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],      * but performing a delegate call.      *      * _Available since v3.4._      */ [6774,6949]"
+    },
+    {
+      "src": "(: ( [8208,8209]",
+      "dest": "(: ( [8208,8209]"
+    },
+    {
+      "src": "bytes: bytes [6616,6621]",
+      "dest": "bytes: bytes [6616,6621]"
+    },
+    {
+      "src": ",: , [2590,2591]",
+      "dest": ",: , [2590,2591]"
+    },
+    {
+      "src": "): ) [8080,8081]",
+      "dest": "): ) [8080,8081]"
+    },
+    {
+      "src": "variable_declaration [6266,6289]",
+      "dest": "variable_declaration [6266,6289]"
+    },
+    {
+      "src": "(: ( [1194,1195]",
+      "dest": "(: ( [1194,1195]"
+    },
+    {
+      "src": "state_mutability [1221,1225]",
+      "dest": "state_mutability [1221,1225]"
+    },
+    {
+      "src": "): ) [6760,6761]",
+      "dest": "): ) [6760,6761]"
+    },
+    {
+      "src": "call_expression [4606,4693]",
+      "dest": "call_expression [4606,4693]"
+    },
+    {
+      "src": "string: string [7651,7657]",
+      "dest": "string: string [7651,7657]"
+    },
+    {
+      "src": "identifier: balance [5159,5166]",
+      "dest": "identifier: balance [5159,5166]"
+    },
+    {
+      "src": "parameter [5652,5666]",
+      "dest": "parameter [5652,5666]"
+    },
+    {
+      "src": ",: , [8128,8129]",
+      "dest": ",: , [8128,8129]"
+    },
+    {
+      "src": "identifier: code [1473,1477]",
+      "dest": "identifier: code [1473,1477]"
+    },
+    {
+      "src": "type_name [3916,3921]",
+      "dest": "type_name [3916,3921]"
+    },
+    {
+      "src": "identifier: success [5305,5312]",
+      "dest": "identifier: success [5305,5312]"
+    },
+    {
+      "src": "{: { [6667,6668]",
+      "dest": "{: { [6667,6668]"
+    },
+    {
+      "src": "primitive_type [5300,5304]",
+      "dest": "primitive_type [5300,5304]"
+    },
+    {
+      "src": "address: address [5652,5659]",
+      "dest": "address: address [5652,5659]"
+    },
+    {
+      "src": ".: . [1472,1473]",
+      "dest": ".: . [1472,1473]"
+    },
+    {
+      "src": "type_name [7214,7219]",
+      "dest": "type_name [7214,7219]"
+    },
+    {
+      "src": ",: , [6264,6265]",
+      "dest": ",: , [6264,6265]"
+    },
+    {
+      "src": "return_statement [7276,7335]",
+      "dest": "return_statement [7276,7335]"
+    },
+    {
+      "src": "(: ( [2577,2578]",
+      "dest": "(: ( [2577,2578]"
+    },
+    {
+      "src": "identifier: value [5353,5358]",
+      "dest": "identifier: value [5353,5358]"
+    },
+    {
+      "src": "comment: /**      * @dev Performs a Solidity function call using a low level `call`. A      * plain `call` is an unsafe replacement for a function call: use this      * function instead.      *      * If `target` reverts with a revert reason, it is bubbled up by this      * function (like regular Solidity function calls).      *      * Returns the raw returned data. To convert to the expected return value,      * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].      *      * Requirements:      *      * - `target` must be a contract.      * - calling `target` with `data` must not revert.      *      * _Available since v3.1._      */ [2730,3461]",
+      "dest": "comment: /**      * @dev Performs a Solidity function call using a low level `call`. A      * plain `call` is an unsafe replacement for a function call: use this      * function instead.      *      * If `target` reverts with a revert reason, it is bubbled up by this      * function (like regular Solidity function calls).      *      * Returns the raw returned data. To convert to the expected return value,      * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].      *      * Requirements:      *      * - `target` must be a contract.      * - calling `target` with `data` must not revert.      *      * _Available since v3.1._      */ [2730,3461]"
+    },
+    {
+      "src": "parameter [3994,4006]",
+      "dest": "parameter [3994,4006]"
+    },
+    {
+      "src": "call_expression [6684,6761]",
+      "dest": "call_expression [6684,6761]"
+    },
+    {
+      "src": "\": \" [3599,3600]",
+      "dest": "\": \" [3599,3600]"
+    },
+    {
+      "src": "): ) [7742,7743]",
+      "dest": "): ) [7742,7743]"
+    },
+    {
+      "src": "pragma_directive [101,124]",
+      "dest": "pragma_directive [101,124]"
+    },
+    {
+      "src": "else: else [8179,8183]",
+      "dest": "else: else [8179,8183]"
+    },
+    {
+      "src": "): ) [4076,4077]",
+      "dest": "): ) [4076,4077]"
+    },
+    {
+      "src": "identifier: call [5348,5352]",
+      "dest": "identifier: call [5348,5352]"
+    },
+    {
+      "src": ",: , [6717,6718]",
+      "dest": ",: , [6717,6718]"
+    },
+    {
+      "src": "primitive_type [7095,7100]",
+      "dest": "primitive_type [7095,7100]"
+    },
+    {
+      "src": "(: ( [7137,7138]",
+      "dest": "(: ( [7137,7138]"
+    },
+    {
+      "src": "^:  ^ [116,118]",
+      "dest": "^:  ^ [116,118]"
+    },
+    {
+      "src": "primitive_type [4988,4995]",
+      "dest": "primitive_type [4988,4995]"
+    },
+    {
+      "src": "call_argument [2656,2716]",
+      "dest": "call_argument [2656,2716]"
+    },
+    {
+      "src": "identifier: data [6629,6633]",
+      "dest": "identifier: data [6629,6633]"
+    },
+    {
+      "src": "\": \" [7186,7187]",
+      "dest": "\": \" [7186,7187]"
+    },
+    {
+      "src": ",: , [5029,5030]",
+      "dest": ",: , [5029,5030]"
+    },
+    {
+      "src": "string_literal [5177,5217]",
+      "dest": "string_literal [5177,5217]"
+    },
+    {
+      "src": "return_statement [5734,5815]",
+      "dest": "return_statement [5734,5815]"
+    },
+    {
+      "src": "function: function [3466,3474]",
+      "dest": "function: function [3466,3474]"
+    },
+    {
+      "src": "): ) [7333,7334]",
+      "dest": "): ) [7333,7334]"
+    },
+    {
+      "src": "(: ( [2646,2647]",
+      "dest": "(: ( [2646,2647]"
+    },
+    {
+      "src": "call_argument [5247,5253]",
+      "dest": "call_argument [5247,5253]"
+    },
+    {
+      "src": "state_mutability [6135,6139]",
+      "dest": "state_mutability [6135,6139]"
+    },
+    {
+      "src": "primitive_type [7651,7657]",
+      "dest": "primitive_type [7651,7657]"
+    },
+    {
+      "src": "primitive_type [4537,4544]",
+      "dest": "primitive_type [4537,4544]"
+    },
+    {
+      "src": "memory: memory [6622,6628]",
+      "dest": "memory: memory [6622,6628]"
+    },
+    {
+      "src": ",: , [7319,7320]",
+      "dest": ",: , [7319,7320]"
+    },
+    {
+      "src": "function_body [6163,6391]",
+      "dest": "function_body [6163,6391]"
+    },
+    {
+      "src": "identifier: functionCallWithValue [4025,4046]",
+      "dest": "identifier: functionCallWithValue [4025,4046]"
+    },
+    {
+      "src": "): ) [6289,6290]",
+      "dest": "): ) [6289,6290]"
+    },
+    {
+      "src": "visibility [1212,1220]",
+      "dest": "visibility [1212,1220]"
+    },
+    {
+      "src": "primitive_type [5668,5673]",
+      "dest": "primitive_type [5668,5673]"
+    },
+    {
+      "src": ",: , [4500,4501]",
+      "dest": ",: , [4500,4501]"
+    },
+    {
+      "src": "bytes: bytes [7214,7219]",
+      "dest": "bytes: bytes [7214,7219]"
+    },
+    {
+      "src": "(: ( [3540,3541]",
+      "dest": "(: ( [3540,3541]"
+    },
+    {
+      "src": "identifier: value [5360,5365]",
+      "dest": "identifier: value [5360,5365]"
+    },
+    {
+      "src": "primitive_type [6653,6658]",
+      "dest": "primitive_type [6653,6658]"
+    },
+    {
+      "src": "identifier: verifyCallResult [5389,5405]",
+      "dest": "identifier: verifyCallResult [5389,5405]"
+    },
+    {
+      "src": ",: , [7007,7008]",
+      "dest": ",: , [7007,7008]"
+    },
+    {
+      "src": "identifier: errorMessage [5076,5088]",
+      "dest": "identifier: errorMessage [5076,5088]"
+    },
+    {
+      "src": "identifier: target [6293,6299]",
+      "dest": "identifier: target [6293,6299]"
+    },
+    {
+      "src": "call_expression [7283,7334]",
+      "dest": "call_expression [7283,7334]"
+    },
+    {
+      "src": "call_argument [7138,7144]",
+      "dest": "call_argument [7138,7144]"
+    },
+    {
+      "src": "identifier: success [7205,7212]",
+      "dest": "identifier: success [7205,7212]"
+    },
+    {
+      "src": "\": \" [5774,5775]",
+      "dest": "\": \" [5774,5775]"
+    },
+    {
+      "src": "identifier: target [3900,3906]",
+      "dest": "identifier: target [3900,3906]"
+    },
+    {
+      "src": "primitive_type [3488,3495]",
+      "dest": "primitive_type [3488,3495]"
+    },
+    {
+      "src": "variable_declaration_statement [6251,6317]",
+      "dest": "variable_declaration_statement [6251,6317]"
+    },
+    {
+      "src": "type_name [6042,6049]",
+      "dest": "type_name [6042,6049]"
+    },
+    {
+      "src": "identifier: data [6311,6315]",
+      "dest": "identifier: data [6311,6315]"
+    },
+    {
+      "src": "\": \" [2715,2716]",
+      "dest": "\": \" [2715,2716]"
+    },
+    {
+      "src": "comment: /**      * @dev Replacement for Solidity's `transfer`: sends `amount` wei to      * `recipient`, forwarding all available gas and reverting on errors.      *      * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost      * of certain opcodes, possibly making contracts go over the 2300 gas limit      * imposed by `transfer`, making them unable to receive funds via      * `transfer`. {sendValue} removes this limitation.      *      * https://diligence.consensys.net/posts/2019/09/stop-using-soliditys-transfer-now/[Learn more].      *      * IMPORTANT: because control is transferred to `recipient`, care must be      * taken to not create reentrancy vulnerabilities. Consider using      * {ReentrancyGuard} or the      * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].      */ [1501,2407]",
+      "dest": "comment: /**      * @dev Replacement for Solidity's `transfer`: sends `amount` wei to      * `recipient`, forwarding all available gas and reverting on errors.      *      * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost      * of certain opcodes, possibly making contracts go over the 2300 gas limit      * imposed by `transfer`, making them unable to receive funds via      * `transfer`. {sendValue} removes this limitation.      *      * https://diligence.consensys.net/posts/2019/09/stop-using-soliditys-transfer-now/[Learn more].      *      * IMPORTANT: because control is transferred to `recipient`, care must be      * taken to not create reentrancy vulnerabilities. Consider using      * {ReentrancyGuard} or the      * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].      */ [1501,2407]"
+    },
+    {
+      "src": "number_literal: 0 [4061,4062]",
+      "dest": "number_literal: 0 [4061,4062]"
+    },
+    {
+      "src": "identifier: success [6350,6357]",
+      "dest": "identifier: success [6350,6357]"
+    },
+    {
+      "src": ".: . [2605,2606]",
+      "dest": ".: . [2605,2606]"
+    },
+    {
+      "src": "struct_expression [5341,5366]",
+      "dest": "struct_expression [5341,5366]"
+    },
+    {
+      "src": "identifier: verifyCallResult [7283,7299]",
+      "dest": "identifier: verifyCallResult [7283,7299]"
+    },
+    {
+      "src": "primitive_type [7707,7712]",
+      "dest": "primitive_type [7707,7712]"
+    },
+    {
+      "src": "parenthesized_expression [8208,8222]",
+      "dest": "parenthesized_expression [8208,8222]"
+    },
+    {
+      "src": ",: , [6083,6084]",
+      "dest": ",: , [6083,6084]"
+    },
+    {
+      "src": "call_argument [5236,5254]",
+      "dest": "call_argument [5236,5254]"
+    },
+    {
+      "src": "string [3599,3631]",
+      "dest": "string [3599,3631]"
+    },
+    {
+      "src": "(: ( [6349,6350]",
+      "dest": "(: ( [6349,6350]"
+    },
+    {
+      "src": "\": \" [6201,6202]",
+      "dest": "\": \" [6201,6202]"
+    },
+    {
+      "src": "function: function [1175,1183]",
+      "dest": "function: function [1175,1183]"
+    },
+    {
+      "src": "comment: // Look for revert reason and bubble it up if present [7806,7859]",
+      "dest": "comment: // Look for revert reason and bubble it up if present [7806,7859]"
+    },
+    {
+      "src": "identifier: amount [2466,2472]",
+      "dest": "identifier: amount [2466,2472]"
+    },
+    {
+      "src": "function_body [3555,3639]",
+      "dest": "function_body [3555,3639]"
+    },
+    {
+      "src": ",: , [5413,5414]",
+      "dest": ",: , [5413,5414]"
+    },
+    {
+      "src": "member_expression [7876,7893]",
+      "dest": "member_expression [7876,7893]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but      * with `errorMessage` as a fallback revert reason when `target` reverts.      *      * _Available since v3.1._      */ [4706,4943]",
+      "dest": "comment: /**      * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but      * with `errorMessage` as a fallback revert reason when `target` reverts.      *      * _Available since v3.1._      */ [4706,4943]"
+    },
+    {
+      "src": "call_expression [5236,5254]",
+      "dest": "call_expression [5236,5254]"
+    },
+    {
+      "src": "call_argument [6192,6198]",
+      "dest": "call_argument [6192,6198]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],      * but performing a static call.      *      * _Available since v3.3._      */ [5827,6000]",
+      "dest": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],      * but performing a static call.      *      * _Available since v3.3._      */ [5827,6000]"
+    },
+    {
+      "src": "identifier: target [7138,7144]",
+      "dest": "identifier: target [7138,7144]"
+    },
+    {
+      "src": ".: . [5347,5348]",
+      "dest": ".: . [5347,5348]"
+    },
+    {
+      "src": "type_name [4486,4493]",
+      "dest": "type_name [4486,4493]"
+    },
+    {
+      "src": "return: return [4018,4024]",
+      "dest": "return: return [4018,4024]"
+    },
+    {
+      "src": "function_definition [2412,2724]",
+      "dest": "function_definition [2412,2724]"
+    },
+    {
+      "src": "call_expression [2639,2717]",
+      "dest": "call_expression [2639,2717]"
+    },
+    {
+      "src": ",: , [4053,4054]",
+      "dest": ",: , [4053,4054]"
+    },
+    {
+      "src": "type_name [5113,5118]",
+      "dest": "type_name [5113,5118]"
+    },
+    {
+      "src": "state_mutability [5696,5700]",
+      "dest": "state_mutability [5696,5700]"
+    },
+    {
+      "src": "=: = [5339,5340]",
+      "dest": "=: = [5339,5340]"
+    },
+    {
+      "src": "variable_declaration [7200,7212]",
+      "dest": "variable_declaration [7200,7212]"
+    },
+    {
+      "src": "if: if [7872,7874]",
+      "dest": "if: if [7872,7874]"
+    },
+    {
+      "src": "): ) [2592,2593]",
+      "dest": "): ) [2592,2593]"
+    },
+    {
+      "src": "(: ( [5112,5113]",
+      "dest": "(: ( [5112,5113]"
+    },
+    {
+      "src": "function_body [1241,1495]",
+      "dest": "function_body [1241,1495]"
+    },
+    {
+      "src": "address: address [1195,1202]",
+      "dest": "address: address [1195,1202]"
+    },
+    {
+      "src": "(: ( [7734,7735]",
+      "dest": "(: ( [7734,7735]"
+    },
+    {
+      "src": "call_argument [2509,2513]",
+      "dest": "call_argument [2509,2513]"
+    },
+    {
+      "src": "primitive_type [2431,2446]",
+      "dest": "primitive_type [2431,2446]"
+    },
+    {
+      "src": "return_statement [4018,4078]",
+      "dest": "return_statement [4018,4078]"
+    },
+    {
+      "src": "parameter [3943,3969]",
+      "dest": "parameter [3943,3969]"
+    },
+    {
+      "src": "): ) [5217,5218]",
+      "dest": "): ) [5217,5218]"
+    },
+    {
+      "src": "): ) [5093,5094]",
+      "dest": "): ) [5093,5094]"
+    },
+    {
+      "src": "return_type_definition [7698,7720]",
+      "dest": "return_type_definition [7698,7720]"
+    },
+    {
+      "src": "number_literal: 0 [1487,1488]",
+      "dest": "number_literal: 0 [1487,1488]"
+    },
+    {
+      "src": "identifier: functionDelegateCall [6579,6599]",
+      "dest": "identifier: functionDelegateCall [6579,6599]"
+    },
+    {
+      "src": "bool: bool [7200,7204]",
+      "dest": "bool: bool [7200,7204]"
+    },
+    {
+      "src": "call_argument [5367,5371]",
+      "dest": "call_argument [5367,5371]"
+    },
+    {
+      "src": "}: } [3638,3639]",
+      "dest": "}: } [3638,3639]"
+    },
+    {
+      "src": "call_expression [6181,6199]",
+      "dest": "call_expression [6181,6199]"
+    },
+    {
+      "src": "internal: internal [5095,5103]",
+      "dest": "internal: internal [5095,5103]"
+    },
+    {
+      "src": ",: , [5772,5773]",
+      "dest": ",: , [5772,5773]"
+    },
+    {
+      "src": "primitive_type [2458,2465]",
+      "dest": "primitive_type [2458,2465]"
+    },
+    {
+      "src": "parameter [3916,3933]",
+      "dest": "parameter [3916,3933]"
+    },
+    {
+      "src": "call_expression [2596,2629]",
+      "dest": "call_expression [2596,2629]"
+    },
+    {
+      "src": "comment: // OpenZeppelin Contracts (last updated v4.5.0) (utils/Address.sol) [32,99]",
+      "dest": "comment: // OpenZeppelin Contracts (last updated v4.5.0) (utils/Address.sol) [32,99]"
+    },
+    {
+      "src": "): ) [7265,7266]",
+      "dest": "): ) [7265,7266]"
+    },
+    {
+      "src": ",: , [5002,5003]",
+      "dest": ",: , [5002,5003]"
+    },
+    {
+      "src": "string_literal [3599,3631]",
+      "dest": "string_literal [3599,3631]"
+    },
+    {
+      "src": "identifier: success [5406,5413]",
+      "dest": "identifier: success [5406,5413]"
+    },
+    {
+      "src": "(: ( [6148,6149]",
+      "dest": "(: ( [6148,6149]"
+    },
+    {
+      "src": "return_type_definition [5701,5723]",
+      "dest": "return_type_definition [5701,5723]"
+    },
+    {
+      "src": "number_literal: 0 [7896,7897]",
+      "dest": "number_literal: 0 [7896,7897]"
+    },
+    {
+      "src": "variable_declaration_statement [2577,2630]",
+      "dest": "variable_declaration_statement [2577,2630]"
+    },
+    {
+      "src": "primitive_type [5039,5046]",
+      "dest": "primitive_type [5039,5046]"
+    },
+    {
+      "src": "bool: bool [6252,6256]",
+      "dest": "bool: bool [6252,6256]"
+    },
+    {
+      "src": "bytes: bytes [5710,5715]",
+      "dest": "bytes: bytes [5710,5715]"
+    },
+    {
+      "src": "parameter [5062,5088]",
+      "dest": "parameter [5062,5088]"
+    },
+    {
+      "src": ",: , [5666,5667]",
+      "dest": ",: , [5666,5667]"
+    },
+    {
+      "src": "expression_statement [5137,5219]",
+      "dest": "expression_statement [5137,5219]"
+    },
+    {
+      "src": "): ) [5813,5814]",
+      "dest": "): ) [5813,5814]"
+    },
+    {
+      "src": "primitive_type [4486,4493]",
+      "dest": "primitive_type [4486,4493]"
+    },
+    {
+      "src": "(: ( [4574,4575]",
+      "dest": "(: ( [4574,4575]"
+    },
+    {
+      "src": "internal: internal [1212,1220]",
+      "dest": "internal: internal [1212,1220]"
+    },
+    {
+      "src": "(: ( [3584,3585]",
+      "dest": "(: ( [3584,3585]"
+    },
+    {
+      "src": "call_argument [4649,4692]",
+      "dest": "call_argument [4649,4692]"
+    },
+    {
+      "src": "primitive_type [7214,7219]",
+      "dest": "primitive_type [7214,7219]"
+    },
+    {
+      "src": "(: ( [2430,2431]",
+      "dest": "(: ( [2430,2431]"
+    },
+    {
+      "src": "type_name [3504,3509]",
+      "dest": "type_name [3504,3509]"
+    },
+    {
+      "src": "{: { [7744,7745]",
+      "dest": "{: { [7744,7745]"
+    },
+    {
+      "src": "return: return [1458,1464]",
+      "dest": "return: return [1458,1464]"
+    },
+    {
+      "src": "function: function [7561,7569]",
+      "dest": "function: function [7561,7569]"
+    },
+    {
+      "src": "(: ( [7299,7300]",
+      "dest": "(: ( [7299,7300]"
+    },
+    {
+      "src": "let: let [8041,8044]",
+      "dest": "let: let [8041,8044]"
+    },
+    {
+      "src": "(: ( [5246,5247]",
+      "dest": "(: ( [5246,5247]"
+    },
+    {
+      "src": "solidity_version: 0.8.1 [118,123]",
+      "dest": "solidity_version: 0.8.1 [118,123]"
+    },
+    {
+      "src": "function_definition [6005,6391]",
+      "dest": "function_definition [6005,6391]"
+    },
+    {
+      "src": "view: view [6135,6139]",
+      "dest": "view: view [6135,6139]"
+    },
+    {
+      "src": "identifier: verifyCallResult [6333,6349]",
+      "dest": "identifier: verifyCallResult [6333,6349]"
+    },
+    {
+      "src": "member_expression [2596,2610]",
+      "dest": "member_expression [2596,2610]"
+    },
+    {
+      "src": "call_argument [6371,6383]",
+      "dest": "call_argument [6371,6383]"
+    },
+    {
+      "src": "returns: returns [7086,7093]",
+      "dest": "returns: returns [7086,7093]"
+    },
+    {
+      "src": "(: ( [4046,4047]",
+      "dest": "(: ( [4046,4047]"
+    },
+    {
+      "src": "parameter [4988,5002]",
+      "dest": "parameter [4988,5002]"
+    },
+    {
+      "src": "type_name [7707,7712]",
+      "dest": "type_name [7707,7712]"
+    },
+    {
+      "src": "bytes: bytes [3916,3921]",
+      "dest": "bytes: bytes [3916,3921]"
+    },
+    {
+      "src": "identifier: success [2583,2590]",
+      "dest": "identifier: success [2583,2590]"
+    },
+    {
+      "src": "visibility [5095,5103]",
+      "dest": "visibility [5095,5103]"
+    },
+    {
+      "src": "bool: bool [5300,5304]",
+      "dest": "bool: bool [5300,5304]"
+    },
+    {
+      "src": "primitive_type [2578,2582]",
+      "dest": "primitive_type [2578,2582]"
+    },
+    {
+      "src": "bytes: bytes [5012,5017]",
+      "dest": "bytes: bytes [5012,5017]"
+    },
+    {
+      "src": "): ) [2472,2473]",
+      "dest": "): ) [2472,2473]"
+    },
+    {
+      "src": "identifier: delegatecall [7248,7260]",
+      "dest": "identifier: delegatecall [7248,7260]"
+    },
+    {
+      "src": "function_definition [4948,5447]",
+      "dest": "function_definition [4948,5447]"
+    },
+    {
+      "src": "identifier: require [6173,6180]",
+      "dest": "identifier: require [6173,6180]"
+    },
+    {
+      "src": "identifier: data [5681,5685]",
+      "dest": "identifier: data [5681,5685]"
+    },
+    {
+      "src": "{: { [1241,1242]",
+      "dest": "{: { [1241,1242]"
+    },
+    {
+      "src": "): ) [3631,3632]",
+      "dest": "): ) [3631,3632]"
+    },
+    {
+      "src": "return: return [5734,5740]",
+      "dest": "return: return [5734,5740]"
+    },
+    {
+      "src": "call_expression [5137,5218]",
+      "dest": "call_expression [5137,5218]"
+    },
+    {
+      "src": "yul_identifier [8045,8060]",
+      "dest": "yul_identifier [8045,8060]"
+    },
+    {
+      "src": "primitive_type [5062,5068]",
+      "dest": "primitive_type [5062,5068]"
+    },
+    {
+      "src": "primitive_type [6066,6071]",
+      "dest": "primitive_type [6066,6071]"
+    },
+    {
+      "src": "bool: bool [2578,2582]",
+      "dest": "bool: bool [2578,2582]"
+    },
+    {
+      "src": "revert: revert [8102,8108]",
+      "dest": "revert: revert [8102,8108]"
+    },
+    {
+      "src": "call_argument [4628,4634]",
+      "dest": "call_argument [4628,4634]"
+    },
+    {
+      "src": "call_expression [4025,4077]",
+      "dest": "call_expression [4025,4077]"
+    },
+    {
+      "src": "call_expression [7127,7145]",
+      "dest": "call_expression [7127,7145]"
+    },
+    {
+      "src": "call_expression [5228,5288]",
+      "dest": "call_expression [5228,5288]"
+    },
+    {
+      "src": "string [2656,2716]",
+      "dest": "string [2656,2716]"
+    },
+    {
+      "src": "\": \" [7147,7148]",
+      "dest": "\": \" [7147,7148]"
+    },
+    {
+      "src": "string_literal [5256,5287]",
+      "dest": "string_literal [5256,5287]"
+    },
+    {
+      "src": "primitive_type [7618,7623]",
+      "dest": "primitive_type [7618,7623]"
+    },
+    {
+      "src": "\": \" [4649,4650]",
+      "dest": "\": \" [4649,4650]"
+    },
+    {
+      "src": "identifier: target [3496,3502]",
+      "dest": "identifier: target [3496,3502]"
+    },
+    {
+      "src": "call_argument [4064,4076]",
+      "dest": "call_argument [4064,4076]"
+    },
+    {
+      "src": "block_statement [7792,8247]",
+      "dest": "block_statement [7792,8247]"
+    },
+    {
+      "src": "yul_path [8070,8080]",
+      "dest": "yul_path [8070,8080]"
+    },
+    {
+      "src": "expression_statement [2639,2718]",
+      "dest": "expression_statement [2639,2718]"
+    },
+    {
+      "src": "identifier: sendValue [2421,2430]",
+      "dest": "identifier: sendValue [2421,2430]"
+    },
+    {
+      "src": "\": \" [4691,4692]",
+      "dest": "\": \" [4691,4692]"
+    },
+    {
+      "src": "type_name [7200,7204]",
+      "dest": "type_name [7200,7204]"
+    },
+    {
+      "src": "if_statement [7872,8237]",
+      "dest": "if_statement [7872,8237]"
+    },
+    {
+      "src": "comment: // The easiest way to bubble the revert reason is using memory via assembly [7917,7992]",
+      "dest": "comment: // The easiest way to bubble the revert reason is using memory via assembly [7917,7992]"
+    },
+    {
+      "src": "primitive_type [5145,5152]",
+      "dest": "primitive_type [5145,5152]"
+    },
+    {
+      "src": "bool: bool [7596,7600]",
+      "dest": "bool: bool [7596,7600]"
+    },
+    {
+      "src": "expression_statement [2493,2567]",
+      "dest": "expression_statement [2493,2567]"
+    },
+    {
+      "src": "function: function [6954,6962]",
+      "dest": "function: function [6954,6962]"
+    },
+    {
+      "src": "address: address [4988,4995]",
+      "dest": "address: address [4988,4995]"
+    },
+    {
+      "src": "\": \" [5216,5217]",
+      "dest": "\": \" [5216,5217]"
+    },
+    {
+      "src": "identifier: isContract [7127,7137]",
+      "dest": "identifier: isContract [7127,7137]"
+    },
+    {
+      "src": "type_name [3892,3899]",
+      "dest": "type_name [3892,3899]"
+    },
+    {
+      "src": "member_expression [1465,1477]",
+      "dest": "member_expression [1465,1477]"
+    },
+    {
+      "src": "identifier: returndata [7876,7886]",
+      "dest": "identifier: returndata [7876,7886]"
+    },
+    {
+      "src": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a static call.      *      * _Available since v3.3._      */ [5453,5619]",
+      "dest": "comment: /**      * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],      * but performing a static call.      *      * _Available since v3.3._      */ [5453,5619]"
+    },
+    {
+      "src": ",: , [4634,4635]",
+      "dest": ",: , [4634,4635]"
+    },
+    {
+      "src": "visibility [4557,4565]",
+      "dest": "visibility [4557,4565]"
+    },
+    {
+      "src": "else: else [7787,7791]",
+      "dest": "else: else [7787,7791]"
+    },
+    {
+      "src": "(: ( [6191,6192]",
+      "dest": "(: ( [6191,6192]"
+    },
+    {
+      "src": "identifier: functionStaticCall [5633,5651]",
+      "dest": "identifier: functionStaticCall [5633,5651]"
+    },
+    {
+      "src": "string [5256,5287]",
+      "dest": "string [5256,5287]"
+    },
+    {
+      "src": "identifier: this [2509,2513]",
+      "dest": "identifier: this [2509,2513]"
+    },
+    {
+      "src": "call_expression [5741,5814]",
+      "dest": "call_expression [5741,5814]"
+    },
+    {
+      "src": "(: ( [8108,8109]",
+      "dest": "(: ( [8108,8109]"
+    },
+    {
+      "src": "}: } [8252,8253]",
+      "dest": "}: } [8252,8253]"
+    },
+    {
+      "src": "identifier: returndata [7631,7641]",
+      "dest": "identifier: returndata [7631,7641]"
+    },
+    {
+      "src": ",: , [6369,6370]",
+      "dest": ",: , [6369,6370]"
+    },
+    {
+      "src": "type_name [5652,5659]",
+      "dest": "type_name [5652,5659]"
+    },
+    {
+      "src": "identifier: functionCall [3475,3487]",
+      "dest": "identifier: functionCall [3475,3487]"
+    },
+    {
+      "src": ",: , [7641,7642]",
+      "dest": ",: , [7641,7642]"
+    },
+    {
+      "src": "comment: // of the constructor execution. [1416,1448]",
+      "dest": "comment: // of the constructor execution. [1416,1448]"
+    },
+    {
+      "src": "identifier: value [2611,2616]",
+      "dest": "identifier: value [2611,2616]"
+    },
+    {
+      "src": "memory: memory [5674,5680]",
+      "dest": "memory: memory [5674,5680]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [116,118]",
+      "dest": "solidity_version_comparison_operator [116,118]"
+    },
+    {
+      "src": "): ) [7682,7683]",
+      "dest": "): ) [7682,7683]"
+    },
+    {
+      "src": "identifier: returndata [6279,6289]",
+      "dest": "identifier: returndata [6279,6289]"
+    },
+    {
+      "src": "return: return [4599,4605]",
+      "dest": "return: return [4599,4605]"
+    },
+    {
+      "src": ",: , [5766,5767]",
+      "dest": ",: , [5766,5767]"
+    },
+    {
+      "src": "\": \" [5286,5287]",
+      "dest": "\": \" [5286,5287]"
+    },
+    {
+      "src": "address: address [3892,3899]",
+      "dest": "address: address [3892,3899]"
+    },
+    {
+      "src": "identifier: errorMessage [4064,4076]",
+      "dest": "identifier: errorMessage [4064,4076]"
+    },
+    {
+      "src": "identifier: errorMessage [3957,3969]",
+      "dest": "identifier: errorMessage [3957,3969]"
+    },
+    {
+      "src": "identifier: errorMessage [6371,6383]",
+      "dest": "identifier: errorMessage [6371,6383]"
+    },
+    {
+      "src": "call_argument [5774,5813]",
+      "dest": "call_argument [5774,5813]"
+    },
+    {
+      "src": "parameter [7618,7641]",
+      "dest": "parameter [7618,7641]"
+    },
+    {
+      "src": "identifier: isContract [6181,6191]",
+      "dest": "identifier: isContract [6181,6191]"
+    }
+  ],
+  "actions": []
+}

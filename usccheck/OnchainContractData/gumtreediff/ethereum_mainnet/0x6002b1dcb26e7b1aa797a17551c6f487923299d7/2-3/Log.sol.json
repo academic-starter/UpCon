@@ -1,0 +1,1741 @@
+{
+  "matches": [
+    {
+      "src": "primitive_type [950,957]",
+      "dest": "primitive_type [950,957]"
+    },
+    {
+      "src": "comment: /**      * Calculate binary logarithm of x.  Revert if x <= 0.      *      * @param x signed 64.64-bit fixed point number      * @return signed 64.64-bit fixed point number      */ [1079,1259]",
+      "dest": "comment: /**      * Calculate binary logarithm of x.  Revert if x <= 0.      *      * @param x signed 64.64-bit fixed point number      * @return signed 64.64-bit fixed point number      */ [1079,1259]"
+    },
+    {
+      "src": "identifier: xc [1536,1538]",
+      "dest": "identifier: xc [1536,1538]"
+    },
+    {
+      "src": "number_literal: 32 [1566,1568]",
+      "dest": "number_literal: 32 [1566,1568]"
+    },
+    {
+      "src": "int128: int128 [1279,1285]",
+      "dest": "int128: int128 [1279,1285]"
+    },
+    {
+      "src": "): ) [1318,1319]",
+      "dest": "): ) [1318,1319]"
+    },
+    {
+      "src": "augmented_assignment_expression [2204,2218]",
+      "dest": "augmented_assignment_expression [2204,2218]"
+    },
+    {
+      "src": "function_definition [932,1073]",
+      "dest": "function_definition [932,1073]"
+    },
+    {
+      "src": "number_literal: 0x7FFFFFFFFFFFFFFF [1015,1033]",
+      "dest": "number_literal: 0x7FFFFFFFFFFFFFFF [1015,1033]"
+    },
+    {
+      "src": "{: { [1320,1321]",
+      "dest": "{: { [1320,1321]"
+    },
+    {
+      "src": "return_type_definition [2534,2550]",
+      "dest": "return_type_definition [2534,2550]"
+    },
+    {
+      "src": "identifier: msb [1362,1365]",
+      "dest": "identifier: msb [1362,1365]"
+    },
+    {
+      "src": "expression_statement [1863,1872]",
+      "dest": "expression_statement [1863,1872]"
+    },
+    {
+      "src": "}: } [1578,1579]",
+      "dest": "}: } [1578,1579]"
+    },
+    {
+      "src": "binary_expression [2211,2218]",
+      "dest": "binary_expression [2211,2218]"
+    },
+    {
+      "src": "type_cast_expression [2285,2299]",
+      "dest": "type_cast_expression [2285,2299]"
+    },
+    {
+      "src": "type_name [1312,1318]",
+      "dest": "type_name [1312,1318]"
+    },
+    {
+      "src": "number_literal: 16 [1651,1653]",
+      "dest": "number_literal: 16 [1651,1653]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: BSD-4-Clause [0,40]",
+      "dest": "comment: // SPDX-License-Identifier: BSD-4-Clause [0,40]"
+    },
+    {
+      "src": "number_literal: 0x10000 [1598,1605]",
+      "dest": "number_literal: 0x10000 [1598,1605]"
+    },
+    {
+      "src": "*: * [2246,2247]",
+      "dest": "*: * [2246,2247]"
+    },
+    {
+      "src": ">>=: >>= [1787,1790]",
+      "dest": ">>=: >>= [1787,1790]"
+    },
+    {
+      "src": "type_name [2080,2086]",
+      "dest": "type_name [2080,2086]"
+    },
+    {
+      "src": "if: if [1402,1404]",
+      "dest": "if: if [1402,1404]"
+    },
+    {
+      "src": "identifier: require [1002,1009]",
+      "dest": "identifier: require [1002,1009]"
+    },
+    {
+      "src": "primitive_type [1051,1057]",
+      "dest": "primitive_type [1051,1057]"
+    },
+    {
+      "src": ">: > [1340,1341]",
+      "dest": ">: > [1340,1341]"
+    },
+    {
+      "src": "primitive_type [1978,1984]",
+      "dest": "primitive_type [1978,1984]"
+    },
+    {
+      "src": "binary_expression [1406,1431]",
+      "dest": "binary_expression [1406,1431]"
+    },
+    {
+      "src": "binary_expression [1058,1065]",
+      "dest": "binary_expression [1058,1065]"
+    },
+    {
+      "src": "call_argument [2041,2042]",
+      "dest": "call_argument [2041,2042]"
+    },
+    {
+      "src": "function_body [1320,2306]",
+      "dest": "function_body [1320,2306]"
+    },
+    {
+      "src": "(: ( [2254,2255]",
+      "dest": "(: ( [2254,2255]"
+    },
+    {
+      "src": "parameter [984,990]",
+      "dest": "parameter [984,990]"
+    },
+    {
+      "src": "identifier: require [2561,2568]",
+      "dest": "identifier: require [2561,2568]"
+    },
+    {
+      "src": "): ) [1605,1606]",
+      "dest": "): ) [1605,1606]"
+    },
+    {
+      "src": "int128: int128 [2510,2516]",
+      "dest": "int128: int128 [2510,2516]"
+    },
+    {
+      "src": ">=: >= [1409,1411]",
+      "dest": ">=: >= [1409,1411]"
+    },
+    {
+      "src": "augmented_assignment_expression [1863,1871]",
+      "dest": "augmented_assignment_expression [1863,1871]"
+    },
+    {
+      "src": "type_name [984,990]",
+      "dest": "type_name [984,990]"
+    },
+    {
+      "src": "identifier: bit [2113,2116]",
+      "dest": "identifier: bit [2113,2116]"
+    },
+    {
+      "src": "number_literal: 2 [1870,1871]",
+      "dest": "number_literal: 2 [1870,1871]"
+    },
+    {
+      "src": "int128: int128 [1312,1318]",
+      "dest": "int128: int128 [1312,1318]"
+    },
+    {
+      "src": "<<: << [2044,2046]",
+      "dest": "<<: << [2044,2046]"
+    },
+    {
+      "src": "call_argument [2615,2616]",
+      "dest": "call_argument [2615,2616]"
+    },
+    {
+      "src": "function_definition [1264,2306]",
+      "dest": "function_definition [1264,2306]"
+    },
+    {
+      "src": "variable_declaration [2080,2090]",
+      "dest": "variable_declaration [2080,2090]"
+    },
+    {
+      "src": ">=: >= [1506,1508]",
+      "dest": ">=: >= [1506,1508]"
+    },
+    {
+      "src": "int128: int128 [984,990]",
+      "dest": "int128: int128 [984,990]"
+    },
+    {
+      "src": "int128: int128 [1051,1057]",
+      "dest": "int128: int128 [1051,1057]"
+    },
+    {
+      "src": "): ) [2003,2004]",
+      "dest": "): ) [2003,2004]"
+    },
+    {
+      "src": "identifier: x [2569,2570]",
+      "dest": "identifier: x [2569,2570]"
+    },
+    {
+      "src": ">=: >= [1761,1763]",
+      "dest": ">=: >= [1761,1763]"
+    },
+    {
+      "src": "int256: int256 [1355,1361]",
+      "dest": "int256: int256 [1355,1361]"
+    },
+    {
+      "src": "identifier: result [2292,2298]",
+      "dest": "identifier: result [2292,2298]"
+    },
+    {
+      "src": "binary_expression [2600,2663]",
+      "dest": "binary_expression [2600,2663]"
+    },
+    {
+      "src": "for_statement [2075,2268]",
+      "dest": "for_statement [2075,2268]"
+    },
+    {
+      "src": "(: ( [2509,2510]",
+      "dest": "(: ( [2509,2510]"
+    },
+    {
+      "src": "number_literal: 4 [1813,1814]",
+      "dest": "number_literal: 4 [1813,1814]"
+    },
+    {
+      "src": "): ) [1431,1432]",
+      "dest": "): ) [1431,1432]"
+    },
+    {
+      "src": "primitive_type [2080,2086]",
+      "dest": "primitive_type [2080,2086]"
+    },
+    {
+      "src": "binary_expression [1838,1847]",
+      "dest": "binary_expression [1838,1847]"
+    },
+    {
+      "src": "block_statement [1522,1579]",
+      "dest": "block_statement [1522,1579]"
+    },
+    {
+      "src": "binary_expression [2242,2257]",
+      "dest": "binary_expression [2242,2257]"
+    },
+    {
+      "src": "pure: pure [2529,2533]",
+      "dest": "pure: pure [2529,2533]"
+    },
+    {
+      "src": "primitive_type [2601,2608]",
+      "dest": "primitive_type [2601,2608]"
+    },
+    {
+      "src": "augmented_assignment_expression [1928,1936]",
+      "dest": "augmented_assignment_expression [1928,1936]"
+    },
+    {
+      "src": "augmented_assignment_expression [2232,2257]",
+      "dest": "augmented_assignment_expression [2232,2257]"
+    },
+    {
+      "src": "identifier: x [2041,2042]",
+      "dest": "identifier: x [2041,2042]"
+    },
+    {
+      "src": "primitive_type [2248,2254]",
+      "dest": "primitive_type [2248,2254]"
+    },
+    {
+      "src": "type_name [2020,2027]",
+      "dest": "type_name [2020,2027]"
+    },
+    {
+      "src": "identifier: b [2177,2178]",
+      "dest": "identifier: b [2177,2178]"
+    },
+    {
+      "src": "if: if [1754,1756]",
+      "dest": "if: if [1754,1756]"
+    },
+    {
+      "src": "expression_statement [1330,1345]",
+      "dest": "expression_statement [1330,1345]"
+    },
+    {
+      "src": "number_literal: 64 [1477,1479]",
+      "dest": "number_literal: 64 [1477,1479]"
+    },
+    {
+      "src": "(: ( [2614,2615]",
+      "dest": "(: ( [2614,2615]"
+    },
+    {
+      "src": "primitive_type [1312,1318]",
+      "dest": "primitive_type [1312,1318]"
+    },
+    {
+      "src": "call_expression [1330,1344]",
+      "dest": "call_expression [1330,1344]"
+    },
+    {
+      "src": "pragma: pragma [190,196]",
+      "dest": "pragma: pragma [190,196]"
+    },
+    {
+      "src": "): ) [1847,1848]",
+      "dest": "): ) [1847,1848]"
+    },
+    {
+      "src": "type_cast_expression [2047,2065]",
+      "dest": "type_cast_expression [2047,2065]"
+    },
+    {
+      "src": "identifier: ux [2181,2183]",
+      "dest": "identifier: ux [2181,2183]"
+    },
+    {
+      "src": "primitive_type [2593,2599]",
+      "dest": "primitive_type [2593,2599]"
+    },
+    {
+      "src": "call_argument [2255,2256]",
+      "dest": "call_argument [2255,2256]"
+    },
+    {
+      "src": "call_argument [2569,2574]",
+      "dest": "call_argument [2569,2574]"
+    },
+    {
+      "src": "type_name [1379,1385]",
+      "dest": "type_name [1379,1385]"
+    },
+    {
+      "src": "): ) [2663,2664]",
+      "dest": "): ) [2663,2664]"
+    },
+    {
+      "src": "{: { [1433,1434]",
+      "dest": "{: { [1433,1434]"
+    },
+    {
+      "src": "binary_expression [1592,1605]",
+      "dest": "binary_expression [1592,1605]"
+    },
+    {
+      "src": "number_literal: 64 [2008,2010]",
+      "dest": "number_literal: 64 [2008,2010]"
+    },
+    {
+      "src": ">>=: >>= [2126,2129]",
+      "dest": ">>=: >>= [2126,2129]"
+    },
+    {
+      "src": ">>=: >>= [1707,1710]",
+      "dest": ">>=: >>= [1707,1710]"
+    },
+    {
+      "src": "variable_declaration [2020,2030]",
+      "dest": "variable_declaration [2020,2030]"
+    },
+    {
+      "src": "pure: pure [1298,1302]",
+      "dest": "pure: pure [1298,1302]"
+    },
+    {
+      "src": "parameter [1279,1287]",
+      "dest": "parameter [1279,1287]"
+    },
+    {
+      "src": "binary_expression [1338,1343]",
+      "dest": "binary_expression [1338,1343]"
+    },
+    {
+      "src": "binary_expression [1758,1768]",
+      "dest": "binary_expression [1758,1768]"
+    },
+    {
+      "src": "visibility [961,969]",
+      "dest": "visibility [961,969]"
+    },
+    {
+      "src": "{: { [2551,2552]",
+      "dest": "{: { [2551,2552]"
+    },
+    {
+      "src": "): ) [990,991]",
+      "dest": "): ) [990,991]"
+    },
+    {
+      "src": "(: ( [1057,1058]",
+      "dest": "(: ( [1057,1058]"
+    },
+    {
+      "src": "identifier: xc [1838,1840]",
+      "dest": "identifier: xc [1838,1840]"
+    },
+    {
+      "src": "variable_declaration_statement [1978,2011]",
+      "dest": "variable_declaration_statement [1978,2011]"
+    },
+    {
+      "src": "+=: += [1730,1732]",
+      "dest": "+=: += [1730,1732]"
+    },
+    {
+      "src": "internal: internal [2520,2528]",
+      "dest": "internal: internal [2520,2528]"
+    },
+    {
+      "src": "(: ( [2608,2609]",
+      "dest": "(: ( [2608,2609]"
+    },
+    {
+      "src": "(: ( [1278,1279]",
+      "dest": "(: ( [1278,1279]"
+    },
+    {
+      "src": "number_literal: 0x8000000000000000 [2093,2111]",
+      "dest": "number_literal: 0x8000000000000000 [2093,2111]"
+    },
+    {
+      "src": "binary_expression [1010,1033]",
+      "dest": "binary_expression [1010,1033]"
+    },
+    {
+      "src": "number_literal: 1 [2130,2131]",
+      "dest": "number_literal: 1 [2130,2131]"
+    },
+    {
+      "src": "}: } [2670,2671]",
+      "dest": "}: } [2670,2671]"
+    },
+    {
+      "src": "identifier: xc [1592,1594]",
+      "dest": "identifier: xc [1592,1594]"
+    },
+    {
+      "src": "int128: int128 [2285,2291]",
+      "dest": "int128: int128 [2285,2291]"
+    },
+    {
+      "src": "(: ( [2054,2055]",
+      "dest": "(: ( [2054,2055]"
+    },
+    {
+      "src": "call_argument [2600,2663]",
+      "dest": "call_argument [2600,2663]"
+    },
+    {
+      "src": "parameter [1312,1318]",
+      "dest": "parameter [1312,1318]"
+    },
+    {
+      "src": "+=: += [1648,1650]",
+      "dest": "+=: += [1648,1650]"
+    },
+    {
+      "src": "comment: /**      * Calculate natural logarithm of x.  Revert if x <= 0.      *      * @param x signed 64.64-bit fixed point number      * @return signed 64.64-bit fixed point number      */ [2312,2493]",
+      "dest": "comment: /**      * Calculate natural logarithm of x.  Revert if x <= 0.      *      * @param x signed 64.64-bit fixed point number      * @return signed 64.64-bit fixed point number      */ [2312,2493]"
+    },
+    {
+      "src": "returns: returns [975,982]",
+      "dest": "returns: returns [975,982]"
+    },
+    {
+      "src": "primitive_type [1279,1285]",
+      "dest": "primitive_type [1279,1285]"
+    },
+    {
+      "src": "(: ( [2599,2600]",
+      "dest": "(: ( [2599,2600]"
+    },
+    {
+      "src": "*: * [2619,2620]",
+      "dest": "*: * [2619,2620]"
+    },
+    {
+      "src": "parameter [2510,2518]",
+      "dest": "parameter [2510,2518]"
+    },
+    {
+      "src": "identifier: result [2232,2238]",
+      "dest": "identifier: result [2232,2238]"
+    },
+    {
+      "src": "(: ( [1676,1677]",
+      "dest": "(: ( [1676,1677]"
+    },
+    {
+      "src": "(: ( [1502,1503]",
+      "dest": "(: ( [1502,1503]"
+    },
+    {
+      "src": "identifier: xc [1503,1505]",
+      "dest": "identifier: xc [1503,1505]"
+    },
+    {
+      "src": "parenthesized_expression [2600,2656]",
+      "dest": "parenthesized_expression [2600,2656]"
+    },
+    {
+      "src": "contract_body [687,2673]",
+      "dest": "contract_body [687,2673]"
+    },
+    {
+      "src": "if: if [1913,1915]",
+      "dest": "if: if [1913,1915]"
+    },
+    {
+      "src": "identifier: ABDKMath64x64 [673,686]",
+      "dest": "identifier: ABDKMath64x64 [673,686]"
+    },
+    {
+      "src": "-: - [2059,2060]",
+      "dest": "-: - [2059,2060]"
+    },
+    {
+      "src": "if_statement [1754,1825]",
+      "dest": "if_statement [1754,1825]"
+    },
+    {
+      "src": ">>=: >>= [1866,1869]",
+      "dest": ">>=: >>= [1866,1869]"
+    },
+    {
+      "src": "): ) [1926,1927]",
+      "dest": "): ) [1926,1927]"
+    },
+    {
+      "src": "number_literal: 0x2 [1923,1926]",
+      "dest": "number_literal: 0x2 [1923,1926]"
+    },
+    {
+      "src": ">>: >> [2184,2186]",
+      "dest": ">>: >> [2184,2186]"
+    },
+    {
+      "src": "augmented_assignment_expression [2147,2155]",
+      "dest": "augmented_assignment_expression [2147,2155]"
+    },
+    {
+      "src": "type_cast_expression [2033,2043]",
+      "dest": "type_cast_expression [2033,2043]"
+    },
+    {
+      "src": "=: = [2031,2032]",
+      "dest": "=: = [2031,2032]"
+    },
+    {
+      "src": "+=: += [1474,1476]",
+      "dest": "+=: += [1474,1476]"
+    },
+    {
+      "src": "return_statement [1044,1067]",
+      "dest": "return_statement [1044,1067]"
+    },
+    {
+      "src": "if: if [1588,1590]",
+      "dest": "if: if [1588,1590]"
+    },
+    {
+      "src": "block_statement [2133,2268]",
+      "dest": "block_statement [2133,2268]"
+    },
+    {
+      "src": "uint256: uint256 [2020,2027]",
+      "dest": "uint256: uint256 [2020,2027]"
+    },
+    {
+      "src": "number_literal: 0x100000000 [1509,1520]",
+      "dest": "number_literal: 0x100000000 [1509,1520]"
+    },
+    {
+      "src": "function_body [2551,2671]",
+      "dest": "function_body [2551,2671]"
+    },
+    {
+      "src": "identifier: xc [1677,1679]",
+      "dest": "identifier: xc [1677,1679]"
+    },
+    {
+      "src": "<<: << [2005,2007]",
+      "dest": "<<: << [2005,2007]"
+    },
+    {
+      "src": "): ) [2042,2043]",
+      "dest": "): ) [2042,2043]"
+    },
+    {
+      "src": "call_argument [2609,2617]",
+      "dest": "call_argument [2609,2617]"
+    },
+    {
+      "src": "augmented_assignment_expression [1447,1456]",
+      "dest": "augmented_assignment_expression [1447,1456]"
+    },
+    {
+      "src": "}: } [1663,1664]",
+      "dest": "}: } [1663,1664]"
+    },
+    {
+      "src": "int256: int256 [1978,1984]",
+      "dest": "int256: int256 [1978,1984]"
+    },
+    {
+      "src": "solidity: solidity [197,205]",
+      "dest": "solidity: solidity [197,205]"
+    },
+    {
+      "src": "identifier: fromUInt [941,949]",
+      "dest": "identifier: fromUInt [941,949]"
+    },
+    {
+      "src": "{: { [992,993]",
+      "dest": "{: { [992,993]"
+    },
+    {
+      "src": "state_mutability [1298,1302]",
+      "dest": "state_mutability [1298,1302]"
+    },
+    {
+      "src": "variable_declaration_statement [2169,2191]",
+      "dest": "variable_declaration_statement [2169,2191]"
+    },
+    {
+      "src": "=: = [2091,2092]",
+      "dest": "=: = [2091,2092]"
+    },
+    {
+      "src": "identifier: xc [1447,1449]",
+      "dest": "identifier: xc [1447,1449]"
+    },
+    {
+      "src": "number_literal: 0x4 [1844,1847]",
+      "dest": "number_literal: 0x4 [1844,1847]"
+    },
+    {
+      "src": "primitive_type [1355,1361]",
+      "dest": "primitive_type [1355,1361]"
+    },
+    {
+      "src": "type_name [1978,1984]",
+      "dest": "type_name [1978,1984]"
+    },
+    {
+      "src": "block_statement [1690,1745]",
+      "dest": "block_statement [1690,1745]"
+    },
+    {
+      "src": "int128: int128 [2593,2599]",
+      "dest": "int128: int128 [2593,2599]"
+    },
+    {
+      "src": "number_literal: 64 [2001,2003]",
+      "dest": "number_literal: 64 [2001,2003]"
+    },
+    {
+      "src": "{: { [1690,1691]",
+      "dest": "{: { [1690,1691]"
+    },
+    {
+      "src": "if_statement [1834,1904]",
+      "dest": "if_statement [1834,1904]"
+    },
+    {
+      "src": "if_statement [1673,1745]",
+      "dest": "if_statement [1673,1745]"
+    },
+    {
+      "src": "identifier: x [2517,2518]",
+      "dest": "identifier: x [2517,2518]"
+    },
+    {
+      "src": "number_literal: 8 [1711,1712]",
+      "dest": "number_literal: 8 [1711,1712]"
+    },
+    {
+      "src": ">>=: >>= [2207,2210]",
+      "dest": ">>=: >>= [2207,2210]"
+    },
+    {
+      "src": "variable_declaration_statement [2080,2112]",
+      "dest": "variable_declaration_statement [2080,2112]"
+    },
+    {
+      "src": "binary_expression [1677,1688]",
+      "dest": "binary_expression [1677,1688]"
+    },
+    {
+      "src": "<=: <= [1012,1014]",
+      "dest": "<=: <= [1012,1014]"
+    },
+    {
+      "src": "identifier: x [1391,1392]",
+      "dest": "identifier: x [1391,1392]"
+    },
+    {
+      "src": "type_name [950,957]",
+      "dest": "type_name [950,957]"
+    },
+    {
+      "src": "return_type_definition [975,991]",
+      "dest": "return_type_definition [975,991]"
+    },
+    {
+      "src": ">>=: >>= [1624,1627]",
+      "dest": ">>=: >>= [1624,1627]"
+    },
+    {
+      "src": ">=: >= [1841,1843]",
+      "dest": ">=: >= [1841,1843]"
+    },
+    {
+      "src": "(: ( [2079,2080]",
+      "dest": "(: ( [2079,2080]"
+    },
+    {
+      "src": "primitive_type [2047,2054]",
+      "dest": "primitive_type [2047,2054]"
+    },
+    {
+      "src": "expression_statement [1536,1546]",
+      "dest": "expression_statement [1536,1546]"
+    },
+    {
+      "src": "number_literal: 127 [2055,2058]",
+      "dest": "number_literal: 127 [2055,2058]"
+    },
+    {
+      "src": "function: function [2498,2506]",
+      "dest": "function: function [2498,2506]"
+    },
+    {
+      "src": "type_cast_expression [1051,1066]",
+      "dest": "type_cast_expression [1051,1066]"
+    },
+    {
+      "src": "if: if [1834,1836]",
+      "dest": "if: if [1834,1836]"
+    },
+    {
+      "src": "identifier: xc [1784,1786]",
+      "dest": "identifier: xc [1784,1786]"
+    },
+    {
+      "src": "type_cast_expression [2593,2664]",
+      "dest": "type_cast_expression [2593,2664]"
+    },
+    {
+      "src": "identifier: result [1985,1991]",
+      "dest": "identifier: result [1985,1991]"
+    },
+    {
+      "src": "parenthesized_expression [1994,2004]",
+      "dest": "parenthesized_expression [1994,2004]"
+    },
+    {
+      "src": "return_statement [2586,2665]",
+      "dest": "return_statement [2586,2665]"
+    },
+    {
+      "src": "number_literal: 0 [1342,1343]",
+      "dest": "number_literal: 0 [1342,1343]"
+    },
+    {
+      "src": "return: return [1044,1050]",
+      "dest": "return: return [1044,1050]"
+    },
+    {
+      "src": "(: ( [1757,1758]",
+      "dest": "(: ( [1757,1758]"
+    },
+    {
+      "src": "variable_declaration [1379,1388]",
+      "dest": "variable_declaration [1379,1388]"
+    },
+    {
+      "src": "): ) [1768,1769]",
+      "dest": "): ) [1768,1769]"
+    },
+    {
+      "src": "function_definition [2498,2671]",
+      "dest": "function_definition [2498,2671]"
+    },
+    {
+      "src": "identifier: x [2615,2616]",
+      "dest": "identifier: x [2615,2616]"
+    },
+    {
+      "src": "number_literal: 32 [1543,1545]",
+      "dest": "number_literal: 32 [1543,1545]"
+    },
+    {
+      "src": "{: { [1849,1850]",
+      "dest": "{: { [1849,1850]"
+    },
+    {
+      "src": "identifier: msb [1726,1729]",
+      "dest": "identifier: msb [1726,1729]"
+    },
+    {
+      "src": "function: function [932,940]",
+      "dest": "function: function [932,940]"
+    },
+    {
+      "src": "}: } [1824,1825]",
+      "dest": "}: } [1824,1825]"
+    },
+    {
+      "src": "pragma_directive [190,213]",
+      "dest": "pragma_directive [190,213]"
+    },
+    {
+      "src": "number_literal: 1 [1935,1936]",
+      "dest": "number_literal: 1 [1935,1936]"
+    },
+    {
+      "src": "binary_expression [2601,2655]",
+      "dest": "binary_expression [2601,2655]"
+    },
+    {
+      "src": "identifier: log_2 [2609,2614]",
+      "dest": "identifier: log_2 [2609,2614]"
+    },
+    {
+      "src": "comment: /**  * Smart contract library of mathematical functions operating with signed  * 64.64-bit fixed point numbers.  Signed 64.64-bit fixed point number is  * basically a simple fraction whose numerator is signed 128-bit integer and  * denominator is 2^64.  As long as denominator is always the same, there is no  * need to store it, thus in Solidity signed 64.64-bit fixed point numbers are  * represented by int128 type holding only the numerator.  */ [215,664]",
+      "dest": "comment: /**  * Smart contract library of mathematical functions operating with signed  * 64.64-bit fixed point numbers.  Signed 64.64-bit fixed point number is  * basically a simple fraction whose numerator is signed 128-bit integer and  * denominator is 2^64.  As long as denominator is always the same, there is no  * need to store it, thus in Solidity signed 64.64-bit fixed point numbers are  * represented by int128 type holding only the numerator.  */ [215,664]"
+    },
+    {
+      "src": "expression_statement [1806,1815]",
+      "dest": "expression_statement [1806,1815]"
+    },
+    {
+      "src": "variable_declaration_statement [2020,2066]",
+      "dest": "variable_declaration_statement [2020,2066]"
+    },
+    {
+      "src": "{: { [2133,2134]",
+      "dest": "{: { [2133,2134]"
+    },
+    {
+      "src": "): ) [1520,1521]",
+      "dest": "): ) [1520,1521]"
+    },
+    {
+      "src": "identifier: xc [1917,1919]",
+      "dest": "identifier: xc [1917,1919]"
+    },
+    {
+      "src": "type_cast_expression [2248,2257]",
+      "dest": "type_cast_expression [2248,2257]"
+    },
+    {
+      "src": "augmented_assignment_expression [1704,1712]",
+      "dest": "augmented_assignment_expression [1704,1712]"
+    },
+    {
+      "src": "variable_declaration_statement [1379,1393]",
+      "dest": "variable_declaration_statement [1379,1393]"
+    },
+    {
+      "src": "identifier: x [1338,1339]",
+      "dest": "identifier: x [1338,1339]"
+    },
+    {
+      "src": "variable_declaration [1355,1365]",
+      "dest": "variable_declaration [1355,1365]"
+    },
+    {
+      "src": "identifier: msb [1644,1647]",
+      "dest": "identifier: msb [1644,1647]"
+    },
+    {
+      "src": "uint256: uint256 [2169,2176]",
+      "dest": "uint256: uint256 [2169,2176]"
+    },
+    {
+      "src": "primitive_type [2510,2516]",
+      "dest": "primitive_type [2510,2516]"
+    },
+    {
+      "src": "augmented_assignment_expression [1559,1568]",
+      "dest": "augmented_assignment_expression [1559,1568]"
+    },
+    {
+      "src": ">=: >= [1680,1682]",
+      "dest": ">=: >= [1680,1682]"
+    },
+    {
+      "src": "binary_expression [1503,1520]",
+      "dest": "binary_expression [1503,1520]"
+    },
+    {
+      "src": "primitive_type [2543,2549]",
+      "dest": "primitive_type [2543,2549]"
+    },
+    {
+      "src": "primitive_type [2020,2027]",
+      "dest": "primitive_type [2020,2027]"
+    },
+    {
+      "src": "primitive_type [2169,2176]",
+      "dest": "primitive_type [2169,2176]"
+    },
+    {
+      "src": ">>: >> [2657,2659]",
+      "dest": ">>: >> [2657,2659]"
+    },
+    {
+      "src": "type_name [2510,2516]",
+      "dest": "type_name [2510,2516]"
+    },
+    {
+      "src": "}: } [1903,1904]",
+      "dest": "}: } [1903,1904]"
+    },
+    {
+      "src": "state_mutability [970,974]",
+      "dest": "state_mutability [970,974]"
+    },
+    {
+      "src": "number_literal: 255 [2187,2190]",
+      "dest": "number_literal: 255 [2187,2190]"
+    },
+    {
+      "src": "binary_expression [1995,2003]",
+      "dest": "binary_expression [1995,2003]"
+    },
+    {
+      "src": "augmented_assignment_expression [1806,1814]",
+      "dest": "augmented_assignment_expression [1806,1814]"
+    },
+    {
+      "src": ">>=: >>= [1450,1453]",
+      "dest": ">>=: >>= [1450,1453]"
+    },
+    {
+      "src": "return_statement [2278,2300]",
+      "dest": "return_statement [2278,2300]"
+    },
+    {
+      "src": "expression_statement [1644,1654]",
+      "dest": "expression_statement [1644,1654]"
+    },
+    {
+      "src": "): ) [2298,2299]",
+      "dest": "): ) [2298,2299]"
+    },
+    {
+      "src": "): ) [2617,2618]",
+      "dest": "): ) [2617,2618]"
+    },
+    {
+      "src": "number_literal: 127 [2211,2214]",
+      "dest": "number_literal: 127 [2211,2214]"
+    },
+    {
+      "src": "identifier: msb [2061,2064]",
+      "dest": "identifier: msb [2061,2064]"
+    },
+    {
+      "src": "type_name [1279,1285]",
+      "dest": "type_name [1279,1285]"
+    },
+    {
+      "src": "return_type_definition [1303,1319]",
+      "dest": "return_type_definition [1303,1319]"
+    },
+    {
+      "src": "identifier: ux [2153,2155]",
+      "dest": "identifier: ux [2153,2155]"
+    },
+    {
+      "src": "): ) [2616,2617]",
+      "dest": "): ) [2616,2617]"
+    },
+    {
+      "src": "{: { [1770,1771]",
+      "dest": "{: { [1770,1771]"
+    },
+    {
+      "src": "binary_expression [2569,2574]",
+      "dest": "binary_expression [2569,2574]"
+    },
+    {
+      "src": "if_statement [1588,1664]",
+      "dest": "if_statement [1588,1664]"
+    },
+    {
+      "src": "type_name [2169,2176]",
+      "dest": "type_name [2169,2176]"
+    },
+    {
+      "src": "augmented_assignment_expression [1536,1545]",
+      "dest": "augmented_assignment_expression [1536,1545]"
+    },
+    {
+      "src": "uint256: uint256 [2047,2054]",
+      "dest": "uint256: uint256 [2047,2054]"
+    },
+    {
+      "src": "identifier: x [1058,1059]",
+      "dest": "identifier: x [1058,1059]"
+    },
+    {
+      "src": "expression_statement [1928,1937]",
+      "dest": "expression_statement [1928,1937]"
+    },
+    {
+      "src": "number_literal: 16 [1628,1630]",
+      "dest": "number_literal: 16 [1628,1630]"
+    },
+    {
+      "src": ">: > [2117,2118]",
+      "dest": ">: > [2117,2118]"
+    },
+    {
+      "src": "number_literal: 0x10000000000000000 [1412,1431]",
+      "dest": "number_literal: 0x10000000000000000 [1412,1431]"
+    },
+    {
+      "src": "augmented_assignment_expression [1885,1893]",
+      "dest": "augmented_assignment_expression [1885,1893]"
+    },
+    {
+      "src": "uint256: uint256 [2601,2608]",
+      "dest": "uint256: uint256 [2601,2608]"
+    },
+    {
+      "src": "{: { [1607,1608]",
+      "dest": "{: { [1607,1608]"
+    },
+    {
+      "src": "int256: int256 [2248,2254]",
+      "dest": "int256: int256 [2248,2254]"
+    },
+    {
+      "src": "returns: returns [2534,2541]",
+      "dest": "returns: returns [2534,2541]"
+    },
+    {
+      "src": "number_literal: 0xB17217F7D1CF79ABC9E3B39803F2F6AF [2621,2655]",
+      "dest": "number_literal: 0xB17217F7D1CF79ABC9E3B39803F2F6AF [2621,2655]"
+    },
+    {
+      "src": "augmented_assignment_expression [1726,1734]",
+      "dest": "augmented_assignment_expression [1726,1734]"
+    },
+    {
+      "src": "(: ( [949,950]",
+      "dest": "(: ( [949,950]"
+    },
+    {
+      "src": "(: ( [1916,1917]",
+      "dest": "(: ( [1916,1917]"
+    },
+    {
+      "src": "identifier: xc [1621,1623]",
+      "dest": "identifier: xc [1621,1623]"
+    },
+    {
+      "src": "visibility [1289,1297]",
+      "dest": "visibility [1289,1297]"
+    },
+    {
+      "src": "if: if [1673,1675]",
+      "dest": "if: if [1673,1675]"
+    },
+    {
+      "src": "): ) [2549,2550]",
+      "dest": "): ) [2549,2550]"
+    },
+    {
+      "src": "number_literal: 0 [2119,2120]",
+      "dest": "number_literal: 0 [2119,2120]"
+    },
+    {
+      "src": "(: ( [2542,2543]",
+      "dest": "(: ( [2542,2543]"
+    },
+    {
+      "src": "expression_statement [1885,1894]",
+      "dest": "expression_statement [1885,1894]"
+    },
+    {
+      "src": "number_literal: 64 [1454,1456]",
+      "dest": "number_literal: 64 [1454,1456]"
+    },
+    {
+      "src": "expression_statement [1704,1713]",
+      "dest": "expression_statement [1704,1713]"
+    },
+    {
+      "src": "=: = [2179,2180]",
+      "dest": "=: = [2179,2180]"
+    },
+    {
+      "src": "call_expression [2609,2617]",
+      "dest": "call_expression [2609,2617]"
+    },
+    {
+      "src": "=: = [1992,1993]",
+      "dest": "=: = [1992,1993]"
+    },
+    {
+      "src": "identifier: ux [2028,2030]",
+      "dest": "identifier: ux [2028,2030]"
+    },
+    {
+      "src": "int256: int256 [2080,2086]",
+      "dest": "int256: int256 [2080,2086]"
+    },
+    {
+      "src": "}: } [2305,2306]",
+      "dest": "}: } [2305,2306]"
+    },
+    {
+      "src": "solidity_pragma_token [197,212]",
+      "dest": "solidity_pragma_token [197,212]"
+    },
+    {
+      "src": "+=: += [1889,1891]",
+      "dest": "+=: += [1889,1891]"
+    },
+    {
+      "src": "<<: << [1060,1062]",
+      "dest": "<<: << [1060,1062]"
+    },
+    {
+      "src": "if: if [1499,1501]",
+      "dest": "if: if [1499,1501]"
+    },
+    {
+      "src": "binary_expression [1917,1926]",
+      "dest": "binary_expression [1917,1926]"
+    },
+    {
+      "src": "number_literal: 128 [2660,2663]",
+      "dest": "number_literal: 128 [2660,2663]"
+    },
+    {
+      "src": "identifier: bit [2242,2245]",
+      "dest": "identifier: bit [2242,2245]"
+    },
+    {
+      "src": "parameter [2543,2549]",
+      "dest": "parameter [2543,2549]"
+    },
+    {
+      "src": "type_cast_expression [2601,2618]",
+      "dest": "type_cast_expression [2601,2618]"
+    },
+    {
+      "src": "function_body [992,1073]",
+      "dest": "function_body [992,1073]"
+    },
+    {
+      "src": "identifier: xc [1758,1760]",
+      "dest": "identifier: xc [1758,1760]"
+    },
+    {
+      "src": "augmented_assignment_expression [1621,1630]",
+      "dest": "augmented_assignment_expression [1621,1630]"
+    },
+    {
+      "src": "identifier: msb [1470,1473]",
+      "dest": "identifier: msb [1470,1473]"
+    },
+    {
+      "src": "primitive_type [1379,1385]",
+      "dest": "primitive_type [1379,1385]"
+    },
+    {
+      "src": "identifier: msb [1806,1809]",
+      "dest": "identifier: msb [1806,1809]"
+    },
+    {
+      "src": "internal: internal [961,969]",
+      "dest": "internal: internal [961,969]"
+    },
+    {
+      "src": "if_statement [1402,1490]",
+      "dest": "if_statement [1402,1490]"
+    },
+    {
+      "src": "identifier: x [958,959]",
+      "dest": "identifier: x [958,959]"
+    },
+    {
+      "src": "): ) [1343,1344]",
+      "dest": "): ) [1343,1344]"
+    },
+    {
+      "src": "+=: += [2239,2241]",
+      "dest": "+=: += [2239,2241]"
+    },
+    {
+      "src": "expression_statement [1002,1035]",
+      "dest": "expression_statement [1002,1035]"
+    },
+    {
+      "src": "): ) [959,960]",
+      "dest": "): ) [959,960]"
+    },
+    {
+      "src": "(: ( [1337,1338]",
+      "dest": "(: ( [1337,1338]"
+    },
+    {
+      "src": "function: function [1264,1272]",
+      "dest": "function: function [1264,1272]"
+    },
+    {
+      "src": "identifier: msb [1885,1888]",
+      "dest": "identifier: msb [1885,1888]"
+    },
+    {
+      "src": "+=: += [1810,1812]",
+      "dest": "+=: += [1810,1812]"
+    },
+    {
+      "src": "visibility [2520,2528]",
+      "dest": "visibility [2520,2528]"
+    },
+    {
+      "src": "}: } [2267,2268]",
+      "dest": "}: } [2267,2268]"
+    },
+    {
+      "src": "variable_declaration_statement [1355,1370]",
+      "dest": "variable_declaration_statement [1355,1370]"
+    },
+    {
+      "src": ">: > [2571,2572]",
+      "dest": ">: > [2571,2572]"
+    },
+    {
+      "src": "+: + [2215,2216]",
+      "dest": "+: + [2215,2216]"
+    },
+    {
+      "src": "call_argument [1058,1065]",
+      "dest": "call_argument [1058,1065]"
+    },
+    {
+      "src": "=: = [1366,1367]",
+      "dest": "=: = [1366,1367]"
+    },
+    {
+      "src": "comment: // No need to shift xc anymore [1938,1968]",
+      "dest": "comment: // No need to shift xc anymore [1938,1968]"
+    },
+    {
+      "src": "): ) [1287,1288]",
+      "dest": "): ) [1287,1288]"
+    },
+    {
+      "src": "number_literal: 0 [2573,2574]",
+      "dest": "number_literal: 0 [2573,2574]"
+    },
+    {
+      "src": "): ) [2655,2656]",
+      "dest": "): ) [2655,2656]"
+    },
+    {
+      "src": "}: } [1744,1745]",
+      "dest": "}: } [1744,1745]"
+    },
+    {
+      "src": "returns: returns [1303,1310]",
+      "dest": "returns: returns [1303,1310]"
+    },
+    {
+      "src": "expression_statement [2232,2258]",
+      "dest": "expression_statement [2232,2258]"
+    },
+    {
+      "src": "identifier: x [1286,1287]",
+      "dest": "identifier: x [1286,1287]"
+    },
+    {
+      "src": "+=: += [1563,1565]",
+      "dest": "+=: += [1563,1565]"
+    },
+    {
+      "src": "augmented_assignment_expression [1784,1792]",
+      "dest": "augmented_assignment_expression [1784,1792]"
+    },
+    {
+      "src": "(: ( [1405,1406]",
+      "dest": "(: ( [1405,1406]"
+    },
+    {
+      "src": "comment: /*  * ABDK Math 64.64 Smart Contract Library.  Copyright © 2019 by ABDK Consulting.  * Author: Mikhail Vladimirov <mikhail.vladimirov@gmail.com>  */ [41,189]",
+      "dest": "comment: /*  * ABDK Math 64.64 Smart Contract Library.  Copyright © 2019 by ABDK Consulting.  * Author: Mikhail Vladimirov <mikhail.vladimirov@gmail.com>  */ [41,189]"
+    },
+    {
+      "src": "identifier: ux [2147,2149]",
+      "dest": "identifier: ux [2147,2149]"
+    },
+    {
+      "src": "expression_statement [1726,1735]",
+      "dest": "expression_statement [1726,1735]"
+    },
+    {
+      "src": "number_literal: 0 [1368,1369]",
+      "dest": "number_literal: 0 [1368,1369]"
+    },
+    {
+      "src": "binary_expression [2181,2190]",
+      "dest": "binary_expression [2181,2190]"
+    },
+    {
+      "src": "expression_statement [2204,2219]",
+      "dest": "expression_statement [2204,2219]"
+    },
+    {
+      "src": "(: ( [983,984]",
+      "dest": "(: ( [983,984]"
+    },
+    {
+      "src": "identifier: b [2255,2256]",
+      "dest": "identifier: b [2255,2256]"
+    },
+    {
+      "src": "binary_expression [1994,2010]",
+      "dest": "binary_expression [1994,2010]"
+    },
+    {
+      "src": "(: ( [2040,2041]",
+      "dest": "(: ( [2040,2041]"
+    },
+    {
+      "src": "pure: pure [970,974]",
+      "dest": "pure: pure [970,974]"
+    },
+    {
+      "src": "): ) [1688,1689]",
+      "dest": "): ) [1688,1689]"
+    },
+    {
+      "src": "identifier: bit [2087,2090]",
+      "dest": "identifier: bit [2087,2090]"
+    },
+    {
+      "src": "}: } [1072,1073]",
+      "dest": "}: } [1072,1073]"
+    },
+    {
+      "src": "comment: /**      * Convert unsigned 256-bit integer number into signed 64.64-bit fixed point      * number.  Revert on overflow.      *      * @param x unsigned 256-bit integer number      * @return signed 64.64-bit fixed point number      */ [693,927]",
+      "dest": "comment: /**      * Convert unsigned 256-bit integer number into signed 64.64-bit fixed point      * number.  Revert on overflow.      *      * @param x unsigned 256-bit integer number      * @return signed 64.64-bit fixed point number      */ [693,927]"
+    },
+    {
+      "src": ">=: >= [1595,1597]",
+      "dest": ">=: >= [1595,1597]"
+    },
+    {
+      "src": "expression_statement [1470,1480]",
+      "dest": "expression_statement [1470,1480]"
+    },
+    {
+      "src": "identifier: x [1010,1011]",
+      "dest": "identifier: x [1010,1011]"
+    },
+    {
+      "src": "{: { [687,688]",
+      "dest": "{: { [687,688]"
+    },
+    {
+      "src": "identifier: require [1330,1337]",
+      "dest": "identifier: require [1330,1337]"
+    },
+    {
+      "src": "number_literal: 64 [1063,1065]",
+      "dest": "number_literal: 64 [1063,1065]"
+    },
+    {
+      "src": "number_literal: 0x100 [1683,1688]",
+      "dest": "number_literal: 0x100 [1683,1688]"
+    },
+    {
+      "src": "identifier: bit [2122,2125]",
+      "dest": "identifier: bit [2122,2125]"
+    },
+    {
+      "src": "type_name [2543,2549]",
+      "dest": "type_name [2543,2549]"
+    },
+    {
+      "src": "parameter [950,959]",
+      "dest": "parameter [950,959]"
+    },
+    {
+      "src": "library_declaration [665,2673]",
+      "dest": "library_declaration [665,2673]"
+    },
+    {
+      "src": "-: - [1999,2000]",
+      "dest": "-: - [1999,2000]"
+    },
+    {
+      "src": "primitive_type [2033,2040]",
+      "dest": "primitive_type [2033,2040]"
+    },
+    {
+      "src": "identifier: xc [1406,1408]",
+      "dest": "identifier: xc [1406,1408]"
+    },
+    {
+      "src": "identifier: log_2 [1273,1278]",
+      "dest": "identifier: log_2 [1273,1278]"
+    },
+    {
+      "src": "if_statement [1913,1937]",
+      "dest": "if_statement [1913,1937]"
+    },
+    {
+      "src": "): ) [2131,2132]",
+      "dest": "): ) [2131,2132]"
+    },
+    {
+      "src": "(: ( [1994,1995]",
+      "dest": "(: ( [1994,1995]"
+    },
+    {
+      "src": "number_literal: 4 [1791,1792]",
+      "dest": "number_literal: 4 [1791,1792]"
+    },
+    {
+      "src": "primitive_type [2285,2291]",
+      "dest": "primitive_type [2285,2291]"
+    },
+    {
+      "src": "=: = [1389,1390]",
+      "dest": "=: = [1389,1390]"
+    },
+    {
+      "src": "identifier: b [2217,2218]",
+      "dest": "identifier: b [2217,2218]"
+    },
+    {
+      "src": "return: return [2586,2592]",
+      "dest": "return: return [2586,2592]"
+    },
+    {
+      "src": "int256: int256 [1379,1385]",
+      "dest": "int256: int256 [1379,1385]"
+    },
+    {
+      "src": "uint256: uint256 [2033,2040]",
+      "dest": "uint256: uint256 [2033,2040]"
+    },
+    {
+      "src": "variable_declaration [2169,2178]",
+      "dest": "variable_declaration [2169,2178]"
+    },
+    {
+      "src": "internal: internal [1289,1297]",
+      "dest": "internal: internal [1289,1297]"
+    },
+    {
+      "src": "augmented_assignment_expression [2122,2131]",
+      "dest": "augmented_assignment_expression [2122,2131]"
+    },
+    {
+      "src": "augmented_assignment_expression [1644,1653]",
+      "dest": "augmented_assignment_expression [1644,1653]"
+    },
+    {
+      "src": "augmented_assignment_expression [1470,1479]",
+      "dest": "augmented_assignment_expression [1470,1479]"
+    },
+    {
+      "src": "call_expression [1002,1034]",
+      "dest": "call_expression [1002,1034]"
+    },
+    {
+      "src": "number_literal: 8 [1733,1734]",
+      "dest": "number_literal: 8 [1733,1734]"
+    },
+    {
+      "src": "): ) [2256,2257]",
+      "dest": "): ) [2256,2257]"
+    },
+    {
+      "src": "*=: *= [2150,2152]",
+      "dest": "*=: *= [2150,2152]"
+    },
+    {
+      "src": "identifier: ln [2507,2509]",
+      "dest": "identifier: ln [2507,2509]"
+    },
+    {
+      "src": "identifier: ux [2204,2206]",
+      "dest": "identifier: ux [2204,2206]"
+    },
+    {
+      "src": "identifier: xc [1386,1388]",
+      "dest": "identifier: xc [1386,1388]"
+    },
+    {
+      "src": "): ) [2574,2575]",
+      "dest": "): ) [2574,2575]"
+    },
+    {
+      "src": "call_argument [2055,2064]",
+      "dest": "call_argument [2055,2064]"
+    },
+    {
+      "src": "): ) [2064,2065]",
+      "dest": "): ) [2064,2065]"
+    },
+    {
+      "src": "number_literal: 2 [1892,1893]",
+      "dest": "number_literal: 2 [1892,1893]"
+    },
+    {
+      "src": "state_mutability [2529,2533]",
+      "dest": "state_mutability [2529,2533]"
+    },
+    {
+      "src": "}: } [2672,2673]",
+      "dest": "}: } [2672,2673]"
+    },
+    {
+      "src": "library: library [665,672]",
+      "dest": "library: library [665,672]"
+    },
+    {
+      "src": "{: { [1522,1523]",
+      "dest": "{: { [1522,1523]"
+    },
+    {
+      "src": "return: return [2278,2284]",
+      "dest": "return: return [2278,2284]"
+    },
+    {
+      "src": "expression_statement [2561,2576]",
+      "dest": "expression_statement [2561,2576]"
+    },
+    {
+      "src": "block_statement [1607,1664]",
+      "dest": "block_statement [1607,1664]"
+    },
+    {
+      "src": "block_statement [1849,1904]",
+      "dest": "block_statement [1849,1904]"
+    },
+    {
+      "src": "expression_statement [2113,2121]",
+      "dest": "expression_statement [2113,2121]"
+    },
+    {
+      "src": "(: ( [1591,1592]",
+      "dest": "(: ( [1591,1592]"
+    },
+    {
+      "src": "identifier: msb [1928,1931]",
+      "dest": "identifier: msb [1928,1931]"
+    },
+    {
+      "src": "int128: int128 [2543,2549]",
+      "dest": "int128: int128 [2543,2549]"
+    },
+    {
+      "src": "expression_statement [1784,1793]",
+      "dest": "expression_statement [1784,1793]"
+    },
+    {
+      "src": "identifier: xc [1704,1706]",
+      "dest": "identifier: xc [1704,1706]"
+    },
+    {
+      "src": "if_statement [1499,1579]",
+      "dest": "if_statement [1499,1579]"
+    },
+    {
+      "src": "primitive_type [984,990]",
+      "dest": "primitive_type [984,990]"
+    },
+    {
+      "src": "): ) [1065,1066]",
+      "dest": "): ) [1065,1066]"
+    },
+    {
+      "src": "binary_expression [2113,2120]",
+      "dest": "binary_expression [2113,2120]"
+    },
+    {
+      "src": "(: ( [2291,2292]",
+      "dest": "(: ( [2291,2292]"
+    },
+    {
+      "src": "(: ( [1311,1312]",
+      "dest": "(: ( [1311,1312]"
+    },
+    {
+      "src": "expression_statement [2147,2156]",
+      "dest": "expression_statement [2147,2156]"
+    },
+    {
+      "src": "(: ( [1009,1010]",
+      "dest": "(: ( [1009,1010]"
+    },
+    {
+      "src": "): ) [2518,2519]",
+      "dest": "): ) [2518,2519]"
+    },
+    {
+      "src": "number_literal: 0x10 [1764,1768]",
+      "dest": "number_literal: 0x10 [1764,1768]"
+    },
+    {
+      "src": "): ) [1033,1034]",
+      "dest": "): ) [1033,1034]"
+    },
+    {
+      "src": "block_statement [1433,1490]",
+      "dest": "block_statement [1433,1490]"
+    },
+    {
+      "src": "source_file [0,2674]",
+      "dest": "source_file [0,2674]"
+    },
+    {
+      "src": "for: for [2075,2078]",
+      "dest": "for: for [2075,2078]"
+    },
+    {
+      "src": "}: } [1489,1490]",
+      "dest": "}: } [1489,1490]"
+    },
+    {
+      "src": "(: ( [2600,2601]",
+      "dest": "(: ( [2600,2601]"
+    },
+    {
+      "src": "binary_expression [2033,2065]",
+      "dest": "binary_expression [2033,2065]"
+    },
+    {
+      "src": "identifier: msb [1995,1998]",
+      "dest": "identifier: msb [1995,1998]"
+    },
+    {
+      "src": "call_expression [2561,2575]",
+      "dest": "call_expression [2561,2575]"
+    },
+    {
+      "src": "call_argument [1338,1343]",
+      "dest": "call_argument [1338,1343]"
+    },
+    {
+      "src": "type_name [1355,1361]",
+      "dest": "type_name [1355,1361]"
+    },
+    {
+      "src": "identifier: msb [1559,1562]",
+      "dest": "identifier: msb [1559,1562]"
+    },
+    {
+      "src": ">=: >= [1920,1922]",
+      "dest": ">=: >= [1920,1922]"
+    },
+    {
+      "src": "call_argument [1010,1033]",
+      "dest": "call_argument [1010,1033]"
+    },
+    {
+      "src": "expression_statement [1447,1457]",
+      "dest": "expression_statement [1447,1457]"
+    },
+    {
+      "src": "uint256: uint256 [950,957]",
+      "dest": "uint256: uint256 [950,957]"
+    },
+    {
+      "src": "solidity_version:  0.6.10 [205,212]",
+      "dest": "solidity_version:  0.6.10 [205,212]"
+    },
+    {
+      "src": "expression_statement [1621,1631]",
+      "dest": "expression_statement [1621,1631]"
+    },
+    {
+      "src": "binary_expression [2055,2064]",
+      "dest": "binary_expression [2055,2064]"
+    },
+    {
+      "src": ">>=: >>= [1539,1542]",
+      "dest": ">>=: >>= [1539,1542]"
+    },
+    {
+      "src": "variable_declaration [1978,1991]",
+      "dest": "variable_declaration [1978,1991]"
+    },
+    {
+      "src": "call_argument [2292,2298]",
+      "dest": "call_argument [2292,2298]"
+    },
+    {
+      "src": "(: ( [2568,2569]",
+      "dest": "(: ( [2568,2569]"
+    },
+    {
+      "src": "expression_statement [1559,1569]",
+      "dest": "expression_statement [1559,1569]"
+    },
+    {
+      "src": "identifier: xc [1863,1865]",
+      "dest": "identifier: xc [1863,1865]"
+    },
+    {
+      "src": "block_statement [1770,1825]",
+      "dest": "block_statement [1770,1825]"
+    },
+    {
+      "src": "+=: += [1932,1934]",
+      "dest": "+=: += [1932,1934]"
+    },
+    {
+      "src": "(: ( [1837,1838]",
+      "dest": "(: ( [1837,1838]"
+    }
+  ],
+  "actions": []
+}

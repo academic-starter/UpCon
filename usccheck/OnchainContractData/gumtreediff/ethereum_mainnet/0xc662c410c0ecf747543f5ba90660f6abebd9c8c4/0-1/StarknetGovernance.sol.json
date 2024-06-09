@@ -1,0 +1,810 @@
+{
+  "matches": [
+    {
+      "src": "state_mutability [947,951]",
+      "dest": "state_mutability [351,355]"
+    },
+    {
+      "src": "view: view [947,951]",
+      "dest": "view: view [351,355]"
+    },
+    {
+      "src": "): ) [1002,1003]",
+      "dest": "): ) [406,407]"
+    },
+    {
+      "src": "(: ( [1059,1060]",
+      "dest": "(: ( [463,464]"
+    },
+    {
+      "src": "contract_declaration [688,1714]",
+      "dest": "contract_declaration [92,1118]"
+    },
+    {
+      "src": "): ) [1532,1533]",
+      "dest": "): ) [936,937]"
+    },
+    {
+      "src": "=: = [1031,1032]",
+      "dest": "=: = [435,436]"
+    },
+    {
+      "src": "string [669,685]",
+      "dest": "string [73,89]"
+    },
+    {
+      "src": "(: ( [1237,1238]",
+      "dest": "(: ( [641,642]"
+    },
+    {
+      "src": "string [783,813]",
+      "dest": "string [187,217]"
+    },
+    {
+      "src": "external: external [1480,1488]",
+      "dest": "external: external [884,892]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [40,46]"
+    },
+    {
+      "src": "identifier: cancelNomination [1687,1703]",
+      "dest": "identifier: cancelNomination [1091,1107]"
+    },
+    {
+      "src": "identifier: STARKNET_GOVERNANCE_INFO_TAG [1060,1088]",
+      "dest": "identifier: STARKNET_GOVERNANCE_INFO_TAG [464,492]"
+    },
+    {
+      "src": "constant: constant [743,751]",
+      "dest": "constant: constant [147,155]"
+    },
+    {
+      "src": "variable_declaration [1014,1030]",
+      "dest": "variable_declaration [418,434]"
+    },
+    {
+      "src": "is: is [716,718]",
+      "dest": "is: is [120,122]"
+    },
+    {
+      "src": "): ) [1213,1214]",
+      "dest": "): ) [617,618]"
+    },
+    {
+      "src": "function: function [1546,1554]",
+      "dest": "function: function [950,958]"
+    },
+    {
+      "src": "identifier: removeGovernor [1499,1513]",
+      "dest": "identifier: removeGovernor [903,917]"
+    },
+    {
+      "src": "{: { [730,731]",
+      "dest": "{: { [134,135]"
+    },
+    {
+      "src": "type_name [1193,1200]",
+      "dest": "type_name [597,604]"
+    },
+    {
+      "src": "identifier: STARKNET_GOVERNANCE_INFO_TAG [752,780]",
+      "dest": "identifier: STARKNET_GOVERNANCE_INFO_TAG [156,184]"
+    },
+    {
+      "src": "(: ( [1513,1514]",
+      "dest": "(: ( [917,918]"
+    },
+    {
+      "src": "assembly: assembly [1100,1108]",
+      "dest": "assembly: assembly [504,512]"
+    },
+    {
+      "src": "): ) [1666,1667]",
+      "dest": "): ) [1070,1071]"
+    },
+    {
+      "src": "variable_declaration_statement [1014,1091]",
+      "dest": "variable_declaration_statement [418,495]"
+    },
+    {
+      "src": "return_type_definition [1229,1243]",
+      "dest": "return_type_definition [633,647]"
+    },
+    {
+      "src": "function_definition [1546,1626]",
+      "dest": "function_definition [950,1030]"
+    },
+    {
+      "src": "visibility [1668,1676]",
+      "dest": "visibility [1072,1080]"
+    },
+    {
+      "src": "visibility [1215,1223]",
+      "dest": "visibility [619,627]"
+    },
+    {
+      "src": "identifier: getGovernanceInfo [918,935]",
+      "dest": "identifier: getGovernanceInfo [322,339]"
+    },
+    {
+      "src": "(: ( [1271,1272]",
+      "dest": "(: ( [675,676]"
+    },
+    {
+      "src": "primitive_type [736,742]",
+      "dest": "primitive_type [140,146]"
+    },
+    {
+      "src": "member_expression [1043,1059]",
+      "dest": "member_expression [447,463]"
+    },
+    {
+      "src": "call_argument [1060,1088]",
+      "dest": "call_argument [464,492]"
+    },
+    {
+      "src": "identifier: Governance [719,729]",
+      "dest": "identifier: Governance [123,133]"
+    },
+    {
+      "src": "}: } [1413,1414]",
+      "dest": "}: } [817,818]"
+    },
+    {
+      "src": "internal: internal [938,946]",
+      "dest": "internal: internal [342,350]"
+    },
+    {
+      "src": "): ) [1088,1089]",
+      "dest": "): ) [492,493]"
+    },
+    {
+      "src": "function_definition [1632,1712]",
+      "dest": "function_definition [1036,1116]"
+    },
+    {
+      "src": "{: { [1109,1110]",
+      "dest": "{: { [513,514]"
+    },
+    {
+      "src": "function: function [1165,1173]",
+      "dest": "function: function [569,577]"
+    },
+    {
+      "src": "primitive_type [1238,1242]",
+      "dest": "primitive_type [642,646]"
+    },
+    {
+      "src": "yul_path [1135,1143]",
+      "dest": "yul_path [539,547]"
+    },
+    {
+      "src": "returns: returns [961,968]",
+      "dest": "returns: returns [365,372]"
+    },
+    {
+      "src": "inheritance_specifier [719,729]",
+      "dest": "inheritance_specifier [123,133]"
+    },
+    {
+      "src": "identifier: newGovernor [1343,1354]",
+      "dest": "identifier: newGovernor [747,758]"
+    },
+    {
+      "src": "identifier: nominateNewGovernor [1375,1394]",
+      "dest": "identifier: nominateNewGovernor [779,798]"
+    },
+    {
+      "src": "external: external [1356,1364]",
+      "dest": "external: external [760,768]"
+    },
+    {
+      "src": "call_argument [1043,1089]",
+      "dest": "call_argument [447,493]"
+    },
+    {
+      "src": "(: ( [1451,1452]",
+      "dest": "(: ( [855,856]"
+    },
+    {
+      "src": "external: external [1215,1223]",
+      "dest": "external: external [619,627]"
+    },
+    {
+      "src": "): ) [1478,1479]",
+      "dest": "): ) [882,883]"
+    },
+    {
+      "src": ".: . [1046,1047]",
+      "dest": ".: . [450,451]"
+    },
+    {
+      "src": "(: ( [1665,1666]",
+      "dest": "(: ( [1069,1070]"
+    },
+    {
+      "src": "type_name [970,990]",
+      "dest": "type_name [374,394]"
+    },
+    {
+      "src": "function: function [1298,1306]",
+      "dest": "function: function [702,710]"
+    },
+    {
+      "src": "returns: returns [1229,1236]",
+      "dest": "returns: returns [633,640]"
+    },
+    {
+      "src": "call_expression [1375,1407]",
+      "dest": "call_expression [779,811]"
+    },
+    {
+      "src": "identifier: acceptGovernance [1601,1617]",
+      "dest": "identifier: acceptGovernance [1005,1021]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [47,55]"
+    },
+    {
+      "src": "expression_statement [1499,1534]",
+      "dest": "expression_statement [903,938]"
+    },
+    {
+      "src": "): ) [1242,1243]",
+      "dest": "): ) [646,647]"
+    },
+    {
+      "src": "identifier: gub_slot [1123,1131]",
+      "dest": "identifier: gub_slot [527,535]"
+    },
+    {
+      "src": "override: override [952,960]",
+      "dest": "override: override [356,364]"
+    },
+    {
+      "src": "(: ( [1703,1704]",
+      "dest": "(: ( [1107,1108]"
+    },
+    {
+      "src": "return_type_definition [961,1003]",
+      "dest": "return_type_definition [365,407]"
+    },
+    {
+      "src": "}: } [1291,1292]",
+      "dest": "}: } [695,696]"
+    },
+    {
+      "src": "call_expression [1033,1090]",
+      "dest": "call_expression [437,494]"
+    },
+    {
+      "src": "function: function [1420,1428]",
+      "dest": "function: function [824,832]"
+    },
+    {
+      "src": "(: ( [1042,1043]",
+      "dest": "(: ( [446,447]"
+    },
+    {
+      "src": "identifier: starknetCancelNomination [1641,1665]",
+      "dest": "identifier: starknetCancelNomination [1045,1069]"
+    },
+    {
+      "src": "call_argument [1514,1532]",
+      "dest": "call_argument [918,936]"
+    },
+    {
+      "src": "type_name [1335,1342]",
+      "dest": "type_name [739,746]"
+    },
+    {
+      "src": "state_variable_declaration [736,814]",
+      "dest": "state_variable_declaration [140,218]"
+    },
+    {
+      "src": "function: function [909,917]",
+      "dest": "function: function [313,321]"
+    },
+    {
+      "src": "}: } [1152,1153]",
+      "dest": "}: } [556,557]"
+    },
+    {
+      "src": "=: = [781,782]",
+      "dest": "=: = [185,186]"
+    },
+    {
+      "src": "address: address [1335,1342]",
+      "dest": "address: address [739,746]"
+    },
+    {
+      "src": "(: ( [935,936]",
+      "dest": "(: ( [339,340]"
+    },
+    {
+      "src": "type_name [1238,1242]",
+      "dest": "type_name [642,646]"
+    },
+    {
+      "src": "bytes32: bytes32 [1014,1021]",
+      "dest": "bytes32: bytes32 [418,425]"
+    },
+    {
+      "src": "{: { [1677,1678]",
+      "dest": "{: { [1081,1082]"
+    },
+    {
+      "src": "(: ( [1617,1618]",
+      "dest": "(: ( [1021,1022]"
+    },
+    {
+      "src": "(: ( [1334,1335]",
+      "dest": "(: ( [738,739]"
+    },
+    {
+      "src": "): ) [936,937]",
+      "dest": "): ) [340,341]"
+    },
+    {
+      "src": "parameter [1238,1242]",
+      "dest": "parameter [642,646]"
+    },
+    {
+      "src": "call_expression [1261,1285]",
+      "dest": "call_expression [665,689]"
+    },
+    {
+      "src": "function_definition [1298,1414]",
+      "dest": "function_definition [702,818]"
+    },
+    {
+      "src": "identifier: newGovernor [1395,1406]",
+      "dest": "identifier: newGovernor [799,810]"
+    },
+    {
+      "src": "identifier: governorForRemoval [1460,1478]",
+      "dest": "identifier: governorForRemoval [864,882]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [47,63]"
+    },
+    {
+      "src": "}: } [1625,1626]",
+      "dest": "}: } [1029,1030]"
+    },
+    {
+      "src": "contract_body [730,1714]",
+      "dest": "contract_body [134,1118]"
+    },
+    {
+      "src": "parameter [1335,1354]",
+      "dest": "parameter [739,758]"
+    },
+    {
+      "src": "type_name [1452,1459]",
+      "dest": "type_name [856,863]"
+    },
+    {
+      "src": "function: function [1632,1640]",
+      "dest": "function: function [1036,1044]"
+    },
+    {
+      "src": "call_expression [1043,1089]",
+      "dest": "call_expression [447,493]"
+    },
+    {
+      "src": "(: ( [969,970]",
+      "dest": "(: ( [373,374]"
+    },
+    {
+      "src": "yul_assignment [1123,1143]",
+      "dest": "yul_assignment [527,547]"
+    },
+    {
+      "src": "\": \" [684,685]",
+      "dest": "\": \" [88,89]"
+    },
+    {
+      "src": "user_defined_type [970,990]",
+      "dest": "user_defined_type [374,394]"
+    },
+    {
+      "src": "yul_identifier [1123,1131]",
+      "dest": "yul_identifier [527,535]"
+    },
+    {
+      "src": "expression_statement [1375,1408]",
+      "dest": "expression_statement [779,812]"
+    },
+    {
+      "src": "yul_identifier [1135,1143]",
+      "dest": "yul_identifier [539,547]"
+    },
+    {
+      "src": "}: } [1713,1714]",
+      "dest": "}: } [1117,1118]"
+    },
+    {
+      "src": "assembly_statement [1100,1153]",
+      "dest": "assembly_statement [504,557]"
+    },
+    {
+      "src": "identifier: starknetAcceptGovernance [1555,1579]",
+      "dest": "identifier: starknetAcceptGovernance [959,983]"
+    },
+    {
+      "src": "string_literal [783,813]",
+      "dest": "string_literal [187,217]"
+    },
+    {
+      "src": "}: } [1711,1712]",
+      "dest": "}: } [1115,1116]"
+    },
+    {
+      "src": "{: { [1244,1245]",
+      "dest": "{: { [648,649]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [55,57]"
+    },
+    {
+      "src": "external: external [1668,1676]",
+      "dest": "external: external [1072,1080]"
+    },
+    {
+      "src": "\": \" [669,670]",
+      "dest": "\": \" [73,74]"
+    },
+    {
+      "src": "{: { [1004,1005]",
+      "dest": "{: { [408,409]"
+    },
+    {
+      "src": "type_name [1014,1021]",
+      "dest": "type_name [418,425]"
+    },
+    {
+      "src": "{: { [1489,1490]",
+      "dest": "{: { [893,894]"
+    },
+    {
+      "src": "state_mutability [1224,1228]",
+      "dest": "state_mutability [628,632]"
+    },
+    {
+      "src": "function_definition [1165,1292]",
+      "dest": "function_definition [569,696]"
+    },
+    {
+      "src": "type_name [736,742]",
+      "dest": "type_name [140,146]"
+    },
+    {
+      "src": "identifier: gub [999,1002]",
+      "dest": "identifier: gub [403,406]"
+    },
+    {
+      "src": "(: ( [1192,1193]",
+      "dest": "(: ( [596,597]"
+    },
+    {
+      "src": "identifier: testGovernor [1201,1213]",
+      "dest": "identifier: testGovernor [605,617]"
+    },
+    {
+      "src": "identifier: StarknetGovernance [697,715]",
+      "dest": "identifier: StarknetGovernance [101,119]"
+    },
+    {
+      "src": "visibility [1356,1364]",
+      "dest": "visibility [760,768]"
+    },
+    {
+      "src": "import: import [662,668]",
+      "dest": "import: import [66,72]"
+    },
+    {
+      "src": "function_body [1004,1159]",
+      "dest": "function_body [408,563]"
+    },
+    {
+      "src": "): ) [1284,1285]",
+      "dest": "): ) [688,689]"
+    },
+    {
+      "src": "function_definition [1420,1540]",
+      "dest": "function_definition [824,944]"
+    },
+    {
+      "src": "call_expression [1687,1705]",
+      "dest": "call_expression [1091,1109]"
+    },
+    {
+      "src": ":=: := [1132,1134]",
+      "dest": ":=: := [536,538]"
+    },
+    {
+      "src": "primitive_type [1014,1021]",
+      "dest": "primitive_type [418,425]"
+    },
+    {
+      "src": "storage: storage [991,998]",
+      "dest": "storage: storage [395,402]"
+    },
+    {
+      "src": "primitive_type [1335,1342]",
+      "dest": "primitive_type [739,746]"
+    },
+    {
+      "src": "): ) [1406,1407]",
+      "dest": "): ) [810,811]"
+    },
+    {
+      "src": "{: { [1591,1592]",
+      "dest": "{: { [995,996]"
+    },
+    {
+      "src": "parameter [970,1002]",
+      "dest": "parameter [374,406]"
+    },
+    {
+      "src": "\": \" [812,813]",
+      "dest": "\": \" [216,217]"
+    },
+    {
+      "src": "primitive_type [1193,1200]",
+      "dest": "primitive_type [597,604]"
+    },
+    {
+      "src": "): ) [1089,1090]",
+      "dest": "): ) [493,494]"
+    },
+    {
+      "src": "call_expression [1499,1533]",
+      "dest": "call_expression [903,937]"
+    },
+    {
+      "src": "function_body [1365,1414]",
+      "dest": "function_body [769,818]"
+    },
+    {
+      "src": "{: { [1365,1366]",
+      "dest": "{: { [769,770]"
+    },
+    {
+      "src": "yul_path [1123,1131]",
+      "dest": "yul_path [527,535]"
+    },
+    {
+      "src": "identifier: isGovernor [1261,1271]",
+      "dest": "identifier: isGovernor [665,675]"
+    },
+    {
+      "src": "visibility [1582,1590]",
+      "dest": "visibility [986,994]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [40,64]"
+    },
+    {
+      "src": "primitive_type [1452,1459]",
+      "dest": "primitive_type [856,863]"
+    },
+    {
+      "src": "return: return [1254,1260]",
+      "dest": "return: return [658,664]"
+    },
+    {
+      "src": "call_argument [1395,1406]",
+      "dest": "call_argument [799,810]"
+    },
+    {
+      "src": "): ) [1704,1705]",
+      "dest": "): ) [1108,1109]"
+    },
+    {
+      "src": "contract: contract [688,696]",
+      "dest": "contract: contract [92,100]"
+    },
+    {
+      "src": "identifier: location [1022,1030]",
+      "dest": "identifier: location [426,434]"
+    },
+    {
+      "src": "): ) [1618,1619]",
+      "dest": "): ) [1022,1023]"
+    },
+    {
+      "src": "return_statement [1254,1286]",
+      "dest": "return_statement [658,690]"
+    },
+    {
+      "src": "import_directive [662,686]",
+      "dest": "import_directive [66,90]"
+    },
+    {
+      "src": "identifier: governorForRemoval [1514,1532]",
+      "dest": "identifier: governorForRemoval [918,936]"
+    },
+    {
+      "src": "visibility [938,946]",
+      "dest": "visibility [342,350]"
+    },
+    {
+      "src": "address: address [1452,1459]",
+      "dest": "address: address [856,863]"
+    },
+    {
+      "src": "function_body [1244,1292]",
+      "dest": "function_body [648,696]"
+    },
+    {
+      "src": "(: ( [1579,1580]",
+      "dest": "(: ( [983,984]"
+    },
+    {
+      "src": "parameter [1193,1213]",
+      "dest": "parameter [597,617]"
+    },
+    {
+      "src": "\": \" [783,784]",
+      "dest": "\": \" [187,188]"
+    },
+    {
+      "src": "parameter [1452,1478]",
+      "dest": "parameter [856,882]"
+    },
+    {
+      "src": "visibility [1480,1488]",
+      "dest": "visibility [884,892]"
+    },
+    {
+      "src": "function_body [1591,1626]",
+      "dest": "function_body [995,1030]"
+    },
+    {
+      "src": "identifier: starknetIsGovernor [1174,1192]",
+      "dest": "identifier: starknetIsGovernor [578,596]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [55,57]"
+    },
+    {
+      "src": "string: string [736,742]",
+      "dest": "string: string [140,146]"
+    },
+    {
+      "src": "source_file [0,1715]",
+      "dest": "source_file [0,1119]"
+    },
+    {
+      "src": "view: view [1224,1228]",
+      "dest": "view: view [628,632]"
+    },
+    {
+      "src": "function_definition [909,1159]",
+      "dest": "function_definition [313,563]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]"
+    },
+    {
+      "src": "identifier: starknetNominateNewGovernor [1307,1334]",
+      "dest": "identifier: starknetNominateNewGovernor [711,738]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [970,990]",
+      "dest": "identifier: GovernanceInfoStruct [374,394]"
+    },
+    {
+      "src": "call_argument [1272,1284]",
+      "dest": "call_argument [676,688]"
+    },
+    {
+      "src": "function_body [1677,1712]",
+      "dest": "function_body [1081,1116]"
+    },
+    {
+      "src": "function_body [1489,1540]",
+      "dest": "function_body [893,944]"
+    },
+    {
+      "src": "override_specifier [952,960]",
+      "dest": "override_specifier [356,364]"
+    },
+    {
+      "src": "(: ( [1394,1395]",
+      "dest": "(: ( [798,799]"
+    },
+    {
+      "src": "bool: bool [1238,1242]",
+      "dest": "bool: bool [642,646]"
+    },
+    {
+      "src": "call_expression [1601,1619]",
+      "dest": "call_expression [1005,1023]"
+    },
+    {
+      "src": "external: external [1582,1590]",
+      "dest": "external: external [986,994]"
+    },
+    {
+      "src": "): ) [1354,1355]",
+      "dest": "): ) [758,759]"
+    },
+    {
+      "src": "identifier: encodePacked [1047,1059]",
+      "dest": "identifier: encodePacked [451,463]"
+    },
+    {
+      "src": "): ) [1580,1581]",
+      "dest": "): ) [984,985]"
+    },
+    {
+      "src": "identifier: keccak256 [1033,1042]",
+      "dest": "identifier: keccak256 [437,446]"
+    },
+    {
+      "src": "expression_statement [1687,1706]",
+      "dest": "expression_statement [1091,1110]"
+    },
+    {
+      "src": "address: address [1193,1200]",
+      "dest": "address: address [597,604]"
+    },
+    {
+      "src": "expression_statement [1601,1620]",
+      "dest": "expression_statement [1005,1024]"
+    },
+    {
+      "src": "identifier: starknetRemoveGovernor [1429,1451]",
+      "dest": "identifier: starknetRemoveGovernor [833,855]"
+    },
+    {
+      "src": "identifier: location [1135,1143]",
+      "dest": "identifier: location [539,547]"
+    },
+    {
+      "src": "identifier: abi [1043,1046]",
+      "dest": "identifier: abi [447,450]"
+    },
+    {
+      "src": "}: } [1158,1159]",
+      "dest": "}: } [562,563]"
+    },
+    {
+      "src": "user_defined_type [719,729]",
+      "dest": "user_defined_type [123,133]"
+    },
+    {
+      "src": "identifier: testGovernor [1272,1284]",
+      "dest": "identifier: testGovernor [676,688]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [57,63]"
+    },
+    {
+      "src": "comment: /*       Returns the GovernanceInfoStruct associated with the governance tag.     */ [820,904]",
+      "dest": "comment: /*       Returns the GovernanceInfoStruct associated with the governance tag.     */ [224,308]"
+    },
+    {
+      "src": "}: } [1539,1540]",
+      "dest": "}: } [943,944]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "delete-node",
+      "tree": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    }
+  ]
+}

@@ -1,0 +1,4549 @@
+{
+  "matches": [
+    {
+      "src": ".: . [1949,1950]",
+      "dest": ".: . [1949,1950]"
+    },
+    {
+      "src": "=: = [2886,2887]",
+      "dest": "=: = [2886,2887]"
+    },
+    {
+      "src": "primitive_type [328,335]",
+      "dest": "primitive_type [328,335]"
+    },
+    {
+      "src": "array_access [1934,1957]",
+      "dest": "array_access [1934,1957]"
+    },
+    {
+      "src": "virtual: virtual [636,643]",
+      "dest": "virtual: virtual [636,643]"
+    },
+    {
+      "src": "uint256: uint256 [652,659]",
+      "dest": "uint256: uint256 [652,659]"
+    },
+    {
+      "src": "internal: internal [3073,3081]",
+      "dest": "internal: internal [3073,3081]"
+    },
+    {
+      "src": "=>: => [356,358]",
+      "dest": "=>: => [356,358]"
+    },
+    {
+      "src": "(: ( [3179,3180]",
+      "dest": "(: ( [3179,3180]"
+    },
+    {
+      "src": "type_name [2348,2355]",
+      "dest": "type_name [2348,2355]"
+    },
+    {
+      "src": "string_literal [3812,3849]",
+      "dest": "string_literal [3812,3849]"
+    },
+    {
+      "src": "visibility [413,419]",
+      "dest": "visibility [413,419]"
+    },
+    {
+      "src": "member_expression [1300,1310]",
+      "dest": "member_expression [1300,1310]"
+    },
+    {
+      "src": "(: ( [274,275]",
+      "dest": "(: ( [274,275]"
+    },
+    {
+      "src": "{: { [3434,3435]",
+      "dest": "{: { [3434,3435]"
+    },
+    {
+      "src": "member_expression [3598,3620]",
+      "dest": "member_expression [3598,3620]"
+    },
+    {
+      "src": "(: ( [2134,2135]",
+      "dest": "(: ( [2134,2135]"
+    },
+    {
+      "src": "identifier: amount [2847,2853]",
+      "dest": "identifier: amount [2847,2853]"
+    },
+    {
+      "src": "expression_statement [3257,3294]",
+      "dest": "expression_statement [3257,3294]"
+    },
+    {
+      "src": "state_mutability [420,424]",
+      "dest": "state_mutability [420,424]"
+    },
+    {
+      "src": "): ) [478,479]",
+      "dest": "): ) [478,479]"
+    },
+    {
+      "src": "return_statement [941,976]",
+      "dest": "return_statement [941,976]"
+    },
+    {
+      "src": "number_literal: 0 [2744,2745]",
+      "dest": "number_literal: 0 [2744,2745]"
+    },
+    {
+      "src": "): ) [659,660]",
+      "dest": "): ) [659,660]"
+    },
+    {
+      "src": "call_argument [2416,2423]",
+      "dest": "call_argument [2416,2423]"
+    },
+    {
+      "src": "identifier: sender [1304,1310]",
+      "dest": "identifier: sender [1304,1310]"
+    },
+    {
+      "src": "): ) [2660,2661]",
+      "dest": "): ) [2660,2661]"
+    },
+    {
+      "src": "primitive_type [2348,2355]",
+      "dest": "primitive_type [2348,2355]"
+    },
+    {
+      "src": "primitive_type [3057,3064]",
+      "dest": "primitive_type [3057,3064]"
+    },
+    {
+      "src": "function_definition [707,833]",
+      "dest": "function_definition [707,833]"
+    },
+    {
+      "src": "]: ] [1330,1331]",
+      "dest": "]: ] [1330,1331]"
+    },
+    {
+      "src": "identifier: spender [883,890]",
+      "dest": "identifier: spender [883,890]"
+    },
+    {
+      "src": "]: ] [3880,3881]",
+      "dest": "]: ] [3880,3881]"
+    },
+    {
+      "src": "expression_statement [2865,2921]",
+      "dest": "expression_statement [2865,2921]"
+    },
+    {
+      "src": "visibility [239,246]",
+      "dest": "visibility [239,246]"
+    },
+    {
+      "src": "primitive_type [286,293]",
+      "dest": "primitive_type [286,293]"
+    },
+    {
+      "src": "[: [ [3268,3269]",
+      "dest": "[: [ [3268,3269]"
+    },
+    {
+      "src": "): ) [521,522]",
+      "dest": "): ) [521,522]"
+    },
+    {
+      "src": "private: private [295,302]",
+      "dest": "private: private [295,302]"
+    },
+    {
+      "src": "public: public [413,419]",
+      "dest": "public: public [413,419]"
+    },
+    {
+      "src": ".: . [1335,1336]",
+      "dest": ".: . [1335,1336]"
+    },
+    {
+      "src": "internal: internal [3425,3433]",
+      "dest": "internal: internal [3425,3433]"
+    },
+    {
+      "src": "identifier: SafeMath [198,206]",
+      "dest": "identifier: SafeMath [198,206]"
+    },
+    {
+      "src": "uint256: uint256 [1475,1482]",
+      "dest": "uint256: uint256 [1475,1482]"
+    },
+    {
+      "src": "type_name [3040,3047]",
+      "dest": "type_name [3040,3047]"
+    },
+    {
+      "src": "emit: emit [3985,3989]",
+      "dest": "emit: emit [3985,3989]"
+    },
+    {
+      "src": "function: function [707,715]",
+      "dest": "function: function [707,715]"
+    },
+    {
+      "src": "identifier: _burnFrom [2338,2347]",
+      "dest": "identifier: _burnFrom [2338,2347]"
+    },
+    {
+      "src": "return_statement [1414,1426]",
+      "dest": "return_statement [1414,1426]"
+    },
+    {
+      "src": "return: return [941,947]",
+      "dest": "return: return [941,947]"
+    },
+    {
+      "src": "binary_expression [3101,3120]",
+      "dest": "binary_expression [3101,3120]"
+    },
+    {
+      "src": "type_name [1220,1227]",
+      "dest": "type_name [1220,1227]"
+    },
+    {
+      "src": "identifier: amount [2514,2520]",
+      "dest": "identifier: amount [2514,2520]"
+    },
+    {
+      "src": "): ) [3473,3474]",
+      "dest": "): ) [3473,3474]"
+    },
+    {
+      "src": "identifier: account [2505,2512]",
+      "dest": "identifier: account [2505,2512]"
+    },
+    {
+      "src": "address: address [3191,3198]",
+      "dest": "address: address [3191,3198]"
+    },
+    {
+      "src": "identifier: _allowances [948,959]",
+      "dest": "identifier: _allowances [948,959]"
+    },
+    {
+      "src": "member_expression [1708,1718]",
+      "dest": "member_expression [1708,1718]"
+    },
+    {
+      "src": ".: . [3616,3617]",
+      "dest": ".: . [3616,3617]"
+    },
+    {
+      "src": "type_name [2075,2082]",
+      "dest": "type_name [2075,2082]"
+    },
+    {
+      "src": "): ) [411,412]",
+      "dest": "): ) [411,412]"
+    },
+    {
+      "src": "): ) [1124,1125]",
+      "dest": "): ) [1124,1125]"
+    },
+    {
+      "src": "parameter [1682,1686]",
+      "dest": "parameter [1682,1686]"
+    },
+    {
+      "src": ",: , [1854,1855]",
+      "dest": ",: , [1854,1855]"
+    },
+    {
+      "src": "uint256: uint256 [2597,2604]",
+      "dest": "uint256: uint256 [2597,2604]"
+    },
+    {
+      "src": "): ) [613,614]",
+      "dest": "): ) [613,614]"
+    },
+    {
+      "src": "call_argument [1720,1727]",
+      "dest": "call_argument [1720,1727]"
+    },
+    {
+      "src": "): ) [1072,1073]",
+      "dest": "): ) [1072,1073]"
+    },
+    {
+      "src": ".: . [3952,3953]",
+      "dest": ".: . [3952,3953]"
+    },
+    {
+      "src": "public: public [1491,1497]",
+      "dest": "public: public [1491,1497]"
+    },
+    {
+      "src": "identifier: sub [3953,3956]",
+      "dest": "identifier: sub [3953,3956]"
+    },
+    {
+      "src": "(: ( [1886,1887]",
+      "dest": "(: ( [1886,1887]"
+    },
+    {
+      "src": "primitive_type [860,867]",
+      "dest": "primitive_type [860,867]"
+    },
+    {
+      "src": "return: return [1990,1996]",
+      "dest": "return: return [1990,1996]"
+    },
+    {
+      "src": "): ) [1773,1774]",
+      "dest": "): ) [1773,1774]"
+    },
+    {
+      "src": "[: [ [1752,1753]",
+      "dest": "[: [ [1752,1753]"
+    },
+    {
+      "src": "internal: internal [2613,2621]",
+      "dest": "internal: internal [2613,2621]"
+    },
+    {
+      "src": ",: , [1394,1395]",
+      "dest": ",: , [1394,1395]"
+    },
+    {
+      "src": "virtual: virtual [2100,2107]",
+      "dest": "virtual: virtual [2100,2107]"
+    },
+    {
+      "src": "override_specifier [904,912]",
+      "dest": "override_specifier [904,912]"
+    },
+    {
+      "src": "assignment_expression [3925,3964]",
+      "dest": "assignment_expression [3925,3964]"
+    },
+    {
+      "src": "parameter [921,928]",
+      "dest": "parameter [921,928]"
+    },
+    {
+      "src": "identifier: amount [2302,2308]",
+      "dest": "identifier: amount [2302,2308]"
+    },
+    {
+      "src": "(: ( [1540,1541]",
+      "dest": "(: ( [1540,1541]"
+    },
+    {
+      "src": "call_argument [1118,1124]",
+      "dest": "call_argument [1118,1124]"
+    },
+    {
+      "src": "member_expression [1332,1342]",
+      "dest": "member_expression [1332,1342]"
+    },
+    {
+      "src": "primitive_type [2040,2047]",
+      "dest": "primitive_type [2040,2047]"
+    },
+    {
+      "src": "call_argument [2135,2141]",
+      "dest": "call_argument [2135,2141]"
+    },
+    {
+      "src": ",: , [4006,4007]",
+      "dest": ",: , [4006,4007]"
+    },
+    {
+      "src": "identifier: allowance [850,859]",
+      "dest": "identifier: allowance [850,859]"
+    },
+    {
+      "src": "call_argument [2974,2980]",
+      "dest": "call_argument [2974,2980]"
+    },
+    {
+      "src": "address: address [2651,2658]",
+      "dest": "address: address [2651,2658]"
+    },
+    {
+      "src": "): ) [2745,2746]",
+      "dest": "): ) [2745,2746]"
+    },
+    {
+      "src": "type_name [1634,1641]",
+      "dest": "type_name [1634,1641]"
+    },
+    {
+      "src": "view: view [420,424]",
+      "dest": "view: view [420,424]"
+    },
+    {
+      "src": "primitive_type [577,582]",
+      "dest": "primitive_type [577,582]"
+    },
+    {
+      "src": "(: ( [3327,3328]",
+      "dest": "(: ( [3327,3328]"
+    },
+    {
+      "src": ",: , [1551,1552]",
+      "dest": ",: , [1551,1552]"
+    },
+    {
+      "src": "parameter [2210,2225]",
+      "dest": "parameter [2210,2225]"
+    },
+    {
+      "src": "): ) [2241,2242]",
+      "dest": "): ) [2241,2242]"
+    },
+    {
+      "src": "internal: internal [2243,2251]",
+      "dest": "internal: internal [2243,2251]"
+    },
+    {
+      "src": "(: ( [410,411]",
+      "dest": "(: ( [410,411]"
+    },
+    {
+      "src": "expression_statement [3172,3245]",
+      "dest": "expression_statement [3172,3245]"
+    },
+    {
+      "src": "virtual: virtual [425,432]",
+      "dest": "virtual: virtual [425,432]"
+    },
+    {
+      "src": "return_statement [1136,1148]",
+      "dest": "return_statement [1136,1148]"
+    },
+    {
+      "src": "expression_statement [3527,3567]",
+      "dest": "expression_statement [3527,3567]"
+    },
+    {
+      "src": ",: , [2141,2142]",
+      "dest": ",: , [2141,2142]"
+    },
+    {
+      "src": "): ) [1489,1490]",
+      "dest": "): ) [1489,1490]"
+    },
+    {
+      "src": "call_argument [1729,1773]",
+      "dest": "call_argument [1729,1773]"
+    },
+    {
+      "src": "identifier: account [3675,3682]",
+      "dest": "identifier: account [3675,3682]"
+    },
+    {
+      "src": "): ) [3849,3850]",
+      "dest": "): ) [3849,3850]"
+    },
+    {
+      "src": "visibility [1236,1242]",
+      "dest": "visibility [1236,1242]"
+    },
+    {
+      "src": "identifier: decreaseAllowance [1821,1838]",
+      "dest": "identifier: decreaseAllowance [1821,1838]"
+    },
+    {
+      "src": "return: return [800,806]",
+      "dest": "return: return [800,806]"
+    },
+    {
+      "src": "{: { [3082,3083]",
+      "dest": "{: { [3082,3083]"
+    },
+    {
+      "src": "(: ( [3198,3199]",
+      "dest": "(: ( [3198,3199]"
+    },
+    {
+      "src": "type_name [1651,1658]",
+      "dest": "type_name [1651,1658]"
+    },
+    {
+      "src": "type_name [1839,1846]",
+      "dest": "type_name [1839,1846]"
+    },
+    {
+      "src": "visibility [369,376]",
+      "dest": "visibility [369,376]"
+    },
+    {
+      "src": "(: ( [347,348]",
+      "dest": "(: ( [347,348]"
+    },
+    {
+      "src": "address: address [3728,3735]",
+      "dest": "address: address [3728,3735]"
+    },
+    {
+      "src": "): ) [3759,3760]",
+      "dest": "): ) [3759,3760]"
+    },
+    {
+      "src": "parameter [441,454]",
+      "dest": "parameter [441,454]"
+    },
+    {
+      "src": "identifier: amount [3065,3071]",
+      "dest": "identifier: amount [3065,3071]"
+    },
+    {
+      "src": "user_defined_type [178,184]",
+      "dest": "user_defined_type [178,184]"
+    },
+    {
+      "src": "parameter [1475,1489]",
+      "dest": "parameter [1475,1489]"
+    },
+    {
+      "src": "uint256: uint256 [211,218]",
+      "dest": "uint256: uint256 [211,218]"
+    },
+    {
+      "src": "): ) [293,294]",
+      "dest": "): ) [293,294]"
+    },
+    {
+      "src": "type_name [921,928]",
+      "dest": "type_name [921,928]"
+    },
+    {
+      "src": "member_expression [1934,1970]",
+      "dest": "member_expression [1934,1970]"
+    },
+    {
+      "src": "): ) [4017,4018]",
+      "dest": "): ) [4017,4018]"
+    },
+    {
+      "src": "uint256: uint256 [1028,1035]",
+      "dest": "uint256: uint256 [1028,1035]"
+    },
+    {
+      "src": "function_body [2390,2529]",
+      "dest": "function_body [2390,2529]"
+    },
+    {
+      "src": "(: ( [3024,3025]",
+      "dest": "(: ( [3024,3025]"
+    },
+    {
+      "src": "]: ] [824,825]",
+      "dest": "]: ] [824,825]"
+    },
+    {
+      "src": "): ) [1978,1979]",
+      "dest": "): ) [1978,1979]"
+    },
+    {
+      "src": "true: true [1421,1425]",
+      "dest": "true: true [1421,1425]"
+    },
+    {
+      "src": "identifier: spender [3276,3283]",
+      "dest": "identifier: spender [3276,3283]"
+    },
+    {
+      "src": "member_expression [1541,1551]",
+      "dest": "member_expression [1541,1551]"
+    },
+    {
+      "src": "identifier: recipient [1209,1218]",
+      "dest": "identifier: recipient [1209,1218]"
+    },
+    {
+      "src": "identifier: amount [2373,2379]",
+      "dest": "identifier: amount [2373,2379]"
+    },
+    {
+      "src": "public: public [1236,1242]",
+      "dest": "public: public [1236,1242]"
+    },
+    {
+      "src": "call_argument [2847,2853]",
+      "dest": "call_argument [2847,2853]"
+    },
+    {
+      "src": "true: true [1587,1591]",
+      "dest": "true: true [1587,1591]"
+    },
+    {
+      "src": "): ) [1355,1356]",
+      "dest": "): ) [1355,1356]"
+    },
+    {
+      "src": ",: , [2054,2055]",
+      "dest": ",: , [2054,2055]"
+    },
+    {
+      "src": "): ) [2520,2521]",
+      "dest": "): ) [2520,2521]"
+    },
+    {
+      "src": "primitive_type [3663,3670]",
+      "dest": "primitive_type [3663,3670]"
+    },
+    {
+      "src": "address: address [348,355]",
+      "dest": "address: address [348,355]"
+    },
+    {
+      "src": "bool: bool [1515,1519]",
+      "dest": "bool: bool [1515,1519]"
+    },
+    {
+      "src": "call_argument [2154,2160]",
+      "dest": "call_argument [2154,2160]"
+    },
+    {
+      "src": "call_argument [3663,3673]",
+      "dest": "call_argument [3663,3673]"
+    },
+    {
+      "src": "): ) [3423,3424]",
+      "dest": "): ) [3423,3424]"
+    },
+    {
+      "src": "identifier: amount [1562,1568]",
+      "dest": "identifier: amount [1562,1568]"
+    },
+    {
+      "src": "primitive_type [2210,2217]",
+      "dest": "primitive_type [2210,2217]"
+    },
+    {
+      "src": "(: ( [2347,2348]",
+      "dest": "(: ( [2347,2348]"
+    },
+    {
+      "src": "address: address [3392,3399]",
+      "dest": "address: address [3392,3399]"
+    },
+    {
+      "src": "call_argument [1396,1402]",
+      "dest": "call_argument [1396,1402]"
+    },
+    {
+      "src": "array_access [2865,2885]",
+      "dest": "array_access [2865,2885]"
+    },
+    {
+      "src": "array_access [1312,1331]",
+      "dest": "array_access [1312,1331]"
+    },
+    {
+      "src": "identifier: sender [2955,2961]",
+      "dest": "identifier: sender [2955,2961]"
+    },
+    {
+      "src": "address: address [2736,2743]",
+      "dest": "address: address [2736,2743]"
+    },
+    {
+      "src": "return_type_definition [772,788]",
+      "dest": "return_type_definition [772,788]"
+    },
+    {
+      "src": "(: ( [612,613]",
+      "dest": "(: ( [612,613]"
+    },
+    {
+      "src": "}: } [1803,1804]",
+      "dest": "}: } [1803,1804]"
+    },
+    {
+      "src": "internal: internal [2091,2099]",
+      "dest": "internal: internal [2091,2099]"
+    },
+    {
+      "src": "\": \" [49,50]",
+      "dest": "\": \" [49,50]"
+    },
+    {
+      "src": "parameter [3040,3055]",
+      "dest": "parameter [3040,3055]"
+    },
+    {
+      "src": "\": \" [34,35]",
+      "dest": "\": \" [34,35]"
+    },
+    {
+      "src": "function: function [1163,1171]",
+      "dest": "function: function [1163,1171]"
+    },
+    {
+      "src": "}: } [4034,4035]",
+      "dest": "}: } [4034,4035]"
+    },
+    {
+      "src": "function: function [841,849]",
+      "dest": "function: function [841,849]"
+    },
+    {
+      "src": "(: ( [1838,1839]",
+      "dest": "(: ( [1838,1839]"
+    },
+    {
+      "src": "array_access [948,966]",
+      "dest": "array_access [948,966]"
+    },
+    {
+      "src": "identifier: require [2633,2640]",
+      "dest": "identifier: require [2633,2640]"
+    },
+    {
+      "src": "identifier: spender [1958,1965]",
+      "dest": "identifier: spender [1958,1965]"
+    },
+    {
+      "src": "=: = [3938,3939]",
+      "dest": "=: = [3938,3939]"
+    },
+    {
+      "src": "identifier: sender [1292,1298]",
+      "dest": "identifier: sender [1292,1298]"
+    },
+    {
+      "src": "(: ( [1259,1260]",
+      "dest": "(: ( [1259,1260]"
+    },
+    {
+      "src": "identifier: sender [1099,1105]",
+      "dest": "identifier: sender [1099,1105]"
+    },
+    {
+      "src": "identifier: account [2449,2456]",
+      "dest": "identifier: account [2449,2456]"
+    },
+    {
+      "src": "): ) [3690,3691]",
+      "dest": "): ) [3690,3691]"
+    },
+    {
+      "src": "identifier: msg [1095,1098]",
+      "dest": "identifier: msg [1095,1098]"
+    },
+    {
+      "src": "boolean_literal [1997,2001]",
+      "dest": "boolean_literal [1997,2001]"
+    },
+    {
+      "src": "parameter [2040,2054]",
+      "dest": "parameter [2040,2054]"
+    },
+    {
+      "src": "identifier: increaseAllowance [1616,1633]",
+      "dest": "identifier: increaseAllowance [1616,1633]"
+    },
+    {
+      "src": "address: address [275,282]",
+      "dest": "address: address [275,282]"
+    },
+    {
+      "src": "call_expression [2888,2920]",
+      "dest": "call_expression [2888,2920]"
+    },
+    {
+      "src": "identifier: _burnAction [3716,3727]",
+      "dest": "identifier: _burnAction [3716,3727]"
+    },
+    {
+      "src": "primitive_type [3745,3752]",
+      "dest": "primitive_type [3745,3752]"
+    },
+    {
+      "src": "number_literal: 0 [4016,4017]",
+      "dest": "number_literal: 0 [4016,4017]"
+    },
+    {
+      "src": "call_argument [1095,1105]",
+      "dest": "call_argument [1095,1105]"
+    },
+    {
+      "src": "): ) [3119,3120]",
+      "dest": "): ) [3119,3120]"
+    },
+    {
+      "src": "visibility [615,621]",
+      "dest": "visibility [615,621]"
+    },
+    {
+      "src": ",: , [1473,1474]",
+      "dest": ",: , [1473,1474]"
+    },
+    {
+      "src": "(: ( [779,780]",
+      "dest": "(: ( [779,780]"
+    },
+    {
+      "src": "): ) [2703,2704]",
+      "dest": "): ) [2703,2704]"
+    },
+    {
+      "src": "function_body [1074,1155]",
+      "dest": "function_body [1074,1155]"
+    },
+    {
+      "src": ".: . [1966,1967]",
+      "dest": ".: . [1966,1967]"
+    },
+    {
+      "src": "call_expression [3542,3566]",
+      "dest": "call_expression [3542,3566]"
+    },
+    {
+      "src": "identifier: msg [1541,1544]",
+      "dest": "identifier: msg [1541,1544]"
+    },
+    {
+      "src": "state_mutability [556,560]",
+      "dest": "state_mutability [556,560]"
+    },
+    {
+      "src": "parameter [3745,3759]",
+      "dest": "parameter [3745,3759]"
+    },
+    {
+      "src": "public: public [1044,1050]",
+      "dest": "public: public [1044,1050]"
+    },
+    {
+      "src": "identifier: add [1762,1765]",
+      "dest": "identifier: add [1762,1765]"
+    },
+    {
+      "src": "assignment_expression [3527,3566]",
+      "dest": "assignment_expression [3527,3566]"
+    },
+    {
+      "src": "call_expression [2271,2309]",
+      "dest": "call_expression [2271,2309]"
+    },
+    {
+      "src": "^:  ^ [15,17]",
+      "dest": "^:  ^ [15,17]"
+    },
+    {
+      "src": "\": \" [73,74]",
+      "dest": "\": \" [73,74]"
+    },
+    {
+      "src": "type_name [231,238]",
+      "dest": "type_name [231,238]"
+    },
+    {
+      "src": "): ) [367,368]",
+      "dest": "): ) [367,368]"
+    },
+    {
+      "src": "bool: bool [1260,1264]",
+      "dest": "bool: bool [1260,1264]"
+    },
+    {
+      "src": "address: address [1201,1208]",
+      "dest": "address: address [1201,1208]"
+    },
+    {
+      "src": "identifier: sender [2641,2647]",
+      "dest": "identifier: sender [2641,2647]"
+    },
+    {
+      "src": "identifier: sender [2835,2841]",
+      "dest": "identifier: sender [2835,2841]"
+    },
+    {
+      "src": "uint256: uint256 [921,928]",
+      "dest": "uint256: uint256 [921,928]"
+    },
+    {
+      "src": "): ) [1042,1043]",
+      "dest": "): ) [1042,1043]"
+    },
+    {
+      "src": "expression_statement [2271,2310]",
+      "dest": "expression_statement [2271,2310]"
+    },
+    {
+      "src": "identifier: Transfer [3990,3998]",
+      "dest": "identifier: Transfer [3990,3998]"
+    },
+    {
+      "src": "uint256: uint256 [780,787]",
+      "dest": "uint256: uint256 [780,787]"
+    },
+    {
+      "src": "primitive_type [1515,1519]",
+      "dest": "primitive_type [1515,1519]"
+    },
+    {
+      "src": "bool: bool [1068,1072]",
+      "dest": "bool: bool [1068,1072]"
+    },
+    {
+      "src": "identifier: _approveAction [2401,2415]",
+      "dest": "identifier: _approveAction [2401,2415]"
+    },
+    {
+      "src": "): ) [3513,3514]",
+      "dest": "): ) [3513,3514]"
+    },
+    {
+      "src": "): ) [787,788]",
+      "dest": "): ) [787,788]"
+    },
+    {
+      "src": "function: function [2177,2185]",
+      "dest": "function: function [2177,2185]"
+    },
+    {
+      "src": "call_expression [3598,3628]",
+      "dest": "call_expression [3598,3628]"
+    },
+    {
+      "src": "return_type_definition [913,929]",
+      "dest": "return_type_definition [913,929]"
+    },
+    {
+      "src": "call_argument [3199,3200]",
+      "dest": "call_argument [3199,3200]"
+    },
+    {
+      "src": "): ) [2308,2309]",
+      "dest": "): ) [2308,2309]"
+    },
+    {
+      "src": "override: override [755,763]",
+      "dest": "override: override [755,763]"
+    },
+    {
+      "src": "uint256: uint256 [2227,2234]",
+      "dest": "uint256: uint256 [2227,2234]"
+    },
+    {
+      "src": "return: return [1414,1420]",
+      "dest": "return: return [1414,1420]"
+    },
+    {
+      "src": "function: function [1607,1615]",
+      "dest": "function: function [1607,1615]"
+    },
+    {
+      "src": "(: ( [3906,3907]",
+      "dest": "(: ( [3906,3907]"
+    },
+    {
+      "src": "(: ( [3998,3999]",
+      "dest": "(: ( [3998,3999]"
+    },
+    {
+      "src": "identifier: spender [3048,3055]",
+      "dest": "identifier: spender [3048,3055]"
+    },
+    {
+      "src": "array_access [807,825]",
+      "dest": "array_access [807,825]"
+    },
+    {
+      "src": "{: { [2108,2109]",
+      "dest": "{: { [2108,2109]"
+    },
+    {
+      "src": "member_expression [1741,1751]",
+      "dest": "member_expression [1741,1751]"
+    },
+    {
+      "src": "): ) [2919,2920]",
+      "dest": "): ) [2919,2920]"
+    },
+    {
+      "src": ".: . [1303,1304]",
+      "dest": ".: . [1303,1304]"
+    },
+    {
+      "src": "type_name [2040,2047]",
+      "dest": "type_name [2040,2047]"
+    },
+    {
+      "src": ",: , [2423,2424]",
+      "dest": ",: , [2423,2424]"
+    },
+    {
+      "src": "!=: != [3188,3190]",
+      "dest": "!=: != [3188,3190]"
+    },
+    {
+      "src": "\": \" [3242,3243]",
+      "dest": "\": \" [3242,3243]"
+    },
+    {
+      "src": ",: , [2961,2962]",
+      "dest": ",: , [2961,2962]"
+    },
+    {
+      "src": ",: , [2661,2662]",
+      "dest": ",: , [2661,2662]"
+    },
+    {
+      "src": "identifier: amount [3684,3690]",
+      "dest": "identifier: amount [3684,3690]"
+    },
+    {
+      "src": "member_expression [3940,3956]",
+      "dest": "member_expression [3940,3956]"
+    },
+    {
+      "src": "address: address [726,733]",
+      "dest": "address: address [726,733]"
+    },
+    {
+      "src": "type_cast_expression [2651,2661]",
+      "dest": "type_cast_expression [2651,2661]"
+    },
+    {
+      "src": "call_argument [2963,2972]",
+      "dest": "call_argument [2963,2972]"
+    },
+    {
+      "src": "primitive_type [921,928]",
+      "dest": "primitive_type [921,928]"
+    },
+    {
+      "src": "primitive_type [1185,1192]",
+      "dest": "primitive_type [1185,1192]"
+    },
+    {
+      "src": "return: return [1136,1142]",
+      "dest": "return: return [1136,1142]"
+    },
+    {
+      "src": "call_argument [2286,2291]",
+      "dest": "call_argument [2286,2291]"
+    },
+    {
+      "src": "override_specifier [627,635]",
+      "dest": "override_specifier [627,635]"
+    },
+    {
+      "src": "parameter [3728,3743]",
+      "dest": "parameter [3728,3743]"
+    },
+    {
+      "src": "=: = [3882,3883]",
+      "dest": "=: = [3882,3883]"
+    },
+    {
+      "src": "primitive_type [3025,3032]",
+      "dest": "primitive_type [3025,3032]"
+    },
+    {
+      "src": "expression_statement [3925,3965]",
+      "dest": "expression_statement [3925,3965]"
+    },
+    {
+      "src": "number_literal: 0 [3671,3672]",
+      "dest": "number_literal: 0 [3671,3672]"
+    },
+    {
+      "src": "returns: returns [913,920]",
+      "dest": "returns: returns [913,920]"
+    },
+    {
+      "src": "[: [ [1957,1958]",
+      "dest": "[: [ [1957,1958]"
+    },
+    {
+      "src": "call_expression [2493,2521]",
+      "dest": "call_expression [2493,2521]"
+    },
+    {
+      "src": "identifier: account [2356,2363]",
+      "dest": "identifier: account [2356,2363]"
+    },
+    {
+      "src": "type_name [3025,3032]",
+      "dest": "type_name [3025,3032]"
+    },
+    {
+      "src": "parameter [2562,2576]",
+      "dest": "parameter [2562,2576]"
+    },
+    {
+      "src": "string [3812,3849]",
+      "dest": "string [3812,3849]"
+    },
+    {
+      "src": "override_specifier [1051,1059]",
+      "dest": "override_specifier [1051,1059]"
+    },
+    {
+      "src": "returns: returns [1060,1067]",
+      "dest": "returns: returns [1060,1067]"
+    },
+    {
+      "src": "string: string [441,447]",
+      "dest": "string: string [441,447]"
+    },
+    {
+      "src": "]: ] [2907,2908]",
+      "dest": "]: ] [2907,2908]"
+    },
+    {
+      "src": "(: ( [859,860]",
+      "dest": "(: ( [859,860]"
+    },
+    {
+      "src": ".: . [2469,2470]",
+      "dest": ".: . [2469,2470]"
+    },
+    {
+      "src": "(: ( [3670,3671]",
+      "dest": "(: ( [3670,3671]"
+    },
+    {
+      "src": ",: , [3673,3674]",
+      "dest": ",: , [3673,3674]"
+    },
+    {
+      "src": "identifier: owner [868,873]",
+      "dest": "identifier: owner [868,873]"
+    },
+    {
+      "src": "call_argument [3203,3243]",
+      "dest": "call_argument [3203,3243]"
+    },
+    {
+      "src": ",: , [1383,1384]",
+      "dest": ",: , [1383,1384]"
+    },
+    {
+      "src": "primitive_type [2578,2585]",
+      "dest": "primitive_type [2578,2585]"
+    },
+    {
+      "src": "identifier: sender [2815,2821]",
+      "dest": "identifier: sender [2815,2821]"
+    },
+    {
+      "src": "member_expression [1913,1923]",
+      "dest": "member_expression [1913,1923]"
+    },
+    {
+      "src": "function: function [3707,3715]",
+      "dest": "function: function [3707,3715]"
+    },
+    {
+      "src": "identifier: recipient [2064,2073]",
+      "dest": "identifier: recipient [2064,2073]"
+    },
+    {
+      "src": "parameter [3392,3407]",
+      "dest": "parameter [3392,3407]"
+    },
+    {
+      "src": "\": \" [60,61]",
+      "dest": "\": \" [60,61]"
+    },
+    {
+      "src": "expression_statement [3577,3629]",
+      "dest": "expression_statement [3577,3629]"
+    },
+    {
+      "src": "override: override [904,912]",
+      "dest": "override: override [904,912]"
+    },
+    {
+      "src": "identifier: amount [1864,1870]",
+      "dest": "identifier: amount [1864,1870]"
+    },
+    {
+      "src": "string_literal [3476,3513]",
+      "dest": "string_literal [3476,3513]"
+    },
+    {
+      "src": "call_argument [2744,2745]",
+      "dest": "call_argument [2744,2745]"
+    },
+    {
+      "src": "binary_expression [2723,2746]",
+      "dest": "binary_expression [2723,2746]"
+    },
+    {
+      "src": "]: ] [3901,3902]",
+      "dest": "]: ] [3901,3902]"
+    },
+    {
+      "src": "call_expression [1532,1569]",
+      "dest": "call_expression [1532,1569]"
+    },
+    {
+      "src": "bool: bool [1682,1686]",
+      "dest": "bool: bool [1682,1686]"
+    },
+    {
+      "src": "visibility [892,898]",
+      "dest": "visibility [892,898]"
+    },
+    {
+      "src": "expression_statement [1085,1126]",
+      "dest": "expression_statement [1085,1126]"
+    },
+    {
+      "src": "expression_statement [2401,2483]",
+      "dest": "expression_statement [2401,2483]"
+    },
+    {
+      "src": "type_name [3392,3399]",
+      "dest": "type_name [3392,3399]"
+    },
+    {
+      "src": "(: ( [3452,3453]",
+      "dest": "(: ( [3452,3453]"
+    },
+    {
+      "src": "identifier: owner [3101,3106]",
+      "dest": "identifier: owner [3101,3106]"
+    },
+    {
+      "src": "(: ( [1008,1009]",
+      "dest": "(: ( [1008,1009]"
+    },
+    {
+      "src": "[: [ [1331,1332]",
+      "dest": "[: [ [1331,1332]"
+    },
+    {
+      "src": "call_expression [1904,1979]",
+      "dest": "call_expression [1904,1979]"
+    },
+    {
+      "src": "{: { [789,790]",
+      "dest": "{: { [789,790]"
+    },
+    {
+      "src": "identifier: _balances [3577,3586]",
+      "dest": "identifier: _balances [3577,3586]"
+    },
+    {
+      "src": "type_name [2365,2372]",
+      "dest": "type_name [2365,2372]"
+    },
+    {
+      "src": "state_mutability [487,491]",
+      "dest": "state_mutability [487,491]"
+    },
+    {
+      "src": "}: } [2316,2317]",
+      "dest": "}: } [2316,2317]"
+    },
+    {
+      "src": "call_argument [2302,2308]",
+      "dest": "call_argument [2302,2308]"
+    },
+    {
+      "src": "=: = [3285,3286]",
+      "dest": "=: = [3285,3286]"
+    },
+    {
+      "src": "type_name [441,447]",
+      "dest": "type_name [441,447]"
+    },
+    {
+      "src": "(: ( [2039,2040]",
+      "dest": "(: ( [2039,2040]"
+    },
+    {
+      "src": "address: address [3800,3807]",
+      "dest": "address: address [3800,3807]"
+    },
+    {
+      "src": "identifier: require [3781,3788]",
+      "dest": "identifier: require [3781,3788]"
+    },
+    {
+      "src": "function_definition [462,523]",
+      "dest": "function_definition [462,523]"
+    },
+    {
+      "src": "public: public [743,749]",
+      "dest": "public: public [743,749]"
+    },
+    {
+      "src": "parameter [780,787]",
+      "dest": "parameter [780,787]"
+    },
+    {
+      "src": "): ) [1870,1871]",
+      "dest": "): ) [1870,1871]"
+    },
+    {
+      "src": "identifier: sender [1712,1718]",
+      "dest": "identifier: sender [1712,1718]"
+    },
+    {
+      "src": "return_statement [1990,2002]",
+      "dest": "return_statement [1990,2002]"
+    },
+    {
+      "src": "parameter [2597,2611]",
+      "dest": "parameter [2597,2611]"
+    },
+    {
+      "src": "public: public [1872,1878]",
+      "dest": "public: public [1872,1878]"
+    },
+    {
+      "src": "{: { [1266,1267]",
+      "dest": "{: { [1266,1267]"
+    },
+    {
+      "src": "return: return [1580,1586]",
+      "dest": "return: return [1580,1586]"
+    },
+    {
+      "src": "(: ( [2561,2562]",
+      "dest": "(: ( [2561,2562]"
+    },
+    {
+      "src": "call_argument [3812,3849]",
+      "dest": "call_argument [3812,3849]"
+    },
+    {
+      "src": "identifier: amount [1396,1402]",
+      "dest": "identifier: amount [1396,1402]"
+    },
+    {
+      "src": "identifier: require [2715,2722]",
+      "dest": "identifier: require [2715,2722]"
+    },
+    {
+      "src": ",: , [1298,1299]",
+      "dest": ",: , [1298,1299]"
+    },
+    {
+      "src": "public: public [892,898]",
+      "dest": "public: public [892,898]"
+    },
+    {
+      "src": "virtual: virtual [561,568]",
+      "dest": "virtual: virtual [561,568]"
+    },
+    {
+      "src": "function_definition [3371,3699]",
+      "dest": "function_definition [3371,3699]"
+    },
+    {
+      "src": "identifier: msg [2425,2428]",
+      "dest": "identifier: msg [2425,2428]"
+    },
+    {
+      "src": "identifier: account [2416,2423]",
+      "dest": "identifier: account [2416,2423]"
+    },
+    {
+      "src": "(: ( [1347,1348]",
+      "dest": "(: ( [1347,1348]"
+    },
+    {
+      "src": "address: address [4008,4015]",
+      "dest": "address: address [4008,4015]"
+    },
+    {
+      "src": "(: ( [1376,1377]",
+      "dest": "(: ( [1376,1377]"
+    },
+    {
+      "src": "primitive_type [2597,2604]",
+      "dest": "primitive_type [2597,2604]"
+    },
+    {
+      "src": "(: ( [2846,2847]",
+      "dest": "(: ( [2846,2847]"
+    },
+    {
+      "src": "identifier: transferFrom [1172,1184]",
+      "dest": "identifier: transferFrom [1172,1184]"
+    },
+    {
+      "src": "identifier: amount [1766,1772]",
+      "dest": "identifier: amount [1766,1772]"
+    },
+    {
+      "src": "primitive_type [3409,3416]",
+      "dest": "primitive_type [3409,3416]"
+    },
+    {
+      "src": "primitive_type [348,355]",
+      "dest": "primitive_type [348,355]"
+    },
+    {
+      "src": "function_definition [3001,3359]",
+      "dest": "function_definition [3001,3359]"
+    },
+    {
+      "src": "identifier: account [3608,3615]",
+      "dest": "identifier: account [3608,3615]"
+    },
+    {
+      "src": "private: private [369,376]",
+      "dest": "private: private [369,376]"
+    },
+    {
+      "src": "primitive_type [1260,1264]",
+      "dest": "primitive_type [1260,1264]"
+    },
+    {
+      "src": "\": \" [3203,3204]",
+      "dest": "\": \" [3203,3204]"
+    },
+    {
+      "src": ",: , [1560,1561]",
+      "dest": ",: , [1560,1561]"
+    },
+    {
+      "src": "primitive_type [1682,1686]",
+      "dest": "primitive_type [1682,1686]"
+    },
+    {
+      "src": "function: function [1812,1820]",
+      "dest": "function: function [1812,1820]"
+    },
+    {
+      "src": "visibility [1667,1673]",
+      "dest": "visibility [1667,1673]"
+    },
+    {
+      "src": "primitive_type [2195,2202]",
+      "dest": "primitive_type [2195,2202]"
+    },
+    {
+      "src": "visibility [1491,1497]",
+      "dest": "visibility [1491,1497]"
+    },
+    {
+      "src": ",: , [2300,2301]",
+      "dest": ",: , [2300,2301]"
+    },
+    {
+      "src": "internal: internal [2381,2389]",
+      "dest": "internal: internal [2381,2389]"
+    },
+    {
+      "src": "function_body [1266,1433]",
+      "dest": "function_body [1266,1433]"
+    },
+    {
+      "src": "call_argument [2437,2481]",
+      "dest": "call_argument [2437,2481]"
+    },
+    {
+      "src": "member_expression [2825,2846]",
+      "dest": "member_expression [2825,2846]"
+    },
+    {
+      "src": "boolean_literal [1143,1147]",
+      "dest": "boolean_literal [1143,1147]"
+    },
+    {
+      "src": "assignment_expression [3863,3914]",
+      "dest": "assignment_expression [3863,3914]"
+    },
+    {
+      "src": "identifier: recipient [2963,2972]",
+      "dest": "identifier: recipient [2963,2972]"
+    },
+    {
+      "src": "identifier: account [734,741]",
+      "dest": "identifier: account [734,741]"
+    },
+    {
+      "src": "primitive_type [1220,1227]",
+      "dest": "primitive_type [1220,1227]"
+    },
+    {
+      "src": "primitive_type [1839,1846]",
+      "dest": "primitive_type [1839,1846]"
+    },
+    {
+      "src": "identifier: owner [960,965]",
+      "dest": "identifier: owner [960,965]"
+    },
+    {
+      "src": "identifier: owner [3269,3274]",
+      "dest": "identifier: owner [3269,3274]"
+    },
+    {
+      "src": "identifier: amount [2474,2480]",
+      "dest": "identifier: amount [2474,2480]"
+    },
+    {
+      "src": "identifier: sender [1950,1956]",
+      "dest": "identifier: sender [1950,1956]"
+    },
+    {
+      "src": "type_cast_expression [3110,3120]",
+      "dest": "type_cast_expression [3110,3120]"
+    },
+    {
+      "src": "parameter [2365,2379]",
+      "dest": "parameter [2365,2379]"
+    },
+    {
+      "src": "(: ( [725,726]",
+      "dest": "(: ( [725,726]"
+    },
+    {
+      "src": "identifier: msg [1332,1335]",
+      "dest": "identifier: msg [1332,1335]"
+    },
+    {
+      "src": "member_expression [2425,2435]",
+      "dest": "member_expression [2425,2435]"
+    },
+    {
+      "src": "): ) [1568,1569]",
+      "dest": "): ) [1568,1569]"
+    },
+    {
+      "src": "emit_statement [3649,3692]",
+      "dest": "emit_statement [3649,3692]"
+    },
+    {
+      "src": "expression_statement [2805,2855]",
+      "dest": "expression_statement [2805,2855]"
+    },
+    {
+      "src": "uint256: uint256 [3745,3752]",
+      "dest": "uint256: uint256 [3745,3752]"
+    },
+    {
+      "src": "(: ( [1765,1766]",
+      "dest": "(: ( [1765,1766]"
+    },
+    {
+      "src": "function: function [991,999]",
+      "dest": "function: function [991,999]"
+    },
+    {
+      "src": "primitive_type [726,733]",
+      "dest": "primitive_type [726,733]"
+    },
+    {
+      "src": "]: ] [2468,2469]",
+      "dest": "]: ] [2468,2469]"
+    },
+    {
+      "src": "call_argument [3344,3350]",
+      "dest": "call_argument [3344,3350]"
+    },
+    {
+      "src": "type_cast_expression [3663,3673]",
+      "dest": "type_cast_expression [3663,3673]"
+    },
+    {
+      "src": "identifier: spender [1466,1473]",
+      "dest": "identifier: spender [1466,1473]"
+    },
+    {
+      "src": ",: , [3120,3121]",
+      "dest": ",: , [3120,3121]"
+    },
+    {
+      "src": "[: [ [959,960]",
+      "dest": "[: [ [959,960]"
+    },
+    {
+      "src": "call_argument [2143,2152]",
+      "dest": "call_argument [2143,2152]"
+    },
+    {
+      "src": "return_type_definition [569,583]",
+      "dest": "return_type_definition [569,583]"
+    },
+    {
+      "src": "function_body [789,833]",
+      "dest": "function_body [789,833]"
+    },
+    {
+      "src": "identifier: _approveAction [1277,1291]",
+      "dest": "identifier: _approveAction [1277,1291]"
+    },
+    {
+      "src": "member_expression [1095,1105]",
+      "dest": "member_expression [1095,1105]"
+    },
+    {
+      "src": "type_name [1201,1208]",
+      "dest": "type_name [1201,1208]"
+    },
+    {
+      "src": "call_argument [1377,1383]",
+      "dest": "call_argument [1377,1383]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [15,17]",
+      "dest": "solidity_version_comparison_operator [15,17]"
+    },
+    {
+      "src": "): ) [3672,3673]",
+      "dest": "): ) [3672,3673]"
+    },
+    {
+      "src": "identifier: sender [2135,2141]",
+      "dest": "identifier: sender [2135,2141]"
+    },
+    {
+      "src": "string [3122,3160]",
+      "dest": "string [3122,3160]"
+    },
+    {
+      "src": "address: address [3110,3117]",
+      "dest": "address: address [3110,3117]"
+    },
+    {
+      "src": "identifier: spender [1753,1760]",
+      "dest": "identifier: spender [1753,1760]"
+    },
+    {
+      "src": "(: ( [3471,3472]",
+      "dest": "(: ( [3471,3472]"
+    },
+    {
+      "src": "boolean_literal [1587,1591]",
+      "dest": "boolean_literal [1587,1591]"
+    },
+    {
+      "src": "function: function [2021,2029]",
+      "dest": "function: function [2021,2029]"
+    },
+    {
+      "src": "visibility [2381,2389]",
+      "dest": "visibility [2381,2389]"
+    },
+    {
+      "src": "identifier: _approveAction [2271,2285]",
+      "dest": "identifier: _approveAction [2271,2285]"
+    },
+    {
+      "src": "parameter [1458,1473]",
+      "dest": "parameter [1458,1473]"
+    },
+    {
+      "src": "state_variable_declaration [231,260]",
+      "dest": "state_variable_declaration [231,260]"
+    },
+    {
+      "src": "type_name [860,867]",
+      "dest": "type_name [860,867]"
+    },
+    {
+      "src": "type_name [726,733]",
+      "dest": "type_name [726,733]"
+    },
+    {
+      "src": "parameter [577,582]",
+      "dest": "parameter [577,582]"
+    },
+    {
+      "src": "return_type_definition [500,522]",
+      "dest": "return_type_definition [500,522]"
+    },
+    {
+      "src": "call_argument [2723,2746]",
+      "dest": "call_argument [2723,2746]"
+    },
+    {
+      "src": "state_mutability [899,903]",
+      "dest": "state_mutability [899,903]"
+    },
+    {
+      "src": "identifier: IERC20 [178,184]",
+      "dest": "identifier: IERC20 [178,184]"
+    },
+    {
+      "src": "visibility [3761,3769]",
+      "dest": "visibility [3761,3769]"
+    },
+    {
+      "src": "is: is [175,177]",
+      "dest": "is: is [175,177]"
+    },
+    {
+      "src": "parameter [1651,1665]",
+      "dest": "parameter [1651,1665]"
+    },
+    {
+      "src": "array_access [3257,3284]",
+      "dest": "array_access [3257,3284]"
+    },
+    {
+      "src": "memory: memory [448,454]",
+      "dest": "memory: memory [448,454]"
+    },
+    {
+      "src": "identifier: amount [2235,2241]",
+      "dest": "identifier: amount [2235,2241]"
+    },
+    {
+      "src": "call_argument [3957,3963]",
+      "dest": "call_argument [3957,3963]"
+    },
+    {
+      "src": "emit_statement [2941,2982]",
+      "dest": "emit_statement [2941,2982]"
+    },
+    {
+      "src": "(: ( [1707,1708]",
+      "dest": "(: ( [1707,1708]"
+    },
+    {
+      "src": "identifier: Transfer [2946,2954]",
+      "dest": "identifier: Transfer [2946,2954]"
+    },
+    {
+      "src": ",: , [3810,3811]",
+      "dest": ",: , [3810,3811]"
+    },
+    {
+      "src": "primitive_type [3040,3047]",
+      "dest": "primitive_type [3040,3047]"
+    },
+    {
+      "src": "type_name [2210,2217]",
+      "dest": "type_name [2210,2217]"
+    },
+    {
+      "src": "identifier: sub [1344,1347]",
+      "dest": "identifier: sub [1344,1347]"
+    },
+    {
+      "src": "): ) [454,455]",
+      "dest": "): ) [454,455]"
+    },
+    {
+      "src": "override_specifier [1498,1506]",
+      "dest": "override_specifier [1498,1506]"
+    },
+    {
+      "src": "function_body [2108,2169]",
+      "dest": "function_body [2108,2169]"
+    },
+    {
+      "src": "parameter [1856,1870]",
+      "dest": "parameter [1856,1870]"
+    },
+    {
+      "src": "visibility [480,486]",
+      "dest": "visibility [480,486]"
+    },
+    {
+      "src": "primitive_type [4008,4015]",
+      "dest": "primitive_type [4008,4015]"
+    },
+    {
+      "src": "identifier: spender [3180,3187]",
+      "dest": "identifier: spender [3180,3187]"
+    },
+    {
+      "src": "array_access [3257,3275]",
+      "dest": "array_access [3257,3275]"
+    },
+    {
+      "src": "emit_statement [3985,4028]",
+      "dest": "emit_statement [3985,4028]"
+    },
+    {
+      "src": "primitive_type [1028,1035]",
+      "dest": "primitive_type [1028,1035]"
+    },
+    {
+      "src": ",: , [1718,1719]",
+      "dest": ",: , [1718,1719]"
+    },
+    {
+      "src": "primitive_type [359,366]",
+      "dest": "primitive_type [359,366]"
+    },
+    {
+      "src": "override: override [1498,1506]",
+      "dest": "override: override [1498,1506]"
+    },
+    {
+      "src": "identifier: _allowances [377,388]",
+      "dest": "identifier: _allowances [377,388]"
+    },
+    {
+      "src": "identifier: _balances [2865,2874]",
+      "dest": "identifier: _balances [2865,2874]"
+    },
+    {
+      "src": "): ) [3160,3161]",
+      "dest": "): ) [3160,3161]"
+    },
+    {
+      "src": "primitive_type [652,659]",
+      "dest": "primitive_type [652,659]"
+    },
+    {
+      "src": ",: , [2746,2747]",
+      "dest": ",: , [2746,2747]"
+    },
+    {
+      "src": "type_name [3057,3064]",
+      "dest": "type_name [3057,3064]"
+    },
+    {
+      "src": "\": \" [2663,2664]",
+      "dest": "\": \" [2663,2664]"
+    },
+    {
+      "src": "identifier: spender [2218,2225]",
+      "dest": "identifier: spender [2218,2225]"
+    },
+    {
+      "src": "): ) [3071,3072]",
+      "dest": "): ) [3071,3072]"
+    },
+    {
+      "src": "uint256: uint256 [2365,2372]",
+      "dest": "uint256: uint256 [2365,2372]"
+    },
+    {
+      "src": "{: { [3770,3771]",
+      "dest": "{: { [3770,3771]"
+    },
+    {
+      "src": "true: true [1792,1796]",
+      "dest": "true: true [1792,1796]"
+    },
+    {
+      "src": "]: ] [2841,2842]",
+      "dest": "]: ] [2841,2842]"
+    },
+    {
+      "src": "identifier: spender [1642,1649]",
+      "dest": "identifier: spender [1642,1649]"
+    },
+    {
+      "src": "address: address [2578,2585]",
+      "dest": "address: address [2578,2585]"
+    },
+    {
+      "src": ".: . [1744,1745]",
+      "dest": ".: . [1744,1745]"
+    },
+    {
+      "src": "(: ( [3788,3789]",
+      "dest": "(: ( [3788,3789]"
+    },
+    {
+      "src": "call_expression [2715,2792]",
+      "dest": "call_expression [2715,2792]"
+    },
+    {
+      "src": "type_alias [198,206]",
+      "dest": "type_alias [198,206]"
+    },
+    {
+      "src": "identifier: recipient [2143,2152]",
+      "dest": "identifier: recipient [2143,2152]"
+    },
+    {
+      "src": "{: { [2622,2623]",
+      "dest": "{: { [2622,2623]"
+    },
+    {
+      "src": "identifier: _approve [1699,1707]",
+      "dest": "identifier: _approve [1699,1707]"
+    },
+    {
+      "src": "import: import [53,59]",
+      "dest": "import: import [53,59]"
+    },
+    {
+      "src": "expression_statement [2633,2705]",
+      "dest": "expression_statement [2633,2705]"
+    },
+    {
+      "src": "returns: returns [569,576]",
+      "dest": "returns: returns [569,576]"
+    },
+    {
+      "src": "array_access [1934,1966]",
+      "dest": "array_access [1934,1966]"
+    },
+    {
+      "src": "!=: != [3797,3799]",
+      "dest": "!=: != [3797,3799]"
+    },
+    {
+      "src": "import_directive [53,75]",
+      "dest": "import_directive [53,75]"
+    },
+    {
+      "src": "return_type_definition [433,455]",
+      "dest": "return_type_definition [433,455]"
+    },
+    {
+      "src": "type_name [319,368]",
+      "dest": "type_name [319,368]"
+    },
+    {
+      "src": "type_name [780,787]",
+      "dest": "type_name [780,787]"
+    },
+    {
+      "src": "return_type_definition [1879,1892]",
+      "dest": "return_type_definition [1879,1892]"
+    },
+    {
+      "src": "call_argument [2514,2520]",
+      "dest": "call_argument [2514,2520]"
+    },
+    {
+      "src": "call_argument [3999,4006]",
+      "dest": "call_argument [3999,4006]"
+    },
+    {
+      "src": "): ) [1234,1235]",
+      "dest": "): ) [1234,1235]"
+    },
+    {
+      "src": ".: . [1711,1712]",
+      "dest": ".: . [1711,1712]"
+    },
+    {
+      "src": "\": \" [3476,3477]",
+      "dest": "\": \" [3476,3477]"
+    },
+    {
+      "src": "function_definition [2537,2989]",
+      "dest": "function_definition [2537,2989]"
+    },
+    {
+      "src": "contract_declaration [151,4038]",
+      "dest": "contract_declaration [151,4038]"
+    },
+    {
+      "src": ",: , [3055,3056]",
+      "dest": ",: , [3055,3056]"
+    },
+    {
+      "src": "): ) [2379,2380]",
+      "dest": "): ) [2379,2380]"
+    },
+    {
+      "src": "primitive_type [1068,1072]",
+      "dest": "primitive_type [1068,1072]"
+    },
+    {
+      "src": "function_definition [2329,2529]",
+      "dest": "function_definition [2329,2529]"
+    },
+    {
+      "src": "call_argument [3808,3809]",
+      "dest": "call_argument [3808,3809]"
+    },
+    {
+      "src": "string_literal [2748,2791]",
+      "dest": "string_literal [2748,2791]"
+    },
+    {
+      "src": ",: , [1105,1106]",
+      "dest": ",: , [1105,1106]"
+    },
+    {
+      "src": "type_name [339,367]",
+      "dest": "type_name [339,367]"
+    },
+    {
+      "src": "number_literal: 0 [3118,3119]",
+      "dest": "number_literal: 0 [3118,3119]"
+    },
+    {
+      "src": "\": \" [2748,2749]",
+      "dest": "\": \" [2748,2749]"
+    },
+    {
+      "src": "\": \" [3512,3513]",
+      "dest": "\": \" [3512,3513]"
+    },
+    {
+      "src": "(: ( [1067,1068]",
+      "dest": "(: ( [1067,1068]"
+    },
+    {
+      "src": "parameter [2195,2208]",
+      "dest": "parameter [2195,2208]"
+    },
+    {
+      "src": "[: [ [2457,2458]",
+      "dest": "[: [ [2457,2458]"
+    },
+    {
+      "src": "): ) [1354,1355]",
+      "dest": "): ) [1354,1355]"
+    },
+    {
+      "src": "}: } [2528,2529]",
+      "dest": "}: } [2528,2529]"
+    },
+    {
+      "src": "call_argument [1107,1116]",
+      "dest": "call_argument [1107,1116]"
+    },
+    {
+      "src": "function_body [1893,2009]",
+      "dest": "function_body [1893,2009]"
+    },
+    {
+      "src": "]: ] [3274,3275]",
+      "dest": "]: ] [3274,3275]"
+    },
+    {
+      "src": "visibility [743,749]",
+      "dest": "visibility [743,749]"
+    },
+    {
+      "src": "(: ( [576,577]",
+      "dest": "(: ( [576,577]"
+    },
+    {
+      "src": "(: ( [2194,2195]",
+      "dest": "(: ( [2194,2195]"
+    },
+    {
+      "src": "]: ] [1965,1966]",
+      "dest": "]: ] [1965,1966]"
+    },
+    {
+      "src": "type_name [1260,1264]",
+      "dest": "type_name [1260,1264]"
+    },
+    {
+      "src": "identifier: recipient [1385,1394]",
+      "dest": "identifier: recipient [1385,1394]"
+    },
+    {
+      "src": ".: . [2428,2429]",
+      "dest": ".: . [2428,2429]"
+    },
+    {
+      "src": "identifier: amount [3621,3627]",
+      "dest": "identifier: amount [3621,3627]"
+    },
+    {
+      "src": "(: ( [1912,1913]",
+      "dest": "(: ( [1912,1913]"
+    },
+    {
+      "src": "return_type_definition [1507,1520]",
+      "dest": "return_type_definition [1507,1520]"
+    },
+    {
+      "src": "true: true [1143,1147]",
+      "dest": "true: true [1143,1147]"
+    },
+    {
+      "src": ",: , [2152,2153]",
+      "dest": ",: , [2152,2153]"
+    },
+    {
+      "src": ".: . [3554,3555]",
+      "dest": ".: . [3554,3555]"
+    },
+    {
+      "src": "}: } [1598,1599]",
+      "dest": "}: } [1598,1599]"
+    },
+    {
+      "src": "string [34,50]",
+      "dest": "string [34,50]"
+    },
+    {
+      "src": "call_argument [1348,1354]",
+      "dest": "call_argument [1348,1354]"
+    },
+    {
+      "src": "type_name [2195,2202]",
+      "dest": "type_name [2195,2202]"
+    },
+    {
+      "src": "identifier: balanceOf [716,725]",
+      "dest": "identifier: balanceOf [716,725]"
+    },
+    {
+      "src": "function_body [930,983]",
+      "dest": "function_body [930,983]"
+    },
+    {
+      "src": "function_definition [2177,2317]",
+      "dest": "function_definition [2177,2317]"
+    },
+    {
+      "src": "address: address [1458,1465]",
+      "dest": "address: address [1458,1465]"
+    },
+    {
+      "src": "type_name [875,882]",
+      "dest": "type_name [875,882]"
+    },
+    {
+      "src": "return_statement [800,826]",
+      "dest": "return_statement [800,826]"
+    },
+    {
+      "src": "type_name [211,218]",
+      "dest": "type_name [211,218]"
+    },
+    {
+      "src": "identifier: amount [3753,3759]",
+      "dest": "identifier: amount [3753,3759]"
+    },
+    {
+      "src": "member_expression [2458,2468]",
+      "dest": "member_expression [2458,2468]"
+    },
+    {
+      "src": "identifier: amount [3907,3913]",
+      "dest": "identifier: amount [3907,3913]"
+    },
+    {
+      "src": "private: private [239,246]",
+      "dest": "private: private [239,246]"
+    },
+    {
+      "src": ".: . [1916,1917]",
+      "dest": ".: . [1916,1917]"
+    },
+    {
+      "src": "primitive_type [1634,1641]",
+      "dest": "primitive_type [1634,1641]"
+    },
+    {
+      "src": "identifier: sub [2470,2473]",
+      "dest": "identifier: sub [2470,2473]"
+    },
+    {
+      "src": "): ) [547,548]",
+      "dest": "): ) [547,548]"
+    },
+    {
+      "src": "(: ( [3391,3392]",
+      "dest": "(: ( [3391,3392]"
+    },
+    {
+      "src": "address: address [2195,2202]",
+      "dest": "address: address [2195,2202]"
+    },
+    {
+      "src": "source_file [0,4044]",
+      "dest": "source_file [0,4044]"
+    },
+    {
+      "src": "uint8: uint8 [577,582]",
+      "dest": "uint8: uint8 [577,582]"
+    },
+    {
+      "src": "expression_statement [1532,1570]",
+      "dest": "expression_statement [1532,1570]"
+    },
+    {
+      "src": "}: } [3698,3699]",
+      "dest": "}: } [3698,3699]"
+    },
+    {
+      "src": "type_name [1068,1072]",
+      "dest": "type_name [1068,1072]"
+    },
+    {
+      "src": "array_access [3577,3595]",
+      "dest": "array_access [3577,3595]"
+    },
+    {
+      "src": "call_argument [4020,4026]",
+      "dest": "call_argument [4020,4026]"
+    },
+    {
+      "src": "uint256: uint256 [1856,1863]",
+      "dest": "uint256: uint256 [1856,1863]"
+    },
+    {
+      "src": "function: function [462,470]",
+      "dest": "function: function [462,470]"
+    },
+    {
+      "src": "parameter [1009,1026]",
+      "dest": "parameter [1009,1026]"
+    },
+    {
+      "src": "visibility [3073,3081]",
+      "dest": "visibility [3073,3081]"
+    },
+    {
+      "src": "string [2663,2703]",
+      "dest": "string [2663,2703]"
+    },
+    {
+      "src": ".: . [2842,2843]",
+      "dest": ".: . [2842,2843]"
+    },
+    {
+      "src": "identifier: add [2909,2912]",
+      "dest": "identifier: add [2909,2912]"
+    },
+    {
+      "src": "identifier: account [3400,3407]",
+      "dest": "identifier: account [3400,3407]"
+    },
+    {
+      "src": "identifier: ERC20 [169,174]",
+      "dest": "identifier: ERC20 [169,174]"
+    },
+    {
+      "src": ",: , [2512,2513]",
+      "dest": ",: , [2512,2513]"
+    },
+    {
+      "src": "parameter [726,741]",
+      "dest": "parameter [726,741]"
+    },
+    {
+      "src": "primitive_type [2365,2372]",
+      "dest": "primitive_type [2365,2372]"
+    },
+    {
+      "src": "return_type_definition [644,660]",
+      "dest": "return_type_definition [644,660]"
+    },
+    {
+      "src": "identifier: amount [1036,1042]",
+      "dest": "identifier: amount [1036,1042]"
+    },
+    {
+      "src": "call_expression [1367,1403]",
+      "dest": "call_expression [1367,1403]"
+    },
+    {
+      "src": "(: ( [3117,3118]",
+      "dest": "(: ( [3117,3118]"
+    },
+    {
+      "src": "expression_statement [2715,2793]",
+      "dest": "expression_statement [2715,2793]"
+    },
+    {
+      "src": "identifier: require [3172,3179]",
+      "dest": "identifier: require [3172,3179]"
+    },
+    {
+      "src": "(: ( [651,652]",
+      "dest": "(: ( [651,652]"
+    },
+    {
+      "src": ",: , [1923,1924]",
+      "dest": ",: , [1923,1924]"
+    },
+    {
+      "src": "array_access [948,975]",
+      "dest": "array_access [948,975]"
+    },
+    {
+      "src": "array_access [1729,1761]",
+      "dest": "array_access [1729,1761]"
+    },
+    {
+      "src": "(: ( [2743,2744]",
+      "dest": "(: ( [2743,2744]"
+    },
+    {
+      "src": "identifier: recipient [2586,2595]",
+      "dest": "identifier: recipient [2586,2595]"
+    },
+    {
+      "src": "contract: contract [160,168]",
+      "dest": "contract: contract [160,168]"
+    },
+    {
+      "src": "identifier: amount [2974,2980]",
+      "dest": "identifier: amount [2974,2980]"
+    },
+    {
+      "src": "emit: emit [3649,3653]",
+      "dest": "emit: emit [3649,3653]"
+    },
+    {
+      "src": "identifier: sender [2429,2435]",
+      "dest": "identifier: sender [2429,2435]"
+    },
+    {
+      "src": "identifier: require [3093,3100]",
+      "dest": "identifier: require [3093,3100]"
+    },
+    {
+      "src": "identifier: _balances [3598,3607]",
+      "dest": "identifier: _balances [3598,3607]"
+    },
+    {
+      "src": "assignment_expression [2805,2854]",
+      "dest": "assignment_expression [2805,2854]"
+    },
+    {
+      "src": "}: } [2988,2989]",
+      "dest": "}: } [2988,2989]"
+    },
+    {
+      "src": "call_expression [3940,3964]",
+      "dest": "call_expression [3940,3964]"
+    },
+    {
+      "src": "string [60,74]",
+      "dest": "string [60,74]"
+    },
+    {
+      "src": "identifier: account [3453,3460]",
+      "dest": "identifier: account [3453,3460]"
+    },
+    {
+      "src": "array_access [3863,3881]",
+      "dest": "array_access [3863,3881]"
+    },
+    {
+      "src": "function: function [1441,1449]",
+      "dest": "function: function [1441,1449]"
+    },
+    {
+      "src": "visibility [2243,2251]",
+      "dest": "visibility [2243,2251]"
+    },
+    {
+      "src": "\": \" [3159,3160]",
+      "dest": "\": \" [3159,3160]"
+    },
+    {
+      "src": "bool: bool [1887,1891]",
+      "dest": "bool: bool [1887,1891]"
+    },
+    {
+      "src": "visibility [2613,2621]",
+      "dest": "visibility [2613,2621]"
+    },
+    {
+      "src": "]: ] [2884,2885]",
+      "dest": "]: ] [2884,2885]"
+    },
+    {
+      "src": "identifier: amount [1348,1354]",
+      "dest": "identifier: amount [1348,1354]"
+    },
+    {
+      "src": "identifier: name [406,410]",
+      "dest": "identifier: name [406,410]"
+    },
+    {
+      "src": "call_argument [3621,3627]",
+      "dest": "call_argument [3621,3627]"
+    },
+    {
+      "src": "view: view [750,754]",
+      "dest": "view: view [750,754]"
+    },
+    {
+      "src": "pragma_directive [0,23]",
+      "dest": "pragma_directive [0,23]"
+    },
+    {
+      "src": "identifier: sender [2462,2468]",
+      "dest": "identifier: sender [2462,2468]"
+    },
+    {
+      "src": "call_expression [3445,3514]",
+      "dest": "call_expression [3445,3514]"
+    },
+    {
+      "src": ",: , [1199,1200]",
+      "dest": ",: , [1199,1200]"
+    },
+    {
+      "src": "string: string [508,514]",
+      "dest": "string: string [508,514]"
+    },
+    {
+      "src": "true [1792,1796]",
+      "dest": "true [1792,1796]"
+    },
+    {
+      "src": "primitive_type [1887,1891]",
+      "dest": "primitive_type [1887,1891]"
+    },
+    {
+      "src": "): ) [3243,3244]",
+      "dest": "): ) [3243,3244]"
+    },
+    {
+      "src": "primitive_type [441,447]",
+      "dest": "primitive_type [441,447]"
+    },
+    {
+      "src": "visibility [1044,1050]",
+      "dest": "visibility [1044,1050]"
+    },
+    {
+      "src": "]: ] [2456,2457]",
+      "dest": "]: ] [2456,2457]"
+    },
+    {
+      "src": ",: , [1116,1117]",
+      "dest": ",: , [1116,1117]"
+    },
+    {
+      "src": "identifier: recipient [2898,2907]",
+      "dest": "identifier: recipient [2898,2907]"
+    },
+    {
+      "src": "primitive_type [3464,3471]",
+      "dest": "primitive_type [3464,3471]"
+    },
+    {
+      "src": "binary_expression [2641,2661]",
+      "dest": "binary_expression [2641,2661]"
+    },
+    {
+      "src": "identifier: spender [1720,1727]",
+      "dest": "identifier: spender [1720,1727]"
+    },
+    {
+      "src": ",: , [2208,2209]",
+      "dest": ",: , [2208,2209]"
+    },
+    {
+      "src": "emit: emit [2941,2945]",
+      "dest": "emit: emit [2941,2945]"
+    },
+    {
+      "src": "primitive_type [2227,2234]",
+      "dest": "primitive_type [2227,2234]"
+    },
+    {
+      "src": "(: ( [2640,2641]",
+      "dest": "(: ( [2640,2641]"
+    },
+    {
+      "src": "function: function [529,537]",
+      "dest": "function: function [529,537]"
+    },
+    {
+      "src": "for: for [207,210]",
+      "dest": "for: for [207,210]"
+    },
+    {
+      "src": "visibility [1872,1878]",
+      "dest": "visibility [1872,1878]"
+    },
+    {
+      "src": "type_name [2227,2234]",
+      "dest": "type_name [2227,2234]"
+    },
+    {
+      "src": "function: function [3371,3379]",
+      "dest": "function: function [3371,3379]"
+    },
+    {
+      "src": "(: ( [2658,2659]",
+      "dest": "(: ( [2658,2659]"
+    },
+    {
+      "src": "identifier: _balances [2888,2897]",
+      "dest": "identifier: _balances [2888,2897]"
+    },
+    {
+      "src": "call_argument [1553,1560]",
+      "dest": "call_argument [1553,1560]"
+    },
+    {
+      "src": "(: ( [2954,2955]",
+      "dest": "(: ( [2954,2955]"
+    },
+    {
+      "src": "address: address [328,335]",
+      "dest": "address: address [328,335]"
+    },
+    {
+      "src": "[: [ [3586,3587]",
+      "dest": "[: [ [3586,3587]"
+    },
+    {
+      "src": "identifier: sender [1193,1199]",
+      "dest": "identifier: sender [1193,1199]"
+    },
+    {
+      "src": "[: [ [1945,1946]",
+      "dest": "[: [ [1945,1946]"
+    },
+    {
+      "src": "call_argument [3118,3119]",
+      "dest": "call_argument [3118,3119]"
+    },
+    {
+      "src": "call_expression [1699,1774]",
+      "dest": "call_expression [1699,1774]"
+    },
+    {
+      "src": "assignment_expression [2865,2920]",
+      "dest": "assignment_expression [2865,2920]"
+    },
+    {
+      "src": ",: , [4018,4019]",
+      "dest": ",: , [4018,4019]"
+    },
+    {
+      "src": "internal: internal [3761,3769]",
+      "dest": "internal: internal [3761,3769]"
+    },
+    {
+      "src": "binary_expression [3453,3474]",
+      "dest": "binary_expression [3453,3474]"
+    },
+    {
+      "src": "primitive_type [211,218]",
+      "dest": "primitive_type [211,218]"
+    },
+    {
+      "src": "uint256: uint256 [286,293]",
+      "dest": "uint256: uint256 [286,293]"
+    },
+    {
+      "src": "[: [ [2448,2449]",
+      "dest": "[: [ [2448,2449]"
+    },
+    {
+      "src": "call_argument [3789,3810]",
+      "dest": "call_argument [3789,3810]"
+    },
+    {
+      "src": "type_name [3745,3752]",
+      "dest": "type_name [3745,3752]"
+    },
+    {
+      "src": "array_access [2888,2908]",
+      "dest": "array_access [2888,2908]"
+    },
+    {
+      "src": "returns: returns [1674,1681]",
+      "dest": "returns: returns [1674,1681]"
+    },
+    {
+      "src": "(: ( [477,478]",
+      "dest": "(: ( [477,478]"
+    },
+    {
+      "src": "identifier: _transfer [1367,1376]",
+      "dest": "identifier: _transfer [1367,1376]"
+    },
+    {
+      "src": "function_body [1521,1599]",
+      "dest": "function_body [1521,1599]"
+    },
+    {
+      "src": "visibility [2091,2099]",
+      "dest": "visibility [2091,2099]"
+    },
+    {
+      "src": "parameter [1185,1199]",
+      "dest": "parameter [1185,1199]"
+    },
+    {
+      "src": "uint256: uint256 [3409,3416]",
+      "dest": "uint256: uint256 [3409,3416]"
+    },
+    {
+      "src": "address: address [1634,1641]",
+      "dest": "address: address [1634,1641]"
+    },
+    {
+      "src": ",: , [2435,2436]",
+      "dest": ",: , [2435,2436]"
+    },
+    {
+      "src": "identifier: account [3789,3796]",
+      "dest": "identifier: account [3789,3796]"
+    },
+    {
+      "src": "parameter [1839,1854]",
+      "dest": "parameter [1839,1854]"
+    },
+    {
+      "src": "(: ( [546,547]",
+      "dest": "(: ( [546,547]"
+    },
+    {
+      "src": "parameter [1201,1218]",
+      "dest": "parameter [1201,1218]"
+    },
+    {
+      "src": "state_mutability [622,626]",
+      "dest": "state_mutability [622,626]"
+    },
+    {
+      "src": "[: [ [1323,1324]",
+      "dest": "[: [ [1323,1324]"
+    },
+    {
+      "src": "function_definition [1441,1599]",
+      "dest": "function_definition [1441,1599]"
+    },
+    {
+      "src": "identifier: _approve [2186,2194]",
+      "dest": "identifier: _approve [2186,2194]"
+    },
+    {
+      "src": "function: function [2537,2545]",
+      "dest": "function: function [2537,2545]"
+    },
+    {
+      "src": "identifier: sub [1967,1970]",
+      "dest": "identifier: sub [1967,1970]"
+    },
+    {
+      "src": "identifier: recipient [1017,1026]",
+      "dest": "identifier: recipient [1017,1026]"
+    },
+    {
+      "src": "array_access [1312,1343]",
+      "dest": "array_access [1312,1343]"
+    },
+    {
+      "src": "(: ( [2912,2913]",
+      "dest": "(: ( [2912,2913]"
+    },
+    {
+      "src": "identifier: _transfer [1085,1094]",
+      "dest": "identifier: _transfer [1085,1094]"
+    },
+    {
+      "src": "call_expression [1277,1356]",
+      "dest": "call_expression [1277,1356]"
+    },
+    {
+      "src": "}: } [2008,2009]",
+      "dest": "}: } [2008,2009]"
+    },
+    {
+      "src": "): ) [3565,3566]",
+      "dest": "): ) [3565,3566]"
+    },
+    {
+      "src": "solidity: solidity [7,15]",
+      "dest": "solidity: solidity [7,15]"
+    },
+    {
+      "src": ",: , [2363,2364]",
+      "dest": ",: , [2363,2364]"
+    },
+    {
+      "src": "): ) [928,929]",
+      "dest": "): ) [928,929]"
+    },
+    {
+      "src": "call_argument [1292,1298]",
+      "dest": "call_argument [1292,1298]"
+    },
+    {
+      "src": "identifier: sub [3903,3906]",
+      "dest": "identifier: sub [3903,3906]"
+    },
+    {
+      "src": "{: { [2260,2261]",
+      "dest": "{: { [2260,2261]"
+    },
+    {
+      "src": "identifier: spender [2293,2300]",
+      "dest": "identifier: spender [2293,2300]"
+    },
+    {
+      "src": "(: ( [4015,4016]",
+      "dest": "(: ( [4015,4016]"
+    },
+    {
+      "src": "type_name [1515,1519]",
+      "dest": "type_name [1515,1519]"
+    },
+    {
+      "src": "primitive_type [2075,2082]",
+      "dest": "primitive_type [2075,2082]"
+    },
+    {
+      "src": "expression_statement [2493,2522]",
+      "dest": "expression_statement [2493,2522]"
+    },
+    {
+      "src": "identifier: sender [1336,1342]",
+      "dest": "identifier: sender [1336,1342]"
+    },
+    {
+      "src": "member_expression [2888,2912]",
+      "dest": "member_expression [2888,2912]"
+    },
+    {
+      "src": "virtual: virtual [492,499]",
+      "dest": "virtual: virtual [492,499]"
+    },
+    {
+      "src": "true [1587,1591]",
+      "dest": "true [1587,1591]"
+    },
+    {
+      "src": "visibility [549,555]",
+      "dest": "visibility [549,555]"
+    },
+    {
+      "src": "call_expression [2633,2704]",
+      "dest": "call_expression [2633,2704]"
+    },
+    {
+      "src": "return: return [672,678]",
+      "dest": "return: return [672,678]"
+    },
+    {
+      "src": "{: { [1074,1075]",
+      "dest": "{: { [1074,1075]"
+    },
+    {
+      "src": ",: , [1649,1650]",
+      "dest": ",: , [1649,1650]"
+    },
+    {
+      "src": "array_access [2825,2842]",
+      "dest": "array_access [2825,2842]"
+    },
+    {
+      "src": "type_name [2562,2569]",
+      "dest": "type_name [2562,2569]"
+    },
+    {
+      "src": "call_argument [3101,3120]",
+      "dest": "call_argument [3101,3120]"
+    },
+    {
+      "src": "identifier: _allowances [1934,1945]",
+      "dest": "identifier: _allowances [1934,1945]"
+    },
+    {
+      "src": "primitive_type [3110,3117]",
+      "dest": "primitive_type [3110,3117]"
+    },
+    {
+      "src": "returns: returns [1879,1886]",
+      "dest": "returns: returns [1879,1886]"
+    },
+    {
+      "src": "type_name [3409,3416]",
+      "dest": "type_name [3409,3416]"
+    },
+    {
+      "src": "call_expression [1085,1125]",
+      "dest": "call_expression [1085,1125]"
+    },
+    {
+      "src": "identifier: require [3445,3452]",
+      "dest": "identifier: require [3445,3452]"
+    },
+    {
+      "src": "function_body [2260,2317]",
+      "dest": "function_body [2260,2317]"
+    },
+    {
+      "src": "member_expression [3884,3906]",
+      "dest": "member_expression [3884,3906]"
+    },
+    {
+      "src": "function_definition [2021,2169]",
+      "dest": "function_definition [2021,2169]"
+    },
+    {
+      "src": "call_expression [2119,2161]",
+      "dest": "call_expression [2119,2161]"
+    },
+    {
+      "src": ".: . [3902,3903]",
+      "dest": ".: . [3902,3903]"
+    },
+    {
+      "src": "parameter [860,873]",
+      "dest": "parameter [860,873]"
+    },
+    {
+      "src": ",: , [3407,3408]",
+      "dest": ",: , [3407,3408]"
+    },
+    {
+      "src": "identifier: msg [1913,1916]",
+      "dest": "identifier: msg [1913,1916]"
+    },
+    {
+      "src": "type_name [2056,2063]",
+      "dest": "type_name [2056,2063]"
+    },
+    {
+      "src": "(: ( [3662,3663]",
+      "dest": "(: ( [3662,3663]"
+    },
+    {
+      "src": "call_argument [3453,3474]",
+      "dest": "call_argument [3453,3474]"
+    },
+    {
+      "src": "function_definition [3707,4035]",
+      "dest": "function_definition [3707,4035]"
+    },
+    {
+      "src": ",: , [3201,3202]",
+      "dest": ",: , [3201,3202]"
+    },
+    {
+      "src": "string [3203,3243]",
+      "dest": "string [3203,3243]"
+    },
+    {
+      "src": "mapping: mapping [339,346]",
+      "dest": "mapping: mapping [339,346]"
+    },
+    {
+      "src": "): ) [4026,4027]",
+      "dest": "): ) [4026,4027]"
+    },
+    {
+      "src": "state_variable_declaration [266,313]",
+      "dest": "state_variable_declaration [266,313]"
+    },
+    {
+      "src": "member_expression [1729,1765]",
+      "dest": "member_expression [1729,1765]"
+    },
+    {
+      "src": "identifier: _totalSupply [679,691]",
+      "dest": "identifier: _totalSupply [679,691]"
+    },
+    {
+      "src": "identifier: amount [1659,1665]",
+      "dest": "identifier: amount [1659,1665]"
+    },
+    {
+      "src": "identifier: _mintAction [3380,3391]",
+      "dest": "identifier: _mintAction [3380,3391]"
+    },
+    {
+      "src": "): ) [2980,2981]",
+      "dest": "): ) [2980,2981]"
+    },
+    {
+      "src": "!=: != [3107,3109]",
+      "dest": "!=: != [3107,3109]"
+    },
+    {
+      "src": "true [1143,1147]",
+      "dest": "true [1143,1147]"
+    },
+    {
+      "src": "call_argument [2425,2435]",
+      "dest": "call_argument [2425,2435]"
+    },
+    {
+      "src": ",: , [2595,2596]",
+      "dest": ",: , [2595,2596]"
+    },
+    {
+      "src": "): ) [2611,2612]",
+      "dest": "): ) [2611,2612]"
+    },
+    {
+      "src": "): ) [1519,1520]",
+      "dest": "): ) [1519,1520]"
+    },
+    {
+      "src": "identifier: _allowances [3257,3268]",
+      "dest": "identifier: _allowances [3257,3268]"
+    },
+    {
+      "src": "identifier: sender [2048,2054]",
+      "dest": "identifier: sender [2048,2054]"
+    },
+    {
+      "src": "function: function [397,405]",
+      "dest": "function: function [397,405]"
+    },
+    {
+      "src": "state_mutability [750,754]",
+      "dest": "state_mutability [750,754]"
+    },
+    {
+      "src": "identifier: sender [1377,1383]",
+      "dest": "identifier: sender [1377,1383]"
+    },
+    {
+      "src": "using: using [192,197]",
+      "dest": "using: using [192,197]"
+    },
+    {
+      "src": "primitive_type [2736,2743]",
+      "dest": "primitive_type [2736,2743]"
+    },
+    {
+      "src": "parameter [2075,2089]",
+      "dest": "parameter [2075,2089]"
+    },
+    {
+      "src": "\": \" [3848,3849]",
+      "dest": "\": \" [3848,3849]"
+    },
+    {
+      "src": "call_argument [2955,2961]",
+      "dest": "call_argument [2955,2961]"
+    },
+    {
+      "src": "primitive_type [3728,3735]",
+      "dest": "primitive_type [3728,3735]"
+    },
+    {
+      "src": "function: function [592,600]",
+      "dest": "function: function [592,600]"
+    },
+    {
+      "src": "function: function [3001,3009]",
+      "dest": "function: function [3001,3009]"
+    },
+    {
+      "src": "{: { [1521,1522]",
+      "dest": "{: { [1521,1522]"
+    },
+    {
+      "src": "function_definition [991,1155]",
+      "dest": "function_definition [991,1155]"
+    },
+    {
+      "src": "type_cast_expression [3464,3474]",
+      "dest": "type_cast_expression [3464,3474]"
+    },
+    {
+      "src": "primitive_type [1009,1016]",
+      "dest": "primitive_type [1009,1016]"
+    },
+    {
+      "src": "identifier: msg [1741,1744]",
+      "dest": "identifier: msg [1741,1744]"
+    },
+    {
+      "src": "type_name [1009,1016]",
+      "dest": "type_name [1009,1016]"
+    },
+    {
+      "src": "identifier: amount [3287,3293]",
+      "dest": "identifier: amount [3287,3293]"
+    },
+    {
+      "src": "call_argument [1925,1932]",
+      "dest": "call_argument [1925,1932]"
+    },
+    {
+      "src": "parameter [2056,2073]",
+      "dest": "parameter [2056,2073]"
+    },
+    {
+      "src": ",: , [3342,3343]",
+      "dest": ",: , [3342,3343]"
+    },
+    {
+      "src": "[: [ [3893,3894]",
+      "dest": "[: [ [3893,3894]"
+    },
+    {
+      "src": "{: { [1893,1894]",
+      "dest": "{: { [1893,1894]"
+    },
+    {
+      "src": "binary_expression [3180,3201]",
+      "dest": "binary_expression [3180,3201]"
+    },
+    {
+      "src": "parameter [3025,3038]",
+      "dest": "parameter [3025,3038]"
+    },
+    {
+      "src": "type_name [577,582]",
+      "dest": "type_name [577,582]"
+    },
+    {
+      "src": "identifier: sender [1745,1751]",
+      "dest": "identifier: sender [1745,1751]"
+    },
+    {
+      "src": "): ) [2791,2792]",
+      "dest": "): ) [2791,2792]"
+    },
+    {
+      "src": "(: ( [3727,3728]",
+      "dest": "(: ( [3727,3728]"
+    },
+    {
+      "src": "emit_statement [3314,3352]",
+      "dest": "emit_statement [3314,3352]"
+    },
+    {
+      "src": "call_expression [3884,3914]",
+      "dest": "call_expression [3884,3914]"
+    },
+    {
+      "src": "{: { [661,662]",
+      "dest": "{: { [661,662]"
+    },
+    {
+      "src": "address: address [2348,2355]",
+      "dest": "address: address [2348,2355]"
+    },
+    {
+      "src": "override: override [1243,1251]",
+      "dest": "override: override [1243,1251]"
+    },
+    {
+      "src": "member_expression [1946,1956]",
+      "dest": "member_expression [1946,1956]"
+    },
+    {
+      "src": ",: , [3038,3039]",
+      "dest": ",: , [3038,3039]"
+    },
+    {
+      "src": "(: ( [3558,3559]",
+      "dest": "(: ( [3558,3559]"
+    },
+    {
+      "src": "identifier: _approve [1904,1912]",
+      "dest": "identifier: _approve [1904,1912]"
+    },
+    {
+      "src": "identifier: amount [1118,1124]",
+      "dest": "identifier: amount [1118,1124]"
+    },
+    {
+      "src": "type_cast_expression [3800,3810]",
+      "dest": "type_cast_expression [3800,3810]"
+    },
+    {
+      "src": "\": \" [3812,3813]",
+      "dest": "\": \" [3812,3813]"
+    },
+    {
+      "src": "override_specifier [755,763]",
+      "dest": "override_specifier [755,763]"
+    },
+    {
+      "src": ",: , [2291,2292]",
+      "dest": ",: , [2291,2292]"
+    },
+    {
+      "src": "(: ( [3100,3101]",
+      "dest": "(: ( [3100,3101]"
+    },
+    {
+      "src": "call_argument [4008,4018]",
+      "dest": "call_argument [4008,4018]"
+    },
+    {
+      "src": "identifier: recipient [2723,2732]",
+      "dest": "identifier: recipient [2723,2732]"
+    },
+    {
+      "src": "view: view [556,560]",
+      "dest": "view: view [556,560]"
+    },
+    {
+      "src": ",: , [3333,3334]",
+      "dest": ",: , [3333,3334]"
+    },
+    {
+      "src": "identifier: symbol [471,477]",
+      "dest": "identifier: symbol [471,477]"
+    },
+    {
+      "src": "identifier: spender [3335,3342]",
+      "dest": "identifier: spender [3335,3342]"
+    },
+    {
+      "src": "string_literal [3122,3160]",
+      "dest": "string_literal [3122,3160]"
+    },
+    {
+      "src": "expression_statement [1904,1980]",
+      "dest": "expression_statement [1904,1980]"
+    },
+    {
+      "src": "call_expression [1729,1773]",
+      "dest": "call_expression [1729,1773]"
+    },
+    {
+      "src": "identifier: sender [2570,2576]",
+      "dest": "identifier: sender [2570,2576]"
+    },
+    {
+      "src": "type_name [3728,3735]",
+      "dest": "type_name [3728,3735]"
+    },
+    {
+      "src": "): ) [3200,3201]",
+      "dest": "): ) [3200,3201]"
+    },
+    {
+      "src": "string_literal [3203,3243]",
+      "dest": "string_literal [3203,3243]"
+    },
+    {
+      "src": "uint256: uint256 [1651,1658]",
+      "dest": "uint256: uint256 [1651,1658]"
+    },
+    {
+      "src": "parameter [2348,2363]",
+      "dest": "parameter [2348,2363]"
+    },
+    {
+      "src": "primitive_type [1856,1863]",
+      "dest": "primitive_type [1856,1863]"
+    },
+    {
+      "src": "identifier: amount [4020,4026]",
+      "dest": "identifier: amount [4020,4026]"
+    },
+    {
+      "src": "array_access [2805,2822]",
+      "dest": "array_access [2805,2822]"
+    },
+    {
+      "src": "boolean_literal [1792,1796]",
+      "dest": "boolean_literal [1792,1796]"
+    },
+    {
+      "src": "identifier: _transferAction [2119,2134]",
+      "dest": "identifier: _transferAction [2119,2134]"
+    },
+    {
+      "src": "call_expression [2401,2482]",
+      "dest": "call_expression [2401,2482]"
+    },
+    {
+      "src": "function_body [1688,1804]",
+      "dest": "function_body [1688,1804]"
+    },
+    {
+      "src": "call_argument [1971,1977]",
+      "dest": "call_argument [1971,1977]"
+    },
+    {
+      "src": "identifier: spender [1847,1854]",
+      "dest": "identifier: spender [1847,1854]"
+    },
+    {
+      "src": "address: address [1185,1192]",
+      "dest": "address: address [1185,1192]"
+    },
+    {
+      "src": "identifier: amount [3957,3963]",
+      "dest": "identifier: amount [3957,3963]"
+    },
+    {
+      "src": "returns: returns [772,779]",
+      "dest": "returns: returns [772,779]"
+    },
+    {
+      "src": ",: , [2225,2226]",
+      "dest": ",: , [2225,2226]"
+    },
+    {
+      "src": "mapping: mapping [266,273]",
+      "dest": "mapping: mapping [266,273]"
+    },
+    {
+      "src": "identifier: owner [2286,2291]",
+      "dest": "identifier: owner [2286,2291]"
+    },
+    {
+      "src": "identifier: owner [3033,3038]",
+      "dest": "identifier: owner [3033,3038]"
+    },
+    {
+      "src": "identifier: amount [2154,2160]",
+      "dest": "identifier: amount [2154,2160]"
+    },
+    {
+      "src": "type_name [508,514]",
+      "dest": "type_name [508,514]"
+    },
+    {
+      "src": ".: . [2908,2909]",
+      "dest": ".: . [2908,2909]"
+    },
+    {
+      "src": "): ) [1977,1978]",
+      "dest": "): ) [1977,1978]"
+    },
+    {
+      "src": "=: = [3596,3597]",
+      "dest": "=: = [3596,3597]"
+    },
+    {
+      "src": "abstract: abstract [151,159]",
+      "dest": "abstract: abstract [151,159]"
+    },
+    {
+      "src": "): ) [3350,3351]",
+      "dest": "): ) [3350,3351]"
+    },
+    {
+      "src": "using_directive [192,219]",
+      "dest": "using_directive [192,219]"
+    },
+    {
+      "src": "(: ( [3956,3957]",
+      "dest": "(: ( [3956,3957]"
+    },
+    {
+      "src": "(: ( [2285,2286]",
+      "dest": "(: ( [2285,2286]"
+    },
+    {
+      "src": "function_definition [1163,1433]",
+      "dest": "function_definition [1163,1433]"
+    },
+    {
+      "src": "string_literal [2663,2703]",
+      "dest": "string_literal [2663,2703]"
+    },
+    {
+      "src": "call_argument [1385,1394]",
+      "dest": "call_argument [1385,1394]"
+    },
+    {
+      "src": "public: public [1667,1673]",
+      "dest": "public: public [1667,1673]"
+    },
+    {
+      "src": ",: , [2972,2973]",
+      "dest": ",: , [2972,2973]"
+    },
+    {
+      "src": "]: ] [3615,3616]",
+      "dest": "]: ] [3615,3616]"
+    },
+    {
+      "src": "type_name [286,293]",
+      "dest": "type_name [286,293]"
+    },
+    {
+      "src": "address: address [875,882]",
+      "dest": "address: address [875,882]"
+    },
+    {
+      "src": "parameter [1515,1519]",
+      "dest": "parameter [1515,1519]"
+    },
+    {
+      "src": "address: address [2210,2217]",
+      "dest": "address: address [2210,2217]"
+    },
+    {
+      "src": "call_argument [3684,3690]",
+      "dest": "call_argument [3684,3690]"
+    },
+    {
+      "src": "returns: returns [1507,1514]",
+      "dest": "returns: returns [1507,1514]"
+    },
+    {
+      "src": "parameter [3057,3071]",
+      "dest": "parameter [3057,3071]"
+    },
+    {
+      "src": "(: ( [1681,1682]",
+      "dest": "(: ( [1681,1682]"
+    },
+    {
+      "src": "=>: => [283,285]",
+      "dest": "=>: => [283,285]"
+    },
+    {
+      "src": "identifier: _burnAction [2493,2504]",
+      "dest": "identifier: _burnAction [2493,2504]"
+    },
+    {
+      "src": "identifier: amount [1971,1977]",
+      "dest": "identifier: amount [1971,1977]"
+    },
+    {
+      "src": "\": \" [3122,3123]",
+      "dest": "\": \" [3122,3123]"
+    },
+    {
+      "src": "address: address [2562,2569]",
+      "dest": "address: address [2562,2569]"
+    },
+    {
+      "src": "view: view [487,491]",
+      "dest": "view: view [487,491]"
+    },
+    {
+      "src": "identifier: spender [1553,1560]",
+      "dest": "identifier: spender [1553,1560]"
+    },
+    {
+      "src": "returns: returns [644,651]",
+      "dest": "returns: returns [644,651]"
+    },
+    {
+      "src": "{: { [930,931]",
+      "dest": "{: { [930,931]"
+    },
+    {
+      "src": "primitive_type [3392,3399]",
+      "dest": "primitive_type [3392,3399]"
+    },
+    {
+      "src": "parameter [2227,2241]",
+      "dest": "parameter [2227,2241]"
+    },
+    {
+      "src": "identifier: account [817,824]",
+      "dest": "identifier: account [817,824]"
+    },
+    {
+      "src": "identifier: Approval [3319,3327]",
+      "dest": "identifier: Approval [3319,3327]"
+    },
+    {
+      "src": "string [2748,2791]",
+      "dest": "string [2748,2791]"
+    },
+    {
+      "src": "parameter [3409,3423]",
+      "dest": "parameter [3409,3423]"
+    },
+    {
+      "src": "solidity_pragma_token [7,22]",
+      "dest": "solidity_pragma_token [7,22]"
+    },
+    {
+      "src": "identifier: _approveAction [3010,3024]",
+      "dest": "identifier: _approveAction [3010,3024]"
+    },
+    {
+      "src": "type_name [1028,1035]",
+      "dest": "type_name [1028,1035]"
+    },
+    {
+      "src": "identifier: sender [1545,1551]",
+      "dest": "identifier: sender [1545,1551]"
+    },
+    {
+      "src": "virtual: virtual [2252,2259]",
+      "dest": "virtual: virtual [2252,2259]"
+    },
+    {
+      "src": "(: ( [2415,2416]",
+      "dest": "(: ( [2415,2416]"
+    },
+    {
+      "src": "array_access [2437,2469]",
+      "dest": "array_access [2437,2469]"
+    },
+    {
+      "src": "import_directive [27,51]",
+      "dest": "import_directive [27,51]"
+    },
+    {
+      "src": "return_type_definition [1252,1265]",
+      "dest": "return_type_definition [1252,1265]"
+    },
+    {
+      "src": "call_argument [3675,3682]",
+      "dest": "call_argument [3675,3682]"
+    },
+    {
+      "src": "public: public [615,621]",
+      "dest": "public: public [615,621]"
+    },
+    {
+      "src": "call_expression [3172,3244]",
+      "dest": "call_expression [3172,3244]"
+    },
+    {
+      "src": "primitive_type [3800,3807]",
+      "dest": "primitive_type [3800,3807]"
+    },
+    {
+      "src": "identifier: Transfer [3654,3662]",
+      "dest": "identifier: Transfer [3654,3662]"
+    },
+    {
+      "src": "}: } [2168,2169]",
+      "dest": "}: } [2168,2169]"
+    },
+    {
+      "src": ".: . [2461,2462]",
+      "dest": ".: . [2461,2462]"
+    },
+    {
+      "src": "expression_statement [1277,1357]",
+      "dest": "expression_statement [1277,1357]"
+    },
+    {
+      "src": "): ) [1402,1403]",
+      "dest": "): ) [1402,1403]"
+    },
+    {
+      "src": "array_access [1729,1752]",
+      "dest": "array_access [1729,1752]"
+    },
+    {
+      "src": "parameter [652,659]",
+      "dest": "parameter [652,659]"
+    },
+    {
+      "src": "identifier: amount [2605,2611]",
+      "dest": "identifier: amount [2605,2611]"
+    },
+    {
+      "src": "identifier: _balances [3884,3893]",
+      "dest": "identifier: _balances [3884,3893]"
+    },
+    {
+      "src": "number_literal: 0 [3808,3809]",
+      "dest": "number_literal: 0 [3808,3809]"
+    },
+    {
+      "src": "type_cast_expression [4008,4018]",
+      "dest": "type_cast_expression [4008,4018]"
+    },
+    {
+      "src": "identifier: totalSupply [601,612]",
+      "dest": "identifier: totalSupply [601,612]"
+    },
+    {
+      "src": "primitive_type [1458,1465]",
+      "dest": "primitive_type [1458,1465]"
+    },
+    {
+      "src": "parameter [1887,1891]",
+      "dest": "parameter [1887,1891]"
+    },
+    {
+      "src": "call_argument [2663,2703]",
+      "dest": "call_argument [2663,2703]"
+    },
+    {
+      "src": "(: ( [1094,1095]",
+      "dest": "(: ( [1094,1095]"
+    },
+    {
+      "src": "): ) [2160,2161]",
+      "dest": "): ) [2160,2161]"
+    },
+    {
+      "src": "type_name [2597,2604]",
+      "dest": "type_name [2597,2604]"
+    },
+    {
+      "src": "call_argument [1913,1923]",
+      "dest": "call_argument [1913,1923]"
+    },
+    {
+      "src": "]: ] [974,975]",
+      "dest": "]: ] [974,975]"
+    },
+    {
+      "src": "true: true [1997,2001]",
+      "dest": "true: true [1997,2001]"
+    },
+    {
+      "src": "identifier: add [3617,3620]",
+      "dest": "identifier: add [3617,3620]"
+    },
+    {
+      "src": "contract_body [185,4038]",
+      "dest": "contract_body [185,4038]"
+    },
+    {
+      "src": "): ) [1686,1687]",
+      "dest": "): ) [1686,1687]"
+    },
+    {
+      "src": "parameter [1068,1072]",
+      "dest": "parameter [1068,1072]"
+    },
+    {
+      "src": "call_argument [2505,2512]",
+      "dest": "call_argument [2505,2512]"
+    },
+    {
+      "src": "): ) [741,742]",
+      "dest": "): ) [741,742]"
+    },
+    {
+      "src": "call_argument [1562,1568]",
+      "dest": "call_argument [1562,1568]"
+    },
+    {
+      "src": "identifier: owner [2203,2208]",
+      "dest": "identifier: owner [2203,2208]"
+    },
+    {
+      "src": "function_definition [1607,1804]",
+      "dest": "function_definition [1607,1804]"
+    },
+    {
+      "src": "function: function [2329,2337]",
+      "dest": "function: function [2329,2337]"
+    },
+    {
+      "src": ",: , [1310,1311]",
+      "dest": ",: , [1310,1311]"
+    },
+    {
+      "src": "identifier: _transfer [2030,2039]",
+      "dest": "identifier: _transfer [2030,2039]"
+    },
+    {
+      "src": "binary_expression [3789,3810]",
+      "dest": "binary_expression [3789,3810]"
+    },
+    {
+      "src": ",: , [2576,2577]",
+      "dest": ",: , [2576,2577]"
+    },
+    {
+      "src": "array_access [2437,2457]",
+      "dest": "array_access [2437,2457]"
+    },
+    {
+      "src": "): ) [2481,2482]",
+      "dest": "): ) [2481,2482]"
+    },
+    {
+      "src": "=: = [3540,3541]",
+      "dest": "=: = [3540,3541]"
+    },
+    {
+      "src": "call_argument [1766,1772]",
+      "dest": "call_argument [1766,1772]"
+    },
+    {
+      "src": "parameter [875,890]",
+      "dest": "parameter [875,890]"
+    },
+    {
+      "src": "!=: != [3461,3463]",
+      "dest": "!=: != [3461,3463]"
+    },
+    {
+      "src": "function_body [661,699]",
+      "dest": "function_body [661,699]"
+    },
+    {
+      "src": "(: ( [3807,3808]",
+      "dest": "(: ( [3807,3808]"
+    },
+    {
+      "src": "]: ] [1956,1957]",
+      "dest": "]: ] [1956,1957]"
+    },
+    {
+      "src": "function_definition [1812,2009]",
+      "dest": "function_definition [1812,2009]"
+    },
+    {
+      "src": "address: address [2040,2047]",
+      "dest": "address: address [2040,2047]"
+    },
+    {
+      "src": "override: override [627,635]",
+      "dest": "override: override [627,635]"
+    },
+    {
+      "src": "identifier: _balances [303,312]",
+      "dest": "identifier: _balances [303,312]"
+    },
+    {
+      "src": "address: address [1009,1016]",
+      "dest": "address: address [1009,1016]"
+    },
+    {
+      "src": "address: address [3663,3670]",
+      "dest": "address: address [3663,3670]"
+    },
+    {
+      "src": ",: , [2073,2074]",
+      "dest": ",: , [2073,2074]"
+    },
+    {
+      "src": "identifier: decimals [538,546]",
+      "dest": "identifier: decimals [538,546]"
+    },
+    {
+      "src": "call_argument [1541,1551]",
+      "dest": "call_argument [1541,1551]"
+    },
+    {
+      "src": "parameter [2578,2595]",
+      "dest": "parameter [2578,2595]"
+    },
+    {
+      "src": "type_cast_expression [2736,2746]",
+      "dest": "type_cast_expression [2736,2746]"
+    },
+    {
+      "src": "address: address [3025,3032]",
+      "dest": "address: address [3025,3032]"
+    },
+    {
+      "src": "identifier: _totalSupply [3940,3952]",
+      "dest": "identifier: _totalSupply [3940,3952]"
+    },
+    {
+      "src": "identifier: account [3587,3594]",
+      "dest": "identifier: account [3587,3594]"
+    },
+    {
+      "src": "type_name [1856,1863]",
+      "dest": "type_name [1856,1863]"
+    },
+    {
+      "src": "identifier: approve [1450,1457]",
+      "dest": "identifier: approve [1450,1457]"
+    },
+    {
+      "src": "[: [ [816,817]",
+      "dest": "[: [ [816,817]"
+    },
+    {
+      "src": "address: address [2056,2063]",
+      "dest": "address: address [2056,2063]"
+    },
+    {
+      "src": "identifier: msg [1946,1949]",
+      "dest": "identifier: msg [1946,1949]"
+    },
+    {
+      "src": "comment: /**  * @title ERC20  * @dev Base implementation of ERC20 token.  */ [79,149]",
+      "dest": "comment: /**  * @title ERC20  * @dev Base implementation of ERC20 token.  */ [79,149]"
+    },
+    {
+      "src": "call_expression [3781,3850]",
+      "dest": "call_expression [3781,3850]"
+    },
+    {
+      "src": "]: ] [2821,2822]",
+      "dest": "]: ] [2821,2822]"
+    },
+    {
+      "src": "uint256: uint256 [359,366]",
+      "dest": "uint256: uint256 [359,366]"
+    },
+    {
+      "src": "virtual: virtual [764,771]",
+      "dest": "virtual: virtual [764,771]"
+    },
+    {
+      "src": "parameter [1634,1649]",
+      "dest": "parameter [1634,1649]"
+    },
+    {
+      "src": "identifier: _balances [2825,2834]",
+      "dest": "identifier: _balances [2825,2834]"
+    },
+    {
+      "src": "uint256: uint256 [1220,1227]",
+      "dest": "uint256: uint256 [1220,1227]"
+    },
+    {
+      "src": "(: ( [1457,1458]",
+      "dest": "(: ( [1457,1458]"
+    },
+    {
+      "src": "call_expression [1934,1978]",
+      "dest": "call_expression [1934,1978]"
+    },
+    {
+      "src": "(: ( [3620,3621]",
+      "dest": "(: ( [3620,3621]"
+    },
+    {
+      "src": "return_statement [1785,1797]",
+      "dest": "return_statement [1785,1797]"
+    },
+    {
+      "src": "identifier: account [3736,3743]",
+      "dest": "identifier: account [3736,3743]"
+    },
+    {
+      "src": "identifier: _allowances [2437,2448]",
+      "dest": "identifier: _allowances [2437,2448]"
+    },
+    {
+      "src": ".: . [1544,1545]",
+      "dest": ".: . [1544,1545]"
+    },
+    {
+      "src": "override: override [1051,1059]",
+      "dest": "override: override [1051,1059]"
+    },
+    {
+      "src": "[: [ [966,967]",
+      "dest": "[: [ [966,967]"
+    },
+    {
+      "src": "state_variable_declaration [319,389]",
+      "dest": "state_variable_declaration [319,389]"
+    },
+    {
+      "src": "function_definition [592,699]",
+      "dest": "function_definition [592,699]"
+    },
+    {
+      "src": "identifier: transfer [1000,1008]",
+      "dest": "identifier: transfer [1000,1008]"
+    },
+    {
+      "src": "identifier: owner [3328,3333]",
+      "dest": "identifier: owner [3328,3333]"
+    },
+    {
+      "src": "function_body [3434,3699]",
+      "dest": "function_body [3434,3699]"
+    },
+    {
+      "src": "identifier: add [3555,3558]",
+      "dest": "identifier: add [3555,3558]"
+    },
+    {
+      "src": "identifier: sender [1324,1330]",
+      "dest": "identifier: sender [1324,1330]"
+    },
+    {
+      "src": "call_argument [3476,3513]",
+      "dest": "call_argument [3476,3513]"
+    },
+    {
+      "src": "call_argument [1708,1718]",
+      "dest": "call_argument [1708,1718]"
+    },
+    {
+      "src": "function_body [3770,4035]",
+      "dest": "function_body [3770,4035]"
+    },
+    {
+      "src": "identifier: _approve [1532,1540]",
+      "dest": "identifier: _approve [1532,1540]"
+    },
+    {
+      "src": "call_argument [3180,3201]",
+      "dest": "call_argument [3180,3201]"
+    },
+    {
+      "src": "(: ( [2473,2474]",
+      "dest": "(: ( [2473,2474]"
+    },
+    {
+      "src": "call_expression [2825,2854]",
+      "dest": "call_expression [2825,2854]"
+    },
+    {
+      "src": "primitive_type [508,514]",
+      "dest": "primitive_type [508,514]"
+    },
+    {
+      "src": "expression_statement [3445,3515]",
+      "dest": "expression_statement [3445,3515]"
+    },
+    {
+      "src": "call_argument [3559,3565]",
+      "dest": "call_argument [3559,3565]"
+    },
+    {
+      "src": "identifier: _allowances [1312,1323]",
+      "dest": "identifier: _allowances [1312,1323]"
+    },
+    {
+      "src": "primitive_type [231,238]",
+      "dest": "primitive_type [231,238]"
+    },
+    {
+      "src": "inheritance_specifier [178,184]",
+      "dest": "inheritance_specifier [178,184]"
+    },
+    {
+      "src": "[: [ [3872,3873]",
+      "dest": "[: [ [3872,3873]"
+    },
+    {
+      "src": "function_body [3082,3359]",
+      "dest": "function_body [3082,3359]"
+    },
+    {
+      "src": "call_argument [2748,2791]",
+      "dest": "call_argument [2748,2791]"
+    },
+    {
+      "src": "returns: returns [433,440]",
+      "dest": "returns: returns [433,440]"
+    },
+    {
+      "src": "=>: => [336,338]",
+      "dest": "=>: => [336,338]"
+    },
+    {
+      "src": "]: ] [965,966]",
+      "dest": "]: ] [965,966]"
+    },
+    {
+      "src": "view: view [899,903]",
+      "dest": "view: view [899,903]"
+    },
+    {
+      "src": "true [1421,1425]",
+      "dest": "true [1421,1425]"
+    },
+    {
+      "src": "call_expression [3093,3161]",
+      "dest": "call_expression [3093,3161]"
+    },
+    {
+      "src": "call_argument [1312,1355]",
+      "dest": "call_argument [1312,1355]"
+    },
+    {
+      "src": "(: ( [2722,2723]",
+      "dest": "(: ( [2722,2723]"
+    },
+    {
+      "src": "primitive_type [3191,3198]",
+      "dest": "primitive_type [3191,3198]"
+    },
+    {
+      "src": "visibility [295,302]",
+      "dest": "visibility [295,302]"
+    },
+    {
+      "src": "identifier: amount [3417,3423]",
+      "dest": "identifier: amount [3417,3423]"
+    },
+    {
+      "src": "type_cast_expression [3191,3201]",
+      "dest": "type_cast_expression [3191,3201]"
+    },
+    {
+      "src": "expression_statement [2119,2162]",
+      "dest": "expression_statement [2119,2162]"
+    },
+    {
+      "src": "call_argument [4016,4017]",
+      "dest": "call_argument [4016,4017]"
+    },
+    {
+      "src": "): ) [2480,2481]",
+      "dest": "): ) [2480,2481]"
+    },
+    {
+      "src": "return_statement [1580,1592]",
+      "dest": "return_statement [1580,1592]"
+    },
+    {
+      "src": "function_definition [841,983]",
+      "dest": "function_definition [841,983]"
+    },
+    {
+      "src": "identifier: spender [1925,1932]",
+      "dest": "identifier: spender [1925,1932]"
+    },
+    {
+      "src": "member_expression [1312,1347]",
+      "dest": "member_expression [1312,1347]"
+    },
+    {
+      "src": "]: ] [1760,1761]",
+      "dest": "]: ] [1760,1761]"
+    },
+    {
+      "src": "type_name [359,366]",
+      "dest": "type_name [359,366]"
+    },
+    {
+      "src": "primitive_type [875,882]",
+      "dest": "primitive_type [875,882]"
+    },
+    {
+      "src": "memory: memory [515,521]",
+      "dest": "memory: memory [515,521]"
+    },
+    {
+      "src": "}: } [3358,3359]",
+      "dest": "}: } [3358,3359]"
+    },
+    {
+      "src": "pragma: pragma [0,6]",
+      "dest": "pragma: pragma [0,6]"
+    },
+    {
+      "src": "primitive_type [2562,2569]",
+      "dest": "primitive_type [2562,2569]"
+    },
+    {
+      "src": "parameter [1260,1264]",
+      "dest": "parameter [1260,1264]"
+    },
+    {
+      "src": "identifier: _totalSupply [3925,3937]",
+      "dest": "identifier: _totalSupply [3925,3937]"
+    },
+    {
+      "src": "expression_statement [3863,3915]",
+      "dest": "expression_statement [3863,3915]"
+    },
+    {
+      "src": "member_expression [3542,3558]",
+      "dest": "member_expression [3542,3558]"
+    },
+    {
+      "src": "identifier: _balances [807,816]",
+      "dest": "identifier: _balances [807,816]"
+    },
+    {
+      "src": "(: ( [1633,1634]",
+      "dest": "(: ( [1633,1634]"
+    },
+    {
+      "src": "): ) [1891,1892]",
+      "dest": "): ) [1891,1892]"
+    },
+    {
+      "src": "identifier: msg [1708,1711]",
+      "dest": "identifier: msg [1708,1711]"
+    },
+    {
+      "src": "identifier: sub [2843,2846]",
+      "dest": "identifier: sub [2843,2846]"
+    },
+    {
+      "src": "public: public [480,486]",
+      "dest": "public: public [480,486]"
+    },
+    {
+      "src": "(: ( [1291,1292]",
+      "dest": "(: ( [1291,1292]"
+    },
+    {
+      "src": "(: ( [1970,1971]",
+      "dest": "(: ( [1970,1971]"
+    },
+    {
+      "src": "identifier: account [3873,3880]",
+      "dest": "identifier: account [3873,3880]"
+    },
+    {
+      "src": ",: , [1727,1728]",
+      "dest": ",: , [1727,1728]"
+    },
+    {
+      "src": "call_argument [1300,1310]",
+      "dest": "call_argument [1300,1310]"
+    },
+    {
+      "src": "type_name [1682,1686]",
+      "dest": "type_name [1682,1686]"
+    },
+    {
+      "src": "]: ] [1342,1343]",
+      "dest": "]: ] [1342,1343]"
+    },
+    {
+      "src": "): ) [1772,1773]",
+      "dest": "): ) [1772,1773]"
+    },
+    {
+      "src": "return_type_definition [1060,1073]",
+      "dest": "return_type_definition [1060,1073]"
+    },
+    {
+      "src": "[: [ [3607,3608]",
+      "dest": "[: [ [3607,3608]"
+    },
+    {
+      "src": "identifier: recipient [1107,1116]",
+      "dest": "identifier: recipient [1107,1116]"
+    },
+    {
+      "src": "{: { [185,186]",
+      "dest": "{: { [185,186]"
+    },
+    {
+      "src": "primitive_type [780,787]",
+      "dest": "primitive_type [780,787]"
+    },
+    {
+      "src": "primitive_type [1201,1208]",
+      "dest": "primitive_type [1201,1208]"
+    },
+    {
+      "src": "(: ( [2504,2505]",
+      "dest": "(: ( [2504,2505]"
+    },
+    {
+      "src": "address: address [3464,3471]",
+      "dest": "address: address [3464,3471]"
+    },
+    {
+      "src": "(: ( [327,328]",
+      "dest": "(: ( [327,328]"
+    },
+    {
+      "src": "number_literal: 0 [3472,3473]",
+      "dest": "number_literal: 0 [3472,3473]"
+    },
+    {
+      "src": "call_argument [3328,3333]",
+      "dest": "call_argument [3328,3333]"
+    },
+    {
+      "src": "}: } [698,699]",
+      "dest": "}: } [698,699]"
+    },
+    {
+      "src": "\": \" [2790,2791]",
+      "dest": "\": \" [2790,2791]"
+    },
+    {
+      "src": "]: ] [3283,3284]",
+      "dest": "]: ] [3283,3284]"
+    },
+    {
+      "src": "type_name [266,294]",
+      "dest": "type_name [266,294]"
+    },
+    {
+      "src": "function_body [2622,2989]",
+      "dest": "function_body [2622,2989]"
+    },
+    {
+      "src": "uint256: uint256 [3057,3064]",
+      "dest": "uint256: uint256 [3057,3064]"
+    },
+    {
+      "src": "): ) [3913,3914]",
+      "dest": "): ) [3913,3914]"
+    },
+    {
+      "src": "type_name [2578,2585]",
+      "dest": "type_name [2578,2585]"
+    },
+    {
+      "src": "[: [ [2874,2875]",
+      "dest": "[: [ [2874,2875]"
+    },
+    {
+      "src": "type_name [1458,1465]",
+      "dest": "type_name [1458,1465]"
+    },
+    {
+      "src": "import: import [27,33]",
+      "dest": "import: import [27,33]"
+    },
+    {
+      "src": "): ) [3963,3964]",
+      "dest": "): ) [3963,3964]"
+    },
+    {
+      "src": "return: return [1785,1791]",
+      "dest": "return: return [1785,1791]"
+    },
+    {
+      "src": "type_name [1887,1891]",
+      "dest": "type_name [1887,1891]"
+    },
+    {
+      "src": "primitive_type [2056,2063]",
+      "dest": "primitive_type [2056,2063]"
+    },
+    {
+      "src": "function_definition [529,584]",
+      "dest": "function_definition [529,584]"
+    },
+    {
+      "src": ",: , [3682,3683]",
+      "dest": ",: , [3682,3683]"
+    },
+    {
+      "src": "identifier: amount [2083,2089]",
+      "dest": "identifier: amount [2083,2089]"
+    },
+    {
+      "src": "{: { [2390,2391]",
+      "dest": "{: { [2390,2391]"
+    },
+    {
+      "src": "}: } [982,983]",
+      "dest": "}: } [982,983]"
+    },
+    {
+      "src": "assignment_expression [3257,3293]",
+      "dest": "assignment_expression [3257,3293]"
+    },
+    {
+      "src": "override_specifier [1243,1251]",
+      "dest": "override_specifier [1243,1251]"
+    },
+    {
+      "src": "!=: != [2733,2735]",
+      "dest": "!=: != [2733,2735]"
+    },
+    {
+      "src": ",: , [3743,3744]",
+      "dest": ",: , [3743,3744]"
+    },
+    {
+      "src": "): ) [890,891]",
+      "dest": "): ) [890,891]"
+    },
+    {
+      "src": "call_argument [3122,3160]",
+      "dest": "call_argument [3122,3160]"
+    },
+    {
+      "src": "array_access [3598,3616]",
+      "dest": "array_access [3598,3616]"
+    },
+    {
+      "src": "parameter [508,521]",
+      "dest": "parameter [508,521]"
+    },
+    {
+      "src": "call_expression [1312,1355]",
+      "dest": "call_expression [1312,1355]"
+    },
+    {
+      "src": "(: ( [1514,1515]",
+      "dest": "(: ( [1514,1515]"
+    },
+    {
+      "src": "returns: returns [500,507]",
+      "dest": "returns: returns [500,507]"
+    },
+    {
+      "src": "): ) [1264,1265]",
+      "dest": "): ) [1264,1265]"
+    },
+    {
+      "src": "): ) [366,367]",
+      "dest": "): ) [366,367]"
+    },
+    {
+      "src": "identifier: _transferAction [2546,2561]",
+      "dest": "identifier: _transferAction [2546,2561]"
+    },
+    {
+      "src": "identifier: amount [1228,1234]",
+      "dest": "identifier: amount [1228,1234]"
+    },
+    {
+      "src": "array_access [3884,3902]",
+      "dest": "array_access [3884,3902]"
+    },
+    {
+      "src": "identifier: sender [1917,1923]",
+      "dest": "identifier: sender [1917,1923]"
+    },
+    {
+      "src": "expression_statement [1699,1775]",
+      "dest": "expression_statement [1699,1775]"
+    },
+    {
+      "src": "uint256: uint256 [231,238]",
+      "dest": "uint256: uint256 [231,238]"
+    },
+    {
+      "src": "}: } [832,833]",
+      "dest": "}: } [832,833]"
+    },
+    {
+      "src": "identifier: _allowances [1729,1740]",
+      "dest": "identifier: _allowances [1729,1740]"
+    },
+    {
+      "src": ".: . [1343,1344]",
+      "dest": ".: . [1343,1344]"
+    },
+    {
+      "src": "[: [ [3275,3276]",
+      "dest": "[: [ [3275,3276]"
+    },
+    {
+      "src": "identifier: _balances [3863,3872]",
+      "dest": "identifier: _balances [3863,3872]"
+    },
+    {
+      "src": "identifier: account [3894,3901]",
+      "dest": "identifier: account [3894,3901]"
+    },
+    {
+      "src": "}: } [4037,4038]",
+      "dest": "}: } [4037,4038]"
+    },
+    {
+      "src": "identifier: recipient [2875,2884]",
+      "dest": "identifier: recipient [2875,2884]"
+    },
+    {
+      "src": "identifier: msg [1300,1303]",
+      "dest": "identifier: msg [1300,1303]"
+    },
+    {
+      "src": "call_argument [3907,3913]",
+      "dest": "call_argument [3907,3913]"
+    },
+    {
+      "src": "address: address [1839,1846]",
+      "dest": "address: address [1839,1846]"
+    },
+    {
+      "src": "(: ( [507,508]",
+      "dest": "(: ( [507,508]"
+    },
+    {
+      "src": "call_argument [3671,3672]",
+      "dest": "call_argument [3671,3672]"
+    },
+    {
+      "src": "call_argument [2913,2919]",
+      "dest": "call_argument [2913,2919]"
+    },
+    {
+      "src": "(: ( [1184,1185]",
+      "dest": "(: ( [1184,1185]"
+    },
+    {
+      "src": "identifier: spender [967,974]",
+      "dest": "identifier: spender [967,974]"
+    },
+    {
+      "src": "call_expression [2437,2481]",
+      "dest": "call_expression [2437,2481]"
+    },
+    {
+      "src": "}: } [1432,1433]",
+      "dest": "}: } [1432,1433]"
+    },
+    {
+      "src": "call_argument [3472,3473]",
+      "dest": "call_argument [3472,3473]"
+    },
+    {
+      "src": "view: view [622,626]",
+      "dest": "view: view [622,626]"
+    },
+    {
+      "src": "identifier: msg [2458,2461]",
+      "dest": "identifier: msg [2458,2461]"
+    },
+    {
+      "src": "type_name [1475,1482]",
+      "dest": "type_name [1475,1482]"
+    },
+    {
+      "src": "primitive_type [2651,2658]",
+      "dest": "primitive_type [2651,2658]"
+    },
+    {
+      "src": ",: , [1218,1219]",
+      "dest": ",: , [1218,1219]"
+    },
+    {
+      "src": "return_statement [672,692]",
+      "dest": "return_statement [672,692]"
+    },
+    {
+      "src": ",: , [1026,1027]",
+      "dest": ",: , [1026,1027]"
+    },
+    {
+      "src": "[: [ [2814,2815]",
+      "dest": "[: [ [2814,2815]"
+    },
+    {
+      "src": "[: [ [2897,2898]",
+      "dest": "[: [ [2897,2898]"
+    },
+    {
+      "src": "): ) [582,583]",
+      "dest": "): ) [582,583]"
+    },
+    {
+      "src": "mapping: mapping [319,326]",
+      "dest": "mapping: mapping [319,326]"
+    },
+    {
+      "src": "parameter [1220,1234]",
+      "dest": "parameter [1220,1234]"
+    },
+    {
+      "src": "call_argument [2474,2480]",
+      "dest": "call_argument [2474,2480]"
+    },
+    {
+      "src": "=: = [2823,2824]",
+      "dest": "=: = [2823,2824]"
+    },
+    {
+      "src": "): ) [2853,2854]",
+      "dest": "): ) [2853,2854]"
+    },
+    {
+      "src": "call_argument [3335,3342]",
+      "dest": "call_argument [3335,3342]"
+    },
+    {
+      "src": "expression_statement [1367,1404]",
+      "dest": "expression_statement [1367,1404]"
+    },
+    {
+      "src": "call_argument [2641,2661]",
+      "dest": "call_argument [2641,2661]"
+    },
+    {
+      "src": "function_definition [397,456]",
+      "dest": "function_definition [397,456]"
+    },
+    {
+      "src": "call_argument [2293,2300]",
+      "dest": "call_argument [2293,2300]"
+    },
+    {
+      "src": "expression_statement [3781,3851]",
+      "dest": "expression_statement [3781,3851]"
+    },
+    {
+      "src": "returns: returns [1252,1259]",
+      "dest": "returns: returns [1252,1259]"
+    },
+    {
+      "src": "boolean_literal [1421,1425]",
+      "dest": "boolean_literal [1421,1425]"
+    },
+    {
+      "src": "member_expression [2437,2473]",
+      "dest": "member_expression [2437,2473]"
+    },
+    {
+      "src": "address: address [860,867]",
+      "dest": "address: address [860,867]"
+    },
+    {
+      "src": "primitive_type [275,282]",
+      "dest": "primitive_type [275,282]"
+    },
+    {
+      "src": "[: [ [2834,2835]",
+      "dest": "[: [ [2834,2835]"
+    },
+    {
+      "src": "primitive_type [1651,1658]",
+      "dest": "primitive_type [1651,1658]"
+    },
+    {
+      "src": "type_name [1185,1192]",
+      "dest": "type_name [1185,1192]"
+    },
+    {
+      "src": ",: , [3474,3475]",
+      "dest": ",: , [3474,3475]"
+    },
+    {
+      "src": "]: ] [3594,3595]",
+      "dest": "]: ] [3594,3595]"
+    },
+    {
+      "src": ".: . [1098,1099]",
+      "dest": ".: . [1098,1099]"
+    },
+    {
+      "src": "identifier: _balances [2805,2814]",
+      "dest": "identifier: _balances [2805,2814]"
+    },
+    {
+      "src": "number_literal: 0 [3199,3200]",
+      "dest": "number_literal: 0 [3199,3200]"
+    },
+    {
+      "src": "call_argument [1934,1978]",
+      "dest": "call_argument [1934,1978]"
+    },
+    {
+      "src": "): ) [1665,1666]",
+      "dest": "): ) [1665,1666]"
+    },
+    {
+      "src": "primitive_type [1475,1482]",
+      "dest": "primitive_type [1475,1482]"
+    },
+    {
+      "src": "expression_statement [3093,3162]",
+      "dest": "expression_statement [3093,3162]"
+    },
+    {
+      "src": "emit: emit [3314,3318]",
+      "dest": "emit: emit [3314,3318]"
+    },
+    {
+      "src": "(: ( [440,441]",
+      "dest": "(: ( [440,441]"
+    },
+    {
+      "src": "[: [ [1740,1741]",
+      "dest": "[: [ [1740,1741]"
+    },
+    {
+      "src": "identifier: amount [2913,2919]",
+      "dest": "identifier: amount [2913,2919]"
+    },
+    {
+      "src": "address: address [3040,3047]",
+      "dest": "address: address [3040,3047]"
+    },
+    {
+      "src": "call_argument [2659,2660]",
+      "dest": "call_argument [2659,2660]"
+    },
+    {
+      "src": "uint256: uint256 [2075,2082]",
+      "dest": "uint256: uint256 [2075,2082]"
+    },
+    {
+      "src": "return_type_definition [1674,1687]",
+      "dest": "return_type_definition [1674,1687]"
+    },
+    {
+      "src": "type_name [652,659]",
+      "dest": "type_name [652,659]"
+    },
+    {
+      "src": "number_literal: 0 [2659,2660]",
+      "dest": "number_literal: 0 [2659,2660]"
+    },
+    {
+      "src": "identifier: _totalSupply [247,259]",
+      "dest": "identifier: _totalSupply [247,259]"
+    },
+    {
+      "src": "public: public [549,555]",
+      "dest": "public: public [549,555]"
+    },
+    {
+      "src": "assignment_expression [3577,3628]",
+      "dest": "assignment_expression [3577,3628]"
+    },
+    {
+      "src": "{: { [1688,1689]",
+      "dest": "{: { [1688,1689]"
+    },
+    {
+      "src": "solidity_version: 0.6.6 [17,22]",
+      "dest": "solidity_version: 0.6.6 [17,22]"
+    },
+    {
+      "src": "): ) [3627,3628]",
+      "dest": "): ) [3627,3628]"
+    },
+    {
+      "src": "\": \" [2702,2703]",
+      "dest": "\": \" [2702,2703]"
+    },
+    {
+      "src": "visibility [3425,3433]",
+      "dest": "visibility [3425,3433]"
+    },
+    {
+      "src": "true [1997,2001]",
+      "dest": "true [1997,2001]"
+    },
+    {
+      "src": "}: } [1154,1155]",
+      "dest": "}: } [1154,1155]"
+    },
+    {
+      "src": "): ) [3809,3810]",
+      "dest": "): ) [3809,3810]"
+    },
+    {
+      "src": "]: ] [1751,1752]",
+      "dest": "]: ] [1751,1752]"
+    },
+    {
+      "src": "identifier: amount [1483,1489]",
+      "dest": "identifier: amount [1483,1489]"
+    },
+    {
+      "src": "identifier: amount [3559,3565]",
+      "dest": "identifier: amount [3559,3565]"
+    },
+    {
+      "src": "identifier: amount [3344,3350]",
+      "dest": "identifier: amount [3344,3350]"
+    },
+    {
+      "src": "identifier: _totalSupply [3527,3539]",
+      "dest": "identifier: _totalSupply [3527,3539]"
+    },
+    {
+      "src": "identifier: account [3999,4006]",
+      "dest": "identifier: account [3999,4006]"
+    },
+    {
+      "src": ",: , [873,874]",
+      "dest": ",: , [873,874]"
+    },
+    {
+      "src": "parameter [1028,1042]",
+      "dest": "parameter [1028,1042]"
+    },
+    {
+      "src": "identifier: _totalSupply [3542,3554]",
+      "dest": "identifier: _totalSupply [3542,3554]"
+    },
+    {
+      "src": "(: ( [920,921]",
+      "dest": "(: ( [920,921]"
+    },
+    {
+      "src": "): ) [2089,2090]",
+      "dest": "): ) [2089,2090]"
+    },
+    {
+      "src": ".: . [1761,1762]",
+      "dest": ".: . [1761,1762]"
+    },
+    {
+      "src": "string [3476,3513]",
+      "dest": "string [3476,3513]"
+    },
+    {
+      "src": "!=: != [2648,2650]",
+      "dest": "!=: != [2648,2650]"
+    },
+    {
+      "src": ",: , [1932,1933]",
+      "dest": ",: , [1932,1933]"
+    }
+  ],
+  "actions": []
+}

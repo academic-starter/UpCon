@@ -1,0 +1,165 @@
+{
+  "matches": [
+    {
+      "src": "}: } [1635,1636]",
+      "dest": "}: } [1635,1636]"
+    },
+    {
+      "src": "parameter [1591,1603]",
+      "dest": "parameter [1591,1603]"
+    },
+    {
+      "src": "bytes32: bytes32 [1591,1598]",
+      "dest": "bytes32: bytes32 [1591,1598]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "returns: returns [1619,1626]",
+      "dest": "returns: returns [1619,1626]"
+    },
+    {
+      "src": "return_type_definition [1619,1633]",
+      "dest": "return_type_definition [1619,1633]"
+    },
+    {
+      "src": "comment: /*   The Fact Registry design pattern is a way to separate cryptographic verification from the   business logic of the contract flow.    A fact registry holds a hash table of verified \"facts\" which are represented by a hash of claims   that the registry hash check and found valid. This table may be queried by accessing the   isValid() function of the registry with a given hash.    In addition, each fact registry exposes a registry specific function for submitting new claims   together with their proofs. The information submitted varies from one registry to the other   depending of the type of fact requiring verification.    For further reading on the Fact Registry design pattern see this   `StarkWare blog post <https://medium.com/starkware/the-fact-registry-a64aafb598b6>`_. */ [662,1449]",
+      "dest": "comment: /*   The Fact Registry design pattern is a way to separate cryptographic verification from the   business logic of the contract flow.    A fact registry holds a hash table of verified \"facts\" which are represented by a hash of claims   that the registry hash check and found valid. This table may be queried by accessing the   isValid() function of the registry with a given hash.    In addition, each fact registry exposes a registry specific function for submitting new claims   together with their proofs. The information submitted varies from one registry to the other   depending of the type of fact requiring verification.    For further reading on the Fact Registry design pattern see this   `StarkWare blog post <https://medium.com/starkware/the-fact-registry-a64aafb598b6>`_. */ [662,1449]"
+    },
+    {
+      "src": "view: view [1614,1618]",
+      "dest": "view: view [1614,1618]"
+    },
+    {
+      "src": "{: { [1474,1475]",
+      "dest": "{: { [1474,1475]"
+    },
+    {
+      "src": "(: ( [1627,1628]",
+      "dest": "(: ( [1627,1628]"
+    },
+    {
+      "src": "external: external [1605,1613]",
+      "dest": "external: external [1605,1613]"
+    },
+    {
+      "src": "contract_body [1474,1636]",
+      "dest": "contract_body [1474,1636]"
+    },
+    {
+      "src": "(: ( [1590,1591]",
+      "dest": "(: ( [1590,1591]"
+    },
+    {
+      "src": "type_name [1591,1598]",
+      "dest": "type_name [1591,1598]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "bool: bool [1628,1632]",
+      "dest": "bool: bool [1628,1632]"
+    },
+    {
+      "src": "identifier: fact [1599,1603]",
+      "dest": "identifier: fact [1599,1603]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "comment: /*       Returns true if the given fact was previously registered in the contract.     */ [1480,1569]",
+      "dest": "comment: /*       Returns true if the given fact was previously registered in the contract.     */ [1480,1569]"
+    },
+    {
+      "src": "function_definition [1574,1634]",
+      "dest": "function_definition [1574,1634]"
+    },
+    {
+      "src": "parameter [1628,1632]",
+      "dest": "parameter [1628,1632]"
+    },
+    {
+      "src": "state_mutability [1614,1618]",
+      "dest": "state_mutability [1614,1618]"
+    },
+    {
+      "src": "): ) [1632,1633]",
+      "dest": "): ) [1632,1633]"
+    },
+    {
+      "src": "identifier: IFactRegistry [1460,1473]",
+      "dest": "identifier: IFactRegistry [1460,1473]"
+    },
+    {
+      "src": "primitive_type [1628,1632]",
+      "dest": "primitive_type [1628,1632]"
+    },
+    {
+      "src": "interface: interface [1450,1459]",
+      "dest": "interface: interface [1450,1459]"
+    },
+    {
+      "src": "interface_declaration [1450,1636]",
+      "dest": "interface_declaration [1450,1636]"
+    },
+    {
+      "src": "visibility [1605,1613]",
+      "dest": "visibility [1605,1613]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "function: function [1574,1582]",
+      "dest": "function: function [1574,1582]"
+    },
+    {
+      "src": "identifier: isValid [1583,1590]",
+      "dest": "identifier: isValid [1583,1590]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "): ) [1603,1604]",
+      "dest": "): ) [1603,1604]"
+    },
+    {
+      "src": "source_file [0,1637]",
+      "dest": "source_file [0,1637]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "type_name [1628,1632]",
+      "dest": "type_name [1628,1632]"
+    },
+    {
+      "src": "primitive_type [1591,1598]",
+      "dest": "primitive_type [1591,1598]"
+    }
+  ],
+  "actions": []
+}

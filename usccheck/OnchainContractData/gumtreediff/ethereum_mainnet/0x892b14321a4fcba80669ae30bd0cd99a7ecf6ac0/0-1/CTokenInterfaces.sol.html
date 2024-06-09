@@ -1,0 +1,904 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>CTokenInterfaces.sol</h5><pre class="pre-scrollable">pragma solidity ^0.5.16;
+
+import "./ComptrollerInterface.sol";
+import "./InterestRateModel.sol";
+
+contract CTokenStorage {
+    /**
+     * @dev Guard variable for re-entrancy checks
+     */
+    bool internal _notEntered;
+
+    /**
+     * @notice EIP-20 token name for this token
+     */
+    string public name;
+
+    /**
+     * @notice EIP-20 token symbol for this token
+     */
+    string public symbol;
+
+    /**
+     * @notice EIP-20 token decimals for this token
+     */
+    uint8 public decimals;
+
+    /**
+     * @notice Maximum borrow rate that can ever be applied (.0005% / block)
+     */
+
+    uint internal constant borrowRateMaxMantissa = 0.0005e16;
+
+    /**
+     * @notice Maximum fraction of interest that can be set aside for reserves
+     */
+    uint internal constant reserveFactorMaxMantissa = 1e18;
+
+    /**
+     * @notice Administrator for this contract
+     */
+    address payable public admin;
+
+    /**
+     * @notice Pending administrator for this contract
+     */
+    address payable public pendingAdmin;
+
+    /**
+     * @notice Contract which oversees inter-cToken operations
+     */
+    ComptrollerInterface public comptroller;
+
+    /**
+     * @notice Model which tells what the current interest rate should be
+     */
+    InterestRateModel public interestRateModel;
+
+    /**
+     * @notice Initial exchange rate used when minting the first CTokens (used when totalSupply = 0)
+     */
+    uint internal initialExchangeRateMantissa;
+
+    /**
+     * @notice Fraction of interest currently set aside for reserves
+     */
+    uint public reserveFactorMantissa;
+
+    /**
+     * @notice Block number that interest was last accrued at
+     */
+    uint public accrualBlockNumber;
+
+    /**
+     * @notice Accumulator of the total earned interest rate since the opening of the market
+     */
+    uint public borrowIndex;
+
+    /**
+     * @notice Total amount of outstanding borrows of the underlying in this market
+     */
+    uint public totalBorrows;
+
+    /**
+     * @notice Total amount of reserves of the underlying held in this market
+     */
+    uint public totalReserves;
+
+    /**
+     * @notice Total number of tokens in circulation
+     */
+    uint public totalSupply;
+
+    /**
+     * @notice Official record of token balances for each account
+     */
+    mapping (address =&gt; uint) internal accountTokens;
+
+    /**
+     * @notice Approved token transfer amounts on behalf of others
+     */
+    mapping (address =&gt; mapping (address =&gt; uint)) internal transferAllowances;
+
+    /**
+     * @notice Container for borrow balance information
+     * @member principal Total balance (with accrued interest), after applying the most recent balance-changing action
+     * @member interestIndex Global borrowIndex as of the most recent balance-changing action
+     */
+    struct BorrowSnapshot {
+        uint principal;
+        uint interestIndex;
+    }
+
+    /**
+     * @notice Mapping of account addresses to outstanding borrow balances
+     */
+    mapping(address =&gt; BorrowSnapshot) internal accountBorrows;
+}
+
+<span class="marker" id="mapping-1"></span><span class="token mv" id="move-src-1" data-title="source_file/contract_declaration">contract CTokenInterface is CTokenStorage {
+    /**
+     * @notice Indicator that this is a CToken contract (for inspection)
+     */
+    bool public constant isCToken = true;
+
+
+    /*** Market Events ***/
+
+    /**
+     * @notice Event emitted when interest is accrued
+     */
+    event AccrueInterest(uint cashPrior, uint interestAccumulated, uint borrowIndex, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when tokens are minted
+     */
+    event Mint(address minter, uint mintAmount, uint mintTokens);
+
+    /**
+     * @notice Event emitted when tokens are redeemed
+     */
+    event Redeem(address redeemer, uint redeemAmount, uint redeemTokens);
+
+    /**
+     * @notice Event emitted when underlying is borrowed
+     */
+    event Borrow(address borrower, uint borrowAmount, uint accountBorrows, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when a borrow is repaid
+     */
+    event RepayBorrow(address payer, address borrower, uint repayAmount, uint accountBorrows, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when a borrow is liquidated
+     */
+    event LiquidateBorrow(address liquidator, address borrower, uint repayAmount, address cTokenCollateral, uint seizeTokens);
+
+
+    /*** Admin Events ***/
+
+    /**
+     * @notice Event emitted when pendingAdmin is changed
+     */
+    event NewPendingAdmin(address oldPendingAdmin, address newPendingAdmin);
+
+    /**
+     * @notice Event emitted when pendingAdmin is accepted, which means admin is updated
+     */
+    event NewAdmin(address oldAdmin, address newAdmin);
+
+    /**
+     * @notice Event emitted when comptroller is changed
+     */
+    event NewComptroller(ComptrollerInterface oldComptroller, ComptrollerInterface newComptroller);
+
+    /**
+     * @notice Event emitted when interestRateModel is changed
+     */
+    event NewMarketInterestRateModel(InterestRateModel oldInterestRateModel, InterestRateModel newInterestRateModel);
+
+    /**
+     * @notice Event emitted when the reserve factor is changed
+     */
+    event NewReserveFactor(uint oldReserveFactorMantissa, uint newReserveFactorMantissa);
+
+    /**
+     * @notice Event emitted when the reserves are added
+     */
+    event ReservesAdded(address benefactor, uint addAmount, uint newTotalReserves);
+
+    /**
+     * @notice Event emitted when the reserves are reduced
+     */
+    event ReservesReduced(address admin, uint reduceAmount, uint newTotalReserves);
+
+    /**
+     * @notice EIP20 Transfer event
+     */
+    event Transfer(address indexed from, address indexed to, uint amount);
+
+    /**
+     * @notice EIP20 Approval event
+     */
+    event Approval(address indexed owner, address indexed spender, uint amount);
+
+    /**
+     * @notice Failure event
+     */
+    event Failure(uint error, uint info, uint detail);
+
+
+    /*** User Interface ***/
+
+    function transfer(address dst, uint amount) external returns (bool);
+    function transferFrom(address src, address dst, uint amount) external returns (bool);
+    function approve(address spender, uint amount) external returns (bool);
+    function allowance(address owner, address spender) external view returns (uint);
+    function balanceOf(address owner) external view returns (uint);
+    function balanceOfUnderlying(address owner) external returns (uint);
+    function getAccountSnapshot(address account) external view returns (uint, uint, uint, uint);
+    function borrowRatePerBlock() external view returns (uint);
+    function supplyRatePerBlock() external view returns (uint);
+    function totalBorrowsCurrent() external returns (uint);
+    function borrowBalanceCurrent(address account) external returns (uint);
+    function borrowBalanceStored(address account) public view returns (uint);
+    function exchangeRateCurrent() public returns (uint);
+    function exchangeRateStored() public view returns (uint);
+    function getCash() external view returns (uint);
+    function accrueInterest() public returns (uint);
+    function seize(address liquidator, address borrower, uint seizeTokens) external returns (uint);
+
+
+    /*** Admin Functions ***/
+
+    function _setPendingAdmin(address payable newPendingAdmin) external returns (uint);
+    function _acceptAdmin() external returns (uint);
+    function _setComptroller(ComptrollerInterface newComptroller) public returns (uint);
+    function _setReserveFactor(uint newReserveFactorMantissa) external returns (uint);
+    function _reduceReserves(uint reduceAmount) external returns (uint);
+    function _setInterestRateModel(InterestRateModel newInterestRateModel) public returns (uint);
+}</span>
+
+contract CErc20Storage {
+    /**
+     * @notice Underlying asset for this CToken
+     */
+    address public underlying;
+}
+
+contract CErc20Interface is CErc20Storage {
+
+    /*** User Interface ***/
+
+    function mint(uint mintAmount) external returns (uint);
+    function redeem(uint redeemTokens) external returns (uint);
+    function redeemUnderlying(uint redeemAmount) external returns (uint);
+    function borrow(uint borrowAmount) external returns (uint);
+    function repayBorrow(uint repayAmount) external returns (uint);
+    function repayBorrowBehalf(address borrower, uint repayAmount) external returns (uint);
+    function liquidateBorrow(address borrower, uint repayAmount, CTokenInterface cTokenCollateral) external returns (uint);
+
+
+    /*** Admin Functions ***/
+
+    function _addReserves(uint addAmount) external returns (uint);
+}
+
+<span class="marker" id="mapping-2"></span><span class="token del" data-title="source_file/contract_declaration">contract CDelegationStorage <span class="marker" id="mapping-3"></span><span class="token del" data-title="contract_declaration/contract_body">{
+    /**
+     * @notice Implementation address for this contract
+     */
+    <span class="marker" id="mapping-4"></span><span class="token mv" id="move-src-2" data-title="contract_body/state_variable_declaration">address public implementation;</span>
+}</span></span>
+
+contract CDelegatorInterface <span class="marker" id="mapping-5"></span><span class="token del" data-title="contract_declaration/is">is</span> <span class="marker" id="mapping-6"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">CDelegationStorage</span> {
+    /**
+     * @notice Emitted when implementation is changed
+     */
+    event NewImplementation(address oldImplementation, address newImplementation);
+
+    /**
+     * @notice Called by the admin to update the implementation of the delegator
+     * @param implementation_ The address of the new implementation for delegation
+     * @param allowResign Flag to indicate whether to call _resignImplementation on the old implementation
+     * @param becomeImplementationData The encoded bytes data to be passed to _becomeImplementation
+     */
+    function _setImplementation(address implementation_, bool allowResign, bytes memory becomeImplementationData) public;
+}
+
+contract CDelegateInterface <span class="marker" id="mapping-7"></span><span class="token del" data-title="contract_declaration/is">is</span> <span class="marker" id="mapping-8"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">CDelegationStorage</span> {
+    /**
+     * @notice Called by the delegator on a delegate to initialize it for duty
+     * @dev Should revert if any issues arise which make it unfit for delegation
+     * @param data The encoded bytes data for any initialization
+     */
+    function _becomeImplementation(bytes memory data) public;
+
+    /**
+     * @notice Called by the delegator on a delegate to forfeit its responsibility
+     */
+    function _resignImplementation() public;
+}
+</pre></div><div class="col-6"><h5>CTokenInterfaces.sol</h5><pre class="pre-scrollable">pragma solidity ^0.5.16;
+
+import "./ComptrollerInterface.sol";
+import "./InterestRateModel.sol";
+
+contract CTokenStorage {
+    /**
+     * @dev Guard variable for re-entrancy checks
+     */
+    bool internal _notEntered;
+
+    /**
+     * @notice EIP-20 token name for this token
+     */
+    string public name;
+
+    /**
+     * @notice EIP-20 token symbol for this token
+     */
+    string public symbol;
+
+    /**
+     * @notice EIP-20 token decimals for this token
+     */
+    uint8 public decimals;
+
+    /**
+     * @notice Maximum borrow rate that can ever be applied (.0005% / block)
+     */
+
+    uint internal constant borrowRateMaxMantissa = 0.0005e16;
+
+    /**
+     * @notice Maximum fraction of interest that can be set aside for reserves
+     */
+    uint internal constant reserveFactorMaxMantissa = 1e18;
+
+    /**
+     * @notice Administrator for this contract
+     */
+    address payable public admin;
+
+    /**
+     * @notice Pending administrator for this contract
+     */
+    address payable public pendingAdmin;
+
+    /**
+     * @notice Contract which oversees inter-cToken operations
+     */
+    ComptrollerInterface public comptroller;
+
+    /**
+     * @notice Model which tells what the current interest rate should be
+     */
+    InterestRateModel public interestRateModel;
+
+    /**
+     * @notice Initial exchange rate used when minting the first CTokens (used when totalSupply = 0)
+     */
+    uint internal initialExchangeRateMantissa;
+
+    /**
+     * @notice Fraction of interest currently set aside for reserves
+     */
+    uint public reserveFactorMantissa;
+
+    /**
+     * @notice Block number that interest was last accrued at
+     */
+    uint public accrualBlockNumber;
+
+    /**
+     * @notice Accumulator of the total earned interest rate since the opening of the market
+     */
+    uint public borrowIndex;
+
+    /**
+     * @notice Total amount of outstanding borrows of the underlying in this market
+     */
+    uint public totalBorrows;
+
+    /**
+     * @notice Total amount of reserves of the underlying held in this market
+     */
+    uint public totalReserves;
+
+    /**
+     * @notice Total number of tokens in circulation
+     */
+    uint public totalSupply;
+
+    /**
+     * @notice Official record of token balances for each account
+     */
+    mapping (address =&gt; uint) internal accountTokens;
+
+    /**
+     * @notice Approved token transfer amounts on behalf of others
+     */
+    mapping (address =&gt; mapping (address =&gt; uint)) internal transferAllowances;
+
+    /**
+     * @notice Container for borrow balance information
+     * @member principal Total balance (with accrued interest), after applying the most recent balance-changing action
+     * @member interestIndex Global borrowIndex as of the most recent balance-changing action
+     */
+    struct BorrowSnapshot {
+        uint principal;
+        uint interestIndex;
+    }
+
+    /**
+     * @notice Mapping of account addresses to outstanding borrow balances
+     */
+    mapping(address =&gt; BorrowSnapshot) internal accountBorrows;
+}
+
+contract CErc20Storage {
+    /**
+     * @notice Underlying asset for this CToken
+     */
+    address public underlying;
+
+    <span class="marker" id="mapping-9"></span><span class="token add" data-title="contract_body/comment">/**
+     * @notice Implementation address for this contract
+     */</span>
+    <span class="marker" id="mapping-10"></span><span class="token mv" id="move-dst-2" data-title="contract_body/state_variable_declaration">address public implementation;</span>
+}
+
+<span class="marker" id="mapping-11"></span><span class="token add" data-title="source_file/contract_declaration">contract CSupplyCapStorage {
+    /**
+     * @notice Internal cash counter for this CToken. Should equal underlying.balanceOf(address(this)) for CERC20.
+     */
+    uint256 public internalCash;
+}</span>
+
+<span class="marker" id="mapping-12"></span><span class="token add" data-title="source_file/contract_declaration">contract CCollateralCapStorage {
+    /**
+     * @notice Total number of tokens used as collateral in circulation.
+     */
+    uint256 public totalCollateralTokens;
+
+    /**
+     * @notice Record of token balances which could be treated as collateral for each account.
+     *         If collateral cap is not set, the value should be equal to accountTokens.
+     */
+    mapping (address =&gt; uint) public accountCollateralTokens;
+
+    /**
+     * @notice Check if accountCollateralTokens have been initialized.
+     */
+    mapping (address =&gt; bool) public isCollateralTokenInit;
+
+    /**
+     * @notice Collateral cap for this CToken, zero for no cap.
+     */
+    uint256 public collateralCap;
+}</span>
+
+<span class="marker" id="mapping-13"></span><span class="token add" data-title="source_file/comment">/*** Interface ***/</span>
+
+<span class="marker" id="mapping-14"></span><span class="token mv" id="move-dst-1" data-title="source_file/contract_declaration">contract CTokenInterface is CTokenStorage {
+    /**
+     * @notice Indicator that this is a CToken contract (for inspection)
+     */
+    bool public constant isCToken = true;
+
+
+    /*** Market Events ***/
+
+    /**
+     * @notice Event emitted when interest is accrued
+     */
+    event AccrueInterest(uint cashPrior, uint interestAccumulated, uint borrowIndex, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when tokens are minted
+     */
+    event Mint(address minter, uint mintAmount, uint mintTokens);
+
+    /**
+     * @notice Event emitted when tokens are redeemed
+     */
+    event Redeem(address redeemer, uint redeemAmount, uint redeemTokens);
+
+    /**
+     * @notice Event emitted when underlying is borrowed
+     */
+    event Borrow(address borrower, uint borrowAmount, uint accountBorrows, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when a borrow is repaid
+     */
+    event RepayBorrow(address payer, address borrower, uint repayAmount, uint accountBorrows, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when a borrow is liquidated
+     */
+    event LiquidateBorrow(address liquidator, address borrower, uint repayAmount, address cTokenCollateral, uint seizeTokens);
+
+
+    /*** Admin Events ***/
+
+    /**
+     * @notice Event emitted when pendingAdmin is changed
+     */
+    event NewPendingAdmin(address oldPendingAdmin, address newPendingAdmin);
+
+    /**
+     * @notice Event emitted when pendingAdmin is accepted, which means admin is updated
+     */
+    event NewAdmin(address oldAdmin, address newAdmin);
+
+    /**
+     * @notice Event emitted when comptroller is changed
+     */
+    event NewComptroller(ComptrollerInterface oldComptroller, ComptrollerInterface newComptroller);
+
+    /**
+     * @notice Event emitted when interestRateModel is changed
+     */
+    event NewMarketInterestRateModel(InterestRateModel oldInterestRateModel, InterestRateModel newInterestRateModel);
+
+    /**
+     * @notice Event emitted when the reserve factor is changed
+     */
+    event NewReserveFactor(uint oldReserveFactorMantissa, uint newReserveFactorMantissa);
+
+    /**
+     * @notice Event emitted when the reserves are added
+     */
+    event ReservesAdded(address benefactor, uint addAmount, uint newTotalReserves);
+
+    /**
+     * @notice Event emitted when the reserves are reduced
+     */
+    event ReservesReduced(address admin, uint reduceAmount, uint newTotalReserves);
+
+    /**
+     * @notice EIP20 Transfer event
+     */
+    event Transfer(address indexed from, address indexed to, uint amount);
+
+    /**
+     * @notice EIP20 Approval event
+     */
+    event Approval(address indexed owner, address indexed spender, uint amount);
+
+    /**
+     * @notice Failure event
+     */
+    event Failure(uint error, uint info, uint detail);
+
+
+    /*** User Interface ***/
+
+    function transfer(address dst, uint amount) external returns (bool);
+    function transferFrom(address src, address dst, uint amount) external returns (bool);
+    function approve(address spender, uint amount) external returns (bool);
+    function allowance(address owner, address spender) external view returns (uint);
+    function balanceOf(address owner) external view returns (uint);
+    function balanceOfUnderlying(address owner) external returns (uint);
+    function getAccountSnapshot(address account) external view returns (uint, uint, uint, uint);
+    function borrowRatePerBlock() external view returns (uint);
+    function supplyRatePerBlock() external view returns (uint);
+    function totalBorrowsCurrent() external returns (uint);
+    function borrowBalanceCurrent(address account) external returns (uint);
+    function borrowBalanceStored(address account) public view returns (uint);
+    function exchangeRateCurrent() public returns (uint);
+    function exchangeRateStored() public view returns (uint);
+    function getCash() external view returns (uint);
+    function accrueInterest() public returns (uint);
+    function seize(address liquidator, address borrower, uint seizeTokens) external returns (uint);
+
+
+    /*** Admin Functions ***/
+
+    function _setPendingAdmin(address payable newPendingAdmin) external returns (uint);
+    function _acceptAdmin() external returns (uint);
+    function _setComptroller(ComptrollerInterface newComptroller) public returns (uint);
+    function _setReserveFactor(uint newReserveFactorMantissa) external returns (uint);
+    function _reduceReserves(uint reduceAmount) external returns (uint);
+    function _setInterestRateModel(InterestRateModel newInterestRateModel) public returns (uint);
+}</span>
+
+contract CErc20Interface is CErc20Storage {
+
+    /*** User Interface ***/
+
+    function mint(uint mintAmount) external returns (uint);
+    function redeem(uint redeemTokens) external returns (uint);
+    function redeemUnderlying(uint redeemAmount) external returns (uint);
+    function borrow(uint borrowAmount) external returns (uint);
+    function repayBorrow(uint repayAmount) external returns (uint);
+    function repayBorrowBehalf(address borrower, uint repayAmount) external returns (uint);
+    function liquidateBorrow(address borrower, uint repayAmount, CTokenInterface cTokenCollateral) external returns (uint);
+
+    /*** Admin Functions ***/
+
+    function _addReserves(uint addAmount) external returns (uint);
+}
+
+<span class="marker" id="mapping-15"></span><span class="token add" data-title="source_file/contract_declaration">contract CCapableErc20Interface is CErc20Interface, CSupplyCapStorage {
+    /**
+     * @notice Flash loan fee ratio
+     */
+    uint public constant flashFeeBips = 3;
+
+    /*** Market Events ***/
+
+    /**
+     * @notice Event emitted when a flashloan occured
+     */
+    event Flashloan(address indexed receiver, uint amount, uint totalFee, uint reservesFee);
+
+    /*** User Interface ***/
+
+    function gulp() external;
+    function flashLoan(address receiver, uint amount, bytes calldata params) external;
+}</span>
+
+<span class="marker" id="mapping-16"></span><span class="token add" data-title="source_file/contract_declaration">contract CCollateralCapErc20Interface is CCapableErc20Interface, CCollateralCapStorage {
+
+    /*** Admin Events ***/
+
+    /**
+     * @notice Event emitted when collateral cap is set
+     */
+    event NewCollateralCap(address token, uint newCap);
+
+    /**
+     * @notice Event emitted when user collateral is changed
+     */
+    event UserCollateralChanged(address account, uint newCollateralTokens);
+
+    /*** User Interface ***/
+
+    function registerCollateral(address account) external returns (uint);
+    function unregisterCollateral(address account) external;
+
+    /*** Admin Functions ***/
+
+    function _setCollateralCap(uint newCollateralCap) external;
+}</span>
+
+contract CDelegatorInterface {
+    /**
+     * @notice Emitted when implementation is changed
+     */
+    event NewImplementation(address oldImplementation, address newImplementation);
+
+    /**
+     * @notice Called by the admin to update the implementation of the delegator
+     * @param implementation_ The address of the new implementation for delegation
+     * @param allowResign Flag to indicate whether to call _resignImplementation on the old implementation
+     * @param becomeImplementationData The encoded bytes data to be passed to _becomeImplementation
+     */
+    function _setImplementation(address implementation_, bool allowResign, bytes memory becomeImplementationData) public;
+}
+
+contract CDelegateInterface {
+    /**
+     * @notice Called by the delegator on a delegate to initialize it for duty
+     * @dev Should revert if any issues arise which make it unfit for delegation
+     * @param data The encoded bytes data for any initialization
+     */
+    function _becomeImplementation(bytes memory data) public;
+
+    /**
+     * @notice Called by the delegator on a delegate to forfeit its responsibility
+     */
+    function _resignImplementation() public;
+}
+
+<span class="marker" id="mapping-17"></span><span class="token add" data-title="source_file/comment">/*** External interface ***/</span>
+
+<span class="marker" id="mapping-18"></span><span class="token add" data-title="source_file/comment">/**
+ * @title Flash loan receiver interface
+ */</span>
+<span class="marker" id="mapping-19"></span><span class="token add" data-title="source_file/interface_declaration">interface IFlashloanReceiver {
+    function executeOperation(address sender, address underlying, uint amount, uint fee, bytes calldata params) external;
+}</span>
+</pre></div></div></div></body></html>

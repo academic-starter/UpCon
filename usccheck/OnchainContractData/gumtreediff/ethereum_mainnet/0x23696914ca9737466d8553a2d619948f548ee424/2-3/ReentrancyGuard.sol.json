@@ -1,0 +1,437 @@
+{
+  "matches": [
+    {
+      "src": "contract_declaration [873,2659]",
+      "dest": "contract_declaration [873,2659]"
+    },
+    {
+      "src": "private: private [1669,1676]",
+      "dest": "private: private [1669,1676]"
+    },
+    {
+      "src": "constant: constant [1677,1685]",
+      "dest": "constant: constant [1677,1685]"
+    },
+    {
+      "src": "{: { [1796,1797]",
+      "dest": "{: { [1796,1797]"
+    },
+    {
+      "src": "type_name [1708,1715]",
+      "dest": "type_name [1708,1715]"
+    },
+    {
+      "src": "=: = [1742,1743]",
+      "dest": "=: = [1742,1743]"
+    },
+    {
+      "src": "function_body [2236,2657]",
+      "dest": "function_body [2236,2657]"
+    },
+    {
+      "src": "identifier: _NOT_ENTERED [1816,1828]",
+      "dest": "identifier: _NOT_ENTERED [1816,1828]"
+    },
+    {
+      "src": "visibility [1716,1723]",
+      "dest": "visibility [1716,1723]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: MIT [0,31]",
+      "dest": "comment: // SPDX-License-Identifier: MIT [0,31]"
+    },
+    {
+      "src": "comment: // On the first call to nonReentrant, _notEntered will be true [2246,2308]",
+      "dest": "comment: // On the first call to nonReentrant, _notEntered will be true [2246,2308]"
+    },
+    {
+      "src": "pragma: pragma [97,103]",
+      "dest": "pragma: pragma [97,103]"
+    },
+    {
+      "src": "(: ( [2324,2325]",
+      "dest": "(: ( [2324,2325]"
+    },
+    {
+      "src": "identifier: nonReentrant [2221,2233]",
+      "dest": "identifier: nonReentrant [2221,2233]"
+    },
+    {
+      "src": "comment: // OpenZeppelin Contracts v4.4.1 (security/ReentrancyGuard.sol) [32,95]",
+      "dest": "comment: // OpenZeppelin Contracts v4.4.1 (security/ReentrancyGuard.sol) [32,95]"
+    },
+    {
+      "src": "comment: // back. This is the compiler's defense against contract upgrades and [1155,1224]",
+      "dest": "comment: // back. This is the compiler's defense against contract upgrades and [1155,1224]"
+    },
+    {
+      "src": "identifier: _NOT_ENTERED [2638,2650]",
+      "dest": "identifier: _NOT_ENTERED [2638,2650]"
+    },
+    {
+      "src": "constructor_definition [1782,1835]",
+      "dest": "constructor_definition [1782,1835]"
+    },
+    {
+      "src": "identifier: _ [2484,2485]",
+      "dest": "identifier: _ [2484,2485]"
+    },
+    {
+      "src": "comment: // pointer aliasing, and it cannot be disabled. [1229,1276]",
+      "dest": "comment: // pointer aliasing, and it cannot be disabled. [1229,1276]"
+    },
+    {
+      "src": "comment: /**      * @dev Prevents a contract from calling itself, directly or indirectly.      * Calling a `nonReentrant` function from another `nonReentrant`      * function is not supported. It is possible to prevent this from happening      * by making the `nonReentrant` function external, and making it call a      * `private` function that does the actual work.      */ [1841,2207]",
+      "dest": "comment: /**      * @dev Prevents a contract from calling itself, directly or indirectly.      * Calling a `nonReentrant` function from another `nonReentrant`      * function is not supported. It is possible to prevent this from happening      * by making the `nonReentrant` function external, and making it call a      * `private` function that does the actual work.      */ [1841,2207]"
+    },
+    {
+      "src": "comment: // Booleans are more expensive than uint256 or any type that takes up a full [913,989]",
+      "dest": "comment: // Booleans are more expensive than uint256 or any type that takes up a full [913,989]"
+    },
+    {
+      "src": "state_variable_declaration [1752,1776]",
+      "dest": "state_variable_declaration [1752,1776]"
+    },
+    {
+      "src": "primitive_type [1752,1759]",
+      "dest": "primitive_type [1752,1759]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [112,114]",
+      "dest": "solidity_version_comparison_operator [112,114]"
+    },
+    {
+      "src": "uint256: uint256 [1752,1759]",
+      "dest": "uint256: uint256 [1752,1759]"
+    },
+    {
+      "src": "comment: // Any calls to nonReentrant after this point will fail [2391,2446]",
+      "dest": "comment: // Any calls to nonReentrant after this point will fail [2391,2446]"
+    },
+    {
+      "src": "identifier: _status [2455,2462]",
+      "dest": "identifier: _status [2455,2462]"
+    },
+    {
+      "src": "!=: != [2333,2335]",
+      "dest": "!=: != [2333,2335]"
+    },
+    {
+      "src": "identifier: ReentrancyGuard [891,906]",
+      "dest": "identifier: ReentrancyGuard [891,906]"
+    },
+    {
+      "src": "abstract: abstract [873,881]",
+      "dest": "abstract: abstract [873,881]"
+    },
+    {
+      "src": "identifier: _ENTERED [1733,1741]",
+      "dest": "identifier: _ENTERED [1733,1741]"
+    },
+    {
+      "src": "call_argument [2346,2379]",
+      "dest": "call_argument [2346,2379]"
+    },
+    {
+      "src": "): ) [2379,2380]",
+      "dest": "): ) [2379,2380]"
+    },
+    {
+      "src": "string [2346,2379]",
+      "dest": "string [2346,2379]"
+    },
+    {
+      "src": "solidity: solidity [104,112]",
+      "dest": "solidity: solidity [104,112]"
+    },
+    {
+      "src": "comment: // word because each write operation emits an extra SLOAD to first read the [994,1069]",
+      "dest": "comment: // word because each write operation emits an extra SLOAD to first read the [994,1069]"
+    },
+    {
+      "src": "number_literal: 2 [1744,1745]",
+      "dest": "number_literal: 2 [1744,1745]"
+    },
+    {
+      "src": "(: ( [2233,2234]",
+      "dest": "(: ( [2233,2234]"
+    },
+    {
+      "src": "call_expression [2317,2380]",
+      "dest": "call_expression [2317,2380]"
+    },
+    {
+      "src": "visibility [1760,1767]",
+      "dest": "visibility [1760,1767]"
+    },
+    {
+      "src": "type_name [1752,1759]",
+      "dest": "type_name [1752,1759]"
+    },
+    {
+      "src": "identifier: _ENTERED [2465,2473]",
+      "dest": "identifier: _ENTERED [2465,2473]"
+    },
+    {
+      "src": "constant: constant [1724,1732]",
+      "dest": "constant: constant [1724,1732]"
+    },
+    {
+      "src": "expression_statement [2455,2474]",
+      "dest": "expression_statement [2455,2474]"
+    },
+    {
+      "src": "state_variable_declaration [1661,1703]",
+      "dest": "state_variable_declaration [1661,1703]"
+    },
+    {
+      "src": "contract_body [907,2659]",
+      "dest": "contract_body [907,2659]"
+    },
+    {
+      "src": "expression_statement [1806,1829]",
+      "dest": "expression_statement [1806,1829]"
+    },
+    {
+      "src": "}: } [1834,1835]",
+      "dest": "}: } [1834,1835]"
+    },
+    {
+      "src": "comment: /**  * @dev Contract module that helps prevent reentrant calls to a function.  *  * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier  * available, which can be applied to functions to make sure there are no nested  * (reentrant) calls to them.  *  * Note that because there is a single `nonReentrant` guard, functions marked as  * `nonReentrant` may not call one another. This can be worked around by making  * those functions `private`, and then adding `external` `nonReentrant` entry  * points to them.  *  * TIP: If you would like to learn more about reentrancy and alternative ways  * to protect against it, check out our blog post  * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].  */ [122,872]",
+      "dest": "comment: /**  * @dev Contract module that helps prevent reentrant calls to a function.  *  * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier  * available, which can be applied to functions to make sure there are no nested  * (reentrant) calls to them.  *  * Note that because there is a single `nonReentrant` guard, functions marked as  * `nonReentrant` may not call one another. This can be worked around by making  * those functions `private`, and then adding `external` `nonReentrant` entry  * points to them.  *  * TIP: If you would like to learn more about reentrancy and alternative ways  * to protect against it, check out our blog post  * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].  */ [122,872]"
+    },
+    {
+      "src": "visibility [1669,1676]",
+      "dest": "visibility [1669,1676]"
+    },
+    {
+      "src": "primitive_type [1708,1715]",
+      "dest": "primitive_type [1708,1715]"
+    },
+    {
+      "src": "comment: // but in exchange the refund on every call to nonReentrant will be lower in [1360,1436]",
+      "dest": "comment: // but in exchange the refund on every call to nonReentrant will be lower in [1360,1436]"
+    },
+    {
+      "src": "\": \" [2346,2347]",
+      "dest": "\": \" [2346,2347]"
+    },
+    {
+      "src": "modifier_definition [2212,2657]",
+      "dest": "modifier_definition [2212,2657]"
+    },
+    {
+      "src": "modifier: modifier [2212,2220]",
+      "dest": "modifier: modifier [2212,2220]"
+    },
+    {
+      "src": "): ) [2234,2235]",
+      "dest": "): ) [2234,2235]"
+    },
+    {
+      "src": "{: { [2236,2237]",
+      "dest": "{: { [2236,2237]"
+    },
+    {
+      "src": "source_file [0,2660]",
+      "dest": "source_file [0,2660]"
+    },
+    {
+      "src": "}: } [2658,2659]",
+      "dest": "}: } [2658,2659]"
+    },
+    {
+      "src": "solidity_pragma_token [104,119]",
+      "dest": "solidity_pragma_token [104,119]"
+    },
+    {
+      "src": "identifier: _ENTERED [2336,2344]",
+      "dest": "identifier: _ENTERED [2336,2344]"
+    },
+    {
+      "src": "identifier: _status [1768,1775]",
+      "dest": "identifier: _status [1768,1775]"
+    },
+    {
+      "src": "expression_statement [2628,2651]",
+      "dest": "expression_statement [2628,2651]"
+    },
+    {
+      "src": "identifier: require [2317,2324]",
+      "dest": "identifier: require [2317,2324]"
+    },
+    {
+      "src": "state_variable_declaration [1708,1746]",
+      "dest": "state_variable_declaration [1708,1746]"
+    },
+    {
+      "src": "^:  ^ [112,114]",
+      "dest": "^:  ^ [112,114]"
+    },
+    {
+      "src": "}: } [2656,2657]",
+      "dest": "}: } [2656,2657]"
+    },
+    {
+      "src": "uint256: uint256 [1661,1668]",
+      "dest": "uint256: uint256 [1661,1668]"
+    },
+    {
+      "src": "=: = [2636,2637]",
+      "dest": "=: = [2636,2637]"
+    },
+    {
+      "src": "function_body [1796,1835]",
+      "dest": "function_body [1796,1835]"
+    },
+    {
+      "src": "string_literal [2346,2379]",
+      "dest": "string_literal [2346,2379]"
+    },
+    {
+      "src": "comment: // The values being non-zero value makes deployment a bit more expensive, [1282,1355]",
+      "dest": "comment: // The values being non-zero value makes deployment a bit more expensive, [1282,1355]"
+    },
+    {
+      "src": "assignment_expression [2455,2473]",
+      "dest": "assignment_expression [2455,2473]"
+    },
+    {
+      "src": "identifier: _status [1806,1813]",
+      "dest": "identifier: _status [1806,1813]"
+    },
+    {
+      "src": "uint256: uint256 [1708,1715]",
+      "dest": "uint256: uint256 [1708,1715]"
+    },
+    {
+      "src": ",: , [2344,2345]",
+      "dest": ",: , [2344,2345]"
+    },
+    {
+      "src": "expression_statement [2484,2486]",
+      "dest": "expression_statement [2484,2486]"
+    },
+    {
+      "src": "{: { [907,908]",
+      "dest": "{: { [907,908]"
+    },
+    {
+      "src": "=: = [2463,2464]",
+      "dest": "=: = [2463,2464]"
+    },
+    {
+      "src": "comment: // transaction's gas, it is best to keep them low in cases like this one, to [1510,1586]",
+      "dest": "comment: // transaction's gas, it is best to keep them low in cases like this one, to [1510,1586]"
+    },
+    {
+      "src": "identifier: _status [2628,2635]",
+      "dest": "identifier: _status [2628,2635]"
+    },
+    {
+      "src": "expression_statement [2317,2381]",
+      "dest": "expression_statement [2317,2381]"
+    },
+    {
+      "src": "=: = [1699,1700]",
+      "dest": "=: = [1699,1700]"
+    },
+    {
+      "src": "number_literal: 1 [1701,1702]",
+      "dest": "number_literal: 1 [1701,1702]"
+    },
+    {
+      "src": "constructor: constructor [1782,1793]",
+      "dest": "constructor: constructor [1782,1793]"
+    },
+    {
+      "src": "private: private [1716,1723]",
+      "dest": "private: private [1716,1723]"
+    },
+    {
+      "src": "): ) [1794,1795]",
+      "dest": "): ) [1794,1795]"
+    },
+    {
+      "src": "identifier: _NOT_ENTERED [1686,1698]",
+      "dest": "identifier: _NOT_ENTERED [1686,1698]"
+    },
+    {
+      "src": "assignment_expression [2628,2650]",
+      "dest": "assignment_expression [2628,2650]"
+    },
+    {
+      "src": "contract: contract [882,890]",
+      "dest": "contract: contract [882,890]"
+    },
+    {
+      "src": "comment: // increase the likelihood of the full refund coming into effect. [1591,1656]",
+      "dest": "comment: // increase the likelihood of the full refund coming into effect. [1591,1656]"
+    },
+    {
+      "src": "binary_expression [2325,2344]",
+      "dest": "binary_expression [2325,2344]"
+    },
+    {
+      "src": "comment: // slot's contents, replace the bits taken up by the boolean, and then write [1074,1150]",
+      "dest": "comment: // slot's contents, replace the bits taken up by the boolean, and then write [1074,1150]"
+    },
+    {
+      "src": "type_name [1661,1668]",
+      "dest": "type_name [1661,1668]"
+    },
+    {
+      "src": "=: = [1814,1815]",
+      "dest": "=: = [1814,1815]"
+    },
+    {
+      "src": "comment: // https://eips.ethereum.org/EIPS/eip-2200) [2576,2619]",
+      "dest": "comment: // https://eips.ethereum.org/EIPS/eip-2200) [2576,2619]"
+    },
+    {
+      "src": "private: private [1760,1767]",
+      "dest": "private: private [1760,1767]"
+    },
+    {
+      "src": "(: ( [1793,1794]",
+      "dest": "(: ( [1793,1794]"
+    },
+    {
+      "src": "\": \" [2378,2379]",
+      "dest": "\": \" [2378,2379]"
+    },
+    {
+      "src": "call_argument [2325,2344]",
+      "dest": "call_argument [2325,2344]"
+    },
+    {
+      "src": "primitive_type [1661,1668]",
+      "dest": "primitive_type [1661,1668]"
+    },
+    {
+      "src": "comment: // By storing the original value once again, a refund is triggered (see [2496,2567]",
+      "dest": "comment: // By storing the original value once again, a refund is triggered (see [2496,2567]"
+    },
+    {
+      "src": "assignment_expression [1806,1828]",
+      "dest": "assignment_expression [1806,1828]"
+    },
+    {
+      "src": "identifier: _status [2325,2332]",
+      "dest": "identifier: _status [2325,2332]"
+    },
+    {
+      "src": "solidity_version: 0.8.0 [114,119]",
+      "dest": "solidity_version: 0.8.0 [114,119]"
+    },
+    {
+      "src": "pragma_directive [97,120]",
+      "dest": "pragma_directive [97,120]"
+    },
+    {
+      "src": "comment: // amount. Since refunds are capped to a percentage of the total [1441,1505]",
+      "dest": "comment: // amount. Since refunds are capped to a percentage of the total [1441,1505]"
+    }
+  ],
+  "actions": []
+}

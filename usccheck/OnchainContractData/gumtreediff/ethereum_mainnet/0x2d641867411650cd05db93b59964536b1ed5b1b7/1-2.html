@@ -1,0 +1,3385 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>0x62414d03084eeb269e18c970a21f45d2967f0170.etherscan.io-MintableERC1155Predicate.sol</h5><pre class="pre-scrollable">// File: @openzeppelin/contracts/introspection/IERC165.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+/**
+ * @dev Interface of the ERC165 standard, as defined in the
+ * https://eips.ethereum.org/EIPS/eip-165[EIP].
+ *
+ * Implementers can declare support of contract interfaces, which can then be
+ * queried by others ({ERC165Checker}).
+ *
+ * For an implementation, see {ERC165}.
+ */
+interface IERC165 {
+    /**
+     * @dev Returns true if this contract implements the interface defined by
+     * `interfaceId`. See the corresponding
+     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]
+     * to learn more about how these ids are created.
+     *
+     * This function call must use less than 30 000 gas.
+     */
+    function supportsInterface(bytes4 interfaceId) external view returns (bool);
+}
+
+// File: @openzeppelin/contracts/token/ERC1155/IERC1155.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.2;
+
+
+/**
+ * @dev Required interface of an ERC1155 compliant contract, as defined in the
+ * https://eips.ethereum.org/EIPS/eip-1155[EIP].
+ *
+ * _Available since v3.1._
+ */
+interface IERC1155 is IERC165 {
+    /**
+     * @dev Emitted when `value` tokens of token type `id` are transfered from `from` to `to` by `operator`.
+     */
+    event TransferSingle(address indexed operator, address indexed from, address indexed to, uint256 id, uint256 value);
+
+    /**
+     * @dev Equivalent to multiple {TransferSingle} events, where `operator`, `from` and `to` are the same for all
+     * transfers.
+     */
+    event TransferBatch(address indexed operator, address indexed from, address indexed to, uint256[] ids, uint256[] values);
+
+    /**
+     * @dev Emitted when `account` grants or revokes permission to `operator` to transfer their tokens, according to
+     * `approved`.
+     */
+    event ApprovalForAll(address indexed account, address indexed operator, bool approved);
+
+    /**
+     * @dev Emitted when the URI for token type `id` changes to `value`, if it is a non-programmatic URI.
+     *
+     * If an {URI} event was emitted for `id`, the standard
+     * https://eips.ethereum.org/EIPS/eip-1155#metadata-extensions[guarantees] that `value` will equal the value
+     * returned by {IERC1155MetadataURI-uri}.
+     */
+    event URI(string value, uint256 indexed id);
+
+    /**
+     * @dev Returns the amount of tokens of token type `id` owned by `account`.
+     *
+     * Requirements:
+     *
+     * - `account` cannot be the zero address.
+     */
+    function balanceOf(address account, uint256 id) external view returns (uint256);
+
+    /**
+     * @dev xref:ROOT:erc1155.adoc#batch-operations[Batched] version of {balanceOf}.
+     *
+     * Requirements:
+     *
+     * - `accounts` and `ids` must have the same length.
+     */
+    function balanceOfBatch(address[] calldata accounts, uint256[] calldata ids) external view returns (uint256[] memory);
+
+    /**
+     * @dev Grants or revokes permission to `operator` to transfer the caller's tokens, according to `approved`,
+     *
+     * Emits an {ApprovalForAll} event.
+     *
+     * Requirements:
+     *
+     * - `operator` cannot be the caller.
+     */
+    function setApprovalForAll(address operator, bool approved) external;
+
+    /**
+     * @dev Returns true if `operator` is approved to transfer ``account``'s tokens.
+     *
+     * See {setApprovalForAll}.
+     */
+    function isApprovedForAll(address account, address operator) external view returns (bool);
+
+    /**
+     * @dev Transfers `amount` tokens of token type `id` from `from` to `to`.
+     *
+     * Emits a {TransferSingle} event.
+     *
+     * Requirements:
+     *
+     * - `to` cannot be the zero address.
+     * - If the caller is not `from`, it must be have been approved to spend ``from``'s tokens via {setApprovalForAll}.
+     * - `from` must have a balance of tokens of type `id` of at least `amount`.
+     * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155Received} and return the
+     * acceptance magic value.
+     */
+    function safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes calldata data) external;
+
+    /**
+     * @dev xref:ROOT:erc1155.adoc#batch-operations[Batched] version of {safeTransferFrom}.
+     *
+     * Emits a {TransferBatch} event.
+     *
+     * Requirements:
+     *
+     * - `ids` and `amounts` must have the same length.
+     * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155BatchReceived} and return the
+     * acceptance magic value.
+     */
+    function safeBatchTransferFrom(address from, address to, uint256[] calldata ids, uint256[] calldata amounts, bytes calldata data) external;
+}
+
+// File: contracts/root/RootToken/IMintableERC1155.sol
+
+pragma solidity 0.6.6;
+
+interface IMintableERC1155 is IERC1155 {
+    /**
+     * @notice Creates `amount` tokens of token type `id`, and assigns them to `account`.
+     * @dev Should be callable only by MintableERC1155Predicate
+     * Make sure minting is done only by this function
+     * @param account user address for whom token is being minted
+     * @param id token which is being minted
+     * @param amount amount of token being minted
+     * @param data extra byte data to be accompanied with minted tokens
+     */
+    function mint(address account, uint256 id, uint256 amount, bytes calldata data) external;
+
+    /**
+     * @notice Batched version of singular token minting, where
+     * for each token in `ids` respective amount to be minted from `amounts`
+     * array, for address `to`.
+     * @dev Should be callable only by MintableERC1155Predicate
+     * Make sure minting is done only by this function
+     * @param to user address for whom token is being minted
+     * @param ids tokens which are being minted
+     * @param amounts amount of each token being minted
+     * @param data extra byte data to be accompanied with minted tokens
+     */
+    function mintBatch(address to, uint256[] calldata ids, uint256[] calldata amounts, bytes calldata data) external;
+}
+
+// File: @openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+
+/**
+ * _Available since v3.1._
+ */
+interface IERC1155Receiver is IERC165 {
+
+    /**
+        @dev Handles the receipt of a single ERC1155 token type. This function is
+        called at the end of a `safeTransferFrom` after the balance has been updated.
+        To accept the transfer, this must return
+        `bytes4(keccak256("onERC1155Received(address,address,uint256,uint256,bytes)"))`
+        (i.e. 0xf23a6e61, or its own function selector).
+        @param operator The address which initiated the transfer (i.e. msg.sender)
+        @param from The address which previously owned the token
+        @param id The ID of the token being transferred
+        @param value The amount of tokens being transferred
+        @param data Additional data with no specified format
+        @return `bytes4(keccak256("onERC1155Received(address,address,uint256,uint256,bytes)"))` if transfer is allowed
+    */
+    function onERC1155Received(
+        address operator,
+        address from,
+        uint256 id,
+        uint256 value,
+        bytes calldata data
+    )
+        external
+        returns(bytes4);
+
+    /**
+        @dev Handles the receipt of a multiple ERC1155 token types. This function
+        is called at the end of a `safeBatchTransferFrom` after the balances have
+        been updated. To accept the transfer(s), this must return
+        `bytes4(keccak256("onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"))`
+        (i.e. 0xbc197c81, or its own function selector).
+        @param operator The address which initiated the batch transfer (i.e. msg.sender)
+        @param from The address which previously owned the token
+        @param ids An array containing ids of each token being transferred (order and length must match values array)
+        @param values An array containing amounts of each token being transferred (order and length must match ids array)
+        @param data Additional data with no specified format
+        @return `bytes4(keccak256("onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"))` if transfer is allowed
+    */
+    function onERC1155BatchReceived(
+        address operator,
+        address from,
+        uint256[] calldata ids,
+        uint256[] calldata values,
+        bytes calldata data
+    )
+        external
+        returns(bytes4);
+}
+
+// File: @openzeppelin/contracts/introspection/ERC165.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+
+/**
+ * @dev Implementation of the {IERC165} interface.
+ *
+ * Contracts may inherit from this and call {_registerInterface} to declare
+ * their support of an interface.
+ */
+contract ERC165 is IERC165 {
+    /*
+     * bytes4(keccak256('supportsInterface(bytes4)')) == 0x01ffc9a7
+     */
+    bytes4 private constant _INTERFACE_ID_ERC165 = 0x01ffc9a7;
+
+    /**
+     * @dev Mapping of interface ids to whether or not it's supported.
+     */
+    mapping(bytes4 =&gt; bool) private _supportedInterfaces;
+
+    constructor () internal {
+        // Derived contracts need only register support for their own interfaces,
+        // we register support for ERC165 itself here
+        _registerInterface(_INTERFACE_ID_ERC165);
+    }
+
+    /**
+     * @dev See {IERC165-supportsInterface}.
+     *
+     * Time complexity O(1), guaranteed to always use less than 30 000 gas.
+     */
+    function supportsInterface(bytes4 interfaceId) public view override returns (bool) {
+        return _supportedInterfaces[interfaceId];
+    }
+
+    /**
+     * @dev Registers the contract as an implementer of the interface defined by
+     * `interfaceId`. Support of the actual ERC165 interface is automatic and
+     * registering its interface id is not required.
+     *
+     * See {IERC165-supportsInterface}.
+     *
+     * Requirements:
+     *
+     * - `interfaceId` cannot be the ERC165 invalid interface (`0xffffffff`).
+     */
+    function _registerInterface(bytes4 interfaceId) internal virtual {
+        require(interfaceId != 0xffffffff, "ERC165: invalid interface id");
+        _supportedInterfaces[interfaceId] = true;
+    }
+}
+
+// File: @openzeppelin/contracts/token/ERC1155/ERC1155Receiver.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+
+
+/**
+ * @dev _Available since v3.1._
+ */
+abstract contract ERC1155Receiver is ERC165, IERC1155Receiver {
+    constructor() public {
+        _registerInterface(
+            ERC1155Receiver(0).onERC1155Received.selector ^
+            ERC1155Receiver(0).onERC1155BatchReceived.selector
+        );
+    }
+}
+
+// File: @openzeppelin/contracts/utils/EnumerableSet.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+/**
+ * @dev Library for managing
+ * https://en.wikipedia.org/wiki/Set_(abstract_data_type)[sets] of primitive
+ * types.
+ *
+ * Sets have the following properties:
+ *
+ * - Elements are added, removed, and checked for existence in constant time
+ * (O(1)).
+ * - Elements are enumerated in O(n). No guarantees are made on the ordering.
+ *
+ * ```
+ * contract Example {
+ *     // Add the library methods
+ *     using EnumerableSet for EnumerableSet.AddressSet;
+ *
+ *     // Declare a set state variable
+ *     EnumerableSet.AddressSet private mySet;
+ * }
+ * ```
+ *
+ * As of v3.0.0, only sets of type `address` (`AddressSet`) and `uint256`
+ * (`UintSet`) are supported.
+ */
+library EnumerableSet {
+    // To implement this library for multiple types with as little code
+    // repetition as possible, we write it in terms of a generic Set type with
+    // bytes32 values.
+    // The Set implementation uses private functions, and user-facing
+    // implementations (such as AddressSet) are just wrappers around the
+    // underlying Set.
+    // This means that we can only create new EnumerableSets for types that fit
+    // in bytes32.
+
+    struct Set {
+        // Storage of set values
+        bytes32[] _values;
+
+        // Position of the value in the `values` array, plus 1 because index 0
+        // means a value is not in the set.
+        mapping (bytes32 =&gt; uint256) _indexes;
+    }
+
+    /**
+     * @dev Add a value to a set. O(1).
+     *
+     * Returns true if the value was added to the set, that is if it was not
+     * already present.
+     */
+    function _add(Set storage set, bytes32 value) private returns (bool) {
+        if (!_contains(set, value)) {
+            set._values.push(value);
+            // The value is stored at length-1, but we add 1 to all indexes
+            // and use 0 as a sentinel value
+            set._indexes[value] = set._values.length;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @dev Removes a value from a set. O(1).
+     *
+     * Returns true if the value was removed from the set, that is if it was
+     * present.
+     */
+    function _remove(Set storage set, bytes32 value) private returns (bool) {
+        // We read and store the value's index to prevent multiple reads from the same storage slot
+        uint256 valueIndex = set._indexes[value];
+
+        if (valueIndex != 0) { // Equivalent to contains(set, value)
+            // To delete an element from the _values array in O(1), we swap the element to delete with the last one in
+            // the array, and then remove the last element (sometimes called as 'swap and pop').
+            // This modifies the order of the array, as noted in {at}.
+
+            uint256 toDeleteIndex = valueIndex - 1;
+            uint256 lastIndex = set._values.length - 1;
+
+            // When the value to delete is the last one, the swap operation is unnecessary. However, since this occurs
+            // so rarely, we still do the swap anyway to avoid the gas cost of adding an 'if' statement.
+
+            bytes32 lastvalue = set._values[lastIndex];
+
+            // Move the last value to the index where the value to delete is
+            set._values[toDeleteIndex] = lastvalue;
+            // Update the index for the moved value
+            set._indexes[lastvalue] = toDeleteIndex + 1; // All indexes are 1-based
+
+            // Delete the slot where the moved value was stored
+            set._values.pop();
+
+            // Delete the index for the deleted slot
+            delete set._indexes[value];
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @dev Returns true if the value is in the set. O(1).
+     */
+    function _contains(Set storage set, bytes32 value) private view returns (bool) {
+        return set._indexes[value] != 0;
+    }
+
+    /**
+     * @dev Returns the number of values on the set. O(1).
+     */
+    function _length(Set storage set) private view returns (uint256) {
+        return set._values.length;
+    }
+
+   /**
+    * @dev Returns the value stored at position `index` in the set. O(1).
+    *
+    * Note that there are no guarantees on the ordering of values inside the
+    * array, and it may change when more values are added or removed.
+    *
+    * Requirements:
+    *
+    * - `index` must be strictly less than {length}.
+    */
+    function _at(Set storage set, uint256 index) private view returns (bytes32) {
+        require(set._values.length &gt; index, "EnumerableSet: index out of bounds");
+        return set._values[index];
+    }
+
+    // AddressSet
+
+    struct AddressSet {
+        Set _inner;
+    }
+
+    /**
+     * @dev Add a value to a set. O(1).
+     *
+     * Returns true if the value was added to the set, that is if it was not
+     * already present.
+     */
+    function add(AddressSet storage set, address value) internal returns (bool) {
+        return _add(set._inner, bytes32(uint256(value)));
+    }
+
+    /**
+     * @dev Removes a value from a set. O(1).
+     *
+     * Returns true if the value was removed from the set, that is if it was
+     * present.
+     */
+    function remove(AddressSet storage set, address value) internal returns (bool) {
+        return _remove(set._inner, bytes32(uint256(value)));
+    }
+
+    /**
+     * @dev Returns true if the value is in the set. O(1).
+     */
+    function contains(AddressSet storage set, address value) internal view returns (bool) {
+        return _contains(set._inner, bytes32(uint256(value)));
+    }
+
+    /**
+     * @dev Returns the number of values in the set. O(1).
+     */
+    function length(AddressSet storage set) internal view returns (uint256) {
+        return _length(set._inner);
+    }
+
+   /**
+    * @dev Returns the value stored at position `index` in the set. O(1).
+    *
+    * Note that there are no guarantees on the ordering of values inside the
+    * array, and it may change when more values are added or removed.
+    *
+    * Requirements:
+    *
+    * - `index` must be strictly less than {length}.
+    */
+    function at(AddressSet storage set, uint256 index) internal view returns (address) {
+        return address(uint256(_at(set._inner, index)));
+    }
+
+
+    // UintSet
+
+    struct UintSet {
+        Set _inner;
+    }
+
+    /**
+     * @dev Add a value to a set. O(1).
+     *
+     * Returns true if the value was added to the set, that is if it was not
+     * already present.
+     */
+    function add(UintSet storage set, uint256 value) internal returns (bool) {
+        return _add(set._inner, bytes32(value));
+    }
+
+    /**
+     * @dev Removes a value from a set. O(1).
+     *
+     * Returns true if the value was removed from the set, that is if it was
+     * present.
+     */
+    function remove(UintSet storage set, uint256 value) internal returns (bool) {
+        return _remove(set._inner, bytes32(value));
+    }
+
+    /**
+     * @dev Returns true if the value is in the set. O(1).
+     */
+    function contains(UintSet storage set, uint256 value) internal view returns (bool) {
+        return _contains(set._inner, bytes32(value));
+    }
+
+    /**
+     * @dev Returns the number of values on the set. O(1).
+     */
+    function length(UintSet storage set) internal view returns (uint256) {
+        return _length(set._inner);
+    }
+
+   /**
+    * @dev Returns the value stored at position `index` in the set. O(1).
+    *
+    * Note that there are no guarantees on the ordering of values inside the
+    * array, and it may change when more values are added or removed.
+    *
+    * Requirements:
+    *
+    * - `index` must be strictly less than {length}.
+    */
+    function at(UintSet storage set, uint256 index) internal view returns (uint256) {
+        return uint256(_at(set._inner, index));
+    }
+}
+
+// File: @openzeppelin/contracts/utils/Address.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.2;
+
+/**
+ * @dev Collection of functions related to the address type
+ */
+library Address {
+    /**
+     * @dev Returns true if `account` is a contract.
+     *
+     * [IMPORTANT]
+     * ====
+     * It is unsafe to assume that an address for which this function returns
+     * false is an externally-owned account (EOA) and not a contract.
+     *
+     * Among others, `isContract` will return false for the following
+     * types of addresses:
+     *
+     *  - an externally-owned account
+     *  - a contract in construction
+     *  - an address where a contract will be created
+     *  - an address where a contract lived, but was destroyed
+     * ====
+     */
+    function isContract(address account) internal view returns (bool) {
+        // According to EIP-1052, 0x0 is the value returned for not-yet created accounts
+        // and 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470 is returned
+        // for accounts without code, i.e. `keccak256('')`
+        bytes32 codehash;
+        bytes32 accountHash = 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470;
+        // solhint-disable-next-line no-inline-assembly
+        assembly { codehash := extcodehash(account) }
+        return (codehash != accountHash &amp;&amp; codehash != 0x0);
+    }
+
+    /**
+     * @dev Replacement for Solidity's `transfer`: sends `amount` wei to
+     * `recipient`, forwarding all available gas and reverting on errors.
+     *
+     * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost
+     * of certain opcodes, possibly making contracts go over the 2300 gas limit
+     * imposed by `transfer`, making them unable to receive funds via
+     * `transfer`. {sendValue} removes this limitation.
+     *
+     * https://diligence.consensys.net/posts/2019/09/stop-using-soliditys-transfer-now/[Learn more].
+     *
+     * IMPORTANT: because control is transferred to `recipient`, care must be
+     * taken to not create reentrancy vulnerabilities. Consider using
+     * {ReentrancyGuard} or the
+     * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].
+     */
+    function sendValue(address payable recipient, uint256 amount) internal {
+        require(address(this).balance &gt;= amount, "Address: insufficient balance");
+
+        // solhint-disable-next-line avoid-low-level-calls, avoid-call-value
+        (bool success, ) = recipient.call{ value: amount }("");
+        require(success, "Address: unable to send value, recipient may have reverted");
+    }
+
+    /**
+     * @dev Performs a Solidity function call using a low level `call`. A
+     * plain`call` is an unsafe replacement for a function call: use this
+     * function instead.
+     *
+     * If `target` reverts with a revert reason, it is bubbled up by this
+     * function (like regular Solidity function calls).
+     *
+     * Returns the raw returned data. To convert to the expected return value,
+     * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].
+     *
+     * Requirements:
+     *
+     * - `target` must be a contract.
+     * - calling `target` with `data` must not revert.
+     *
+     * _Available since v3.1._
+     */
+    function functionCall(address target, bytes memory data) internal returns (bytes memory) {
+      return functionCall(target, data, "Address: low-level call failed");
+    }
+
+    /**
+     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with
+     * `errorMessage` as a fallback revert reason when `target` reverts.
+     *
+     * _Available since v3.1._
+     */
+    function functionCall(address target, bytes memory data, string memory errorMessage) internal returns (bytes memory) {
+        return _functionCallWithValue(target, data, 0, errorMessage);
+    }
+
+    /**
+     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],
+     * but also transferring `value` wei to `target`.
+     *
+     * Requirements:
+     *
+     * - the calling contract must have an ETH balance of at least `value`.
+     * - the called Solidity function must be `payable`.
+     *
+     * _Available since v3.1._
+     */
+    function functionCallWithValue(address target, bytes memory data, uint256 value) internal returns (bytes memory) {
+        return functionCallWithValue(target, data, value, "Address: low-level call with value failed");
+    }
+
+    /**
+     * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but
+     * with `errorMessage` as a fallback revert reason when `target` reverts.
+     *
+     * _Available since v3.1._
+     */
+    function functionCallWithValue(address target, bytes memory data, uint256 value, string memory errorMessage) internal returns (bytes memory) {
+        require(address(this).balance &gt;= value, "Address: insufficient balance for call");
+        return _functionCallWithValue(target, data, value, errorMessage);
+    }
+
+    function _functionCallWithValue(address target, bytes memory data, uint256 weiValue, string memory errorMessage) private returns (bytes memory) {
+        require(isContract(target), "Address: call to non-contract");
+
+        // solhint-disable-next-line avoid-low-level-calls
+        (bool success, bytes memory returndata) = target.call{ value: weiValue }(data);
+        if (success) {
+            return returndata;
+        } else {
+            // Look for revert reason and bubble it up if present
+            if (returndata.length &gt; 0) {
+                // The easiest way to bubble the revert reason is using memory via assembly
+
+                // solhint-disable-next-line no-inline-assembly
+                assembly {
+                    let returndata_size := mload(returndata)
+                    revert(add(32, returndata), returndata_size)
+                }
+            } else {
+                revert(errorMessage);
+            }
+        }
+    }
+}
+
+// File: @openzeppelin/contracts/GSN/Context.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+/*
+ * @dev Provides information about the current execution context, including the
+ * sender of the transaction and its data. While these are generally available
+ * via msg.sender and msg.data, they should not be accessed in such a direct
+ * manner, since when dealing with GSN meta-transactions the account sending and
+ * paying for execution may not be the actual sender (as far as an application
+ * is concerned).
+ *
+ * This contract is only required for intermediate, library-like contracts.
+ */
+abstract contract Context {
+    function _msgSender() internal view virtual returns (address payable) {
+        return msg.sender;
+    }
+
+    function _msgData() internal view virtual returns (bytes memory) {
+        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
+        return msg.data;
+    }
+}
+
+// File: @openzeppelin/contracts/access/AccessControl.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+
+
+
+/**
+ * @dev Contract module that allows children to implement role-based access
+ * control mechanisms.
+ *
+ * Roles are referred to by their `bytes32` identifier. These should be exposed
+ * in the external API and be unique. The best way to achieve this is by
+ * using `public constant` hash digests:
+ *
+ * ```
+ * bytes32 public constant MY_ROLE = keccak256("MY_ROLE");
+ * ```
+ *
+ * Roles can be used to represent a set of permissions. To restrict access to a
+ * function call, use {hasRole}:
+ *
+ * ```
+ * function foo() public {
+ *     require(hasRole(MY_ROLE, msg.sender));
+ *     ...
+ * }
+ * ```
+ *
+ * Roles can be granted and revoked dynamically via the {grantRole} and
+ * {revokeRole} functions. Each role has an associated admin role, and only
+ * accounts that have a role's admin role can call {grantRole} and {revokeRole}.
+ *
+ * By default, the admin role for all roles is `DEFAULT_ADMIN_ROLE`, which means
+ * that only accounts with this role will be able to grant or revoke other
+ * roles. More complex role relationships can be created by using
+ * {_setRoleAdmin}.
+ *
+ * WARNING: The `DEFAULT_ADMIN_ROLE` is also its own admin: it has permission to
+ * grant and revoke this role. Extra precautions should be taken to secure
+ * accounts that have been granted it.
+ */
+abstract contract AccessControl is Context {
+    using EnumerableSet for EnumerableSet.AddressSet;
+    using Address for address;
+
+    struct RoleData {
+        EnumerableSet.AddressSet members;
+        bytes32 adminRole;
+    }
+
+    mapping (bytes32 =&gt; RoleData) private _roles;
+
+    bytes32 public constant DEFAULT_ADMIN_ROLE = 0x00;
+
+    /**
+     * @dev Emitted when `newAdminRole` is set as ``role``'s admin role, replacing `previousAdminRole`
+     *
+     * `DEFAULT_ADMIN_ROLE` is the starting admin for all roles, despite
+     * {RoleAdminChanged} not being emitted signaling this.
+     *
+     * _Available since v3.1._
+     */
+    event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole);
+
+    /**
+     * @dev Emitted when `account` is granted `role`.
+     *
+     * `sender` is the account that originated the contract call, an admin role
+     * bearer except when using {_setupRole}.
+     */
+    event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender);
+
+    /**
+     * @dev Emitted when `account` is revoked `role`.
+     *
+     * `sender` is the account that originated the contract call:
+     *   - if using `revokeRole`, it is the admin role bearer
+     *   - if using `renounceRole`, it is the role bearer (i.e. `account`)
+     */
+    event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender);
+
+    /**
+     * @dev Returns `true` if `account` has been granted `role`.
+     */
+    function hasRole(bytes32 role, address account) public view returns (bool) {
+        return _roles[role].members.contains(account);
+    }
+
+    /**
+     * @dev Returns the number of accounts that have `role`. Can be used
+     * together with {getRoleMember} to enumerate all bearers of a role.
+     */
+    function getRoleMemberCount(bytes32 role) public view returns (uint256) {
+        return _roles[role].members.length();
+    }
+
+    /**
+     * @dev Returns one of the accounts that have `role`. `index` must be a
+     * value between 0 and {getRoleMemberCount}, non-inclusive.
+     *
+     * Role bearers are not sorted in any particular way, and their ordering may
+     * change at any point.
+     *
+     * WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure
+     * you perform all queries on the same block. See the following
+     * https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post]
+     * for more information.
+     */
+    function getRoleMember(bytes32 role, uint256 index) public view returns (address) {
+        return _roles[role].members.at(index);
+    }
+
+    /**
+     * @dev Returns the admin role that controls `role`. See {grantRole} and
+     * {revokeRole}.
+     *
+     * To change a role's admin, use {_setRoleAdmin}.
+     */
+    function getRoleAdmin(bytes32 role) public view returns (bytes32) {
+        return _roles[role].adminRole;
+    }
+
+    /**
+     * @dev Grants `role` to `account`.
+     *
+     * If `account` had not been already granted `role`, emits a {RoleGranted}
+     * event.
+     *
+     * Requirements:
+     *
+     * - the caller must have ``role``'s admin role.
+     */
+    function grantRole(bytes32 role, address account) public virtual {
+        require(hasRole(_roles[role].adminRole, _msgSender()), "AccessControl: sender must be an admin to grant");
+
+        _grantRole(role, account);
+    }
+
+    /**
+     * @dev Revokes `role` from `account`.
+     *
+     * If `account` had been granted `role`, emits a {RoleRevoked} event.
+     *
+     * Requirements:
+     *
+     * - the caller must have ``role``'s admin role.
+     */
+    function revokeRole(bytes32 role, address account) public virtual {
+        require(hasRole(_roles[role].adminRole, _msgSender()), "AccessControl: sender must be an admin to revoke");
+
+        _revokeRole(role, account);
+    }
+
+    /**
+     * @dev Revokes `role` from the calling account.
+     *
+     * Roles are often managed via {grantRole} and {revokeRole}: this function's
+     * purpose is to provide a mechanism for accounts to lose their privileges
+     * if they are compromised (such as when a trusted device is misplaced).
+     *
+     * If the calling account had been granted `role`, emits a {RoleRevoked}
+     * event.
+     *
+     * Requirements:
+     *
+     * - the caller must be `account`.
+     */
+    function renounceRole(bytes32 role, address account) public virtual {
+        require(account == _msgSender(), "AccessControl: can only renounce roles for self");
+
+        _revokeRole(role, account);
+    }
+
+    /**
+     * @dev Grants `role` to `account`.
+     *
+     * If `account` had not been already granted `role`, emits a {RoleGranted}
+     * event. Note that unlike {grantRole}, this function doesn't perform any
+     * checks on the calling account.
+     *
+     * [WARNING]
+     * ====
+     * This function should only be called from the constructor when setting
+     * up the initial roles for the system.
+     *
+     * Using this function in any other way is effectively circumventing the admin
+     * system imposed by {AccessControl}.
+     * ====
+     */
+    function _setupRole(bytes32 role, address account) internal virtual {
+        _grantRole(role, account);
+    }
+
+    /**
+     * @dev Sets `adminRole` as ``role``'s admin role.
+     *
+     * Emits a {RoleAdminChanged} event.
+     */
+    function _setRoleAdmin(bytes32 role, bytes32 adminRole) internal virtual {
+        emit RoleAdminChanged(role, _roles[role].adminRole, adminRole);
+        _roles[role].adminRole = adminRole;
+    }
+
+    function _grantRole(bytes32 role, address account) private {
+        if (_roles[role].members.add(account)) {
+            emit RoleGranted(role, account, _msgSender());
+        }
+    }
+
+    function _revokeRole(bytes32 role, address account) private {
+        if (_roles[role].members.remove(account)) {
+            emit RoleRevoked(role, account, _msgSender());
+        }
+    }
+}
+
+// File: contracts/common/AccessControlMixin.sol
+
+pragma solidity 0.6.6;
+
+
+contract AccessControlMixin is AccessControl {
+    string private _revertMsg;
+    function _setupContractId(string memory contractId) internal {
+        _revertMsg = string(abi.encodePacked(contractId, ": INSUFFICIENT_PERMISSIONS"));
+    }
+
+    modifier only(bytes32 role) {
+        require(
+            hasRole(role, _msgSender()),
+            _revertMsg
+        );
+        _;
+    }
+}
+
+// File: contracts/lib/RLPReader.sol
+
+/*
+ * @author Hamdi Allam hamdi.allam97@gmail.com
+ * Please reach out with any questions or concerns
+ * https://github.com/hamdiallam/Solidity-RLP/blob/e681e25a376dbd5426b509380bc03446f05d0f97/contracts/RLPReader.sol
+ */
+pragma solidity 0.6.6;
+
+library RLPReader {
+    uint8 constant STRING_SHORT_START = 0x80;
+    uint8 constant STRING_LONG_START = 0xb8;
+    uint8 constant LIST_SHORT_START = 0xc0;
+    uint8 constant LIST_LONG_START = 0xf8;
+    uint8 constant WORD_SIZE = 32;
+
+    <span class="marker" id="mapping-1"></span><span class="token del" data-title="contract_body/struct_declaration">struct RLPItem {
+        uint256 len;
+        uint256 memPtr;
+    }</span>
+
+    <span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-1" data-title="contract_body/comment"><span class="cupd">/*
+   </span><span class="cupd"> </span><span class="cupd"> * @param</span><span class="cupd"> it</span>e<span class="cupd">m</span> RL<span class="cupd">P</span><span class="cupd"> </span><span class="cupd">e</span>nco<span class="cupd">d</span>e<span class="cupd">d</span> b<span class="cupd">y</span><span class="cupd">t</span>e<span class="cupd">s</span><span class="cupd"></span><span class="cupd">
+</span><span class="cupd">   </span><span class="cupd">  </span>*/</span>
+    <span class="marker" id="mapping-3"></span><span class="token mv" id="move-src-2" data-title="contract_body/function_definition">function toRlpItem(bytes memory item)
+        internal
+        pure
+        returns (RLPItem memory)
+    {
+        <span class="marker" id="mapping-4"></span><span class="token del" data-title="function_body/expression_statement">require(item.length &gt; 0, "RLPReader: INVALID_BYTES_LENGTH");</span>
+        <span class="marker" id="mapping-5"></span><span class="token mv" id="move-src-3" data-title="variable_declaration_statement/variable_declaration"><span class="marker" id="mapping-6"></span><span class="token mv" id="move-src-4" data-title="variable_declaration/type_name">uint256</span> <span class="marker" id="mapping-7"></span><span class="token upd" id="move-src-5" data-title="variable_declaration/identifier">memPtr</span></span>;
+        assembly {
+            memPtr := add(item, 0x20)
+        }
+
+        return RLPItem(item.length, memPtr);
+    }</span>
+
+    <span class="marker" id="mapping-8"></span><span class="token upd" id="move-src-6" data-title="contract_body/comment"><span class="cupd">/*
+   </span><span class="cupd"> </span><span class="cupd"> * @param</span><span class="cupd"> it</span>e<span class="cupd">m</span> RL<span class="cupd">P</span><span class="cupd"> </span><span class="cupd">e</span>nco<span class="cupd">d</span>e<span class="cupd">d</span> <span class="cupd">l</span>i<span class="cupd">s</span><span class="cupd">t </span><span class="cupd">in</span> b<span class="cupd">y</span>t<span class="cupd">e</span><span class="cupd">s
+  </span> <span class="cupd">  </span>*/</span>
+    function toList(RLPItem memory item)
+        internal
+        pure
+        returns (RLPItem[] memory)
+    {
+        require(isList(item)<span class="marker" id="mapping-9"></span><span class="token del" data-title="call_expression/,">,</span> <span class="marker" id="mapping-10"></span><span class="token del" data-title="call_expression/call_argument">"RLPReader: ITEM_NOT_LIST"</span>);
+
+        <span class="marker" id="mapping-11"></span><span class="token mv" id="move-src-7" data-title="variable_declaration_statement/variable_declaration"><span class="marker" id="mapping-12"></span><span class="token mv" id="move-src-8" data-title="variable_declaration/type_name">uint256</span> <span class="marker" id="mapping-13"></span><span class="token upd" id="move-src-9" data-title="variable_declaration/identifier"><span class="cupd">i</span><span class="cupd">te</span>ms</span></span> = numItems(item);
+        RLPItem[] memory result = new RLPItem[](items);
+        <span class="marker" id="mapping-14"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint256 listLength = _itemLength(item.memPtr);</span>
+        <span class="marker" id="mapping-15"></span><span class="token mv" id="move-src-10" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-16"></span><span class="token mv" id="move-src-11" data-title="call_argument/binary_expression"><span class="marker" id="mapping-17"></span><span class="token del" data-title="binary_expression/identifier">listLength</span> <span class="marker" id="mapping-18"></span><span class="token del" data-title="binary_expression/==">==</span> item.len</span><span class="marker" id="mapping-19"></span><span class="token del" data-title="call_expression/,">,</span> <span class="marker" id="mapping-20"></span><span class="token del" data-title="call_expression/call_argument">"RLPReader: LIST_DECODED_LENGTH_MISMATCH"</span>);</span>
+
+        <span class="marker" id="mapping-21"></span><span class="token mv" id="move-src-12" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-22"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> <span class="marker" id="mapping-23"></span><span class="token upd" id="move-src-13" data-title="variable_declaration/identifier">mem<span class="cupd">Ptr</span></span> = item.memPtr + _payloadOffset(item.memPtr);</span>
+        <span class="marker" id="mapping-24"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint256 dataLen;</span>
+        for (<span class="marker" id="mapping-25"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> i = 0; i &lt; items; i++) {
+            dataLen = _itemLength(memPtr);
+            result[i] = RLPItem(dataLen, memPtr);
+            memPtr = memPtr + dataLen;
+        }
+
+        return result;
+    }
+
+    // @return indicator whether encoded payload is a list. negate this function call for isData.
+    function isList(RLPItem memory item) internal pure returns (bool) {
+        uint8 byte0;
+        <span class="marker" id="mapping-26"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> memPtr = item.memPtr;
+        assembly {
+            byte0 := byte(0, mload(memPtr))
+        }
+
+        if (byte0 &lt; LIST_SHORT_START) return false;
+        return true;
+    }
+
+    /** RLPItem conversions into data types **/
+
+    // @returns raw rlp encoding in bytes
+    function toRlpBytes(RLPItem memory item)
+        internal
+        pure
+        returns (bytes memory)
+    {
+        bytes memory result = new bytes(item.len);
+
+        <span class="marker" id="mapping-27"></span><span class="token mv" id="move-src-14" data-title="function_body/variable_declaration_statement">uint256 ptr;</span>
+        assembly {
+            ptr := add(0x20, result)
+        }
+
+        copy(item.memPtr, ptr, item.len);
+        return result;
+    }
+
+    function toAddress(RLPItem memory item) internal pure returns (address) {
+        <span class="marker" id="mapping-28"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-29"></span><span class="token del" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-30"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-31"></span><span class="token del" data-title="call_argument/unary_expression">!<span class="marker" id="mapping-32"></span><span class="token mv" id="move-src-15" data-title="unary_expression/call_expression"><span class="marker" id="mapping-33"></span><span class="token upd" id="move-src-16" data-title="call_expression/identifier">is<span class="cupd">L</span>ist</span>(item)</span></span></span>, <span class="marker" id="mapping-34"></span><span class="token del" data-title="call_expression/call_argument">"RLPReader: DECODING_LIST_AS_ADDRESS"</span>)</span>;</span>
+        // 1 byte for the length prefix
+        require(item.len == 21<span class="marker" id="mapping-35"></span><span class="token del" data-title="call_expression/,">,</span> <span class="marker" id="mapping-36"></span><span class="token del" data-title="call_expression/call_argument">"RLPReader: INVALID_ADDRESS_LENGTH"</span>);
+
+        return address(toUint(item));
+    }
+
+    function toUint(RLPItem memory item) internal pure returns (<span class="marker" id="mapping-37"></span><span class="token del" data-title="primitive_type/uint256">uint256</span>) {
+        <span class="marker" id="mapping-38"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-39"></span><span class="token del" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-40"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-41"></span><span class="token del" data-title="call_argument/unary_expression">!<span class="marker" id="mapping-42"></span><span class="token mv" id="move-src-17" data-title="unary_expression/call_expression"><span class="marker" id="mapping-43"></span><span class="token upd" id="move-src-18" data-title="call_expression/identifier">is<span class="cupd">L</span>ist</span>(item)</span></span></span>, <span class="marker" id="mapping-44"></span><span class="token del" data-title="call_expression/call_argument">"RLPReader: DECODING_LIST_AS_UINT"</span>)</span>;</span>
+        <span class="marker" id="mapping-45"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-46"></span><span class="token del" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-47"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-48"></span><span class="token mv" id="move-src-19" data-title="call_argument/binary_expression">item.len <span class="marker" id="mapping-49"></span><span class="token del" data-title="binary_expression/<=">&lt;=</span> <span class="marker" id="mapping-50"></span><span class="token upd" id="move-src-20" data-title="binary_expression/number_literal">33</span></span></span>, <span class="marker" id="mapping-51"></span><span class="token del" data-title="call_expression/call_argument">"RLPReader: INVALID_UINT_LENGTH"</span>)</span>;</span>
+
+        <span class="marker" id="mapping-52"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint256 itemLength = _itemLength(item.memPtr);</span>
+        <span class="marker" id="mapping-53"></span><span class="token del" data-title="function_body/expression_statement"><span class="marker" id="mapping-54"></span><span class="token del" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-55"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-56"></span><span class="token mv" id="move-src-21" data-title="call_argument/binary_expression"><span class="marker" id="mapping-57"></span><span class="token del" data-title="binary_expression/identifier">itemLength</span> <span class="marker" id="mapping-58"></span><span class="token del" data-title="binary_expression/==">==</span> item.len</span></span>, <span class="marker" id="mapping-59"></span><span class="token del" data-title="call_expression/call_argument">"RLPReader: UINT_DECODED_LENGTH_MISMATCH"</span>)</span>;</span>
+
+        <span class="marker" id="mapping-60"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint256 offset = _payloadOffset(item.memPtr);</span>
+        <span class="marker" id="mapping-61"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint256 len = item.len - offset;</span>
+        <span class="marker" id="mapping-62"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint256 result;</span>
+        <span class="marker" id="mapping-63"></span><span class="token mv" id="move-src-22" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-64"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> memPtr = item.memPtr + offset;</span>
+        assembly {
+            result := mload(memPtr)
+
+            // shfit to the correct location if neccesary
+            if lt(len, 32) {
+                result := div(result, exp(256, sub(32, len)))
+            }
+        }
+
+        return result;
+    }
+
+    // enforces 32 byte length
+    function toUintStrict(RLPItem memory item) internal pure returns (<span class="marker" id="mapping-65"></span><span class="token del" data-title="primitive_type/uint256">uint256</span>) {
+        <span class="marker" id="mapping-66"></span><span class="token mv" id="move-src-23" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-67"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> <span class="marker" id="mapping-68"></span><span class="token upd" id="move-src-24" data-title="variable_declaration/identifier">it<span class="cupd">em</span>Length</span> = <span class="marker" id="mapping-69"></span><span class="token del" data-title="variable_declaration_statement/call_expression">_itemLength(<span class="marker" id="mapping-70"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-71"></span><span class="token mv" id="move-src-25" data-title="call_argument/member_expression">item.memPtr</span></span>)</span>;</span>
+        <span class="marker" id="mapping-72"></span><span class="token mv" id="move-src-26" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-73"></span><span class="token del" data-title="binary_expression/identifier">itemLength</span> <span class="marker" id="mapping-74"></span><span class="token del" data-title="binary_expression/==">==</span> item.len<span class="marker" id="mapping-75"></span><span class="token del" data-title="call_expression/,">,</span> <span class="marker" id="mapping-76"></span><span class="token del" data-title="call_expression/call_argument">"RLPReader: UINT_STRICT_DECODED_LENGTH_MISMATCH"</span>);</span>
+        // one byte prefix
+        require(item.len == 33<span class="marker" id="mapping-77"></span><span class="token del" data-title="call_expression/,">,</span> <span class="marker" id="mapping-78"></span><span class="token del" data-title="call_expression/call_argument">"RLPReader: INVALID_UINT_STRICT_LENGTH"</span>);
+
+        <span class="marker" id="mapping-79"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> result;
+        <span class="marker" id="mapping-80"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> memPtr = item.memPtr + 1;
+        assembly {
+            result := mload(memPtr)
+        }
+
+        return result;
+    }
+
+    function toBytes(RLPItem memory item) internal pure returns (bytes memory) {
+        <span class="marker" id="mapping-81"></span><span class="token del" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-82"></span><span class="token del" data-title="variable_declaration_statement/variable_declaration">uint256 listLength</span> = <span class="marker" id="mapping-83"></span><span class="token del" data-title="variable_declaration_statement/call_expression">_itemLength(<span class="marker" id="mapping-84"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-85"></span><span class="token mv" id="move-src-27" data-title="call_argument/member_expression">item.memPtr</span></span>)</span>;</span>
+        <span class="marker" id="mapping-86"></span><span class="token mv" id="move-src-28" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-87"></span><span class="token del" data-title="binary_expression/identifier">listLength</span> <span class="marker" id="mapping-88"></span><span class="token mv" id="move-src-29" data-title="binary_expression/==">==</span> item.len<span class="marker" id="mapping-89"></span><span class="token del" data-title="call_expression/,">,</span> <span class="marker" id="mapping-90"></span><span class="token del" data-title="call_expression/call_argument">"RLPReader: BYTES_DECODED_LENGTH_MISMATCH"</span>);</span>
+        <span class="marker" id="mapping-91"></span><span class="token mv" id="move-src-30" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-92"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> offset = _payloadOffset(item.memPtr);</span>
+
+        <span class="marker" id="mapping-93"></span><span class="token mv" id="move-src-31" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-94"></span><span class="token mv" id="move-src-32" data-title="variable_declaration_statement/variable_declaration">uint256 len</span> = item.len - offset;</span> <span class="marker" id="mapping-95"></span><span class="token del" data-title="function_body/comment">// data length</span>
+        bytes memory result = new bytes(len);
+
+        <span class="marker" id="mapping-96"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint256 destPtr;</span>
+        assembly {
+            destPtr := add(0x20, result)
+        }
+
+        copy(<span class="marker" id="mapping-97"></span><span class="token del" data-title="call_argument/binary_expression">item.memPtr + offset</span>, destPtr, len);
+        return result;
+    }
+
+    <span class="marker" id="mapping-98"></span><span class="token mv" id="move-src-33" data-title="contract_body/comment"><span class="marker" id="mapping-99"></span><span class="token upd" id="move-src-34" data-title="contract_body/comment"><span class="cupd">/*
+   </span> <span class="cupd"> *</span> <span class="cupd">P</span><span class="cupd">r</span>iv<span class="cupd">at</span><span class="cupd">e</span> <span class="cupd">H</span>el<span class="cupd">p</span>e<span class="cupd">rs
+  </span> <span class="cupd">  </span>*/</span></span>
+
+    // @return number of payload items inside an encoded list.
+    function numItems(RLPItem memory item) private pure returns (<span class="marker" id="mapping-100"></span><span class="token del" data-title="primitive_type/uint256">uint256</span>) {
+        <span class="marker" id="mapping-101"></span><span class="token del" data-title="function_body/comment">// add `isList` check if `item` is expected to be passsed without a check from calling function</span>
+        <span class="marker" id="mapping-102"></span><span class="token del" data-title="function_body/comment">// require(isList(item), "RLPReader: NUM_ITEMS_NOT_LIST");</span>
+
+        <span class="marker" id="mapping-103"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> count = 0;
+        <span class="marker" id="mapping-104"></span><span class="token mv" id="move-src-35" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-105"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> <span class="marker" id="mapping-106"></span><span class="token upd" id="move-src-36" data-title="variable_declaration/identifier">curr<span class="cupd">Ptr</span></span> = item.memPtr + _payloadOffset(item.memPtr);</span>
+        <span class="marker" id="mapping-107"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> endPtr = item.memPtr + item.len;
+        while (currPtr &lt; endPtr) {
+            currPtr = currPtr + _itemLength(currPtr); // skip over an item
+            <span class="marker" id="mapping-108"></span><span class="token del" data-title="block_statement/expression_statement">require(currPtr &lt;= endPtr, "RLPReader: NUM_ITEMS_DECODED_LENGTH_MISMATCH");</span>
+            count++;
+        }
+
+        return count;
+    }
+
+    // @return entire rlp item byte length
+    function _itemLength(<span class="marker" id="mapping-109"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> memPtr) private pure returns (<span class="marker" id="mapping-110"></span><span class="token del" data-title="primitive_type/uint256">uint256</span>) {
+        <span class="marker" id="mapping-111"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint256 itemLen;</span>
+        <span class="marker" id="mapping-112"></span><span class="token del" data-title="function_body/variable_declaration_statement">uint256 byte0;</span>
+        assembly {
+            byte0 := byte(0, mload(memPtr))
+        }
+
+        if (byte0 &lt; STRING_SHORT_START) itemLen = 1;
+        else if (byte0 &lt; STRING_LONG_START)
+            itemLen = byte0 - STRING_SHORT_START + 1;
+        else if (byte0 &lt; LIST_SHORT_START) {
+            assembly {
+                let byteLen := sub(byte0, 0xb7) // # of bytes the actual length is
+                memPtr := add(memPtr, 1) // skip over the first byte
+
+                /* 32 byte word size */
+                let dataLen := div(mload(memPtr), exp(256, sub(32, byteLen))) // right shifting to get the len
+                itemLen := add(dataLen, add(byteLen, 1))
+            }
+        } else if (byte0 &lt; LIST_LONG_START) {
+            itemLen = byte0 - LIST_SHORT_START + 1;
+        } else {
+            assembly {
+                let byteLen := sub(byte0, 0xf7)
+                memPtr := add(memPtr, 1)
+
+                let dataLen := div(mload(memPtr), exp(256, sub(32, byteLen))) // right shifting to the correct length
+                itemLen := add(dataLen, add(byteLen, 1))
+            }
+        }
+
+        return itemLen;
+    }
+
+    // @return number of bytes until the data
+    function _payloadOffset(<span class="marker" id="mapping-113"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> memPtr) private pure returns (<span class="marker" id="mapping-114"></span><span class="token del" data-title="primitive_type/uint256">uint256</span>) {
+        <span class="marker" id="mapping-115"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> byte0;
+        assembly {
+            byte0 := byte(0, mload(memPtr))
+        }
+
+        if (byte0 &lt; STRING_SHORT_START) return 0;
+        else if (
+            byte0 &lt; STRING_LONG_START ||
+            (byte0 &gt;= LIST_SHORT_START &amp;&amp; byte0 &lt; LIST_LONG_START)
+        ) return 1;
+        else if (byte0 &lt; LIST_SHORT_START)
+            // being explicit
+            return byte0 - (STRING_LONG_START - 1) + 1;
+        else return byte0 - (LIST_LONG_START - 1) + 1;
+    }
+
+    <span class="marker" id="mapping-116"></span><span class="token mv" id="move-src-37" data-title="contract_body/comment"><span class="marker" id="mapping-117"></span><span class="token upd" id="move-src-38" data-title="contract_body/comment"><span class="cupd">/*
+   </span> <span class="cupd"> * </span>@p<span class="cupd">a</span><span class="cupd">r</span>a<span class="cupd">m</span> sr<span class="cupd">c</span> P<span class="cupd">o</span>i<span class="cupd">nte</span>r<span class="cupd"> t</span><span class="cupd">o</span><span class="cupd"> </span>sour<span class="cupd">c</span><span class="cupd">e</span><span class="cupd"></span><span class="cupd">
+</span><span class="cupd"> </span><span class="cupd">  </span><span class="cupd">  * @para</span>m<span class="cupd"> </span>de<span class="cupd">s</span>t Poi<span class="cupd">n</span>t<span class="cupd">e</span>r <span class="cupd">t</span>o de<span class="cupd">s</span>ti<span class="cupd">n</span>ati<span class="cupd">on
+ </span> <span class="cupd">   </span>* <span class="cupd">@</span>para<span class="cupd">m</span><span class="cupd"> le</span>n A<span class="cupd">m</span><span class="cupd">o</span>unt o<span class="cupd">f</span> m<span class="cupd">e</span>mo<span class="cupd">ry</span><span class="cupd"> </span>t<span class="cupd">o</span> cop<span class="cupd">y</span> f<span class="cupd">rom t</span>he so<span class="cupd">u</span><span class="cupd">rce
+</span> <span class="cupd">  </span>  */</span></span>
+    function copy(
+        <span class="marker" id="mapping-118"></span><span class="token del" data-title="function_definition/parameter">uint256 src</span>,
+        <span class="marker" id="mapping-119"></span><span class="token del" data-title="function_definition/parameter">uint256 dest</span>,
+        <span class="marker" id="mapping-120"></span><span class="token del" data-title="function_definition/parameter">uint256 len</span>
+    ) private pure {
+        if (len == 0) return;
+
+        // copy as many word sizes as possible
+        for (; len &gt;= WORD_SIZE; len -= WORD_SIZE) {
+            assembly {
+                mstore(dest, mload(src))
+            }
+
+            src += WORD_SIZE;
+            dest += WORD_SIZE;
+        }
+
+        <span class="marker" id="mapping-121"></span><span class="token del" data-title="function_body/comment">// left over bytes. Mask is used to remove unwanted bytes from the word</span>
+        <span class="marker" id="mapping-122"></span><span class="token mv" id="move-src-39" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-123"></span><span class="token del" data-title="primitive_type/uint256">uint256</span> mask = 256**(WORD_SIZE - len) - 1;</span>
+        <span class="marker" id="mapping-124"></span><span class="token mv" id="move-src-40" data-title="function_body/assembly_statement">assembly {
+            let srcpart := and(mload(src), not(mask)) // zero out src
+            let destpart := and(mload(dest), mask) // retrieve the bytes
+            mstore(dest, or(destpart, srcpart))
+        }</span>
+    }
+}
+
+// File: contracts/root/TokenPredicates/ITokenPredicate.sol
+
+pragma solidity 0.6.6;
+
+
+/// @title Token predicate interface for all pos portal predicates
+/// @notice Abstract interface that defines methods for custom predicates
+interface ITokenPredicate {
+
+    /**
+     * @notice Deposit tokens into pos portal
+     * @dev When `depositor` deposits tokens into pos portal, tokens get locked into predicate contract.
+     * @param depositor Address who wants to deposit tokens
+     * @param depositReceiver Address (address) who wants to receive tokens on side chain
+     * @param rootToken Token which gets deposited
+     * @param depositData Extra data for deposit (amount for ERC20, token id for ERC721 etc.) [ABI encoded]
+     */
+    function lockTokens(
+        address depositor,
+        address depositReceiver,
+        address rootToken,
+        bytes calldata depositData
+    ) external;
+
+    /**
+     * @notice Validates and processes exit while withdraw process
+     * @dev Validates exit log emitted on sidechain. Reverts if validation fails.
+     * @dev Processes withdraw based on custom logic. Example: transfer ERC20/ERC721, mint ERC721 if mintable withdraw
+     * @param sender Address
+     * @param rootToken Token which gets withdrawn
+     * @param logRLPList Valid sidechain log for data like amount, token id etc.
+     */
+    function exitTokens(
+        address sender,
+        address rootToken,
+        bytes calldata logRLPList
+    ) external;
+}
+
+// File: contracts/common/Initializable.sol
+
+pragma solidity 0.6.6;
+
+contract Initializable {
+    bool inited = false;
+
+    modifier initializer() {
+        require(!inited, "already inited");
+        _;
+        inited = true;
+    }
+}
+
+<span class="marker" id="mapping-125"></span><span class="token del" data-title="source_file/comment">// File: contracts/root/TokenPredicates/MintableERC1155Predicate.sol</span>
+
+<span class="marker" id="mapping-126"></span><span class="token del" data-title="source_file/pragma_directive">pragma solidity 0.6.6;</span>
+
+contract MintableERC1155Predicate is
+    ITokenPredicate,
+    ERC1155Receiver,
+    AccessControlMixin,
+    Initializable
+{
+    using RLPReader for bytes;
+    using RLPReader for RLPReader.RLPItem;
+
+    bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
+    bytes32 public constant TOKEN_TYPE = keccak256("MintableERC1155");
+
+    bytes32 public constant TRANSFER_SINGLE_EVENT_SIG = keccak256(
+        "TransferSingle(address,address,address,uint256,uint256)"
+    );
+    bytes32 public constant TRANSFER_BATCH_EVENT_SIG = keccak256(
+        "TransferBatch(address,address,address,uint256[],uint256[])"
+    );
+
+    event LockedBatchMintableERC1155(
+        address indexed depositor,
+        address indexed depositReceiver,
+        address indexed rootToken,
+        uint256[] ids,
+        uint256[] amounts
+    );
+
+    constructor() public {}
+
+    function initialize(address _owner) external initializer {
+        _setupContractId("MintableERC1155Predicate");
+        _setupRole(DEFAULT_ADMIN_ROLE, _owner);
+        _setupRole(MANAGER_ROLE, _owner);
+    }
+
+    /**
+     * @notice rejects single transfer
+     */
+    function onERC1155Received(
+        address,
+        address,
+        uint256,
+        uint256,
+        bytes calldata
+    ) external override returns (bytes4) {
+        return 0;
+    }
+
+    /**
+     * @notice accepts batch transfer
+     */
+    function onERC1155BatchReceived(
+        address,
+        address,
+        uint256[] calldata,
+        uint256[] calldata,
+        bytes calldata
+    ) external override returns (bytes4) {
+        return ERC1155Receiver(0).onERC1155BatchReceived.selector;
+    }
+
+    /**
+     * @notice Lock ERC1155 tokens for deposit, callable only by manager
+     * @param depositor Address who wants to deposit tokens
+     * @param depositReceiver Address (address) who wants to receive tokens on child chain
+     * @param rootToken Token which gets deposited
+     * @param depositData ABI encoded id array and amount array
+     */
+    function lockTokens(
+        address depositor,
+        address depositReceiver,
+        address rootToken,
+        bytes calldata depositData
+    ) external override only(MANAGER_ROLE) {
+        // forcing batch deposit since supporting both single and batch deposit introduces too much complexity
+        (
+            uint256[] memory ids,
+            uint256[] memory amounts,
+            bytes memory data
+        ) = abi.decode(depositData, (uint256[], uint256[], bytes));
+
+        emit LockedBatchMintableERC1155(
+            depositor,
+            depositReceiver,
+            rootToken,
+            ids,
+            amounts
+        );
+        IMintableERC1155(rootToken).safeBatchTransferFrom(
+            depositor,
+            address(this),
+            ids,
+            amounts,
+            data
+        );
+    }
+    
+    // Used when attempting to exit with single token, single amount/ id is converted into
+    // slice of amounts/ ids
+    // Generally size is going to be `1` i.e. single element array, but it's kept generic
+    function makeArrayWithValue(uint256 val, uint size) internal pure returns(uint256[] memory) {
+        require(
+            size &gt; 0,
+            "MintableERC1155Predicate: Invalid resulting array length"
+        );
+
+        uint256[] memory vals = new uint256[](size);
+
+        for (uint256 i = 0; i &lt; size; i++) {
+            vals[i] = val;
+        }
+
+        return vals;
+    }
+
+    /**
+     * @notice Creates an array of `size` by repeating provided address,
+     * to be required for passing to batch balance checking function of ERC1155 tokens.
+     * @param addr Address to be repeated `size` times in resulting array
+     * @param size Size of resulting array
+     */
+    function makeArrayWithAddress(address addr, uint256 size)
+        internal
+        pure
+        returns (address[] memory)
+    {
+        require(
+            addr != address(0),
+            "MintableERC1155Predicate: Invalid address"
+        );
+        require(
+            size &gt; 0,
+            "MintableERC1155Predicate: Invalid resulting array length"
+        );
+
+        address[] memory addresses = new address[](size);
+
+        for (uint256 i = 0; i &lt; size; i++) {
+            addresses[i] = addr;
+        }
+
+        return addresses;
+    }
+
+    /**
+     * @notice Calculates amount of tokens to be minted, by subtracting available
+     * token balances from amount of tokens to be exited
+     * @param tokenBalances Token balances this contract holds for some ordered token ids
+     * @param amountsToBeExited Amount of tokens being exited
+     */
+    function calculateAmountsToBeMinted(
+        uint256[] memory tokenBalances,
+        uint256[] memory amountsToBeExited
+    ) internal pure returns (uint256[] memory) {
+        require(
+            tokenBalances.length == amountsToBeExited.length,
+            "MintableERC1155Predicate: Array length mismatch found"
+        );
+
+        uint256[] memory toBeMintedAmounts = new uint256[](
+            tokenBalances.length
+        );
+
+        // Iteratively calculating amounts of token to be minted
+        //
+        // Please note, in some cases it can be 0, but that will not
+        // be a problem, due to implementation of mint logic for ERC1155
+        for (uint256 i = 0; i &lt; tokenBalances.length; i++) {
+            if (tokenBalances[i] &lt; amountsToBeExited[i]) {
+                toBeMintedAmounts[i] = amountsToBeExited[i] - tokenBalances[i];
+            }
+        }
+
+        return <span class="marker" id="mapping-127"></span><span class="token del" data-title="return_statement/identifier">toBeMintedAmounts</span>;
+    }
+
+    /**
+     * @notice Validates log signature, from and to address
+     * then sends the correct tokenId, amount to withdrawer
+     * callable only by manager
+     * @param rootToken Token which gets withdrawn
+     * @param log Valid ERC1155 TransferSingle burn or TransferBatch burn log from child chain
+     */
+    function exitTokens(
+        address,
+        address rootToken,
+        bytes memory log
+    ) public override only(MANAGER_ROLE) {
+        RLPReader.RLPItem[] memory logRLPList = log.toRlpItem().toList();
+        RLPReader.RLPItem[] memory logTopicRLPList = logRLPList[1].toList(); // topics
+        bytes memory logData = logRLPList[2].toBytes();
+
+        address withdrawer = address(logTopicRLPList[2].toUint()); // topic2 is from address
+
+        require(
+            address(logTopicRLPList[3].toUint()) == address(0), // topic3 is to address
+            "MintableERC1155Predicate: INVALID_RECEIVER"
+        );
+
+        if (<span class="marker" id="mapping-128"></span><span class="token mv" id="move-src-41" data-title="binary_expression/type_cast_expression">bytes32(logTopicRLPList[0].toUint())</span> == TRANSFER_SINGLE_EVENT_SIG) {
+            <span class="marker" id="mapping-129"></span><span class="token del" data-title="block_statement/comment">// topic0 is event sig</span>
+            (uint256 id, uint256 amount) = abi.decode(
+                logData,
+                (uint256, uint256)
+            );
+
+            IMintableERC1155 token = IMintableERC1155(rootToken);
+            <span class="marker" id="mapping-130"></span><span class="token del" data-title="block_statement/comment">// Currently locked tokens for `id` in this contract</span>
+            uint256 <span class="marker" id="mapping-131"></span><span class="token upd" id="move-src-42" data-title="variable_declaration/identifier">tokenB<span class="cupd">alance</span></span> = token.balanceOf(address(this), id);
+
+            <span class="marker" id="mapping-132"></span><span class="token del" data-title="block_statement/comment">// Checking whether MintableERC1155 contract has enough</span>
+            <span class="marker" id="mapping-133"></span><span class="token del" data-title="block_statement/comment">// tokens locked in to transfer to withdrawer, if not</span>
+            <span class="marker" id="mapping-134"></span><span class="token del" data-title="block_statement/comment">// it'll mint those tokens for this contract and return</span>
+            <span class="marker" id="mapping-135"></span><span class="token del" data-title="block_statement/comment">// safely transfer those to withdrawer</span>
+            if (<span class="marker" id="mapping-136"></span><span class="token upd" id="move-src-43" data-title="binary_expression/identifier">tokenB<span class="cupd">alance</span></span> &lt; amount) {
+                token.<span class="marker" id="mapping-137"></span><span class="token upd" id="move-src-44" data-title="member_expression/identifier"><span class="cupd">mint</span>Batch</span>(<span class="marker" id="mapping-138"></span><span class="token del" data-title="call_expression/call_argument">address(this)</span>, 
+                    <span class="marker" id="mapping-139"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-140"></span><span class="token del" data-title="call_argument/call_expression">makeArrayWithValue(<span class="marker" id="mapping-141"></span><span class="token mv" id="move-src-45" data-title="call_expression/call_argument">id</span>, <span class="marker" id="mapping-142"></span><span class="token del" data-title="call_expression/call_argument">1</span>)</span></span>, 
+                    <span class="marker" id="mapping-143"></span><span class="token del" data-title="call_expression/call_argument">makeArrayWithValue(amount - tokenBalance, 1)</span>, 
+                    bytes(""));
+            }
+
+            <span class="marker" id="mapping-144"></span><span class="token mv" id="move-src-46" data-title="block_statement/expression_statement">token.safeTransferFrom(
+                address(this),
+                withdrawer,
+                id,
+                <span class="marker" id="mapping-145"></span><span class="token upd" id="move-src-47" data-title="call_argument/identifier"><span class="cupd">a</span>mount</span>,
+                bytes("")
+            );</span>
+        } else if (
+            <span class="marker" id="mapping-146"></span><span class="token del" data-title="binary_expression/type_cast_expression">bytes32(logTopicRLPList[0].toUint())</span> == TRANSFER_BATCH_EVENT_SIG
+        ) {
+            (uint256[] memory ids, uint256[] memory amounts) = abi.decode(
+                logData,
+                (uint256[], uint256[])
+            );
+
+            IMintableERC1155 token = IMintableERC1155(rootToken);
+
+            <span class="marker" id="mapping-147"></span><span class="token mv" id="move-src-48" data-title="block_statement/expression_statement">token.mintBatch(
+                <span class="marker" id="mapping-148"></span><span class="token del" data-title="call_expression/call_argument">address(this)</span>,
+                ids,
+                <span class="marker" id="mapping-149"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-150"></span><span class="token del" data-title="call_argument/call_expression">calculateAmountsToBeMinted(
+                    <span class="marker" id="mapping-151"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-152"></span><span class="token mv" id="move-src-49" data-title="call_argument/call_expression">token.balanceOfBatch(
+                        makeArrayWithAddress(address(this), ids.length),
+                        ids
+                    )</span></span>,
+                    <span class="marker" id="mapping-153"></span><span class="token del" data-title="call_expression/call_argument">amounts</span>
+                )</span></span>,
+                bytes("")
+            );</span>
+
+            <span class="marker" id="mapping-154"></span><span class="token mv" id="move-src-50" data-title="block_statement/expression_statement"><span class="marker" id="mapping-155"></span><span class="token del" data-title="member_expression/call_expression">IMintableERC1155(rootToken)</span>.safeBatchTransferFrom(
+                address(this),
+                withdrawer,
+                ids,
+                <span class="marker" id="mapping-156"></span><span class="token mv" id="move-src-51" data-title="call_expression/call_argument">amounts</span>,
+                bytes("")
+            );</span>
+        } else {
+            revert("MintableERC1155Predicate: INVALID_WITHDRAW_SIG");
+        }
+    }
+}</pre></div><div class="col-6"><h5>0x4c2aa63bf1d867fbad14f1d505481c16e4862201.etherscan.io-MintableERC1155Predicate.sol</h5><pre class="pre-scrollable">// File: @openzeppelin/contracts/introspection/IERC165.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+/**
+ * @dev Interface of the ERC165 standard, as defined in the
+ * https://eips.ethereum.org/EIPS/eip-165[EIP].
+ *
+ * Implementers can declare support of contract interfaces, which can then be
+ * queried by others ({ERC165Checker}).
+ *
+ * For an implementation, see {ERC165}.
+ */
+interface IERC165 {
+    /**
+     * @dev Returns true if this contract implements the interface defined by
+     * `interfaceId`. See the corresponding
+     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]
+     * to learn more about how these ids are created.
+     *
+     * This function call must use less than 30 000 gas.
+     */
+    function supportsInterface(bytes4 interfaceId) external view returns (bool);
+}
+
+// File: @openzeppelin/contracts/token/ERC1155/IERC1155.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.2;
+
+
+/**
+ * @dev Required interface of an ERC1155 compliant contract, as defined in the
+ * https://eips.ethereum.org/EIPS/eip-1155[EIP].
+ *
+ * _Available since v3.1._
+ */
+interface IERC1155 is IERC165 {
+    /**
+     * @dev Emitted when `value` tokens of token type `id` are transfered from `from` to `to` by `operator`.
+     */
+    event TransferSingle(address indexed operator, address indexed from, address indexed to, uint256 id, uint256 value);
+
+    /**
+     * @dev Equivalent to multiple {TransferSingle} events, where `operator`, `from` and `to` are the same for all
+     * transfers.
+     */
+    event TransferBatch(address indexed operator, address indexed from, address indexed to, uint256[] ids, uint256[] values);
+
+    /**
+     * @dev Emitted when `account` grants or revokes permission to `operator` to transfer their tokens, according to
+     * `approved`.
+     */
+    event ApprovalForAll(address indexed account, address indexed operator, bool approved);
+
+    /**
+     * @dev Emitted when the URI for token type `id` changes to `value`, if it is a non-programmatic URI.
+     *
+     * If an {URI} event was emitted for `id`, the standard
+     * https://eips.ethereum.org/EIPS/eip-1155#metadata-extensions[guarantees] that `value` will equal the value
+     * returned by {IERC1155MetadataURI-uri}.
+     */
+    event URI(string value, uint256 indexed id);
+
+    /**
+     * @dev Returns the amount of tokens of token type `id` owned by `account`.
+     *
+     * Requirements:
+     *
+     * - `account` cannot be the zero address.
+     */
+    function balanceOf(address account, uint256 id) external view returns (uint256);
+
+    /**
+     * @dev xref:ROOT:erc1155.adoc#batch-operations[Batched] version of {balanceOf}.
+     *
+     * Requirements:
+     *
+     * - `accounts` and `ids` must have the same length.
+     */
+    function balanceOfBatch(address[] calldata accounts, uint256[] calldata ids) external view returns (uint256[] memory);
+
+    /**
+     * @dev Grants or revokes permission to `operator` to transfer the caller's tokens, according to `approved`,
+     *
+     * Emits an {ApprovalForAll} event.
+     *
+     * Requirements:
+     *
+     * - `operator` cannot be the caller.
+     */
+    function setApprovalForAll(address operator, bool approved) external;
+
+    /**
+     * @dev Returns true if `operator` is approved to transfer ``account``'s tokens.
+     *
+     * See {setApprovalForAll}.
+     */
+    function isApprovedForAll(address account, address operator) external view returns (bool);
+
+    /**
+     * @dev Transfers `amount` tokens of token type `id` from `from` to `to`.
+     *
+     * Emits a {TransferSingle} event.
+     *
+     * Requirements:
+     *
+     * - `to` cannot be the zero address.
+     * - If the caller is not `from`, it must be have been approved to spend ``from``'s tokens via {setApprovalForAll}.
+     * - `from` must have a balance of tokens of type `id` of at least `amount`.
+     * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155Received} and return the
+     * acceptance magic value.
+     */
+    function safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes calldata data) external;
+
+    /**
+     * @dev xref:ROOT:erc1155.adoc#batch-operations[Batched] version of {safeTransferFrom}.
+     *
+     * Emits a {TransferBatch} event.
+     *
+     * Requirements:
+     *
+     * - `ids` and `amounts` must have the same length.
+     * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155BatchReceived} and return the
+     * acceptance magic value.
+     */
+    function safeBatchTransferFrom(address from, address to, uint256[] calldata ids, uint256[] calldata amounts, bytes calldata data) external;
+}
+
+// File: contracts/root/RootToken/IMintableERC1155.sol
+
+pragma solidity 0.6.6;
+
+interface IMintableERC1155 is IERC1155 {
+    /**
+     * @notice Creates `amount` tokens of token type `id`, and assigns them to `account`.
+     * @dev Should be callable only by MintableERC1155Predicate
+     * Make sure minting is done only by this function
+     * @param account user address for whom token is being minted
+     * @param id token which is being minted
+     * @param amount amount of token being minted
+     * @param data extra byte data to be accompanied with minted tokens
+     */
+    function mint(address account, uint256 id, uint256 amount, bytes calldata data) external;
+
+    /**
+     * @notice Batched version of singular token minting, where
+     * for each token in `ids` respective amount to be minted from `amounts`
+     * array, for address `to`.
+     * @dev Should be callable only by MintableERC1155Predicate
+     * Make sure minting is done only by this function
+     * @param to user address for whom token is being minted
+     * @param ids tokens which are being minted
+     * @param amounts amount of each token being minted
+     * @param data extra byte data to be accompanied with minted tokens
+     */
+    function mintBatch(address to, uint256[] calldata ids, uint256[] calldata amounts, bytes calldata data) external;
+}
+
+// File: @openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+
+/**
+ * _Available since v3.1._
+ */
+interface IERC1155Receiver is IERC165 {
+
+    /**
+        @dev Handles the receipt of a single ERC1155 token type. This function is
+        called at the end of a `safeTransferFrom` after the balance has been updated.
+        To accept the transfer, this must return
+        `bytes4(keccak256("onERC1155Received(address,address,uint256,uint256,bytes)"))`
+        (i.e. 0xf23a6e61, or its own function selector).
+        @param operator The address which initiated the transfer (i.e. msg.sender)
+        @param from The address which previously owned the token
+        @param id The ID of the token being transferred
+        @param value The amount of tokens being transferred
+        @param data Additional data with no specified format
+        @return `bytes4(keccak256("onERC1155Received(address,address,uint256,uint256,bytes)"))` if transfer is allowed
+    */
+    function onERC1155Received(
+        address operator,
+        address from,
+        uint256 id,
+        uint256 value,
+        bytes calldata data
+    )
+        external
+        returns(bytes4);
+
+    /**
+        @dev Handles the receipt of a multiple ERC1155 token types. This function
+        is called at the end of a `safeBatchTransferFrom` after the balances have
+        been updated. To accept the transfer(s), this must return
+        `bytes4(keccak256("onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"))`
+        (i.e. 0xbc197c81, or its own function selector).
+        @param operator The address which initiated the batch transfer (i.e. msg.sender)
+        @param from The address which previously owned the token
+        @param ids An array containing ids of each token being transferred (order and length must match values array)
+        @param values An array containing amounts of each token being transferred (order and length must match ids array)
+        @param data Additional data with no specified format
+        @return `bytes4(keccak256("onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"))` if transfer is allowed
+    */
+    function onERC1155BatchReceived(
+        address operator,
+        address from,
+        uint256[] calldata ids,
+        uint256[] calldata values,
+        bytes calldata data
+    )
+        external
+        returns(bytes4);
+}
+
+// File: @openzeppelin/contracts/introspection/ERC165.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+
+/**
+ * @dev Implementation of the {IERC165} interface.
+ *
+ * Contracts may inherit from this and call {_registerInterface} to declare
+ * their support of an interface.
+ */
+contract ERC165 is IERC165 {
+    /*
+     * bytes4(keccak256('supportsInterface(bytes4)')) == 0x01ffc9a7
+     */
+    bytes4 private constant _INTERFACE_ID_ERC165 = 0x01ffc9a7;
+
+    /**
+     * @dev Mapping of interface ids to whether or not it's supported.
+     */
+    mapping(bytes4 =&gt; bool) private _supportedInterfaces;
+
+    constructor () internal {
+        // Derived contracts need only register support for their own interfaces,
+        // we register support for ERC165 itself here
+        _registerInterface(_INTERFACE_ID_ERC165);
+    }
+
+    /**
+     * @dev See {IERC165-supportsInterface}.
+     *
+     * Time complexity O(1), guaranteed to always use less than 30 000 gas.
+     */
+    function supportsInterface(bytes4 interfaceId) public view override returns (bool) {
+        return _supportedInterfaces[interfaceId];
+    }
+
+    /**
+     * @dev Registers the contract as an implementer of the interface defined by
+     * `interfaceId`. Support of the actual ERC165 interface is automatic and
+     * registering its interface id is not required.
+     *
+     * See {IERC165-supportsInterface}.
+     *
+     * Requirements:
+     *
+     * - `interfaceId` cannot be the ERC165 invalid interface (`0xffffffff`).
+     */
+    function _registerInterface(bytes4 interfaceId) internal virtual {
+        require(interfaceId != 0xffffffff, "ERC165: invalid interface id");
+        _supportedInterfaces[interfaceId] = true;
+    }
+}
+
+// File: @openzeppelin/contracts/token/ERC1155/ERC1155Receiver.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+
+
+/**
+ * @dev _Available since v3.1._
+ */
+abstract contract ERC1155Receiver is ERC165, IERC1155Receiver {
+    constructor() public {
+        _registerInterface(
+            ERC1155Receiver(0).onERC1155Received.selector ^
+            ERC1155Receiver(0).onERC1155BatchReceived.selector
+        );
+    }
+}
+
+// File: @openzeppelin/contracts/utils/EnumerableSet.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+/**
+ * @dev Library for managing
+ * https://en.wikipedia.org/wiki/Set_(abstract_data_type)[sets] of primitive
+ * types.
+ *
+ * Sets have the following properties:
+ *
+ * - Elements are added, removed, and checked for existence in constant time
+ * (O(1)).
+ * - Elements are enumerated in O(n). No guarantees are made on the ordering.
+ *
+ * ```
+ * contract Example {
+ *     // Add the library methods
+ *     using EnumerableSet for EnumerableSet.AddressSet;
+ *
+ *     // Declare a set state variable
+ *     EnumerableSet.AddressSet private mySet;
+ * }
+ * ```
+ *
+ * As of v3.0.0, only sets of type `address` (`AddressSet`) and `uint256`
+ * (`UintSet`) are supported.
+ */
+library EnumerableSet {
+    // To implement this library for multiple types with as little code
+    // repetition as possible, we write it in terms of a generic Set type with
+    // bytes32 values.
+    // The Set implementation uses private functions, and user-facing
+    // implementations (such as AddressSet) are just wrappers around the
+    // underlying Set.
+    // This means that we can only create new EnumerableSets for types that fit
+    // in bytes32.
+
+    struct Set {
+        // Storage of set values
+        bytes32[] _values;
+
+        // Position of the value in the `values` array, plus 1 because index 0
+        // means a value is not in the set.
+        mapping (bytes32 =&gt; uint256) _indexes;
+    }
+
+    /**
+     * @dev Add a value to a set. O(1).
+     *
+     * Returns true if the value was added to the set, that is if it was not
+     * already present.
+     */
+    function _add(Set storage set, bytes32 value) private returns (bool) {
+        if (!_contains(set, value)) {
+            set._values.push(value);
+            // The value is stored at length-1, but we add 1 to all indexes
+            // and use 0 as a sentinel value
+            set._indexes[value] = set._values.length;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @dev Removes a value from a set. O(1).
+     *
+     * Returns true if the value was removed from the set, that is if it was
+     * present.
+     */
+    function _remove(Set storage set, bytes32 value) private returns (bool) {
+        // We read and store the value's index to prevent multiple reads from the same storage slot
+        uint256 valueIndex = set._indexes[value];
+
+        if (valueIndex != 0) { // Equivalent to contains(set, value)
+            // To delete an element from the _values array in O(1), we swap the element to delete with the last one in
+            // the array, and then remove the last element (sometimes called as 'swap and pop').
+            // This modifies the order of the array, as noted in {at}.
+
+            uint256 toDeleteIndex = valueIndex - 1;
+            uint256 lastIndex = set._values.length - 1;
+
+            // When the value to delete is the last one, the swap operation is unnecessary. However, since this occurs
+            // so rarely, we still do the swap anyway to avoid the gas cost of adding an 'if' statement.
+
+            bytes32 lastvalue = set._values[lastIndex];
+
+            // Move the last value to the index where the value to delete is
+            set._values[toDeleteIndex] = lastvalue;
+            // Update the index for the moved value
+            set._indexes[lastvalue] = toDeleteIndex + 1; // All indexes are 1-based
+
+            // Delete the slot where the moved value was stored
+            set._values.pop();
+
+            // Delete the index for the deleted slot
+            delete set._indexes[value];
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @dev Returns true if the value is in the set. O(1).
+     */
+    function _contains(Set storage set, bytes32 value) private view returns (bool) {
+        return set._indexes[value] != 0;
+    }
+
+    /**
+     * @dev Returns the number of values on the set. O(1).
+     */
+    function _length(Set storage set) private view returns (uint256) {
+        return set._values.length;
+    }
+
+   /**
+    * @dev Returns the value stored at position `index` in the set. O(1).
+    *
+    * Note that there are no guarantees on the ordering of values inside the
+    * array, and it may change when more values are added or removed.
+    *
+    * Requirements:
+    *
+    * - `index` must be strictly less than {length}.
+    */
+    function _at(Set storage set, uint256 index) private view returns (bytes32) {
+        require(set._values.length &gt; index, "EnumerableSet: index out of bounds");
+        return set._values[index];
+    }
+
+    // AddressSet
+
+    struct AddressSet {
+        Set _inner;
+    }
+
+    /**
+     * @dev Add a value to a set. O(1).
+     *
+     * Returns true if the value was added to the set, that is if it was not
+     * already present.
+     */
+    function add(AddressSet storage set, address value) internal returns (bool) {
+        return _add(set._inner, bytes32(uint256(value)));
+    }
+
+    /**
+     * @dev Removes a value from a set. O(1).
+     *
+     * Returns true if the value was removed from the set, that is if it was
+     * present.
+     */
+    function remove(AddressSet storage set, address value) internal returns (bool) {
+        return _remove(set._inner, bytes32(uint256(value)));
+    }
+
+    /**
+     * @dev Returns true if the value is in the set. O(1).
+     */
+    function contains(AddressSet storage set, address value) internal view returns (bool) {
+        return _contains(set._inner, bytes32(uint256(value)));
+    }
+
+    /**
+     * @dev Returns the number of values in the set. O(1).
+     */
+    function length(AddressSet storage set) internal view returns (uint256) {
+        return _length(set._inner);
+    }
+
+   /**
+    * @dev Returns the value stored at position `index` in the set. O(1).
+    *
+    * Note that there are no guarantees on the ordering of values inside the
+    * array, and it may change when more values are added or removed.
+    *
+    * Requirements:
+    *
+    * - `index` must be strictly less than {length}.
+    */
+    function at(AddressSet storage set, uint256 index) internal view returns (address) {
+        return address(uint256(_at(set._inner, index)));
+    }
+
+
+    // UintSet
+
+    struct UintSet {
+        Set _inner;
+    }
+
+    /**
+     * @dev Add a value to a set. O(1).
+     *
+     * Returns true if the value was added to the set, that is if it was not
+     * already present.
+     */
+    function add(UintSet storage set, uint256 value) internal returns (bool) {
+        return _add(set._inner, bytes32(value));
+    }
+
+    /**
+     * @dev Removes a value from a set. O(1).
+     *
+     * Returns true if the value was removed from the set, that is if it was
+     * present.
+     */
+    function remove(UintSet storage set, uint256 value) internal returns (bool) {
+        return _remove(set._inner, bytes32(value));
+    }
+
+    /**
+     * @dev Returns true if the value is in the set. O(1).
+     */
+    function contains(UintSet storage set, uint256 value) internal view returns (bool) {
+        return _contains(set._inner, bytes32(value));
+    }
+
+    /**
+     * @dev Returns the number of values on the set. O(1).
+     */
+    function length(UintSet storage set) internal view returns (uint256) {
+        return _length(set._inner);
+    }
+
+   /**
+    * @dev Returns the value stored at position `index` in the set. O(1).
+    *
+    * Note that there are no guarantees on the ordering of values inside the
+    * array, and it may change when more values are added or removed.
+    *
+    * Requirements:
+    *
+    * - `index` must be strictly less than {length}.
+    */
+    function at(UintSet storage set, uint256 index) internal view returns (uint256) {
+        return uint256(_at(set._inner, index));
+    }
+}
+
+// File: @openzeppelin/contracts/utils/Address.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.2;
+
+/**
+ * @dev Collection of functions related to the address type
+ */
+library Address {
+    /**
+     * @dev Returns true if `account` is a contract.
+     *
+     * [IMPORTANT]
+     * ====
+     * It is unsafe to assume that an address for which this function returns
+     * false is an externally-owned account (EOA) and not a contract.
+     *
+     * Among others, `isContract` will return false for the following
+     * types of addresses:
+     *
+     *  - an externally-owned account
+     *  - a contract in construction
+     *  - an address where a contract will be created
+     *  - an address where a contract lived, but was destroyed
+     * ====
+     */
+    function isContract(address account) internal view returns (bool) {
+        // According to EIP-1052, 0x0 is the value returned for not-yet created accounts
+        // and 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470 is returned
+        // for accounts without code, i.e. `keccak256('')`
+        bytes32 codehash;
+        bytes32 accountHash = 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470;
+        // solhint-disable-next-line no-inline-assembly
+        assembly { codehash := extcodehash(account) }
+        return (codehash != accountHash &amp;&amp; codehash != 0x0);
+    }
+
+    /**
+     * @dev Replacement for Solidity's `transfer`: sends `amount` wei to
+     * `recipient`, forwarding all available gas and reverting on errors.
+     *
+     * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost
+     * of certain opcodes, possibly making contracts go over the 2300 gas limit
+     * imposed by `transfer`, making them unable to receive funds via
+     * `transfer`. {sendValue} removes this limitation.
+     *
+     * https://diligence.consensys.net/posts/2019/09/stop-using-soliditys-transfer-now/[Learn more].
+     *
+     * IMPORTANT: because control is transferred to `recipient`, care must be
+     * taken to not create reentrancy vulnerabilities. Consider using
+     * {ReentrancyGuard} or the
+     * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].
+     */
+    function sendValue(address payable recipient, uint256 amount) internal {
+        require(address(this).balance &gt;= amount, "Address: insufficient balance");
+
+        // solhint-disable-next-line avoid-low-level-calls, avoid-call-value
+        (bool success, ) = recipient.call{ value: amount }("");
+        require(success, "Address: unable to send value, recipient may have reverted");
+    }
+
+    /**
+     * @dev Performs a Solidity function call using a low level `call`. A
+     * plain`call` is an unsafe replacement for a function call: use this
+     * function instead.
+     *
+     * If `target` reverts with a revert reason, it is bubbled up by this
+     * function (like regular Solidity function calls).
+     *
+     * Returns the raw returned data. To convert to the expected return value,
+     * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].
+     *
+     * Requirements:
+     *
+     * - `target` must be a contract.
+     * - calling `target` with `data` must not revert.
+     *
+     * _Available since v3.1._
+     */
+    function functionCall(address target, bytes memory data) internal returns (bytes memory) {
+      return functionCall(target, data, "Address: low-level call failed");
+    }
+
+    /**
+     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with
+     * `errorMessage` as a fallback revert reason when `target` reverts.
+     *
+     * _Available since v3.1._
+     */
+    function functionCall(address target, bytes memory data, string memory errorMessage) internal returns (bytes memory) {
+        return _functionCallWithValue(target, data, 0, errorMessage);
+    }
+
+    /**
+     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],
+     * but also transferring `value` wei to `target`.
+     *
+     * Requirements:
+     *
+     * - the calling contract must have an ETH balance of at least `value`.
+     * - the called Solidity function must be `payable`.
+     *
+     * _Available since v3.1._
+     */
+    function functionCallWithValue(address target, bytes memory data, uint256 value) internal returns (bytes memory) {
+        return functionCallWithValue(target, data, value, "Address: low-level call with value failed");
+    }
+
+    /**
+     * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but
+     * with `errorMessage` as a fallback revert reason when `target` reverts.
+     *
+     * _Available since v3.1._
+     */
+    function functionCallWithValue(address target, bytes memory data, uint256 value, string memory errorMessage) internal returns (bytes memory) {
+        require(address(this).balance &gt;= value, "Address: insufficient balance for call");
+        return _functionCallWithValue(target, data, value, errorMessage);
+    }
+
+    function _functionCallWithValue(address target, bytes memory data, uint256 weiValue, string memory errorMessage) private returns (bytes memory) {
+        require(isContract(target), "Address: call to non-contract");
+
+        // solhint-disable-next-line avoid-low-level-calls
+        (bool success, bytes memory returndata) = target.call{ value: weiValue }(data);
+        if (success) {
+            return returndata;
+        } else {
+            // Look for revert reason and bubble it up if present
+            if (returndata.length &gt; 0) {
+                // The easiest way to bubble the revert reason is using memory via assembly
+
+                // solhint-disable-next-line no-inline-assembly
+                assembly {
+                    let returndata_size := mload(returndata)
+                    revert(add(32, returndata), returndata_size)
+                }
+            } else {
+                revert(errorMessage);
+            }
+        }
+    }
+}
+
+// File: @openzeppelin/contracts/GSN/Context.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+/*
+ * @dev Provides information about the current execution context, including the
+ * sender of the transaction and its data. While these are generally available
+ * via msg.sender and msg.data, they should not be accessed in such a direct
+ * manner, since when dealing with GSN meta-transactions the account sending and
+ * paying for execution may not be the actual sender (as far as an application
+ * is concerned).
+ *
+ * This contract is only required for intermediate, library-like contracts.
+ */
+abstract contract Context {
+    function _msgSender() internal view virtual returns (address payable) {
+        return msg.sender;
+    }
+
+    function _msgData() internal view virtual returns (bytes memory) {
+        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
+        return msg.data;
+    }
+}
+
+// File: @openzeppelin/contracts/access/AccessControl.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+
+
+
+/**
+ * @dev Contract module that allows children to implement role-based access
+ * control mechanisms.
+ *
+ * Roles are referred to by their `bytes32` identifier. These should be exposed
+ * in the external API and be unique. The best way to achieve this is by
+ * using `public constant` hash digests:
+ *
+ * ```
+ * bytes32 public constant MY_ROLE = keccak256("MY_ROLE");
+ * ```
+ *
+ * Roles can be used to represent a set of permissions. To restrict access to a
+ * function call, use {hasRole}:
+ *
+ * ```
+ * function foo() public {
+ *     require(hasRole(MY_ROLE, msg.sender));
+ *     ...
+ * }
+ * ```
+ *
+ * Roles can be granted and revoked dynamically via the {grantRole} and
+ * {revokeRole} functions. Each role has an associated admin role, and only
+ * accounts that have a role's admin role can call {grantRole} and {revokeRole}.
+ *
+ * By default, the admin role for all roles is `DEFAULT_ADMIN_ROLE`, which means
+ * that only accounts with this role will be able to grant or revoke other
+ * roles. More complex role relationships can be created by using
+ * {_setRoleAdmin}.
+ *
+ * WARNING: The `DEFAULT_ADMIN_ROLE` is also its own admin: it has permission to
+ * grant and revoke this role. Extra precautions should be taken to secure
+ * accounts that have been granted it.
+ */
+abstract contract AccessControl is Context {
+    using EnumerableSet for EnumerableSet.AddressSet;
+    using Address for address;
+
+    struct RoleData {
+        EnumerableSet.AddressSet members;
+        bytes32 adminRole;
+    }
+
+    mapping (bytes32 =&gt; RoleData) private _roles;
+
+    bytes32 public constant DEFAULT_ADMIN_ROLE = 0x00;
+
+    /**
+     * @dev Emitted when `newAdminRole` is set as ``role``'s admin role, replacing `previousAdminRole`
+     *
+     * `DEFAULT_ADMIN_ROLE` is the starting admin for all roles, despite
+     * {RoleAdminChanged} not being emitted signaling this.
+     *
+     * _Available since v3.1._
+     */
+    event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole);
+
+    /**
+     * @dev Emitted when `account` is granted `role`.
+     *
+     * `sender` is the account that originated the contract call, an admin role
+     * bearer except when using {_setupRole}.
+     */
+    event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender);
+
+    /**
+     * @dev Emitted when `account` is revoked `role`.
+     *
+     * `sender` is the account that originated the contract call:
+     *   - if using `revokeRole`, it is the admin role bearer
+     *   - if using `renounceRole`, it is the role bearer (i.e. `account`)
+     */
+    event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender);
+
+    /**
+     * @dev Returns `true` if `account` has been granted `role`.
+     */
+    function hasRole(bytes32 role, address account) public view returns (bool) {
+        return _roles[role].members.contains(account);
+    }
+
+    /**
+     * @dev Returns the number of accounts that have `role`. Can be used
+     * together with {getRoleMember} to enumerate all bearers of a role.
+     */
+    function getRoleMemberCount(bytes32 role) public view returns (uint256) {
+        return _roles[role].members.length();
+    }
+
+    /**
+     * @dev Returns one of the accounts that have `role`. `index` must be a
+     * value between 0 and {getRoleMemberCount}, non-inclusive.
+     *
+     * Role bearers are not sorted in any particular way, and their ordering may
+     * change at any point.
+     *
+     * WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure
+     * you perform all queries on the same block. See the following
+     * https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post]
+     * for more information.
+     */
+    function getRoleMember(bytes32 role, uint256 index) public view returns (address) {
+        return _roles[role].members.at(index);
+    }
+
+    /**
+     * @dev Returns the admin role that controls `role`. See {grantRole} and
+     * {revokeRole}.
+     *
+     * To change a role's admin, use {_setRoleAdmin}.
+     */
+    function getRoleAdmin(bytes32 role) public view returns (bytes32) {
+        return _roles[role].adminRole;
+    }
+
+    /**
+     * @dev Grants `role` to `account`.
+     *
+     * If `account` had not been already granted `role`, emits a {RoleGranted}
+     * event.
+     *
+     * Requirements:
+     *
+     * - the caller must have ``role``'s admin role.
+     */
+    function grantRole(bytes32 role, address account) public virtual {
+        require(hasRole(_roles[role].adminRole, _msgSender()), "AccessControl: sender must be an admin to grant");
+
+        _grantRole(role, account);
+    }
+
+    /**
+     * @dev Revokes `role` from `account`.
+     *
+     * If `account` had been granted `role`, emits a {RoleRevoked} event.
+     *
+     * Requirements:
+     *
+     * - the caller must have ``role``'s admin role.
+     */
+    function revokeRole(bytes32 role, address account) public virtual {
+        require(hasRole(_roles[role].adminRole, _msgSender()), "AccessControl: sender must be an admin to revoke");
+
+        _revokeRole(role, account);
+    }
+
+    /**
+     * @dev Revokes `role` from the calling account.
+     *
+     * Roles are often managed via {grantRole} and {revokeRole}: this function's
+     * purpose is to provide a mechanism for accounts to lose their privileges
+     * if they are compromised (such as when a trusted device is misplaced).
+     *
+     * If the calling account had been granted `role`, emits a {RoleRevoked}
+     * event.
+     *
+     * Requirements:
+     *
+     * - the caller must be `account`.
+     */
+    function renounceRole(bytes32 role, address account) public virtual {
+        require(account == _msgSender(), "AccessControl: can only renounce roles for self");
+
+        _revokeRole(role, account);
+    }
+
+    /**
+     * @dev Grants `role` to `account`.
+     *
+     * If `account` had not been already granted `role`, emits a {RoleGranted}
+     * event. Note that unlike {grantRole}, this function doesn't perform any
+     * checks on the calling account.
+     *
+     * [WARNING]
+     * ====
+     * This function should only be called from the constructor when setting
+     * up the initial roles for the system.
+     *
+     * Using this function in any other way is effectively circumventing the admin
+     * system imposed by {AccessControl}.
+     * ====
+     */
+    function _setupRole(bytes32 role, address account) internal virtual {
+        _grantRole(role, account);
+    }
+
+    /**
+     * @dev Sets `adminRole` as ``role``'s admin role.
+     *
+     * Emits a {RoleAdminChanged} event.
+     */
+    function _setRoleAdmin(bytes32 role, bytes32 adminRole) internal virtual {
+        emit RoleAdminChanged(role, _roles[role].adminRole, adminRole);
+        _roles[role].adminRole = adminRole;
+    }
+
+    function _grantRole(bytes32 role, address account) private {
+        if (_roles[role].members.add(account)) {
+            emit RoleGranted(role, account, _msgSender());
+        }
+    }
+
+    function _revokeRole(bytes32 role, address account) private {
+        if (_roles[role].members.remove(account)) {
+            emit RoleRevoked(role, account, _msgSender());
+        }
+    }
+}
+
+// File: contracts/common/AccessControlMixin.sol
+
+pragma solidity 0.6.6;
+
+
+contract AccessControlMixin is AccessControl {
+    string private _revertMsg;
+    function _setupContractId(string memory contractId) internal {
+        _revertMsg = string(abi.encodePacked(contractId, ": INSUFFICIENT_PERMISSIONS"));
+    }
+
+    modifier only(bytes32 role) {
+        require(
+            hasRole(role, _msgSender()),
+            _revertMsg
+        );
+        _;
+    }
+}
+
+// File: contracts/lib/RLPReader.sol
+
+/*
+ * @author Hamdi Allam hamdi.allam97@gmail.com
+ * Please reach out with any questions or concerns
+ * https://github.com/hamdiallam/Solidity-RLP/blob/e681e25a376dbd5426b509380bc03446f05d0f97/contracts/RLPReader.sol
+ */
+pragma solidity 0.6.6;
+
+library RLPReader {
+    uint8 constant STRING_SHORT_START = 0x80;
+    uint8 constant STRING_LONG_START  = 0xb8;
+    uint8 constant LIST_SHORT_START   = 0xc0;
+    uint8 constant LIST_LONG_START    = 0xf8;
+    uint8 constant WORD_SIZE = 32;
+
+    <span class="marker" id="mapping-157"></span><span class="token add" data-title="contract_body/struct_declaration">struct RLPItem {
+        uint len;
+        uint memPtr;
+    }</span>
+
+    <span class="marker" id="mapping-158"></span><span class="token add" data-title="contract_body/struct_declaration">struct Iterator {
+        RLPItem item;   // Item that's being iterated over.
+        uint nextPtr;   // Position of the next item in the list.
+    }</span>
+
+    <span class="marker" id="mapping-159"></span><span class="token upd" id="move-dst-1" data-title="contract_body/comment"><span class="cupd">/*
+   </span> <span class="cupd">*</span> @dev Returns the next element in the iteration. Reverts if it has not next element.
+  <span class="cupd">  * @para</span>m self Th<span class="cupd">e i</span>terato<span class="cupd">r</span><span class="cupd">.</span>
+    *<span class="cupd"> </span>@re<span class="cupd">t</span>urn<span class="cupd"> </span><span class="cupd">T</span>he <span class="cupd">n</span>e<span class="cupd">x</span>t elem<span class="cupd">e</span>nt<span class="cupd"> </span>in <span class="cupd">t</span>he iterati<span class="cupd">on.</span>
+<span class="cupd">  </span>  */</span>
+    <span class="marker" id="mapping-160"></span><span class="token add" data-title="contract_body/function_definition">function next(Iterator memory self) internal pure returns (RLPItem memory) {
+        require(hasNext(self));
+
+        uint ptr = self.nextPtr;
+        uint itemLength = _itemLength(ptr);
+        self.nextPtr = ptr + itemLength;
+
+        return RLPItem(itemLength, ptr);
+    }</span>
+
+    <span class="marker" id="mapping-161"></span><span class="token upd" id="move-dst-6" data-title="contract_body/comment"><span class="cupd">/*
+   </span> <span class="cupd">*</span> @dev Returns true if the iteration has more elements.
+  <span class="cupd">  * @para</span>m self Th<span class="cupd">e i</span>terato<span class="cupd">r</span><span class="cupd">.</span>
+    *<span class="cupd"> </span>@re<span class="cupd">t</span>urn <span class="cupd">t</span><span class="cupd">r</span><span class="cupd">u</span>e <span class="cupd">i</span>f <span class="cupd">th</span>e itera<span class="cupd">ti</span>on has more ele<span class="cupd">m</span><span class="cupd">e</span>n<span class="cupd">ts.
+</span><span class="cupd">  </span>  */</span>
+    <span class="marker" id="mapping-162"></span><span class="token add" data-title="contract_body/function_definition">function hasNext(<span class="marker" id="mapping-163"></span><span class="token add" data-title="function_definition/parameter">Iterator memory self</span>) <span class="marker" id="mapping-164"></span><span class="token add" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-165"></span><span class="token add" data-title="function_definition/state_mutability">pure</span> <span class="marker" id="mapping-166"></span><span class="token add" data-title="function_definition/return_type_definition">returns (bool)</span> <span class="marker" id="mapping-167"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-168"></span><span class="token add" data-title="function_body/variable_declaration_statement">RLPItem memory item = self.item;</span>
+        <span class="marker" id="mapping-169"></span><span class="token add" data-title="function_body/return_statement">return <span class="marker" id="mapping-170"></span><span class="token mv" id="move-dst-21" data-title="return_statement/binary_expression"><span class="marker" id="mapping-171"></span><span class="token add" data-title="binary_expression/member_expression">self.nextPtr &lt; item.memPtr</span> <span class="marker" id="mapping-172"></span><span class="token add" data-title="binary_expression/+">+</span> item.len</span>;</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-173"></span><span class="token mv" id="move-dst-34" data-title="contract_body/comment"><span class="marker" id="mapping-174"></span><span class="token upd" id="move-dst-34" data-title="contract_body/comment"><span class="cupd">/*
+   </span><span class="cupd"> *</span> @p<span class="cupd">a</span>ram<span class="cupd"> </span><span class="cupd">it</span>e<span class="cupd">m</span> RLP<span class="cupd"> </span>enco<span class="cupd">d</span>ed byt<span class="cupd">es
+  </span><span class="cupd">  </span>*/</span></span>
+    <span class="marker" id="mapping-175"></span><span class="token mv" id="move-dst-2" data-title="contract_body/function_definition">function toRlpItem(bytes memory item) internal pure returns (RLPItem memory) {
+        <span class="marker" id="mapping-176"></span><span class="token add" data-title="variable_declaration_statement/variable_declaration">uint memPtr</span>;
+        assembly {
+            memPtr := add(item, 0x20)
+        }
+
+        return RLPItem(item.length, memPtr);
+    }</span>
+
+    <span class="marker" id="mapping-177"></span><span class="token mv" id="move-dst-38" data-title="contract_body/comment"><span class="marker" id="mapping-178"></span><span class="token upd" id="move-dst-38" data-title="contract_body/comment"><span class="cupd">/*
+   </span><span class="cupd"> * </span>@dev <span class="cupd">C</span>r<span class="cupd">e</span>at<span class="cupd">e</span> a<span class="cupd">n</span><span class="cupd"> </span><span class="cupd">ite</span>r<span class="cupd">at</span>or<span class="cupd">.</span> Rever<span class="cupd">t</span>s if i<span class="cupd">t</span>e<span class="cupd">m</span> i<span class="cupd">s</span> no<span class="cupd">t</span> <span class="cupd">a</span> list<span class="cupd">.</span>
+  <span class="cupd">  * @para</span>m<span class="cupd"> </span>se<span class="cupd">l</span>f <span class="cupd">T</span><span class="cupd">h</span>e R<span class="cupd">L</span><span class="cupd">P</span><span class="cupd"> </span>ite<span class="cupd">m.
+ </span><span class="cupd">   </span><span class="cupd">*</span><span class="cupd"> </span>@re<span class="cupd">tur</span><span class="cupd">n</span> An<span class="cupd"> </span><span class="cupd">'</span><span class="cupd">I</span>t<span class="cupd">er</span>at<span class="cupd">o</span><span class="cupd">r</span>' <span class="cupd">o</span><span class="cupd">ver t</span>he<span class="cupd"> </span>it<span class="cupd">em.
+</span><span class="cupd">  </span>  */</span></span>
+    <span class="marker" id="mapping-179"></span><span class="token add" data-title="contract_body/function_definition">function iterator(RLPItem memory self) internal pure returns (Iterator memory) {
+        require(isList(self));
+
+        uint ptr = self.memPtr + _payloadOffset(self.memPtr);
+        return Iterator(self, ptr);
+    }</span>
+
+    <span class="marker" id="mapping-180"></span><span class="token add" data-title="contract_body/comment">/*
+    * @param the RLP item.
+    */</span>
+    <span class="marker" id="mapping-181"></span><span class="token add" data-title="contract_body/function_definition">function rlpLen(RLPItem memory item) internal pure returns (uint) {
+        return item.len;
+    }</span>
+
+    <span class="marker" id="mapping-182"></span><span class="token add" data-title="contract_body/comment">/*
+     * @param the RLP item.
+     * @return (memPtr, len) pair: location of the item's payload in memory.
+     */</span>
+    <span class="marker" id="mapping-183"></span><span class="token add" data-title="contract_body/function_definition">function payloadLocation(<span class="marker" id="mapping-184"></span><span class="token add" data-title="function_definition/parameter">RLPItem memory item</span>) <span class="marker" id="mapping-185"></span><span class="token add" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-186"></span><span class="token add" data-title="function_definition/state_mutability">pure</span> <span class="marker" id="mapping-187"></span><span class="token add" data-title="function_definition/return_type_definition">returns (uint, uint)</span> <span class="marker" id="mapping-188"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-189"></span><span class="token mv" id="move-dst-30" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-190"></span><span class="token add" data-title="primitive_type/uint">uint</span> offset = _payloadOffset(item.memPtr);</span>
+        <span class="marker" id="mapping-191"></span><span class="token mv" id="move-dst-22" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-192"></span><span class="token add" data-title="primitive_type/uint">uint</span> memPtr = item.memPtr + offset;</span>
+        <span class="marker" id="mapping-193"></span><span class="token mv" id="move-dst-31" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-194"></span><span class="token add" data-title="variable_declaration_statement/variable_declaration">uint len</span> = item.len - offset;</span> // data length
+        <span class="marker" id="mapping-195"></span><span class="token add" data-title="function_body/return_statement">return (memPtr, len);</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-196"></span><span class="token add" data-title="contract_body/comment">/*
+    * @param the RLP item.
+    */</span>
+    <span class="marker" id="mapping-197"></span><span class="token add" data-title="contract_body/function_definition">function payloadLen(<span class="marker" id="mapping-198"></span><span class="token add" data-title="function_definition/parameter">RLPItem memory item</span>) <span class="marker" id="mapping-199"></span><span class="token add" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-200"></span><span class="token add" data-title="function_definition/state_mutability">pure</span> <span class="marker" id="mapping-201"></span><span class="token add" data-title="function_definition/return_type_definition">returns (uint)</span> <span class="marker" id="mapping-202"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-203"></span><span class="token add" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-204"></span><span class="token add" data-title="variable_declaration_statement/variable_declaration_tuple">(, uint len)</span> = <span class="marker" id="mapping-205"></span><span class="token mv" id="move-dst-17" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-206"></span><span class="token upd" id="move-dst-18" data-title="call_expression/identifier">payload<span class="cupd">L</span>ocation</span>(item)</span>;</span>
+        <span class="marker" id="mapping-207"></span><span class="token add" data-title="function_body/return_statement">return len;</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-208"></span><span class="token add" data-title="contract_body/comment">/*
+    * @param the RLP item containing the encoded list.
+    */</span>
+    function toList(RLPItem memory item) internal pure returns (RLPItem[] memory) {
+        require(isList(item));
+
+        <span class="marker" id="mapping-209"></span><span class="token add" data-title="variable_declaration_statement/variable_declaration">uint items</span> = numItems(item);
+        RLPItem[] memory result = new RLPItem[](items);
+
+        <span class="marker" id="mapping-210"></span><span class="token mv" id="move-dst-35" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-211"></span><span class="token add" data-title="primitive_type/uint">uint</span> <span class="marker" id="mapping-212"></span><span class="token upd" id="move-dst-36" data-title="variable_declaration/identifier">mem<span class="cupd">Ptr</span></span> = item.memPtr + _payloadOffset(item.memPtr);</span>
+        <span class="marker" id="mapping-213"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint dataLen;</span>
+        for (<span class="marker" id="mapping-214"></span><span class="token add" data-title="primitive_type/uint">uint</span> i = 0; i &lt; items; i++) {
+            dataLen = _itemLength(memPtr);
+            result[i] = RLPItem(dataLen, memPtr); 
+            memPtr = memPtr + dataLen;
+        }
+
+        return result;
+    }
+
+    // @return indicator whether encoded payload is a list. negate this function call for isData.
+    function isList(RLPItem memory item) internal pure returns (bool) {
+        <span class="marker" id="mapping-215"></span><span class="token add" data-title="function_body/if_statement">if (<span class="marker" id="mapping-216"></span><span class="token mv" id="move-dst-19" data-title="if_statement/binary_expression">item.len <span class="marker" id="mapping-217"></span><span class="token add" data-title="binary_expression/==">==</span> <span class="marker" id="mapping-218"></span><span class="token upd" id="move-dst-20" data-title="binary_expression/number_literal">0</span></span>) <span class="marker" id="mapping-219"></span><span class="token add" data-title="if_statement/return_statement">return false;</span></span>
+
+        uint8 byte0;
+        <span class="marker" id="mapping-220"></span><span class="token add" data-title="primitive_type/uint">uint</span> memPtr = item.memPtr;
+        assembly {
+            byte0 := byte(0, mload(memPtr))
+        }
+
+        if (byte0 &lt; LIST_SHORT_START)
+            return false;
+        return true;
+    }
+
+    <span class="marker" id="mapping-221"></span><span class="token add" data-title="contract_body/comment">/*
+     * @dev A cheaper version of keccak256(toRlpBytes(item)) that avoids copying memory.
+     * @return keccak256 hash of RLP encoded bytes.
+     */</span>
+    <span class="marker" id="mapping-222"></span><span class="token add" data-title="contract_body/function_definition">function rlpBytesKeccak256(<span class="marker" id="mapping-223"></span><span class="token add" data-title="function_definition/parameter">RLPItem memory item</span>) <span class="marker" id="mapping-224"></span><span class="token add" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-225"></span><span class="token add" data-title="function_definition/state_mutability">pure</span> <span class="marker" id="mapping-226"></span><span class="token add" data-title="function_definition/return_type_definition">returns (bytes32)</span> <span class="marker" id="mapping-227"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-228"></span><span class="token mv" id="move-dst-14" data-title="function_body/variable_declaration_statement">uint256 ptr <span class="marker" id="mapping-229"></span><span class="token add" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-230"></span><span class="token mv" id="move-dst-27" data-title="variable_declaration_statement/member_expression">item.memPtr</span>;</span>
+        <span class="marker" id="mapping-231"></span><span class="token add" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-232"></span><span class="token mv" id="move-dst-32" data-title="variable_declaration_statement/variable_declaration">uint256 len</span> = <span class="marker" id="mapping-233"></span><span class="token add" data-title="variable_declaration_statement/member_expression">item.len</span>;</span>
+        <span class="marker" id="mapping-234"></span><span class="token add" data-title="function_body/variable_declaration_statement">bytes32 result;</span>
+        <span class="marker" id="mapping-235"></span><span class="token add" data-title="function_body/assembly_statement">assembly {
+            result := keccak256(ptr, len)
+        }</span>
+        <span class="marker" id="mapping-236"></span><span class="token add" data-title="function_body/return_statement">return result;</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-237"></span><span class="token add" data-title="contract_body/comment">/*
+     * @dev A cheaper version of keccak256(toBytes(item)) that avoids copying memory.
+     * @return keccak256 hash of the item payload.
+     */</span>
+    <span class="marker" id="mapping-238"></span><span class="token add" data-title="contract_body/function_definition">function payloadKeccak256(<span class="marker" id="mapping-239"></span><span class="token add" data-title="function_definition/parameter">RLPItem memory item</span>) <span class="marker" id="mapping-240"></span><span class="token add" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-241"></span><span class="token add" data-title="function_definition/state_mutability">pure</span> <span class="marker" id="mapping-242"></span><span class="token add" data-title="function_definition/return_type_definition">returns (bytes32)</span> <span class="marker" id="mapping-243"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-244"></span><span class="token add" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-245"></span><span class="token add" data-title="variable_declaration_statement/variable_declaration_tuple">(uint memPtr, uint len)</span> = <span class="marker" id="mapping-246"></span><span class="token mv" id="move-dst-15" data-title="variable_declaration_statement/call_expression"><span class="marker" id="mapping-247"></span><span class="token upd" id="move-dst-16" data-title="call_expression/identifier">payload<span class="cupd">L</span>ocation</span>(item)</span>;</span>
+        <span class="marker" id="mapping-248"></span><span class="token add" data-title="function_body/variable_declaration_statement">bytes32 result;</span>
+        <span class="marker" id="mapping-249"></span><span class="token add" data-title="function_body/assembly_statement">assembly {
+            result := keccak256(memPtr, len)
+        }</span>
+        <span class="marker" id="mapping-250"></span><span class="token add" data-title="function_body/return_statement">return result;</span>
+    }</span></span>
+
+    /** RLPItem conversions into data types **/
+
+    // @returns raw rlp encoding in bytes
+    function toRlpBytes(RLPItem memory item) internal pure returns (bytes memory) {
+        bytes memory result = new bytes(item.len);
+        <span class="marker" id="mapping-251"></span><span class="token add" data-title="function_body/if_statement">if (result.length == 0) return result;</span>
+        
+        <span class="marker" id="mapping-252"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint ptr;</span>
+        assembly {
+            ptr := add(0x20, result)
+        }
+
+        copy(item.memPtr, ptr, item.len);
+        return result;
+    }
+
+    <span class="marker" id="mapping-253"></span><span class="token add" data-title="contract_body/comment">// any non-zero byte except "0x80" is considered true</span>
+    <span class="marker" id="mapping-254"></span><span class="token add" data-title="contract_body/function_definition">function toBoolean(<span class="marker" id="mapping-255"></span><span class="token add" data-title="function_definition/parameter">RLPItem memory item</span>) <span class="marker" id="mapping-256"></span><span class="token add" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-257"></span><span class="token add" data-title="function_definition/state_mutability">pure</span> <span class="marker" id="mapping-258"></span><span class="token add" data-title="function_definition/return_type_definition">returns (bool)</span> <span class="marker" id="mapping-259"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-260"></span><span class="token mv" id="move-dst-28" data-title="function_body/expression_statement">require(item.len <span class="marker" id="mapping-261"></span><span class="token mv" id="move-dst-29" data-title="binary_expression/==">==</span> <span class="marker" id="mapping-262"></span><span class="token add" data-title="binary_expression/number_literal">1</span>);</span>
+        <span class="marker" id="mapping-263"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint result;</span>
+        <span class="marker" id="mapping-264"></span><span class="token mv" id="move-dst-23" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-265"></span><span class="token add" data-title="primitive_type/uint">uint</span> <span class="marker" id="mapping-266"></span><span class="token upd" id="move-dst-24" data-title="variable_declaration/identifier">m<span class="cupd">em</span>Ptr</span> = <span class="marker" id="mapping-267"></span><span class="token mv" id="move-dst-25" data-title="variable_declaration_statement/member_expression">item.memPtr</span>;</span>
+        <span class="marker" id="mapping-268"></span><span class="token add" data-title="function_body/assembly_statement">assembly {
+            result := byte(0, mload(memPtr))
+        }</span>
+
+        // SEE Github Issue #5.
+        // Summary: Most commonly used RLP libraries (i.e Geth) will encode
+        // "0" as "0x80" instead of as "0". We handle this edge case explicitly
+        // here.
+        <span class="marker" id="mapping-269"></span><span class="token add" data-title="function_body/if_statement">if (result == 0 || result == STRING_SHORT_START) {
+            return false;
+        } else {
+            return true;
+        }</span>
+    }</span></span>
+
+    function toAddress(RLPItem memory item) internal pure returns (address) {
+        // 1 byte for the length prefix
+        require(item.len == 21);
+
+        return address(toUint(item));
+    }
+
+    function toUint(RLPItem memory item) internal pure returns (<span class="marker" id="mapping-270"></span><span class="token add" data-title="primitive_type/uint">uint</span>) {
+        <span class="marker" id="mapping-271"></span><span class="token mv" id="move-dst-10" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-272"></span><span class="token add" data-title="call_argument/binary_expression"><span class="marker" id="mapping-273"></span><span class="token add" data-title="binary_expression/member_expression"><span class="marker" id="mapping-274"></span><span class="token add" data-title="member_expression/binary_expression"><span class="marker" id="mapping-275"></span><span class="token mv" id="move-dst-11" data-title="binary_expression/binary_expression">item.len <span class="marker" id="mapping-276"></span><span class="token add" data-title="binary_expression/>">&gt;</span> <span class="marker" id="mapping-277"></span><span class="token add" data-title="binary_expression/number_literal">0</span></span> &amp;&amp; item</span>.len</span> &lt;= 33</span>);</span>
+
+        <span class="marker" id="mapping-278"></span><span class="token add" data-title="function_body/variable_declaration_statement">(uint memPtr, uint len) = payloadLocation(item);</span>
+
+        <span class="marker" id="mapping-279"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint result;</span>
+        assembly {
+            result := mload(memPtr)
+
+            // shfit to the correct location if neccesary
+            if lt(len, 32) {
+                result := div(result, exp(256, sub(32, len)))
+            }
+        }
+
+        return result;
+    }
+
+    // enforces 32 byte length
+    function toUintStrict(RLPItem memory item) internal pure returns (<span class="marker" id="mapping-280"></span><span class="token add" data-title="primitive_type/uint">uint</span>) {
+        // one byte prefix
+        require(item.len == 33);
+
+        <span class="marker" id="mapping-281"></span><span class="token add" data-title="primitive_type/uint">uint</span> result;
+        <span class="marker" id="mapping-282"></span><span class="token add" data-title="primitive_type/uint">uint</span> memPtr = item.memPtr + 1;
+        assembly {
+            result := mload(memPtr)
+        }
+
+        return result;
+    }
+
+    function toBytes(RLPItem memory item) internal pure returns (bytes memory) {
+        <span class="marker" id="mapping-283"></span><span class="token mv" id="move-dst-26" data-title="function_body/expression_statement">require(item.len <span class="marker" id="mapping-284"></span><span class="token add" data-title="binary_expression/>">&gt;</span> <span class="marker" id="mapping-285"></span><span class="token add" data-title="binary_expression/number_literal">0</span>);</span>
+
+        <span class="marker" id="mapping-286"></span><span class="token add" data-title="function_body/variable_declaration_statement">(uint memPtr, uint len) = payloadLocation(item);</span>
+        bytes memory result = new bytes(len);
+
+        <span class="marker" id="mapping-287"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint destPtr;</span>
+        assembly {
+            destPtr := add(0x20, result)
+        }
+
+        copy(<span class="marker" id="mapping-288"></span><span class="token add" data-title="call_argument/identifier">memPtr</span>, destPtr, len);
+        return result;
+    }
+
+    <span class="marker" id="mapping-289"></span><span class="token add" data-title="contract_body/comment">/*
+    * Private Helpers
+    */</span>
+
+    // @return number of payload items inside an encoded list.
+    function numItems(RLPItem memory item) private pure returns (<span class="marker" id="mapping-290"></span><span class="token add" data-title="primitive_type/uint">uint</span>) {
+        <span class="marker" id="mapping-291"></span><span class="token add" data-title="function_body/if_statement">if (item.len == 0) return 0;</span>
+
+        <span class="marker" id="mapping-292"></span><span class="token add" data-title="primitive_type/uint">uint</span> count = 0;
+        <span class="marker" id="mapping-293"></span><span class="token mv" id="move-dst-12" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-294"></span><span class="token add" data-title="primitive_type/uint">uint</span> <span class="marker" id="mapping-295"></span><span class="token upd" id="move-dst-13" data-title="variable_declaration/identifier">curr<span class="cupd">Ptr</span></span> = item.memPtr + _payloadOffset(item.memPtr);</span>
+        <span class="marker" id="mapping-296"></span><span class="token add" data-title="primitive_type/uint">uint</span> endPtr = item.memPtr + item.len;
+        while (currPtr &lt; endPtr) {
+           currPtr = currPtr + _itemLength(currPtr); // skip over an item
+           count++;
+        }
+
+        return count;
+    }
+
+    // @return entire rlp item byte length
+    function _itemLength(<span class="marker" id="mapping-297"></span><span class="token add" data-title="primitive_type/uint">uint</span> memPtr) private pure returns (<span class="marker" id="mapping-298"></span><span class="token add" data-title="primitive_type/uint">uint</span>) {
+        <span class="marker" id="mapping-299"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint itemLen;</span>
+        <span class="marker" id="mapping-300"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint byte0;</span>
+        assembly {
+            byte0 := byte(0, mload(memPtr))
+        }
+
+        if (byte0 &lt; STRING_SHORT_START)
+            itemLen = 1;
+        
+        else if (byte0 &lt; STRING_LONG_START)
+            itemLen = byte0 - STRING_SHORT_START + 1;
+
+        else if (byte0 &lt; LIST_SHORT_START) {
+            assembly {
+                let byteLen := sub(byte0, 0xb7) // # of bytes the actual length is
+                memPtr := add(memPtr, 1) // skip over the first byte
+                
+                /* 32 byte word size */
+                let dataLen := div(mload(memPtr), exp(256, sub(32, byteLen))) // right shifting to get the len
+                itemLen := add(dataLen, add(byteLen, 1))
+            }
+        }
+
+        else if (byte0 &lt; LIST_LONG_START) {
+            itemLen = byte0 - LIST_SHORT_START + 1;
+        } 
+
+        else {
+            assembly {
+                let byteLen := sub(byte0, 0xf7)
+                memPtr := add(memPtr, 1)
+
+                let dataLen := div(mload(memPtr), exp(256, sub(32, byteLen))) // right shifting to the correct length
+                itemLen := add(dataLen, add(byteLen, 1))
+            }
+        }
+
+        return itemLen;
+    }
+
+    // @return number of bytes until the data
+    function _payloadOffset(<span class="marker" id="mapping-301"></span><span class="token add" data-title="primitive_type/uint">uint</span> memPtr) private pure returns (<span class="marker" id="mapping-302"></span><span class="token add" data-title="primitive_type/uint">uint</span>) {
+        <span class="marker" id="mapping-303"></span><span class="token add" data-title="primitive_type/uint">uint</span> byte0;
+        assembly {
+            byte0 := byte(0, mload(memPtr))
+        }
+
+        if (byte0 &lt; STRING_SHORT_START) 
+            return 0;
+        else if (byte0 &lt; STRING_LONG_START || (byte0 &gt;= LIST_SHORT_START &amp;&amp; byte0 &lt; LIST_LONG_START))
+            return 1;
+        else if (byte0 &lt; LIST_SHORT_START)  // being explicit
+            return byte0 - (STRING_LONG_START - 1) + 1;
+        else
+            return byte0 - (LIST_LONG_START - 1) + 1;
+    }
+
+    <span class="marker" id="mapping-304"></span><span class="token add" data-title="contract_body/comment">/*
+    * @param src Pointer to source
+    * @param dest Pointer to destination
+    * @param len Amount of memory to copy from the source
+    */</span>
+    function copy(<span class="marker" id="mapping-305"></span><span class="token add" data-title="function_definition/parameter">uint src</span>, <span class="marker" id="mapping-306"></span><span class="token add" data-title="function_definition/parameter">uint dest</span>, <span class="marker" id="mapping-307"></span><span class="token add" data-title="function_definition/parameter">uint len</span>) private pure {
+        if (len == 0) return;
+
+        // copy as many word sizes as possible
+        for (; len &gt;= WORD_SIZE; len -= WORD_SIZE) {
+            assembly {
+                mstore(dest, mload(src))
+            }
+
+            src += WORD_SIZE;
+            dest += WORD_SIZE;
+        }
+
+        <span class="marker" id="mapping-308"></span><span class="token add" data-title="function_body/if_statement">if (<span class="marker" id="mapping-309"></span><span class="token add" data-title="if_statement/binary_expression">len &gt; 0</span>) <span class="marker" id="mapping-310"></span><span class="token add" data-title="if_statement/block_statement">{
+            // left over bytes. Mask is used to remove unwanted bytes from the word
+            <span class="marker" id="mapping-311"></span><span class="token mv" id="move-dst-39" data-title="block_statement/variable_declaration_statement"><span class="marker" id="mapping-312"></span><span class="token add" data-title="primitive_type/uint">uint</span> mask = 256 ** (WORD_SIZE - len) - 1;</span>
+            <span class="marker" id="mapping-313"></span><span class="token mv" id="move-dst-40" data-title="block_statement/assembly_statement">assembly {
+                let srcpart := and(mload(src), not(mask)) // zero out src
+                let destpart := and(mload(dest), mask) // retrieve the bytes
+                mstore(dest, or(destpart, srcpart))
+            }</span>
+        }</span></span>
+    }
+}
+
+// File: contracts/root/TokenPredicates/ITokenPredicate.sol
+
+pragma solidity 0.6.6;
+
+
+/// @title Token predicate interface for all pos portal predicates
+/// @notice Abstract interface that defines methods for custom predicates
+interface ITokenPredicate {
+
+    /**
+     * @notice Deposit tokens into pos portal
+     * @dev When `depositor` deposits tokens into pos portal, tokens get locked into predicate contract.
+     * @param depositor Address who wants to deposit tokens
+     * @param depositReceiver Address (address) who wants to receive tokens on side chain
+     * @param rootToken Token which gets deposited
+     * @param depositData Extra data for deposit (amount for ERC20, token id for ERC721 etc.) [ABI encoded]
+     */
+    function lockTokens(
+        address depositor,
+        address depositReceiver,
+        address rootToken,
+        bytes calldata depositData
+    ) external;
+
+    /**
+     * @notice Validates and processes exit while withdraw process
+     * @dev Validates exit log emitted on sidechain. Reverts if validation fails.
+     * @dev Processes withdraw based on custom logic. Example: transfer ERC20/ERC721, mint ERC721 if mintable withdraw
+     * @param sender Address
+     * @param rootToken Token which gets withdrawn
+     * @param logRLPList Valid sidechain log for data like amount, token id etc.
+     */
+    function exitTokens(
+        address sender,
+        address rootToken,
+        bytes calldata logRLPList
+    ) external;
+}
+
+// File: contracts/common/Initializable.sol
+
+pragma solidity 0.6.6;
+
+contract Initializable {
+    bool inited = false;
+
+    modifier initializer() {
+        require(!inited, "already inited");
+        _;
+        inited = true;
+    }
+}
+
+contract MintableERC1155Predicate is
+    ITokenPredicate,
+    ERC1155Receiver,
+    AccessControlMixin,
+    Initializable
+{
+    using RLPReader for bytes;
+    using RLPReader for RLPReader.RLPItem;
+
+    bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
+    bytes32 public constant TOKEN_TYPE = keccak256("MintableERC1155");
+
+    bytes32 public constant TRANSFER_SINGLE_EVENT_SIG = keccak256(
+        "TransferSingle(address,address,address,uint256,uint256)"
+    );
+    bytes32 public constant TRANSFER_BATCH_EVENT_SIG = keccak256(
+        "TransferBatch(address,address,address,uint256[],uint256[])"
+    );
+
+    event LockedBatchMintableERC1155(
+        address indexed depositor,
+        address indexed depositReceiver,
+        address indexed rootToken,
+        uint256[] ids,
+        uint256[] amounts
+    );
+
+    constructor() public {}
+
+    function initialize(address _owner) external initializer {
+        _setupContractId("MintableERC1155Predicate");
+        _setupRole(DEFAULT_ADMIN_ROLE, _owner);
+        _setupRole(MANAGER_ROLE, _owner);
+    }
+
+    /**
+     * @notice rejects single transfer
+     */
+    function onERC1155Received(
+        address,
+        address,
+        uint256,
+        uint256,
+        bytes calldata
+    ) external override returns (bytes4) {
+        return 0;
+    }
+
+    /**
+     * @notice accepts batch transfer
+     */
+    function onERC1155BatchReceived(
+        address,
+        address,
+        uint256[] calldata,
+        uint256[] calldata,
+        bytes calldata
+    ) external override returns (bytes4) {
+        return ERC1155Receiver(0).onERC1155BatchReceived.selector;
+    }
+
+    /**
+     * @notice Lock ERC1155 tokens for deposit, callable only by manager
+     * @param depositor Address who wants to deposit tokens
+     * @param depositReceiver Address (address) who wants to receive tokens on child chain
+     * @param rootToken Token which gets deposited
+     * @param depositData ABI encoded id array and amount array
+     */
+    function lockTokens(
+        address depositor,
+        address depositReceiver,
+        address rootToken,
+        bytes calldata depositData
+    ) external override only(MANAGER_ROLE) {
+        // forcing batch deposit since supporting both single and batch deposit introduces too much complexity
+        (
+            uint256[] memory ids,
+            uint256[] memory amounts,
+            bytes memory data
+        ) = abi.decode(depositData, (uint256[], uint256[], bytes));
+
+        emit LockedBatchMintableERC1155(
+            depositor,
+            depositReceiver,
+            rootToken,
+            ids,
+            amounts
+        );
+        IMintableERC1155(rootToken).safeBatchTransferFrom(
+            depositor,
+            address(this),
+            ids,
+            amounts,
+            data
+        );
+    }
+    
+    // Used when attempting to exit with single token, single amount/ id is converted into
+    // slice of amounts/ ids
+    // Generally size is going to be `1` i.e. single element array, but it's kept generic
+    function makeArrayWithValue(uint256 val, uint size) internal pure returns(uint256[] memory) {
+        require(
+            size &gt; 0,
+            "MintableERC1155Predicate: Invalid resulting array length"
+        );
+
+        uint256[] memory vals = new uint256[](size);
+
+        for (uint256 i = 0; i &lt; size; i++) {
+            vals[i] = val;
+        }
+
+        return vals;
+    }
+
+    /**
+     * @notice Creates an array of `size` by repeating provided address,
+     * to be required for passing to batch balance checking function of ERC1155 tokens.
+     * @param addr Address to be repeated `size` times in resulting array
+     * @param size Size of resulting array
+     */
+    function makeArrayWithAddress(address addr, uint256 size)
+        internal
+        pure
+        returns (address[] memory)
+    {
+        require(
+            addr != address(0),
+            "MintableERC1155Predicate: Invalid address"
+        );
+        require(
+            size &gt; 0,
+            "MintableERC1155Predicate: Invalid resulting array length"
+        );
+
+        address[] memory addresses = new address[](size);
+
+        for (uint256 i = 0; i &lt; size; i++) {
+            addresses[i] = addr;
+        }
+
+        return addresses;
+    }
+
+    /**
+     * @notice Calculates amount of tokens to be minted, by subtracting available
+     * token balances from amount of tokens to be exited
+     * @param tokenBalances Token balances this contract holds for some ordered token ids
+     * @param amountsToBeExited Amount of tokens being exited
+     */
+    function calculateAmountsToBeMinted(
+        uint256[] memory tokenBalances,
+        uint256[] memory amountsToBeExited
+    ) internal pure returns (uint256[] memory<span class="marker" id="mapping-314"></span><span class="token add" data-title="return_type_definition/,">,</span> <span class="marker" id="mapping-315"></span><span class="token add" data-title="return_type_definition/parameter">bool</span><span class="marker" id="mapping-316"></span><span class="token add" data-title="return_type_definition/,">,</span> <span class="marker" id="mapping-317"></span><span class="token add" data-title="return_type_definition/parameter">bool</span>) {
+        require(
+            tokenBalances.length == amountsToBeExited.length,
+            "MintableERC1155Predicate: Array length mismatch found"
+        );
+
+        uint256[] memory toBeMintedAmounts = new uint256[](
+            tokenBalances.length
+        );
+        <span class="marker" id="mapping-318"></span><span class="token add" data-title="function_body/variable_declaration_statement">bool needMintStep;</span>
+        <span class="marker" id="mapping-319"></span><span class="token add" data-title="function_body/variable_declaration_statement">bool needTransferStep;</span>
+
+        // Iteratively calculating amounts of token to be minted
+        //
+        // Please note, in some cases it can be 0, but that will not
+        // be a problem, due to implementation of mint logic for ERC1155
+        for (uint256 i = 0; i &lt; tokenBalances.length; i++) {
+            if (tokenBalances[i] &lt; amountsToBeExited[i]) {
+                toBeMintedAmounts[i] = amountsToBeExited[i] - tokenBalances[i];
+                <span class="marker" id="mapping-320"></span><span class="token add" data-title="block_statement/expression_statement">needMintStep = true;</span>
+            }
+
+            <span class="marker" id="mapping-321"></span><span class="token add" data-title="block_statement/if_statement">if(tokenBalances[i] != 0) {
+                needTransferStep = true;
+            }</span>
+        }
+
+        return <span class="marker" id="mapping-322"></span><span class="token add" data-title="return_statement/tuple_expression">(toBeMintedAmounts, needMintStep, needTransferStep)</span>;
+    }
+
+    /**
+     * @notice Validates log signature, from and to address
+     * then sends the correct tokenId, amount to withdrawer
+     * callable only by manager
+     * @param rootToken Token which gets withdrawn
+     * @param log Valid ERC1155 TransferSingle burn or TransferBatch burn log from child chain
+     */
+    function exitTokens(
+        address,
+        address rootToken,
+        bytes memory log
+    ) public override only(MANAGER_ROLE) {
+        RLPReader.RLPItem[] memory logRLPList = log.toRlpItem().toList();
+        RLPReader.RLPItem[] memory logTopicRLPList = logRLPList[1].toList(); // topics
+        bytes memory logData = logRLPList[2].toBytes();
+
+        address withdrawer = address(logTopicRLPList[2].toUint()); // topic2 is from address
+
+        require(
+            address(logTopicRLPList[3].toUint()) == address(0), // topic3 is to address
+            "MintableERC1155Predicate: INVALID_RECEIVER"
+        );
+
+        <span class="marker" id="mapping-323"></span><span class="token add" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-324"></span><span class="token add" data-title="variable_declaration_statement/variable_declaration">bytes32 eventSig</span> = <span class="marker" id="mapping-325"></span><span class="token mv" id="move-dst-41" data-title="variable_declaration_statement/type_cast_expression">bytes32(logTopicRLPList[0].toUint())</span>;</span>
+        if (<span class="marker" id="mapping-326"></span><span class="token add" data-title="binary_expression/identifier">eventSig</span> == TRANSFER_SINGLE_EVENT_SIG) {
+            (uint256 id, uint256 amount) = abi.decode(
+                logData,
+                (uint256, uint256)
+            );
+
+            IMintableERC1155 token = IMintableERC1155(rootToken);
+
+            uint256 <span class="marker" id="mapping-327"></span><span class="token upd" id="move-dst-42" data-title="variable_declaration/identifier">b<span class="cupd">alance</span></span> = token.balanceOf(address(this), id);
+            if (<span class="marker" id="mapping-328"></span><span class="token upd" id="move-dst-43" data-title="binary_expression/identifier">b<span class="cupd">alance</span></span> &lt; amount) {
+                token.<span class="marker" id="mapping-329"></span><span class="token upd" id="move-dst-44" data-title="member_expression/identifier"><span class="cupd">mint</span></span>(<span class="marker" id="mapping-330"></span><span class="token add" data-title="call_expression/call_argument">withdrawer</span>, <span class="marker" id="mapping-331"></span><span class="token mv" id="move-dst-45" data-title="call_expression/call_argument">id</span>, <span class="marker" id="mapping-332"></span><span class="token add" data-title="call_expression/call_argument">amount - balance</span>, bytes(""));
+            }
+
+            <span class="marker" id="mapping-333"></span><span class="token add" data-title="block_statement/if_statement">if(<span class="marker" id="mapping-334"></span><span class="token add" data-title="if_statement/binary_expression">balance != 0</span>) <span class="marker" id="mapping-335"></span><span class="token add" data-title="if_statement/block_statement">{
+                <span class="marker" id="mapping-336"></span><span class="token mv" id="move-dst-46" data-title="block_statement/expression_statement">token.safeTransferFrom(
+                    address(this),
+                    withdrawer,
+                    id,
+                    <span class="marker" id="mapping-337"></span><span class="token upd" id="move-dst-47" data-title="call_argument/identifier">b<span class="cupd">a</span>lance</span>,
+                    bytes("")
+                );</span>
+            }</span></span>
+        } else if (<span class="marker" id="mapping-338"></span><span class="token add" data-title="binary_expression/identifier">eventSig</span> == TRANSFER_BATCH_EVENT_SIG) {
+            (uint256[] memory ids, uint256[] memory amounts) = abi.decode(
+                logData,
+                (uint256[], uint256[])
+            );
+
+            IMintableERC1155 token = IMintableERC1155(rootToken);
+
+            <span class="marker" id="mapping-339"></span><span class="token add" data-title="block_statement/variable_declaration_statement"><span class="marker" id="mapping-340"></span><span class="token mv" id="move-dst-3" data-title="variable_declaration_statement/variable_declaration"><span class="marker" id="mapping-341"></span><span class="token add" data-title="variable_declaration/type_name"><span class="marker" id="mapping-342"></span><span class="token mv" id="move-dst-4" data-title="type_name/type_name">uint256</span>[]</span> <span class="marker" id="mapping-343"></span><span class="token add" data-title="variable_declaration/memory">memory</span> <span class="marker" id="mapping-344"></span><span class="token upd" id="move-dst-5" data-title="variable_declaration/identifier">balances</span></span> = <span class="marker" id="mapping-345"></span><span class="token mv" id="move-dst-49" data-title="variable_declaration_statement/call_expression">token.balanceOfBatch(makeArrayWithAddress(address(this), ids.length), ids)</span>;</span>
+            <span class="marker" id="mapping-346"></span><span class="token add" data-title="block_statement/variable_declaration_statement"><span class="marker" id="mapping-347"></span><span class="token add" data-title="variable_declaration_statement/variable_declaration_tuple">(<span class="marker" id="mapping-348"></span><span class="token mv" id="move-dst-7" data-title="variable_declaration_tuple/variable_declaration"><span class="marker" id="mapping-349"></span><span class="token add" data-title="variable_declaration/type_name"><span class="marker" id="mapping-350"></span><span class="token mv" id="move-dst-8" data-title="type_name/type_name">uint256</span>[]</span> <span class="marker" id="mapping-351"></span><span class="token add" data-title="variable_declaration/memory">memory</span> <span class="marker" id="mapping-352"></span><span class="token upd" id="move-dst-9" data-title="variable_declaration/identifier">toBeM<span class="cupd">i</span>n<span class="cupd">te</span>d</span></span>, <span class="marker" id="mapping-353"></span><span class="token add" data-title="variable_declaration_tuple/variable_declaration">bool needMintStep</span>, <span class="marker" id="mapping-354"></span><span class="token add" data-title="variable_declaration_tuple/variable_declaration">bool needTransferStep</span>)</span> = <span class="marker" id="mapping-355"></span><span class="token add" data-title="variable_declaration_statement/call_expression">calculateAmountsToBeMinted(<span class="marker" id="mapping-356"></span><span class="token add" data-title="call_expression/call_argument">balances</span>, <span class="marker" id="mapping-357"></span><span class="token mv" id="move-dst-51" data-title="call_expression/call_argument">amounts</span>)</span>;</span>
+
+            <span class="marker" id="mapping-358"></span><span class="token add" data-title="block_statement/if_statement">if(needMintStep) <span class="marker" id="mapping-359"></span><span class="token add" data-title="if_statement/block_statement">{
+                <span class="marker" id="mapping-360"></span><span class="token mv" id="move-dst-48" data-title="block_statement/expression_statement">token.mintBatch(
+                    <span class="marker" id="mapping-361"></span><span class="token add" data-title="call_expression/call_argument">withdrawer</span>,
+                    ids,
+                    <span class="marker" id="mapping-362"></span><span class="token add" data-title="call_expression/call_argument">toBeMinted</span>,
+                    bytes("")
+                );</span>
+            }</span></span>
+
+            <span class="marker" id="mapping-363"></span><span class="token add" data-title="block_statement/if_statement">if(needTransferStep) <span class="marker" id="mapping-364"></span><span class="token add" data-title="if_statement/block_statement">{
+                <span class="marker" id="mapping-365"></span><span class="token mv" id="move-dst-50" data-title="block_statement/expression_statement"><span class="marker" id="mapping-366"></span><span class="token add" data-title="member_expression/identifier">token</span>.safeBatchTransferFrom(
+                    address(this),
+                    withdrawer,
+                    ids,
+                    <span class="marker" id="mapping-367"></span><span class="token add" data-title="call_expression/call_argument">balances</span>,
+                    bytes("")
+                );</span>
+            }</span></span>
+        } else {
+            revert("MintableERC1155Predicate: INVALID_WITHDRAW_SIG");
+        }
+    }
+}</pre></div></div></div></body></html>

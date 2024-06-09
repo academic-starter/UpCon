@@ -1,0 +1,984 @@
+<?xml version="1.0" ?>
+<matches>
+  <match src="identifier: msg [614,617]" dest="identifier: msg [46207,46210]"/>
+  <match src="primitive_type [1066,1073]" dest="primitive_type [480,487]"/>
+  <match src="primitive_type [149,156]" dest="primitive_type [161,168]"/>
+  <match src="address: address [1066,1073]" dest="address: address [480,487]"/>
+  <match src="parameter [1355,1369]" dest="parameter [769,783]"/>
+  <match src="(: ( [453,454]" dest="(: ( [25830,25831]"/>
+  <match src="(: ( [1103,1104]" dest="(: ( [517,518]"/>
+  <match src="identifier: impl [454,458]" dest="identifier: owner [25845,25850]"/>
+  <match src="primitive_type [421,428]" dest="primitive_type [40344,40351]"/>
+  <match src="visibility [2801,2809]" dest="visibility [43460,43468]"/>
+  <match src="): ) [1139,1140]" dest="): ) [553,554]"/>
+  <match src="identifier: _setSlotValue [1326,1339]" dest="identifier: _setSlotValue [740,753]"/>
+  <match src="(: ( [332,333]" dest="(: ( [346,347]"/>
+  <match src="internal: internal [1708,1716]" dest="internal: internal [24039,24047]"/>
+  <match src="bytes32: bytes32 [1218,1225]" dest="bytes32: bytes32 [632,639]"/>
+  <match src="expression_statement [446,474]" dest="expression_statement [25823,25935]"/>
+  <match src=",: , [1353,1354]" dest=",: , [767,768]"/>
+  <match src="type_name [1355,1362]" dest="type_name [769,776]"/>
+  <match src="=: = [194,195]" dest="=: = [207,208]"/>
+  <match src="address: address [671,678]" dest="address: address [40130,40137]"/>
+  <match src="identifier: sender [718,724]" dest="identifier: sender [41649,41655]"/>
+  <match src="{: { [109,110]" dest="{: { [121,122]"/>
+  <match src="uint256: uint256 [598,605]" dest="uint256: uint256 [2009,2016]"/>
+  <match src="number_literal: 0 [470,471]" dest="number_literal: 0 [25862,25863]"/>
+  <match src="}: } [1446,1447]" dest="}: } [860,861]"/>
+  <match src="uint256: uint256 [1112,1119]" dest="uint256: uint256 [526,533]"/>
+  <match src="identifier: key [1038,1041]" dest="identifier: key [452,455]"/>
+  <match src="internal: internal [1195,1203]" dest="internal: internal [609,617]"/>
+  <match src="call_argument [454,472]" dest="call_argument [25845,25864]"/>
+  <match src="}: } [1148,1149]" dest="}: } [562,563]"/>
+  <match src="parameter [1030,1041]" dest="parameter [444,455]"/>
+  <match src="uint160: uint160 [1104,1111]" dest="uint160: uint160 [518,525]"/>
+  <match src="yul_path [1429,1435]" dest="yul_path [843,849]"/>
+  <match src="function_body [1234,1309]" dest="function_body [648,723]"/>
+  <match src="type_name [900,907]" dest="type_name [26132,26139]"/>
+  <match src="contract_body [109,2893]" dest="contract_body [121,873]"/>
+  <match src="(: ( [1217,1218]" dest="(: ( [631,632]"/>
+  <match src="identifier: sender [618,624]" dest="identifier: sender [46211,46217]"/>
+  <match src="function_body [435,636]" dest="function_body [25812,25976]"/>
+  <match src="visibility [286,293]" dest="visibility [24897,24904]"/>
+  <match src="bytes32: bytes32 [278,285]" dest="bytes32: bytes32 [291,298]"/>
+  <match src="): ) [1369,1370]" dest="): ) [783,784]"/>
+  <match src="type_name [1030,1037]" dest="type_name [444,451]"/>
+  <match src="parameter [1218,1232]" dest="parameter [632,646]"/>
+  <match src="}: } [1301,1302]" dest="}: } [715,716]"/>
+  <match src="primitive_type [529,536]" dest="primitive_type [5556,5563]"/>
+  <match src="identifier: value_ [1429,1435]" dest="identifier: value_ [843,849]"/>
+  <match src="address: address [421,428]" dest="address: address [40344,40351]"/>
+  <match src="}: } [1453,1454]" dest="}: } [867,868]"/>
+  <match src="solidity: solidity [43,51]" dest="solidity: solidity [49,57]"/>
+  <match src="primitive_type [1104,1111]" dest="primitive_type [518,525]"/>
+  <match src="): ) [471,472]" dest="): ) [25863,25864]"/>
+  <match src="revert: revert [2442,2448]" dest="revert: revert [37266,37272]"/>
+  <match src="parameter [900,912]" dest="parameter [26132,26139]"/>
+  <match src="): ) [1232,1233]" dest="): ) [646,647]"/>
+  <match src="}: } [1308,1309]" dest="}: } [722,723]"/>
+  <match src="{: { [914,915]" dest="{: { [26146,26147]"/>
+  <match src="bytes32: bytes32 [325,332]" dest="bytes32: bytes32 [339,346]"/>
+  <match src="return_type_definition [1057,1078]" dest="return_type_definition [471,492]"/>
+  <match src="identifier: implementation [862,876]" dest="identifier: ownerOf [26047,26054]"/>
+  <match src="call_expression [728,751]" dest="call_expression [41659,41682]"/>
+  <match src="identifier: _getAddress [1018,1029]" dest="identifier: _getAddress [432,443]"/>
+  <match src="call_argument [1134,1137]" dest="call_argument [548,551]"/>
+  <match src="): ) [1140,1141]" dest="): ) [554,555]"/>
+  <match src="type_name [1066,1073]" dest="type_name [480,487]"/>
+  <match src="identifier: msg [714,717]" dest="identifier: msg [41645,41648]"/>
+  <match src="primitive_type [462,469]" dest="primitive_type [25854,25861]"/>
+  <match src="yul_path [1285,1290]" dest="yul_path [699,704]"/>
+  <match src="identifier: slot_ [1348,1353]" dest="identifier: slot_ [762,767]"/>
+  <match src="identifier: Proxy [103,108]" dest="identifier: ProxyTarget [109,120]"/>
+  <match src="call_expression [446,473]" dest="call_expression [25823,25934]"/>
+  <match src="address: address [932,939]" dest="address: address [45640,45647]"/>
+  <match src="parameter [1682,1706]" dest="parameter [25723,25736]"/>
+  <match src="identifier: require [706,713]" dest="identifier: require [41637,41644]"/>
+  <match src="source_file [0,2893]" dest="source_file [0,48344]"/>
+  <match src="(: ( [203,204]" dest="(: ( [216,217]"/>
+  <match src="type_cast_expression [196,271]" dest="type_cast_expression [209,284]"/>
+  <match src="(: ( [469,470]" dest="(: ( [25861,25862]"/>
+  <match src="(: ( [899,900]" dest="(: ( [26131,26132]"/>
+  <match src="{: { [1079,1080]" dest="{: { [493,494]"/>
+  <match src="assembly_statement [1391,1447]" dest="assembly_statement [805,861]"/>
+  <match src="identifier: _getSlotValue [1120,1133]" dest="identifier: _getSlotValue [534,547]"/>
+  <match src="(: ( [1179,1180]" dest="(: ( [593,594]"/>
+  <match src="!=: != [459,461]" dest="!=: != [25851,25853]"/>
+  <match src="returns: returns [891,898]" dest="returns: returns [26123,26130]"/>
+  <match src="call_argument [470,471]" dest="call_argument [25862,25863]"/>
+  <match src="): ) [1193,1194]" dest="): ) [607,608]"/>
+  <match src="): ) [1137,1138]" dest="): ) [551,552]"/>
+  <match src="): ) [1290,1291]" dest="): ) [704,705]"/>
+  <match src="member_expression [714,724]" dest="member_expression [41645,41655]"/>
+  <match src="(: ( [876,877]" dest="(: ( [26054,26055]"/>
+  <match src="pragma: pragma [36,42]" dest="pragma: pragma [42,48]"/>
+  <match src="solidity_version:  0.8.7 [51,57]" dest="solidity_version:  0.8.7 [57,63]"/>
+  <match src="identifier: add [1090,1093]" dest="identifier: add [504,507]"/>
+  <match src="yul_function_call [1279,1291]" dest="yul_function_call [693,705]"/>
+  <match src="member_expression [614,624]" dest="member_expression [46207,46217]"/>
+  <match src="return_type_definition [1209,1233]" dest="return_type_definition [623,647]"/>
+  <match src="yul_identifier [1422,1427]" dest="yul_identifier [836,841]"/>
+  <match src="constant: constant [294,302]" dest="constant: constant [308,316]"/>
+  <match src="private: private [157,164]" dest="private: private [24991,24998]"/>
+  <match src="parameter [421,433]" dest="parameter [40344,40360]"/>
+  <match src="visibility [157,164]" dest="visibility [24991,24998]"/>
+  <match src="): ) [1077,1078]" dest="): ) [491,492]"/>
+  <match src="identifier: ADMIN_SLOT [740,750]" dest="identifier: ADMIN_SLOT [41671,41681]"/>
+  <match src="type_name [278,285]" dest="type_name [291,298]"/>
+  <match src="function_body [1079,1149]" dest="function_body [493,563]"/>
+  <match src="): ) [912,913]" dest="): ) [26139,26140]"/>
+  <match src="(: ( [1119,1120]" dest="(: ( [533,534]"/>
+  <match src="parameter [671,686]" dest="parameter [40130,40146]"/>
+  <match src="function: function [1157,1165]" dest="function: function [571,579]"/>
+  <match src="yul_evm_builtin [2442,2448]" dest="yul_evm_builtin [37266,37272]"/>
+  <match src="): ) [472,473]" dest="): ) [25933,25934]"/>
+  <match src="yul_path [1422,1427]" dest="yul_path [836,841]"/>
+  <match src="call_expression [1120,1138]" dest="call_expression [534,552]"/>
+  <match src="identifier: slot_ [1285,1290]" dest="identifier: slot_ [699,704]"/>
+  <match src="type_name [1218,1225]" dest="type_name [632,639]"/>
+  <match src="primitive_type [278,285]" dest="primitive_type [291,298]"/>
+  <match src="visibility [879,885]" dest="visibility [26074,26080]"/>
+  <match src="primitive_type [806,813]" dest="primitive_type [2374,2381]"/>
+  <match src="view: view [1052,1056]" dest="view: view [466,470]"/>
+  <match src="function_body [1380,1454]" dest="function_body [794,868]"/>
+  <match src="visibility [1708,1716]" dest="visibility [24039,24047]"/>
+  <match src="{: { [1380,1381]" dest="{: { [794,795]"/>
+  <match src="uint256: uint256 [806,813]" dest="uint256: uint256 [2374,2381]"/>
+  <match src="identifier: IMPLEMENTATION_SLOT [174,193]" dest="identifier: IMPLEMENTATION_SLOT [187,206]"/>
+  <match src="primitive_type [1030,1037]" dest="primitive_type [444,451]"/>
+  <match src="returns: returns [1057,1064]" dest="returns: returns [471,478]"/>
+  <match src="identifier: require [446,453]" dest="identifier: require [25823,25830]"/>
+  <match src="type_cast_expression [1112,1139]" dest="type_cast_expression [526,553]"/>
+  <match src="identifier: implementation__ [1690,1706]" dest="identifier: owner [25731,25736]"/>
+  <match src="yul_evm_builtin [1279,1284]" dest="yul_evm_builtin [693,698]"/>
+  <match src="(: ( [1421,1422]" dest="(: ( [835,836]"/>
+  <match src="function: function [853,861]" dest="function: function [26038,26046]"/>
+  <match src="{: { [435,436]" dest="{: { [25812,25813]"/>
+  <match src="(: ( [1065,1066]" dest="(: ( [479,480]"/>
+  <match src="identifier: value_ [1363,1369]" dest="identifier: value_ [777,783]"/>
+  <match src="call_argument [204,270]" dest="call_argument [217,283]"/>
+  <match src="identifier: slot_ [1188,1193]" dest="identifier: slot_ [602,607]"/>
+  <match src="(: ( [1284,1285]" dest="(: ( [698,699]"/>
+  <match src="number_literal: 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc [204,270]" dest="number_literal: 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc [217,283]"/>
+  <match src="): ) [751,752]" dest="): ) [41695,41696]"/>
+  <match src="): ) [877,878]" dest="): ) [26067,26068]"/>
+  <match src="function_definition [1009,1149]" dest="function_definition [423,563]"/>
+  <match src="visibility [688,694]" dest="visibility [40148,40154]"/>
+  <match src="binary_expression [454,472]" dest="binary_expression [25845,25864]"/>
+  <match src="type_name [1180,1187]" dest="type_name [594,601]"/>
+  <match src="yul_identifier [1285,1290]" dest="yul_identifier [699,704]"/>
+  <match src="type_name [671,678]" dest="type_name [40130,40137]"/>
+  <match src="(: ( [1133,1134]" dest="(: ( [547,548]"/>
+  <match src="primitive_type [900,907]" dest="primitive_type [26132,26139]"/>
+  <match src="state_mutability [886,890]" dest="state_mutability [26086,26090]"/>
+  <match src="expression_statement [1090,1142]" dest="expression_statement [504,556]"/>
+  <match src="address: address [462,469]" dest="address: address [25854,25861]"/>
+  <match src="yul_evm_builtin [1415,1421]" dest="yul_evm_builtin [829,835]"/>
+  <match src="expression_statement [925,994]" dest="expression_statement [26200,26311]"/>
+  <match src="call_argument [614,624]" dest="call_argument [46207,46217]"/>
+  <match src="=: = [1094,1095]" dest="=: = [508,509]"/>
+  <match src="payable: payable [2810,2817]" dest="payable: payable [43469,43476]"/>
+  <match src="state_variable_declaration [278,401]" dest="state_variable_declaration [291,415]"/>
+  <match src="call_argument [740,750]" dest="call_argument [41671,41681]"/>
+  <match src="{: { [1234,1235]" dest="{: { [648,649]"/>
+  <match src="type_name [1682,1689]" dest="type_name [25723,25730]"/>
+  <match src="bytes32: bytes32 [1030,1037]" dest="bytes32: bytes32 [444,451]"/>
+  <match src="(: ( [1339,1340]" dest="(: ( [753,754]"/>
+  <match src="state_mutability [2810,2817]" dest="state_mutability [43469,43476]"/>
+  <match src="uint256: uint256 [948,955]" dest="uint256: uint256 [3657,3664]"/>
+  <match src="constant: constant [165,173]" dest="constant: constant [178,186]"/>
+  <match src="function_definition [853,1001]" dest="function_definition [26038,26341]"/>
+  <match src="public: public [688,694]" dest="public: public [40148,40154]"/>
+  <match src="call_argument [714,751]" dest="call_argument [41645,41682]"/>
+  <match src="}: } [1000,1001]" dest="}: } [26340,26341]"/>
+  <match src="function_definition [1317,1454]" dest="function_definition [731,868]"/>
+  <match src="bytes32: bytes32 [149,156]" dest="bytes32: bytes32 [161,168]"/>
+  <match src="primitive_type [1355,1362]" dest="primitive_type [769,776]"/>
+  <match src="type_cast_expression [1104,1140]" dest="type_cast_expression [518,554]"/>
+  <match src="(: ( [1111,1112]" dest="(: ( [525,526]"/>
+  <match src="view: view [1204,1208]" dest="view: view [618,622]"/>
+  <match src="type_name [1340,1347]" dest="type_name [754,761]"/>
+  <match src="bytes32: bytes32 [196,203]" dest="bytes32: bytes32 [209,216]"/>
+  <match src="function: function [1009,1017]" dest="function: function [423,431]"/>
+  <match src="address: address [1096,1103]" dest="address: address [510,517]"/>
+  <match src="yul_function_call [1415,1436]" dest="yul_function_call [829,850]"/>
+  <match src="call_argument [333,399]" dest="call_argument [347,413]"/>
+  <match src="=: = [323,324]" dest="=: = [337,338]"/>
+  <match src="(: ( [739,740]" dest="(: ( [41670,41671]"/>
+  <match src="primitive_type [948,955]" dest="primitive_type [3657,3664]"/>
+  <match src="call_argument [1104,1140]" dest="call_argument [518,554]"/>
+  <match src="call_argument [1112,1139]" dest="call_argument [526,553]"/>
+  <match src="private: private [286,293]" dest="private: private [24897,24904]"/>
+  <match src="primitive_type [1096,1103]" dest="primitive_type [510,517]"/>
+  <match src="assembly: assembly [1391,1399]" dest="assembly: assembly [805,813]"/>
+  <match src="pragma_directive [36,58]" dest="pragma_directive [42,64]"/>
+  <match src="bytes32: bytes32 [1340,1347]" dest="bytes32: bytes32 [754,761]"/>
+  <match src="): ) [750,751]" dest="): ) [41681,41682]"/>
+  <match src="number_literal: 0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103 [333,399]" dest="number_literal: 0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103 [347,413]"/>
+  <match src="type_name [421,428]" dest="type_name [40344,40351]"/>
+  <match src="type_name [149,156]" dest="type_name [161,168]"/>
+  <match src="internal: internal [1371,1379]" dest="internal: internal [785,793]"/>
+  <match src="solidity_pragma_token [43,57]" dest="solidity_pragma_token [49,63]"/>
+  <match src="yul_identifier [1269,1275]" dest="yul_identifier [683,689]"/>
+  <match src="assignment_expression [1090,1141]" dest="assignment_expression [504,555]"/>
+  <match src="visibility [1043,1051]" dest="visibility [457,465]"/>
+  <match src="binary_expression [714,751]" dest="binary_expression [41645,41682]"/>
+  <match src="function_body [914,1001]" dest="function_body [26146,26341]"/>
+  <match src="returns: returns [1209,1216]" dest="returns: returns [623,630]"/>
+  <match src="return_type_definition [891,913]" dest="return_type_definition [26123,26140]"/>
+  <match src="identifier: impl [429,433]" dest="identifier: newOwner [40352,40360]"/>
+  <match src="sstore: sstore [1415,1421]" dest="sstore: sstore [829,835]"/>
+  <match src="address: address [1682,1689]" dest="address: address [25723,25730]"/>
+  <match src="type_cast_expression [325,400]" dest="type_cast_expression [339,414]"/>
+  <match src="{: { [1254,1255]" dest="{: { [668,669]"/>
+  <match src="primitive_type [1180,1187]" dest="primitive_type [594,601]"/>
+  <match src="public: public [879,885]" dest="public: public [26074,26080]"/>
+  <match src="contract_declaration [94,2893]" dest="contract_declaration [100,873]"/>
+  <match src="primitive_type [1112,1119]" dest="primitive_type [526,533]"/>
+  <match src=",: , [1427,1428]" dest=",: , [841,842]"/>
+  <match src="): ) [399,400]" dest="): ) [413,414]"/>
+  <match src="call_expression [706,752]" dest="call_expression [41637,41696]"/>
+  <match src="sload: sload [1279,1284]" dest="sload: sload [693,698]"/>
+  <match src="comment: /// @dev Proxy for NFT Factory [62,92]" dest="comment: /// @dev Proxy for NFT Factory [68,98]"/>
+  <match src="function_definition [1157,1309]" dest="function_definition [571,723]"/>
+  <match src="identifier: slot_ [1422,1427]" dest="identifier: slot_ [836,841]"/>
+  <match src="): ) [270,271]" dest="): ) [283,284]"/>
+  <match src="primitive_type [932,939]" dest="primitive_type [45640,45647]"/>
+  <match src="primitive_type [1218,1225]" dest="primitive_type [632,639]"/>
+  <match src="parameter [1066,1077]" dest="parameter [480,491]"/>
+  <match src="bytes32: bytes32 [1180,1187]" dest="bytes32: bytes32 [594,601]"/>
+  <match src="assembly_statement [1245,1302]" dest="assembly_statement [659,716]"/>
+  <match src="): ) [1041,1042]" dest="): ) [455,456]"/>
+  <match src="parameter [1180,1193]" dest="parameter [594,607]"/>
+  <match src="visibility [1195,1203]" dest="visibility [609,617]"/>
+  <match src="parameter [1340,1353]" dest="parameter [754,767]"/>
+  <match src="primitive_type [196,203]" dest="primitive_type [209,216]"/>
+  <match src="yul_path [1269,1275]" dest="yul_path [683,689]"/>
+  <match src="primitive_type [671,678]" dest="primitive_type [40130,40137]"/>
+  <match src="(: ( [1029,1030]" dest="(: ( [443,444]"/>
+  <match src="contract: contract [94,102]" dest="contract: contract [100,108]"/>
+  <match src="identifier: newImpl [679,686]" dest="identifier: newOwner [40138,40146]"/>
+  <match src="function: function [1317,1325]" dest="function: function [731,739]"/>
+  <match src="primitive_type [598,605]" dest="primitive_type [2009,2016]"/>
+  <match src="state_mutability [1052,1056]" dest="state_mutability [466,470]"/>
+  <match src="primitive_type [1340,1347]" dest="primitive_type [754,761]"/>
+  <match src="primitive_type [1682,1689]" dest="primitive_type [25723,25730]"/>
+  <match src="==: == [725,727]" dest="==: == [41656,41658]"/>
+  <match src="{: { [1400,1401]" dest="{: { [814,815]"/>
+  <match src="external: external [2801,2809]" dest="external: external [43460,43468]"/>
+  <match src="yul_identifier [1429,1435]" dest="yul_identifier [843,849]"/>
+  <match src="type_cast_expression [1096,1141]" dest="type_cast_expression [510,555]"/>
+  <match src="type_cast_expression [462,472]" dest="type_cast_expression [25854,25864]"/>
+  <match src="state_variable_declaration [149,272]" dest="state_variable_declaration [161,285]"/>
+  <match src="expression_statement [706,753]" dest="expression_statement [41637,41697]"/>
+  <match src="state_mutability [1204,1208]" dest="state_mutability [618,622]"/>
+  <match src="identifier: add [1074,1077]" dest="identifier: add [488,491]"/>
+  <match src=".: . [617,618]" dest=".: . [46210,46211]"/>
+  <match src=":=: := [1276,1278]" dest=":=: := [690,692]"/>
+  <match src="yul_assignment [1269,1291]" dest="yul_assignment [683,705]"/>
+  <match src="address: address [900,907]" dest="address: address [26132,26139]"/>
+  <match src="visibility [1371,1379]" dest="visibility [785,793]"/>
+  <match src="): ) [1138,1139]" dest="): ) [552,553]"/>
+  <match src="primitive_type [325,332]" dest="primitive_type [339,346]"/>
+  <match src="comment: // File: TestContracts/Proxy.sol [0,32]" dest="comment: // File: TestContracts/ProxyTarget.sol [0,38]"/>
+  <match src="assembly: assembly [1245,1253]" dest="assembly: assembly [659,667]"/>
+  <match src="uint256: uint256 [529,536]" dest="uint256: uint256 [5556,5563]"/>
+  <match src="call_argument [1120,1138]" dest="call_argument [534,552]"/>
+  <match src="}: } [635,636]" dest="}: } [25975,25976]"/>
+  <match src="identifier: _getAddress [728,739]" dest="identifier: _getAddress [41659,41670]"/>
+  <match src="identifier: value_ [1269,1275]" dest="identifier: value_ [683,689]"/>
+  <match src="bytes32: bytes32 [1355,1362]" dest="bytes32: bytes32 [769,776]"/>
+  <match src=".: . [717,718]" dest=".: . [41648,41649]"/>
+  <match src="}: } [2892,2893]" dest="}: } [872,873]"/>
+  <match src="identifier: _getSlotValue [1166,1179]" dest="identifier: _getSlotValue [580,593]"/>
+  <match src="view: view [886,890]" dest="view: view [26086,26090]"/>
+  <match src="identifier: key [1134,1137]" dest="identifier: key [548,551]"/>
+  <match src="): ) [1435,1436]" dest="): ) [849,850]"/>
+  <match src="identifier: ADMIN_SLOT [303,313]" dest="identifier: ADMIN_SLOT [317,327]"/>
+  <match src="comment: // Storage for this proxy [118,143]" dest="comment: // Storage for this proxy [130,155]"/>
+  <match src="internal: internal [1043,1051]" dest="internal: internal [457,465]"/>
+  <match src="identifier: value_ [1226,1232]" dest="identifier: value_ [640,646]"/>
+  <match src="(: ( [713,714]" dest="(: ( [41644,41645]"/>
+</matches>
+<actions>
+  <update-node tree="comment: // File: TestContracts/Proxy.sol [0,32]" label="// File: TestContracts/ProxyTarget.sol"/>
+  <insert-node tree="comment: // File: base/IVRF.sol [875,897]" parent="source_file [0,48344]" at="4"/>
+  <insert-node tree="comment: //SPDX-License-Identifier: UNLICENSED [901,938]" parent="source_file [0,48344]" at="5"/>
+  <insert-tree tree="pragma_directive [942,965]" parent="source_file [0,48344]" at="6"/>
+  <insert-tree tree="interface_declaration [969,1204]" parent="source_file [0,48344]" at="7"/>
+  <insert-node tree="comment: // File: base/Counters.sol [1206,1232]" parent="source_file [0,48344]" at="8"/>
+  <insert-node tree="comment: // OpenZeppelin Contracts v4.4.1 (utils/Counters.sol) [1238,1291]" parent="source_file [0,48344]" at="9"/>
+  <insert-tree tree="pragma_directive [1295,1318]" parent="source_file [0,48344]" at="10"/>
+  <insert-node tree="comment: /**  * @title Counters  * @author Matt Condon (@shrugs)  * @dev Provides counters that can only be incremented, decremented or reset. This can be used e.g. to track the number  * of elements in a mapping, issuing ERC721 ids, or counting request ids.  *  * Include with `using Counters for Counters.Counter;`  */ [1322,1640]" parent="source_file [0,48344]" at="11"/>
+  <insert-node tree="library_declaration [1642,2642]" parent="source_file [0,48344]" at="12"/>
+  <insert-node tree="comment: // File: base/IWhitelist.sol [2644,2672]" parent="source_file [0,48344]" at="13"/>
+  <insert-tree tree="pragma_directive [2676,2699]" parent="source_file [0,48344]" at="14"/>
+  <insert-tree tree="interface_declaration [2703,2903]" parent="source_file [0,48344]" at="15"/>
+  <insert-node tree="comment: // File: base/IGameEngine.sol [2905,2934]" parent="source_file [0,48344]" at="16"/>
+  <insert-tree tree="pragma_directive [2942,2965]" parent="source_file [0,48344]" at="17"/>
+  <insert-tree tree="interface_declaration [2969,3090]" parent="source_file [0,48344]" at="18"/>
+  <insert-node tree="comment: // File: base/IMetadata.sol [3092,3119]" parent="source_file [0,48344]" at="19"/>
+  <insert-tree tree="pragma_directive [3123,3146]" parent="source_file [0,48344]" at="20"/>
+  <insert-node tree="interface_declaration [3150,3731]" parent="source_file [0,48344]" at="21"/>
+  <insert-node tree="comment: // File: base/IERC721Receiver.sol [3733,3766]" parent="source_file [0,48344]" at="22"/>
+  <insert-tree tree="pragma_directive [3772,3795]" parent="source_file [0,48344]" at="23"/>
+  <insert-node tree="comment: /**  * @title ERC721 token receiver interface  * @dev Interface for any contract that wants to support safeTransfers  * from ERC721 asset contracts.  */ [3799,3955]" parent="source_file [0,48344]" at="24"/>
+  <insert-tree tree="interface_declaration [3957,4654]" parent="source_file [0,48344]" at="25"/>
+  <insert-node tree="comment: // File: base/IERC165.sol [4656,4681]" parent="source_file [0,48344]" at="26"/>
+  <insert-tree tree="pragma_directive [4689,4712]" parent="source_file [0,48344]" at="27"/>
+  <insert-tree tree="interface_declaration [4714,5171]" parent="source_file [0,48344]" at="28"/>
+  <insert-node tree="comment: // File: base/IERC721.sol [5173,5198]" parent="source_file [0,48344]" at="29"/>
+  <insert-node tree="comment: // OpenZeppelin Contracts v4.4.1 (token/ERC721/IERC721.sol) [5204,5263]" parent="source_file [0,48344]" at="30"/>
+  <insert-tree tree="pragma_directive [5267,5290]" parent="source_file [0,48344]" at="31"/>
+  <insert-node tree="comment: /**  * @dev Required interface of an ERC721 compliant contract.  */ [5296,5365]" parent="source_file [0,48344]" at="32"/>
+  <insert-node tree="interface_declaration [5367,9999]" parent="source_file [0,48344]" at="33"/>
+  <insert-node tree="comment: // File: base/IERC721Metadata.sol [10001,10034]" parent="source_file [0,48344]" at="34"/>
+  <insert-tree tree="pragma_directive [10040,10063]" parent="source_file [0,48344]" at="35"/>
+  <insert-node tree="comment: /**  * @title ERC-721 Non-Fungible Token Standard, optional metadata extension  * @dev See https://eips.ethereum.org/EIPS/eip-721  */ [10067,10203]" parent="source_file [0,48344]" at="36"/>
+  <insert-tree tree="interface_declaration [10205,10680]" parent="source_file [0,48344]" at="37"/>
+  <insert-node tree="comment: // File: base/ERC165.sol [10684,10708]" parent="source_file [0,48344]" at="38"/>
+  <insert-tree tree="pragma_directive [10716,10739]" parent="source_file [0,48344]" at="39"/>
+  <insert-node tree="comment: /**  * @dev Implementation of the {IERC165} interface.  *  * Contracts that want to implement ERC165 should inherit from this contract and override {supportsInterface} to check  * for the additional interface id that will be supported. For example:  *  * ```solidity  * function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {  *     return interfaceId == type(MyInterface).interfaceId || super.supportsInterface(interfaceId);  * }  * ```  *  * Alternatively, {ERC165Storage} provides an easier to use but more expensive implementation.  */ [10745,11334]" parent="source_file [0,48344]" at="40"/>
+  <insert-tree tree="contract_declaration [11336,11633]" parent="source_file [0,48344]" at="41"/>
+  <insert-node tree="comment: // File: base/Strings.sol [11639,11664]" parent="source_file [0,48344]" at="42"/>
+  <insert-tree tree="pragma_directive [11672,11695]" parent="source_file [0,48344]" at="43"/>
+  <insert-node tree="comment: /**  * @dev String operations.  */ [11697,11733]" parent="source_file [0,48344]" at="44"/>
+  <insert-tree tree="library_declaration [11735,13659]" parent="source_file [0,48344]" at="45"/>
+  <insert-node tree="comment: // File: base/Address.sol [13661,13686]" parent="source_file [0,48344]" at="46"/>
+  <insert-tree tree="pragma_directive [13694,13717]" parent="source_file [0,48344]" at="47"/>
+  <insert-tree tree="library_declaration [13719,20194]" parent="source_file [0,48344]" at="48"/>
+  <insert-node tree="comment: // File: base/IERC20.sol [20196,20220]" parent="source_file [0,48344]" at="49"/>
+  <insert-node tree="comment: // OpenZeppelin Contracts v4.4.1 (token/ERC20/IERC20.sol) [20226,20283]" parent="source_file [0,48344]" at="50"/>
+  <insert-tree tree="pragma_directive [20287,20310]" parent="source_file [0,48344]" at="51"/>
+  <insert-node tree="comment: /**  * @dev Interface of the ERC20 standard as defined in the EIP.  */ [20314,20386]" parent="source_file [0,48344]" at="52"/>
+  <insert-tree tree="interface_declaration [20388,23121]" parent="source_file [0,48344]" at="53"/>
+  <insert-node tree="comment: // File: base/Context.sol [23125,23150]" parent="source_file [0,48344]" at="54"/>
+  <insert-tree tree="pragma_directive [23158,23181]" parent="source_file [0,48344]" at="55"/>
+  <insert-node tree="comment: /*  * @dev Provides information about the current execution context, including the  * sender of the transaction and its data. While these are generally available  * via msg.sender and msg.data, they should not be accessed in such a direct  * manner, since when dealing with GSN meta-transactions the account sending and  * paying for execution may not be the actual sender (as far as an application  * is concerned).  *  * This contract is only required for intermediate, library-like contracts.  */ [23183,23691]" parent="source_file [0,48344]" at="56"/>
+  <insert-node tree="contract_declaration [23695,24256]" parent="source_file [0,48344]" at="57"/>
+  <insert-node tree="comment: // File: base/ERC721.sol [24258,24282]" parent="source_file [0,48344]" at="58"/>
+  <insert-tree tree="pragma_directive [24290,24313]" parent="source_file [0,48344]" at="59"/>
+  <insert-node tree="comment: /**  * @dev Implementation of https://eips.ethereum.org/EIPS/eip-721[ERC721] Non-Fungible Token Standard, including  * the Metadata extension, but not including the Enumerable extension, which is available separately as  * {ERC721Enumerable}.  */ [24331,24581]" parent="source_file [0,48344]" at="60"/>
+  <insert-node tree="contract_declaration [24583,38121]" parent="source_file [0,48344]" at="61"/>
+  <insert-node tree="comment: // File: base/Ownable.sol [38125,38150]" parent="source_file [0,48344]" at="62"/>
+  <insert-tree tree="pragma_directive [38160,38183]" parent="source_file [0,48344]" at="63"/>
+  <insert-node tree="comment: /**  * @dev Contract module which provides a basic access control mechanism, where  * there is an account (an owner) that can be granted exclusive access to  * specific functions.  *  * By default, the owner account will be the one that deploys the contract. This  * can later be changed with {transferOwnership}.  *  * This module is used through inheritance. It will make available the modifier  * `onlyOwner`, which can be applied to your functions to restrict their use to  * the owner.  */ [38185,38690]" parent="source_file [0,48344]" at="64"/>
+  <insert-node tree="contract_declaration [38692,40548]" parent="source_file [0,48344]" at="65"/>
+  <insert-node tree="comment: // File: TestContracts/testnftFactory.sol [40552,40593]" parent="source_file [0,48344]" at="66"/>
+  <insert-node tree="comment: /**  * Author : Lil Ye, Ace, Anyx, Elmontos  */ [40599,40648]" parent="source_file [0,48344]" at="67"/>
+  <insert-tree tree="pragma_directive [40650,40673]" parent="source_file [0,48344]" at="68"/>
+  <insert-node tree="contract_declaration [40695,48344]" parent="source_file [0,48344]" at="69"/>
+  <update-node tree="identifier: Proxy [103,108]" label="ProxyTarget"/>
+  <insert-node tree="library: library [1642,1649]" parent="library_declaration [1642,2642]" at="0"/>
+  <insert-node tree="identifier: Counters [1650,1658]" parent="library_declaration [1642,2642]" at="1"/>
+  <insert-node tree="contract_body [1659,2642]" parent="library_declaration [1642,2642]" at="2"/>
+  <insert-node tree="interface: interface [3150,3159]" parent="interface_declaration [3150,3731]" at="0"/>
+  <insert-node tree="identifier: IMetadata [3160,3169]" parent="interface_declaration [3150,3731]" at="1"/>
+  <insert-node tree="contract_body [3169,3731]" parent="interface_declaration [3150,3731]" at="2"/>
+  <insert-node tree="interface: interface [5367,5376]" parent="interface_declaration [5367,9999]" at="0"/>
+  <insert-node tree="identifier: IERC721 [5377,5384]" parent="interface_declaration [5367,9999]" at="1"/>
+  <insert-node tree="is: is [5385,5387]" parent="interface_declaration [5367,9999]" at="2"/>
+  <insert-tree tree="inheritance_specifier [5388,5395]" parent="interface_declaration [5367,9999]" at="3"/>
+  <insert-node tree="contract_body [5396,9999]" parent="interface_declaration [5367,9999]" at="4"/>
+  <insert-node tree="contract: contract [23695,23703]" parent="contract_declaration [23695,24256]" at="0"/>
+  <insert-node tree="identifier: Context [23704,23711]" parent="contract_declaration [23695,24256]" at="1"/>
+  <insert-node tree="contract_body [23712,24256]" parent="contract_declaration [23695,24256]" at="2"/>
+  <insert-node tree="abstract: abstract [24583,24591]" parent="contract_declaration [24583,38121]" at="0"/>
+  <insert-node tree="contract: contract [24592,24600]" parent="contract_declaration [24583,38121]" at="1"/>
+  <insert-node tree="identifier: ERC721 [24601,24607]" parent="contract_declaration [24583,38121]" at="2"/>
+  <insert-node tree="is: is [24608,24610]" parent="contract_declaration [24583,38121]" at="3"/>
+  <insert-tree tree="inheritance_specifier [24611,24618]" parent="contract_declaration [24583,38121]" at="4"/>
+  <insert-node tree=",: , [24618,24619]" parent="contract_declaration [24583,38121]" at="5"/>
+  <insert-tree tree="inheritance_specifier [24620,24626]" parent="contract_declaration [24583,38121]" at="6"/>
+  <insert-node tree=",: , [24626,24627]" parent="contract_declaration [24583,38121]" at="7"/>
+  <insert-tree tree="inheritance_specifier [24628,24635]" parent="contract_declaration [24583,38121]" at="8"/>
+  <insert-node tree=",: , [24635,24636]" parent="contract_declaration [24583,38121]" at="9"/>
+  <insert-tree tree="inheritance_specifier [24637,24652]" parent="contract_declaration [24583,38121]" at="10"/>
+  <insert-node tree="contract_body [24653,38121]" parent="contract_declaration [24583,38121]" at="11"/>
+  <insert-node tree="contract: contract [38692,38700]" parent="contract_declaration [38692,40548]" at="0"/>
+  <insert-node tree="identifier: Ownable [38701,38708]" parent="contract_declaration [38692,40548]" at="1"/>
+  <insert-node tree="is: is [38709,38711]" parent="contract_declaration [38692,40548]" at="2"/>
+  <insert-tree tree="inheritance_specifier [38712,38719]" parent="contract_declaration [38692,40548]" at="3"/>
+  <insert-node tree="contract_body [38720,40548]" parent="contract_declaration [38692,40548]" at="4"/>
+  <insert-node tree="contract: contract [40695,40703]" parent="contract_declaration [40695,48344]" at="0"/>
+  <insert-node tree="identifier: testNftFactory [40704,40718]" parent="contract_declaration [40695,48344]" at="1"/>
+  <insert-node tree="is: is [40719,40721]" parent="contract_declaration [40695,48344]" at="2"/>
+  <insert-tree tree="inheritance_specifier [40722,40729]" parent="contract_declaration [40695,48344]" at="3"/>
+  <insert-node tree=",: , [40729,40730]" parent="contract_declaration [40695,48344]" at="4"/>
+  <insert-tree tree="inheritance_specifier [40731,40737]" parent="contract_declaration [40695,48344]" at="5"/>
+  <insert-node tree=",: , [40737,40738]" parent="contract_declaration [40695,48344]" at="6"/>
+  <insert-tree tree="inheritance_specifier [40739,40750]" parent="contract_declaration [40695,48344]" at="7"/>
+  <insert-node tree="contract_body [40751,48344]" parent="contract_declaration [40695,48344]" at="8"/>
+  <insert-node tree="{: { [1659,1660]" parent="contract_body [1659,2642]" at="0"/>
+  <insert-node tree="struct_declaration [1666,2045]" parent="contract_body [1659,2642]" at="1"/>
+  <insert-tree tree="function_definition [2053,2167]" parent="contract_body [1659,2642]" at="2"/>
+  <insert-tree tree="function_definition [2175,2302]" parent="contract_body [1659,2642]" at="3"/>
+  <insert-node tree="function_definition [2310,2545]" parent="contract_body [1659,2642]" at="4"/>
+  <insert-tree tree="function_definition [2553,2639]" parent="contract_body [1659,2642]" at="5"/>
+  <insert-node tree="}: } [2641,2642]" parent="contract_body [1659,2642]" at="6"/>
+  <insert-node tree="{: { [3169,3170]" parent="contract_body [3169,3731]" at="0"/>
+  <insert-tree tree="function_definition [3178,3250]" parent="contract_body [3169,3731]" at="1"/>
+  <insert-tree tree="function_definition [3256,3337]" parent="contract_body [3169,3731]" at="2"/>
+  <insert-tree tree="function_definition [3343,3426]" parent="contract_body [3169,3731]" at="3"/>
+  <insert-tree tree="function_definition [3432,3505]" parent="contract_body [3169,3731]" at="4"/>
+  <insert-tree tree="function_definition [3511,3633]" parent="contract_body [3169,3731]" at="5"/>
+  <insert-node tree="function_definition [3639,3728]" parent="contract_body [3169,3731]" at="6"/>
+  <insert-node tree="}: } [3730,3731]" parent="contract_body [3169,3731]" at="7"/>
+  <insert-node tree="{: { [5396,5397]" parent="contract_body [5396,9999]" at="0"/>
+  <insert-node tree="comment: /**      * @dev Emitted when `tokenId` token is transferred from `from` to `to`.      */ [5403,5493]" parent="contract_body [5396,9999]" at="1"/>
+  <insert-node tree="event_definition [5499,5581]" parent="contract_body [5396,9999]" at="2"/>
+  <insert-node tree="comment: /**      * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.      */ [5589,5685]" parent="contract_body [5396,9999]" at="3"/>
+  <insert-tree tree="event_definition [5691,5780]" parent="contract_body [5396,9999]" at="4"/>
+  <insert-node tree="comment: /**      * @dev Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.      */ [5788,5907]" parent="contract_body [5396,9999]" at="5"/>
+  <insert-tree tree="event_definition [5913,5998]" parent="contract_body [5396,9999]" at="6"/>
+  <insert-node tree="comment: /**      * @dev Returns the number of tokens in ``owner``'s account.      */ [6006,6084]" parent="contract_body [5396,9999]" at="7"/>
+  <insert-tree tree="function_definition [6090,6164]" parent="contract_body [5396,9999]" at="8"/>
+  <insert-node tree="comment: /**      * @dev Returns the owner of the `tokenId` token.      *      * Requirements:      *      * - `tokenId` must exist.      */ [6172,6309]" parent="contract_body [5396,9999]" at="9"/>
+  <insert-tree tree="function_definition [6315,6387]" parent="contract_body [5396,9999]" at="10"/>
+  <insert-node tree="comment: /**      * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients      * are aware of the ERC721 protocol to prevent tokens from being forever locked.      *      * Requirements:      *      * - `from` cannot be the zero address.      * - `to` cannot be the zero address.      * - `tokenId` token must exist and be owned by `from`.      * - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}.      * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.      *      * Emits a {Transfer} event.      */ [6395,7098]" parent="contract_body [5396,9999]" at="11"/>
+  <insert-tree tree="function_definition [7104,7216]" parent="contract_body [5396,9999]" at="12"/>
+  <insert-node tree="comment: /**      * @dev Transfers `tokenId` token from `from` to `to`.      *      * WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible.      *      * Requirements:      *      * - `from` cannot be the zero address.      * - `to` cannot be the zero address.      * - `tokenId` token must be owned by `from`.      * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.      *      * Emits a {Transfer} event.      */ [7224,7741]" parent="contract_body [5396,9999]" at="13"/>
+  <insert-tree tree="function_definition [7747,7855]" parent="contract_body [5396,9999]" at="14"/>
+  <insert-node tree="comment: /**      * @dev Gives permission to `to` to transfer `tokenId` token to another account.      * The approval is cleared when the token is transferred.      *      * Only a single account can be approved at a time, so approving the zero address clears previous approvals.      *      * Requirements:      *      * - The caller must own the token or be an approved operator.      * - `tokenId` must exist.      *      * Emits an {Approval} event.      */ [7863,8327]" parent="contract_body [5396,9999]" at="15"/>
+  <insert-tree tree="function_definition [8333,8388]" parent="contract_body [5396,9999]" at="16"/>
+  <insert-node tree="comment: /**      * @dev Returns the account approved for `tokenId` token.      *      * Requirements:      *      * - `tokenId` must exist.      */ [8396,8541]" parent="contract_body [5396,9999]" at="17"/>
+  <insert-tree tree="function_definition [8547,8626]" parent="contract_body [5396,9999]" at="18"/>
+  <insert-node tree="comment: /**      * @dev Approve or remove `operator` as an operator for the caller.      * Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller.      *      * Requirements:      *      * - The `operator` cannot be the caller.      *      * Emits an {ApprovalForAll} event.      */ [8634,8952]" parent="contract_body [5396,9999]" at="19"/>
+  <insert-tree tree="function_definition [8958,9028]" parent="contract_body [5396,9999]" at="20"/>
+  <insert-node tree="comment: /**      * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.      *      * See {setApprovalForAll}      */ [9036,9178]" parent="contract_body [5396,9999]" at="21"/>
+  <insert-tree tree="function_definition [9184,9272]" parent="contract_body [5396,9999]" at="22"/>
+  <insert-node tree="comment: /**      * @dev Safely transfers `tokenId` token from `from` to `to`.      *      * Requirements:      *      * - `from` cannot be the zero address.      * - `to` cannot be the zero address.      * - `tokenId` token must exist and be owned by `from`.      * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.      * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.      *      * Emits a {Transfer} event.      */ [9280,9848]" parent="contract_body [5396,9999]" at="23"/>
+  <insert-tree tree="function_definition [9854,9996]" parent="contract_body [5396,9999]" at="24"/>
+  <insert-node tree="}: } [9998,9999]" parent="contract_body [5396,9999]" at="25"/>
+  <insert-node tree="{: { [23712,23713]" parent="contract_body [23712,24256]" at="0"/>
+  <insert-node tree="comment: // Empty internal constructor, to prevent people from mistakenly deploying [23721,23795]" parent="contract_body [23712,24256]" at="1"/>
+  <insert-node tree="comment: // an instance of this contract, which should be used via inheritance. [23801,23871]" parent="contract_body [23712,24256]" at="2"/>
+  <insert-tree tree="constructor_definition [23877,23895]" parent="contract_body [23712,24256]" at="3"/>
+  <insert-tree tree="function_definition [23903,24011]" parent="contract_body [23712,24256]" at="4"/>
+  <insert-node tree="function_definition [24019,24253]" parent="contract_body [23712,24256]" at="5"/>
+  <insert-node tree="}: } [24255,24256]" parent="contract_body [23712,24256]" at="6"/>
+  <insert-node tree="{: { [24653,24654]" parent="contract_body [24653,38121]" at="0"/>
+  <insert-tree tree="using_directive [24660,24686]" parent="contract_body [24653,38121]" at="1"/>
+  <insert-tree tree="using_directive [24692,24715]" parent="contract_body [24653,38121]" at="2"/>
+  <insert-node tree="comment: // Token name [24723,24736]" parent="contract_body [24653,38121]" at="3"/>
+  <insert-tree tree="state_variable_declaration [24742,24764]" parent="contract_body [24653,38121]" at="4"/>
+  <insert-node tree="comment: // Token symbol [24772,24787]" parent="contract_body [24653,38121]" at="5"/>
+  <insert-tree tree="state_variable_declaration [24793,24817]" parent="contract_body [24653,38121]" at="6"/>
+  <insert-node tree="comment: // Mapping from token ID to owner address [24825,24866]" parent="contract_body [24653,38121]" at="7"/>
+  <insert-node tree="state_variable_declaration [24872,24913]" parent="contract_body [24653,38121]" at="8"/>
+  <insert-node tree="comment: // Mapping owner address to token count [24921,24960]" parent="contract_body [24653,38121]" at="9"/>
+  <insert-node tree="state_variable_declaration [24966,25009]" parent="contract_body [24653,38121]" at="10"/>
+  <insert-node tree="comment: // Mapping from token ID to approved address [25017,25061]" parent="contract_body [24653,38121]" at="11"/>
+  <insert-tree tree="state_variable_declaration [25067,25116]" parent="contract_body [24653,38121]" at="12"/>
+  <insert-node tree="comment: // Mapping from owner to operator approvals [25124,25167]" parent="contract_body [24653,38121]" at="13"/>
+  <insert-tree tree="state_variable_declaration [25173,25245]" parent="contract_body [24653,38121]" at="14"/>
+  <insert-node tree="comment: /**      * @dev See {IERC165-supportsInterface}.      */ [25253,25311]" parent="contract_body [24653,38121]" at="15"/>
+  <insert-tree tree="function_definition [25317,25640]" parent="contract_body [24653,38121]" at="16"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721-balanceOf}.      */ [25648,25698]" parent="contract_body [24653,38121]" at="17"/>
+  <insert-node tree="function_definition [25704,25976]" parent="contract_body [24653,38121]" at="18"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721-ownerOf}.      */ [25984,26032]" parent="contract_body [24653,38121]" at="19"/>
+  <move-tree tree="function_definition [853,1001]" parent="contract_body [24653,38121]" at="20"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721Metadata-name}.      */ [26349,26402]" parent="contract_body [24653,38121]" at="21"/>
+  <insert-tree tree="function_definition [26408,26508]" parent="contract_body [24653,38121]" at="22"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721Metadata-symbol}.      */ [26516,26571]" parent="contract_body [24653,38121]" at="23"/>
+  <insert-tree tree="function_definition [26577,26681]" parent="contract_body [24653,38121]" at="24"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721Metadata-tokenURI}.      */ [26689,26746]" parent="contract_body [24653,38121]" at="25"/>
+  <insert-tree tree="function_definition [26752,27177]" parent="contract_body [24653,38121]" at="26"/>
+  <insert-node tree="comment: /**      * @dev Base URI for computing {tokenURI}. If set, the resulting URI for each      * token will be the concatenation of the `baseURI` and the `tokenId`. Empty      * by default, can be overriden in child contracts.      */ [27185,27419]" parent="contract_body [24653,38121]" at="27"/>
+  <insert-tree tree="function_definition [27425,27519]" parent="contract_body [24653,38121]" at="28"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721-approve}.      */ [27527,27575]" parent="contract_body [24653,38121]" at="29"/>
+  <insert-tree tree="function_definition [27581,27989]" parent="contract_body [24653,38121]" at="30"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721-getApproved}.      */ [27997,28049]" parent="contract_body [24653,38121]" at="31"/>
+  <insert-tree tree="function_definition [28055,28340]" parent="contract_body [24653,38121]" at="32"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721-setApprovalForAll}.      */ [28348,28406]" parent="contract_body [24653,38121]" at="33"/>
+  <insert-tree tree="function_definition [28412,28727]" parent="contract_body [24653,38121]" at="34"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721-isApprovedForAll}.      */ [28735,28792]" parent="contract_body [24653,38121]" at="35"/>
+  <insert-tree tree="function_definition [28798,28992]" parent="contract_body [24653,38121]" at="36"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721-transferFrom}.      */ [29000,29053]" parent="contract_body [24653,38121]" at="37"/>
+  <insert-tree tree="function_definition [29059,29432]" parent="contract_body [24653,38121]" at="38"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721-safeTransferFrom}.      */ [29440,29497]" parent="contract_body [24653,38121]" at="39"/>
+  <insert-tree tree="function_definition [29503,29685]" parent="contract_body [24653,38121]" at="40"/>
+  <insert-node tree="comment: /**      * @dev See {IERC721-safeTransferFrom}.      */ [29693,29750]" parent="contract_body [24653,38121]" at="41"/>
+  <insert-tree tree="function_definition [29756,30118]" parent="contract_body [24653,38121]" at="42"/>
+  <insert-node tree="comment: /**      * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients      * are aware of the ERC721 protocol to prevent tokens from being forever locked.      *      * `_data` is additional data, it has no specified format and it is sent in call to `to`.      *      * This internal function is equivalent to {safeTransferFrom}, and can be used to e.g.      * implement alternative mechanisms to perform token transfer, such as signature-based.      *      * Requirements:      *      * - `from` cannot be the zero address.      * - `to` cannot be the zero address.      * - `tokenId` token must exist and be owned by `from`.      * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.      *      * Emits a {Transfer} event.      */ [30126,30994]" parent="contract_body [24653,38121]" at="43"/>
+  <insert-tree tree="function_definition [31000,31349]" parent="contract_body [24653,38121]" at="44"/>
+  <insert-node tree="comment: /**      * @dev Returns whether `tokenId` exists.      *      * Tokens can be managed by their owner or approved accounts via {approve} or {setApprovalForAll}.      *      * Tokens start existing when they are minted (`_mint`),      * and stop existing when they are burned (`_burn`).      */ [31357,31656]" parent="contract_body [24653,38121]" at="45"/>
+  <insert-tree tree="function_definition [31662,31786]" parent="contract_body [24653,38121]" at="46"/>
+  <insert-node tree="comment: /**      * @dev Returns whether `spender` is allowed to manage `tokenId`.      *      * Requirements:      *      * - `tokenId` must exist.      */ [31794,31947]" parent="contract_body [24653,38121]" at="47"/>
+  <insert-tree tree="function_definition [31953,32378]" parent="contract_body [24653,38121]" at="48"/>
+  <insert-node tree="comment: /**      * @dev Safely mints `tokenId` and transfers it to `to`.      *      * Requirements:      *      * - `tokenId` must not exist.      * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.      *      * Emits a {Transfer} event.      */ [32386,32714]" parent="contract_body [24653,38121]" at="49"/>
+  <insert-tree tree="function_definition [32720,32827]" parent="contract_body [24653,38121]" at="50"/>
+  <insert-node tree="comment: /**      * @dev Same as {xref-ERC721-_safeMint-address-uint-}[`_safeMint`], with an additional `data` parameter which is      * forwarded in {IERC721Receiver-onERC721Received} to contract recipients.      */ [32835,33045]" parent="contract_body [24653,38121]" at="51"/>
+  <insert-tree tree="function_definition [33051,33369]" parent="contract_body [24653,38121]" at="52"/>
+  <insert-node tree="comment: /**      * @dev Mints `tokenId` and transfers it to `to`.      *      * WARNING: Usage of this method is discouraged, use {_safeMint} whenever possible      *      * Requirements:      *      * - `tokenId` must not exist.      * - `to` cannot be the zero address.      *      * Emits a {Transfer} event.      */ [33377,33699]" parent="contract_body [24653,38121]" at="53"/>
+  <insert-tree tree="function_definition [33705,34084]" parent="contract_body [24653,38121]" at="54"/>
+  <insert-node tree="comment: /**      * @dev Destroys `tokenId`.      * The approval is cleared when the token is burned.      *      * Requirements:      *      * - `tokenId` must exist.      *      * Emits a {Transfer} event.      */ [34092,34307]" parent="contract_body [24653,38121]" at="55"/>
+  <insert-tree tree="function_definition [34313,34670]" parent="contract_body [24653,38121]" at="56"/>
+  <insert-node tree="comment: /**      * @dev Transfers `tokenId` from `from` to `to`.      *  As opposed to {transferFrom}, this imposes no restrictions on msg.sender.      *      * Requirements:      *      * - `to` cannot be the zero address.      * - `tokenId` token must be owned by `from`.      *      * Emits a {Transfer} event.      */ [34678,35001]" parent="contract_body [24653,38121]" at="57"/>
+  <insert-tree tree="function_definition [35007,35619]" parent="contract_body [24653,38121]" at="58"/>
+  <insert-node tree="comment: /**      * @dev Approve `to` to operate on `tokenId`      *      * Emits a {Approval} event.      */ [35627,35731]" parent="contract_body [24653,38121]" at="59"/>
+  <insert-tree tree="function_definition [35737,35908]" parent="contract_body [24653,38121]" at="60"/>
+  <insert-node tree="comment: /**      * @dev Internal function to invoke {IERC721Receiver-onERC721Received} on a target address.      * The call is not executed if the target address is not a contract.      *      * @param from address representing the previous owner of the given token ID      * @param to target address that will receive the tokens      * @param tokenId uint ID of the token to be transferred      * @param _data bytes optional data to send along with the call      * @return bool whether the call correctly returned the expected magic value      */ [35916,36464]" parent="contract_body [24653,38121]" at="61"/>
+  <insert-node tree="function_definition [36470,37423]" parent="contract_body [24653,38121]" at="62"/>
+  <insert-node tree="comment: /**      * @dev Hook that is called before any token transfer. This includes minting      * and burning.      *      * Calling conditions:      *      * - When `from` and `to` are both non-zero, ``from``'s `tokenId` will be      * transferred to `to`.      * - When `from` is zero, `tokenId` will be minted for `to`.      * - When `to` is zero, ``from``'s `tokenId` will be burned.      * - `from` and `to` are never both zero.      *      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].      */ [37431,37989]" parent="contract_body [24653,38121]" at="63"/>
+  <insert-tree tree="function_definition [37995,38118]" parent="contract_body [24653,38121]" at="64"/>
+  <insert-node tree="}: } [38120,38121]" parent="contract_body [24653,38121]" at="65"/>
+  <insert-node tree="{: { [38720,38721]" parent="contract_body [38720,40548]" at="0"/>
+  <insert-tree tree="state_variable_declaration [38727,38751]" parent="contract_body [38720,40548]" at="1"/>
+  <insert-tree tree="event_definition [38759,38843]" parent="contract_body [38720,40548]" at="2"/>
+  <insert-node tree="comment: /**      * @dev Initializes the contract setting the deployer as the initial owner.    */ [38851,38942]" parent="contract_body [38720,40548]" at="3"/>
+  <insert-tree tree="constructor_definition [38948,39103]" parent="contract_body [38720,40548]" at="4"/>
+  <insert-node tree="comment: /**      * @dev Returns the address of the current owner.    */ [39111,39176]" parent="contract_body [38720,40548]" at="5"/>
+  <insert-tree tree="function_definition [39182,39261]" parent="contract_body [38720,40548]" at="6"/>
+  <insert-node tree="comment: /**      * @dev Throws if called by any account other than the owner.    */ [39269,39346]" parent="contract_body [38720,40548]" at="7"/>
+  <insert-tree tree="modifier_definition [39352,39471]" parent="contract_body [38720,40548]" at="8"/>
+  <insert-node tree="comment: /**      * @dev Leaves the contract without owner. It will not be possible to call    * `onlyOwner` functions anymore. Can only be called by the current owner.    *    * NOTE: Renouncing ownership will leave the contract without an owner,    * thereby removing any functionality that is only available to the owner.    */ [39479,39806]" parent="contract_body [38720,40548]" at="9"/>
+  <insert-tree tree="function_definition [39812,39952]" parent="contract_body [38720,40548]" at="10"/>
+  <insert-node tree="comment: /**      * @dev Transfers ownership of the contract to a new account (`newOwner`).    * Can only be called by the current owner.    */ [39960,40097]" parent="contract_body [38720,40548]" at="11"/>
+  <insert-node tree="function_definition [40103,40212]" parent="contract_body [38720,40548]" at="12"/>
+  <insert-node tree="comment: /**      * @dev Transfers ownership of the contract to a new account (`newOwner`).    */ [40220,40310]" parent="contract_body [38720,40548]" at="13"/>
+  <insert-node tree="function_definition [40316,40545]" parent="contract_body [38720,40548]" at="14"/>
+  <insert-node tree="}: } [40547,40548]" parent="contract_body [38720,40548]" at="15"/>
+  <insert-node tree="{: { [40751,40752]" parent="contract_body [40751,48344]" at="0"/>
+  <insert-tree tree="using_directive [40760,40783]" parent="contract_body [40751,48344]" at="1"/>
+  <insert-node tree="comment: ////nfts [40791,40799]" parent="contract_body [40751,48344]" at="2"/>
+  <insert-tree tree="state_variable_declaration [40805,40849]" parent="contract_body [40751,48344]" at="3"/>
+  <insert-tree tree="state_variable_declaration [40855,40899]" parent="contract_body [40751,48344]" at="4"/>
+  <insert-node tree="comment: //COUNTS [40907,40915]" parent="contract_body [40751,48344]" at="5"/>
+  <insert-tree tree="using_directive [40921,40957]" parent="contract_body [40751,48344]" at="6"/>
+  <insert-tree tree="state_variable_declaration [40963,40997]" parent="contract_body [40751,48344]" at="7"/>
+  <insert-node tree="comment: //SALES [41005,41012]" parent="contract_body [40751,48344]" at="8"/>
+  <insert-tree tree="state_variable_declaration [41018,41047]" parent="contract_body [40751,48344]" at="9"/>
+  <insert-tree tree="state_variable_declaration [41053,41087]" parent="contract_body [40751,48344]" at="10"/>
+  <insert-node tree="comment: //todo place the finalised price [41095,41127]" parent="contract_body [40751,48344]" at="11"/>
+  <insert-node tree="comment: // To-change -&gt; from 0 eth to 0.069 eth [41133,41172]" parent="contract_body [40751,48344]" at="12"/>
+  <insert-tree tree="state_variable_declaration [41178,41232]" parent="contract_body [40751,48344]" at="13"/>
+  <insert-node tree="comment: //priceInMainSale [41233,41250]" parent="contract_body [40751,48344]" at="14"/>
+  <insert-tree tree="state_variable_declaration [41258,41301]" parent="contract_body [40751,48344]" at="15"/>
+  <insert-node tree="comment: //AMOUNT [41309,41317]" parent="contract_body [40751,48344]" at="16"/>
+  <insert-tree tree="state_variable_declaration [41323,41345]" parent="contract_body [40751,48344]" at="17"/>
+  <insert-node tree="comment: //CONTRACT [41353,41363]" parent="contract_body [40751,48344]" at="18"/>
+  <insert-tree tree="state_variable_declaration [41369,41385]" parent="contract_body [40751,48344]" at="19"/>
+  <insert-tree tree="state_variable_declaration [41391,41402]" parent="contract_body [40751,48344]" at="20"/>
+  <insert-tree tree="state_variable_declaration [41408,41429]" parent="contract_body [40751,48344]" at="21"/>
+  <insert-tree tree="state_variable_declaration [41435,41461]" parent="contract_body [40751,48344]" at="22"/>
+  <insert-tree tree="state_variable_declaration [41467,41494]" parent="contract_body [40751,48344]" at="23"/>
+  <insert-node tree="function_definition [41502,42132]" parent="contract_body [40751,48344]" at="24"/>
+  <insert-tree tree="function_definition [42140,42237]" parent="contract_body [40751,48344]" at="25"/>
+  <insert-tree tree="function_definition [42245,42406]" parent="contract_body [40751,48344]" at="26"/>
+  <insert-tree tree="function_definition [42414,42776]" parent="contract_body [40751,48344]" at="27"/>
+  <insert-tree tree="function_definition [42784,42967]" parent="contract_body [40751,48344]" at="28"/>
+  <insert-tree tree="function_definition [42975,43152]" parent="contract_body [40751,48344]" at="29"/>
+  <insert-tree tree="function_definition [43160,43250]" parent="contract_body [40751,48344]" at="30"/>
+  <insert-tree tree="function_definition [43258,43368]" parent="contract_body [40751,48344]" at="31"/>
+  <insert-node tree="function_definition [43376,45221]" parent="contract_body [40751,48344]" at="32"/>
+  <insert-node tree="function_definition [45229,46405]" parent="contract_body [40751,48344]" at="33"/>
+  <insert-tree tree="function_definition [46413,46528]" parent="contract_body [40751,48344]" at="34"/>
+  <insert-tree tree="function_definition [46536,46890]" parent="contract_body [40751,48344]" at="35"/>
+  <insert-node tree="comment: //Better if Game Address directly calls metadata contract [46898,46955]" parent="contract_body [40751,48344]" at="36"/>
+  <insert-tree tree="function_definition [46961,47260]" parent="contract_body [40751,48344]" at="37"/>
+  <insert-node tree="comment: //#endregion [47270,47282]" parent="contract_body [40751,48344]" at="38"/>
+  <insert-tree tree="function_definition [47288,47506]" parent="contract_body [40751,48344]" at="39"/>
+  <insert-node tree="comment: // function setHungerBrainz_MAINSALE_PRICE(uint _price) external onlyOwner{ [47514,47589]" parent="contract_body [40751,48344]" at="40"/>
+  <insert-node tree="comment: //     HungerBrainz_MAINSALE_PRICE = _price; [47595,47639]" parent="contract_body [40751,48344]" at="41"/>
+  <insert-node tree="comment: // } [47645,47649]" parent="contract_body [40751,48344]" at="42"/>
+  <insert-tree tree="function_definition [47657,47927]" parent="contract_body [40751,48344]" at="43"/>
+  <insert-tree tree="function_definition [47935,48112]" parent="contract_body [40751,48344]" at="44"/>
+  <insert-tree tree="function_definition [48120,48341]" parent="contract_body [40751,48344]" at="45"/>
+  <insert-node tree="}: } [48343,48344]" parent="contract_body [40751,48344]" at="46"/>
+  <insert-tree tree="visibility [169,177]" parent="state_variable_declaration [161,285]" at="1"/>
+  <insert-tree tree="visibility [299,307]" parent="state_variable_declaration [291,415]" at="1"/>
+  <insert-node tree="struct: struct [1666,1672]" parent="struct_declaration [1666,2045]" at="0"/>
+  <insert-node tree="identifier: Counter [1673,1680]" parent="struct_declaration [1666,2045]" at="1"/>
+  <insert-node tree="{: { [1681,1682]" parent="struct_declaration [1666,2045]" at="2"/>
+  <insert-node tree="comment: // This variable should never be directly accessed by users of the library: interactions must be restricted to [1692,1802]" parent="struct_declaration [1666,2045]" at="3"/>
+  <insert-node tree="comment: // the library's function. As of Solidity v0.5.2, this cannot be enforced, though there is a proposal to add [1812,1920]" parent="struct_declaration [1666,2045]" at="4"/>
+  <insert-node tree="comment: // this feature: see https://github.com/ethereum/solidity/issues/4637 [1930,1999]" parent="struct_declaration [1666,2045]" at="5"/>
+  <insert-node tree="struct_member [2009,2024]" parent="struct_declaration [1666,2045]" at="6"/>
+  <insert-node tree="comment: // default: 0 [2025,2038]" parent="struct_declaration [1666,2045]" at="7"/>
+  <insert-node tree="}: } [2044,2045]" parent="struct_declaration [1666,2045]" at="8"/>
+  <insert-node tree="function: function [2310,2318]" parent="function_definition [2310,2545]" at="0"/>
+  <insert-node tree="identifier: decrement [2319,2328]" parent="function_definition [2310,2545]" at="1"/>
+  <insert-node tree="(: ( [2328,2329]" parent="function_definition [2310,2545]" at="2"/>
+  <insert-tree tree="parameter [2329,2352]" parent="function_definition [2310,2545]" at="3"/>
+  <insert-node tree="): ) [2352,2353]" parent="function_definition [2310,2545]" at="4"/>
+  <insert-tree tree="visibility [2354,2362]" parent="function_definition [2310,2545]" at="5"/>
+  <insert-node tree="function_body [2363,2545]" parent="function_definition [2310,2545]" at="6"/>
+  <insert-node tree="function: function [3639,3647]" parent="function_definition [3639,3728]" at="0"/>
+  <insert-node tree="identifier: getToken [3648,3656]" parent="function_definition [3639,3728]" at="1"/>
+  <insert-node tree="(: ( [3656,3657]" parent="function_definition [3639,3728]" at="2"/>
+  <insert-node tree="parameter [3657,3673]" parent="function_definition [3639,3728]" at="3"/>
+  <insert-node tree="): ) [3673,3674]" parent="function_definition [3639,3728]" at="4"/>
+  <insert-tree tree="visibility [3675,3683]" parent="function_definition [3639,3728]" at="5"/>
+  <insert-tree tree="state_mutability [3684,3688]" parent="function_definition [3639,3728]" at="6"/>
+  <insert-tree tree="return_type_definition [3689,3727]" parent="function_definition [3639,3728]" at="7"/>
+  <insert-node tree="event: event [5499,5504]" parent="event_definition [5499,5581]" at="0"/>
+  <insert-node tree="identifier: Transfer [5505,5513]" parent="event_definition [5499,5581]" at="1"/>
+  <insert-node tree="(: ( [5513,5514]" parent="event_definition [5499,5581]" at="2"/>
+  <insert-tree tree="event_paramater [5514,5534]" parent="event_definition [5499,5581]" at="3"/>
+  <insert-node tree=",: , [5534,5535]" parent="event_definition [5499,5581]" at="4"/>
+  <insert-tree tree="event_paramater [5536,5554]" parent="event_definition [5499,5581]" at="5"/>
+  <insert-node tree=",: , [5554,5555]" parent="event_definition [5499,5581]" at="6"/>
+  <insert-node tree="event_paramater [5556,5579]" parent="event_definition [5499,5581]" at="7"/>
+  <insert-node tree="): ) [5579,5580]" parent="event_definition [5499,5581]" at="8"/>
+  <insert-node tree="function: function [24019,24027]" parent="function_definition [24019,24253]" at="0"/>
+  <insert-node tree="identifier: _msgData [24028,24036]" parent="function_definition [24019,24253]" at="1"/>
+  <insert-node tree="(: ( [24036,24037]" parent="function_definition [24019,24253]" at="2"/>
+  <insert-node tree="): ) [24037,24038]" parent="function_definition [24019,24253]" at="3"/>
+  <move-tree tree="visibility [1708,1716]" parent="function_definition [24019,24253]" at="4"/>
+  <insert-tree tree="state_mutability [24048,24052]" parent="function_definition [24019,24253]" at="5"/>
+  <insert-tree tree="return_type_definition [24053,24075]" parent="function_definition [24019,24253]" at="6"/>
+  <insert-tree tree="function_body [24076,24253]" parent="function_definition [24019,24253]" at="7"/>
+  <insert-tree tree="type_name [24872,24896]" parent="state_variable_declaration [24872,24913]" at="0"/>
+  <move-tree tree="visibility [286,293]" parent="state_variable_declaration [24872,24913]" at="1"/>
+  <insert-node tree="identifier: _owners [24905,24912]" parent="state_variable_declaration [24872,24913]" at="2"/>
+  <insert-tree tree="type_name [24966,24990]" parent="state_variable_declaration [24966,25009]" at="0"/>
+  <move-tree tree="visibility [157,164]" parent="state_variable_declaration [24966,25009]" at="1"/>
+  <insert-node tree="identifier: _balances [24999,25008]" parent="state_variable_declaration [24966,25009]" at="2"/>
+  <insert-node tree="function: function [25704,25712]" parent="function_definition [25704,25976]" at="0"/>
+  <insert-node tree="identifier: balanceOf [25713,25722]" parent="function_definition [25704,25976]" at="1"/>
+  <insert-node tree="(: ( [25722,25723]" parent="function_definition [25704,25976]" at="2"/>
+  <move-tree tree="parameter [1682,1706]" parent="function_definition [25704,25976]" at="3"/>
+  <insert-node tree="): ) [25736,25737]" parent="function_definition [25704,25976]" at="4"/>
+  <insert-tree tree="visibility [25743,25749]" parent="function_definition [25704,25976]" at="5"/>
+  <insert-tree tree="state_mutability [25755,25759]" parent="function_definition [25704,25976]" at="6"/>
+  <insert-node tree="virtual: virtual [25765,25772]" parent="function_definition [25704,25976]" at="7"/>
+  <insert-tree tree="override_specifier [25778,25786]" parent="function_definition [25704,25976]" at="8"/>
+  <insert-tree tree="return_type_definition [25792,25806]" parent="function_definition [25704,25976]" at="9"/>
+  <move-tree tree="function_body [435,636]" parent="function_definition [25704,25976]" at="10"/>
+  <update-node tree="identifier: implementation [862,876]" label="ownerOf"/>
+  <insert-tree tree="parameter [26055,26067]" parent="function_definition [26038,26341]" at="3"/>
+  <insert-node tree="virtual: virtual [26096,26103]" parent="function_definition [26038,26341]" at="7"/>
+  <insert-tree tree="override_specifier [26109,26117]" parent="function_definition [26038,26341]" at="8"/>
+  <insert-node tree="function: function [36470,36478]" parent="function_definition [36470,37423]" at="0"/>
+  <insert-node tree="identifier: _checkOnERC721Received [36479,36501]" parent="function_definition [36470,37423]" at="1"/>
+  <insert-node tree="(: ( [36501,36502]" parent="function_definition [36470,37423]" at="2"/>
+  <insert-tree tree="parameter [36512,36524]" parent="function_definition [36470,37423]" at="3"/>
+  <insert-node tree=",: , [36524,36525]" parent="function_definition [36470,37423]" at="4"/>
+  <insert-tree tree="parameter [36535,36545]" parent="function_definition [36470,37423]" at="5"/>
+  <insert-node tree=",: , [36545,36546]" parent="function_definition [36470,37423]" at="6"/>
+  <insert-tree tree="parameter [36556,36568]" parent="function_definition [36470,37423]" at="7"/>
+  <insert-node tree=",: , [36568,36569]" parent="function_definition [36470,37423]" at="8"/>
+  <insert-tree tree="parameter [36579,36597]" parent="function_definition [36470,37423]" at="9"/>
+  <insert-node tree="): ) [36603,36604]" parent="function_definition [36470,37423]" at="10"/>
+  <insert-tree tree="visibility [36605,36612]" parent="function_definition [36470,37423]" at="11"/>
+  <insert-tree tree="return_type_definition [36613,36627]" parent="function_definition [36470,37423]" at="12"/>
+  <insert-node tree="function_body [36628,37423]" parent="function_definition [36470,37423]" at="13"/>
+  <insert-node tree="function: function [40103,40111]" parent="function_definition [40103,40212]" at="0"/>
+  <insert-node tree="identifier: transferOwnership [40112,40129]" parent="function_definition [40103,40212]" at="1"/>
+  <insert-node tree="(: ( [40129,40130]" parent="function_definition [40103,40212]" at="2"/>
+  <move-tree tree="parameter [671,686]" parent="function_definition [40103,40212]" at="3"/>
+  <insert-node tree="): ) [40146,40147]" parent="function_definition [40103,40212]" at="4"/>
+  <move-tree tree="visibility [688,694]" parent="function_definition [40103,40212]" at="5"/>
+  <insert-tree tree="modifier_invocation [40155,40164]" parent="function_definition [40103,40212]" at="6"/>
+  <insert-tree tree="function_body [40165,40212]" parent="function_definition [40103,40212]" at="7"/>
+  <insert-node tree="function: function [40316,40324]" parent="function_definition [40316,40545]" at="0"/>
+  <insert-node tree="identifier: _transferOwnership [40325,40343]" parent="function_definition [40316,40545]" at="1"/>
+  <insert-node tree="(: ( [40343,40344]" parent="function_definition [40316,40545]" at="2"/>
+  <move-tree tree="parameter [421,433]" parent="function_definition [40316,40545]" at="3"/>
+  <insert-node tree="): ) [40360,40361]" parent="function_definition [40316,40545]" at="4"/>
+  <insert-tree tree="visibility [40362,40370]" parent="function_definition [40316,40545]" at="5"/>
+  <insert-tree tree="function_body [40371,40545]" parent="function_definition [40316,40545]" at="6"/>
+  <insert-node tree="function: function [41502,41510]" parent="function_definition [41502,42132]" at="0"/>
+  <insert-node tree="identifier: initialize [41511,41521]" parent="function_definition [41502,42132]" at="1"/>
+  <insert-node tree="(: ( [41521,41522]" parent="function_definition [41502,42132]" at="2"/>
+  <insert-tree tree="parameter [41522,41542]" parent="function_definition [41502,42132]" at="3"/>
+  <insert-node tree=",: , [41542,41543]" parent="function_definition [41502,42132]" at="4"/>
+  <insert-tree tree="parameter [41544,41565]" parent="function_definition [41502,42132]" at="5"/>
+  <insert-node tree=",: , [41565,41566]" parent="function_definition [41502,42132]" at="6"/>
+  <insert-tree tree="parameter [41566,41584]" parent="function_definition [41502,42132]" at="7"/>
+  <insert-node tree=",: , [41584,41585]" parent="function_definition [41502,42132]" at="8"/>
+  <insert-tree tree="parameter [41585,41602]" parent="function_definition [41502,42132]" at="9"/>
+  <insert-node tree=",: , [41602,41603]" parent="function_definition [41502,42132]" at="10"/>
+  <insert-tree tree="parameter [41603,41615]" parent="function_definition [41502,42132]" at="11"/>
+  <insert-node tree="): ) [41615,41616]" parent="function_definition [41502,42132]" at="12"/>
+  <insert-tree tree="visibility [41617,41625]" parent="function_definition [41502,42132]" at="13"/>
+  <insert-node tree="function_body [41626,42132]" parent="function_definition [41502,42132]" at="14"/>
+  <insert-node tree="function: function [43376,43384]" parent="function_definition [43376,45221]" at="0"/>
+  <insert-node tree="identifier: buyAndStake [43385,43396]" parent="function_definition [43376,45221]" at="1"/>
+  <insert-node tree="(: ( [43396,43397]" parent="function_definition [43376,45221]" at="2"/>
+  <insert-tree tree="parameter [43397,43407]" parent="function_definition [43376,45221]" at="3"/>
+  <insert-node tree=",: , [43407,43408]" parent="function_definition [43376,45221]" at="4"/>
+  <insert-tree tree="parameter [43408,43423]" parent="function_definition [43376,45221]" at="5"/>
+  <insert-node tree=",: , [43423,43424]" parent="function_definition [43376,45221]" at="6"/>
+  <insert-tree tree="parameter [43425,43441]" parent="function_definition [43376,45221]" at="7"/>
+  <insert-node tree=",: , [43441,43442]" parent="function_definition [43376,45221]" at="8"/>
+  <insert-tree tree="parameter [43442,43458]" parent="function_definition [43376,45221]" at="9"/>
+  <insert-node tree="): ) [43458,43459]" parent="function_definition [43376,45221]" at="10"/>
+  <move-tree tree="visibility [2801,2809]" parent="function_definition [43376,45221]" at="11"/>
+  <move-tree tree="state_mutability [2810,2817]" parent="function_definition [43376,45221]" at="12"/>
+  <insert-tree tree="function_body [43477,45221]" parent="function_definition [43376,45221]" at="13"/>
+  <insert-node tree="function: function [45229,45237]" parent="function_definition [45229,46405]" at="0"/>
+  <insert-node tree="identifier: buyUsingSUPAndStake [45238,45257]" parent="function_definition [45229,46405]" at="1"/>
+  <insert-node tree="(: ( [45257,45258]" parent="function_definition [45229,46405]" at="2"/>
+  <insert-tree tree="parameter [45258,45268]" parent="function_definition [45229,46405]" at="3"/>
+  <insert-node tree=",: , [45268,45269]" parent="function_definition [45229,46405]" at="4"/>
+  <insert-tree tree="parameter [45270,45285]" parent="function_definition [45229,46405]" at="5"/>
+  <insert-node tree=",: , [45285,45286]" parent="function_definition [45229,46405]" at="6"/>
+  <insert-tree tree="parameter [45287,45303]" parent="function_definition [45229,46405]" at="7"/>
+  <insert-node tree="): ) [45303,45304]" parent="function_definition [45229,46405]" at="8"/>
+  <insert-tree tree="visibility [45305,45313]" parent="function_definition [45229,46405]" at="9"/>
+  <insert-node tree="function_body [45314,46405]" parent="function_definition [45229,46405]" at="10"/>
+  <insert-node tree="type_name [2009,2016]" parent="struct_member [2009,2024]" at="0"/>
+  <insert-node tree="identifier: _value [2017,2023]" parent="struct_member [2009,2024]" at="1"/>
+  <insert-node tree="{: { [2363,2364]" parent="function_body [2363,2545]" at="0"/>
+  <insert-node tree="variable_declaration_statement [2374,2405]" parent="function_body [2363,2545]" at="1"/>
+  <insert-tree tree="expression_statement [2415,2465]" parent="function_body [2363,2545]" at="2"/>
+  <insert-tree tree="block_statement [2475,2538]" parent="function_body [2363,2545]" at="3"/>
+  <insert-node tree="}: } [2544,2545]" parent="function_body [2363,2545]" at="4"/>
+  <insert-node tree="type_name [3657,3664]" parent="parameter [3657,3673]" at="0"/>
+  <insert-node tree="identifier: _tokenId [3665,3673]" parent="parameter [3657,3673]" at="1"/>
+  <insert-node tree="type_name [5556,5563]" parent="event_paramater [5556,5579]" at="0"/>
+  <insert-node tree="indexed: indexed [5564,5571]" parent="event_paramater [5556,5579]" at="1"/>
+  <insert-node tree="identifier: tokenId [5572,5579]" parent="event_paramater [5556,5579]" at="2"/>
+  <update-node tree="identifier: implementation__ [1690,1706]" label="owner"/>
+  <insert-tree tree="return_statement [25945,25969]" parent="function_body [25812,25976]" at="2"/>
+  <insert-tree tree="variable_declaration_statement [26157,26190]" parent="function_body [26146,26341]" at="1"/>
+  <insert-tree tree="return_statement [26321,26334]" parent="function_body [26146,26341]" at="3"/>
+  <insert-node tree="{: { [36628,36629]" parent="function_body [36628,37423]" at="0"/>
+  <insert-node tree="if_statement [36639,37416]" parent="function_body [36628,37423]" at="1"/>
+  <insert-node tree="}: } [37422,37423]" parent="function_body [36628,37423]" at="2"/>
+  <update-node tree="identifier: newImpl [679,686]" label="newOwner"/>
+  <update-node tree="identifier: impl [429,433]" label="newOwner"/>
+  <insert-node tree="{: { [41626,41627]" parent="function_body [41626,42132]" at="0"/>
+  <move-tree tree="expression_statement [706,753]" parent="function_body [41626,42132]" at="1"/>
+  <insert-tree tree="expression_statement [41709,41734]" parent="function_body [41626,42132]" at="2"/>
+  <insert-tree tree="expression_statement [41744,41760]" parent="function_body [41626,42132]" at="3"/>
+  <insert-tree tree="expression_statement [41770,41791]" parent="function_body [41626,42132]" at="4"/>
+  <insert-tree tree="expression_statement [41803,41845]" parent="function_body [41626,42132]" at="5"/>
+  <insert-tree tree="expression_statement [41855,41872]" parent="function_body [41626,42132]" at="6"/>
+  <insert-tree tree="expression_statement [41882,41904]" parent="function_body [41626,42132]" at="7"/>
+  <insert-tree tree="expression_statement [41916,41948]" parent="function_body [41626,42132]" at="8"/>
+  <insert-tree tree="expression_statement [41958,41986]" parent="function_body [41626,42132]" at="9"/>
+  <insert-tree tree="expression_statement [41996,42031]" parent="function_body [41626,42132]" at="10"/>
+  <insert-tree tree="expression_statement [42041,42080]" parent="function_body [41626,42132]" at="11"/>
+  <insert-tree tree="expression_statement [42090,42125]" parent="function_body [41626,42132]" at="12"/>
+  <insert-node tree="}: } [42131,42132]" parent="function_body [41626,42132]" at="13"/>
+  <insert-node tree="{: { [45314,45315]" parent="function_body [45314,46405]" at="0"/>
+  <insert-node tree="comment: //  By calling this function, you agreed that you have read and accepted the terms &amp; conditions [45325,45420]" parent="function_body [45314,46405]" at="1"/>
+  <insert-node tree="comment: // available at this link: https://hungerbrainz.com/terms [45426,45483]" parent="function_body [45314,46405]" at="2"/>
+  <insert-tree tree="expression_statement [45492,45530]" parent="function_body [45314,46405]" at="3"/>
+  <insert-tree tree="expression_statement [45539,45599]" parent="function_body [45314,46405]" at="4"/>
+  <insert-node tree="expression_statement [45609,45679]" parent="function_body [45314,46405]" at="5"/>
+  <insert-tree tree="expression_statement [45689,45723]" parent="function_body [45314,46405]" at="6"/>
+  <insert-node tree="comment: //1000 ether [45724,45736]" parent="function_body [45314,46405]" at="7"/>
+  <insert-tree tree="expression_statement [45746,45796]" parent="function_body [45314,46405]" at="8"/>
+  <insert-node tree="for_statement [45808,46398]" parent="function_body [45314,46405]" at="9"/>
+  <insert-node tree="}: } [46404,46405]" parent="function_body [45314,46405]" at="10"/>
+  <move-tree tree="primitive_type [598,605]" parent="type_name [2009,2016]" at="0"/>
+  <insert-node tree="variable_declaration [2374,2387]" parent="variable_declaration_statement [2374,2405]" at="0"/>
+  <insert-node tree="=: = [2388,2389]" parent="variable_declaration_statement [2374,2405]" at="1"/>
+  <insert-tree tree="member_expression [2390,2404]" parent="variable_declaration_statement [2374,2405]" at="2"/>
+  <move-tree tree="primitive_type [948,955]" parent="type_name [3657,3664]" at="0"/>
+  <move-tree tree="primitive_type [529,536]" parent="type_name [5556,5563]" at="0"/>
+  <insert-tree tree="call_expression [26200,26310]" parent="expression_statement [26200,26311]" at="0"/>
+  <insert-node tree="if: if [36639,36641]" parent="if_statement [36639,37416]" at="0"/>
+  <insert-node tree="(: ( [36642,36643]" parent="if_statement [36639,37416]" at="1"/>
+  <insert-tree tree="call_expression [36643,36658]" parent="if_statement [36639,37416]" at="2"/>
+  <insert-node tree="): ) [36658,36659]" parent="if_statement [36639,37416]" at="3"/>
+  <insert-node tree="block_statement [36660,37372]" parent="if_statement [36639,37416]" at="4"/>
+  <insert-node tree="else: else [37373,37377]" parent="if_statement [36639,37416]" at="5"/>
+  <insert-tree tree="block_statement [37378,37416]" parent="if_statement [36639,37416]" at="6"/>
+  <insert-node tree="call_expression [45609,45678]" parent="expression_statement [45609,45679]" at="0"/>
+  <insert-node tree="for: for [45808,45811]" parent="for_statement [45808,46398]" at="0"/>
+  <insert-node tree="(: ( [45812,45813]" parent="for_statement [45808,46398]" at="1"/>
+  <insert-tree tree="variable_declaration_statement [45813,45822]" parent="for_statement [45808,46398]" at="2"/>
+  <insert-tree tree="expression_statement [45823,45838]" parent="for_statement [45808,46398]" at="3"/>
+  <insert-tree tree="update_expression [45839,45842]" parent="for_statement [45808,46398]" at="4"/>
+  <insert-node tree="): ) [45842,45843]" parent="for_statement [45808,46398]" at="5"/>
+  <insert-node tree="block_statement [45844,46398]" parent="for_statement [45808,46398]" at="6"/>
+  <insert-node tree="type_name [2374,2381]" parent="variable_declaration [2374,2387]" at="0"/>
+  <insert-node tree="identifier: value [2382,2387]" parent="variable_declaration [2374,2387]" at="1"/>
+  <insert-node tree=",: , [25864,25865]" parent="call_expression [25823,25934]" at="3"/>
+  <insert-tree tree="call_argument [25879,25923]" parent="call_expression [25823,25934]" at="4"/>
+  <insert-node tree="{: { [36660,36661]" parent="block_statement [36660,37372]" at="0"/>
+  <insert-node tree="try_statement [36675,37361]" parent="block_statement [36660,37372]" at="1"/>
+  <insert-node tree="}: } [37371,37372]" parent="block_statement [36660,37372]" at="2"/>
+  <insert-node tree=",: , [41682,41683]" parent="call_expression [41637,41696]" at="3"/>
+  <insert-tree tree="call_argument [41684,41695]" parent="call_expression [41637,41696]" at="4"/>
+  <insert-tree tree="member_expression [45609,45625]" parent="call_expression [45609,45678]" at="0"/>
+  <insert-node tree="(: ( [45625,45626]" parent="call_expression [45609,45678]" at="1"/>
+  <insert-tree tree="call_argument [45626,45638]" parent="call_expression [45609,45678]" at="2"/>
+  <insert-node tree=",: , [45638,45639]" parent="call_expression [45609,45678]" at="3"/>
+  <insert-node tree="call_argument [45640,45653]" parent="call_expression [45609,45678]" at="4"/>
+  <insert-node tree=",: , [45653,45654]" parent="call_expression [45609,45678]" at="5"/>
+  <insert-tree tree="call_argument [45655,45677]" parent="call_expression [45609,45678]" at="6"/>
+  <insert-node tree="): ) [45677,45678]" parent="call_expression [45609,45678]" at="7"/>
+  <insert-node tree="{: { [45844,45845]" parent="block_statement [45844,46398]" at="0"/>
+  <insert-node tree="if_statement [45859,46331]" parent="block_statement [45844,46398]" at="1"/>
+  <insert-tree tree="expression_statement [46345,46387]" parent="block_statement [45844,46398]" at="2"/>
+  <insert-node tree="}: } [46397,46398]" parent="block_statement [45844,46398]" at="3"/>
+  <move-tree tree="primitive_type [806,813]" parent="type_name [2374,2381]" at="0"/>
+  <insert-node tree="try: try [36675,36678]" parent="try_statement [36675,37361]" at="0"/>
+  <insert-tree tree="call_expression [36692,36847]" parent="try_statement [36675,37361]" at="1"/>
+  <insert-node tree="returns: returns [36861,36868]" parent="try_statement [36675,37361]" at="2"/>
+  <insert-node tree="(: ( [36869,36870]" parent="try_statement [36675,37361]" at="3"/>
+  <insert-tree tree="parameter [36870,36883]" parent="try_statement [36675,37361]" at="4"/>
+  <insert-node tree="): ) [36883,36884]" parent="try_statement [36675,37361]" at="5"/>
+  <insert-tree tree="block_statement [36885,36982]" parent="try_statement [36675,37361]" at="6"/>
+  <insert-node tree="catch_clause [36983,37361]" parent="try_statement [36675,37361]" at="7"/>
+  <insert-node tree="type_cast_expression [45640,45653]" parent="call_argument [45640,45653]" at="0"/>
+  <insert-node tree="if: if [45859,45861]" parent="if_statement [45859,46331]" at="0"/>
+  <insert-node tree="(: ( [45862,45863]" parent="if_statement [45859,46331]" at="1"/>
+  <insert-node tree="identifier: stake [45863,45868]" parent="if_statement [45859,46331]" at="2"/>
+  <insert-node tree="): ) [45868,45869]" parent="if_statement [45859,46331]" at="3"/>
+  <insert-tree tree="block_statement [45870,46120]" parent="if_statement [45859,46331]" at="4"/>
+  <insert-node tree="else: else [46134,46138]" parent="if_statement [45859,46331]" at="5"/>
+  <insert-node tree="block_statement [46139,46331]" parent="if_statement [45859,46331]" at="6"/>
+  <update-node tree="identifier: impl [454,458]" label="owner"/>
+  <insert-node tree="catch: catch [36983,36988]" parent="catch_clause [36983,37361]" at="0"/>
+  <insert-node tree="(: ( [36989,36990]" parent="catch_clause [36983,37361]" at="1"/>
+  <insert-tree tree="parameter [36990,37009]" parent="catch_clause [36983,37361]" at="2"/>
+  <insert-node tree="): ) [37009,37010]" parent="catch_clause [36983,37361]" at="3"/>
+  <insert-node tree="block_statement [37011,37361]" parent="catch_clause [36983,37361]" at="4"/>
+  <move-tree tree="primitive_type [932,939]" parent="type_cast_expression [45640,45653]" at="0"/>
+  <insert-node tree="(: ( [45647,45648]" parent="type_cast_expression [45640,45653]" at="1"/>
+  <insert-tree tree="call_argument [45648,45652]" parent="type_cast_expression [45640,45653]" at="2"/>
+  <insert-node tree="): ) [45652,45653]" parent="type_cast_expression [45640,45653]" at="3"/>
+  <insert-node tree="{: { [46139,46140]" parent="block_statement [46139,46331]" at="0"/>
+  <insert-tree tree="expression_statement [46158,46179]" parent="block_statement [46139,46331]" at="1"/>
+  <insert-node tree="expression_statement [46197,46238]" parent="block_statement [46139,46331]" at="2"/>
+  <insert-tree tree="expression_statement [46256,46316]" parent="block_statement [46139,46331]" at="3"/>
+  <insert-node tree="}: } [46330,46331]" parent="block_statement [46139,46331]" at="4"/>
+  <insert-node tree="{: { [37011,37012]" parent="block_statement [37011,37361]" at="0"/>
+  <insert-node tree="if_statement [37030,37346]" parent="block_statement [37011,37361]" at="1"/>
+  <insert-node tree="}: } [37360,37361]" parent="block_statement [37011,37361]" at="2"/>
+  <insert-node tree="call_expression [46197,46237]" parent="expression_statement [46197,46238]" at="0"/>
+  <insert-node tree="if: if [37030,37032]" parent="if_statement [37030,37346]" at="0"/>
+  <insert-node tree="(: ( [37033,37034]" parent="if_statement [37030,37346]" at="1"/>
+  <insert-tree tree="binary_expression [37034,37052]" parent="if_statement [37030,37346]" at="2"/>
+  <insert-node tree="): ) [37052,37053]" parent="if_statement [37030,37346]" at="3"/>
+  <insert-tree tree="block_statement [37054,37201]" parent="if_statement [37030,37346]" at="4"/>
+  <insert-node tree="else: else [37202,37206]" parent="if_statement [37030,37346]" at="5"/>
+  <insert-node tree="block_statement [37207,37346]" parent="if_statement [37030,37346]" at="6"/>
+  <insert-node tree="identifier: _safeMint [46197,46206]" parent="call_expression [46197,46237]" at="0"/>
+  <insert-node tree="(: ( [46206,46207]" parent="call_expression [46197,46237]" at="1"/>
+  <move-tree tree="call_argument [614,624]" parent="call_expression [46197,46237]" at="2"/>
+  <insert-node tree=",: , [46217,46218]" parent="call_expression [46197,46237]" at="3"/>
+  <insert-tree tree="call_argument [46218,46236]" parent="call_expression [46197,46237]" at="4"/>
+  <insert-node tree="): ) [46236,46237]" parent="call_expression [46197,46237]" at="5"/>
+  <insert-node tree="{: { [37207,37208]" parent="block_statement [37207,37346]" at="0"/>
+  <insert-node tree="assembly_statement [37230,37327]" parent="block_statement [37207,37346]" at="1"/>
+  <insert-node tree="}: } [37345,37346]" parent="block_statement [37207,37346]" at="2"/>
+  <insert-node tree="assembly: assembly [37230,37238]" parent="assembly_statement [37230,37327]" at="0"/>
+  <insert-node tree="{: { [37239,37240]" parent="assembly_statement [37230,37327]" at="1"/>
+  <insert-node tree="yul_function_call [37266,37304]" parent="assembly_statement [37230,37327]" at="2"/>
+  <insert-node tree="}: } [37326,37327]" parent="assembly_statement [37230,37327]" at="3"/>
+  <move-tree tree="yul_evm_builtin [2442,2448]" parent="yul_function_call [37266,37304]" at="0"/>
+  <insert-node tree="(: ( [37272,37273]" parent="yul_function_call [37266,37304]" at="1"/>
+  <insert-tree tree="yul_function_call [37273,37288]" parent="yul_function_call [37266,37304]" at="2"/>
+  <insert-node tree=",: , [37288,37289]" parent="yul_function_call [37266,37304]" at="3"/>
+  <insert-tree tree="yul_function_call [37290,37303]" parent="yul_function_call [37266,37304]" at="4"/>
+  <insert-node tree="): ) [37303,37304]" parent="yul_function_call [37266,37304]" at="5"/>
+  <delete-node tree="constructor: constructor [409,420]"/>
+  <delete-node tree="(: ( [420,421]"/>
+  <delete-node tree="): ) [433,434]"/>
+  <delete-node tree="constructor_definition [409,636]"/>
+  <delete-node tree="function: function [644,652]"/>
+  <delete-node tree="identifier: setImplementation [653,670]"/>
+  <delete-node tree="(: ( [670,671]"/>
+  <delete-node tree="): ) [686,687]"/>
+  <delete-node tree="{: { [695,696]"/>
+  <delete-node tree="identifier: _setSlotValue [763,776]"/>
+  <delete-node tree="(: ( [776,777]"/>
+  <delete-tree tree="call_argument [777,796]"/>
+  <delete-node tree=",: , [796,797]"/>
+  <delete-tree tree="primitive_type [798,805]"/>
+  <delete-node tree="(: ( [805,806]"/>
+  <delete-node tree="(: ( [813,814]"/>
+  <delete-tree tree="call_argument [814,830]"/>
+  <delete-node tree="): ) [830,831]"/>
+  <delete-node tree="type_cast_expression [806,831]"/>
+  <delete-node tree="call_argument [806,831]"/>
+  <delete-node tree="): ) [831,832]"/>
+  <delete-node tree="type_cast_expression [798,832]"/>
+  <delete-node tree="call_argument [798,832]"/>
+  <delete-node tree="): ) [832,833]"/>
+  <delete-node tree="call_expression [763,833]"/>
+  <delete-node tree="expression_statement [763,834]"/>
+  <delete-node tree="}: } [840,841]"/>
+  <delete-node tree="function_body [695,841]"/>
+  <delete-node tree="function_definition [644,841]"/>
+  <delete-node tree="comment: /**      * @dev Delegates the current call to `implementation`.      *      * This function does not return to its internall call site, it will return directly to the external caller.      */ [1462,1657]"/>
+  <delete-node tree="function: function [1663,1671]"/>
+  <delete-node tree="identifier: _delegate [1672,1681]"/>
+  <delete-node tree="(: ( [1681,1682]"/>
+  <delete-node tree="): ) [1706,1707]"/>
+  <delete-node tree="virtual: virtual [1717,1724]"/>
+  <delete-node tree="{: { [1725,1726]"/>
+  <delete-node tree="assembly: assembly [1736,1744]"/>
+  <delete-node tree="{: { [1745,1746]"/>
+  <delete-node tree="comment: // Copy msg.data. We take full control of memory in this inline assembly [1760,1832]"/>
+  <delete-node tree="comment: // block because it will not return to Solidity code. We overwrite the [1846,1916]"/>
+  <delete-node tree="comment: // Solidity scratch pad at memory position 0. [1930,1975]"/>
+  <delete-tree tree="yul_function_call [1989,2023]"/>
+  <delete-node tree="comment: // Call the implementation. [2039,2066]"/>
+  <delete-node tree="comment: // out and outsize are 0 because we don't know the size yet. [2080,2140]"/>
+  <delete-tree tree="yul_variable_declaration [2154,2230]"/>
+  <delete-node tree="comment: // Copy the returned data. [2246,2272]"/>
+  <delete-tree tree="yul_function_call [2286,2324]"/>
+  <delete-node tree="switch: switch [2340,2346]"/>
+  <delete-tree tree="yul_path [2347,2353]"/>
+  <delete-node tree="comment: // delegatecall returns 0 on error. [2367,2402]"/>
+  <delete-node tree="case: case [2416,2420]"/>
+  <delete-node tree="yul_decimal_number: 0 [2421,2422]"/>
+  <delete-node tree="{: { [2423,2424]"/>
+  <delete-node tree="(: ( [2448,2449]"/>
+  <delete-node tree="yul_decimal_number: 0 [2449,2450]"/>
+  <delete-node tree=",: , [2450,2451]"/>
+  <delete-tree tree="yul_function_call [2452,2468]"/>
+  <delete-node tree="): ) [2468,2469]"/>
+  <delete-node tree="yul_function_call [2442,2469]"/>
+  <delete-node tree="}: } [2483,2484]"/>
+  <delete-node tree="yul_block [2423,2484]"/>
+  <delete-node tree="default: default [2498,2505]"/>
+  <delete-tree tree="yul_block [2506,2567]"/>
+  <delete-node tree="yul_switch_statement [2340,2567]"/>
+  <delete-node tree="}: } [2577,2578]"/>
+  <delete-node tree="assembly_statement [1736,2578]"/>
+  <delete-node tree="}: } [2584,2585]"/>
+  <delete-node tree="function_body [1725,2585]"/>
+  <delete-node tree="function_definition [1663,2585]"/>
+  <delete-node tree="comment: /**      * @dev Fallback function that delegates calls to the address returned by `_implementation()`. Will run if no other      * function in the contract matches the call data.      */ [2595,2784]"/>
+  <delete-node tree="fallback: fallback [2790,2798]"/>
+  <delete-node tree="(: ( [2798,2799]"/>
+  <delete-node tree="): ) [2799,2800]"/>
+  <delete-node tree="virtual: virtual [2818,2825]"/>
+  <delete-tree tree="function_body [2826,2888]"/>
+  <delete-node tree="fallback_receive_definition [2790,2888]"/>
+  <delete-node tree="identifier: _setSlotValue [486,499]"/>
+  <delete-node tree="(: ( [499,500]"/>
+  <delete-tree tree="call_argument [500,519]"/>
+  <delete-node tree=",: , [519,520]"/>
+  <delete-tree tree="primitive_type [521,528]"/>
+  <delete-node tree="(: ( [528,529]"/>
+  <delete-node tree="(: ( [536,537]"/>
+  <delete-tree tree="call_argument [537,550]"/>
+  <delete-node tree="): ) [550,551]"/>
+  <delete-node tree="type_cast_expression [529,551]"/>
+  <delete-node tree="call_argument [529,551]"/>
+  <delete-node tree="): ) [551,552]"/>
+  <delete-node tree="type_cast_expression [521,552]"/>
+  <delete-node tree="call_argument [521,552]"/>
+  <delete-node tree="): ) [552,553]"/>
+  <delete-node tree="call_expression [486,553]"/>
+  <delete-node tree="expression_statement [486,554]"/>
+  <delete-node tree="identifier: _setSlotValue [564,577]"/>
+  <delete-node tree="(: ( [577,578]"/>
+  <delete-tree tree="call_argument [578,588]"/>
+  <delete-node tree=",: , [588,589]"/>
+  <delete-tree tree="primitive_type [590,597]"/>
+  <delete-node tree="(: ( [597,598]"/>
+  <delete-node tree="(: ( [605,606]"/>
+  <delete-tree tree="primitive_type [606,613]"/>
+  <delete-node tree="(: ( [613,614]"/>
+  <delete-node tree="): ) [624,625]"/>
+  <delete-node tree="type_cast_expression [606,625]"/>
+  <delete-node tree="call_argument [606,625]"/>
+  <delete-node tree="): ) [625,626]"/>
+  <delete-node tree="type_cast_expression [598,626]"/>
+  <delete-node tree="call_argument [598,626]"/>
+  <delete-node tree="): ) [626,627]"/>
+  <delete-node tree="type_cast_expression [590,627]"/>
+  <delete-node tree="call_argument [590,627]"/>
+  <delete-node tree="): ) [627,628]"/>
+  <delete-node tree="call_expression [564,628]"/>
+  <delete-node tree="expression_statement [564,629]"/>
+  <delete-node tree="identifier: impl [908,912]"/>
+  <delete-node tree="identifier: impl [925,929]"/>
+  <delete-node tree="=: = [930,931]"/>
+  <delete-node tree="(: ( [939,940]"/>
+  <delete-tree tree="primitive_type [940,947]"/>
+  <delete-node tree="(: ( [947,948]"/>
+  <delete-node tree="(: ( [955,956]"/>
+  <delete-tree tree="call_argument [956,990]"/>
+  <delete-node tree="): ) [990,991]"/>
+  <delete-node tree="type_cast_expression [948,991]"/>
+  <delete-node tree="call_argument [948,991]"/>
+  <delete-node tree="): ) [991,992]"/>
+  <delete-node tree="type_cast_expression [940,992]"/>
+  <delete-node tree="call_argument [940,992]"/>
+  <delete-node tree="): ) [992,993]"/>
+  <delete-node tree="type_cast_expression [932,993]"/>
+  <delete-node tree="assignment_expression [925,993]"/>
+</actions>

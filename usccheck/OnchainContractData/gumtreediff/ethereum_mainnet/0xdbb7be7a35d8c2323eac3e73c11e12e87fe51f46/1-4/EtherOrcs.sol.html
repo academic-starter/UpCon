@@ -1,0 +1,975 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>EtherOrcs.sol</h5><pre class="pre-scrollable">// SPDX-License-Identifier: Unlicense
+pragma solidity 0.8.7;
+
+import "./ERC20.sol";
+import "./ERC721.sol"; 
+
+//    ___ _   _               ___            
+//  | __| |_| |_  ___ _ _   / _ \ _ _ __ ___
+//  | _||  _| ' \/ -_) '_| | (_) | '_/ _(_-&lt;
+//  |___|\__|_||_\___|_|    \___/|_| \__/__/
+//
+
+interface MetadataHandlerLike {
+    function getTokenURI(uint16 id, uint8 body, uint8 helm, uint8 mainhand, uint8 offhand, uint16 level, uint16 zugModifier) external view returns (string memory);
+}
+
+
+contract EtherOrcs is ERC721 {
+
+    /*///////////////////////////////////////////////////////////////
+                    Global STATE
+    //////////////////////////////////////////////////////////////*/
+
+    uint256 public constant  cooldown = 10 minutes;
+    uint256 public constant  startingTime = 1633951800 + 4.5 hours;
+
+    address public migrator;
+
+    bytes32 internal entropySauce;
+
+    ERC20 public zug;
+
+    mapping (address =&gt; bool)     public auth;
+    mapping (uint256 =&gt; Orc)      public orcs;
+    mapping (uint256 =&gt; Action)   public activities;
+    mapping (Places  =&gt; LootPool) public lootPools;
+    
+    uint256 mintedFromThis = 0;
+    bool mintOpen = false;
+
+    MetadataHandlerLike metadaHandler;
+
+    function setAddresses(address mig, address meta) external onlyOwner {
+        migrator      = mig;
+        metadaHandler = MetadataHandlerLike(meta);
+    }
+
+    function setAuth(address add, bool isAuth) external onlyOwner {
+        auth[add] = isAuth;
+    }
+
+
+    function transferOwnership(address newOwner) external  onlyOwner{
+        admin = newOwner;
+    }
+    
+    function setMintable(bool val) external onlyOwner {
+        mintOpen = val;
+    }
+
+    function tokenURI(uint256 id) external view returns(string memory) {
+        Orc memory orc = orcs[id];
+        return metadaHandler.getTokenURI(uint16(id), orc.body, orc.helm, orc.mainhand, orc.offhand, orc.level, orc.zugModifier);
+    }
+
+    event ActionMade(address owner, uint256 id, uint256 timestamp, uint8 activity);
+
+
+    /*///////////////////////////////////////////////////////////////
+                DATA STRUCTURES 
+    //////////////////////////////////////////////////////////////*/
+
+    struct LootPool { 
+        uint8  minLevel; uint8  minLootTier; uint16  cost;   uint16 total;
+        uint16 tier_1;   uint16 tier_2;      uint16 tier_3; uint16 tier_4;
+    }
+
+    struct Orc { uint8 body; uint8 helm; uint8 mainhand; uint8 offhand; uint16 level; uint16 zugModifier; uint32 lvlProgress; }
+
+    enum   Actions { UNSTAKED, FARMING, TRAINING }
+    struct Action  { address owner; uint88 timestamp; Actions action; }
+
+    // These are all the places you can go search for loot
+    enum Places { 
+        TOWN, DUNGEON, CRYPT, CASTLE, DRAGONS_LAIR, THE_ETHER, 
+        TAINTED_KINGDOM, OOZING_DEN, ANCIENT_CHAMBER, ORC_GODS 
+    }   
+
+    /*///////////////////////////////////////////////////////////////
+                    CONSTRUCTOR
+    //////////////////////////////////////////////////////////////*/
+    // function initialize() public onlyOwner {
+        
+    // }
+
+    /*///////////////////////////////////////////////////////////////
+                    MODIFIERS 
+    //////////////////////////////////////////////////////////////*/
+
+    modifier noCheaters() {
+        uint256 size = 0;
+        address acc = msg.sender;
+        assembly { size := extcodesize(acc)}
+
+        require(auth[msg.sender] || (msg.sender == tx.origin &amp;&amp; size == 0), "you're trying to cheat!");
+        _;
+
+        // We'll use the last caller hash to add entropy to next caller
+        entropySauce = keccak256(abi.encodePacked(acc, block.coinbase));
+    }
+
+    modifier ownerOfOrc(uint256 id) { 
+        require(ownerOf[id] == msg.sender || activities[id].owner == msg.sender, "not your orc");
+        _;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == admin);
+        _;
+    }
+
+
+    /*///////////////////////////////////////////////////////////////
+                    PUBLIC FUNCTIONS
+    //////////////////////////////////////////////////////////////*/
+
+    function mint() public noCheaters returns (uint256 id) {
+        uint256 cost = _getMintingPrice();
+        uint256 rand = _rand();
+        require(address(zug) != address(0) &amp;&amp; mintOpen);
+
+        if (cost &gt; 0) zug.burn(msg.sender, cost);
+        return _mintOrc(rand);
+    }
+
+    // Craft an identical orc from v1!
+    function craft(address owner_, uint256 id, uint8 body, uint8 helm, uint8 mainhand, uint8 offhand, uint16 level, uint32 lvlProgres) public {
+        require(msg.sender == migrator);
+
+        _mint(owner_, id);
+
+        uint16 zugModifier = _tier(helm) + _tier(mainhand) + _tier(offhand);
+        orcs[uint256(id)] = Orc({body: body, helm: helm, mainhand: mainhand, offhand: offhand, level: level, lvlProgress: lvlProgres, zugModifier:zugModifier});
+    }
+
+    <span class="marker" id="mapping-1"></span><span class="token del" data-title="contract_body/function_definition">function migrationAction(uint256 id, address owner_, Actions action_) public {
+        require(msg.sender == migrator);
+
+        _doAction(id, owner_, action_);
+
+        //Add a time bonus
+        activities[id].timestamp = uint88(block.timestamp - 120 minutes);
+    }</span>
+
+    function doAction(uint256 id, Actions action_) public ownerOfOrc(id) noCheaters {
+       _doAction(id, msg.sender, action_);
+    }
+
+    function _doAction(uint256 id, address orcOwner, Actions action_) internal {
+        Action memory action = activities[id];
+        require(action.action != action_, "already doing that");
+
+        // Picking the largest value between block.timestamp, action.timestamp and startingTime
+        uint88 timestamp = uint88(block.timestamp &gt; action.timestamp ? block.timestamp : action.timestamp);
+
+        if (action.action == Actions.UNSTAKED)  _transfer(orcOwner, address(this), id);
+     
+        else {
+            if (block.timestamp &gt; action.timestamp) _claim(id);
+            timestamp = timestamp &gt; action.timestamp ? timestamp : action.timestamp;
+        }
+
+        address owner_ = action_ == Actions.UNSTAKED ? address(0) : orcOwner;
+        if (action_ == Actions.UNSTAKED) _transfer(address(this), orcOwner, id);
+
+        activities[id] = Action({owner: owner_, action: action_,timestamp: timestamp});
+        emit ActionMade(orcOwner, id, block.timestamp, uint8(action_));
+    }
+
+    function doActionWithManyOrcs(uint256[] calldata ids, Actions action_) external {
+        for (uint256 index = 0; index &lt; ids.length; index++) {
+            _doAction(ids[index], msg.sender, action_);
+        }
+    }
+
+    function claim(uint256[] calldata ids) external {
+        for (uint256 index = 0; index &lt; ids.length; index++) {
+            _claim(ids[index]);
+        }
+    }
+
+    function _claim(uint256 id) internal noCheaters {
+        Orc    memory orc    = orcs[id];
+        Action memory action = activities[id];
+
+        if(block.timestamp &lt;= action.timestamp) return;
+
+        uint256 timeDiff = uint256(block.timestamp - action.timestamp);
+
+        if (action.action == Actions.FARMING) zug.mint(action.owner, claimableZug(timeDiff, orc.zugModifier));
+       
+        if (action.action == Actions.TRAINING) {
+            uint256 progress = timeDiff * 3000 / 1 days;
+            orcs[id].lvlProgress = uint16(progress % 1000);
+            orcs[id].level      += uint16(progress / 1000);
+        }
+
+        activities[id].timestamp = uint88(block.timestamp);
+    }
+
+    function pillage(uint256 id, Places place, bool tryHelm, bool tryMainhand, bool tryOffhand) public ownerOfOrc(id) noCheaters {
+        require(block.timestamp &gt;= uint256(activities[id].timestamp), "on cooldown");
+        require(place != Places.ORC_GODS,  "You can't pillage the Orc God");
+
+        if(activities[id].timestamp &lt; block.timestamp) _claim(id); // Need to claim to not have equipment reatroactively multiplying
+
+        uint256 rand_ = _rand();
+  
+        LootPool memory pool = lootPools[place];
+        require(orcs[id].level &gt;= uint16(pool.minLevel), "below minimum level");
+
+        if (pool.cost &gt; 0) {
+            require(block.timestamp - startingTime &gt; 14 days);
+            zug.burn(msg.sender, uint256(pool.cost) * 1 ether);
+        } 
+
+        uint8 item;
+        if (tryHelm) {
+            ( pool, item ) = _getItemFromPool(pool, _randomize(rand_,"HELM", id));
+            if (item != 0 ) orcs[id].helm = item;
+        }
+        if (tryMainhand) {
+            ( pool, item ) = _getItemFromPool(pool, _randomize(rand_,"MAINHAND", id));
+            if (item != 0 ) orcs[id].mainhand = item;
+        }
+        if (tryOffhand) {
+            ( pool, item ) = _getItemFromPool(pool, _randomize(rand_,"OFFHAND", id));
+            if (item != 0 ) orcs[id].offhand = item;
+        }
+
+        if (uint(place) &gt; 1) lootPools[place] = pool;
+
+        // Update zug modifier
+        Orc memory orc = orcs[id];
+        uint16 zugModifier_ = _tier(orc.helm) + _tier(orc.mainhand) + _tier(orc.offhand);
+
+        orcs[id].zugModifier = zugModifier_;
+
+        activities[id].timestamp = uint88(block.timestamp + cooldown);
+    } 
+
+    function update(uint256 id) public ownerOfOrc(id) noCheaters {
+        require(_tier(orcs[id].mainhand) &lt; 10);
+        require(block.timestamp - startingTime &gt;= 14 days);
+        
+        LootPool memory pool = lootPools[Places.ORC_GODS];
+        require(orcs[id].level &gt;= pool.minLevel);
+
+        zug.burn(msg.sender, uint256(pool.cost) * 1 ether);
+
+        _claim(id); // Need to claim to not have equipment reatroactively multiplying
+
+        uint8 item = uint8(lootPools[Places.ORC_GODS].total--);
+        orcs[id].zugModifier = 30;
+        orcs[id].body = orcs[id].helm = orcs[id].mainhand = orcs[id].offhand = item + 40;
+    }
+    
+    <span class="marker" id="mapping-2"></span><span class="token del" data-title="contract_body/function_definition">function undoWronglyMinted(<span class="marker" id="mapping-3"></span><span class="token del" data-title="function_definition/parameter">uint256[] calldata ids</span>) <span class="marker" id="mapping-4"></span><span class="token mv" id="move-src-1" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-5"></span><span class="token mv" id="move-src-2" data-title="function_definition/modifier_invocation">onlyOwner</span> <span class="marker" id="mapping-6"></span><span class="token del" data-title="function_definition/function_body">{
+        for(uint i = 0; i &lt; ids.length; i++) { 
+            _burn(ids[i]);
+        }
+    }</span></span>
+    
+
+    /*///////////////////////////////////////////////////////////////
+                    VIEWERS
+    //////////////////////////////////////////////////////////////*/
+
+    function claimable(uint256 id) external view returns (uint256 amount) {
+        uint256 timeDiff = block.timestamp &gt; activities[id].timestamp ? uint256(block.timestamp - activities[id].timestamp) : 0;
+        amount = activities[id].action == Actions.FARMING ? claimableZug(timeDiff, orcs[id].zugModifier) : timeDiff * 3000 / 1 days;
+    }
+
+    function name() external pure returns (string memory) {
+        return "Ether Orcs Genesis";
+    }
+
+    function symbol() external pure returns (string memory) {
+        return "Orcs";
+    }
+
+
+    /*///////////////////////////////////////////////////////////////
+                    MINT FUNCTION
+    //////////////////////////////////////////////////////////////*/
+
+    function _mintOrc(uint256 rand) internal returns (uint16 id) {
+        (uint8 body,uint8 helm,uint8 mainhand,uint8 offhand) = (0,0,0,0);
+
+        {
+            // Helpers to get Percentages
+            uint256 sevenOnePct   = type(uint16).max / 100 * 71;
+            uint256 eightyPct     = type(uint16).max / 100 * 80;
+            uint256 nineFivePct   = type(uint16).max / 100 * 95;
+            uint256 nineNinePct   = type(uint16).max / 100 * 99;
+    
+            id = uint16(oldSupply + <span class="marker" id="mapping-7"></span><span class="token upd" id="move-src-3" data-title="update_expression/identifier"><span class="cupd">minted</span>FromThis</span>++ + 1);
+    
+            // Getting Random traits
+            uint16 randBody = uint16(_randomize(rand, "BODY", id));
+                   body     = uint8(randBody &gt; nineNinePct ? randBody % 3 + 25 : 
+                              randBody &gt; sevenOnePct  ? randBody % 12 + 13 : randBody % 13 + 1 );
+    
+            uint16 randHelm = uint16(_randomize(rand, "HELM", id));
+                   helm     = uint8(randHelm &lt; eightyPct ? 0 : randHelm % 4 + 5);
+    
+            uint16 randOffhand = uint16(_randomize(rand, "OFFHAND", id));
+                   offhand     = uint8(randOffhand &lt; eightyPct ? 0 : randOffhand % 4 + 5);
+    
+            uint16 randMainhand = uint16(_randomize(rand, "MAINHAND", id));
+                   mainhand     = uint8(randMainhand &lt; nineFivePct ? randMainhand % 4 + 1: randMainhand % 4 + 5);
+        }
+
+        _mint(msg.sender, id);
+
+        uint16 zugModifier = _tier(helm) + _tier(mainhand) + _tier(offhand);
+        orcs[uint256(id)] = Orc({body: body, helm: helm, mainhand: mainhand, offhand: offhand, level: 0, lvlProgress: 0, zugModifier:zugModifier});
+    }
+
+    /*///////////////////////////////////////////////////////////////
+                    INTERNAL  HELPERS
+    //////////////////////////////////////////////////////////////*/
+
+    /// @dev take an available item from a pool
+    function _getItemFromPool(LootPool memory pool, uint256 rand) internal pure returns (LootPool memory, uint8 item) {
+        uint draw = rand % pool.total--; 
+
+        if (draw &gt; pool.tier_1 + pool.tier_2 + pool.tier_3 &amp;&amp; pool.tier_4-- &gt; 0) {
+            item = uint8((draw % 4 + 1) + (pool.minLootTier + 3) * 4);     
+            return (pool, item);
+        }
+
+        if (draw &gt; pool.tier_1 + pool.tier_2 &amp;&amp; pool.tier_3-- &gt; 0) {
+            item = uint8((draw % 4 + 1) + (pool.minLootTier + 2) * 4);
+            return (pool, item);
+        }
+
+        if (draw &gt; pool.tier_1 &amp;&amp; pool.tier_2-- &gt; 0) {
+            item = uint8((draw % 4 + 1) + (pool.minLootTier + 1) * 4);
+            return (pool, item);
+        }
+
+        if (pool.tier_1-- &gt; 0) {
+            item = uint8((draw % 4 + 1) + pool.minLootTier * 4);
+            return (pool, item);
+        }
+    }
+
+    function claimableZug(uint256 timeDiff, uint16 zugModifier) internal pure returns (uint256 zugAmount) {
+        zugAmount = timeDiff * (4 + zugModifier) * 1 ether / 1 days;
+    }
+
+    /// @dev Convert an id to its tier
+    function _tier(uint16 id) internal pure returns (uint16) {
+        if (id == 0) return 0;
+        return ((id - 1) / 4 );
+    }
+
+    /// @dev Create a bit more of randomness
+    function _randomize(uint256 rand, string memory val, uint256 spicy) internal pure returns (uint256) {
+        return uint256(keccak256(abi.encode(rand, val, spicy)));
+    }
+
+    function _rand() internal view returns (uint256) {
+        return uint256(keccak256(abi.encodePacked(msg.sender, block.timestamp, block.basefee, block.timestamp, entropySauce)));
+    }
+
+    function _getMintingPrice() internal view returns (uint256) {
+        uint256 supply = <span class="marker" id="mapping-8"></span><span class="token upd" id="move-src-4" data-title="binary_expression/identifier"><span class="cupd">minted</span>FromThis</span> + oldSupply;
+        if (supply &gt; 4550) return 60 ether;
+        return 130 ether;
+    }
+}
+
+</pre></div><div class="col-6"><h5>EtherOrcs.sol</h5><pre class="pre-scrollable">// SPDX-License-Identifier: Unlicense
+pragma solidity 0.8.7;
+
+import "./ERC20.sol";
+import "./ERC721.sol"; 
+
+//    ___ _   _               ___            
+//  | __| |_| |_  ___ _ _   / _ \ _ _ __ ___
+//  | _||  _| ' \/ -_) '_| | (_) | '_/ _(_-&lt;
+//  |___|\__|_||_\___|_|    \___/|_| \__/__/
+//
+
+interface MetadataHandlerLike {
+    function getTokenURI(uint16 id, uint8 body, uint8 helm, uint8 mainhand, uint8 offhand, uint16 level, uint16 zugModifier) external view returns (string memory);
+}
+
+
+contract EtherOrcs is ERC721 {
+
+    /*///////////////////////////////////////////////////////////////
+                    Global STATE
+    //////////////////////////////////////////////////////////////*/
+
+    uint256 public constant  cooldown = 10 minutes;
+    uint256 public constant  startingTime = 1633951800 + 4.5 hours;
+
+    address public migrator;
+
+    bytes32 internal entropySauce;
+
+    ERC20 public zug;
+
+    mapping (address =&gt; bool)     public auth;
+    mapping (uint256 =&gt; Orc)      public orcs;
+    mapping (uint256 =&gt; Action)   public activities;
+    mapping (Places  =&gt; LootPool) public lootPools;
+    
+    uint256 mintedFromThis = 0;
+    bool mintOpen = false;
+
+    MetadataHandlerLike metadaHandler;
+
+    function setAddresses(address mig, address meta) external onlyOwner {
+        migrator      = mig;
+        metadaHandler = MetadataHandlerLike(meta);
+    }
+
+    function setAuth(address add, bool isAuth) external onlyOwner {
+        auth[add] = isAuth;
+    }
+
+
+    function transferOwnership(address newOwner) external  onlyOwner{
+        admin = newOwner;
+    }
+    
+    function setMintable(bool val) external onlyOwner {
+        mintOpen = val;
+    }
+
+    <span class="marker" id="mapping-9"></span><span class="token add" data-title="contract_body/function_definition">function resetMinted() <span class="marker" id="mapping-10"></span><span class="token mv" id="move-dst-1" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-11"></span><span class="token mv" id="move-dst-2" data-title="function_definition/modifier_invocation">onlyOwner</span> <span class="marker" id="mapping-12"></span><span class="token add" data-title="function_definition/function_body">{
+        minted = 0;
+    }</span></span>
+
+    function tokenURI(uint256 id) external view returns(string memory) {
+        Orc memory orc = orcs[id];
+        return metadaHandler.getTokenURI(uint16(id), orc.body, orc.helm, orc.mainhand, orc.offhand, orc.level, orc.zugModifier);
+    }
+
+    event ActionMade(address owner, uint256 id, uint256 timestamp, uint8 activity);
+
+
+    /*///////////////////////////////////////////////////////////////
+                DATA STRUCTURES 
+    //////////////////////////////////////////////////////////////*/
+
+    struct LootPool { 
+        uint8  minLevel; uint8  minLootTier; uint16  cost;   uint16 total;
+        uint16 tier_1;   uint16 tier_2;      uint16 tier_3; uint16 tier_4;
+    }
+
+    struct Orc { uint8 body; uint8 helm; uint8 mainhand; uint8 offhand; uint16 level; uint16 zugModifier; uint32 lvlProgress; }
+
+    enum   Actions { UNSTAKED, FARMING, TRAINING }
+    struct Action  { address owner; uint88 timestamp; Actions action; }
+
+    // These are all the places you can go search for loot
+    enum Places { 
+        TOWN, DUNGEON, CRYPT, CASTLE, DRAGONS_LAIR, THE_ETHER, 
+        TAINTED_KINGDOM, OOZING_DEN, ANCIENT_CHAMBER, ORC_GODS 
+    }   
+
+    /*///////////////////////////////////////////////////////////////
+                    CONSTRUCTOR
+    //////////////////////////////////////////////////////////////*/
+    // function initialize() public onlyOwner {
+        
+    // }
+
+    /*///////////////////////////////////////////////////////////////
+                    MODIFIERS 
+    //////////////////////////////////////////////////////////////*/
+
+    modifier noCheaters() {
+        uint256 size = 0;
+        address acc = msg.sender;
+        assembly { size := extcodesize(acc)}
+
+        require(auth[msg.sender] || (msg.sender == tx.origin &amp;&amp; size == 0), "you're trying to cheat!");
+        _;
+
+        // We'll use the last caller hash to add entropy to next caller
+        entropySauce = keccak256(abi.encodePacked(acc, block.coinbase));
+    }
+
+    modifier ownerOfOrc(uint256 id) { 
+        require(ownerOf[id] == msg.sender || activities[id].owner == msg.sender, "not your orc");
+        _;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == admin);
+        _;
+    }
+
+
+    /*///////////////////////////////////////////////////////////////
+                    PUBLIC FUNCTIONS
+    //////////////////////////////////////////////////////////////*/
+
+    function mint() public noCheaters returns (uint256 id) {
+        uint256 cost = _getMintingPrice();
+        uint256 rand = _rand();
+        require(address(zug) != address(0) &amp;&amp; mintOpen);
+
+        if (cost &gt; 0) zug.burn(msg.sender, cost);
+        return _mintOrc(rand);
+    }
+
+    // Craft an identical orc from v1!
+    function craft(address owner_, uint256 id, uint8 body, uint8 helm, uint8 mainhand, uint8 offhand, uint16 level, uint32 lvlProgres) public {
+        require(msg.sender == migrator);
+
+        _mint(owner_, id);
+
+        uint16 zugModifier = _tier(helm) + _tier(mainhand) + _tier(offhand);
+        orcs[uint256(id)] = Orc({body: body, helm: helm, mainhand: mainhand, offhand: offhand, level: level, lvlProgress: lvlProgres, zugModifier:zugModifier});
+    }
+
+    function doAction(uint256 id, Actions action_) public ownerOfOrc(id) noCheaters {
+       _doAction(id, msg.sender, action_);
+    }
+
+    function _doAction(uint256 id, address orcOwner, Actions action_) internal {
+        Action memory action = activities[id];
+        require(action.action != action_, "already doing that");
+
+        // Picking the largest value between block.timestamp, action.timestamp and startingTime
+        uint88 timestamp = uint88(block.timestamp &gt; action.timestamp ? block.timestamp : action.timestamp);
+
+        if (action.action == Actions.UNSTAKED)  _transfer(orcOwner, address(this), id);
+     
+        else {
+            if (block.timestamp &gt; action.timestamp) _claim(id);
+            timestamp = timestamp &gt; action.timestamp ? timestamp : action.timestamp;
+        }
+
+        address owner_ = action_ == Actions.UNSTAKED ? address(0) : orcOwner;
+        if (action_ == Actions.UNSTAKED) _transfer(address(this), orcOwner, id);
+
+        activities[id] = Action({owner: owner_, action: action_,timestamp: timestamp});
+        emit ActionMade(orcOwner, id, block.timestamp, uint8(action_));
+    }
+
+    function doActionWithManyOrcs(uint256[] calldata ids, Actions action_) external {
+        for (uint256 index = 0; index &lt; ids.length; index++) {
+            _doAction(ids[index], msg.sender, action_);
+        }
+    }
+
+    function claim(uint256[] calldata ids) external {
+        for (uint256 index = 0; index &lt; ids.length; index++) {
+            _claim(ids[index]);
+        }
+    }
+
+    function _claim(uint256 id) internal noCheaters {
+        Orc    memory orc    = orcs[id];
+        Action memory action = activities[id];
+
+        if(block.timestamp &lt;= action.timestamp) return;
+
+        uint256 timeDiff = uint256(block.timestamp - action.timestamp);
+
+        if (action.action == Actions.FARMING) zug.mint(action.owner, claimableZug(timeDiff, orc.zugModifier));
+       
+        if (action.action == Actions.TRAINING) {
+            uint256 progress = timeDiff * 3000 / 1 days;
+            orcs[id].lvlProgress = uint16(progress % 1000);
+            orcs[id].level      += uint16(progress / 1000);
+        }
+
+        activities[id].timestamp = uint88(block.timestamp);
+    }
+
+    function pillage(uint256 id, Places place, bool tryHelm, bool tryMainhand, bool tryOffhand) public ownerOfOrc(id) noCheaters {
+        require(block.timestamp &gt;= uint256(activities[id].timestamp), "on cooldown");
+        require(place != Places.ORC_GODS,  "You can't pillage the Orc God");
+
+        if(activities[id].timestamp &lt; block.timestamp) _claim(id); // Need to claim to not have equipment reatroactively multiplying
+
+        uint256 rand_ = _rand();
+  
+        LootPool memory pool = lootPools[place];
+        require(orcs[id].level &gt;= uint16(pool.minLevel), "below minimum level");
+
+        if (pool.cost &gt; 0) {
+            require(block.timestamp - startingTime &gt; 14 days);
+            zug.burn(msg.sender, uint256(pool.cost) * 1 ether);
+        } 
+
+        uint8 item;
+        if (tryHelm) {
+            ( pool, item ) = _getItemFromPool(pool, _randomize(rand_,"HELM", id));
+            if (item != 0 ) orcs[id].helm = item;
+        }
+        if (tryMainhand) {
+            ( pool, item ) = _getItemFromPool(pool, _randomize(rand_,"MAINHAND", id));
+            if (item != 0 ) orcs[id].mainhand = item;
+        }
+        if (tryOffhand) {
+            ( pool, item ) = _getItemFromPool(pool, _randomize(rand_,"OFFHAND", id));
+            if (item != 0 ) orcs[id].offhand = item;
+        }
+
+        if (uint(place) &gt; 1) lootPools[place] = pool;
+
+        // Update zug modifier
+        Orc memory orc = orcs[id];
+        uint16 zugModifier_ = _tier(orc.helm) + _tier(orc.mainhand) + _tier(orc.offhand);
+
+        orcs[id].zugModifier = zugModifier_;
+
+        activities[id].timestamp = uint88(block.timestamp + cooldown);
+    } 
+
+    function update(uint256 id) public ownerOfOrc(id) noCheaters {
+        require(_tier(orcs[id].mainhand) &lt; 10);
+        require(block.timestamp - startingTime &gt;= 14 days);
+        
+        LootPool memory pool = lootPools[Places.ORC_GODS];
+        require(orcs[id].level &gt;= pool.minLevel);
+
+        zug.burn(msg.sender, uint256(pool.cost) * 1 ether);
+
+        _claim(id); // Need to claim to not have equipment reatroactively multiplying
+
+        uint8 item = uint8(lootPools[Places.ORC_GODS].total--);
+        orcs[id].zugModifier = 30;
+        orcs[id].body = orcs[id].helm = orcs[id].mainhand = orcs[id].offhand = item + 40;
+    }
+    
+    /*///////////////////////////////////////////////////////////////
+                    VIEWERS
+    //////////////////////////////////////////////////////////////*/
+
+    function claimable(uint256 id) external view returns (uint256 amount) {
+        uint256 timeDiff = block.timestamp &gt; activities[id].timestamp ? uint256(block.timestamp - activities[id].timestamp) : 0;
+        amount = activities[id].action == Actions.FARMING ? claimableZug(timeDiff, orcs[id].zugModifier) : timeDiff * 3000 / 1 days;
+    }
+
+    function name() external pure returns (string memory) {
+        return "Ether Orcs Genesis";
+    }
+
+    function symbol() external pure returns (string memory) {
+        return "Orcs";
+    }
+
+
+    /*///////////////////////////////////////////////////////////////
+                    MINT FUNCTION
+    //////////////////////////////////////////////////////////////*/
+
+    function _mintOrc(uint256 rand) internal returns (uint16 id) {
+        (uint8 body,uint8 helm,uint8 mainhand,uint8 offhand) = (0,0,0,0);
+
+        {
+            // Helpers to get Percentages
+            uint256 sevenOnePct   = type(uint16).max / 100 * 71;
+            uint256 eightyPct     = type(uint16).max / 100 * 80;
+            uint256 nineFivePct   = type(uint16).max / 100 * 95;
+            uint256 nineNinePct   = type(uint16).max / 100 * 99;
+    
+            id = uint16(oldSupply + <span class="marker" id="mapping-13"></span><span class="token upd" id="move-dst-3" data-title="update_expression/identifier"><span class="cupd">minted</span></span>++ + 1);
+    
+            // Getting Random traits
+            uint16 randBody = uint16(_randomize(rand, "BODY", id));
+                   body     = uint8(randBody &gt; nineNinePct ? randBody % 3 + 25 : 
+                              randBody &gt; sevenOnePct  ? randBody % 12 + 13 : randBody % 13 + 1 );
+    
+            uint16 randHelm = uint16(_randomize(rand, "HELM", id));
+                   helm     = uint8(randHelm &lt; eightyPct ? 0 : randHelm % 4 + 5);
+    
+            uint16 randOffhand = uint16(_randomize(rand, "OFFHAND", id));
+                   offhand     = uint8(randOffhand &lt; eightyPct ? 0 : randOffhand % 4 + 5);
+    
+            uint16 randMainhand = uint16(_randomize(rand, "MAINHAND", id));
+                   mainhand     = uint8(randMainhand &lt; nineFivePct ? randMainhand % 4 + 1: randMainhand % 4 + 5);
+        }
+
+        _mint(msg.sender, id);
+
+        uint16 zugModifier = _tier(helm) + _tier(mainhand) + _tier(offhand);
+        orcs[uint256(id)] = Orc({body: body, helm: helm, mainhand: mainhand, offhand: offhand, level: 0, lvlProgress: 0, zugModifier:zugModifier});
+    }
+
+    /*///////////////////////////////////////////////////////////////
+                    INTERNAL  HELPERS
+    //////////////////////////////////////////////////////////////*/
+
+    /// @dev take an available item from a pool
+    function _getItemFromPool(LootPool memory pool, uint256 rand) internal pure returns (LootPool memory, uint8 item) {
+        uint draw = rand % pool.total--; 
+
+        if (draw &gt; pool.tier_1 + pool.tier_2 + pool.tier_3 &amp;&amp; pool.tier_4-- &gt; 0) {
+            item = uint8((draw % 4 + 1) + (pool.minLootTier + 3) * 4);     
+            return (pool, item);
+        }
+
+        if (draw &gt; pool.tier_1 + pool.tier_2 &amp;&amp; pool.tier_3-- &gt; 0) {
+            item = uint8((draw % 4 + 1) + (pool.minLootTier + 2) * 4);
+            return (pool, item);
+        }
+
+        if (draw &gt; pool.tier_1 &amp;&amp; pool.tier_2-- &gt; 0) {
+            item = uint8((draw % 4 + 1) + (pool.minLootTier + 1) * 4);
+            return (pool, item);
+        }
+
+        if (pool.tier_1-- &gt; 0) {
+            item = uint8((draw % 4 + 1) + pool.minLootTier * 4);
+            return (pool, item);
+        }
+    }
+
+    function claimableZug(uint256 timeDiff, uint16 zugModifier) internal pure returns (uint256 zugAmount) {
+        zugAmount = timeDiff * (4 + zugModifier) * 1 ether / 1 days;
+    }
+
+    /// @dev Convert an id to its tier
+    function _tier(uint16 id) internal pure returns (uint16) {
+        if (id == 0) return 0;
+        return ((id - 1) / 4 );
+    }
+
+    /// @dev Create a bit more of randomness
+    function _randomize(uint256 rand, string memory val, uint256 spicy) internal pure returns (uint256) {
+        return uint256(keccak256(abi.encode(rand, val, spicy)));
+    }
+
+    function _rand() internal view returns (uint256) {
+        return uint256(keccak256(abi.encodePacked(msg.sender, block.timestamp, block.basefee, block.timestamp, entropySauce)));
+    }
+
+    function _getMintingPrice() internal view returns (uint256) {
+        uint256 supply = <span class="marker" id="mapping-14"></span><span class="token upd" id="move-dst-4" data-title="binary_expression/identifier"><span class="cupd">minted</span></span> + oldSupply;
+        if (supply &gt; 4550) return 60 ether;
+        return 130 ether;
+    }
+}
+
+</pre></div></div></div></body></html>

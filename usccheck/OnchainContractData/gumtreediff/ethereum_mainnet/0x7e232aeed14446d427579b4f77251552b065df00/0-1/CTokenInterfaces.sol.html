@@ -1,0 +1,945 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>CTokenInterfaces.sol</h5><pre class="pre-scrollable">pragma solidity ^0.5.16;
+
+import "./IFuseFeeDistributor.sol";
+import "./ComptrollerInterface.sol";
+import "./InterestRateModel.sol";
+
+contract CTokenAdminStorage {
+    /**
+     * @notice Administrator for Fuse
+     */
+    IFuseFeeDistributor internal constant fuseAdmin = IFuseFeeDistributor(0xa731585ab05fC9f83555cf9Bff8F58ee94e18F85);
+
+    <span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="contract_body/comment"><span class="cupd">/**
+     * </span>@noti<span class="cupd">c</span><span class="cupd">e</span><span class="cupd"> </span><span class="cupd">Administrator for this contract
+     </span>*/</span>
+    address payable <span class="marker" id="mapping-2"></span><span class="token del" data-title="visibility/public">public</span> <span class="marker" id="mapping-3"></span><span class="token upd" id="move-src-2" data-title="state_variable_declaration/identifier"><span class="cupd">admin</span></span>;
+
+    <span class="marker" id="mapping-4"></span><span class="token upd" id="move-src-3" data-title="contract_body/comment"><span class="cupd">/**
+     * </span>@noti<span class="cupd">c</span><span class="cupd">e</span><span class="cupd"> Whether or not the Fuse admin has admin rights
+     </span>*/</span>
+    bool <span class="marker" id="mapping-5"></span><span class="token del" data-title="visibility/public">public</span> <span class="marker" id="mapping-6"></span><span class="token upd" id="move-src-4" data-title="state_variable_declaration/identifier"><span class="cupd">fuseAdminHasRights</span></span> <span class="marker" id="mapping-7"></span><span class="token del" data-title="state_variable_declaration/=">=</span> <span class="marker" id="mapping-8"></span><span class="token del" data-title="state_variable_declaration/boolean_literal">true</span>;
+
+    <span class="marker" id="mapping-9"></span><span class="token upd" id="move-src-5" data-title="contract_body/comment"><span class="cupd">/**
+     * </span>@noti<span class="cupd">c</span><span class="cupd">e</span><span class="cupd"> Whether or not the admin has admin rights
+     </span>*/</span>
+    bool <span class="marker" id="mapping-10"></span><span class="token del" data-title="state_variable_declaration/visibility">public</span> <span class="marker" id="mapping-11"></span><span class="token upd" id="move-src-6" data-title="state_variable_declaration/identifier"><span class="cupd">adminHasRights</span></span> <span class="marker" id="mapping-12"></span><span class="token del" data-title="state_variable_declaration/=">=</span> <span class="marker" id="mapping-13"></span><span class="token del" data-title="state_variable_declaration/boolean_literal">true</span>;
+
+    <span class="marker" id="mapping-14"></span><span class="token del" data-title="contract_body/comment">/**
+     * @notice Returns a boolean indicating if the sender has admin rights
+     */</span>
+    <span class="marker" id="mapping-15"></span><span class="token del" data-title="contract_body/function_definition">function hasAdminRights() <span class="marker" id="mapping-16"></span><span class="token mv" id="move-src-7" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-17"></span><span class="token del" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-18"></span><span class="token del" data-title="function_definition/return_type_definition">returns (bool)</span> <span class="marker" id="mapping-19"></span><span class="token del" data-title="function_definition/function_body">{
+        return (msg.sender == admin &amp;&amp; adminHasRights) || (msg.sender == address(fuseAdmin) &amp;&amp; fuseAdminHasRights);
+    }</span></span>
+}
+
+contract CTokenStorage is CTokenAdminStorage {
+    /**
+     * @dev Guard variable for re-entrancy checks
+     */
+    bool internal _notEntered;
+
+    /**
+     * @notice EIP-20 token name for this token
+     */
+    string public name;
+
+    /**
+     * @notice EIP-20 token symbol for this token
+     */
+    string public symbol;
+
+    /**
+     * @notice EIP-20 token decimals for this token
+     */
+    uint8 public decimals;
+
+    /**
+     * @notice Maximum borrow rate that can ever be applied (.0005% / block)
+     */
+    uint internal constant borrowRateMaxMantissa = 0.0005e16;
+
+    /**
+     * @notice Maximum fraction of interest that can be set aside for reserves + fees
+     */
+    uint internal constant reserveFactorPlusFeesMaxMantissa = 1e18;
+
+    <span class="marker" id="mapping-20"></span><span class="token upd" id="move-src-8" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice</span><span class="cupd"> Pending administrator for this contract
+     </span>*/</span>
+    address payable <span class="marker" id="mapping-21"></span><span class="token mv" id="move-src-9" data-title="state_variable_declaration/visibility">public</span> <span class="marker" id="mapping-22"></span><span class="token upd" id="move-src-10" data-title="state_variable_declaration/identifier"><span class="cupd">pendingAdmin</span></span>;
+
+    /**
+     * @notice Contract which oversees inter-cToken operations
+     */
+    ComptrollerInterface public comptroller;
+
+    /**
+     * @notice Model which tells what the current interest rate should be
+     */
+    InterestRateModel public interestRateModel;
+
+    /**
+     * @notice Initial exchange rate used when minting the first CTokens (used when totalSupply = 0)
+     */
+    uint internal initialExchangeRateMantissa;
+
+    /**
+     * @notice Fraction of interest currently set aside for admin fees
+     */
+    uint public adminFeeMantissa;
+
+    /**
+     * @notice Fraction of interest currently set aside for Fuse fees
+     */
+    uint public fuseFeeMantissa;
+
+    /**
+     * @notice Fraction of interest currently set aside for reserves
+     */
+    uint public reserveFactorMantissa;
+
+    /**
+     * @notice Block number that interest was last accrued at
+     */
+    uint public accrualBlockNumber;
+
+    /**
+     * @notice Accumulator of the total earned interest rate since the opening of the market
+     */
+    uint public borrowIndex;
+
+    /**
+     * @notice Total amount of outstanding borrows of the underlying in this market
+     */
+    uint public totalBorrows;
+
+    /**
+     * @notice Total amount of reserves of the underlying held in this market
+     */
+    uint public totalReserves;
+
+    /**
+     * @notice Total amount of admin fees of the underlying held in this market
+     */
+    uint public totalAdminFees;
+
+    /**
+     * @notice Total amount of Fuse fees of the underlying held in this market
+     */
+    uint public totalFuseFees;
+
+    /**
+     * @notice Total number of tokens in circulation
+     */
+    uint public totalSupply;
+
+    /**
+     * @notice Official record of token balances for each account
+     */
+    mapping (address =&gt; uint) internal accountTokens;
+
+    /**
+     * @notice Approved token transfer amounts on behalf of others
+     */
+    mapping (address =&gt; mapping (address =&gt; uint)) internal transferAllowances;
+
+    /**
+     * @notice Container for borrow balance information
+     * @member principal Total balance (with accrued interest), after applying the most recent balance-changing action
+     * @member interestIndex Global borrowIndex as of the most recent balance-changing action
+     */
+    struct BorrowSnapshot {
+        uint principal;
+        uint interestIndex;
+    }
+
+    /**
+     * @notice Mapping of account addresses to outstanding borrow balances
+     */
+    mapping(address =&gt; BorrowSnapshot) internal accountBorrows;
+}
+
+contract CTokenInterface is CTokenStorage {
+    /**
+     * @notice Indicator that this is a CToken contract (for inspection)
+     */
+    bool public constant isCToken = true;
+
+    /**
+     * @notice Indicator that this is or is not a CEther contract (for inspection)
+     */
+    bool public constant isCEther = false;
+
+
+    /*** Market Events ***/
+
+    /**
+     * @notice Event emitted when interest is accrued
+     */
+    event AccrueInterest(uint cashPrior, uint interestAccumulated, uint borrowIndex, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when tokens are minted
+     */
+    event Mint(address minter, uint mintAmount, uint mintTokens);
+
+    /**
+     * @notice Event emitted when tokens are redeemed
+     */
+    event Redeem(address redeemer, uint redeemAmount, uint redeemTokens);
+
+    /**
+     * @notice Event emitted when underlying is borrowed
+     */
+    event Borrow(address borrower, uint borrowAmount, uint accountBorrows, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when a borrow is repaid
+     */
+    event RepayBorrow(address payer, address borrower, uint repayAmount, uint accountBorrows, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when a borrow is liquidated
+     */
+    event LiquidateBorrow(address liquidator, address borrower, uint repayAmount, address cTokenCollateral, uint seizeTokens);
+
+
+    /*** Admin Events ***/
+
+    <span class="marker" id="mapping-23"></span><span class="token del" data-title="contract_body/comment">/**
+     * @notice Event emitted when the Fuse admin renounces their rights
+     */</span>
+    <span class="marker" id="mapping-24"></span><span class="token del" data-title="contract_body/event_definition">event FuseAdminRightsRenounced();</span>
+
+    <span class="marker" id="mapping-25"></span><span class="token del" data-title="contract_body/comment">/**
+     * @notice Event emitted when the admin renounces their rights
+     */</span>
+    <span class="marker" id="mapping-26"></span><span class="token del" data-title="contract_body/event_definition">event AdminRightsRenounced();</span>
+
+    <span class="marker" id="mapping-27"></span><span class="token del" data-title="contract_body/comment">/**
+     * @notice Event emitted when pendingAdmin is changed
+     */</span>
+    <span class="marker" id="mapping-28"></span><span class="token del" data-title="contract_body/event_definition">event NewPendingAdmin(address oldPendingAdmin, address newPendingAdmin);</span>
+
+    <span class="marker" id="mapping-29"></span><span class="token del" data-title="contract_body/comment">/**
+     * @notice Event emitted when pendingAdmin is accepted, which means admin is updated
+     */</span>
+    <span class="marker" id="mapping-30"></span><span class="token del" data-title="contract_body/event_definition">event NewAdmin(address oldAdmin, address newAdmin);</span>
+
+    /**
+     * @notice Event emitted when comptroller is changed
+     */
+    event NewComptroller(ComptrollerInterface oldComptroller, ComptrollerInterface newComptroller);
+
+    /**
+     * @notice Event emitted when interestRateModel is changed
+     */
+    event NewMarketInterestRateModel(InterestRateModel oldInterestRateModel, InterestRateModel newInterestRateModel);
+
+    /**
+     * @notice Event emitted when the reserve factor is changed
+     */
+    event NewReserveFactor(uint oldReserveFactorMantissa, uint newReserveFactorMantissa);
+
+    /**
+     * @notice Event emitted when the reserves are added
+     */
+    event ReservesAdded(address benefactor, uint addAmount, uint newTotalReserves);
+
+    /**
+     * @notice Event emitted when the reserves are reduced
+     */
+    event ReservesReduced(address admin, uint reduceAmount, uint newTotalReserves);
+
+    /**
+     * @notice Event emitted when the admin fee is changed
+     */
+    event NewAdminFee(uint oldAdminFeeMantissa, uint newAdminFeeMantissa);
+
+    /**
+     * @notice Event emitted when the Fuse fee is changed
+     */
+    event NewFuseFee(uint oldFuseFeeMantissa, uint newFuseFeeMantissa);
+
+    /**
+     * @notice EIP20 Transfer event
+     */
+    event Transfer(address indexed from, address indexed to, uint amount);
+
+    /**
+     * @notice EIP20 Approval event
+     */
+    event Approval(address indexed owner, address indexed spender, uint amount);
+
+    /**
+     * @notice Failure event
+     */
+    event Failure(uint error, uint info, uint detail);
+
+
+    /*** User Interface ***/
+
+    function transfer(address dst, uint amount) external returns (bool);
+    function transferFrom(address src, address dst, uint amount) external returns (bool);
+    function approve(address spender, uint amount) external returns (bool);
+    function allowance(address owner, address spender) external view returns (uint);
+    function balanceOf(address owner) external view returns (uint);
+    function balanceOfUnderlying(address owner) external returns (uint);
+    function getAccountSnapshot(address account) external view returns (uint, uint, uint, uint);
+    function borrowRatePerBlock() external view returns (uint);
+    function supplyRatePerBlock() external view returns (uint);
+    function totalBorrowsCurrent() external returns (uint);
+    function borrowBalanceCurrent(address account) external returns (uint);
+    function borrowBalanceStored(address account) public view returns (uint);
+    function exchangeRateCurrent() public returns (uint);
+    function exchangeRateStored() public view returns (uint);
+    function getCash() external view returns (uint);
+    function accrueInterest() public returns (uint);
+    function seize(address liquidator, address borrower, uint seizeTokens) external returns (uint);
+
+
+    /*** Admin Functions ***/
+
+    <span class="marker" id="mapping-31"></span><span class="token del" data-title="contract_body/function_definition">function _setPendingAdmin(<span class="marker" id="mapping-32"></span><span class="token del" data-title="function_definition/parameter">address payable newPendingAdmin</span>) <span class="marker" id="mapping-33"></span><span class="token mv" id="move-src-11" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-34"></span><span class="token del" data-title="function_definition/return_type_definition">returns (uint)</span>;</span>
+    <span class="marker" id="mapping-35"></span><span class="token del" data-title="contract_body/function_definition">function _acceptAdmin() <span class="marker" id="mapping-36"></span><span class="token mv" id="move-src-12" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-37"></span><span class="token del" data-title="function_definition/return_type_definition">returns (uint)</span>;</span>
+    <span class="marker" id="mapping-38"></span><span class="token del" data-title="contract_body/function_definition">function _setComptroller(ComptrollerInterface newComptroller) public returns (uint);</span>
+    function _setReserveFactor(uint newReserveFactorMantissa) external returns (uint);
+    function _reduceReserves(uint reduceAmount) external returns (uint);
+    function _setInterestRateModel(InterestRateModel newInterestRateModel) public returns (uint);
+}
+
+contract CErc20Storage {
+    /**
+     * @notice Underlying asset for this CToken
+     */
+    address public underlying;
+}
+
+contract CErc20Interface is CErc20Storage {
+
+    /*** User Interface ***/
+
+    function mint(uint mintAmount) external returns (uint);
+    function redeem(uint redeemTokens) external returns (uint);
+    function redeemUnderlying(uint redeemAmount) external returns (uint);
+    function borrow(uint borrowAmount) external returns (uint);
+    function repayBorrow(uint repayAmount) external returns (uint);
+    function repayBorrowBehalf(address borrower, uint repayAmount) external returns (uint);
+    function liquidateBorrow(address borrower, uint repayAmount, CTokenInterface cTokenCollateral) external returns (uint);
+
+
+    <span class="marker" id="mapping-39"></span><span class="token del" data-title="contract_body/comment">/*** Admin Functions ***/</span>
+
+    <span class="marker" id="mapping-40"></span><span class="token del" data-title="contract_body/function_definition">function _addReserves(<span class="marker" id="mapping-41"></span><span class="token del" data-title="function_definition/parameter"><span class="marker" id="mapping-42"></span><span class="token mv" id="move-src-13" data-title="parameter/type_name">uint</span> addAmount</span>) <span class="marker" id="mapping-43"></span><span class="token mv" id="move-src-14" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-44"></span><span class="token del" data-title="function_definition/return_type_definition">returns (uint)</span>;</span>
+}
+
+contract CEtherInterface is CErc20Storage {
+    /**
+     * @notice Indicator that this is a CEther contract (for inspection)
+     */
+    bool public constant isCEther = true;
+}
+
+contract CDelegationStorage {
+    /**
+     * @notice Implementation address for this contract
+     */
+    address public implementation;
+}
+
+contract <span class="marker" id="mapping-45"></span><span class="token upd" id="move-src-15" data-title="contract_declaration/identifier"><span class="cupd">CDelegat</span>or<span class="cupd">Interface</span></span> is CDelegationStorage {
+    /**
+     * @notice Emitted when implementation is changed
+     */
+    event NewImplementation(address oldImplementation, address newImplementation);
+
+    /**
+     * @notice Called by the admin to update the implementation of the delegator
+     * @param implementation_ The address of the new implementation for delegation
+     * @param allowResign Flag to indicate whether to call _resignImplementation on the old implementation
+     * @param becomeImplementationData The encoded bytes data to be passed to _becomeImplementation
+     */
+    function <span class="marker" id="mapping-46"></span><span class="token upd" id="move-src-16" data-title="function_definition/identifier"><span class="cupd">_setImplementation</span></span>(address implementation_, bool allowResign, bytes <span class="marker" id="mapping-47"></span><span class="token del" data-title="parameter/memory">memory</span> becomeImplementationData) <span class="marker" id="mapping-48"></span><span class="token del" data-title="function_definition/visibility">public</span>;
+}
+
+<span class="marker" id="mapping-49"></span><span class="token del" data-title="source_file/contract_declaration">contract CDelegateInterface is <span class="marker" id="mapping-50"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">CDelegationStorage</span> <span class="marker" id="mapping-51"></span><span class="token del" data-title="contract_declaration/contract_body">{
+    /**
+     * @notice Called by the delegator on a delegate to initialize it for duty
+     * @dev Should revert if any issues arise which make it unfit for delegation
+     * @param data The encoded bytes data for any initialization
+     */
+    <span class="marker" id="mapping-52"></span><span class="token mv" id="move-src-17" data-title="contract_body/function_definition">function _becomeImplementation(bytes <span class="marker" id="mapping-53"></span><span class="token del" data-title="parameter/memory">memory</span> data) <span class="marker" id="mapping-54"></span><span class="token del" data-title="function_definition/visibility">public</span>;</span>
+
+    /**
+     * @notice Called by the delegator on a delegate to forfeit its responsibility
+     */
+    <span class="marker" id="mapping-55"></span><span class="token del" data-title="contract_body/function_definition">function _resignImplementation() public;</span>
+}</span></span>
+</pre></div><div class="col-6"><h5>CTokenInterfaces.sol</h5><pre class="pre-scrollable">pragma solidity ^0.5.16;
+
+import "./IFuseFeeDistributor.sol";
+import "./ComptrollerStorage.sol";
+import "./ComptrollerInterface.sol";
+<span class="marker" id="mapping-56"></span><span class="token add" data-title="source_file/import_directive">import "./InterestRateModel.sol";</span>
+
+contract CTokenAdminStorage {
+    /**
+     * @notice Administrator for Fuse
+     */
+    IFuseFeeDistributor internal constant fuseAdmin = IFuseFeeDistributor(0xa731585ab05fC9f83555cf9Bff8F58ee94e18F85);
+
+    <span class="marker" id="mapping-57"></span><span class="token upd" id="move-dst-1" data-title="contract_body/comment"><span class="cupd">/**
+     * </span>@<span class="cupd">d</span>e<span class="cupd">v</span> LE<span class="cupd">G</span>ACY USE ONLY: <span class="cupd">Administrator for this contract
+     </span>*/</span>
+    address payable <span class="marker" id="mapping-58"></span><span class="token add" data-title="visibility/internal">internal</span> <span class="marker" id="mapping-59"></span><span class="token upd" id="move-dst-2" data-title="state_variable_declaration/identifier">__<span class="cupd">admin</span></span>;
+
+    <span class="marker" id="mapping-60"></span><span class="token upd" id="move-dst-3" data-title="contract_body/comment"><span class="cupd">/**
+     * </span>@<span class="cupd">d</span>e<span class="cupd">v</span> LEGACY USE ONLY:<span class="cupd"> Whether or not the Fuse admin has admin rights
+     </span>*/</span>
+    bool <span class="marker" id="mapping-61"></span><span class="token add" data-title="visibility/internal">internal</span> <span class="marker" id="mapping-62"></span><span class="token upd" id="move-dst-4" data-title="state_variable_declaration/identifier">__<span class="cupd">fuseAdminHasRights</span></span>;
+
+    <span class="marker" id="mapping-63"></span><span class="token upd" id="move-dst-5" data-title="contract_body/comment"><span class="cupd">/**
+     * </span>@<span class="cupd">d</span>e<span class="cupd">v</span> LEGACY USE ONLY:<span class="cupd"> Whether or not the admin has admin rights
+     </span>*/</span>
+    bool <span class="marker" id="mapping-64"></span><span class="token mv" id="move-dst-7" data-title="state_variable_declaration/visibility">internal</span> <span class="marker" id="mapping-65"></span><span class="token upd" id="move-dst-6" data-title="state_variable_declaration/identifier">__<span class="cupd">adminHasRights</span></span>;
+}
+
+contract CTokenStorage is CTokenAdminStorage {
+    /**
+     * @dev Guard variable for re-entrancy checks
+     */
+    bool internal _notEntered;
+
+    /**
+     * @notice EIP-20 token name for this token
+     */
+    string public name;
+
+    /**
+     * @notice EIP-20 token symbol for this token
+     */
+    string public symbol;
+
+    /**
+     * @notice EIP-20 token decimals for this token
+     */
+    uint8 public decimals;
+
+    /**
+     * @notice Maximum borrow rate that can ever be applied (.0005% / block)
+     */
+    uint internal constant borrowRateMaxMantissa = 0.0005e16;
+
+    /**
+     * @notice Maximum fraction of interest that can be set aside for reserves + fees
+     */
+    uint internal constant reserveFactorPlusFeesMaxMantissa = 1e18;
+
+    <span class="marker" id="mapping-66"></span><span class="token upd" id="move-dst-8" data-title="contract_body/comment"><span class="cupd">/**
+     * @notice</span> LEGACY USE ONLY:<span class="cupd"> Pending administrator for this contract
+     </span>*/</span>
+    address payable <span class="marker" id="mapping-67"></span><span class="token add" data-title="state_variable_declaration/visibility">private</span> <span class="marker" id="mapping-68"></span><span class="token upd" id="move-dst-10" data-title="state_variable_declaration/identifier">__<span class="cupd">pendingAdmin</span></span>;
+
+    /**
+     * @notice Contract which oversees inter-cToken operations
+     */
+    ComptrollerInterface public comptroller;
+
+    /**
+     * @notice Model which tells what the current interest rate should be
+     */
+    InterestRateModel public interestRateModel;
+
+    /**
+     * @notice Initial exchange rate used when minting the first CTokens (used when totalSupply = 0)
+     */
+    uint internal initialExchangeRateMantissa;
+
+    /**
+     * @notice Fraction of interest currently set aside for admin fees
+     */
+    uint public adminFeeMantissa;
+
+    /**
+     * @notice Fraction of interest currently set aside for Fuse fees
+     */
+    uint public fuseFeeMantissa;
+
+    /**
+     * @notice Fraction of interest currently set aside for reserves
+     */
+    uint public reserveFactorMantissa;
+
+    /**
+     * @notice Block number that interest was last accrued at
+     */
+    uint public accrualBlockNumber;
+
+    /**
+     * @notice Accumulator of the total earned interest rate since the opening of the market
+     */
+    uint public borrowIndex;
+
+    /**
+     * @notice Total amount of outstanding borrows of the underlying in this market
+     */
+    uint public totalBorrows;
+
+    /**
+     * @notice Total amount of reserves of the underlying held in this market
+     */
+    uint public totalReserves;
+
+    /**
+     * @notice Total amount of admin fees of the underlying held in this market
+     */
+    uint public totalAdminFees;
+
+    /**
+     * @notice Total amount of Fuse fees of the underlying held in this market
+     */
+    uint public totalFuseFees;
+
+    /**
+     * @notice Total number of tokens in circulation
+     */
+    uint public totalSupply;
+
+    /**
+     * @notice Official record of token balances for each account
+     */
+    mapping (address =&gt; uint) internal accountTokens;
+
+    /**
+     * @notice Approved token transfer amounts on behalf of others
+     */
+    mapping (address =&gt; mapping (address =&gt; uint)) internal transferAllowances;
+
+    /**
+     * @notice Container for borrow balance information
+     * @member principal Total balance (with accrued interest), after applying the most recent balance-changing action
+     * @member interestIndex Global borrowIndex as of the most recent balance-changing action
+     */
+    struct BorrowSnapshot {
+        uint principal;
+        uint interestIndex;
+    }
+
+    /**
+     * @notice Mapping of account addresses to outstanding borrow balances
+     */
+    mapping(address =&gt; BorrowSnapshot) internal accountBorrows;
+
+    <span class="marker" id="mapping-69"></span><span class="token add" data-title="contract_body/comment">/**
+     * @notice Share of seized collateral that is added to reserves
+     */</span>
+    <span class="marker" id="mapping-70"></span><span class="token add" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-71"></span><span class="token mv" id="move-dst-13" data-title="state_variable_declaration/type_name">uint</span> <span class="marker" id="mapping-72"></span><span class="token mv" id="move-dst-9" data-title="state_variable_declaration/visibility">public</span> constant protocolSeizeShareMantissa = 2.8e16;</span> <span class="marker" id="mapping-73"></span><span class="token add" data-title="contract_body/comment">//2.8%</span>
+}
+
+contract CTokenInterface is CTokenStorage {
+    /**
+     * @notice Indicator that this is a CToken contract (for inspection)
+     */
+    bool public constant isCToken = true;
+
+    /**
+     * @notice Indicator that this is or is not a CEther contract (for inspection)
+     */
+    bool public constant isCEther = false;
+
+    /*** Market Events ***/
+
+    /**
+     * @notice Event emitted when interest is accrued
+     */
+    event AccrueInterest(uint cashPrior, uint interestAccumulated, uint borrowIndex, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when tokens are minted
+     */
+    event Mint(address minter, uint mintAmount, uint mintTokens);
+
+    /**
+     * @notice Event emitted when tokens are redeemed
+     */
+    event Redeem(address redeemer, uint redeemAmount, uint redeemTokens);
+
+    /**
+     * @notice Event emitted when underlying is borrowed
+     */
+    event Borrow(address borrower, uint borrowAmount, uint accountBorrows, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when a borrow is repaid
+     */
+    event RepayBorrow(address payer, address borrower, uint repayAmount, uint accountBorrows, uint totalBorrows);
+
+    /**
+     * @notice Event emitted when a borrow is liquidated
+     */
+    event LiquidateBorrow(address liquidator, address borrower, uint repayAmount, address cTokenCollateral, uint seizeTokens);
+
+
+    /*** Admin Events ***/
+
+    /**
+     * @notice Event emitted when comptroller is changed
+     */
+    event NewComptroller(ComptrollerInterface oldComptroller, ComptrollerInterface newComptroller);
+
+    /**
+     * @notice Event emitted when interestRateModel is changed
+     */
+    event NewMarketInterestRateModel(InterestRateModel oldInterestRateModel, InterestRateModel newInterestRateModel);
+
+    /**
+     * @notice Event emitted when the reserve factor is changed
+     */
+    event NewReserveFactor(uint oldReserveFactorMantissa, uint newReserveFactorMantissa);
+
+    /**
+     * @notice Event emitted when the reserves are added
+     */
+    event ReservesAdded(address benefactor, uint addAmount, uint newTotalReserves);
+
+    /**
+     * @notice Event emitted when the reserves are reduced
+     */
+    event ReservesReduced(address admin, uint reduceAmount, uint newTotalReserves);
+
+    /**
+     * @notice Event emitted when the admin fee is changed
+     */
+    event NewAdminFee(uint oldAdminFeeMantissa, uint newAdminFeeMantissa);
+
+    /**
+     * @notice Event emitted when the Fuse fee is changed
+     */
+    event NewFuseFee(uint oldFuseFeeMantissa, uint newFuseFeeMantissa);
+
+    /**
+     * @notice EIP20 Transfer event
+     */
+    event Transfer(address indexed from, address indexed to, uint amount);
+
+    /**
+     * @notice EIP20 Approval event
+     */
+    event Approval(address indexed owner, address indexed spender, uint amount);
+
+    /**
+     * @notice Failure event
+     */
+    event Failure(uint error, uint info, uint detail);
+
+
+    /*** User Interface ***/
+
+    function transfer(address dst, uint amount) external returns (bool);
+    function transferFrom(address src, address dst, uint amount) external returns (bool);
+    function approve(address spender, uint amount) external returns (bool);
+    function allowance(address owner, address spender) external view returns (uint);
+    function balanceOf(address owner) external view returns (uint);
+    function balanceOfUnderlying(address owner) external returns (uint);
+    function getAccountSnapshot(address account) external view returns (uint, uint, uint, uint);
+    function borrowRatePerBlock() external view returns (uint);
+    function supplyRatePerBlock() external view returns (uint);
+    function totalBorrowsCurrent() external returns (uint);
+    function borrowBalanceCurrent(address account) external returns (uint);
+    function borrowBalanceStored(address account) public view returns (uint);
+    function exchangeRateCurrent() public returns (uint);
+    function exchangeRateStored() public view returns (uint);
+    function getCash() external view returns (uint);
+    function accrueInterest() public returns (uint);
+    function seize(address liquidator, address borrower, uint seizeTokens) external returns (uint);
+
+
+    /*** Admin Functions ***/
+
+    function _setReserveFactor(uint newReserveFactorMantissa) external returns (uint);
+    function _reduceReserves(uint reduceAmount) external returns (uint);
+    function _setInterestRateModel(InterestRateModel newInterestRateModel) public returns (uint);
+}
+
+contract CErc20Storage {
+    /**
+     * @notice Underlying asset for this CToken
+     */
+    address public underlying;
+}
+
+contract CErc20Interface is CErc20Storage {
+
+    /*** User Interface ***/
+
+    function mint(uint mintAmount) external returns (uint);
+    function redeem(uint redeemTokens) external returns (uint);
+    function redeemUnderlying(uint redeemAmount) external returns (uint);
+    function borrow(uint borrowAmount) external returns (uint);
+    function repayBorrow(uint repayAmount) external returns (uint);
+    function repayBorrowBehalf(address borrower, uint repayAmount) external returns (uint);
+    function liquidateBorrow(address borrower, uint repayAmount, CTokenInterface cTokenCollateral) external returns (uint);
+
+}
+
+contract CEtherInterface is CErc20Storage {
+    /**
+     * @notice Indicator that this is a CEther contract (for inspection)
+     */
+    bool public constant isCEther = true;
+}
+
+contract CDelegationStorage {
+    /**
+     * @notice Implementation address for this contract
+     */
+    address public implementation;
+}
+
+contract <span class="marker" id="mapping-74"></span><span class="token upd" id="move-dst-15" data-title="contract_declaration/identifier"><span class="cupd">CDelegat</span>e<span class="cupd">Interface</span></span> is CDelegationStorage {
+    /**
+     * @notice Emitted when implementation is changed
+     */
+    event NewImplementation(address oldImplementation, address newImplementation);
+
+    /**
+     * @notice Called by the admin to update the implementation of the delegator
+     * @param implementation_ The address of the new implementation for delegation
+     * @param allowResign Flag to indicate whether to call _resignImplementation on the old implementation
+     * @param becomeImplementationData The encoded bytes data to be passed to _becomeImplementation
+     */
+    function <span class="marker" id="mapping-75"></span><span class="token upd" id="move-dst-16" data-title="function_definition/identifier"><span class="cupd">_setImplementation</span>Safe</span>(address implementation_, bool allowResign, bytes <span class="marker" id="mapping-76"></span><span class="token add" data-title="parameter/calldata">calldata</span> becomeImplementationData) <span class="marker" id="mapping-77"></span><span class="token mv" id="move-dst-12" data-title="function_definition/visibility">external</span>;
+
+    <span class="marker" id="mapping-78"></span><span class="token add" data-title="contract_body/comment">/**
+     * @notice Called by the delegator on a delegate to initialize it for duty
+     * @dev Should revert if any issues arise which make it unfit for delegation
+     * @param data The encoded bytes data for any initialization
+     */</span>
+    <span class="marker" id="mapping-79"></span><span class="token mv" id="move-dst-17" data-title="contract_body/function_definition">function _becomeImplementation(bytes <span class="marker" id="mapping-80"></span><span class="token add" data-title="parameter/calldata">calldata</span> data) <span class="marker" id="mapping-81"></span><span class="token mv" id="move-dst-11" data-title="function_definition/visibility">external</span>;</span>
+
+    <span class="marker" id="mapping-82"></span><span class="token add" data-title="contract_body/comment">/**
+     * @notice Function called before all delegator functions
+     * @dev Checks comptroller.autoImplementation and upgrades the implementation if necessary
+     */</span>
+    <span class="marker" id="mapping-83"></span><span class="token add" data-title="contract_body/function_definition">function _prepare() <span class="marker" id="mapping-84"></span><span class="token mv" id="move-dst-14" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-85"></span><span class="token add" data-title="function_definition/state_mutability">payable</span>;</span>
+}
+</pre></div></div></div></body></html>

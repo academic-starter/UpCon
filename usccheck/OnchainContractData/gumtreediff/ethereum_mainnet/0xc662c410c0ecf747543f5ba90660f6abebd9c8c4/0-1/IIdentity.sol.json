@@ -1,0 +1,146 @@
+{
+  "matches": [
+    {
+      "src": "identifier: identify [806,814]",
+      "dest": "identifier: identify [210,218]"
+    },
+    {
+      "src": "function: function [797,805]",
+      "dest": "function: function [201,209]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [57,63]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [47,55]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [55,57]"
+    },
+    {
+      "src": "identifier: IIdentity [672,681]",
+      "dest": "identifier: IIdentity [76,85]"
+    },
+    {
+      "src": "pure: pure [826,830]",
+      "dest": "pure: pure [230,234]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [55,57]"
+    },
+    {
+      "src": "interface: interface [662,671]",
+      "dest": "interface: interface [66,75]"
+    },
+    {
+      "src": "interface_declaration [662,857]",
+      "dest": "interface_declaration [66,261]"
+    },
+    {
+      "src": "{: { [682,683]",
+      "dest": "{: { [86,87]"
+    },
+    {
+      "src": "(: ( [814,815]",
+      "dest": "(: ( [218,219]"
+    },
+    {
+      "src": "memory: memory [847,853]",
+      "dest": "memory: memory [251,257]"
+    },
+    {
+      "src": "return_type_definition [831,854]",
+      "dest": "return_type_definition [235,258]"
+    },
+    {
+      "src": "returns: returns [831,838]",
+      "dest": "returns: returns [235,242]"
+    },
+    {
+      "src": "}: } [856,857]",
+      "dest": "}: } [260,261]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [40,46]"
+    },
+    {
+      "src": "): ) [853,854]",
+      "dest": "): ) [257,258]"
+    },
+    {
+      "src": "parameter [840,853]",
+      "dest": "parameter [244,257]"
+    },
+    {
+      "src": "(: ( [839,840]",
+      "dest": "(: ( [243,244]"
+    },
+    {
+      "src": "visibility [817,825]",
+      "dest": "visibility [221,229]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [40,64]"
+    },
+    {
+      "src": "function_definition [797,855]",
+      "dest": "function_definition [201,259]"
+    },
+    {
+      "src": "comment: /*       Allows a caller to ensure that the provided address is of the expected type and version.     */ [688,792]",
+      "dest": "comment: /*       Allows a caller to ensure that the provided address is of the expected type and version.     */ [92,196]"
+    },
+    {
+      "src": "external: external [817,825]",
+      "dest": "external: external [221,229]"
+    },
+    {
+      "src": "state_mutability [826,830]",
+      "dest": "state_mutability [230,234]"
+    },
+    {
+      "src": "source_file [0,858]",
+      "dest": "source_file [0,262]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]"
+    },
+    {
+      "src": "contract_body [682,857]",
+      "dest": "contract_body [86,261]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [47,63]"
+    },
+    {
+      "src": "type_name [840,846]",
+      "dest": "type_name [244,250]"
+    },
+    {
+      "src": "string: string [840,846]",
+      "dest": "string: string [244,250]"
+    },
+    {
+      "src": "): ) [815,816]",
+      "dest": "): ) [219,220]"
+    },
+    {
+      "src": "primitive_type [840,846]",
+      "dest": "primitive_type [244,250]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "delete-node",
+      "tree": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    }
+  ]
+}

@@ -1,0 +1,1337 @@
+{
+  "matches": [
+    {
+      "src": "call_argument [1471,1481]",
+      "dest": "call_argument [2367,2377]"
+    },
+    {
+      "src": "{: { [275,276]",
+      "dest": "{: { [691,692]"
+    },
+    {
+      "src": "type_cast_expression [1471,1481]",
+      "dest": "type_cast_expression [2367,2377]"
+    },
+    {
+      "src": "identifier: newOwner [2116,2124]",
+      "dest": "identifier: newOwner [3020,3028]"
+    },
+    {
+      "src": "identifier: newOwner [1724,1732]",
+      "dest": "identifier: newOwner [2569,2577]"
+    },
+    {
+      "src": "return_statement [750,764]",
+      "dest": "return_statement [1694,1708]"
+    },
+    {
+      "src": "emit_statement [2054,2098]",
+      "dest": "emit_statement [3038,3084]"
+    },
+    {
+      "src": "function: function [1689,1697]",
+      "dest": "function: function [2534,2542]"
+    },
+    {
+      "src": "indexed: indexed [376,383]",
+      "dest": "indexed: indexed [1072,1079]"
+    },
+    {
+      "src": "function: function [1381,1389]",
+      "dest": "function: function [2284,2292]"
+    },
+    {
+      "src": "address: address [1471,1478]",
+      "dest": "address: address [2367,2374]"
+    },
+    {
+      "src": "assignment_expression [2107,2124]",
+      "dest": "assignment_expression [3011,3028]"
+    },
+    {
+      "src": "public: public [1734,1740]",
+      "dest": "public: public [2579,2585]"
+    },
+    {
+      "src": "}: } [924,925]",
+      "dest": "}: } [1552,1553]"
+    },
+    {
+      "src": "visibility [289,296]",
+      "dest": "visibility [705,712]"
+    },
+    {
+      "src": "primitive_type [1501,1508]",
+      "dest": "primitive_type [1280,1287]"
+    },
+    {
+      "src": "}: } [2132,2133]",
+      "dest": "}: } [3091,3092]"
+    },
+    {
+      "src": "identifier: _owner [2080,2086]",
+      "dest": "identifier: oldOwner [3064,3072]"
+    },
+    {
+      "src": "internal: internal [1994,2002]",
+      "dest": "internal: internal [2949,2957]"
+    },
+    {
+      "src": "solidity_version: 0.8.0 [50,55]",
+      "dest": "solidity_version: 0.8.20 [119,125]"
+    },
+    {
+      "src": "comment: /**      * @dev Allows the current owner to relinquish control of the contract.      * @notice Renouncing to ownership will leave the contract without an owner.      * It will not be possible to call the functions with the `onlyOwner`      * modifier anymore.      */ [1109,1376]",
+      "dest": "comment: /**      * @dev Returns the address of the current owner.      */ [1559,1624]"
+    },
+    {
+      "src": "function_definition [1689,1804]",
+      "dest": "function_definition [2534,2749]"
+    },
+    {
+      "src": "identifier: previousOwner [353,366]",
+      "dest": "identifier: previousOwner [1049,1062]"
+    },
+    {
+      "src": "function_definition [1948,2131]",
+      "dest": "function_definition [2903,3090]"
+    },
+    {
+      "src": "parameter [731,738]",
+      "dest": "parameter [1675,1682]"
+    },
+    {
+      "src": "): ) [1732,1733]",
+      "dest": "): ) [2577,2578]"
+    },
+    {
+      "src": "modifier_definition [858,925]",
+      "dest": "modifier_definition [1491,1553]"
+    },
+    {
+      "src": "): ) [738,739]",
+      "dest": "): ) [1682,1683]"
+    },
+    {
+      "src": "): ) [708,709]",
+      "dest": "): ) [1644,1645]"
+    },
+    {
+      "src": "constructor: constructor [524,535]",
+      "dest": "constructor: constructor [1216,1227]"
+    },
+    {
+      "src": "): ) [1796,1797]",
+      "dest": "): ) [2741,2742]"
+    },
+    {
+      "src": "function_body [740,770]",
+      "dest": "function_body [1684,1714]"
+    },
+    {
+      "src": "): ) [877,878]",
+      "dest": "): ) [1510,1511]"
+    },
+    {
+      "src": "function_body [1427,1518]",
+      "dest": "function_body [2338,2385]"
+    },
+    {
+      "src": "virtual: virtual [1741,1748]",
+      "dest": "virtual: virtual [2586,2593]"
+    },
+    {
+      "src": "event: event [310,315]",
+      "dest": "event: event [1006,1011]"
+    },
+    {
+      "src": "identifier: onlyOwner [1749,1758]",
+      "dest": "identifier: onlyOwner [2594,2603]"
+    },
+    {
+      "src": "(: ( [1508,1509]",
+      "dest": "(: ( [1287,1288]"
+    },
+    {
+      "src": "pragma_directive [33,56]",
+      "dest": "pragma_directive [102,126]"
+    },
+    {
+      "src": "primitive_type [604,611]",
+      "dest": "primitive_type [1333,1340]"
+    },
+    {
+      "src": "primitive_type [1471,1478]",
+      "dest": "primitive_type [2367,2374]"
+    },
+    {
+      "src": "number_literal: 0 [1479,1480]",
+      "dest": "number_literal: 0 [2375,2376]"
+    },
+    {
+      "src": "identifier: _owner [297,303]",
+      "dest": "identifier: _owner [713,719]"
+    },
+    {
+      "src": "modifier: modifier [858,866]",
+      "dest": "modifier: modifier [1491,1499]"
+    },
+    {
+      "src": "call_argument [604,614]",
+      "dest": "call_argument [1333,1343]"
+    },
+    {
+      "src": "expression_statement [1492,1512]",
+      "dest": "expression_statement [2348,2379]"
+    },
+    {
+      "src": "pragma: pragma [33,39]",
+      "dest": "pragma: pragma [102,108]"
+    },
+    {
+      "src": "{: { [2003,2004]",
+      "dest": "{: { [2966,2967]"
+    },
+    {
+      "src": "(: ( [876,877]",
+      "dest": "(: ( [1509,1510]"
+    },
+    {
+      "src": "state_mutability [1039,1043]",
+      "dest": "state_mutability [1819,1823]"
+    },
+    {
+      "src": "function_body [539,630]",
+      "dest": "function_body [1250,1403]"
+    },
+    {
+      "src": "identifier: _transferOwnership [1769,1787]",
+      "dest": "identifier: _transferOwnership [2714,2732]"
+    },
+    {
+      "src": "(: ( [336,337]",
+      "dest": "(: ( [1032,1033]"
+    },
+    {
+      "src": "type_name [731,738]",
+      "dest": "type_name [1675,1682]"
+    },
+    {
+      "src": "}: } [629,630]",
+      "dest": "}: } [1402,1403]"
+    },
+    {
+      "src": "(: ( [1478,1479]",
+      "dest": "(: ( [2374,2375]"
+    },
+    {
+      "src": "): ) [1510,1511]",
+      "dest": "): ) [1289,1290]"
+    },
+    {
+      "src": "contract_declaration [249,2133]",
+      "dest": "contract_declaration [654,3092]"
+    },
+    {
+      "src": "}: } [769,770]",
+      "dest": "}: } [1713,1714]"
+    },
+    {
+      "src": "source_file [0,2134]",
+      "dest": "source_file [0,3093]"
+    },
+    {
+      "src": "parameter [1976,1992]",
+      "dest": "parameter [2931,2947]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: MIT [0,31]",
+      "dest": "comment: // SPDX-License-Identifier: MIT [0,31]"
+    },
+    {
+      "src": "type_name [337,344]",
+      "dest": "type_name [1033,1040]"
+    },
+    {
+      "src": "(: ( [611,612]",
+      "dest": "(: ( [1340,1341]"
+    },
+    {
+      "src": "}: } [2130,2131]",
+      "dest": "}: } [3089,3090]"
+    },
+    {
+      "src": "view: view [717,721]",
+      "dest": "view: view [1653,1657]"
+    },
+    {
+      "src": "expression_statement [549,569]",
+      "dest": "expression_statement [1364,1397]"
+    },
+    {
+      "src": "emit: emit [2054,2058]",
+      "dest": "emit: emit [3038,3042]"
+    },
+    {
+      "src": "visibility [710,716]",
+      "dest": "visibility [1646,1652]"
+    },
+    {
+      "src": "solidity_pragma_token [40,55]",
+      "dest": "solidity_pragma_token [109,125]"
+    },
+    {
+      "src": "public: public [1410,1416]",
+      "dest": "public: public [2313,2319]"
+    },
+    {
+      "src": "private: private [289,296]",
+      "dest": "private: private [705,712]"
+    },
+    {
+      "src": "call_argument [2080,2086]",
+      "dest": "call_argument [3064,3072]"
+    },
+    {
+      "src": "(: ( [1029,1030]",
+      "dest": "(: ( [1807,1808]"
+    },
+    {
+      "src": "event_definition [310,394]",
+      "dest": "event_definition [1006,1090]"
+    },
+    {
+      "src": "comment: /**      * @return true if `msg.sender` is the owner of the contract.      */ [931,1008]",
+      "dest": "comment: /**      * @dev Initializes the contract setting the address provided by the deployer as the initial owner.      */ [1096,1211]"
+    },
+    {
+      "src": "identifier: newOwner [2021,2029]",
+      "dest": "identifier: newOwner [2618,2626]"
+    },
+    {
+      "src": "type_name [1716,1723]",
+      "dest": "type_name [2561,2568]"
+    },
+    {
+      "src": "): ) [613,614]",
+      "dest": "): ) [1342,1343]"
+    },
+    {
+      "src": "address: address [337,344]",
+      "dest": "address: address [1033,1040]"
+    },
+    {
+      "src": "modifier_invocation [1417,1426]",
+      "dest": "modifier_invocation [2328,2337]"
+    },
+    {
+      "src": "): ) [1030,1031]",
+      "dest": "): ) [1808,1809]"
+    },
+    {
+      "src": "type_name [1976,1983]",
+      "dest": "type_name [2931,2938]"
+    },
+    {
+      "src": "call_argument [612,613]",
+      "dest": "call_argument [1341,1342]"
+    },
+    {
+      "src": "state_variable_declaration [281,304]",
+      "dest": "state_variable_declaration [697,720]"
+    },
+    {
+      "src": "{: { [1759,1760]",
+      "dest": "{: { [2604,2605]"
+    },
+    {
+      "src": "{: { [740,741]",
+      "dest": "{: { [1684,1685]"
+    },
+    {
+      "src": "public: public [710,716]",
+      "dest": "public: public [1646,1652]"
+    },
+    {
+      "src": "{: { [1059,1060]",
+      "dest": "{: { [1832,1833]"
+    },
+    {
+      "src": "address: address [731,738]",
+      "dest": "address: address [1675,1682]"
+    },
+    {
+      "src": "identifier: _owner [2107,2113]",
+      "dest": "identifier: _owner [3011,3017]"
+    },
+    {
+      "src": "identifier: newOwner [1788,1796]",
+      "dest": "identifier: newOwner [2733,2741]"
+    },
+    {
+      "src": "function_body [1059,1103]",
+      "dest": "function_body [1832,1949]"
+    },
+    {
+      "src": ",: , [2086,2087]",
+      "dest": ",: , [3072,3073]"
+    },
+    {
+      "src": "function_body [879,925]",
+      "dest": "function_body [1512,1553]"
+    },
+    {
+      "src": "function_body [1759,1804]",
+      "dest": "function_body [2604,2749]"
+    },
+    {
+      "src": "call_expression [1769,1797]",
+      "dest": "call_expression [2714,2742]"
+    },
+    {
+      "src": "event_paramater [337,366]",
+      "dest": "event_paramater [1033,1062]"
+    },
+    {
+      "src": "primitive_type [731,738]",
+      "dest": "primitive_type [1675,1682]"
+    },
+    {
+      "src": "call_argument [2041,2042]",
+      "dest": "call_argument [2638,2639]"
+    },
+    {
+      "src": "type_name [281,288]",
+      "dest": "type_name [697,704]"
+    },
+    {
+      "src": "primitive_type [1716,1723]",
+      "dest": "primitive_type [2561,2568]"
+    },
+    {
+      "src": "address: address [604,611]",
+      "dest": "address: address [1333,1340]"
+    },
+    {
+      "src": "comment: /**      * @dev The Ownable constructor sets the original `owner` of the contract to the sender      * account.      */ [400,519]",
+      "dest": "comment: /**      * @dev The caller account is not authorized to perform an operation.      */ [726,811]"
+    },
+    {
+      "src": "state_mutability [717,721]",
+      "dest": "state_mutability [1653,1657]"
+    },
+    {
+      "src": "type_name [368,375]",
+      "dest": "type_name [1064,1071]"
+    },
+    {
+      "src": "comment: /**      * @dev Throws if called by any account other than the owner.      */ [776,853]",
+      "dest": "comment: /**      * @dev Throws if called by any account other than the owner.      */ [1409,1486]"
+    },
+    {
+      "src": "): ) [1992,1993]",
+      "dest": "): ) [2947,2948]"
+    },
+    {
+      "src": "): ) [906,907]",
+      "dest": "): ) [1534,1535]"
+    },
+    {
+      "src": "=: = [2114,2115]",
+      "dest": "=: = [3018,3019]"
+    },
+    {
+      "src": "call_expression [889,907]",
+      "dest": "call_expression [1522,1535]"
+    },
+    {
+      "src": "comment: /**      * @dev Transfers control of the contract to a newOwner.      * @param newOwner The address to transfer ownership to.      */ [1810,1943]",
+      "dest": "comment: /**      * @dev Leaves the contract without owner. It will not be possible to call      * `onlyOwner` functions. Can only be called by the current owner.      *      * NOTE: Renouncing ownership will leave the contract without an owner,      * thereby disabling any functionality that is only available to the owner.      */ [1955,2279]"
+    },
+    {
+      "src": "address: address [281,288]",
+      "dest": "address: address [697,704]"
+    },
+    {
+      "src": "contract: contract [258,266]",
+      "dest": "contract: contract [663,671]"
+    },
+    {
+      "src": "identifier: owner [702,707]",
+      "dest": "identifier: owner [1638,1643]"
+    },
+    {
+      "src": "^:  ^ [48,50]",
+      "dest": "^:  ^ [117,119]"
+    },
+    {
+      "src": "abstract: abstract [249,257]",
+      "dest": "abstract: abstract [654,662]"
+    },
+    {
+      "src": "expression_statement [1769,1798]",
+      "dest": "expression_statement [2714,2743]"
+    },
+    {
+      "src": "primitive_type [1976,1983]",
+      "dest": "primitive_type [2931,2938]"
+    },
+    {
+      "src": "(: ( [1975,1976]",
+      "dest": "(: ( [2930,2931]"
+    },
+    {
+      "src": "primitive_type [368,375]",
+      "dest": "primitive_type [1064,1071]"
+    },
+    {
+      "src": "function_definition [1381,1518]",
+      "dest": "function_definition [2284,2385]"
+    },
+    {
+      "src": "): ) [537,538]",
+      "dest": "): ) [1248,1249]"
+    },
+    {
+      "src": "constructor_definition [524,630]",
+      "dest": "constructor_definition [1216,1403]"
+    },
+    {
+      "src": "parameter [1716,1732]",
+      "dest": "parameter [2561,2577]"
+    },
+    {
+      "src": "): ) [2042,2043]",
+      "dest": "): ) [2639,2640]"
+    },
+    {
+      "src": "{: { [879,880]",
+      "dest": "{: { [1512,1513]"
+    },
+    {
+      "src": "primitive_type [2033,2040]",
+      "dest": "primitive_type [2630,2637]"
+    },
+    {
+      "src": "): ) [2096,2097]",
+      "dest": "): ) [3082,3083]"
+    },
+    {
+      "src": "comment: /**      * @dev Allows the current owner to transfer control of the contract to a newOwner.      * @param newOwner The address to transfer ownership to.      */ [1524,1684]",
+      "dest": "comment: /**      * @dev Throws if the sender is not the owner.      */ [1720,1782]"
+    },
+    {
+      "src": "call_argument [1479,1480]",
+      "dest": "call_argument [2375,2376]"
+    },
+    {
+      "src": "): ) [1408,1409]",
+      "dest": "): ) [2311,2312]"
+    },
+    {
+      "src": "identifier: transferOwnership [1698,1715]",
+      "dest": "identifier: transferOwnership [2543,2560]"
+    },
+    {
+      "src": "identifier: onlyOwner [1417,1426]",
+      "dest": "identifier: onlyOwner [2328,2337]"
+    },
+    {
+      "src": "}: } [1102,1103]",
+      "dest": "}: } [1948,1949]"
+    },
+    {
+      "src": "type_cast_expression [2033,2043]",
+      "dest": "type_cast_expression [2630,2640]"
+    },
+    {
+      "src": "): ) [392,393]",
+      "dest": "): ) [1088,1089]"
+    },
+    {
+      "src": "}: } [1803,1804]",
+      "dest": "}: } [2748,2749]"
+    },
+    {
+      "src": "identifier: OwnershipTransferred [2059,2079]",
+      "dest": "identifier: OwnershipTransferred [3043,3063]"
+    },
+    {
+      "src": "call_argument [2088,2096]",
+      "dest": "call_argument [3074,3082]"
+    },
+    {
+      "src": "identifier: isOwner [1022,1029]",
+      "dest": "identifier: _checkOwner [1796,1807]"
+    },
+    {
+      "src": "address: address [1501,1508]",
+      "dest": "address: address [1280,1287]"
+    },
+    {
+      "src": "visibility [1734,1740]",
+      "dest": "visibility [2579,2585]"
+    },
+    {
+      "src": "}: } [1517,1518]",
+      "dest": "}: } [2384,2385]"
+    },
+    {
+      "src": "(: ( [1787,1788]",
+      "dest": "(: ( [2732,2733]"
+    },
+    {
+      "src": "contract_body [275,2133]",
+      "dest": "contract_body [691,3092]"
+    },
+    {
+      "src": "function_definition [1013,1103]",
+      "dest": "function_definition [1787,1949]"
+    },
+    {
+      "src": "comment: /**  * @title Ownable  * @dev The Ownable contract has an owner address, and provides basic authorization control  * functions, this simplifies the implementation of \"user permissions\".  */ [59,248]",
+      "dest": "comment: // OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol) [32,100]"
+    },
+    {
+      "src": "primitive_type [337,344]",
+      "dest": "primitive_type [1033,1040]"
+    },
+    {
+      "src": "call_argument [1788,1796]",
+      "dest": "call_argument [2733,2741]"
+    },
+    {
+      "src": "identifier: require [889,896]",
+      "dest": "identifier: _checkOwner [1522,1533]"
+    },
+    {
+      "src": "identifier: Ownable [267,274]",
+      "dest": "identifier: Ownable [672,679]"
+    },
+    {
+      "src": "identifier: _owner [757,763]",
+      "dest": "identifier: _owner [1701,1707]"
+    },
+    {
+      "src": "indexed: indexed [345,352]",
+      "dest": "indexed: indexed [1041,1048]"
+    },
+    {
+      "src": "address: address [2033,2040]",
+      "dest": "address: address [2630,2637]"
+    },
+    {
+      "src": "identifier: onlyOwner [867,876]",
+      "dest": "identifier: onlyOwner [1500,1509]"
+    },
+    {
+      "src": "type_cast_expression [1501,1511]",
+      "dest": "type_cast_expression [1280,1290]"
+    },
+    {
+      "src": "expression_statement [889,908]",
+      "dest": "expression_statement [1522,1536]"
+    },
+    {
+      "src": "address: address [1716,1723]",
+      "dest": "address: address [2561,2568]"
+    },
+    {
+      "src": "visibility [1032,1038]",
+      "dest": "visibility [1810,1818]"
+    },
+    {
+      "src": "identifier: _ [917,918]",
+      "dest": "identifier: _ [1545,1546]"
+    },
+    {
+      "src": "identifier: newOwner [2088,2096]",
+      "dest": "identifier: newOwner [3074,3082]"
+    },
+    {
+      "src": "type_cast_expression [604,614]",
+      "dest": "type_cast_expression [1333,1343]"
+    },
+    {
+      "src": "address: address [1976,1983]",
+      "dest": "address: address [2931,2938]"
+    },
+    {
+      "src": "modifier_invocation [1749,1758]",
+      "dest": "modifier_invocation [2594,2603]"
+    },
+    {
+      "src": "identifier: newOwner [1984,1992]",
+      "dest": "identifier: newOwner [2939,2947]"
+    },
+    {
+      "src": "expression_statement [917,919]",
+      "dest": "expression_statement [1545,1547]"
+    },
+    {
+      "src": "function: function [1948,1956]",
+      "dest": "function: function [2903,2911]"
+    },
+    {
+      "src": "address: address [368,375]",
+      "dest": "address: address [1064,1071]"
+    },
+    {
+      "src": "{: { [1427,1428]",
+      "dest": "{: { [2338,2339]"
+    },
+    {
+      "src": "number_literal: 0 [1509,1510]",
+      "dest": "number_literal: 0 [1288,1289]"
+    },
+    {
+      "src": "(: ( [536,537]",
+      "dest": "(: ( [1227,1228]"
+    },
+    {
+      "src": "(: ( [707,708]",
+      "dest": "(: ( [1643,1644]"
+    },
+    {
+      "src": "(: ( [896,897]",
+      "dest": "(: ( [1533,1534]"
+    },
+    {
+      "src": "number_literal: 0 [612,613]",
+      "dest": "number_literal: 0 [1341,1342]"
+    },
+    {
+      "src": "visibility [1410,1416]",
+      "dest": "visibility [2313,2319]"
+    },
+    {
+      "src": "identifier: _transferOwnership [1957,1975]",
+      "dest": "identifier: _transferOwnership [2912,2930]"
+    },
+    {
+      "src": "identifier: OwnershipTransferred [316,336]",
+      "dest": "identifier: OwnershipTransferred [1012,1032]"
+    },
+    {
+      "src": "{: { [539,540]",
+      "dest": "{: { [1250,1251]"
+    },
+    {
+      "src": "binary_expression [2021,2043]",
+      "dest": "binary_expression [2618,2640]"
+    },
+    {
+      "src": "primitive_type [281,288]",
+      "dest": "primitive_type [697,704]"
+    },
+    {
+      "src": ",: , [366,367]",
+      "dest": ",: , [1062,1063]"
+    },
+    {
+      "src": "identifier: newOwner [384,392]",
+      "dest": "identifier: newOwner [1080,1088]"
+    },
+    {
+      "src": "solidity: solidity [40,48]",
+      "dest": "solidity: solidity [109,117]"
+    },
+    {
+      "src": "expression_statement [2107,2125]",
+      "dest": "expression_statement [3011,3029]"
+    },
+    {
+      "src": "(: ( [2040,2041]",
+      "dest": "(: ( [2637,2638]"
+    },
+    {
+      "src": "function_definition [693,770]",
+      "dest": "function_definition [1629,1714]"
+    },
+    {
+      "src": "(: ( [730,731]",
+      "dest": "(: ( [1674,1675]"
+    },
+    {
+      "src": "identifier: renounceOwnership [1390,1407]",
+      "dest": "identifier: renounceOwnership [2293,2310]"
+    },
+    {
+      "src": "call_argument [1509,1510]",
+      "dest": "call_argument [1288,1289]"
+    },
+    {
+      "src": "returns: returns [722,729]",
+      "dest": "returns: returns [1666,1673]"
+    },
+    {
+      "src": "(: ( [2079,2080]",
+      "dest": "(: ( [3063,3064]"
+    },
+    {
+      "src": "return: return [750,756]",
+      "dest": "return: return [1694,1700]"
+    },
+    {
+      "src": "visibility [1994,2002]",
+      "dest": "visibility [2949,2957]"
+    },
+    {
+      "src": "(: ( [1715,1716]",
+      "dest": "(: ( [2560,2561]"
+    },
+    {
+      "src": "event_paramater [368,392]",
+      "dest": "event_paramater [1064,1088]"
+    },
+    {
+      "src": "function: function [1013,1021]",
+      "dest": "function: function [1787,1795]"
+    },
+    {
+      "src": "comment: /**      * @return the address of the owner.      */ [636,688]",
+      "dest": "comment: /**      * @dev The owner is not a valid owner account. (eg. `address(0)`)      */ [872,954]"
+    },
+    {
+      "src": "): ) [1480,1481]",
+      "dest": "): ) [2376,2377]"
+    },
+    {
+      "src": "function_body [2003,2131]",
+      "dest": "function_body [2966,3090]"
+    },
+    {
+      "src": "view: view [1039,1043]",
+      "dest": "view: view [1819,1823]"
+    },
+    {
+      "src": "function: function [693,701]",
+      "dest": "function: function [1629,1637]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [48,50]",
+      "dest": "solidity_version_comparison_operator [117,119]"
+    },
+    {
+      "src": "(: ( [1407,1408]",
+      "dest": "(: ( [2310,2311]"
+    },
+    {
+      "src": "number_literal: 0 [2041,2042]",
+      "dest": "number_literal: 0 [2638,2639]"
+    },
+    {
+      "src": "return_type_definition [722,739]",
+      "dest": "return_type_definition [1666,1683]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "move-tree",
+      "tree": "pragma_directive [33,56]",
+      "parent": "source_file [0,3093]",
+      "at": 2
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**  * @title Ownable  * @dev The Ownable contract has an owner address, and provides basic authorization control  * functions, this simplifies the implementation of \"user permissions\".  */ [59,248]",
+      "label": "// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "import_directive [128,164]",
+      "parent": "source_file [0,3093]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**  * @dev Contract module which provides a basic access control mechanism, where  * there is an account (an owner) that can be granted exclusive access to  * specific functions.  *  * The initial owner is set to the address provided by the deployer. This can  * later be changed with {transferOwnership}.  *  * This module is used through inheritance. It will make available the modifier  * `onlyOwner`, which can be applied to your functions to restrict their use to  * the owner.  */ [166,653]",
+      "parent": "source_file [0,3093]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "is: is [680,682]",
+      "parent": "contract_declaration [654,3092]",
+      "at": 3
+    },
+    {
+      "action": "insert-tree",
+      "tree": "inheritance_specifier [683,690]",
+      "parent": "contract_declaration [654,3092]",
+      "at": 4
+    },
+    {
+      "action": "move-tree",
+      "tree": "event_definition [310,394]",
+      "parent": "contract_body [691,3092]",
+      "at": 5
+    },
+    {
+      "action": "move-tree",
+      "tree": "comment: /**      * @return true if `msg.sender` is the owner of the contract.      */ [931,1008]",
+      "parent": "contract_body [691,3092]",
+      "at": 6
+    },
+    {
+      "action": "move-tree",
+      "tree": "constructor_definition [524,630]",
+      "parent": "contract_body [691,3092]",
+      "at": 6
+    },
+    {
+      "action": "move-tree",
+      "tree": "function_definition [693,770]",
+      "parent": "contract_body [691,3092]",
+      "at": 11
+    },
+    {
+      "action": "move-tree",
+      "tree": "function_definition [1013,1103]",
+      "parent": "contract_body [691,3092]",
+      "at": 13
+    },
+    {
+      "action": "move-tree",
+      "tree": "function_definition [1381,1518]",
+      "parent": "contract_body [691,3092]",
+      "at": 15
+    },
+    {
+      "action": "move-tree",
+      "tree": "function_definition [1689,1804]",
+      "parent": "contract_body [691,3092]",
+      "at": 15
+    },
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.8.0 [50,55]",
+      "label": "0.8.20"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev The Ownable constructor sets the original `owner` of the contract to the sender      * account.      */ [400,519]",
+      "label": "/**      * @dev The caller account is not authorized to perform an operation.      */"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "error_declaration [816,866]",
+      "parent": "contract_body [691,3092]",
+      "at": 3
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @return the address of the owner.      */ [636,688]",
+      "label": "/**      * @dev The owner is not a valid owner account. (eg. `address(0)`)      */"
+    },
+    {
+      "action": "insert-tree",
+      "tree": "error_declaration [959,1000]",
+      "parent": "contract_body [691,3092]",
+      "at": 5
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @return true if `msg.sender` is the owner of the contract.      */ [931,1008]",
+      "label": "/**      * @dev Initializes the contract setting the address provided by the deployer as the initial owner.      */"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Allows the current owner to relinquish control of the contract.      * @notice Renouncing to ownership will leave the contract without an owner.      * It will not be possible to call the functions with the `onlyOwner`      * modifier anymore.      */ [1109,1376]",
+      "label": "/**      * @dev Returns the address of the current owner.      */"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Allows the current owner to transfer control of the contract to a newOwner.      * @param newOwner The address to transfer ownership to.      */ [1524,1684]",
+      "label": "/**      * @dev Throws if the sender is not the owner.      */"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: /**      * @dev Transfers control of the contract to a newOwner.      * @param newOwner The address to transfer ownership to.      */ [1810,1943]",
+      "label": "/**      * @dev Leaves the contract without owner. It will not be possible to call      * `onlyOwner` functions. Can only be called by the current owner.      *      * NOTE: Renouncing ownership will leave the contract without an owner,      * thereby disabling any functionality that is only available to the owner.      */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Transfers ownership of the contract to a new account (`newOwner`).      * Can only be called by the current owner.      */ [2391,2529]",
+      "parent": "contract_body [691,3092]",
+      "at": 17
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @dev Transfers ownership of the contract to a new account (`newOwner`).      * Internal function without access restriction.      */ [2755,2898]",
+      "parent": "contract_body [691,3092]",
+      "at": 19
+    },
+    {
+      "action": "insert-tree",
+      "tree": "parameter [1228,1248]",
+      "parent": "constructor_definition [1216,1403]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "virtual: virtual [1658,1665]",
+      "parent": "function_definition [1629,1714]",
+      "at": 6
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: isOwner [1022,1029]",
+      "label": "_checkOwner"
+    },
+    {
+      "action": "insert-node",
+      "tree": "virtual: virtual [1824,1831]",
+      "parent": "function_definition [1787,1949]",
+      "at": 6
+    },
+    {
+      "action": "insert-node",
+      "tree": "virtual: virtual [2320,2327]",
+      "parent": "function_definition [2284,2385]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "virtual: virtual [2958,2965]",
+      "parent": "function_definition [2903,3090]",
+      "at": 6
+    },
+    {
+      "action": "move-tree",
+      "tree": "emit_statement [2054,2098]",
+      "parent": "function_body [2966,3090]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "if_statement [1260,1355]",
+      "parent": "function_body [1250,1403]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "internal: internal [1810,1818]",
+      "parent": "visibility [1810,1818]",
+      "at": 0
+    },
+    {
+      "action": "insert-tree",
+      "tree": "if_statement [1842,1943]",
+      "parent": "function_body [1832,1949]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "if_statement [2614,2705]",
+      "parent": "function_body [2604,2749]",
+      "at": 1
+    },
+    {
+      "action": "insert-tree",
+      "tree": "variable_declaration_statement [2976,3002]",
+      "parent": "function_body [2966,3090]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "if: if [1260,1262]",
+      "parent": "if_statement [1260,1355]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [1263,1264]",
+      "parent": "if_statement [1260,1355]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "binary_expression [1264,1290]",
+      "parent": "if_statement [1260,1355]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [1290,1291]",
+      "parent": "if_statement [1260,1355]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "block_statement [1292,1355]",
+      "parent": "if_statement [1260,1355]",
+      "at": 4
+    },
+    {
+      "action": "insert-tree",
+      "tree": "call_expression [1364,1396]",
+      "parent": "expression_statement [1364,1397]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "call_expression [2348,2378]",
+      "parent": "expression_statement [2348,2379]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "if: if [2614,2616]",
+      "parent": "if_statement [2614,2705]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [2617,2618]",
+      "parent": "if_statement [2614,2705]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "binary_expression [2021,2043]",
+      "parent": "if_statement [2614,2705]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [2640,2641]",
+      "parent": "if_statement [2614,2705]",
+      "at": 3
+    },
+    {
+      "action": "insert-tree",
+      "tree": "block_statement [2642,2705]",
+      "parent": "if_statement [2614,2705]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: initialOwner [1264,1276]",
+      "parent": "binary_expression [1264,1290]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "==: == [1277,1279]",
+      "parent": "binary_expression [1264,1290]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "type_cast_expression [1501,1511]",
+      "parent": "binary_expression [1264,1290]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [1292,1293]",
+      "parent": "block_statement [1292,1355]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "revert_statement [1306,1345]",
+      "parent": "block_statement [1292,1355]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [1354,1355]",
+      "parent": "block_statement [1292,1355]",
+      "at": 2
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: require [889,896]",
+      "label": "_checkOwner"
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: _transferOwnership [2348,2366]",
+      "parent": "call_expression [2348,2378]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [2366,2367]",
+      "parent": "call_expression [2348,2378]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [1471,1481]",
+      "parent": "call_expression [2348,2378]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [2377,2378]",
+      "parent": "call_expression [2348,2378]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "==: == [2627,2629]",
+      "parent": "binary_expression [2618,2640]",
+      "at": 1
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: _owner [2080,2086]",
+      "label": "oldOwner"
+    },
+    {
+      "action": "insert-node",
+      "tree": "revert: revert [1306,1312]",
+      "parent": "revert_statement [1306,1345]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "identifier: OwnableInvalidOwner [1313,1332]",
+      "parent": "revert_statement [1306,1345]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "revert_arguments [1332,1344]",
+      "parent": "revert_statement [1306,1345]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [1332,1333]",
+      "parent": "revert_arguments [1332,1344]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "call_argument [604,614]",
+      "parent": "revert_arguments [1332,1344]",
+      "at": 1
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [1343,1344]",
+      "parent": "revert_arguments [1332,1344]",
+      "at": 2
+    },
+    {
+      "action": "delete-tree",
+      "tree": "assignment_expression [549,568]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "emit: emit [578,582]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: OwnershipTransferred [583,603]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [603,604]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [614,615]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [616,622]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [622,623]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "emit_statement [578,624]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [897,906]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "public: public [1032,1038]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "return_type_definition [1044,1058]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "return_statement [1069,1097]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "emit: emit [1437,1441]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: OwnershipTransferred [1442,1462]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [1462,1463]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "call_argument [1463,1469]"
+    },
+    {
+      "action": "delete-node",
+      "tree": ",: , [1469,1470]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [1481,1482]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "emit_statement [1437,1483]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: _owner [1492,1498]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "=: = [1499,1500]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "assignment_expression [1492,1511]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "!=: != [2030,2032]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: require [2013,2020]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "(: ( [2020,2021]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_argument [2021,2043]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "): ) [2043,2044]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "call_expression [2013,2044]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "expression_statement [2013,2045]"
+    }
+  ]
+}

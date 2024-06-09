@@ -1,0 +1,445 @@
+{
+  "matches": [
+    {
+      "src": "contract_declaration [935,1459]",
+      "dest": "contract_declaration [935,1459]"
+    },
+    {
+      "src": "return_type_definition [1039,1056]",
+      "dest": "return_type_definition [1039,1056]"
+    },
+    {
+      "src": "returns: returns [1039,1046]",
+      "dest": "returns: returns [1039,1046]"
+    },
+    {
+      "src": "function_definition [1153,1223]",
+      "dest": "function_definition [1153,1223]"
+    },
+    {
+      "src": "address: address [1048,1055]",
+      "dest": "address: address [1048,1055]"
+    },
+    {
+      "src": "type_name [1094,1101]",
+      "dest": "type_name [1094,1101]"
+    },
+    {
+      "src": "parameter [1214,1221]",
+      "dest": "parameter [1214,1221]"
+    },
+    {
+      "src": "visibility [1183,1191]",
+      "dest": "visibility [1183,1191]"
+    },
+    {
+      "src": "function: function [1063,1071]",
+      "dest": "function: function [1063,1071]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "primitive_type [1214,1221]",
+      "dest": "primitive_type [1214,1221]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "function: function [1229,1237]",
+      "dest": "function: function [1229,1237]"
+    },
+    {
+      "src": "return_type_definition [1205,1222]",
+      "dest": "return_type_definition [1205,1222]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "(: ( [999,1000]",
+      "dest": "(: ( [999,1000]"
+    },
+    {
+      "src": "internal: internal [1435,1443]",
+      "dest": "internal: internal [1435,1443]"
+    },
+    {
+      "src": "identifier: subContract [1117,1128]",
+      "dest": "identifier: subContract [1117,1128]"
+    },
+    {
+      "src": "comment: /*       Ensures initializer can be called. Reverts otherwise.     */ [1327,1396]",
+      "dest": "comment: /*       Ensures initializer can be called. Reverts otherwise.     */ [1327,1396]"
+    },
+    {
+      "src": "parameter [1000,1015]",
+      "dest": "parameter [1000,1015]"
+    },
+    {
+      "src": "state_mutability [1192,1196]",
+      "dest": "state_mutability [1192,1196]"
+    },
+    {
+      "src": "function_definition [976,1057]",
+      "dest": "function_definition [976,1057]"
+    },
+    {
+      "src": "uint256: uint256 [1094,1101]",
+      "dest": "uint256: uint256 [1094,1101]"
+    },
+    {
+      "src": ",: , [1107,1108]",
+      "dest": ",: , [1107,1108]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "parameter [1109,1128]",
+      "dest": "parameter [1109,1128]"
+    },
+    {
+      "src": "identifier: subContract [1286,1297]",
+      "dest": "identifier: subContract [1286,1297]"
+    },
+    {
+      "src": "internal: internal [1299,1307]",
+      "dest": "internal: internal [1299,1307]"
+    },
+    {
+      "src": "type_name [1263,1270]",
+      "dest": "type_name [1263,1270]"
+    },
+    {
+      "src": "identifier: IDispatcherBase [953,968]",
+      "dest": "identifier: IDispatcherBase [953,968]"
+    },
+    {
+      "src": "abstract: abstract [935,943]",
+      "dest": "abstract: abstract [935,943]"
+    },
+    {
+      "src": "parameter [1094,1107]",
+      "dest": "parameter [1094,1107]"
+    },
+    {
+      "src": "identifier: index [1271,1276]",
+      "dest": "identifier: index [1271,1276]"
+    },
+    {
+      "src": "address: address [1278,1285]",
+      "dest": "address: address [1278,1285]"
+    },
+    {
+      "src": "parameter [1278,1297]",
+      "dest": "parameter [1278,1297]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "function: function [976,984]",
+      "dest": "function: function [976,984]"
+    },
+    {
+      "src": "primitive_type [1094,1101]",
+      "dest": "primitive_type [1094,1101]"
+    },
+    {
+      "src": "returns: returns [1205,1212]",
+      "dest": "returns: returns [1205,1212]"
+    },
+    {
+      "src": "): ) [1221,1222]",
+      "dest": "): ) [1221,1222]"
+    },
+    {
+      "src": "type_name [1109,1116]",
+      "dest": "type_name [1109,1116]"
+    },
+    {
+      "src": "identifier: index [1102,1107]",
+      "dest": "identifier: index [1102,1107]"
+    },
+    {
+      "src": "pure: pure [1308,1312]",
+      "dest": "pure: pure [1308,1312]"
+    },
+    {
+      "src": "(: ( [1093,1094]",
+      "dest": "(: ( [1093,1094]"
+    },
+    {
+      "src": "): ) [1297,1298]",
+      "dest": "): ) [1297,1298]"
+    },
+    {
+      "src": "visibility [1017,1025]",
+      "dest": "visibility [1017,1025]"
+    },
+    {
+      "src": "contract_body [969,1459]",
+      "dest": "contract_body [969,1459]"
+    },
+    {
+      "src": "function: function [1153,1161]",
+      "dest": "function: function [1153,1161]"
+    },
+    {
+      "src": "internal: internal [1183,1191]",
+      "dest": "internal: internal [1183,1191]"
+    },
+    {
+      "src": "comment: /*   Interface for generic dispatcher to use,   which the concrete dispatcher must implement.    I contains the functions that are specific to the concrete dispatcher instance.    The interface is implemented as contract, because interface implies all methods external. */ [662,934]",
+      "dest": "comment: /*   Interface for generic dispatcher to use,   which the concrete dispatcher must implement.    I contains the functions that are specific to the concrete dispatcher instance.    The interface is implemented as contract, because interface implies all methods external. */ [662,934]"
+    },
+    {
+      "src": "virtual: virtual [1031,1038]",
+      "dest": "virtual: virtual [1031,1038]"
+    },
+    {
+      "src": "): ) [1055,1056]",
+      "dest": "): ) [1055,1056]"
+    },
+    {
+      "src": "primitive_type [1000,1006]",
+      "dest": "primitive_type [1000,1006]"
+    },
+    {
+      "src": "type_name [1278,1285]",
+      "dest": "type_name [1278,1285]"
+    },
+    {
+      "src": "pure: pure [1192,1196]",
+      "dest": "pure: pure [1192,1196]"
+    },
+    {
+      "src": "virtual: virtual [1197,1204]",
+      "dest": "virtual: virtual [1197,1204]"
+    },
+    {
+      "src": "(: ( [1213,1214]",
+      "dest": "(: ( [1213,1214]"
+    },
+    {
+      "src": "type_name [1214,1221]",
+      "dest": "type_name [1214,1221]"
+    },
+    {
+      "src": "source_file [0,1460]",
+      "dest": "source_file [0,1460]"
+    },
+    {
+      "src": "}: } [1458,1459]",
+      "dest": "}: } [1458,1459]"
+    },
+    {
+      "src": "view: view [1444,1448]",
+      "dest": "view: view [1444,1448]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "primitive_type [1263,1270]",
+      "dest": "primitive_type [1263,1270]"
+    },
+    {
+      "src": "address: address [1109,1116]",
+      "dest": "address: address [1109,1116]"
+    },
+    {
+      "src": "identifier: initializationSentinel [1410,1432]",
+      "dest": "identifier: initializationSentinel [1410,1432]"
+    },
+    {
+      "src": "function_definition [1229,1321]",
+      "dest": "function_definition [1229,1321]"
+    },
+    {
+      "src": "primitive_type [1048,1055]",
+      "dest": "primitive_type [1048,1055]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "state_mutability [1444,1448]",
+      "dest": "state_mutability [1444,1448]"
+    },
+    {
+      "src": "view: view [1026,1030]",
+      "dest": "view: view [1026,1030]"
+    },
+    {
+      "src": "visibility [1435,1443]",
+      "dest": "visibility [1435,1443]"
+    },
+    {
+      "src": "virtual: virtual [1139,1146]",
+      "dest": "virtual: virtual [1139,1146]"
+    },
+    {
+      "src": ",: , [1276,1277]",
+      "dest": ",: , [1276,1277]"
+    },
+    {
+      "src": "type_name [1000,1006]",
+      "dest": "type_name [1000,1006]"
+    },
+    {
+      "src": "visibility [1299,1307]",
+      "dest": "visibility [1299,1307]"
+    },
+    {
+      "src": "(: ( [1180,1181]",
+      "dest": "(: ( [1180,1181]"
+    },
+    {
+      "src": "function_definition [1063,1147]",
+      "dest": "function_definition [1063,1147]"
+    },
+    {
+      "src": "uint256: uint256 [1263,1270]",
+      "dest": "uint256: uint256 [1263,1270]"
+    },
+    {
+      "src": "virtual: virtual [1313,1320]",
+      "dest": "virtual: virtual [1313,1320]"
+    },
+    {
+      "src": "{: { [969,970]",
+      "dest": "{: { [969,970]"
+    },
+    {
+      "src": "state_mutability [1308,1312]",
+      "dest": "state_mutability [1308,1312]"
+    },
+    {
+      "src": "identifier: selector [1007,1015]",
+      "dest": "identifier: selector [1007,1015]"
+    },
+    {
+      "src": "): ) [1433,1434]",
+      "dest": "): ) [1433,1434]"
+    },
+    {
+      "src": "uint256: uint256 [1214,1221]",
+      "dest": "uint256: uint256 [1214,1221]"
+    },
+    {
+      "src": "parameter [1048,1055]",
+      "dest": "parameter [1048,1055]"
+    },
+    {
+      "src": "type_name [1048,1055]",
+      "dest": "type_name [1048,1055]"
+    },
+    {
+      "src": "): ) [1128,1129]",
+      "dest": "): ) [1128,1129]"
+    },
+    {
+      "src": "identifier: setSubContractAddress [1072,1093]",
+      "dest": "identifier: setSubContractAddress [1072,1093]"
+    },
+    {
+      "src": "internal: internal [1130,1138]",
+      "dest": "internal: internal [1130,1138]"
+    },
+    {
+      "src": "(: ( [1047,1048]",
+      "dest": "(: ( [1047,1048]"
+    },
+    {
+      "src": "(: ( [1432,1433]",
+      "dest": "(: ( [1432,1433]"
+    },
+    {
+      "src": "contract: contract [944,952]",
+      "dest": "contract: contract [944,952]"
+    },
+    {
+      "src": "): ) [1015,1016]",
+      "dest": "): ) [1015,1016]"
+    },
+    {
+      "src": "(: ( [1262,1263]",
+      "dest": "(: ( [1262,1263]"
+    },
+    {
+      "src": "identifier: getSubContract [985,999]",
+      "dest": "identifier: getSubContract [985,999]"
+    },
+    {
+      "src": "internal: internal [1017,1025]",
+      "dest": "internal: internal [1017,1025]"
+    },
+    {
+      "src": "): ) [1181,1182]",
+      "dest": "): ) [1181,1182]"
+    },
+    {
+      "src": "function: function [1401,1409]",
+      "dest": "function: function [1401,1409]"
+    },
+    {
+      "src": "primitive_type [1109,1116]",
+      "dest": "primitive_type [1109,1116]"
+    },
+    {
+      "src": "visibility [1130,1138]",
+      "dest": "visibility [1130,1138]"
+    },
+    {
+      "src": "primitive_type [1278,1285]",
+      "dest": "primitive_type [1278,1285]"
+    },
+    {
+      "src": "identifier: validateSubContractIndex [1238,1262]",
+      "dest": "identifier: validateSubContractIndex [1238,1262]"
+    },
+    {
+      "src": "state_mutability [1026,1030]",
+      "dest": "state_mutability [1026,1030]"
+    },
+    {
+      "src": "function_definition [1401,1457]",
+      "dest": "function_definition [1401,1457]"
+    },
+    {
+      "src": "identifier: getNumSubcontracts [1162,1180]",
+      "dest": "identifier: getNumSubcontracts [1162,1180]"
+    },
+    {
+      "src": "parameter [1263,1276]",
+      "dest": "parameter [1263,1276]"
+    },
+    {
+      "src": "virtual: virtual [1449,1456]",
+      "dest": "virtual: virtual [1449,1456]"
+    },
+    {
+      "src": "solidity_version: 0.6.11 [653,659]",
+      "dest": "solidity_version: 0.6.11 [653,659]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "bytes4: bytes4 [1000,1006]",
+      "dest": "bytes4: bytes4 [1000,1006]"
+    }
+  ],
+  "actions": []
+}

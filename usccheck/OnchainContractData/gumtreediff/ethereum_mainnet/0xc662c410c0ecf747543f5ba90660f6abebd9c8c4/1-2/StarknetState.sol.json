@@ -1,0 +1,856 @@
+{
+  "matches": [
+    {
+      "src": "primitive_type [167,173]",
+      "dest": "primitive_type [763,769]"
+    },
+    {
+      "src": ".: . [330,331]",
+      "dest": ".: . [926,927]"
+    },
+    {
+      "src": "identifier: state [1161,1166]",
+      "dest": "identifier: state [1757,1762]"
+    },
+    {
+      "src": "expression_statement [743,891]",
+      "dest": "expression_statement [1339,1487]"
+    },
+    {
+      "src": "identifier: commitment_tree_update [920,942]",
+      "dest": "identifier: commitment_tree_update [1516,1538]"
+    },
+    {
+      "src": "(: ( [975,976]",
+      "dest": "(: ( [1571,1572]"
+    },
+    {
+      "src": "comment: /**       Validates that the 'blockNumber' and the previous root are consistent with the       current state and updates the state.     */ [379,517]",
+      "dest": "comment: /**       Validates that the 'blockNumber' and the previous root are consistent with the       current state and updates the state.     */ [975,1113]"
+    },
+    {
+      "src": "internal: internal [594,602]",
+      "dest": "internal: internal [1190,1198]"
+    },
+    {
+      "src": "type_name [559,566]",
+      "dest": "type_name [1155,1162]"
+    },
+    {
+      "src": "augmented_assignment_expression [711,733]",
+      "dest": "augmented_assignment_expression [1307,1329]"
+    },
+    {
+      "src": "identifier: getPrevRoot [1069,1080]",
+      "dest": "identifier: getPrevRoot [1665,1676]"
+    },
+    {
+      "src": "identifier: StarknetOutput [945,959]",
+      "dest": "identifier: StarknetOutput [1541,1555]"
+    },
+    {
+      "src": "type_name [139,146]",
+      "dest": "type_name [735,742]"
+    },
+    {
+      "src": "expression_statement [276,316]",
+      "dest": "expression_statement [872,912]"
+    },
+    {
+      "src": "uint256: uint256 [559,566]",
+      "dest": "uint256: uint256 [1155,1162]"
+    },
+    {
+      "src": "\": \" [1118,1119]",
+      "dest": "\": \" [1714,1715]"
+    },
+    {
+      "src": "identifier: blockNumber [717,728]",
+      "dest": "identifier: blockNumber [1313,1324]"
+    },
+    {
+      "src": "variable_declaration_statement [901,992]",
+      "dest": "variable_declaration_statement [1497,1588]"
+    },
+    {
+      "src": "call_argument [976,990]",
+      "dest": "call_argument [1572,1586]"
+    },
+    {
+      "src": ",: , [557,558]",
+      "dest": ",: , [1153,1154]"
+    },
+    {
+      "src": "identifier: copy [207,211]",
+      "dest": "identifier: copy [803,807]"
+    },
+    {
+      "src": "call_argument [1081,1103]",
+      "dest": "call_argument [1677,1699]"
+    },
+    {
+      "src": "\": \" [84,85]",
+      "dest": "\": \" [680,681]"
+    },
+    {
+      "src": "identifier: StarknetOutput [809,823]",
+      "dest": "identifier: StarknetOutput [1405,1419]"
+    },
+    {
+      "src": "call_argument [1022,1104]",
+      "dest": "call_argument [1618,1700]"
+    },
+    {
+      "src": "import: import [66,72]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "uint256: uint256 [764,771]",
+      "dest": "uint256: uint256 [1360,1367]"
+    },
+    {
+      "src": "identifier: CommitmentTreeUpdateOutput [1042,1068]",
+      "dest": "identifier: CommitmentTreeUpdateOutput [1638,1664]"
+    },
+    {
+      "src": "identifier: stateFrom [246,255]",
+      "dest": "identifier: stateFrom [842,851]"
+    },
+    {
+      "src": "identifier: globalRoot [282,292]",
+      "dest": "identifier: globalRoot [878,888]"
+    },
+    {
+      "src": "function_body [603,1248]",
+      "dest": "function_body [1199,1844]"
+    },
+    {
+      "src": "identifier: blockNumber [355,366]",
+      "dest": "identifier: blockNumber [951,962]"
+    },
+    {
+      "src": "call_argument [772,789]",
+      "dest": "call_argument [1368,1385]"
+    },
+    {
+      "src": ".: . [304,305]",
+      "dest": ".: . [900,901]"
+    },
+    {
+      "src": "user_defined_type [538,543]",
+      "dest": "user_defined_type [1134,1139]"
+    },
+    {
+      "src": "primitive_type [559,566]",
+      "dest": "primitive_type [1155,1162]"
+    },
+    {
+      "src": "identifier: State [212,217]",
+      "dest": "identifier: State [808,813]"
+    },
+    {
+      "src": "binary_expression [1022,1104]",
+      "dest": "binary_expression [1618,1700]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [55,57]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "identifier: state [772,777]",
+      "dest": "identifier: state [1368,1373]"
+    },
+    {
+      "src": "storage: storage [218,225]",
+      "dest": "storage: storage [814,821]"
+    },
+    {
+      "src": "identifier: starknetOutput [976,990]",
+      "dest": "identifier: starknetOutput [1572,1586]"
+    },
+    {
+      "src": "calldata: calldata [911,919]",
+      "dest": "calldata: calldata [1507,1515]"
+    },
+    {
+      "src": "identifier: globalRoot [305,315]",
+      "dest": "identifier: globalRoot [901,911]"
+    },
+    {
+      "src": "member_expression [1042,1080]",
+      "dest": "member_expression [1638,1676]"
+    },
+    {
+      "src": ".: . [777,778]",
+      "dest": ".: . [1373,1374]"
+    },
+    {
+      "src": "type_name [559,568]",
+      "dest": "type_name [1155,1164]"
+    },
+    {
+      "src": "identifier: blockNumber [331,342]",
+      "dest": "identifier: blockNumber [927,938]"
+    },
+    {
+      "src": "identifier: state [1022,1027]",
+      "dest": "identifier: state [1618,1623]"
+    },
+    {
+      "src": "type_name [901,910]",
+      "dest": "type_name [1497,1506]"
+    },
+    {
+      "src": "member_expression [1180,1217]",
+      "dest": "member_expression [1776,1813]"
+    },
+    {
+      "src": "identifier: globalRoot [147,157]",
+      "dest": "identifier: globalRoot [743,753]"
+    },
+    {
+      "src": "==: == [1039,1041]",
+      "dest": "==: == [1635,1637]"
+    },
+    {
+      "src": "identifier: update [531,537]",
+      "dest": "identifier: update [1127,1133]"
+    },
+    {
+      "src": ",: , [1104,1105]",
+      "dest": ",: , [1700,1701]"
+    },
+    {
+      "src": ",: , [231,232]",
+      "dest": ",: , [827,828]"
+    },
+    {
+      "src": "=: = [293,294]",
+      "dest": "=: = [889,890]"
+    },
+    {
+      "src": ".: . [823,824]",
+      "dest": ".: . [1419,1420]"
+    },
+    {
+      "src": "member_expression [1161,1177]",
+      "dest": "member_expression [1757,1773]"
+    },
+    {
+      "src": "library_declaration [88,1250]",
+      "dest": "library_declaration [684,1846]"
+    },
+    {
+      "src": "pragma_directive [40,64]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": ".: . [716,717]",
+      "dest": ".: . [1312,1313]"
+    },
+    {
+      "src": "source_file [0,1251]",
+      "dest": "source_file [0,1847]"
+    },
+    {
+      "src": "expression_statement [325,367]",
+      "dest": "expression_statement [921,963]"
+    },
+    {
+      "src": "\": \" [879,880]",
+      "dest": "\": \" [1475,1476]"
+    },
+    {
+      "src": "identifier: blockNumber [778,789]",
+      "dest": "identifier: blockNumber [1374,1385]"
+    },
+    {
+      "src": "type_name [233,238]",
+      "dest": "type_name [829,834]"
+    },
+    {
+      "src": "uint256: uint256 [901,908]",
+      "dest": "uint256: uint256 [1497,1504]"
+    },
+    {
+      "src": "}: } [1249,1250]",
+      "dest": "}: } [1845,1846]"
+    },
+    {
+      "src": "identifier: globalRoot [1028,1038]",
+      "dest": "identifier: globalRoot [1624,1634]"
+    },
+    {
+      "src": ",: , [844,845]",
+      "dest": ",: , [1440,1441]"
+    },
+    {
+      "src": "identifier: commitment_tree_update [1218,1240]",
+      "dest": "identifier: commitment_tree_update [1814,1836]"
+    },
+    {
+      "src": "(: ( [750,751]",
+      "dest": "(: ( [1346,1347]"
+    },
+    {
+      "src": "[: [ [566,567]",
+      "dest": "[: [ [1162,1163]"
+    },
+    {
+      "src": "string_literal [858,880]",
+      "dest": "string_literal [1454,1476]"
+    },
+    {
+      "src": "function: function [198,206]",
+      "dest": "function: function [794,802]"
+    },
+    {
+      "src": "parameter [559,592]",
+      "dest": "parameter [1155,1188]"
+    },
+    {
+      "src": "]: ] [567,568]",
+      "dest": "]: ] [1163,1164]"
+    },
+    {
+      "src": "primitive_type [764,771]",
+      "dest": "primitive_type [1360,1367]"
+    },
+    {
+      "src": "identifier: blockNumber [174,185]",
+      "dest": "identifier: blockNumber [770,781]"
+    },
+    {
+      "src": "comment: // Check the blockNumber first as the error is less ambiguous then INVALID_PREVIOUS_ROOT. [613,702]",
+      "dest": "comment: // Check the blockNumber first as the error is less ambiguous then INVALID_PREVIOUS_ROOT. [1209,1298]"
+    },
+    {
+      "src": "identifier: State [233,238]",
+      "dest": "identifier: State [829,834]"
+    },
+    {
+      "src": "identifier: require [743,750]",
+      "dest": "identifier: require [1339,1346]"
+    },
+    {
+      "src": "}: } [191,192]",
+      "dest": "}: } [787,788]"
+    },
+    {
+      "src": "==: == [791,793]",
+      "dest": "==: == [1387,1389]"
+    },
+    {
+      "src": "call_expression [1001,1151]",
+      "dest": "call_expression [1597,1747]"
+    },
+    {
+      "src": "identifier: starknetOutput [578,592]",
+      "dest": "identifier: starknetOutput [1174,1188]"
+    },
+    {
+      "src": "=: = [343,344]",
+      "dest": "=: = [939,940]"
+    },
+    {
+      "src": "identifier: globalRoot [1167,1177]",
+      "dest": "identifier: globalRoot [1763,1773]"
+    },
+    {
+      "src": "expression_statement [711,734]",
+      "dest": "expression_statement [1307,1330]"
+    },
+    {
+      "src": "identifier: stateFrom [295,304]",
+      "dest": "identifier: stateFrom [891,900]"
+    },
+    {
+      "src": "+=: += [729,731]",
+      "dest": "+=: += [1325,1327]"
+    },
+    {
+      "src": "type_name [538,543]",
+      "dest": "type_name [1134,1139]"
+    },
+    {
+      "src": ".: . [354,355]",
+      "dest": ".: . [950,951]"
+    },
+    {
+      "src": "visibility [594,602]",
+      "dest": "visibility [1190,1198]"
+    },
+    {
+      "src": "}: } [1247,1248]",
+      "dest": "}: } [1843,1844]"
+    },
+    {
+      "src": "function_definition [198,373]",
+      "dest": "function_definition [794,969]"
+    },
+    {
+      "src": "function: function [522,530]",
+      "dest": "function: function [1118,1126]"
+    },
+    {
+      "src": "parameter [233,255]",
+      "dest": "parameter [829,851]"
+    },
+    {
+      "src": "member_expression [295,315]",
+      "dest": "member_expression [891,911]"
+    },
+    {
+      "src": "(: ( [1217,1218]",
+      "dest": "(: ( [1813,1814]"
+    },
+    {
+      "src": "identifier: State [538,543]",
+      "dest": "identifier: State [1134,1139]"
+    },
+    {
+      "src": "function_definition [522,1248]",
+      "dest": "function_definition [1118,1844]"
+    },
+    {
+      "src": "identifier: getMerkleUpdate [960,975]",
+      "dest": "identifier: getMerkleUpdate [1556,1571]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [57,63]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "(: ( [771,772]",
+      "dest": "(: ( [1367,1368]"
+    },
+    {
+      "src": ".: . [1206,1207]",
+      "dest": ".: . [1802,1803]"
+    },
+    {
+      "src": "identifier: stateFrom [345,354]",
+      "dest": "identifier: stateFrom [941,950]"
+    },
+    {
+      "src": "internal: internal [257,265]",
+      "dest": "internal: internal [853,861]"
+    },
+    {
+      "src": "identifier: require [1001,1008]",
+      "dest": "identifier: require [1597,1604]"
+    },
+    {
+      "src": "call_expression [1180,1241]",
+      "dest": "call_expression [1776,1837]"
+    },
+    {
+      "src": "number_literal: 1 [732,733]",
+      "dest": "number_literal: 1 [1328,1329]"
+    },
+    {
+      "src": "user_defined_type [212,217]",
+      "dest": "user_defined_type [808,813]"
+    },
+    {
+      "src": "identifier: state [552,557]",
+      "dest": "identifier: state [1148,1153]"
+    },
+    {
+      "src": "(: ( [1080,1081]",
+      "dest": "(: ( [1676,1677]"
+    },
+    {
+      "src": "type_name [212,217]",
+      "dest": "type_name [808,813]"
+    },
+    {
+      "src": "}: } [372,373]",
+      "dest": "}: } [968,969]"
+    },
+    {
+      "src": "(: ( [211,212]",
+      "dest": "(: ( [807,808]"
+    },
+    {
+      "src": "): ) [1150,1151]",
+      "dest": "): ) [1746,1747]"
+    },
+    {
+      "src": "identifier: state [325,330]",
+      "dest": "identifier: state [921,926]"
+    },
+    {
+      "src": "struct_member [139,158]",
+      "dest": "struct_member [735,754]"
+    },
+    {
+      "src": "(: ( [1008,1009]",
+      "dest": "(: ( [1604,1605]"
+    },
+    {
+      "src": "identifier: BLOCK_NUMBER_OFFSET [824,843]",
+      "dest": "identifier: BLOCK_NUMBER_OFFSET [1420,1439]"
+    },
+    {
+      "src": "call_argument [1118,1141]",
+      "dest": "call_argument [1714,1737]"
+    },
+    {
+      "src": "): ) [889,890]",
+      "dest": "): ) [1485,1486]"
+    },
+    {
+      "src": "variable_declaration [901,942]",
+      "dest": "variable_declaration [1497,1538]"
+    },
+    {
+      "src": "function_body [266,373]",
+      "dest": "function_body [862,969]"
+    },
+    {
+      "src": "{: { [129,130]",
+      "dest": "{: { [725,726]"
+    },
+    {
+      "src": "identifier: State [123,128]",
+      "dest": "identifier: State [719,724]"
+    },
+    {
+      "src": "calldata: calldata [569,577]",
+      "dest": "calldata: calldata [1165,1173]"
+    },
+    {
+      "src": "struct: struct [116,122]",
+      "dest": "struct: struct [712,718]"
+    },
+    {
+      "src": "assignment_expression [325,366]",
+      "dest": "assignment_expression [921,962]"
+    },
+    {
+      "src": "\": \" [1140,1141]",
+      "dest": "\": \" [1736,1737]"
+    },
+    {
+      "src": "call_argument [1218,1240]",
+      "dest": "call_argument [1814,1836]"
+    },
+    {
+      "src": "struct_member [167,186]",
+      "dest": "struct_member [763,782]"
+    },
+    {
+      "src": "{: { [110,111]",
+      "dest": "{: { [706,707]"
+    },
+    {
+      "src": "member_expression [772,789]",
+      "dest": "member_expression [1368,1385]"
+    },
+    {
+      "src": "call_argument [858,880]",
+      "dest": "call_argument [1454,1476]"
+    },
+    {
+      "src": "member_expression [276,292]",
+      "dest": "member_expression [872,888]"
+    },
+    {
+      "src": "member_expression [345,366]",
+      "dest": "member_expression [941,962]"
+    },
+    {
+      "src": "): ) [990,991]",
+      "dest": "): ) [1586,1587]"
+    },
+    {
+      "src": "type_name [901,908]",
+      "dest": "type_name [1497,1504]"
+    },
+    {
+      "src": "string [73,85]",
+      "dest": "string [669,681]"
+    },
+    {
+      "src": "string [1118,1141]",
+      "dest": "string [1714,1737]"
+    },
+    {
+      "src": "binary_expression [764,808]",
+      "dest": "binary_expression [1360,1404]"
+    },
+    {
+      "src": "[: [ [808,809]",
+      "dest": "[: [ [1404,1405]"
+    },
+    {
+      "src": "identifier: commitment_tree_update [1081,1103]",
+      "dest": "identifier: commitment_tree_update [1677,1699]"
+    },
+    {
+      "src": "call_argument [764,844]",
+      "dest": "call_argument [1360,1440]"
+    },
+    {
+      "src": "(: ( [537,538]",
+      "dest": "(: ( [1133,1134]"
+    },
+    {
+      "src": "library: library [88,95]",
+      "dest": "library: library [684,691]"
+    },
+    {
+      "src": "uint256: uint256 [139,146]",
+      "dest": "uint256: uint256 [735,742]"
+    },
+    {
+      "src": "user_defined_type [233,238]",
+      "dest": "user_defined_type [829,834]"
+    },
+    {
+      "src": "parameter [538,557]",
+      "dest": "parameter [1134,1153]"
+    },
+    {
+      "src": ".: . [1068,1069]",
+      "dest": ".: . [1664,1665]"
+    },
+    {
+      "src": "member_expression [809,843]",
+      "dest": "member_expression [1405,1439]"
+    },
+    {
+      "src": "]: ] [843,844]",
+      "dest": "]: ] [1439,1440]"
+    },
+    {
+      "src": "identifier: state [711,716]",
+      "dest": "identifier: state [1307,1312]"
+    },
+    {
+      "src": "memory: memory [239,245]",
+      "dest": "memory: memory [835,841]"
+    },
+    {
+      "src": "identifier: getNewRoot [1207,1217]",
+      "dest": "identifier: getNewRoot [1803,1813]"
+    },
+    {
+      "src": "expression_statement [1161,1242]",
+      "dest": "expression_statement [1757,1838]"
+    },
+    {
+      "src": "assignment_expression [1161,1241]",
+      "dest": "assignment_expression [1757,1837]"
+    },
+    {
+      "src": "): ) [1103,1104]",
+      "dest": "): ) [1699,1700]"
+    },
+    {
+      "src": "array_access [764,844]",
+      "dest": "array_access [1360,1440]"
+    },
+    {
+      "src": "=: = [1178,1179]",
+      "dest": "=: = [1774,1775]"
+    },
+    {
+      "src": "struct_declaration [116,192]",
+      "dest": "struct_declaration [712,788]"
+    },
+    {
+      "src": "[: [ [908,909]",
+      "dest": "[: [ [1504,1505]"
+    },
+    {
+      "src": "string_literal [1118,1141]",
+      "dest": "string_literal [1714,1737]"
+    },
+    {
+      "src": "{: { [266,267]",
+      "dest": "{: { [862,863]"
+    },
+    {
+      "src": "member_expression [1022,1038]",
+      "dest": "member_expression [1618,1634]"
+    },
+    {
+      "src": "expression_statement [1001,1152]",
+      "dest": "expression_statement [1597,1748]"
+    },
+    {
+      "src": "type_cast_expression [764,790]",
+      "dest": "type_cast_expression [1360,1386]"
+    },
+    {
+      "src": "type_name [167,173]",
+      "dest": "type_name [763,769]"
+    },
+    {
+      "src": "^:  ^ [55,57]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": ".: . [1166,1167]",
+      "dest": ".: . [1762,1763]"
+    },
+    {
+      "src": "\": \" [858,859]",
+      "dest": "\": \" [1454,1455]"
+    },
+    {
+      "src": "identifier: state [226,231]",
+      "dest": "identifier: state [822,827]"
+    },
+    {
+      "src": "member_expression [325,342]",
+      "dest": "member_expression [921,938]"
+    },
+    {
+      "src": "parameter [212,231]",
+      "dest": "parameter [808,827]"
+    },
+    {
+      "src": "call_expression [1042,1104]",
+      "dest": "call_expression [1638,1700]"
+    },
+    {
+      "src": "storage: storage [544,551]",
+      "dest": "storage: storage [1140,1147]"
+    },
+    {
+      "src": "): ) [255,256]",
+      "dest": "): ) [851,852]"
+    },
+    {
+      "src": "]: ] [909,910]",
+      "dest": "]: ] [1505,1506]"
+    },
+    {
+      "src": "pragma: pragma [40,46]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "assignment_expression [276,315]",
+      "dest": "assignment_expression [872,911]"
+    },
+    {
+      "src": "): ) [789,790]",
+      "dest": "): ) [1385,1386]"
+    },
+    {
+      "src": ".: . [281,282]",
+      "dest": ".: . [877,878]"
+    },
+    {
+      "src": "string [858,880]",
+      "dest": "string [1454,1476]"
+    },
+    {
+      "src": "import_directive [66,86]",
+      "dest": "import_directive [662,682]"
+    },
+    {
+      "src": "): ) [592,593]",
+      "dest": "): ) [1188,1189]"
+    },
+    {
+      "src": "{: { [603,604]",
+      "dest": "{: { [1199,1200]"
+    },
+    {
+      "src": "identifier: state [276,281]",
+      "dest": "identifier: state [872,877]"
+    },
+    {
+      "src": "): ) [1240,1241]",
+      "dest": "): ) [1836,1837]"
+    },
+    {
+      "src": "member_expression [711,728]",
+      "dest": "member_expression [1307,1324]"
+    },
+    {
+      "src": "call_expression [743,890]",
+      "dest": "call_expression [1339,1486]"
+    },
+    {
+      "src": ".: . [959,960]",
+      "dest": ".: . [1555,1556]"
+    },
+    {
+      "src": "solidity_pragma_token [47,63]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "visibility [257,265]",
+      "dest": "visibility [853,861]"
+    },
+    {
+      "src": "call_expression [945,991]",
+      "dest": "call_expression [1541,1587]"
+    },
+    {
+      "src": "identifier: starknetOutput [794,808]",
+      "dest": "identifier: starknetOutput [1390,1404]"
+    },
+    {
+      "src": "int256: int256 [167,173]",
+      "dest": "int256: int256 [763,769]"
+    },
+    {
+      "src": "identifier: CommitmentTreeUpdateOutput [1180,1206]",
+      "dest": "identifier: CommitmentTreeUpdateOutput [1776,1802]"
+    },
+    {
+      "src": "identifier: StarknetState [96,109]",
+      "dest": "identifier: StarknetState [692,705]"
+    },
+    {
+      "src": "primitive_type [139,146]",
+      "dest": "primitive_type [735,742]"
+    },
+    {
+      "src": ".: . [1027,1028]",
+      "dest": ".: . [1623,1624]"
+    },
+    {
+      "src": "=: = [943,944]",
+      "dest": "=: = [1539,1540]"
+    },
+    {
+      "src": "member_expression [945,975]",
+      "dest": "member_expression [1541,1571]"
+    },
+    {
+      "src": "contract_body [110,1250]",
+      "dest": "contract_body [706,1846]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "solidity: solidity [47,55]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "\": \" [73,74]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "primitive_type [901,908]",
+      "dest": "primitive_type [1497,1504]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "insert-node",
+      "tree": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "parent": "source_file [0,1847]",
+      "at": 0
+    }
+  ]
+}

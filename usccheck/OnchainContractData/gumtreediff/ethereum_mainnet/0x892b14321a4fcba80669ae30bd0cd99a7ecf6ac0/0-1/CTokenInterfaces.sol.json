@@ -1,0 +1,5808 @@
+{
+  "matches": [
+    {
+      "src": "identifier: Approval [5628,5636]",
+      "dest": "identifier: Approval [6769,6777]"
+    },
+    {
+      "src": "(: ( [6514,6515]",
+      "dest": "(: ( [7655,7656]"
+    },
+    {
+      "src": "type_name [7938,7942]",
+      "dest": "type_name [8956,8960]"
+    },
+    {
+      "src": "identifier: amount [5556,5562]",
+      "dest": "identifier: amount [6697,6703]"
+    },
+    {
+      "src": "(: ( [8234,8235]",
+      "dest": "(: ( [9252,9253]"
+    },
+    {
+      "src": "parameter [8253,8269]",
+      "dest": "parameter [9271,9287]"
+    },
+    {
+      "src": "visibility [6708,6714]",
+      "dest": "visibility [7849,7855]"
+    },
+    {
+      "src": "returns: returns [7966,7973]",
+      "dest": "returns: returns [8984,8991]"
+    },
+    {
+      "src": "function: function [6798,6806]",
+      "dest": "function: function [7939,7947]"
+    },
+    {
+      "src": "identifier: approve [6008,6015]",
+      "dest": "identifier: approve [7149,7156]"
+    },
+    {
+      "src": "identifier: _setInterestRateModel [7498,7519]",
+      "dest": "identifier: _setInterestRateModel [8639,8660]"
+    },
+    {
+      "src": "comment: /**      * @notice Underlying asset for this CToken      */ [7615,7674]",
+      "dest": "comment: /**      * @notice Underlying asset for this CToken      */ [3047,3106]"
+    },
+    {
+      "src": "uint: uint [8002,8006]",
+      "dest": "uint: uint [9020,9024]"
+    },
+    {
+      "src": "primitive_type [3955,3962]",
+      "dest": "primitive_type [5096,5103]"
+    },
+    {
+      "src": "string [70,95]",
+      "dest": "string [70,95]"
+    },
+    {
+      "src": "primitive_type [2809,2813]",
+      "dest": "primitive_type [2809,2813]"
+    },
+    {
+      "src": "visibility [7883,7891]",
+      "dest": "visibility [8901,8909]"
+    },
+    {
+      "src": "type_name [7019,7023]",
+      "dest": "type_name [8160,8164]"
+    },
+    {
+      "src": "returns: returns [7220,7227]",
+      "dest": "returns: returns [8361,8368]"
+    },
+    {
+      "src": "public: public [1810,1816]",
+      "dest": "public: public [1810,1816]"
+    },
+    {
+      "src": "(: ( [5853,5854]",
+      "dest": "(: ( [6994,6995]"
+    },
+    {
+      "src": "identifier: supplyRatePerBlock [6471,6489]",
+      "dest": "identifier: supplyRatePerBlock [7612,7630]"
+    },
+    {
+      "src": "(: ( [6876,6877]",
+      "dest": "(: ( [8017,8018]"
+    },
+    {
+      "src": "): ) [8019,8020]",
+      "dest": "): ) [9037,9038]"
+    },
+    {
+      "src": "state_variable_declaration [1935,1960]",
+      "dest": "state_variable_declaration [1935,1960]"
+    },
+    {
+      "src": "identifier: _setImplementation [9180,9198]",
+      "dest": "identifier: _setImplementation [11211,11229]"
+    },
+    {
+      "src": "type_name [8071,8075]",
+      "dest": "type_name [9089,9093]"
+    },
+    {
+      "src": "identifier: cashPrior [3324,3333]",
+      "dest": "identifier: cashPrior [4465,4474]"
+    },
+    {
+      "src": "type_name [6381,6385]",
+      "dest": "type_name [7522,7526]"
+    },
+    {
+      "src": "type_name [8253,8257]",
+      "dest": "type_name [9271,9275]"
+    },
+    {
+      "src": "parameter [6064,6068]",
+      "dest": "parameter [7205,7209]"
+    },
+    {
+      "src": "\": \" [33,34]",
+      "dest": "\": \" [33,34]"
+    },
+    {
+      "src": ",: , [3971,3972]",
+      "dest": ",: , [5112,5113]"
+    },
+    {
+      "src": "address: address [6329,6336]",
+      "dest": "address: address [7470,7477]"
+    },
+    {
+      "src": "(: ( [6015,6016]",
+      "dest": "(: ( [7156,7157]"
+    },
+    {
+      "src": "identifier: InterestRateModel [1242,1259]",
+      "dest": "identifier: InterestRateModel [1242,1259]"
+    },
+    {
+      "src": "type_name [6691,6698]",
+      "dest": "type_name [7832,7839]"
+    },
+    {
+      "src": "user_defined_type [8271,8286]",
+      "dest": "user_defined_type [9289,9304]"
+    },
+    {
+      "src": "uint: uint [3991,3995]",
+      "dest": "uint: uint [5132,5136]"
+    },
+    {
+      "src": "visibility [3160,3166]",
+      "dest": "visibility [4301,4307]"
+    },
+    {
+      "src": "returns: returns [7567,7574]",
+      "dest": "returns: returns [8708,8715]"
+    },
+    {
+      "src": "): ) [6490,6491]",
+      "dest": "): ) [7631,7632]"
+    },
+    {
+      "src": "primitive_type [1805,1809]",
+      "dest": "primitive_type [1805,1809]"
+    },
+    {
+      "src": "parameter [7864,7881]",
+      "dest": "parameter [8882,8899]"
+    },
+    {
+      "src": "parameter [7901,7905]",
+      "dest": "parameter [8919,8923]"
+    },
+    {
+      "src": "view: view [6888,6892]",
+      "dest": "view: view [8029,8033]"
+    },
+    {
+      "src": "): ) [8111,8112]",
+      "dest": "): ) [9129,9130]"
+    },
+    {
+      "src": "identifier: NewImplementation [8706,8723]",
+      "dest": "identifier: NewImplementation [10737,10754]"
+    },
+    {
+      "src": "parameter [9199,9222]",
+      "dest": "parameter [11230,11253]"
+    },
+    {
+      "src": "): ) [7905,7906]",
+      "dest": "): ) [8923,8924]"
+    },
+    {
+      "src": "mapping: mapping [2955,2962]",
+      "dest": "mapping: mapping [2955,2962]"
+    },
+    {
+      "src": "identifier: borrowAmount [8007,8019]",
+      "dest": "identifier: borrowAmount [9025,9037]"
+    },
+    {
+      "src": "type_name [4012,4016]",
+      "dest": "type_name [5153,5157]"
+    },
+    {
+      "src": ",: , [7017,7018]",
+      "dest": ",: , [8158,8159]"
+    },
+    {
+      "src": "parameter [7837,7841]",
+      "dest": "parameter [8855,8859]"
+    },
+    {
+      "src": "event_definition [4341,4413]",
+      "dest": "event_definition [5482,5554]"
+    },
+    {
+      "src": "uint: uint [6651,6655]",
+      "dest": "uint: uint [7792,7796]"
+    },
+    {
+      "src": "state_variable_declaration [380,401]",
+      "dest": "state_variable_declaration [380,401]"
+    },
+    {
+      "src": "public: public [1664,1670]",
+      "dest": "public: public [1664,1670]"
+    },
+    {
+      "src": "identifier: CTokenInterface [8271,8286]",
+      "dest": "identifier: CTokenInterface [9289,9304]"
+    },
+    {
+      "src": "): ) [5992,5993]",
+      "dest": "): ) [7133,7134]"
+    },
+    {
+      "src": "event_definition [8700,8778]",
+      "dest": "event_definition [10731,10809]"
+    },
+    {
+      "src": "type_name [4170,4174]",
+      "dest": "type_name [5311,5315]"
+    },
+    {
+      "src": ",: , [3333,3334]",
+      "dest": ",: , [4474,4475]"
+    },
+    {
+      "src": "type_name [6729,6733]",
+      "dest": "type_name [7870,7874]"
+    },
+    {
+      "src": "identifier: borrowAmount [3793,3805]",
+      "dest": "identifier: borrowAmount [4934,4946]"
+    },
+    {
+      "src": "primitive_type [6179,6186]",
+      "dest": "primitive_type [7320,7327]"
+    },
+    {
+      "src": "comment: /*** Admin Functions ***/ [7068,7093]",
+      "dest": "comment: /*** Admin Functions ***/ [8209,8234]"
+    },
+    {
+      "src": "(: ( [6178,6179]",
+      "dest": "(: ( [7319,7320]"
+    },
+    {
+      "src": "view: view [6835,6839]",
+      "dest": "view: view [7976,7980]"
+    },
+    {
+      "src": "type_name [7679,7686]",
+      "dest": "type_name [3111,3118]"
+    },
+    {
+      "src": "primitive_type [3335,3339]",
+      "dest": "primitive_type [4476,4480]"
+    },
+    {
+      "src": "event_paramater [5056,5085]",
+      "dest": "event_paramater [6197,6226]"
+    },
+    {
+      "src": "): ) [7233,7234]",
+      "dest": "): ) [8374,8375]"
+    },
+    {
+      "src": "uint: uint [5775,5779]",
+      "dest": "uint: uint [6916,6920]"
+    },
+    {
+      "src": "primitive_type [8002,8006]",
+      "dest": "primitive_type [9020,9024]"
+    },
+    {
+      "src": "uint: uint [3640,3644]",
+      "dest": "uint: uint [4781,4785]"
+    },
+    {
+      "src": "contract_declaration [7586,7707]",
+      "dest": "contract_declaration [3018,3247]"
+    },
+    {
+      "src": ",: , [4905,4906]",
+      "dest": ",: , [6046,6047]"
+    },
+    {
+      "src": ",: , [5392,5393]",
+      "dest": ",: , [6533,6534]"
+    },
+    {
+      "src": "uint: uint [1805,1809]",
+      "dest": "uint: uint [1805,1809]"
+    },
+    {
+      "src": "primitive_type [6257,6264]",
+      "dest": "primitive_type [7398,7405]"
+    },
+    {
+      "src": "identifier: BorrowSnapshot [2974,2988]",
+      "dest": "identifier: BorrowSnapshot [2974,2988]"
+    },
+    {
+      "src": "type_name [8199,8203]",
+      "dest": "type_name [9217,9221]"
+    },
+    {
+      "src": ",: , [5085,5086]",
+      "dest": ",: , [6226,6227]"
+    },
+    {
+      "src": "visibility [760,768]",
+      "dest": "visibility [760,768]"
+    },
+    {
+      "src": ",: , [9222,9223]",
+      "dest": ",: , [11253,11254]"
+    },
+    {
+      "src": "primitive_type [3516,3520]",
+      "dest": "primitive_type [4657,4661]"
+    },
+    {
+      "src": "type_name [289,295]",
+      "dest": "type_name [289,295]"
+    },
+    {
+      "src": "event_paramater [4363,4386]",
+      "dest": "event_paramater [5504,5527]"
+    },
+    {
+      "src": "primitive_type [289,295]",
+      "dest": "primitive_type [289,295]"
+    },
+    {
+      "src": "identifier: newTotalReserves [5418,5434]",
+      "dest": "identifier: newTotalReserves [6559,6575]"
+    },
+    {
+      "src": "type_name [8751,8758]",
+      "dest": "type_name [10782,10789]"
+    },
+    {
+      "src": "identifier: CTokenStorage [3046,3059]",
+      "dest": "identifier: CTokenStorage [4187,4200]"
+    },
+    {
+      "src": "event_paramater [8724,8749]",
+      "dest": "event_paramater [10755,10780]"
+    },
+    {
+      "src": "identifier: spender [5676,5683]",
+      "dest": "identifier: spender [6817,6824]"
+    },
+    {
+      "src": "event_paramater [5253,5274]",
+      "dest": "event_paramater [6394,6415]"
+    },
+    {
+      "src": "primitive_type [2833,2837]",
+      "dest": "primitive_type [2833,2837]"
+    },
+    {
+      "src": "address: address [5217,5224]",
+      "dest": "address: address [6358,6365]"
+    },
+    {
+      "src": "visibility [6272,6280]",
+      "dest": "visibility [7413,7421]"
+    },
+    {
+      "src": "struct_member [2809,2824]",
+      "dest": "struct_member [2809,2824]"
+    },
+    {
+      "src": "address: address [4152,4159]",
+      "dest": "address: address [5293,5300]"
+    },
+    {
+      "src": "identifier: detail [5791,5797]",
+      "dest": "identifier: detail [6932,6938]"
+    },
+    {
+      "src": "true [3187,3191]",
+      "dest": "true [4328,4332]"
+    },
+    {
+      "src": "bool: bool [193,197]",
+      "dest": "bool: bool [193,197]"
+    },
+    {
+      "src": "state_variable_declaration [1805,1829]",
+      "dest": "state_variable_declaration [1805,1829]"
+    },
+    {
+      "src": "event: event [3298,3303]",
+      "dest": "event: event [4439,4444]"
+    },
+    {
+      "src": "primitive_type [2440,2447]",
+      "dest": "primitive_type [2440,2447]"
+    },
+    {
+      "src": "(: ( [5987,5988]",
+      "dest": "(: ( [7128,7129]"
+    },
+    {
+      "src": "(: ( [4538,4539]",
+      "dest": "(: ( [5679,5680]"
+    },
+    {
+      "src": "identifier: pendingAdmin [1008,1020]",
+      "dest": "identifier: pendingAdmin [1008,1020]"
+    },
+    {
+      "src": "type_name [3640,3644]",
+      "dest": "type_name [4781,4785]"
+    },
+    {
+      "src": ",: , [4010,4011]",
+      "dest": ",: , [5151,5152]"
+    },
+    {
+      "src": "identifier: Failure [5755,5762]",
+      "dest": "identifier: Failure [6896,6903]"
+    },
+    {
+      "src": "contract: contract [9292,9300]",
+      "dest": "contract: contract [11323,11331]"
+    },
+    {
+      "src": "parameter [5854,5865]",
+      "dest": "parameter [6995,7006]"
+    },
+    {
+      "src": "public: public [387,393]",
+      "dest": "public: public [387,393]"
+    },
+    {
+      "src": "identifier: CTokenInterface [3027,3042]",
+      "dest": "identifier: CTokenInterface [4168,4183]"
+    },
+    {
+      "src": "(: ( [6615,6616]",
+      "dest": "(: ( [7756,7757]"
+    },
+    {
+      "src": "(: ( [6328,6329]",
+      "dest": "(: ( [7469,7470]"
+    },
+    {
+      "src": "primitive_type [6381,6385]",
+      "dest": "primitive_type [7522,7526]"
+    },
+    {
+      "src": "internal: internal [2458,2466]",
+      "dest": "internal: internal [2458,2466]"
+    },
+    {
+      "src": "event_paramater [4712,4747]",
+      "dest": "event_paramater [5853,5888]"
+    },
+    {
+      "src": "primitive_type [2451,2455]",
+      "dest": "primitive_type [2451,2455]"
+    },
+    {
+      "src": "visibility [1413,1421]",
+      "dest": "visibility [1413,1421]"
+    },
+    {
+      "src": "visibility [8021,8029]",
+      "dest": "visibility [9039,9047]"
+    },
+    {
+      "src": "): ) [8179,8180]",
+      "dest": "): ) [9197,9198]"
+    },
+    {
+      "src": "identifier: accrueInterest [6922,6936]",
+      "dest": "identifier: accrueInterest [8063,8077]"
+    },
+    {
+      "src": ",: , [4555,4556]",
+      "dest": ",: , [5696,5697]"
+    },
+    {
+      "src": "bool: bool [5898,5902]",
+      "dest": "bool: bool [7039,7043]"
+    },
+    {
+      "src": ",: , [5942,5943]",
+      "dest": ",: , [7083,7084]"
+    },
+    {
+      "src": "type_name [5944,5951]",
+      "dest": "type_name [7085,7092]"
+    },
+    {
+      "src": "contract_body [9342,9793]",
+      "dest": "contract_body [11351,11802]"
+    },
+    {
+      "src": "type_name [8002,8006]",
+      "dest": "type_name [9020,9024]"
+    },
+    {
+      "src": "uint: uint [6787,6791]",
+      "dest": "uint: uint [7928,7932]"
+    },
+    {
+      "src": "external: external [8021,8029]",
+      "dest": "external: external [9039,9047]"
+    },
+    {
+      "src": "identifier: redeemAmount [3645,3657]",
+      "dest": "identifier: redeemAmount [4786,4798]"
+    },
+    {
+      "src": "address: address [7125,7132]",
+      "dest": "address: address [8266,8273]"
+    },
+    {
+      "src": "\": \" [94,95]",
+      "dest": "\": \" [94,95]"
+    },
+    {
+      "src": "visibility [8547,8553]",
+      "dest": "visibility [3223,3229]"
+    },
+    {
+      "src": "primitive_type [5854,5861]",
+      "dest": "primitive_type [6995,7002]"
+    },
+    {
+      "src": "identifier: NewPendingAdmin [4347,4362]",
+      "dest": "identifier: NewPendingAdmin [5488,5503]"
+    },
+    {
+      "src": "primitive_type [5087,5091]",
+      "dest": "primitive_type [6228,6232]"
+    },
+    {
+      "src": "): ) [7322,7323]",
+      "dest": "): ) [8463,8464]"
+    },
+    {
+      "src": "user_defined_type [7520,7537]",
+      "dest": "user_defined_type [8661,8678]"
+    },
+    {
+      "src": "uint: uint [3807,3811]",
+      "dest": "uint: uint [4948,4952]"
+    },
+    {
+      "src": "identifier: ReservesReduced [5363,5378]",
+      "dest": "identifier: ReservesReduced [6504,6519]"
+    },
+    {
+      "src": "returns: returns [8414,8421]",
+      "dest": "returns: returns [9431,9438]"
+    },
+    {
+      "src": "visibility [2166,2172]",
+      "dest": "visibility [2166,2172]"
+    },
+    {
+      "src": "contract: contract [8573,8581]",
+      "dest": "contract: contract [10626,10634]"
+    },
+    {
+      "src": "state_mutability [6715,6719]",
+      "dest": "state_mutability [7856,7860]"
+    },
+    {
+      "src": "return_type_definition [6840,6854]",
+      "dest": "return_type_definition [7981,7995]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when interestRateModel is changed      */ [4755,4829]",
+      "dest": "comment: /**      * @notice Event emitted when interestRateModel is changed      */ [5896,5970]"
+    },
+    {
+      "src": "type_name [5379,5386]",
+      "dest": "type_name [6520,6527]"
+    },
+    {
+      "src": "primitive_type [2282,2289]",
+      "dest": "primitive_type [2282,2289]"
+    },
+    {
+      "src": "): ) [7979,7980]",
+      "dest": "): ) [8997,8998]"
+    },
+    {
+      "src": "address: address [2282,2289]",
+      "dest": "address: address [2282,2289]"
+    },
+    {
+      "src": "visibility [7957,7965]",
+      "dest": "visibility [8975,8983]"
+    },
+    {
+      "src": "return_type_definition [7396,7410]",
+      "dest": "return_type_definition [8537,8551]"
+    },
+    {
+      "src": "function_definition [7416,7484]",
+      "dest": "function_definition [8557,8625]"
+    },
+    {
+      "src": "parameter [8039,8043]",
+      "dest": "parameter [9057,9061]"
+    },
+    {
+      "src": "): ) [9279,9280]",
+      "dest": "): ) [11310,11311]"
+    },
+    {
+      "src": "address: address [6691,6698]",
+      "dest": "address: address [7832,7839]"
+    },
+    {
+      "src": "identifier: mintAmount [7807,7817]",
+      "dest": "identifier: mintAmount [8825,8835]"
+    },
+    {
+      "src": "): ) [4230,4231]",
+      "dest": "): ) [5371,5372]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [15,17]",
+      "dest": "solidity_version_comparison_operator [15,17]"
+    },
+    {
+      "src": "): ) [7841,7842]",
+      "dest": "): ) [8859,8860]"
+    },
+    {
+      "src": "primitive_type [7901,7905]",
+      "dest": "primitive_type [8919,8923]"
+    },
+    {
+      "src": "identifier: AccrueInterest [3304,3318]",
+      "dest": "identifier: AccrueInterest [4445,4459]"
+    },
+    {
+      "src": "primitive_type [5551,5555]",
+      "dest": "primitive_type [6692,6696]"
+    },
+    {
+      "src": "public: public [481,487]",
+      "dest": "public: public [481,487]"
+    },
+    {
+      "src": "identifier: _resignImplementation [9760,9781]",
+      "dest": "identifier: _resignImplementation [11769,11790]"
+    },
+    {
+      "src": "event_paramater [3483,3497]",
+      "dest": "event_paramater [4624,4638]"
+    },
+    {
+      "src": "): ) [6044,6045]",
+      "dest": "): ) [7185,7186]"
+    },
+    {
+      "src": "visibility [6633,6641]",
+      "dest": "visibility [7774,7782]"
+    },
+    {
+      "src": "uint: uint [8423,8427]",
+      "dest": "uint: uint [9440,9444]"
+    },
+    {
+      "src": "address: address [5660,5667]",
+      "dest": "address: address [6801,6808]"
+    },
+    {
+      "src": ",: , [4186,4187]",
+      "dest": ",: , [5327,5328]"
+    },
+    {
+      "src": "parameter [6902,6906]",
+      "dest": "parameter [8043,8047]"
+    },
+    {
+      "src": "type_name [4539,4546]",
+      "dest": "type_name [5680,5687]"
+    },
+    {
+      "src": "type_name [3788,3792]",
+      "dest": "type_name [4929,4933]"
+    },
+    {
+      "src": "type_name [6033,6037]",
+      "dest": "type_name [7174,7178]"
+    },
+    {
+      "src": "state_variable_declaration [7679,7705]",
+      "dest": "state_variable_declaration [3111,3137]"
+    },
+    {
+      "src": "identifier: accountBorrows [3812,3826]",
+      "dest": "identifier: accountBorrows [4953,4967]"
+    },
+    {
+      "src": "function: function [6462,6470]",
+      "dest": "function: function [7603,7611]"
+    },
+    {
+      "src": "(: ( [4674,4675]",
+      "dest": "(: ( [5815,5816]"
+    },
+    {
+      "src": "(: ( [4131,4132]",
+      "dest": "(: ( [5272,5273]"
+    },
+    {
+      "src": "state_variable_declaration [8539,8569]",
+      "dest": "state_variable_declaration [3215,3245]"
+    },
+    {
+      "src": "type_name [5763,5767]",
+      "dest": "type_name [6904,6908]"
+    },
+    {
+      "src": "internal: internal [1413,1421]",
+      "dest": "internal: internal [1413,1421]"
+    },
+    {
+      "src": "address: address [6179,6186]",
+      "dest": "address: address [7320,7327]"
+    },
+    {
+      "src": "public: public [7302,7308]",
+      "dest": "public: public [8443,8449]"
+    },
+    {
+      "src": "return_type_definition [7966,7980]",
+      "dest": "return_type_definition [8984,8998]"
+    },
+    {
+      "src": "address: address [4388,4395]",
+      "dest": "address: address [5529,5536]"
+    },
+    {
+      "src": "parameter [5867,5878]",
+      "dest": "parameter [7008,7019]"
+    },
+    {
+      "src": "): ) [7300,7301]",
+      "dest": "): ) [8441,8442]"
+    },
+    {
+      "src": "address: address [7001,7008]",
+      "dest": "address: address [8142,8149]"
+    },
+    {
+      "src": "primitive_type [1541,1545]",
+      "dest": "primitive_type [1541,1545]"
+    },
+    {
+      "src": "identifier: newAdmin [4565,4573]",
+      "dest": "identifier: newAdmin [5706,5714]"
+    },
+    {
+      "src": "{: { [2799,2800]",
+      "dest": "{: { [2799,2800]"
+    },
+    {
+      "src": "function_definition [5909,5994]",
+      "dest": "function_definition [7050,7135]"
+    },
+    {
+      "src": "function_definition [5999,6070]",
+      "dest": "function_definition [7140,7211]"
+    },
+    {
+      "src": "type_name [6981,6988]",
+      "dest": "type_name [8122,8129]"
+    },
+    {
+      "src": "identifier: borrower [4160,4168]",
+      "dest": "identifier: borrower [5301,5309]"
+    },
+    {
+      "src": "external: external [6492,6500]",
+      "dest": "external: external [7633,7641]"
+    },
+    {
+      "src": "internal: internal [2299,2307]",
+      "dest": "internal: internal [2299,2307]"
+    },
+    {
+      "src": ",: , [3989,3990]",
+      "dest": ",: , [5130,5131]"
+    },
+    {
+      "src": "uint: uint [6575,6579]",
+      "dest": "uint: uint [7716,7720]"
+    },
+    {
+      "src": "uint: uint [6375,6379]",
+      "dest": "uint: uint [7516,7520]"
+    },
+    {
+      "src": "identifier: _addReserves [8376,8388]",
+      "dest": "identifier: _addReserves [9393,9405]"
+    },
+    {
+      "src": "parameter [8199,8203]",
+      "dest": "parameter [9217,9221]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when the reserves are reduced      */ [5282,5352]",
+      "dest": "comment: /**      * @notice Event emitted when the reserves are reduced      */ [6423,6493]"
+    },
+    {
+      "src": "uint: uint [5786,5790]",
+      "dest": "uint: uint [6927,6931]"
+    },
+    {
+      "src": "user_defined_type [7737,7750]",
+      "dest": "user_defined_type [8755,8768]"
+    },
+    {
+      "src": "primitive_type [6651,6655]",
+      "dest": "primitive_type [7792,7796]"
+    },
+    {
+      "src": "inheritance_specifier [7737,7750]",
+      "dest": "inheritance_specifier [8755,8768]"
+    },
+    {
+      "src": "import: import [63,69]",
+      "dest": "import: import [63,69]"
+    },
+    {
+      "src": "): ) [3676,3677]",
+      "dest": "): ) [4817,4818]"
+    },
+    {
+      "src": "uint: uint [2451,2455]",
+      "dest": "uint: uint [2451,2455]"
+    },
+    {
+      "src": "address: address [2963,2970]",
+      "dest": "address: address [2963,2970]"
+    },
+    {
+      "src": "primitive_type [597,601]",
+      "dest": "primitive_type [597,601]"
+    },
+    {
+      "src": "contract: contract [3018,3026]",
+      "dest": "contract: contract [4159,4167]"
+    },
+    {
+      "src": "(: ( [5378,5379]",
+      "dest": "(: ( [6519,6520]"
+    },
+    {
+      "src": "type_name [3335,3339]",
+      "dest": "type_name [4476,4480]"
+    },
+    {
+      "src": "{: { [8624,8625]",
+      "dest": "{: { [10655,10656]"
+    },
+    {
+      "src": "parameter [6290,6294]",
+      "dest": "parameter [7431,7435]"
+    },
+    {
+      "src": "primitive_type [5637,5644]",
+      "dest": "primitive_type [6778,6785]"
+    },
+    {
+      "src": "internal: internal [198,206]",
+      "dest": "internal: internal [198,206]"
+    },
+    {
+      "src": ",: , [3953,3954]",
+      "dest": ",: , [5094,5095]"
+    },
+    {
+      "src": "uint: uint [3828,3832]",
+      "dest": "uint: uint [4969,4973]"
+    },
+    {
+      "src": "primitive_type [3622,3629]",
+      "dest": "primitive_type [4763,4770]"
+    },
+    {
+      "src": "type_name [6109,6116]",
+      "dest": "type_name [7250,7257]"
+    },
+    {
+      "src": "(: ( [7355,7356]",
+      "dest": "(: ( [8496,8497]"
+    },
+    {
+      "src": "event_paramater [3622,3638]",
+      "dest": "event_paramater [4763,4779]"
+    },
+    {
+      "src": ",: , [5683,5684]",
+      "dest": ",: , [6824,6825]"
+    },
+    {
+      "src": "}: } [3015,3016]",
+      "dest": "}: } [3015,3016]"
+    },
+    {
+      "src": "event_definition [5749,5799]",
+      "dest": "event_definition [6890,6940]"
+    },
+    {
+      "src": "identifier: ComptrollerInterface [4675,4695]",
+      "dest": "identifier: ComptrollerInterface [5816,5836]"
+    },
+    {
+      "src": "return_type_definition [7892,7906]",
+      "dest": "return_type_definition [8910,8924]"
+    },
+    {
+      "src": "parameter [6515,6519]",
+      "dest": "parameter [7656,7660]"
+    },
+    {
+      "src": "uint: uint [7356,7360]",
+      "dest": "uint: uint [8497,8501]"
+    },
+    {
+      "src": "primitive_type [7405,7409]",
+      "dest": "primitive_type [8546,8550]"
+    },
+    {
+      "src": "state_variable_declaration [2060,2086]",
+      "dest": "state_variable_declaration [2060,2086]"
+    },
+    {
+      "src": "visibility [481,487]",
+      "dest": "visibility [481,487]"
+    },
+    {
+      "src": "identifier: Redeem [3615,3621]",
+      "dest": "identifier: Redeem [4756,4762]"
+    },
+    {
+      "src": "visibility [6771,6777]",
+      "dest": "visibility [7912,7918]"
+    },
+    {
+      "src": "primitive_type [8199,8203]",
+      "dest": "primitive_type [9217,9221]"
+    },
+    {
+      "src": "identifier: seizeTokens [4219,4230]",
+      "dest": "identifier: seizeTokens [5360,5371]"
+    },
+    {
+      "src": "parameter [8389,8403]",
+      "dest": "parameter [9406,9420]"
+    },
+    {
+      "src": "return_type_definition [6360,6392]",
+      "dest": "return_type_definition [7501,7533]"
+    },
+    {
+      "src": "uint: uint [3516,3520]",
+      "dest": "uint: uint [4657,4661]"
+    },
+    {
+      "src": "indexed: indexed [5645,5652]",
+      "dest": "indexed: indexed [6786,6793]"
+    },
+    {
+      "src": "visibility [7158,7166]",
+      "dest": "visibility [8299,8307]"
+    },
+    {
+      "src": "primitive_type [4539,4546]",
+      "dest": "primitive_type [5680,5687]"
+    },
+    {
+      "src": "comment: /**      * @notice Initial exchange rate used when minting the first CTokens (used when totalSupply = 0)      */ [1291,1403]",
+      "dest": "comment: /**      * @notice Initial exchange rate used when minting the first CTokens (used when totalSupply = 0)      */ [1291,1403]"
+    },
+    {
+      "src": "identifier: CErc20Storage [7595,7608]",
+      "dest": "identifier: CErc20Storage [3027,3040]"
+    },
+    {
+      "src": "address: address [8145,8152]",
+      "dest": "address: address [9163,9170]"
+    },
+    {
+      "src": "parameter [7405,7409]",
+      "dest": "parameter [8546,8550]"
+    },
+    {
+      "src": "identifier: minter [3491,3497]",
+      "dest": "identifier: minter [4632,4638]"
+    },
+    {
+      "src": "type_name [5237,5241]",
+      "dest": "type_name [6378,6382]"
+    },
+    {
+      "src": "payable: payable [7133,7140]",
+      "dest": "payable: payable [8274,8281]"
+    },
+    {
+      "src": "parameter [5957,5968]",
+      "dest": "parameter [7098,7109]"
+    },
+    {
+      "src": "function_definition [7788,7843]",
+      "dest": "function_definition [8806,8861]"
+    },
+    {
+      "src": "function: function [7848,7856]",
+      "dest": "function: function [8866,8874]"
+    },
+    {
+      "src": "state_variable_declaration [985,1021]",
+      "dest": "state_variable_declaration [985,1021]"
+    },
+    {
+      "src": "uint: uint [7975,7979]",
+      "dest": "uint: uint [8993,8997]"
+    },
+    {
+      "src": "event_definition [3922,4031]",
+      "dest": "event_definition [5063,5172]"
+    },
+    {
+      "src": "event_paramater [3788,3805]",
+      "dest": "event_paramater [4929,4946]"
+    },
+    {
+      "src": "): ) [6294,6295]",
+      "dest": "): ) [7435,7436]"
+    },
+    {
+      "src": "type_name [6451,6455]",
+      "dest": "type_name [7592,7596]"
+    },
+    {
+      "src": "event_paramater [3319,3333]",
+      "dest": "event_paramater [4460,4474]"
+    },
+    {
+      "src": "primitive_type [3483,3490]",
+      "dest": "primitive_type [4624,4631]"
+    },
+    {
+      "src": ",: , [5955,5956]",
+      "dest": ",: , [7096,7097]"
+    },
+    {
+      "src": "type_name [380,386]",
+      "dest": "type_name [380,386]"
+    },
+    {
+      "src": "identifier: addAmount [8394,8403]",
+      "dest": "identifier: addAmount [9411,9420]"
+    },
+    {
+      "src": "primitive_type [4388,4395]",
+      "dest": "primitive_type [5529,5536]"
+    },
+    {
+      "src": "public: public [895,901]",
+      "dest": "public: public [895,901]"
+    },
+    {
+      "src": "type_name [3516,3520]",
+      "dest": "type_name [4657,4661]"
+    },
+    {
+      "src": "returns: returns [6055,6062]",
+      "dest": "returns: returns [7196,7203]"
+    },
+    {
+      "src": "primitive_type [7125,7140]",
+      "dest": "primitive_type [8266,8281]"
+    },
+    {
+      "src": "): ) [8403,8404]",
+      "dest": "): ) [9420,9421]"
+    },
+    {
+      "src": "): ) [5878,5879]",
+      "dest": "): ) [7019,7020]"
+    },
+    {
+      "src": "return_type_definition [7220,7234]",
+      "dest": "return_type_definition [8361,8375]"
+    },
+    {
+      "src": "comment: /*** Market Events ***/ [3199,3222]",
+      "dest": "comment: /*** Market Events ***/ [4340,4363]"
+    },
+    {
+      "src": "identifier: data [9633,9637]",
+      "dest": "identifier: data [11642,11646]"
+    },
+    {
+      "src": "returns: returns [6840,6847]",
+      "dest": "returns: returns [7981,7988]"
+    },
+    {
+      "src": "parameter [5988,5992]",
+      "dest": "parameter [7129,7133]"
+    },
+    {
+      "src": "pragma_directive [0,24]",
+      "dest": "pragma_directive [0,24]"
+    },
+    {
+      "src": "function_definition [8367,8429]",
+      "dest": "function_definition [9384,9446]"
+    },
+    {
+      "src": "type_name [2060,2064]",
+      "dest": "type_name [2060,2064]"
+    },
+    {
+      "src": "identifier: BorrowSnapshot [2784,2798]",
+      "dest": "identifier: BorrowSnapshot [2784,2798]"
+    },
+    {
+      "src": "primitive_type [7679,7686]",
+      "dest": "primitive_type [3111,3118]"
+    },
+    {
+      "src": "address: address [5931,5938]",
+      "dest": "address: address [7072,7079]"
+    },
+    {
+      "src": "number_literal: 0.0005e16 [644,653]",
+      "dest": "number_literal: 0.0005e16 [644,653]"
+    },
+    {
+      "src": "primitive_type [2161,2165]",
+      "dest": "primitive_type [2161,2165]"
+    },
+    {
+      "src": "primitive_type [4170,4174]",
+      "dest": "primitive_type [5311,5315]"
+    },
+    {
+      "src": "user_defined_type [4675,4695]",
+      "dest": "user_defined_type [5816,5836]"
+    },
+    {
+      "src": "{: { [121,122]",
+      "dest": "{: { [121,122]"
+    },
+    {
+      "src": "primitive_type [380,386]",
+      "dest": "primitive_type [380,386]"
+    },
+    {
+      "src": "function: function [6662,6670]",
+      "dest": "function: function [7803,7811]"
+    },
+    {
+      "src": "(: ( [8422,8423]",
+      "dest": "(: ( [9439,9440]"
+    },
+    {
+      "src": "comment: /*** User Interface ***/ [5806,5830]",
+      "dest": "comment: /*** User Interface ***/ [6947,6971]"
+    },
+    {
+      "src": "identifier: ReservesAdded [5203,5216]",
+      "dest": "identifier: ReservesAdded [6344,6357]"
+    },
+    {
+      "src": "return_type_definition [6566,6580]",
+      "dest": "return_type_definition [7707,7721]"
+    },
+    {
+      "src": "identifier: borrower [3963,3971]",
+      "dest": "identifier: borrower [5104,5112]"
+    },
+    {
+      "src": "event: event [5749,5754]",
+      "dest": "event: event [6890,6895]"
+    },
+    {
+      "src": "comment: /**      * @notice Block number that interest was last accrued at      */ [1581,1654]",
+      "dest": "comment: /**      * @notice Block number that interest was last accrued at      */ [1581,1654]"
+    },
+    {
+      "src": "contract_declaration [7709,8431]",
+      "dest": "contract_declaration [8727,9448]"
+    },
+    {
+      "src": "primitive_type [6064,6068]",
+      "dest": "primitive_type [7205,7209]"
+    },
+    {
+      "src": "visibility [6828,6834]",
+      "dest": "visibility [7969,7975]"
+    },
+    {
+      "src": "function: function [6860,6868]",
+      "dest": "function: function [8001,8009]"
+    },
+    {
+      "src": "): ) [6579,6580]",
+      "dest": "): ) [7720,7721]"
+    },
+    {
+      "src": "=>: => [2971,2973]",
+      "dest": "=>: => [2971,2973]"
+    },
+    {
+      "src": "identifier: account [6337,6344]",
+      "dest": "identifier: account [7478,7485]"
+    },
+    {
+      "src": "identifier: _setReserveFactor [7338,7355]",
+      "dest": "identifier: _setReserveFactor [8479,8496]"
+    },
+    {
+      "src": "uint: uint [1935,1939]",
+      "dest": "uint: uint [1935,1939]"
+    },
+    {
+      "src": "comment: /**      * @notice EIP-20 token name for this token      */ [225,284]",
+      "dest": "comment: /**      * @notice EIP-20 token name for this token      */ [225,284]"
+    },
+    {
+      "src": "returns: returns [8314,8321]",
+      "dest": "returns: returns [9332,9339]"
+    },
+    {
+      "src": "identifier: implementation_ [9207,9222]",
+      "dest": "identifier: implementation_ [11238,11253]"
+    },
+    {
+      "src": "function: function [6301,6309]",
+      "dest": "function: function [7442,7450]"
+    },
+    {
+      "src": "function_definition [6586,6657]",
+      "dest": "function_definition [7727,7798]"
+    },
+    {
+      "src": "(: ( [3318,3319]",
+      "dest": "(: ( [4459,4460]"
+    },
+    {
+      "src": "(: ( [3769,3770]",
+      "dest": "(: ( [4910,4911]"
+    },
+    {
+      "src": ",: , [3657,3658]",
+      "dest": ",: , [4798,4799]"
+    },
+    {
+      "src": "uint: uint [5957,5961]",
+      "dest": "uint: uint [7098,7102]"
+    },
+    {
+      "src": "function: function [8210,8218]",
+      "dest": "function: function [9228,9236]"
+    },
+    {
+      "src": "): ) [7385,7386]",
+      "dest": "): ) [8526,8527]"
+    },
+    {
+      "src": "(: ( [7575,7576]",
+      "dest": "(: ( [8716,8717]"
+    },
+    {
+      "src": "returns: returns [6642,6649]",
+      "dest": "returns: returns [7783,7790]"
+    },
+    {
+      "src": "primitive_type [193,197]",
+      "dest": "primitive_type [193,197]"
+    },
+    {
+      "src": "public: public [1940,1946]",
+      "dest": "public: public [1940,1946]"
+    },
+    {
+      "src": "visibility [2065,2071]",
+      "dest": "visibility [2065,2071]"
+    },
+    {
+      "src": "parameter [7318,7322]",
+      "dest": "parameter [8459,8463]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when interest is accrued      */ [3228,3293]",
+      "dest": "comment: /**      * @notice Event emitted when interest is accrued      */ [4369,4434]"
+    },
+    {
+      "src": "type_name [5637,5644]",
+      "dest": "type_name [6778,6785]"
+    },
+    {
+      "src": "identifier: _becomeImplementation [9598,9619]",
+      "dest": "identifier: _becomeImplementation [11607,11628]"
+    },
+    {
+      "src": "): ) [6153,6154]",
+      "dest": "): ) [7294,7295]"
+    },
+    {
+      "src": "type_name [6016,6023]",
+      "dest": "type_name [7157,7164]"
+    },
+    {
+      "src": "return_type_definition [6642,6656]",
+      "dest": "return_type_definition [7783,7797]"
+    },
+    {
+      "src": "view: view [6203,6207]",
+      "dest": "view: view [7344,7348]"
+    },
+    {
+      "src": "(: ( [7519,7520]",
+      "dest": "(: ( [8660,8661]"
+    },
+    {
+      "src": ",: , [3497,3498]",
+      "dest": ",: , [4638,4639]"
+    },
+    {
+      "src": "primitive_type [3499,3503]",
+      "dest": "primitive_type [4640,4644]"
+    },
+    {
+      "src": "primitive_type [2293,2297]",
+      "dest": "primitive_type [2293,2297]"
+    },
+    {
+      "src": "uint: uint [8039,8043]",
+      "dest": "uint: uint [9057,9061]"
+    },
+    {
+      "src": "function: function [6526,6534]",
+      "dest": "function: function [7667,7675]"
+    },
+    {
+      "src": "is: is [3043,3045]",
+      "dest": "is: is [4184,4186]"
+    },
+    {
+      "src": "view: view [6135,6139]",
+      "dest": "view: view [7276,7280]"
+    },
+    {
+      "src": "returns: returns [7309,7316]",
+      "dest": "returns: returns [8450,8457]"
+    },
+    {
+      "src": "primitive_type [7318,7322]",
+      "dest": "primitive_type [8459,8463]"
+    },
+    {
+      "src": "{: { [3060,3061]",
+      "dest": "{: { [4201,4202]"
+    },
+    {
+      "src": "primitive_type [6849,6853]",
+      "dest": "primitive_type [7990,7994]"
+    },
+    {
+      "src": "identifier: transferAllowances [2467,2485]",
+      "dest": "identifier: transferAllowances [2467,2485]"
+    },
+    {
+      "src": "event_paramater [4152,4168]",
+      "dest": "event_paramater [5293,5309]"
+    },
+    {
+      "src": "): ) [6221,6222]",
+      "dest": "): ) [7362,7363]"
+    },
+    {
+      "src": "visibility [6428,6436]",
+      "dest": "visibility [7569,7577]"
+    },
+    {
+      "src": ",: , [5529,5530]",
+      "dest": ",: , [6670,6671]"
+    },
+    {
+      "src": "primitive_type [7356,7360]",
+      "dest": "primitive_type [8497,8501]"
+    },
+    {
+      "src": "event_paramater [5775,5784]",
+      "dest": "event_paramater [6916,6925]"
+    },
+    {
+      "src": "public: public [1546,1552]",
+      "dest": "public: public [1546,1552]"
+    },
+    {
+      "src": "function: function [9751,9759]",
+      "dest": "function: function [11760,11768]"
+    },
+    {
+      "src": "identifier: seize [6975,6980]",
+      "dest": "identifier: seize [8116,8121]"
+    },
+    {
+      "src": "comment: /*** User Interface ***/ [7758,7782]",
+      "dest": "comment: /*** User Interface ***/ [8776,8800]"
+    },
+    {
+      "src": "): ) [7180,7181]",
+      "dest": "): ) [8321,8322]"
+    },
+    {
+      "src": "true: true [3187,3191]",
+      "dest": "true: true [4328,4332]"
+    },
+    {
+      "src": "identifier: reduceAmount [5399,5411]",
+      "dest": "identifier: reduceAmount [6540,6552]"
+    },
+    {
+      "src": "identifier: _setPendingAdmin [7108,7124]",
+      "dest": "identifier: _setPendingAdmin [8249,8265]"
+    },
+    {
+      "src": "parameter [6381,6385]",
+      "dest": "parameter [7522,7526]"
+    },
+    {
+      "src": "uint: uint [6369,6373]",
+      "dest": "uint: uint [7510,7514]"
+    },
+    {
+      "src": "contract: contract [98,106]",
+      "dest": "contract: contract [98,106]"
+    },
+    {
+      "src": "uint: uint [755,759]",
+      "dest": "uint: uint [755,759]"
+    },
+    {
+      "src": "contract_body [8624,9290]",
+      "dest": "contract_body [10655,11321]"
+    },
+    {
+      "src": "event: event [4524,4529]",
+      "dest": "event: event [5665,5670]"
+    },
+    {
+      "src": "user_defined_type [4907,4924]",
+      "dest": "user_defined_type [6048,6065]"
+    },
+    {
+      "src": ",: , [9240,9241]",
+      "dest": ",: , [11271,11272]"
+    },
+    {
+      "src": "import: import [26,32]",
+      "dest": "import: import [26,32]"
+    },
+    {
+      "src": "constant: constant [3167,3175]",
+      "dest": "constant: constant [4308,4316]"
+    },
+    {
+      "src": "): ) [3531,3532]",
+      "dest": "): ) [4672,4673]"
+    },
+    {
+      "src": "(: ( [2439,2440]",
+      "dest": "(: ( [2439,2440]"
+    },
+    {
+      "src": "external: external [6046,6054]",
+      "dest": "external: external [7187,7195]"
+    },
+    {
+      "src": "(: ( [6980,6981]",
+      "dest": "(: ( [8121,8122]"
+    },
+    {
+      "src": "): ) [7035,7036]",
+      "dest": "): ) [8176,8177]"
+    },
+    {
+      "src": "primitive_type [6729,6733]",
+      "dest": "primitive_type [7870,7874]"
+    },
+    {
+      "src": "type_name [3379,3383]",
+      "dest": "type_name [4520,4524]"
+    },
+    {
+      "src": "identifier: accountBorrows [3996,4010]",
+      "dest": "identifier: accountBorrows [5137,5151]"
+    },
+    {
+      "src": "primitive_type [5509,5516]",
+      "dest": "primitive_type [6650,6657]"
+    },
+    {
+      "src": "external: external [8405,8413]",
+      "dest": "external: external [9422,9430]"
+    },
+    {
+      "src": "identifier: _acceptAdmin [7196,7208]",
+      "dest": "identifier: _acceptAdmin [8337,8349]"
+    },
+    {
+      "src": "identifier: spender [6024,6031]",
+      "dest": "identifier: spender [7165,7172]"
+    },
+    {
+      "src": "identifier: repayAmount [8076,8087]",
+      "dest": "identifier: repayAmount [9094,9105]"
+    },
+    {
+      "src": "type_name [5988,5992]",
+      "dest": "type_name [7129,7133]"
+    },
+    {
+      "src": "returns: returns [5979,5986]",
+      "dest": "returns: returns [7120,7127]"
+    },
+    {
+      "src": "primitive_type [6902,6906]",
+      "dest": "primitive_type [8043,8047]"
+    },
+    {
+      "src": "type_name [8039,8043]",
+      "dest": "type_name [9057,9061]"
+    },
+    {
+      "src": "comment: /**      * @notice Failure event      */ [5704,5744]",
+      "dest": "comment: /**      * @notice Failure event      */ [6845,6885]"
+    },
+    {
+      "src": "parameter [7478,7482]",
+      "dest": "parameter [8619,8623]"
+    },
+    {
+      "src": "uint: uint [7441,7445]",
+      "dest": "uint: uint [8582,8586]"
+    },
+    {
+      "src": "function: function [8050,8058]",
+      "dest": "function: function [9068,9076]"
+    },
+    {
+      "src": "primitive_type [8323,8327]",
+      "dest": "primitive_type [9341,9345]"
+    },
+    {
+      "src": "comment: /**      * @notice Maximum fraction of interest that can be set aside for reserves      */ [660,750]",
+      "dest": "comment: /**      * @notice Maximum fraction of interest that can be set aside for reserves      */ [660,750]"
+    },
+    {
+      "src": "visibility [602,610]",
+      "dest": "visibility [602,610]"
+    },
+    {
+      "src": "type_name [8389,8393]",
+      "dest": "type_name [9406,9410]"
+    },
+    {
+      "src": ",: , [5411,5412]",
+      "dest": ",: , [6552,6553]"
+    },
+    {
+      "src": "public: public [1001,1007]",
+      "dest": "public: public [1001,1007]"
+    },
+    {
+      "src": "uint: uint [5056,5060]",
+      "dest": "uint: uint [6197,6201]"
+    },
+    {
+      "src": "indexed: indexed [5668,5675]",
+      "dest": "indexed: indexed [6809,6816]"
+    },
+    {
+      "src": "(: ( [6256,6257]",
+      "dest": "(: ( [7397,7398]"
+    },
+    {
+      "src": "type_name [5413,5417]",
+      "dest": "type_name [6554,6558]"
+    },
+    {
+      "src": "(: ( [3939,3940]",
+      "dest": "(: ( [5080,5081]"
+    },
+    {
+      "src": "event_definition [4654,4749]",
+      "dest": "event_definition [5795,5890]"
+    },
+    {
+      "src": "state_mutability [6203,6207]",
+      "dest": "state_mutability [7344,7348]"
+    },
+    {
+      "src": "function: function [7489,7497]",
+      "dest": "function: function [8630,8638]"
+    },
+    {
+      "src": ",: , [4168,4169]",
+      "dest": ",: , [5309,5310]"
+    },
+    {
+      "src": "parameter [6369,6373]",
+      "dest": "parameter [7510,7514]"
+    },
+    {
+      "src": "event_paramater [3955,3971]",
+      "dest": "event_paramater [5096,5112]"
+    },
+    {
+      "src": "memory: memory [9626,9632]",
+      "dest": "memory: memory [11635,11641]"
+    },
+    {
+      "src": "identifier: isCToken [3176,3184]",
+      "dest": "identifier: isCToken [4317,4325]"
+    },
+    {
+      "src": "address: address [2420,2427]",
+      "dest": "address: address [2420,2427]"
+    },
+    {
+      "src": ",: , [8161,8162]",
+      "dest": ",: , [9179,9180]"
+    },
+    {
+      "src": "comment: /**      * @notice Pending administrator for this contract      */ [914,980]",
+      "dest": "comment: /**      * @notice Pending administrator for this contract      */ [914,980]"
+    },
+    {
+      "src": "uint: uint [6955,6959]",
+      "dest": "uint: uint [8096,8100]"
+    },
+    {
+      "src": "function_definition [6075,6155]",
+      "dest": "function_definition [7216,7296]"
+    },
+    {
+      "src": "type_name [6064,6068]",
+      "dest": "type_name [7205,7209]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when a borrow is liquidated      */ [4037,4105]",
+      "dest": "comment: /**      * @notice Event emitted when a borrow is liquidated      */ [5178,5246]"
+    },
+    {
+      "src": "state_variable_declaration [1541,1575]",
+      "dest": "state_variable_declaration [1541,1575]"
+    },
+    {
+      "src": "bool: bool [9224,9228]",
+      "dest": "bool: bool [11255,11259]"
+    },
+    {
+      "src": "uint: uint [1541,1545]",
+      "dest": "uint: uint [1541,1545]"
+    },
+    {
+      "src": "type_name [475,480]",
+      "dest": "type_name [475,480]"
+    },
+    {
+      "src": "address: address [4132,4139]",
+      "dest": "address: address [5273,5280]"
+    },
+    {
+      "src": "type_name [6257,6264]",
+      "dest": "type_name [7398,7405]"
+    },
+    {
+      "src": "function_definition [6462,6521]",
+      "dest": "function_definition [7603,7662]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when underlying is borrowed      */ [3684,3752]",
+      "dest": "comment: /**      * @notice Event emitted when underlying is borrowed      */ [4825,4893]"
+    },
+    {
+      "src": "identifier: addAmount [5242,5251]",
+      "dest": "identifier: addAmount [6383,6392]"
+    },
+    {
+      "src": "parameter [7001,7017]",
+      "dest": "parameter [8142,8158]"
+    },
+    {
+      "src": "external: external [7957,7965]",
+      "dest": "external: external [8975,8983]"
+    },
+    {
+      "src": "address: address [6616,6623]",
+      "dest": "address: address [7757,7764]"
+    },
+    {
+      "src": "primitive_type [7229,7233]",
+      "dest": "primitive_type [8370,8374]"
+    },
+    {
+      "src": "function_definition [7986,8045]",
+      "dest": "function_definition [9004,9063]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when a borrow is repaid      */ [3853,3917]",
+      "dest": "comment: /**      * @notice Event emitted when a borrow is repaid      */ [4994,5058]"
+    },
+    {
+      "src": "function_definition [6860,6908]",
+      "dest": "function_definition [8001,8049]"
+    },
+    {
+      "src": "primitive_type [4557,4564]",
+      "dest": "primitive_type [5698,5705]"
+    },
+    {
+      "src": "type_name [4907,4924]",
+      "dest": "type_name [6048,6065]"
+    },
+    {
+      "src": "type_name [2293,2297]",
+      "dest": "type_name [2293,2297]"
+    },
+    {
+      "src": "event: event [5357,5362]",
+      "dest": "event: event [6498,6503]"
+    },
+    {
+      "src": "event_paramater [4867,4905]",
+      "dest": "event_paramater [6008,6046]"
+    },
+    {
+      "src": "(: ( [5897,5898]",
+      "dest": "(: ( [7038,7039]"
+    },
+    {
+      "src": "(: ( [4362,4363]",
+      "dest": "(: ( [5503,5504]"
+    },
+    {
+      "src": "return_type_definition [5979,5993]",
+      "dest": "return_type_definition [7120,7134]"
+    },
+    {
+      "src": "identifier: amount [6038,6044]",
+      "dest": "identifier: amount [7179,7185]"
+    },
+    {
+      "src": "identifier: RepayBorrow [3928,3939]",
+      "dest": "identifier: RepayBorrow [5069,5080]"
+    },
+    {
+      "src": "parameter [6094,6107]",
+      "dest": "parameter [7235,7248]"
+    },
+    {
+      "src": "return_type_definition [6442,6456]",
+      "dest": "return_type_definition [7583,7597]"
+    },
+    {
+      "src": "): ) [8776,8777]",
+      "dest": "): ) [10807,10808]"
+    },
+    {
+      "src": "event_paramater [3659,3676]",
+      "dest": "event_paramater [4800,4817]"
+    },
+    {
+      "src": "identifier: newInterestRateModel [7538,7558]",
+      "dest": "identifier: newInterestRateModel [8679,8699]"
+    },
+    {
+      "src": "function: function [6586,6594]",
+      "dest": "function: function [7727,7735]"
+    },
+    {
+      "src": "(: ( [8322,8323]",
+      "dest": "(: ( [9340,9341]"
+    },
+    {
+      "src": ",: , [3805,3806]",
+      "dest": ",: , [4946,4947]"
+    },
+    {
+      "src": "primitive_type [5379,5386]",
+      "dest": "primitive_type [6520,6527]"
+    },
+    {
+      "src": "identifier: interestIndex [2838,2851]",
+      "dest": "identifier: interestIndex [2838,2851]"
+    },
+    {
+      "src": "identifier: interestAccumulated [3340,3359]",
+      "dest": "identifier: interestAccumulated [4481,4500]"
+    },
+    {
+      "src": "return_type_definition [6893,6907]",
+      "dest": "return_type_definition [8034,8048]"
+    },
+    {
+      "src": "parameter [6149,6153]",
+      "dest": "parameter [7290,7294]"
+    },
+    {
+      "src": "(: ( [5636,5637]",
+      "dest": "(: ( [6777,6778]"
+    },
+    {
+      "src": "): ) [2297,2298]",
+      "dest": "): ) [2297,2298]"
+    },
+    {
+      "src": "): ) [6733,6734]",
+      "dest": "): ) [7874,7875]"
+    },
+    {
+      "src": "address: address [6016,6023]",
+      "dest": "address: address [7157,7164]"
+    },
+    {
+      "src": "): ) [8303,8304]",
+      "dest": "): ) [9321,9322]"
+    },
+    {
+      "src": "event_paramater [4012,4029]",
+      "dest": "event_paramater [5153,5170]"
+    },
+    {
+      "src": "): ) [6068,6069]",
+      "dest": "): ) [7209,7210]"
+    },
+    {
+      "src": "type_name [2451,2455]",
+      "dest": "type_name [2451,2455]"
+    },
+    {
+      "src": "): ) [4573,4574]",
+      "dest": "): ) [5714,5715]"
+    },
+    {
+      "src": "type_name [7265,7285]",
+      "dest": "type_name [8406,8426]"
+    },
+    {
+      "src": "function_definition [6398,6457]",
+      "dest": "function_definition [7539,7598]"
+    },
+    {
+      "src": "uint: uint [7405,7409]",
+      "dest": "uint: uint [8546,8550]"
+    },
+    {
+      "src": "primitive_type [5237,5241]",
+      "dest": "primitive_type [6378,6382]"
+    },
+    {
+      "src": ",: , [3377,3378]",
+      "dest": ",: , [4518,4519]"
+    },
+    {
+      "src": "identifier: allowResign [9229,9240]",
+      "dest": "identifier: allowResign [11260,11271]"
+    },
+    {
+      "src": "return_type_definition [8314,8328]",
+      "dest": "return_type_definition [9332,9346]"
+    },
+    {
+      "src": "state_mutability [6135,6139]",
+      "dest": "state_mutability [7276,7280]"
+    },
+    {
+      "src": "(: ( [6954,6955]",
+      "dest": "(: ( [8095,8096]"
+    },
+    {
+      "src": "visibility [7302,7308]",
+      "dest": "visibility [8443,8449]"
+    },
+    {
+      "src": "uint: uint [4214,4218]",
+      "dest": "uint: uint [5355,5359]"
+    },
+    {
+      "src": "public: public [6771,6777]",
+      "dest": "public: public [7912,7918]"
+    },
+    {
+      "src": "type_name [1805,1809]",
+      "dest": "type_name [1805,1809]"
+    },
+    {
+      "src": "uint: uint [3335,3339]",
+      "dest": "uint: uint [4476,4480]"
+    },
+    {
+      "src": "visibility [1810,1816]",
+      "dest": "visibility [1810,1816]"
+    },
+    {
+      "src": "uint: uint [2809,2813]",
+      "dest": "uint: uint [2809,2813]"
+    },
+    {
+      "src": "address: address [5854,5861]",
+      "dest": "address: address [6995,7002]"
+    },
+    {
+      "src": "parameter [8163,8179]",
+      "dest": "parameter [9181,9197]"
+    },
+    {
+      "src": "visibility [8405,8413]",
+      "dest": "visibility [9422,9430]"
+    },
+    {
+      "src": "primitive_type [3940,3947]",
+      "dest": "primitive_type [5081,5088]"
+    },
+    {
+      "src": "public: public [1127,1133]",
+      "dest": "public: public [1127,1133]"
+    },
+    {
+      "src": "(: ( [3621,3622]",
+      "dest": "(: ( [4762,4763]"
+    },
+    {
+      "src": "identifier: borrower [3778,3786]",
+      "dest": "identifier: borrower [4919,4927]"
+    },
+    {
+      "src": "identifier: liquidator [4140,4150]",
+      "dest": "identifier: liquidator [5281,5291]"
+    },
+    {
+      "src": "contract_declaration [3018,7584]",
+      "dest": "contract_declaration [4159,8725]"
+    },
+    {
+      "src": "type_name [7318,7322]",
+      "dest": "type_name [8459,8463]"
+    },
+    {
+      "src": "type_name [5854,5861]",
+      "dest": "type_name [6995,7002]"
+    },
+    {
+      "src": "(: ( [6786,6787]",
+      "dest": "(: ( [7927,7928]"
+    },
+    {
+      "src": "function: function [6740,6748]",
+      "dest": "function: function [7881,7889]"
+    },
+    {
+      "src": "identifier: benefactor [5225,5235]",
+      "dest": "identifier: benefactor [6366,6376]"
+    },
+    {
+      "src": "uint: uint [1659,1663]",
+      "dest": "uint: uint [1659,1663]"
+    },
+    {
+      "src": "primitive_type [7055,7059]",
+      "dest": "primitive_type [8196,8200]"
+    },
+    {
+      "src": "event: event [4654,4659]",
+      "dest": "event: event [5795,5800]"
+    },
+    {
+      "src": "identifier: amount [5690,5696]",
+      "dest": "identifier: amount [6831,6837]"
+    },
+    {
+      "src": "uint: uint [6033,6037]",
+      "dest": "uint: uint [7174,7178]"
+    },
+    {
+      "src": "type_name [5957,5961]",
+      "dest": "type_name [7098,7102]"
+    },
+    {
+      "src": ",: , [4212,4213]",
+      "dest": ",: , [5353,5354]"
+    },
+    {
+      "src": "function_definition [7848,7907]",
+      "dest": "function_definition [8866,8925]"
+    },
+    {
+      "src": "type_name [1541,1545]",
+      "dest": "type_name [1541,1545]"
+    },
+    {
+      "src": "user_defined_type [3046,3059]",
+      "dest": "user_defined_type [4187,4200]"
+    },
+    {
+      "src": "visibility [9784,9790]",
+      "dest": "visibility [11793,11799]"
+    },
+    {
+      "src": "=: = [803,804]",
+      "dest": "=: = [803,804]"
+    },
+    {
+      "src": "external: external [8305,8313]",
+      "dest": "external: external [9323,9331]"
+    },
+    {
+      "src": "uint: uint [8163,8167]",
+      "dest": "uint: uint [9181,9185]"
+    },
+    {
+      "src": "external: external [8089,8097]",
+      "dest": "external: external [9107,9115]"
+    },
+    {
+      "src": "primitive_type [6369,6373]",
+      "dest": "primitive_type [7510,7514]"
+    },
+    {
+      "src": "state_variable_declaration [1408,1450]",
+      "dest": "state_variable_declaration [1408,1450]"
+    },
+    {
+      "src": "type_name [9224,9228]",
+      "dest": "type_name [11255,11259]"
+    },
+    {
+      "src": "^:  ^ [15,17]",
+      "dest": "^:  ^ [15,17]"
+    },
+    {
+      "src": "=: = [3185,3186]",
+      "dest": "=: = [4326,4327]"
+    },
+    {
+      "src": "): ) [7817,7818]",
+      "dest": "): ) [8835,8836]"
+    },
+    {
+      "src": "function: function [7416,7424]",
+      "dest": "function: function [8557,8565]"
+    },
+    {
+      "src": "primitive_type [7802,7806]",
+      "dest": "primitive_type [8820,8824]"
+    },
+    {
+      "src": "): ) [4747,4748]",
+      "dest": "): ) [5888,5889]"
+    },
+    {
+      "src": "visibility [6879,6887]",
+      "dest": "visibility [8020,8028]"
+    },
+    {
+      "src": "): ) [8043,8044]",
+      "dest": "): ) [9061,9062]"
+    },
+    {
+      "src": "identifier: src [5939,5942]",
+      "dest": "identifier: src [7080,7083]"
+    },
+    {
+      "src": "visibility [296,302]",
+      "dest": "visibility [296,302]"
+    },
+    {
+      "src": "returns: returns [6566,6573]",
+      "dest": "returns: returns [7707,7714]"
+    },
+    {
+      "src": "identifier: NewReserveFactor [5039,5055]",
+      "dest": "identifier: NewReserveFactor [6180,6196]"
+    },
+    {
+      "src": "parameter [6575,6579]",
+      "dest": "parameter [7716,7720]"
+    },
+    {
+      "src": "internal: internal [2990,2998]",
+      "dest": "internal: internal [2990,2998]"
+    },
+    {
+      "src": "function_definition [7489,7582]",
+      "dest": "function_definition [8630,8723]"
+    },
+    {
+      "src": "): ) [6655,6656]",
+      "dest": "): ) [7796,7797]"
+    },
+    {
+      "src": "identifier: becomeImplementationData [9255,9279]",
+      "dest": "identifier: becomeImplementationData [11286,11310]"
+    },
+    {
+      "src": "visibility [2990,2998]",
+      "dest": "visibility [2990,2998]"
+    },
+    {
+      "src": "): ) [5902,5903]",
+      "dest": "): ) [7043,7044]"
+    },
+    {
+      "src": "): ) [4029,4030]",
+      "dest": "): ) [5170,5171]"
+    },
+    {
+      "src": "function_definition [8050,8113]",
+      "dest": "function_definition [9068,9131]"
+    },
+    {
+      "src": "type_name [4363,4370]",
+      "dest": "type_name [5504,5511]"
+    },
+    {
+      "src": "): ) [5797,5798]",
+      "dest": "): ) [6938,6939]"
+    },
+    {
+      "src": "event_paramater [5394,5411]",
+      "dest": "event_paramater [6535,6552]"
+    },
+    {
+      "src": "user_defined_type [1242,1259]",
+      "dest": "user_defined_type [1242,1259]"
+    },
+    {
+      "src": "primitive_type [8071,8075]",
+      "dest": "primitive_type [9089,9093]"
+    },
+    {
+      "src": "state_variable_declaration [475,497]",
+      "dest": "state_variable_declaration [475,497]"
+    },
+    {
+      "src": "): ) [6826,6827]",
+      "dest": "): ) [7967,7968]"
+    },
+    {
+      "src": "external: external [6879,6887]",
+      "dest": "external: external [8020,8028]"
+    },
+    {
+      "src": "comment: /**      * @notice EIP-20 token symbol for this token      */ [314,375]",
+      "dest": "comment: /**      * @notice EIP-20 token symbol for this token      */ [314,375]"
+    },
+    {
+      "src": "(: ( [3482,3483]",
+      "dest": "(: ( [4623,4624]"
+    },
+    {
+      "src": "identifier: oldReserveFactorMantissa [5061,5085]",
+      "dest": "identifier: oldReserveFactorMantissa [6202,6226]"
+    },
+    {
+      "src": "parameter [7975,7979]",
+      "dest": "parameter [8993,8997]"
+    },
+    {
+      "src": "primitive_type [4363,4370]",
+      "dest": "primitive_type [5504,5511]"
+    },
+    {
+      "src": "function: function [7986,7994]",
+      "dest": "function: function [9004,9012]"
+    },
+    {
+      "src": "state_mutability [6501,6505]",
+      "dest": "state_mutability [7642,7646]"
+    },
+    {
+      "src": "primitive_type [6787,6791]",
+      "dest": "primitive_type [7928,7932]"
+    },
+    {
+      "src": "visibility [895,901]",
+      "dest": "visibility [895,901]"
+    },
+    {
+      "src": ",: , [8251,8252]",
+      "dest": ",: , [9269,9270]"
+    },
+    {
+      "src": "type_name [2974,2988]",
+      "dest": "type_name [2974,2988]"
+    },
+    {
+      "src": "uint: uint [6381,6385]",
+      "dest": "uint: uint [7522,7526]"
+    },
+    {
+      "src": "parameter [6691,6706]",
+      "dest": "parameter [7832,7847]"
+    },
+    {
+      "src": "state_mutability [6355,6359]",
+      "dest": "state_mutability [7496,7500]"
+    },
+    {
+      "src": "contract_declaration [9292,9793]",
+      "dest": "contract_declaration [11323,11802]"
+    },
+    {
+      "src": "identifier: transferFrom [5918,5930]",
+      "dest": "identifier: transferFrom [7059,7071]"
+    },
+    {
+      "src": "identifier: account [6699,6706]",
+      "dest": "identifier: account [7840,7847]"
+    },
+    {
+      "src": "parameter [6033,6044]",
+      "dest": "parameter [7174,7185]"
+    },
+    {
+      "src": "parameter [7441,7458]",
+      "dest": "parameter [8582,8599]"
+    },
+    {
+      "src": "\": \" [70,71]",
+      "dest": "\": \" [70,71]"
+    },
+    {
+      "src": "parameter [9242,9279]",
+      "dest": "parameter [11273,11310]"
+    },
+    {
+      "src": "): ) [5274,5275]",
+      "dest": "): ) [6415,6416]"
+    },
+    {
+      "src": "primitive_type [6451,6455]",
+      "dest": "primitive_type [7592,7596]"
+    },
+    {
+      "src": "public: public [7687,7693]",
+      "dest": "public: public [3119,3125]"
+    },
+    {
+      "src": "identifier: ComptrollerInterface [4712,4732]",
+      "dest": "identifier: ComptrollerInterface [5853,5873]"
+    },
+    {
+      "src": "function_definition [6228,6296]",
+      "dest": "function_definition [7369,7437]"
+    },
+    {
+      "src": "event_paramater [5217,5235]",
+      "dest": "event_paramater [6358,6376]"
+    },
+    {
+      "src": "identifier: reduceAmount [7446,7458]",
+      "dest": "identifier: reduceAmount [8587,8599]"
+    },
+    {
+      "src": "(: ( [6368,6369]",
+      "dest": "(: ( [7509,7510]"
+    },
+    {
+      "src": "(: ( [7836,7837]",
+      "dest": "(: ( [8854,8855]"
+    },
+    {
+      "src": "identifier: dst [5862,5865]",
+      "dest": "identifier: dst [7003,7006]"
+    },
+    {
+      "src": "visibility [7687,7693]",
+      "dest": "visibility [3119,3125]"
+    },
+    {
+      "src": "return_type_definition [6281,6295]",
+      "dest": "return_type_definition [7422,7436]"
+    },
+    {
+      "src": "event: event [5033,5038]",
+      "dest": "event: event [6174,6179]"
+    },
+    {
+      "src": "contract_body [7751,8431]",
+      "dest": "contract_body [8769,9448]"
+    },
+    {
+      "src": "returns: returns [6281,6288]",
+      "dest": "returns: returns [7422,7429]"
+    },
+    {
+      "src": "type_name [8163,8167]",
+      "dest": "type_name [9181,9185]"
+    },
+    {
+      "src": "primitive_type [755,759]",
+      "dest": "primitive_type [755,759]"
+    },
+    {
+      "src": "type_name [9620,9625]",
+      "dest": "type_name [11629,11634]"
+    },
+    {
+      "src": "uint: uint [5551,5555]",
+      "dest": "uint: uint [6692,6696]"
+    },
+    {
+      "src": "return_type_definition [7469,7483]",
+      "dest": "return_type_definition [8610,8624]"
+    },
+    {
+      "src": "identifier: CErc20Storage [7737,7750]",
+      "dest": "identifier: CErc20Storage [8755,8768]"
+    },
+    {
+      "src": "return_type_definition [8030,8044]",
+      "dest": "return_type_definition [9048,9062]"
+    },
+    {
+      "src": "identifier: redeemUnderlying [7921,7937]",
+      "dest": "identifier: redeemUnderlying [8939,8955]"
+    },
+    {
+      "src": "type_name [8539,8546]",
+      "dest": "type_name [3215,3222]"
+    },
+    {
+      "src": "primitive_type [8389,8393]",
+      "dest": "primitive_type [9406,9410]"
+    },
+    {
+      "src": "primitive_type [5413,5417]",
+      "dest": "primitive_type [6554,6558]"
+    },
+    {
+      "src": "type_name [6179,6186]",
+      "dest": "type_name [7320,7327]"
+    },
+    {
+      "src": "string: string [380,386]",
+      "dest": "string: string [380,386]"
+    },
+    {
+      "src": "public: public [9784,9790]",
+      "dest": "public: public [11793,11799]"
+    },
+    {
+      "src": "(: ( [9198,9199]",
+      "dest": "(: ( [11229,11230]"
+    },
+    {
+      "src": "primitive_type [3807,3811]",
+      "dest": "primitive_type [4948,4952]"
+    },
+    {
+      "src": "primitive_type [5056,5060]",
+      "dest": "primitive_type [6197,6201]"
+    },
+    {
+      "src": "parameter [7125,7156]",
+      "dest": "parameter [8266,8297]"
+    },
+    {
+      "src": "): ) [6192,6193]",
+      "dest": "): ) [7333,7334]"
+    },
+    {
+      "src": "identifier: mint [7797,7801]",
+      "dest": "identifier: mint [8815,8819]"
+    },
+    {
+      "src": "identifier: borrowBalanceStored [6671,6690]",
+      "dest": "identifier: borrowBalanceStored [7812,7831]"
+    },
+    {
+      "src": "primitive_type [6033,6037]",
+      "dest": "primitive_type [7174,7178]"
+    },
+    {
+      "src": "event_paramater [3516,3531]",
+      "dest": "event_paramater [4657,4672]"
+    },
+    {
+      "src": "primitive_type [5988,5992]",
+      "dest": "primitive_type [7129,7133]"
+    },
+    {
+      "src": "primitive_type [7478,7482]",
+      "dest": "primitive_type [8619,8623]"
+    },
+    {
+      "src": "parameter [6387,6391]",
+      "dest": "parameter [7528,7532]"
+    },
+    {
+      "src": "comment: /**      * @notice Called by the delegator on a delegate to forfeit its responsibility      */ [9652,9746]",
+      "dest": "comment: /**      * @notice Called by the delegator on a delegate to forfeit its responsibility      */ [11661,11755]"
+    },
+    {
+      "src": "address: address [3622,3629]",
+      "dest": "address: address [4763,4770]"
+    },
+    {
+      "src": "primitive_type [9242,9247]",
+      "dest": "primitive_type [11273,11278]"
+    },
+    {
+      "src": "identifier: interestRateModel [1267,1284]",
+      "dest": "identifier: interestRateModel [1267,1284]"
+    },
+    {
+      "src": "mapping: mapping [2411,2418]",
+      "dest": "mapping: mapping [2411,2418]"
+    },
+    {
+      "src": "identifier: redeemAmount [7943,7955]",
+      "dest": "identifier: redeemAmount [8961,8973]"
+    },
+    {
+      "src": "): ) [6769,6770]",
+      "dest": "): ) [7910,7911]"
+    },
+    {
+      "src": "primitive_type [6387,6391]",
+      "dest": "primitive_type [7528,7532]"
+    },
+    {
+      "src": "type_name [7125,7140]",
+      "dest": "type_name [8266,8281]"
+    },
+    {
+      "src": "state_variable_declaration [1106,1146]",
+      "dest": "state_variable_declaration [1106,1146]"
+    },
+    {
+      "src": "uint: uint [3499,3503]",
+      "dest": "uint: uint [4640,4644]"
+    },
+    {
+      "src": "return_type_definition [5889,5903]",
+      "dest": "return_type_definition [7030,7044]"
+    },
+    {
+      "src": "address: address [6109,6116]",
+      "dest": "address: address [7250,7257]"
+    },
+    {
+      "src": "identifier: LiquidateBorrow [4116,4131]",
+      "dest": "identifier: LiquidateBorrow [5257,5272]"
+    },
+    {
+      "src": "identifier: owner [6187,6192]",
+      "dest": "identifier: owner [7328,7333]"
+    },
+    {
+      "src": "identifier: comptroller [1134,1145]",
+      "dest": "identifier: comptroller [1134,1145]"
+    },
+    {
+      "src": "primitive_type [8724,8731]",
+      "dest": "primitive_type [10755,10762]"
+    },
+    {
+      "src": "identifier: redeemer [3630,3638]",
+      "dest": "identifier: redeemer [4771,4779]"
+    },
+    {
+      "src": "(: ( [5508,5509]",
+      "dest": "(: ( [6649,6650]"
+    },
+    {
+      "src": "memory: memory [9248,9254]",
+      "dest": "memory: memory [11279,11285]"
+    },
+    {
+      "src": "returns: returns [6893,6900]",
+      "dest": "returns: returns [8034,8041]"
+    },
+    {
+      "src": "type_name [8323,8327]",
+      "dest": "type_name [9341,9345]"
+    },
+    {
+      "src": "primitive_type [8163,8167]",
+      "dest": "primitive_type [9181,9185]"
+    },
+    {
+      "src": "uint: uint [2060,2064]",
+      "dest": "uint: uint [2060,2064]"
+    },
+    {
+      "src": "external: external [5880,5888]",
+      "dest": "external: external [7021,7029]"
+    },
+    {
+      "src": "visibility [1940,1946]",
+      "dest": "visibility [1940,1946]"
+    },
+    {
+      "src": "address: address [5637,5644]",
+      "dest": "address: address [6778,6785]"
+    },
+    {
+      "src": "visibility [2458,2466]",
+      "dest": "visibility [2458,2466]"
+    },
+    {
+      "src": "): ) [3845,3846]",
+      "dest": "): ) [4986,4987]"
+    },
+    {
+      "src": "primitive_type [4152,4159]",
+      "dest": "primitive_type [5293,5300]"
+    },
+    {
+      "src": "function: function [6075,6083]",
+      "dest": "function: function [7216,7224]"
+    },
+    {
+      "src": "type_name [1935,1939]",
+      "dest": "type_name [1935,1939]"
+    },
+    {
+      "src": "(: ( [7264,7265]",
+      "dest": "(: ( [8405,8406]"
+    },
+    {
+      "src": "indexed: indexed [5517,5524]",
+      "dest": "indexed: indexed [6658,6665]"
+    },
+    {
+      "src": "address: address [4363,4370]",
+      "dest": "address: address [5504,5511]"
+    },
+    {
+      "src": "identifier: oldImplementation [8732,8749]",
+      "dest": "identifier: oldImplementation [10763,10780]"
+    },
+    {
+      "src": "primitive_type [3659,3663]",
+      "dest": "primitive_type [4800,4804]"
+    },
+    {
+      "src": ",: , [5865,5866]",
+      "dest": ",: , [7006,7007]"
+    },
+    {
+      "src": "returns: returns [7167,7174]",
+      "dest": "returns: returns [8308,8315]"
+    },
+    {
+      "src": "event_paramater [4675,4710]",
+      "dest": "event_paramater [5816,5851]"
+    },
+    {
+      "src": "}: } [9792,9793]",
+      "dest": "}: } [11801,11802]"
+    },
+    {
+      "src": "is: is [7734,7736]",
+      "dest": "is: is [8752,8754]"
+    },
+    {
+      "src": "event_definition [4110,4232]",
+      "dest": "event_definition [5251,5373]"
+    },
+    {
+      "src": "returns: returns [5889,5896]",
+      "dest": "returns: returns [7030,7037]"
+    },
+    {
+      "src": "identifier: cTokenCollateral [8287,8303]",
+      "dest": "identifier: cTokenCollateral [9305,9321]"
+    },
+    {
+      "src": "primitive_type [3319,3323]",
+      "dest": "primitive_type [4460,4464]"
+    },
+    {
+      "src": "string [33,61]",
+      "dest": "string [33,61]"
+    },
+    {
+      "src": "identifier: amount [5872,5878]",
+      "dest": "identifier: amount [7013,7019]"
+    },
+    {
+      "src": "primitive_type [4214,4218]",
+      "dest": "primitive_type [5355,5359]"
+    },
+    {
+      "src": "type_name [3155,3159]",
+      "dest": "type_name [4296,4300]"
+    },
+    {
+      "src": "return_type_definition [8414,8428]",
+      "dest": "return_type_definition [9431,9445]"
+    },
+    {
+      "src": "primitive_type [7837,7841]",
+      "dest": "primitive_type [8855,8859]"
+    },
+    {
+      "src": "): ) [7409,7410]",
+      "dest": "): ) [8550,8551]"
+    },
+    {
+      "src": "pragma: pragma [0,6]",
+      "dest": "pragma: pragma [0,6]"
+    },
+    {
+      "src": "identifier: spender [6117,6124]",
+      "dest": "identifier: spender [7258,7265]"
+    },
+    {
+      "src": "state_variable_declaration [193,219]",
+      "dest": "state_variable_declaration [193,219]"
+    },
+    {
+      "src": "type_name [7864,7868]",
+      "dest": "type_name [8882,8886]"
+    },
+    {
+      "src": "type_name [5531,5538]",
+      "dest": "type_name [6672,6679]"
+    },
+    {
+      "src": "type_name [4712,4732]",
+      "dest": "type_name [5853,5873]"
+    },
+    {
+      "src": "return_type_definition [6140,6154]",
+      "dest": "return_type_definition [7281,7295]"
+    },
+    {
+      "src": "parameter [8145,8161]",
+      "dest": "parameter [9163,9179]"
+    },
+    {
+      "src": "payable: payable [993,1000]",
+      "dest": "payable: payable [993,1000]"
+    },
+    {
+      "src": "state_variable_declaration [2411,2486]",
+      "dest": "state_variable_declaration [2411,2486]"
+    },
+    {
+      "src": "function: function [6966,6974]",
+      "dest": "function: function [8107,8115]"
+    },
+    {
+      "src": "parameter [5898,5902]",
+      "dest": "parameter [7039,7043]"
+    },
+    {
+      "src": "\": \" [60,61]",
+      "dest": "\": \" [60,61]"
+    },
+    {
+      "src": "source_file [0,9794]",
+      "dest": "source_file [0,12037]"
+    },
+    {
+      "src": "comment: /**      * @notice Called by the admin to update the implementation of the delegator      * @param implementation_ The address of the new implementation for delegation      * @param allowResign Flag to indicate whether to call _resignImplementation on the old implementation      * @param becomeImplementationData The encoded bytes data to be passed to _becomeImplementation      */ [8784,9166]",
+      "dest": "comment: /**      * @notice Called by the admin to update the implementation of the delegator      * @param implementation_ The address of the new implementation for delegation      * @param allowResign Flag to indicate whether to call _resignImplementation on the old implementation      * @param becomeImplementationData The encoded bytes data to be passed to _becomeImplementation      */ [10815,11197]"
+    },
+    {
+      "src": "visibility [8181,8189]",
+      "dest": "visibility [9199,9207]"
+    },
+    {
+      "src": "event_definition [4524,4575]",
+      "dest": "event_definition [5665,5716]"
+    },
+    {
+      "src": "parameter [7356,7385]",
+      "dest": "parameter [8497,8526]"
+    },
+    {
+      "src": ",: , [3514,3515]",
+      "dest": ",: , [4655,4656]"
+    },
+    {
+      "src": "function: function [7187,7195]",
+      "dest": "function: function [8328,8336]"
+    },
+    {
+      "src": "comment: /**      * @notice Maximum borrow rate that can ever be applied (.0005% / block)      */ [503,591]",
+      "dest": "comment: /**      * @notice Maximum borrow rate that can ever be applied (.0005% / block)      */ [503,591]"
+    },
+    {
+      "src": "uint: uint [5394,5398]",
+      "dest": "uint: uint [6535,6539]"
+    },
+    {
+      "src": "): ) [2988,2989]",
+      "dest": "): ) [2988,2989]"
+    },
+    {
+      "src": "primitive_type [8751,8758]",
+      "dest": "primitive_type [10782,10789]"
+    },
+    {
+      "src": "identifier: repayBorrow [8059,8070]",
+      "dest": "identifier: repayBorrow [9077,9088]"
+    },
+    {
+      "src": "comment: /**      * @notice Container for borrow balance information      * @member principal Total balance (with accrued interest), after applying the most recent balance-changing action      * @member interestIndex Global borrowIndex as of the most recent balance-changing action      */ [2492,2772]",
+      "dest": "comment: /**      * @notice Container for borrow balance information      * @member principal Total balance (with accrued interest), after applying the most recent balance-changing action      * @member interestIndex Global borrowIndex as of the most recent balance-changing action      */ [2492,2772]"
+    },
+    {
+      "src": "primitive_type [3379,3383]",
+      "dest": "primitive_type [4520,4524]"
+    },
+    {
+      "src": "): ) [6706,6707]",
+      "dest": "): ) [7847,7848]"
+    },
+    {
+      "src": "visibility [1546,1552]",
+      "dest": "visibility [1546,1552]"
+    },
+    {
+      "src": "external: external [6346,6354]",
+      "dest": "external: external [7487,7495]"
+    },
+    {
+      "src": "uint: uint [6451,6455]",
+      "dest": "uint: uint [7592,7596]"
+    },
+    {
+      "src": "(: ( [6554,6555]",
+      "dest": "(: ( [7695,7696]"
+    },
+    {
+      "src": "primitive_type [6981,6988]",
+      "dest": "primitive_type [8122,8129]"
+    },
+    {
+      "src": "primitive_type [2963,2970]",
+      "dest": "primitive_type [2963,2970]"
+    },
+    {
+      "src": "type_name [7802,7806]",
+      "dest": "type_name [8820,8824]"
+    },
+    {
+      "src": "primitive_type [9224,9228]",
+      "dest": "primitive_type [11255,11259]"
+    },
+    {
+      "src": "visibility [9639,9645]",
+      "dest": "visibility [11648,11654]"
+    },
+    {
+      "src": "parameter [6179,6192]",
+      "dest": "parameter [7320,7333]"
+    },
+    {
+      "src": "visibility [8305,8313]",
+      "dest": "visibility [9323,9331]"
+    },
+    {
+      "src": "type_name [2161,2165]",
+      "dest": "type_name [2161,2165]"
+    },
+    {
+      "src": ",: , [6031,6032]",
+      "dest": ",: , [7172,7173]"
+    },
+    {
+      "src": "public: public [2065,2071]",
+      "dest": "public: public [2065,2071]"
+    },
+    {
+      "src": "parameter [8235,8251]",
+      "dest": "parameter [9253,9269]"
+    },
+    {
+      "src": "type_name [3483,3490]",
+      "dest": "type_name [4624,4631]"
+    },
+    {
+      "src": "type_name [4132,4139]",
+      "dest": "type_name [5273,5280]"
+    },
+    {
+      "src": "identifier: exchangeRateCurrent [6749,6768]",
+      "dest": "identifier: exchangeRateCurrent [7890,7909]"
+    },
+    {
+      "src": "type_name [1106,1126]",
+      "dest": "type_name [1106,1126]"
+    },
+    {
+      "src": "): ) [9637,9638]",
+      "dest": "): ) [11646,11647]"
+    },
+    {
+      "src": "returns: returns [6360,6367]",
+      "dest": "returns: returns [7501,7508]"
+    },
+    {
+      "src": "function_definition [6798,6855]",
+      "dest": "function_definition [7939,7996]"
+    },
+    {
+      "src": "primitive_type [8235,8242]",
+      "dest": "primitive_type [9253,9260]"
+    },
+    {
+      "src": "address: address [5531,5538]",
+      "dest": "address: address [6672,6679]"
+    },
+    {
+      "src": "struct_declaration [2777,2858]",
+      "dest": "struct_declaration [2777,2858]"
+    },
+    {
+      "src": "event_paramater [3335,3359]",
+      "dest": "event_paramater [4476,4500]"
+    },
+    {
+      "src": "comment: /**      * @notice Fraction of interest currently set aside for reserves      */ [1456,1536]",
+      "dest": "comment: /**      * @notice Fraction of interest currently set aside for reserves      */ [1456,1536]"
+    },
+    {
+      "src": "): ) [5116,5117]",
+      "dest": "): ) [6257,6258]"
+    },
+    {
+      "src": ",: , [6379,6380]",
+      "dest": ",: , [7520,7521]"
+    },
+    {
+      "src": "visibility [9281,9287]",
+      "dest": "visibility [11312,11318]"
+    },
+    {
+      "src": "function: function [6228,6236]",
+      "dest": "function: function [7369,7377]"
+    },
+    {
+      "src": "parameter [7802,7817]",
+      "dest": "parameter [8820,8835]"
+    },
+    {
+      "src": "struct_member [2833,2852]",
+      "dest": "struct_member [2833,2852]"
+    },
+    {
+      "src": "parameter [6616,6631]",
+      "dest": "parameter [7757,7772]"
+    },
+    {
+      "src": "user_defined_type [7265,7285]",
+      "dest": "user_defined_type [8406,8426]"
+    },
+    {
+      "src": "identifier: allowance [6084,6093]",
+      "dest": "identifier: allowance [7225,7234]"
+    },
+    {
+      "src": "type_name [985,1000]",
+      "dest": "type_name [985,1000]"
+    },
+    {
+      "src": "returns: returns [6720,6727]",
+      "dest": "returns: returns [7861,7868]"
+    },
+    {
+      "src": "parameter [7229,7233]",
+      "dest": "parameter [8370,8374]"
+    },
+    {
+      "src": "type_name [879,894]",
+      "dest": "type_name [879,894]"
+    },
+    {
+      "src": "function: function [6398,6406]",
+      "dest": "function: function [7539,7547]"
+    },
+    {
+      "src": "primitive_type [6616,6623]",
+      "dest": "primitive_type [7757,7764]"
+    },
+    {
+      "src": "identifier: _notEntered [207,218]",
+      "dest": "identifier: _notEntered [207,218]"
+    },
+    {
+      "src": "{: { [7751,7752]",
+      "dest": "{: { [8769,8770]"
+    },
+    {
+      "src": "type_name [2273,2298]",
+      "dest": "type_name [2273,2298]"
+    },
+    {
+      "src": "return_type_definition [7046,7060]",
+      "dest": "return_type_definition [8187,8201]"
+    },
+    {
+      "src": "): ) [7558,7559]",
+      "dest": "): ) [8699,8700]"
+    },
+    {
+      "src": "primitive_type [4188,4195]",
+      "dest": "primitive_type [5329,5336]"
+    },
+    {
+      "src": "parameter [5944,5955]",
+      "dest": "parameter [7085,7096]"
+    },
+    {
+      "src": "type_name [6787,6791]",
+      "dest": "type_name [7928,7932]"
+    },
+    {
+      "src": "event: event [5494,5499]",
+      "dest": "event: event [6635,6640]"
+    },
+    {
+      "src": "): ) [6270,6271]",
+      "dest": "): ) [7411,7412]"
+    },
+    {
+      "src": "returns: returns [6506,6513]",
+      "dest": "returns: returns [7647,7654]"
+    },
+    {
+      "src": "event: event [4110,4115]",
+      "dest": "event: event [5251,5256]"
+    },
+    {
+      "src": "parameter [8002,8019]",
+      "dest": "parameter [9020,9037]"
+    },
+    {
+      "src": "identifier: _setComptroller [7249,7264]",
+      "dest": "identifier: _setComptroller [8390,8405]"
+    },
+    {
+      "src": "): ) [8327,8328]",
+      "dest": "): ) [9345,9346]"
+    },
+    {
+      "src": "external: external [6126,6134]",
+      "dest": "external: external [7267,7275]"
+    },
+    {
+      "src": "public: public [2166,2172]",
+      "dest": "public: public [2166,2172]"
+    },
+    {
+      "src": "uint: uint [7019,7023]",
+      "dest": "uint: uint [8160,8164]"
+    },
+    {
+      "src": "primitive_type [3770,3777]",
+      "dest": "primitive_type [4911,4918]"
+    },
+    {
+      "src": "primitive_type [8107,8111]",
+      "dest": "primitive_type [9125,9129]"
+    },
+    {
+      "src": "identifier: newTotalReserves [5258,5274]",
+      "dest": "identifier: newTotalReserves [6399,6415]"
+    },
+    {
+      "src": "event_definition [5494,5564]",
+      "dest": "event_definition [6635,6705]"
+    },
+    {
+      "src": "identifier: getCash [6869,6876]",
+      "dest": "identifier: getCash [8010,8017]"
+    },
+    {
+      "src": "event_paramater [8751,8776]",
+      "dest": "event_paramater [10782,10807]"
+    },
+    {
+      "src": "primitive_type [8039,8043]",
+      "dest": "primitive_type [9057,9061]"
+    },
+    {
+      "src": "address: address [3483,3490]",
+      "dest": "address: address [4624,4631]"
+    },
+    {
+      "src": "primitive_type [6109,6116]",
+      "dest": "primitive_type [7250,7257]"
+    },
+    {
+      "src": "comment: /**      * @notice Total amount of outstanding borrows of the underlying in this market      */ [1835,1930]",
+      "dest": "comment: /**      * @notice Total amount of outstanding borrows of the underlying in this market      */ [1835,1930]"
+    },
+    {
+      "src": "event_paramater [3640,3657]",
+      "dest": "event_paramater [4781,4798]"
+    },
+    {
+      "src": "function_definition [6526,6581]",
+      "dest": "function_definition [7667,7722]"
+    },
+    {
+      "src": "parameter [7055,7059]",
+      "dest": "parameter [8196,8200]"
+    },
+    {
+      "src": "): ) [2455,2456]",
+      "dest": "): ) [2455,2456]"
+    },
+    {
+      "src": "uint: uint [6290,6294]",
+      "dest": "uint: uint [7431,7435]"
+    },
+    {
+      "src": "event_paramater [5087,5116]",
+      "dest": "event_paramater [6228,6257]"
+    },
+    {
+      "src": "type_name [1408,1412]",
+      "dest": "type_name [1408,1412]"
+    },
+    {
+      "src": "primitive_type [5898,5902]",
+      "dest": "primitive_type [7039,7043]"
+    },
+    {
+      "src": "(: ( [6574,6575]",
+      "dest": "(: ( [7715,7716]"
+    },
+    {
+      "src": "primitive_type [5931,5938]",
+      "dest": "primitive_type [7072,7079]"
+    },
+    {
+      "src": "type_name [6290,6294]",
+      "dest": "type_name [7431,7435]"
+    },
+    {
+      "src": "function: function [8118,8126]",
+      "dest": "function: function [9136,9144]"
+    },
+    {
+      "src": "type_name [7837,7841]",
+      "dest": "type_name [8855,8859]"
+    },
+    {
+      "src": "event_paramater [5413,5434]",
+      "dest": "event_paramater [6554,6575]"
+    },
+    {
+      "src": "solidity_version: 0.5.16 [17,23]",
+      "dest": "solidity_version: 0.5.16 [17,23]"
+    },
+    {
+      "src": "parameter [9224,9240]",
+      "dest": "parameter [11255,11271]"
+    },
+    {
+      "src": "type_name [5931,5938]",
+      "dest": "type_name [7072,7079]"
+    },
+    {
+      "src": "{: { [7609,7610]",
+      "dest": "{: { [3041,3042]"
+    },
+    {
+      "src": "contract: contract [7586,7594]",
+      "dest": "contract: contract [3018,3026]"
+    },
+    {
+      "src": "): ) [6959,6960]",
+      "dest": "): ) [8100,8101]"
+    },
+    {
+      "src": "parameter [6329,6344]",
+      "dest": "parameter [7470,7485]"
+    },
+    {
+      "src": "uint: uint [6515,6519]",
+      "dest": "uint: uint [7656,7660]"
+    },
+    {
+      "src": "visibility [1260,1266]",
+      "dest": "visibility [1260,1266]"
+    },
+    {
+      "src": "constant: constant [769,777]",
+      "dest": "constant: constant [769,777]"
+    },
+    {
+      "src": "event_paramater [4557,4573]",
+      "dest": "event_paramater [5698,5714]"
+    },
+    {
+      "src": "type_name [6575,6579]",
+      "dest": "type_name [7716,7720]"
+    },
+    {
+      "src": "identifier: accountBorrows [2999,3013]",
+      "dest": "identifier: accountBorrows [2999,3013]"
+    },
+    {
+      "src": "primitive_type [9620,9625]",
+      "dest": "primitive_type [11629,11634]"
+    },
+    {
+      "src": "primitive_type [7938,7942]",
+      "dest": "primitive_type [8956,8960]"
+    },
+    {
+      "src": "(: ( [7208,7209]",
+      "dest": "(: ( [8349,8350]"
+    },
+    {
+      "src": "type_name [3770,3777]",
+      "dest": "type_name [4911,4918]"
+    },
+    {
+      "src": "comment: /**      * @notice EIP20 Approval event      */ [5570,5617]",
+      "dest": "comment: /**      * @notice EIP20 Approval event      */ [6711,6758]"
+    },
+    {
+      "src": "(: ( [6768,6769]",
+      "dest": "(: ( [7909,7910]"
+    },
+    {
+      "src": "event_definition [5033,5118]",
+      "dest": "event_definition [6174,6259]"
+    },
+    {
+      "src": "visibility [6492,6500]",
+      "dest": "visibility [7633,7641]"
+    },
+    {
+      "src": "identifier: decimals [488,496]",
+      "dest": "identifier: decimals [488,496]"
+    },
+    {
+      "src": "identifier: _reduceReserves [7425,7440]",
+      "dest": "identifier: _reduceReserves [8566,8581]"
+    },
+    {
+      "src": "external: external [7037,7045]",
+      "dest": "external: external [8178,8186]"
+    },
+    {
+      "src": "uint: uint [7837,7841]",
+      "dest": "uint: uint [8855,8859]"
+    },
+    {
+      "src": "type_name [7901,7905]",
+      "dest": "type_name [8919,8923]"
+    },
+    {
+      "src": "parameter [6109,6124]",
+      "dest": "parameter [7250,7265]"
+    },
+    {
+      "src": "identifier: totalSupply [2173,2184]",
+      "dest": "identifier: totalSupply [2173,2184]"
+    },
+    {
+      "src": "): ) [7458,7459]",
+      "dest": "): ) [8599,8600]"
+    },
+    {
+      "src": "type_name [7405,7409]",
+      "dest": "type_name [8546,8550]"
+    },
+    {
+      "src": "primitive_type [6515,6519]",
+      "dest": "primitive_type [7656,7660]"
+    },
+    {
+      "src": "identifier: InterestRateModel [4867,4884]",
+      "dest": "identifier: InterestRateModel [6008,6025]"
+    },
+    {
+      "src": "parameter [8071,8087]",
+      "dest": "parameter [9089,9105]"
+    },
+    {
+      "src": "primitive_type [4132,4139]",
+      "dest": "primitive_type [5273,5280]"
+    },
+    {
+      "src": "type_name [2809,2813]",
+      "dest": "type_name [2809,2813]"
+    },
+    {
+      "src": "): ) [4411,4412]",
+      "dest": "): ) [5552,5553]"
+    },
+    {
+      "src": "primitive_type [5786,5790]",
+      "dest": "primitive_type [6927,6931]"
+    },
+    {
+      "src": "event: event [3757,3762]",
+      "dest": "event: event [4898,4903]"
+    },
+    {
+      "src": "type_name [7001,7008]",
+      "dest": "type_name [8142,8149]"
+    },
+    {
+      "src": "user_defined_type [4712,4732]",
+      "dest": "user_defined_type [5853,5873]"
+    },
+    {
+      "src": "(: ( [6093,6094]",
+      "dest": "(: ( [7234,7235]"
+    },
+    {
+      "src": "external: external [7460,7468]",
+      "dest": "external: external [8601,8609]"
+    },
+    {
+      "src": "event_paramater [5379,5392]",
+      "dest": "event_paramater [6520,6533]"
+    },
+    {
+      "src": "(: ( [8144,8145]",
+      "dest": "(: ( [9162,9163]"
+    },
+    {
+      "src": "address: address [3770,3777]",
+      "dest": "address: address [4911,4918]"
+    },
+    {
+      "src": "): ) [8203,8204]",
+      "dest": "): ) [9221,9222]"
+    },
+    {
+      "src": "primitive_type [985,1000]",
+      "dest": "primitive_type [985,1000]"
+    },
+    {
+      "src": "type_name [8724,8731]",
+      "dest": "type_name [10755,10762]"
+    },
+    {
+      "src": "type_name [3991,3995]",
+      "dest": "type_name [5132,5136]"
+    },
+    {
+      "src": "type_name [4188,4195]",
+      "dest": "type_name [5329,5336]"
+    },
+    {
+      "src": "visibility [5880,5888]",
+      "dest": "visibility [7021,7029]"
+    },
+    {
+      "src": "visibility [6194,6202]",
+      "dest": "visibility [7335,7343]"
+    },
+    {
+      "src": "identifier: owner [5653,5658]",
+      "dest": "identifier: owner [6794,6799]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when tokens are minted      */ [3404,3467]",
+      "dest": "comment: /**      * @notice Event emitted when tokens are minted      */ [4545,4608]"
+    },
+    {
+      "src": "identifier: repayAmount [3978,3989]",
+      "dest": "identifier: repayAmount [5119,5130]"
+    },
+    {
+      "src": "): ) [6555,6556]",
+      "dest": "): ) [7696,7697]"
+    },
+    {
+      "src": "event_definition [3609,3678]",
+      "dest": "event_definition [4750,4819]"
+    },
+    {
+      "src": "type_name [3940,3947]",
+      "dest": "type_name [5081,5088]"
+    },
+    {
+      "src": "primitive_type [5685,5689]",
+      "dest": "primitive_type [6826,6830]"
+    },
+    {
+      "src": "uint: uint [7176,7180]",
+      "dest": "uint: uint [8317,8321]"
+    },
+    {
+      "src": "primitive_type [6016,6023]",
+      "dest": "primitive_type [7157,7164]"
+    },
+    {
+      "src": "type_name [3319,3323]",
+      "dest": "type_name [4460,4464]"
+    },
+    {
+      "src": "identifier: payer [3948,3953]",
+      "dest": "identifier: payer [5089,5094]"
+    },
+    {
+      "src": "contract_body [121,3016]",
+      "dest": "contract_body [121,3016]"
+    },
+    {
+      "src": "identifier: dst [5952,5955]",
+      "dest": "identifier: dst [7093,7096]"
+    },
+    {
+      "src": "external: external [5970,5978]",
+      "dest": "external: external [7111,7119]"
+    },
+    {
+      "src": "primitive_type [475,480]",
+      "dest": "primitive_type [475,480]"
+    },
+    {
+      "src": "mapping: mapping [2273,2280]",
+      "dest": "mapping: mapping [2273,2280]"
+    },
+    {
+      "src": "type_name [4388,4395]",
+      "dest": "type_name [5529,5536]"
+    },
+    {
+      "src": "identifier: borrowRateMaxMantissa [620,641]",
+      "dest": "identifier: borrowRateMaxMantissa [620,641]"
+    },
+    {
+      "src": "identifier: info [5780,5784]",
+      "dest": "identifier: info [6921,6925]"
+    },
+    {
+      "src": "uint: uint [6149,6153]",
+      "dest": "uint: uint [7290,7294]"
+    },
+    {
+      "src": "primitive_type [4012,4016]",
+      "dest": "primitive_type [5153,5157]"
+    },
+    {
+      "src": "type_name [6515,6519]",
+      "dest": "type_name [7656,7660]"
+    },
+    {
+      "src": "visibility [8089,8097]",
+      "dest": "visibility [9107,9115]"
+    },
+    {
+      "src": "identifier: NewComptroller [4660,4674]",
+      "dest": "identifier: NewComptroller [5801,5815]"
+    },
+    {
+      "src": "type_name [8145,8152]",
+      "dest": "type_name [9163,9170]"
+    },
+    {
+      "src": "(: ( [6289,6290]",
+      "dest": "(: ( [7430,7431]"
+    },
+    {
+      "src": ",: , [8269,8270]",
+      "dest": ",: , [9287,9288]"
+    },
+    {
+      "src": "identifier: mintTokens [3521,3531]",
+      "dest": "identifier: mintTokens [4662,4672]"
+    },
+    {
+      "src": "identifier: newComptroller [4733,4747]",
+      "dest": "identifier: newComptroller [5874,5888]"
+    },
+    {
+      "src": "returns: returns [6442,6449]",
+      "dest": "returns: returns [7583,7590]"
+    },
+    {
+      "src": "return_type_definition [6208,6222]",
+      "dest": "return_type_definition [7349,7363]"
+    },
+    {
+      "src": "parameter [6729,6733]",
+      "dest": "parameter [7870,7874]"
+    },
+    {
+      "src": "identifier: underlying [7694,7704]",
+      "dest": "identifier: underlying [3126,3136]"
+    },
+    {
+      "src": "): ) [5562,5563]",
+      "dest": "): ) [6703,6704]"
+    },
+    {
+      "src": "function_definition [6740,6793]",
+      "dest": "function_definition [7881,7934]"
+    },
+    {
+      "src": "uint: uint [5413,5417]",
+      "dest": "uint: uint [6554,6558]"
+    },
+    {
+      "src": ",: , [6999,7000]",
+      "dest": ",: , [8140,8141]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when tokens are redeemed      */ [3539,3604]",
+      "dest": "comment: /**      * @notice Event emitted when tokens are redeemed      */ [4680,4745]"
+    },
+    {
+      "src": "identifier: seizeTokens [7024,7035]",
+      "dest": "identifier: seizeTokens [8165,8176]"
+    },
+    {
+      "src": "identifier: newImplementation [8759,8776]",
+      "dest": "identifier: newImplementation [10790,10807]"
+    },
+    {
+      "src": "): ) [2456,2457]",
+      "dest": "): ) [2456,2457]"
+    },
+    {
+      "src": "address: address [5944,5951]",
+      "dest": "address: address [7085,7092]"
+    },
+    {
+      "src": "type_name [7576,7580]",
+      "dest": "type_name [8717,8721]"
+    },
+    {
+      "src": "uint: uint [5685,5689]",
+      "dest": "uint: uint [6826,6830]"
+    },
+    {
+      "src": "function: function [5836,5844]",
+      "dest": "function: function [6977,6985]"
+    },
+    {
+      "src": "identifier: CTokenStorage [107,120]",
+      "dest": "identifier: CTokenStorage [107,120]"
+    },
+    {
+      "src": "inheritance_specifier [3046,3059]",
+      "dest": "inheritance_specifier [4187,4200]"
+    },
+    {
+      "src": "address: address [6981,6988]",
+      "dest": "address: address [8122,8129]"
+    },
+    {
+      "src": "public: public [9639,9645]",
+      "dest": "public: public [11648,11654]"
+    },
+    {
+      "src": "event_paramater [5531,5549]",
+      "dest": "event_paramater [6672,6690]"
+    },
+    {
+      "src": "type_name [9242,9247]",
+      "dest": "type_name [11273,11278]"
+    },
+    {
+      "src": "uint: uint [5763,5767]",
+      "dest": "uint: uint [6904,6908]"
+    },
+    {
+      "src": "identifier: newComptroller [7286,7300]",
+      "dest": "identifier: newComptroller [8427,8441]"
+    },
+    {
+      "src": "visibility [7037,7045]",
+      "dest": "visibility [8178,8186]"
+    },
+    {
+      "src": "type_name [7356,7360]",
+      "dest": "type_name [8497,8501]"
+    },
+    {
+      "src": "identifier: totalBorrows [1947,1959]",
+      "dest": "identifier: totalBorrows [1947,1959]"
+    },
+    {
+      "src": "import_directive [26,62]",
+      "dest": "import_directive [26,62]"
+    },
+    {
+      "src": "type_name [6849,6853]",
+      "dest": "type_name [7990,7994]"
+    },
+    {
+      "src": "): ) [6853,6854]",
+      "dest": "): ) [7994,7995]"
+    },
+    {
+      "src": "): ) [7955,7956]",
+      "dest": "): ) [8973,8974]"
+    },
+    {
+      "src": "type_name [597,601]",
+      "dest": "type_name [597,601]"
+    },
+    {
+      "src": "uint: uint [7864,7868]",
+      "dest": "uint: uint [8882,8886]"
+    },
+    {
+      "src": "comment: /**      * @notice Total number of tokens in circulation      */ [2092,2156]",
+      "dest": "comment: /**      * @notice Total number of tokens in circulation      */ [2092,2156]"
+    },
+    {
+      "src": "=>: => [2290,2292]",
+      "dest": "=>: => [2290,2292]"
+    },
+    {
+      "src": "function_definition [9171,9288]",
+      "dest": "function_definition [11202,11319]"
+    },
+    {
+      "src": "identifier: newReserveFactorMantissa [5092,5116]",
+      "dest": "identifier: newReserveFactorMantissa [6233,6257]"
+    },
+    {
+      "src": "primitive_type [1659,1663]",
+      "dest": "primitive_type [1659,1663]"
+    },
+    {
+      "src": "parameter [8271,8303]",
+      "dest": "parameter [9289,9321]"
+    },
+    {
+      "src": "identifier: NewMarketInterestRateModel [4840,4866]",
+      "dest": "identifier: NewMarketInterestRateModel [5981,6007]"
+    },
+    {
+      "src": "function_definition [6966,7061]",
+      "dest": "function_definition [8107,8202]"
+    },
+    {
+      "src": "type_name [6616,6623]",
+      "dest": "type_name [7757,7764]"
+    },
+    {
+      "src": "uint: uint [6729,6733]",
+      "dest": "uint: uint [7870,7874]"
+    },
+    {
+      "src": "visibility [1127,1133]",
+      "dest": "visibility [1127,1133]"
+    },
+    {
+      "src": "comment: /**      * @notice Total amount of reserves of the underlying held in this market      */ [1966,2055]",
+      "dest": "comment: /**      * @notice Total amount of reserves of the underlying held in this market      */ [1966,2055]"
+    },
+    {
+      "src": "type_name [3659,3663]",
+      "dest": "type_name [4800,4804]"
+    },
+    {
+      "src": "bool: bool [6064,6068]",
+      "dest": "bool: bool [7205,7209]"
+    },
+    {
+      "src": "identifier: balanceOfUnderlying [6237,6256]",
+      "dest": "identifier: balanceOfUnderlying [7378,7397]"
+    },
+    {
+      "src": "identifier: owner [6265,6270]",
+      "dest": "identifier: owner [7406,7411]"
+    },
+    {
+      "src": "identifier: newPendingAdmin [4396,4411]",
+      "dest": "identifier: newPendingAdmin [5537,5552]"
+    },
+    {
+      "src": "type_name [755,759]",
+      "dest": "type_name [755,759]"
+    },
+    {
+      "src": "state_mutability [6888,6892]",
+      "dest": "state_mutability [8029,8033]"
+    },
+    {
+      "src": "event_paramater [5763,5773]",
+      "dest": "event_paramater [6904,6914]"
+    },
+    {
+      "src": "(: ( [8001,8002]",
+      "dest": "(: ( [9019,9020]"
+    },
+    {
+      "src": "uint: uint [8323,8327]",
+      "dest": "uint: uint [9341,9345]"
+    },
+    {
+      "src": ",: , [4150,4151]",
+      "dest": ",: , [5291,5292]"
+    },
+    {
+      "src": "returns: returns [7828,7835]",
+      "dest": "returns: returns [8846,8853]"
+    },
+    {
+      "src": "primitive_type [6375,6379]",
+      "dest": "primitive_type [7516,7520]"
+    },
+    {
+      "src": "primitive_type [5775,5779]",
+      "dest": "primitive_type [6916,6920]"
+    },
+    {
+      "src": "struct: struct [2777,2783]",
+      "dest": "struct: struct [2777,2783]"
+    },
+    {
+      "src": "type_name [7520,7537]",
+      "dest": "type_name [8661,8678]"
+    },
+    {
+      "src": "primitive_type [6575,6579]",
+      "dest": "primitive_type [7716,7720]"
+    },
+    {
+      "src": "external: external [7387,7395]",
+      "dest": "external: external [8528,8536]"
+    },
+    {
+      "src": "contract_body [7609,7707]",
+      "dest": "contract_body [3041,3247]"
+    },
+    {
+      "src": "returns: returns [8190,8197]",
+      "dest": "returns: returns [9208,9215]"
+    },
+    {
+      "src": "identifier: account [6624,6631]",
+      "dest": "identifier: account [7765,7772]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when pendingAdmin is accepted, which means admin is updated      */ [4419,4519]",
+      "dest": "comment: /**      * @notice Event emitted when pendingAdmin is accepted, which means admin is updated      */ [5560,5660]"
+    },
+    {
+      "src": "identifier: borrowIndex [3366,3377]",
+      "dest": "identifier: borrowIndex [4507,4518]"
+    },
+    {
+      "src": "function_definition [9589,9646]",
+      "dest": "function_definition [11598,11655]"
+    },
+    {
+      "src": "type_name [1659,1663]",
+      "dest": "type_name [1659,1663]"
+    },
+    {
+      "src": "(: ( [7054,7055]",
+      "dest": "(: ( [8195,8196]"
+    },
+    {
+      "src": "identifier: totalBorrows [3384,3396]",
+      "dest": "identifier: totalBorrows [4525,4537]"
+    },
+    {
+      "src": "(: ( [5216,5217]",
+      "dest": "(: ( [6357,6358]"
+    },
+    {
+      "src": "uint: uint [3379,3383]",
+      "dest": "uint: uint [4520,4524]"
+    },
+    {
+      "src": "comment: /**      * @notice Administrator for this contract      */ [816,874]",
+      "dest": "comment: /**      * @notice Administrator for this contract      */ [816,874]"
+    },
+    {
+      "src": "address: address [9199,9206]",
+      "dest": "address: address [11230,11237]"
+    },
+    {
+      "src": "uint: uint [6902,6906]",
+      "dest": "uint: uint [8043,8047]"
+    },
+    {
+      "src": "indexed: indexed [5539,5546]",
+      "dest": "indexed: indexed [6680,6687]"
+    },
+    {
+      "src": "primitive_type [5763,5767]",
+      "dest": "primitive_type [6904,6908]"
+    },
+    {
+      "src": "returns: returns [6946,6953]",
+      "dest": "returns: returns [8087,8094]"
+    },
+    {
+      "src": "): ) [7580,7581]",
+      "dest": "): ) [8721,8722]"
+    },
+    {
+      "src": "internal: internal [602,610]",
+      "dest": "internal: internal [602,610]"
+    },
+    {
+      "src": "event_paramater [5509,5529]",
+      "dest": "event_paramater [6650,6670]"
+    },
+    {
+      "src": "(: ( [6825,6826]",
+      "dest": "(: ( [7966,7967]"
+    },
+    {
+      "src": "external: external [6633,6641]",
+      "dest": "external: external [7774,7782]"
+    },
+    {
+      "src": "identifier: repayAmount [8168,8179]",
+      "dest": "identifier: repayAmount [9186,9197]"
+    },
+    {
+      "src": "type_name [5217,5224]",
+      "dest": "type_name [6358,6365]"
+    },
+    {
+      "src": "): ) [6391,6392]",
+      "dest": "): ) [7532,7533]"
+    },
+    {
+      "src": "type_name [2955,2989]",
+      "dest": "type_name [2955,2989]"
+    },
+    {
+      "src": "public: public [8547,8553]",
+      "dest": "public: public [3223,3229]"
+    },
+    {
+      "src": "identifier: newReserveFactorMantissa [7361,7385]",
+      "dest": "identifier: newReserveFactorMantissa [8502,8526]"
+    },
+    {
+      "src": "): ) [6906,6907]",
+      "dest": "): ) [8047,8048]"
+    },
+    {
+      "src": "parameter [7576,7580]",
+      "dest": "parameter [8717,8721]"
+    },
+    {
+      "src": "uint: uint [8253,8257]",
+      "dest": "uint: uint [9271,9275]"
+    },
+    {
+      "src": "parameter [6016,6031]",
+      "dest": "parameter [7157,7172]"
+    },
+    {
+      "src": "comment: /**      * @notice Model which tells what the current interest rate should be      */ [1152,1237]",
+      "dest": "comment: /**      * @notice Model which tells what the current interest rate should be      */ [1152,1237]"
+    },
+    {
+      "src": "event_paramater [3828,3845]",
+      "dest": "event_paramater [4969,4986]"
+    },
+    {
+      "src": "event_definition [5622,5698]",
+      "dest": "event_definition [6763,6839]"
+    },
+    {
+      "src": "function: function [9171,9179]",
+      "dest": "function: function [11202,11210]"
+    },
+    {
+      "src": "type_name [6651,6655]",
+      "dest": "type_name [7792,7796]"
+    },
+    {
+      "src": "parameter [7176,7180]",
+      "dest": "parameter [8317,8321]"
+    },
+    {
+      "src": "address: address [5509,5516]",
+      "dest": "address: address [6650,6657]"
+    },
+    {
+      "src": "comment: /**      * @notice Mapping of account addresses to outstanding borrow balances      */ [2864,2950]",
+      "dest": "comment: /**      * @notice Mapping of account addresses to outstanding borrow balances      */ [2864,2950]"
+    },
+    {
+      "src": "primitive_type [3640,3644]",
+      "dest": "primitive_type [4781,4785]"
+    },
+    {
+      "src": "returns: returns [7469,7476]",
+      "dest": "returns: returns [8610,8617]"
+    },
+    {
+      "src": "parameter [7520,7558]",
+      "dest": "parameter [8661,8699]"
+    },
+    {
+      "src": "comment: /*** Admin Functions ***/ [8336,8361]",
+      "dest": "comment: /*** Admin Functions ***/ [9353,9378]"
+    },
+    {
+      "src": "): ) [5968,5969]",
+      "dest": "): ) [7109,7110]"
+    },
+    {
+      "src": "(: ( [6728,6729]",
+      "dest": "(: ( [7869,7870]"
+    },
+    {
+      "src": "identifier: symbol [394,400]",
+      "dest": "identifier: symbol [394,400]"
+    },
+    {
+      "src": "identifier: totalReserves [2072,2085]",
+      "dest": "identifier: totalReserves [2072,2085]"
+    },
+    {
+      "src": "}: } [9289,9290]",
+      "dest": "}: } [11320,11321]"
+    },
+    {
+      "src": ",: , [6373,6374]",
+      "dest": ",: , [7514,7515]"
+    },
+    {
+      "src": "public: public [9281,9287]",
+      "dest": "public: public [11312,11318]"
+    },
+    {
+      "src": "identifier: borrower [8153,8161]",
+      "dest": "identifier: borrower [9171,9179]"
+    },
+    {
+      "src": "visibility [6939,6945]",
+      "dest": "visibility [8080,8086]"
+    },
+    {
+      "src": "identifier: reserveFactorMantissa [1553,1574]",
+      "dest": "identifier: reserveFactorMantissa [1553,1574]"
+    },
+    {
+      "src": "(: ( [8070,8071]",
+      "dest": "(: ( [9088,9089]"
+    },
+    {
+      "src": "return_type_definition [6946,6960]",
+      "dest": "return_type_definition [8087,8101]"
+    },
+    {
+      "src": "returns: returns [6778,6785]",
+      "dest": "returns: returns [7919,7926]"
+    },
+    {
+      "src": "type_name [5509,5516]",
+      "dest": "type_name [6650,6657]"
+    },
+    {
+      "src": "uint: uint [5087,5091]",
+      "dest": "uint: uint [6228,6232]"
+    },
+    {
+      "src": "parameter [6217,6221]",
+      "dest": "parameter [7358,7362]"
+    },
+    {
+      "src": "visibility [7387,7395]",
+      "dest": "visibility [8528,8536]"
+    },
+    {
+      "src": "contract_declaration [8573,9290]",
+      "dest": "contract_declaration [10626,11321]"
+    },
+    {
+      "src": "parameter [6849,6853]",
+      "dest": "parameter [7990,7994]"
+    },
+    {
+      "src": "public: public [1260,1266]",
+      "dest": "public: public [1260,1266]"
+    },
+    {
+      "src": "uint: uint [6849,6853]",
+      "dest": "uint: uint [7990,7994]"
+    },
+    {
+      "src": "event: event [4834,4839]",
+      "dest": "event: event [5975,5980]"
+    },
+    {
+      "src": "function: function [5999,6007]",
+      "dest": "function: function [7140,7148]"
+    },
+    {
+      "src": "primitive_type [5394,5398]",
+      "dest": "primitive_type [6535,6539]"
+    },
+    {
+      "src": "state_variable_declaration [597,654]",
+      "dest": "state_variable_declaration [597,654]"
+    },
+    {
+      "src": "identifier: borrowRatePerBlock [6407,6425]",
+      "dest": "identifier: borrowRatePerBlock [7548,7566]"
+    },
+    {
+      "src": "uint: uint [5253,5257]",
+      "dest": "uint: uint [6394,6398]"
+    },
+    {
+      "src": "identifier: transfer [5845,5853]",
+      "dest": "identifier: transfer [6986,6994]"
+    },
+    {
+      "src": "return_type_definition [6055,6069]",
+      "dest": "return_type_definition [7196,7210]"
+    },
+    {
+      "src": "identifier: newInterestRateModel [4925,4945]",
+      "dest": "identifier: newInterestRateModel [6066,6086]"
+    },
+    {
+      "src": "event_paramater [5660,5683]",
+      "dest": "event_paramater [6801,6824]"
+    },
+    {
+      "src": "identifier: admin [5387,5392]",
+      "dest": "identifier: admin [6528,6533]"
+    },
+    {
+      "src": "event_paramater [3770,3786]",
+      "dest": "event_paramater [4911,4927]"
+    },
+    {
+      "src": "type_name [2411,2457]",
+      "dest": "type_name [2411,2457]"
+    },
+    {
+      "src": "public: public [296,302]",
+      "dest": "public: public [296,302]"
+    },
+    {
+      "src": "(: ( [8388,8389]",
+      "dest": "(: ( [9405,9406]"
+    },
+    {
+      "src": "(: ( [5930,5931]",
+      "dest": "(: ( [7071,7072]"
+    },
+    {
+      "src": "): ) [7881,7882]",
+      "dest": "): ) [8899,8900]"
+    },
+    {
+      "src": "identifier: amount [5962,5968]",
+      "dest": "identifier: amount [7103,7109]"
+    },
+    {
+      "src": "parameter [6651,6655]",
+      "dest": "parameter [7792,7796]"
+    },
+    {
+      "src": "(: ( [2419,2420]",
+      "dest": "(: ( [2419,2420]"
+    },
+    {
+      "src": "type_name [5867,5871]",
+      "dest": "type_name [7008,7012]"
+    },
+    {
+      "src": "parameter [8107,8111]",
+      "dest": "parameter [9125,9129]"
+    },
+    {
+      "src": "identifier: totalBorrowsCurrent [6535,6554]",
+      "dest": "identifier: totalBorrowsCurrent [7676,7695]"
+    },
+    {
+      "src": "primitive_type [5660,5667]",
+      "dest": "primitive_type [6801,6808]"
+    },
+    {
+      "src": "mapping: mapping [2431,2438]",
+      "dest": "mapping: mapping [2431,2438]"
+    },
+    {
+      "src": "external: external [7211,7219]",
+      "dest": "external: external [8352,8360]"
+    },
+    {
+      "src": "(: ( [7801,7802]",
+      "dest": "(: ( [8819,8820]"
+    },
+    {
+      "src": "type_name [6955,6959]",
+      "dest": "type_name [8096,8100]"
+    },
+    {
+      "src": "return_type_definition [7828,7842]",
+      "dest": "return_type_definition [8846,8860]"
+    },
+    {
+      "src": "string: string [289,295]",
+      "dest": "string: string [289,295]"
+    },
+    {
+      "src": "primitive_type [5957,5961]",
+      "dest": "primitive_type [7098,7102]"
+    },
+    {
+      "src": "identifier: redeemTokens [3664,3676]",
+      "dest": "identifier: redeemTokens [4805,4817]"
+    },
+    {
+      "src": "visibility [6346,6354]",
+      "dest": "visibility [7487,7495]"
+    },
+    {
+      "src": "type_name [4152,4159]",
+      "dest": "type_name [5293,5300]"
+    },
+    {
+      "src": "type_name [4867,4884]",
+      "dest": "type_name [6008,6025]"
+    },
+    {
+      "src": "identifier: borrowBalanceCurrent [6595,6615]",
+      "dest": "identifier: borrowBalanceCurrent [7736,7756]"
+    },
+    {
+      "src": "uint: uint [7229,7233]",
+      "dest": "uint: uint [8370,8374]"
+    },
+    {
+      "src": "(: ( [7900,7901]",
+      "dest": "(: ( [8918,8919]"
+    },
+    {
+      "src": "bool: bool [3155,3159]",
+      "dest": "bool: bool [4296,4300]"
+    },
+    {
+      "src": "event_paramater [4388,4411]",
+      "dest": "event_paramater [5529,5552]"
+    },
+    {
+      "src": "function: function [5909,5917]",
+      "dest": "function: function [7050,7058]"
+    },
+    {
+      "src": "function: function [7329,7337]",
+      "dest": "function: function [8470,8478]"
+    },
+    {
+      "src": "identifier: principal [2814,2823]",
+      "dest": "identifier: principal [2814,2823]"
+    },
+    {
+      "src": "identifier: oldPendingAdmin [4371,4386]",
+      "dest": "identifier: oldPendingAdmin [5512,5527]"
+    },
+    {
+      "src": "(: ( [6690,6691]",
+      "dest": "(: ( [7831,7832]"
+    },
+    {
+      "src": "identifier: oldInterestRateModel [4885,4905]",
+      "dest": "identifier: oldInterestRateModel [6026,6046]"
+    },
+    {
+      "src": "type_name [2833,2837]",
+      "dest": "type_name [2833,2837]"
+    },
+    {
+      "src": "(: ( [9781,9782]",
+      "dest": "(: ( [11790,11791]"
+    },
+    {
+      "src": "returns: returns [7892,7899]",
+      "dest": "returns: returns [8910,8917]"
+    },
+    {
+      "src": "function_definition [6160,6223]",
+      "dest": "function_definition [7301,7364]"
+    },
+    {
+      "src": "type_name [5660,5667]",
+      "dest": "type_name [6801,6808]"
+    },
+    {
+      "src": "parameter [6787,6791]",
+      "dest": "parameter [7928,7932]"
+    },
+    {
+      "src": "(: ( [6216,6217]",
+      "dest": "(: ( [7357,7358]"
+    },
+    {
+      "src": "): ) [8087,8088]",
+      "dest": "): ) [9105,9106]"
+    },
+    {
+      "src": "type_name [4557,4564]",
+      "dest": "type_name [5698,5705]"
+    },
+    {
+      "src": "type_name [8235,8242]",
+      "dest": "type_name [9253,9260]"
+    },
+    {
+      "src": "uint: uint [3319,3323]",
+      "dest": "uint: uint [4460,4464]"
+    },
+    {
+      "src": "comment: /**      * @notice Emitted when implementation is changed      */ [8630,8695]",
+      "dest": "comment: /**      * @notice Emitted when implementation is changed      */ [10661,10726]"
+    },
+    {
+      "src": "parameter [6981,6999]",
+      "dest": "parameter [8122,8140]"
+    },
+    {
+      "src": "parameter [5931,5942]",
+      "dest": "parameter [7072,7083]"
+    },
+    {
+      "src": "primitive_type [8423,8427]",
+      "dest": "primitive_type [9440,9444]"
+    },
+    {
+      "src": "function: function [6913,6921]",
+      "dest": "function: function [8054,8062]"
+    },
+    {
+      "src": "type_name [6387,6391]",
+      "dest": "type_name [7528,7532]"
+    },
+    {
+      "src": "identifier: liquidator [6989,6999]",
+      "dest": "identifier: liquidator [8130,8140]"
+    },
+    {
+      "src": "): ) [6631,6632]",
+      "dest": "): ) [7772,7773]"
+    },
+    {
+      "src": "primitive_type [2060,2064]",
+      "dest": "primitive_type [2060,2064]"
+    },
+    {
+      "src": "type_name [2431,2456]",
+      "dest": "type_name [2431,2456]"
+    },
+    {
+      "src": "identifier: Mint [3478,3482]",
+      "dest": "identifier: Mint [4619,4623]"
+    },
+    {
+      "src": "identifier: oldAdmin [4547,4555]",
+      "dest": "identifier: oldAdmin [5688,5696]"
+    },
+    {
+      "src": "primitive_type [5944,5951]",
+      "dest": "primitive_type [7085,7092]"
+    },
+    {
+      "src": "(: ( [6063,6064]",
+      "dest": "(: ( [7204,7205]"
+    },
+    {
+      "src": "address: address [6094,6101]",
+      "dest": "address: address [7235,7242]"
+    },
+    {
+      "src": "contract: contract [7709,7717]",
+      "dest": "contract: contract [8727,8735]"
+    },
+    {
+      "src": "type_name [3828,3832]",
+      "dest": "type_name [4969,4973]"
+    },
+    {
+      "src": "uint: uint [7318,7322]",
+      "dest": "uint: uint [8459,8463]"
+    },
+    {
+      "src": "uint: uint [8199,8203]",
+      "dest": "uint: uint [9217,9221]"
+    },
+    {
+      "src": "(: ( [8723,8724]",
+      "dest": "(: ( [10754,10755]"
+    },
+    {
+      "src": "visibility [1664,1670]",
+      "dest": "visibility [1664,1670]"
+    },
+    {
+      "src": "): ) [6791,6792]",
+      "dest": "): ) [7932,7933]"
+    },
+    {
+      "src": "(: ( [7477,7478]",
+      "dest": "(: ( [8618,8619]"
+    },
+    {
+      "src": "address: address [985,992]",
+      "dest": "address: address [985,992]"
+    },
+    {
+      "src": "address: address [2440,2447]",
+      "dest": "address: address [2440,2447]"
+    },
+    {
+      "src": "identifier: ComptrollerInterface [7265,7285]",
+      "dest": "identifier: ComptrollerInterface [8406,8426]"
+    },
+    {
+      "src": "uint: uint [5867,5871]",
+      "dest": "uint: uint [7008,7012]"
+    },
+    {
+      "src": "primitive_type [2420,2427]",
+      "dest": "primitive_type [2420,2427]"
+    },
+    {
+      "src": "constant: constant [611,619]",
+      "dest": "constant: constant [611,619]"
+    },
+    {
+      "src": "visibility [6126,6134]",
+      "dest": "visibility [7267,7275]"
+    },
+    {
+      "src": "event_paramater [3940,3953]",
+      "dest": "event_paramater [5081,5094]"
+    },
+    {
+      "src": "event_paramater [4170,4186]",
+      "dest": "event_paramater [5311,5327]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when the reserves are added      */ [5124,5192]",
+      "dest": "comment: /**      * @notice Event emitted when the reserves are added      */ [6265,6333]"
+    },
+    {
+      "src": "address: address [8235,8242]",
+      "dest": "address: address [9253,9260]"
+    },
+    {
+      "src": "address: address [6257,6264]",
+      "dest": "address: address [7398,7405]"
+    },
+    {
+      "src": "contract_declaration [98,3016]",
+      "dest": "contract_declaration [98,3016]"
+    },
+    {
+      "src": "uint: uint [7576,7580]",
+      "dest": "uint: uint [8717,8721]"
+    },
+    {
+      "src": "uint: uint [7478,7482]",
+      "dest": "uint: uint [8619,8623]"
+    },
+    {
+      "src": "comment: /**      * @notice EIP-20 token decimals for this token      */ [407,470]",
+      "dest": "comment: /**      * @notice EIP-20 token decimals for this token      */ [407,470]"
+    },
+    {
+      "src": "(: ( [8198,8199]",
+      "dest": "(: ( [9216,9217]"
+    },
+    {
+      "src": "type_name [4214,4218]",
+      "dest": "type_name [5355,5359]"
+    },
+    {
+      "src": "): ) [5434,5435]",
+      "dest": "): ) [6575,6576]"
+    },
+    {
+      "src": "): ) [6344,6345]",
+      "dest": "): ) [7485,7486]"
+    },
+    {
+      "src": "event: event [3609,3614]",
+      "dest": "event: event [4750,4755]"
+    },
+    {
+      "src": "identifier: CDelegatorInterface [8582,8601]",
+      "dest": "identifier: CDelegatorInterface [10635,10654]"
+    },
+    {
+      "src": "primitive_type [5867,5871]",
+      "dest": "primitive_type [7008,7012]"
+    },
+    {
+      "src": "parameter [6257,6270]",
+      "dest": "parameter [7398,7411]"
+    },
+    {
+      "src": "identifier: from [5525,5529]",
+      "dest": "identifier: from [6666,6670]"
+    },
+    {
+      "src": "primitive_type [3361,3365]",
+      "dest": "primitive_type [4502,4506]"
+    },
+    {
+      "src": "type_name [5685,5689]",
+      "dest": "type_name [6826,6830]"
+    },
+    {
+      "src": "function_definition [7240,7324]",
+      "dest": "function_definition [8381,8465]"
+    },
+    {
+      "src": "visibility [7819,7827]",
+      "dest": "visibility [8837,8845]"
+    },
+    {
+      "src": "identifier: InterestRateModel [4907,4924]",
+      "dest": "identifier: InterestRateModel [6048,6065]"
+    },
+    {
+      "src": "comment: /**      * @notice Accumulator of the total earned interest rate since the opening of the market      */ [1696,1800]",
+      "dest": "comment: /**      * @notice Accumulator of the total earned interest rate since the opening of the market      */ [1696,1800]"
+    },
+    {
+      "src": "identifier: mintAmount [3504,3514]",
+      "dest": "identifier: mintAmount [4645,4655]"
+    },
+    {
+      "src": "address: address [8751,8758]",
+      "dest": "address: address [10782,10789]"
+    },
+    {
+      "src": "import_directive [63,96]",
+      "dest": "import_directive [63,96]"
+    },
+    {
+      "src": "identifier: balanceOf [6169,6178]",
+      "dest": "identifier: balanceOf [7310,7319]"
+    },
+    {
+      "src": "parameter [8323,8327]",
+      "dest": "parameter [9341,9345]"
+    },
+    {
+      "src": "address: address [4557,4564]",
+      "dest": "address: address [5698,5705]"
+    },
+    {
+      "src": "type_name [5898,5902]",
+      "dest": "type_name [7039,7043]"
+    },
+    {
+      "src": "type_name [4675,4695]",
+      "dest": "type_name [5816,5836]"
+    },
+    {
+      "src": "bool: bool [5988,5992]",
+      "dest": "bool: bool [7129,7133]"
+    },
+    {
+      "src": "event_paramater [3973,3989]",
+      "dest": "event_paramater [5114,5130]"
+    },
+    {
+      "src": "): ) [5696,5697]",
+      "dest": "): ) [6837,6838]"
+    },
+    {
+      "src": "visibility [7460,7468]",
+      "dest": "visibility [8601,8609]"
+    },
+    {
+      "src": "type_name [6217,6221]",
+      "dest": "type_name [7358,7362]"
+    },
+    {
+      "src": "identifier: owner [6102,6107]",
+      "dest": "identifier: owner [7243,7248]"
+    },
+    {
+      "src": "=>: => [2428,2430]",
+      "dest": "=>: => [2428,2430]"
+    },
+    {
+      "src": "primitive_type [6149,6153]",
+      "dest": "primitive_type [7290,7294]"
+    },
+    {
+      "src": "): ) [7156,7157]",
+      "dest": "): ) [8297,8298]"
+    },
+    {
+      "src": "comment: /**      * @notice Official record of token balances for each account      */ [2191,2268]",
+      "dest": "comment: /**      * @notice Official record of token balances for each account      */ [2191,2268]"
+    },
+    {
+      "src": "uint: uint [5237,5241]",
+      "dest": "uint: uint [6378,6382]"
+    },
+    {
+      "src": "}: } [2857,2858]",
+      "dest": "}: } [2857,2858]"
+    },
+    {
+      "src": "identifier: borrowIndex [1817,1828]",
+      "dest": "identifier: borrowIndex [1817,1828]"
+    },
+    {
+      "src": "state_variable_declaration [3155,3192]",
+      "dest": "state_variable_declaration [4296,4333]"
+    },
+    {
+      "src": "returns: returns [7046,7053]",
+      "dest": "returns: returns [8187,8194]"
+    },
+    {
+      "src": "primitive_type [8253,8257]",
+      "dest": "primitive_type [9271,9275]"
+    },
+    {
+      "src": "type_name [7478,7482]",
+      "dest": "type_name [8619,8623]"
+    },
+    {
+      "src": "event_paramater [5637,5658]",
+      "dest": "event_paramater [6778,6799]"
+    },
+    {
+      "src": "event_definition [5357,5436]",
+      "dest": "event_definition [6498,6577]"
+    },
+    {
+      "src": "(: ( [5762,5763]",
+      "dest": "(: ( [6903,6904]"
+    },
+    {
+      "src": "identifier: liquidateBorrow [8219,8234]",
+      "dest": "identifier: liquidateBorrow [9237,9252]"
+    },
+    {
+      "src": "bytes: bytes [9242,9247]",
+      "dest": "bytes: bytes [11273,11278]"
+    },
+    {
+      "src": "function_definition [7912,7981]",
+      "dest": "function_definition [8930,8999]"
+    },
+    {
+      "src": "): ) [3396,3397]",
+      "dest": "): ) [4537,4538]"
+    },
+    {
+      "src": "return_type_definition [7309,7323]",
+      "dest": "return_type_definition [8450,8464]"
+    },
+    {
+      "src": "type_name [5775,5779]",
+      "dest": "type_name [6916,6920]"
+    },
+    {
+      "src": "visibility [1001,1007]",
+      "dest": "visibility [1001,1007]"
+    },
+    {
+      "src": "identifier: repayBorrowBehalf [8127,8144]",
+      "dest": "identifier: repayBorrowBehalf [9145,9162]"
+    },
+    {
+      "src": "event_paramater [4539,4555]",
+      "dest": "event_paramater [5680,5696]"
+    },
+    {
+      "src": "primitive_type [6217,6221]",
+      "dest": "primitive_type [7358,7362]"
+    },
+    {
+      "src": "uint: uint [1408,1412]",
+      "dest": "uint: uint [1408,1412]"
+    },
+    {
+      "src": "type_name [6375,6379]",
+      "dest": "type_name [7516,7520]"
+    },
+    {
+      "src": "state_variable_declaration [1659,1690]",
+      "dest": "state_variable_declaration [1659,1690]"
+    },
+    {
+      "src": "(: ( [6650,6651]",
+      "dest": "(: ( [7791,7792]"
+    },
+    {
+      "src": "comment: /**      * @notice Contract which oversees inter-cToken operations      */ [1027,1101]",
+      "dest": "comment: /**      * @notice Contract which oversees inter-cToken operations      */ [1027,1101]"
+    },
+    {
+      "src": "state_variable_declaration [2955,3014]",
+      "dest": "state_variable_declaration [2955,3014]"
+    },
+    {
+      "src": "state_variable_declaration [289,308]",
+      "dest": "state_variable_declaration [289,308]"
+    },
+    {
+      "src": "): ) [7209,7210]",
+      "dest": "): ) [8350,8351]"
+    },
+    {
+      "src": "type_name [5394,5398]",
+      "dest": "type_name [6535,6539]"
+    },
+    {
+      "src": "user_defined_type [1106,1126]",
+      "dest": "user_defined_type [1106,1126]"
+    },
+    {
+      "src": "address: address [4188,4195]",
+      "dest": "address: address [5329,5336]"
+    },
+    {
+      "src": "uint: uint [2293,2297]",
+      "dest": "uint: uint [2293,2297]"
+    },
+    {
+      "src": "type_name [8423,8427]",
+      "dest": "type_name [9440,9444]"
+    },
+    {
+      "src": ",: , [5773,5774]",
+      "dest": ",: , [6914,6915]"
+    },
+    {
+      "src": "event: event [5622,5627]",
+      "dest": "event: event [6763,6768]"
+    },
+    {
+      "src": "function: function [7788,7796]",
+      "dest": "function: function [8806,8814]"
+    },
+    {
+      "src": "user_defined_type [2974,2988]",
+      "dest": "user_defined_type [2974,2988]"
+    },
+    {
+      "src": "primitive_type [7441,7445]",
+      "dest": "primitive_type [8582,8586]"
+    },
+    {
+      "src": "external: external [6428,6436]",
+      "dest": "external: external [7569,7577]"
+    },
+    {
+      "src": "type_name [7975,7979]",
+      "dest": "type_name [8993,8997]"
+    },
+    {
+      "src": "function: function [8367,8375]",
+      "dest": "function: function [9384,9392]"
+    },
+    {
+      "src": ",: , [4710,4711]",
+      "dest": ",: , [5851,5852]"
+    },
+    {
+      "src": "(: ( [6450,6451]",
+      "dest": "(: ( [7591,7592]"
+    },
+    {
+      "src": "event_paramater [3807,3826]",
+      "dest": "event_paramater [4948,4967]"
+    },
+    {
+      "src": "identifier: cTokenCollateral [4196,4212]",
+      "dest": "identifier: cTokenCollateral [5337,5353]"
+    },
+    {
+      "src": "type_name [5551,5555]",
+      "dest": "type_name [6692,6696]"
+    },
+    {
+      "src": "function: function [7240,7248]",
+      "dest": "function: function [8381,8389]"
+    },
+    {
+      "src": "type_name [5253,5257]",
+      "dest": "type_name [6394,6398]"
+    },
+    {
+      "src": "returns: returns [7396,7403]",
+      "dest": "returns: returns [8537,8544]"
+    },
+    {
+      "src": ",: , [6107,6108]",
+      "dest": ",: , [7248,7249]"
+    },
+    {
+      "src": "identifier: CDelegateInterface [9301,9319]",
+      "dest": "identifier: CDelegateInterface [11332,11350]"
+    },
+    {
+      "src": "address: address [4539,4546]",
+      "dest": "address: address [5680,5687]"
+    },
+    {
+      "src": "state_variable_declaration [2161,2185]",
+      "dest": "state_variable_declaration [2161,2185]"
+    },
+    {
+      "src": "event_paramater [3499,3514]",
+      "dest": "event_paramater [4640,4655]"
+    },
+    {
+      "src": "event_paramater [3361,3377]",
+      "dest": "event_paramater [4502,4518]"
+    },
+    {
+      "src": "function: function [7912,7920]",
+      "dest": "function: function [8930,8938]"
+    },
+    {
+      "src": "return_type_definition [8190,8204]",
+      "dest": "return_type_definition [9208,9222]"
+    },
+    {
+      "src": "event_paramater [3379,3396]",
+      "dest": "event_paramater [4520,4537]"
+    },
+    {
+      "src": "): ) [6937,6938]",
+      "dest": "): ) [8078,8079]"
+    },
+    {
+      "src": "}: } [7706,7707]",
+      "dest": "}: } [3246,3247]"
+    },
+    {
+      "src": "): ) [9782,9783]",
+      "dest": "): ) [11791,11792]"
+    },
+    {
+      "src": "parameter [7019,7035]",
+      "dest": "parameter [8160,8176]"
+    },
+    {
+      "src": "(: ( [7175,7176]",
+      "dest": "(: ( [8316,8317]"
+    },
+    {
+      "src": "primitive_type [3991,3995]",
+      "dest": "primitive_type [5132,5136]"
+    },
+    {
+      "src": "function: function [7099,7107]",
+      "dest": "function: function [8240,8248]"
+    },
+    {
+      "src": "(: ( [5055,5056]",
+      "dest": "(: ( [6196,6197]"
+    },
+    {
+      "src": "(: ( [7440,7441]",
+      "dest": "(: ( [8581,8582]"
+    },
+    {
+      "src": "identifier: NewAdmin [4530,4538]",
+      "dest": "identifier: NewAdmin [5671,5679]"
+    },
+    {
+      "src": "identifier: exchangeRateStored [6807,6825]",
+      "dest": "identifier: exchangeRateStored [7948,7966]"
+    },
+    {
+      "src": "address: address [8724,8731]",
+      "dest": "address: address [10755,10762]"
+    },
+    {
+      "src": "returns: returns [6140,6147]",
+      "dest": "returns: returns [7281,7288]"
+    },
+    {
+      "src": "identifier: reserveFactorMaxMantissa [778,802]",
+      "dest": "identifier: reserveFactorMaxMantissa [778,802]"
+    },
+    {
+      "src": "identifier: accrualBlockNumber [1671,1689]",
+      "dest": "identifier: accrualBlockNumber [1671,1689]"
+    },
+    {
+      "src": "primitive_type [9199,9206]",
+      "dest": "primitive_type [11230,11237]"
+    },
+    {
+      "src": "view: view [6437,6441]",
+      "dest": "view: view [7578,7582]"
+    },
+    {
+      "src": "comment: /**      * @notice Called by the delegator on a delegate to initialize it for duty      * @dev Should revert if any issues arise which make it unfit for delegation      * @param data The encoded bytes data for any initialization      */ [9348,9584]",
+      "dest": "comment: /**      * @notice Called by the delegator on a delegate to initialize it for duty      * @dev Should revert if any issues arise which make it unfit for delegation      * @param data The encoded bytes data for any initialization      */ [11357,11593]"
+    },
+    {
+      "src": "type_name [8107,8111]",
+      "dest": "type_name [9125,9129]"
+    },
+    {
+      "src": "primitive_type [7019,7023]",
+      "dest": "primitive_type [8160,8164]"
+    },
+    {
+      "src": "identifier: accountTokens [2308,2321]",
+      "dest": "identifier: accountTokens [2308,2321]"
+    },
+    {
+      "src": "type_name [7176,7180]",
+      "dest": "type_name [8317,8321]"
+    },
+    {
+      "src": "event_paramater [3991,4010]",
+      "dest": "event_paramater [5132,5151]"
+    },
+    {
+      "src": "identifier: redeem [7857,7863]",
+      "dest": "identifier: redeem [8875,8881]"
+    },
+    {
+      "src": "uint: uint [7802,7806]",
+      "dest": "uint: uint [8820,8824]"
+    },
+    {
+      "src": "public: public [7560,7566]",
+      "dest": "public: public [8701,8707]"
+    },
+    {
+      "src": "internal: internal [760,768]",
+      "dest": "internal: internal [760,768]"
+    },
+    {
+      "src": "public: public [6708,6714]",
+      "dest": "public: public [7849,7855]"
+    },
+    {
+      "src": ",: , [6385,6386]",
+      "dest": ",: , [7526,7527]"
+    },
+    {
+      "src": "returns: returns [8030,8037]",
+      "dest": "returns: returns [9048,9055]"
+    },
+    {
+      "src": "uint: uint [7938,7942]",
+      "dest": "uint: uint [8956,8960]"
+    },
+    {
+      "src": ",: , [3359,3360]",
+      "dest": ",: , [4500,4501]"
+    },
+    {
+      "src": "boolean_literal [3187,3191]",
+      "dest": "boolean_literal [4328,4332]"
+    },
+    {
+      "src": "identifier: repayAmount [4175,4186]",
+      "dest": "identifier: repayAmount [5316,5327]"
+    },
+    {
+      "src": "address: address [8539,8546]",
+      "dest": "address: address [3215,3222]"
+    },
+    {
+      "src": "identifier: initialExchangeRateMantissa [1422,1449]",
+      "dest": "identifier: initialExchangeRateMantissa [1422,1449]"
+    },
+    {
+      "src": "return_type_definition [6720,6734]",
+      "dest": "return_type_definition [7861,7875]"
+    },
+    {
+      "src": "type_name [3973,3977]",
+      "dest": "type_name [5114,5118]"
+    },
+    {
+      "src": "type_name [6369,6373]",
+      "dest": "type_name [7510,7514]"
+    },
+    {
+      "src": "state_mutability [6835,6839]",
+      "dest": "state_mutability [7976,7980]"
+    },
+    {
+      "src": "uint: uint [7901,7905]",
+      "dest": "uint: uint [8919,8923]"
+    },
+    {
+      "src": "primitive_type [7001,7008]",
+      "dest": "primitive_type [8142,8149]"
+    },
+    {
+      "src": "public: public [6828,6834]",
+      "dest": "public: public [7969,7975]"
+    },
+    {
+      "src": "parameter [9620,9637]",
+      "dest": "parameter [11629,11646]"
+    },
+    {
+      "src": "primitive_type [879,894]",
+      "dest": "primitive_type [879,894]"
+    },
+    {
+      "src": "function_definition [5836,5904]",
+      "dest": "function_definition [6977,7045]"
+    },
+    {
+      "src": "uint8: uint8 [475,480]",
+      "dest": "uint8: uint8 [475,480]"
+    },
+    {
+      "src": "type_name [6149,6153]",
+      "dest": "type_name [7290,7294]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when comptroller is changed      */ [4581,4649]",
+      "dest": "comment: /**      * @notice Event emitted when comptroller is changed      */ [5722,5790]"
+    },
+    {
+      "src": "}: } [8430,8431]",
+      "dest": "}: } [9447,9448]"
+    },
+    {
+      "src": "identifier: to [5547,5549]",
+      "dest": "identifier: to [6688,6690]"
+    },
+    {
+      "src": "uint: uint [3973,3977]",
+      "dest": "uint: uint [5114,5118]"
+    },
+    {
+      "src": ",: , [5235,5236]",
+      "dest": ",: , [6376,6377]"
+    },
+    {
+      "src": "(: ( [7974,7975]",
+      "dest": "(: ( [8992,8993]"
+    },
+    {
+      "src": "primitive_type [3155,3159]",
+      "dest": "primitive_type [4296,4300]"
+    },
+    {
+      "src": "uint: uint [8107,8111]",
+      "dest": "uint: uint [9125,9129]"
+    },
+    {
+      "src": "primitive_type [6955,6959]",
+      "dest": "primitive_type [8096,8100]"
+    },
+    {
+      "src": "function: function [9589,9597]",
+      "dest": "function: function [11598,11606]"
+    },
+    {
+      "src": "returns: returns [6208,6215]",
+      "dest": "returns: returns [7349,7356]"
+    },
+    {
+      "src": "comment: /**      * @notice Approved token transfer amounts on behalf of others      */ [2328,2406]",
+      "dest": "comment: /**      * @notice Approved token transfer amounts on behalf of others      */ [2328,2406]"
+    },
+    {
+      "src": "identifier: totalBorrows [3833,3845]",
+      "dest": "identifier: totalBorrows [4974,4986]"
+    },
+    {
+      "src": "visibility [198,206]",
+      "dest": "visibility [198,206]"
+    },
+    {
+      "src": "identifier: InterestRateModel [7520,7537]",
+      "dest": "identifier: InterestRateModel [8661,8678]"
+    },
+    {
+      "src": "external: external [7158,7166]",
+      "dest": "external: external [8299,8307]"
+    },
+    {
+      "src": "parameter [8423,8427]",
+      "dest": "parameter [9440,9444]"
+    },
+    {
+      "src": "identifier: oldComptroller [4696,4710]",
+      "dest": "identifier: oldComptroller [5837,5851]"
+    },
+    {
+      "src": "identifier: Transfer [5500,5508]",
+      "dest": "identifier: Transfer [6641,6649]"
+    },
+    {
+      "src": "type_name [5056,5060]",
+      "dest": "type_name [6197,6201]"
+    },
+    {
+      "src": "): ) [6455,6456]",
+      "dest": "): ) [7596,7597]"
+    },
+    {
+      "src": "number_literal: 1e18 [805,809]",
+      "dest": "number_literal: 1e18 [805,809]"
+    },
+    {
+      "src": "uint: uint [8071,8075]",
+      "dest": "uint: uint [9089,9093]"
+    },
+    {
+      "src": "identifier: ComptrollerInterface [1106,1126]",
+      "dest": "identifier: ComptrollerInterface [1106,1126]"
+    },
+    {
+      "src": "address: address [3940,3947]",
+      "dest": "address: address [5081,5088]"
+    },
+    {
+      "src": "type_name [1242,1259]",
+      "dest": "type_name [1242,1259]"
+    },
+    {
+      "src": ",: , [5658,5659]",
+      "dest": ",: , [6799,6800]"
+    },
+    {
+      "src": "return_type_definition [7567,7581]",
+      "dest": "return_type_definition [8708,8722]"
+    },
+    {
+      "src": "type_name [5087,5091]",
+      "dest": "type_name [6228,6232]"
+    },
+    {
+      "src": "visibility [2299,2307]",
+      "dest": "visibility [2299,2307]"
+    },
+    {
+      "src": "type_name [3955,3962]",
+      "dest": "type_name [5096,5103]"
+    },
+    {
+      "src": "event_paramater [4907,4945]",
+      "dest": "event_paramater [6048,6086]"
+    },
+    {
+      "src": "uint: uint [4012,4016]",
+      "dest": "uint: uint [5153,5157]"
+    },
+    {
+      "src": ",: , [5251,5252]",
+      "dest": ",: , [6392,6393]"
+    },
+    {
+      "src": "type_name [3499,3503]",
+      "dest": "type_name [4640,4644]"
+    },
+    {
+      "src": "type_name [7229,7233]",
+      "dest": "type_name [8370,8374]"
+    },
+    {
+      "src": "{: { [9342,9343]",
+      "dest": "{: { [11351,11352]"
+    },
+    {
+      "src": "(: ( [9619,9620]",
+      "dest": "(: ( [11628,11629]"
+    },
+    {
+      "src": ",: , [3638,3639]",
+      "dest": ",: , [4779,4780]"
+    },
+    {
+      "src": "external: external [7819,7827]",
+      "dest": "external: external [8837,8845]"
+    },
+    {
+      "src": "(: ( [2962,2963]",
+      "dest": "(: ( [2962,2963]"
+    },
+    {
+      "src": "uint: uint [8389,8393]",
+      "dest": "uint: uint [9406,9410]"
+    },
+    {
+      "src": ",: , [3786,3787]",
+      "dest": ",: , [4927,4928]"
+    },
+    {
+      "src": "function: function [6160,6168]",
+      "dest": "function: function [7301,7309]"
+    },
+    {
+      "src": "type_name [7055,7059]",
+      "dest": "type_name [8196,8200]"
+    },
+    {
+      "src": "parameter [7938,7955]",
+      "dest": "parameter [8956,8973]"
+    },
+    {
+      "src": "): ) [7059,7060]",
+      "dest": "): ) [8200,8201]"
+    },
+    {
+      "src": "state_variable_declaration [755,810]",
+      "dest": "state_variable_declaration [755,810]"
+    },
+    {
+      "src": "(: ( [6936,6937]",
+      "dest": "(: ( [8077,8078]"
+    },
+    {
+      "src": "type_name [8271,8286]",
+      "dest": "type_name [9289,9304]"
+    },
+    {
+      "src": "uint: uint [6387,6391]",
+      "dest": "uint: uint [7528,7532]"
+    },
+    {
+      "src": "type_name [6902,6906]",
+      "dest": "type_name [8043,8047]"
+    },
+    {
+      "src": "payable: payable [887,894]",
+      "dest": "payable: payable [887,894]"
+    },
+    {
+      "src": "identifier: redeemTokens [7869,7881]",
+      "dest": "identifier: redeemTokens [8887,8899]"
+    },
+    {
+      "src": "external: external [6272,6280]",
+      "dest": "external: external [7413,7421]"
+    },
+    {
+      "src": "primitive_type [6691,6698]",
+      "dest": "primitive_type [7832,7839]"
+    },
+    {
+      "src": "type_name [193,197]",
+      "dest": "type_name [193,197]"
+    },
+    {
+      "src": "uint: uint [6217,6221]",
+      "dest": "uint: uint [7358,7362]"
+    },
+    {
+      "src": "view: view [6501,6505]",
+      "dest": "view: view [7642,7646]"
+    },
+    {
+      "src": "event_paramater [4214,4230]",
+      "dest": "event_paramater [5355,5371]"
+    },
+    {
+      "src": "identifier: CErc20Interface [7718,7733]",
+      "dest": "identifier: CErc20Interface [8736,8751]"
+    },
+    {
+      "src": "identifier: name [303,307]",
+      "dest": "identifier: name [303,307]"
+    },
+    {
+      "src": "primitive_type [5253,5257]",
+      "dest": "primitive_type [6394,6398]"
+    },
+    {
+      "src": "function_definition [9751,9791]",
+      "dest": "function_definition [11760,11800]"
+    },
+    {
+      "src": "comment: /**      * @notice EIP20 Transfer event      */ [5442,5489]",
+      "dest": "comment: /**      * @notice EIP20 Transfer event      */ [6583,6630]"
+    },
+    {
+      "src": "uint: uint [2833,2837]",
+      "dest": "uint: uint [2833,2837]"
+    },
+    {
+      "src": "identifier: error [5768,5773]",
+      "dest": "identifier: error [6909,6914]"
+    },
+    {
+      "src": "function_definition [8118,8205]",
+      "dest": "function_definition [9136,9223]"
+    },
+    {
+      "src": "function_definition [7329,7411]",
+      "dest": "function_definition [8470,8552]"
+    },
+    {
+      "src": "event_paramater [5786,5797]",
+      "dest": "event_paramater [6927,6938]"
+    },
+    {
+      "src": "visibility [6046,6054]",
+      "dest": "visibility [7187,7195]"
+    },
+    {
+      "src": "uint: uint [3361,3365]",
+      "dest": "uint: uint [4502,4506]"
+    },
+    {
+      "src": "): ) [6877,6878]",
+      "dest": "): ) [8018,8019]"
+    },
+    {
+      "src": ",: , [3826,3827]",
+      "dest": ",: , [4967,4968]"
+    },
+    {
+      "src": "parameter [6375,6379]",
+      "dest": "parameter [7516,7520]"
+    },
+    {
+      "src": "(: ( [7404,7405]",
+      "dest": "(: ( [8545,8546]"
+    },
+    {
+      "src": "public: public [3160,3166]",
+      "dest": "public: public [4301,4307]"
+    },
+    {
+      "src": "return_type_definition [6778,6792]",
+      "dest": "return_type_definition [7919,7933]"
+    },
+    {
+      "src": "(: ( [7228,7229]",
+      "dest": "(: ( [8369,8370]"
+    },
+    {
+      "src": "(: ( [8106,8107]",
+      "dest": "(: ( [9124,9125]"
+    },
+    {
+      "src": "event: event [8700,8705]",
+      "dest": "event: event [10731,10736]"
+    },
+    {
+      "src": "=: = [642,643]",
+      "dest": "=: = [642,643]"
+    },
+    {
+      "src": "primitive_type [3973,3977]",
+      "dest": "primitive_type [5114,5118]"
+    },
+    {
+      "src": ",: , [8749,8750]",
+      "dest": ",: , [10780,10781]"
+    },
+    {
+      "src": ",: , [4386,4387]",
+      "dest": ",: , [5527,5528]"
+    },
+    {
+      "src": "return_type_definition [8098,8112]",
+      "dest": "return_type_definition [9116,9130]"
+    },
+    {
+      "src": "event: event [3922,3927]",
+      "dest": "event: event [5063,5068]"
+    },
+    {
+      "src": "primitive_type [7975,7979]",
+      "dest": "primitive_type [8993,8997]"
+    },
+    {
+      "src": "external: external [6194,6202]",
+      "dest": "external: external [7335,7343]"
+    },
+    {
+      "src": "bytes: bytes [9620,9625]",
+      "dest": "bytes: bytes [11629,11634]"
+    },
+    {
+      "src": "type_name [3807,3811]",
+      "dest": "type_name [4948,4952]"
+    },
+    {
+      "src": "primitive_type [7576,7580]",
+      "dest": "primitive_type [8717,8721]"
+    },
+    {
+      "src": "primitive_type [5531,5538]",
+      "dest": "primitive_type [6672,6679]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when the reserve factor is changed      */ [4953,5028]",
+      "dest": "comment: /**      * @notice Event emitted when the reserve factor is changed      */ [6094,6169]"
+    },
+    {
+      "src": "(: ( [7863,7864]",
+      "dest": "(: ( [8881,8882]"
+    },
+    {
+      "src": "): ) [8427,8428]",
+      "dest": "): ) [9444,9445]"
+    },
+    {
+      "src": "event_definition [5197,5276]",
+      "dest": "event_definition [6338,6417]"
+    },
+    {
+      "src": "identifier: totalBorrows [4017,4029]",
+      "dest": "identifier: totalBorrows [5158,5170]"
+    },
+    {
+      "src": "(: ( [6901,6902]",
+      "dest": "(: ( [8042,8043]"
+    },
+    {
+      "src": "visibility [7560,7566]",
+      "dest": "visibility [8701,8707]"
+    },
+    {
+      "src": "}: } [7583,7584]",
+      "dest": "}: } [8724,8725]"
+    },
+    {
+      "src": "uint: uint [597,601]",
+      "dest": "uint: uint [597,601]"
+    },
+    {
+      "src": "return_type_definition [6506,6520]",
+      "dest": "return_type_definition [7647,7661]"
+    },
+    {
+      "src": "address: address [3955,3962]",
+      "dest": "address: address [5096,5103]"
+    },
+    {
+      "src": "comment: /**      * @dev Guard variable for re-entrancy checks      */ [127,188]",
+      "dest": "comment: /**      * @dev Guard variable for re-entrancy checks      */ [127,188]"
+    },
+    {
+      "src": "address: address [5379,5386]",
+      "dest": "address: address [6520,6527]"
+    },
+    {
+      "src": "returns: returns [8098,8105]",
+      "dest": "returns: returns [9116,9123]"
+    },
+    {
+      "src": "(: ( [7317,7318]",
+      "dest": "(: ( [8458,8459]"
+    },
+    {
+      "src": "visibility [6557,6565]",
+      "dest": "visibility [7698,7706]"
+    },
+    {
+      "src": "(: ( [2281,2282]",
+      "dest": "(: ( [2281,2282]"
+    },
+    {
+      "src": "event_definition [3757,3847]",
+      "dest": "event_definition [4898,4988]"
+    },
+    {
+      "src": "type_name [3361,3365]",
+      "dest": "type_name [4502,4506]"
+    },
+    {
+      "src": "type_name [6094,6101]",
+      "dest": "type_name [7235,7242]"
+    },
+    {
+      "src": "event_paramater [4188,4212]",
+      "dest": "event_paramater [5329,5353]"
+    },
+    {
+      "src": "uint: uint [7055,7059]",
+      "dest": "uint: uint [8196,8200]"
+    },
+    {
+      "src": "function_definition [8210,8329]",
+      "dest": "function_definition [9228,9347]"
+    },
+    {
+      "src": "): ) [6124,6125]",
+      "dest": "): ) [7265,7266]"
+    },
+    {
+      "src": "comment: /*** Admin Events ***/ [4239,4261]",
+      "dest": "comment: /*** Admin Events ***/ [5380,5402]"
+    },
+    {
+      "src": "identifier: getAccountSnapshot [6310,6328]",
+      "dest": "identifier: getAccountSnapshot [7451,7469]"
+    },
+    {
+      "src": "identifier: implementation [8554,8568]",
+      "dest": "identifier: implementation [3230,3244]"
+    },
+    {
+      "src": "primitive_type [3788,3792]",
+      "dest": "primitive_type [4929,4933]"
+    },
+    {
+      "src": "identifier: repayAmount [8258,8269]",
+      "dest": "identifier: repayAmount [9276,9287]"
+    },
+    {
+      "src": "event_definition [3472,3533]",
+      "dest": "event_definition [4613,4674]"
+    },
+    {
+      "src": "): ) [6426,6427]",
+      "dest": "): ) [7567,7568]"
+    },
+    {
+      "src": "): ) [6519,6520]",
+      "dest": "): ) [7660,7661]"
+    },
+    {
+      "src": "external: external [8181,8189]",
+      "dest": "external: external [9199,9207]"
+    },
+    {
+      "src": "(: ( [7937,7938]",
+      "dest": "(: ( [8955,8956]"
+    },
+    {
+      "src": "uint: uint [3788,3792]",
+      "dest": "uint: uint [4929,4933]"
+    },
+    {
+      "src": "(: ( [6148,6149]",
+      "dest": "(: ( [7289,7290]"
+    },
+    {
+      "src": "state_mutability [6437,6441]",
+      "dest": "state_mutability [7578,7582]"
+    },
+    {
+      "src": "(: ( [6489,6490]",
+      "dest": "(: ( [7630,7631]"
+    },
+    {
+      "src": "public: public [6939,6945]",
+      "dest": "public: public [8080,8086]"
+    },
+    {
+      "src": "event_paramater [4132,4150]",
+      "dest": "event_paramater [5273,5291]"
+    },
+    {
+      "src": "primitive_type [6290,6294]",
+      "dest": "primitive_type [7431,7435]"
+    },
+    {
+      "src": "identifier: borrow [7995,8001]",
+      "dest": "identifier: borrow [9013,9019]"
+    },
+    {
+      "src": "visibility [5970,5978]",
+      "dest": "visibility [7111,7119]"
+    },
+    {
+      "src": "type_name [7441,7445]",
+      "dest": "type_name [8582,8586]"
+    },
+    {
+      "src": "primitive_type [3828,3832]",
+      "dest": "primitive_type [4969,4973]"
+    },
+    {
+      "src": "uint: uint [4170,4174]",
+      "dest": "uint: uint [5311,5315]"
+    },
+    {
+      "src": "primitive_type [6094,6101]",
+      "dest": "primitive_type [7235,7242]"
+    },
+    {
+      "src": "contract_body [3060,7584]",
+      "dest": "contract_body [4201,8725]"
+    },
+    {
+      "src": "external: external [7883,7891]",
+      "dest": "external: external [8901,8909]"
+    },
+    {
+      "src": "state_variable_declaration [2273,2322]",
+      "dest": "state_variable_declaration [2273,2322]"
+    },
+    {
+      "src": "uint: uint [2161,2165]",
+      "dest": "uint: uint [2161,2165]"
+    },
+    {
+      "src": "parameter [6451,6455]",
+      "dest": "parameter [7592,7596]"
+    },
+    {
+      "src": "event_definition [4834,4947]",
+      "dest": "event_definition [5975,6088]"
+    },
+    {
+      "src": "=>: => [2448,2450]",
+      "dest": "=>: => [2448,2450]"
+    },
+    {
+      "src": "identifier: Borrow [3763,3769]",
+      "dest": "identifier: Borrow [4904,4910]"
+    },
+    {
+      "src": "function_definition [7099,7182]",
+      "dest": "function_definition [8240,8323]"
+    },
+    {
+      "src": "visibility [7211,7219]",
+      "dest": "visibility [8352,8360]"
+    },
+    {
+      "src": "state_variable_declaration [1242,1285]",
+      "dest": "state_variable_declaration [1242,1285]"
+    },
+    {
+      "src": "type_name [3622,3629]",
+      "dest": "type_name [4763,4770]"
+    },
+    {
+      "src": "(: ( [6425,6426]",
+      "dest": "(: ( [7566,7567]"
+    },
+    {
+      "src": "(: ( [6848,6849]",
+      "dest": "(: ( [7989,7990]"
+    },
+    {
+      "src": "event_paramater [5551,5562]",
+      "dest": "event_paramater [6692,6703]"
+    },
+    {
+      "src": "(: ( [4866,4867]",
+      "dest": "(: ( [6007,6008]"
+    },
+    {
+      "src": "comment: /**      * @notice Event emitted when pendingAdmin is changed      */ [4267,4336]",
+      "dest": "comment: /**      * @notice Event emitted when pendingAdmin is changed      */ [5408,5477]"
+    },
+    {
+      "src": "view: view [6715,6719]",
+      "dest": "view: view [7856,7860]"
+    },
+    {
+      "src": "function_definition [6913,6961]",
+      "dest": "function_definition [8054,8102]"
+    },
+    {
+      "src": "(: ( [8038,8039]",
+      "dest": "(: ( [9056,9057]"
+    },
+    {
+      "src": "event: event [5197,5202]",
+      "dest": "event: event [6338,6343]"
+    },
+    {
+      "src": "external: external [6557,6565]",
+      "dest": "external: external [7698,7706]"
+    },
+    {
+      "src": "function_definition [6662,6735]",
+      "dest": "function_definition [7803,7876]"
+    },
+    {
+      "src": "type_name [6329,6336]",
+      "dest": "type_name [7470,7477]"
+    },
+    {
+      "src": ",: , [5784,5785]",
+      "dest": ",: , [6925,6926]"
+    },
+    {
+      "src": "user_defined_type [4867,4884]",
+      "dest": "user_defined_type [6008,6025]"
+    },
+    {
+      "src": "identifier: borrower [8243,8251]",
+      "dest": "identifier: borrower [9261,9269]"
+    },
+    {
+      "src": "primitive_type [6329,6336]",
+      "dest": "primitive_type [7470,7477]"
+    },
+    {
+      "src": "primitive_type [1408,1412]",
+      "dest": "primitive_type [1408,1412]"
+    },
+    {
+      "src": "primitive_type [7864,7868]",
+      "dest": "primitive_type [8882,8886]"
+    },
+    {
+      "src": "state_variable_declaration [879,908]",
+      "dest": "state_variable_declaration [879,908]"
+    },
+    {
+      "src": "address: address [7679,7686]",
+      "dest": "address: address [3111,3118]"
+    },
+    {
+      "src": "primitive_type [8145,8152]",
+      "dest": "primitive_type [9163,9170]"
+    },
+    {
+      "src": "function_definition [7187,7235]",
+      "dest": "function_definition [8328,8376]"
+    },
+    {
+      "src": "): ) [4945,4946]",
+      "dest": "): ) [6086,6087]"
+    },
+    {
+      "src": "parameter [7265,7300]",
+      "dest": "parameter [8406,8441]"
+    },
+    {
+      "src": "primitive_type [8539,8546]",
+      "dest": "primitive_type [3215,3222]"
+    },
+    {
+      "src": "solidity: solidity [7,15]",
+      "dest": "solidity: solidity [7,15]"
+    },
+    {
+      "src": "view: view [6355,6359]",
+      "dest": "view: view [7496,7500]"
+    },
+    {
+      "src": "identifier: borrower [7009,7017]",
+      "dest": "identifier: borrower [8150,8158]"
+    },
+    {
+      "src": "event_paramater [5685,5696]",
+      "dest": "event_paramater [6826,6837]"
+    },
+    {
+      "src": "uint: uint [3659,3663]",
+      "dest": "uint: uint [4800,4804]"
+    },
+    {
+      "src": "): ) [7482,7483]",
+      "dest": "): ) [8623,8624]"
+    },
+    {
+      "src": "primitive_type [5217,5224]",
+      "dest": "primitive_type [6358,6365]"
+    },
+    {
+      "src": "identifier: admin [902,907]",
+      "dest": "identifier: admin [902,907]"
+    },
+    {
+      "src": "event: event [4341,4346]",
+      "dest": "event: event [5482,5487]"
+    },
+    {
+      "src": "primitive_type [7176,7180]",
+      "dest": "primitive_type [8317,8321]"
+    },
+    {
+      "src": "parameter [6955,6959]",
+      "dest": "parameter [8096,8100]"
+    },
+    {
+      "src": "primitive_type [1935,1939]",
+      "dest": "primitive_type [1935,1939]"
+    },
+    {
+      "src": "identifier: newPendingAdmin [7141,7156]",
+      "dest": "identifier: newPendingAdmin [8282,8297]"
+    },
+    {
+      "src": "visibility [387,393]",
+      "dest": "visibility [387,393]"
+    },
+    {
+      "src": "solidity_pragma_token [7,23]",
+      "dest": "solidity_pragma_token [7,23]"
+    },
+    {
+      "src": "comment: /**      * @notice Indicator that this is a CToken contract (for inspection)      */ [3066,3150]",
+      "dest": "comment: /**      * @notice Indicator that this is a CToken contract (for inspection)      */ [4207,4291]"
+    },
+    {
+      "src": "event: event [3472,3477]",
+      "dest": "event: event [4613,4618]"
+    },
+    {
+      "src": "return_type_definition [7167,7181]",
+      "dest": "return_type_definition [8308,8322]"
+    },
+    {
+      "src": "address: address [879,886]",
+      "dest": "address: address [879,886]"
+    },
+    {
+      "src": "event_definition [3298,3398]",
+      "dest": "event_definition [4439,4539]"
+    },
+    {
+      "src": "type_name [5786,5790]",
+      "dest": "type_name [6927,6931]"
+    },
+    {
+      "src": "event_paramater [5237,5251]",
+      "dest": "event_paramater [6378,6392]"
+    },
+    {
+      "src": "(: ( [7124,7125]",
+      "dest": "(: ( [8265,8266]"
+    },
+    {
+      "src": "function_definition [6301,6393]",
+      "dest": "function_definition [7442,7534]"
+    },
+    {
+      "src": "type_name [9199,9206]",
+      "dest": "type_name [11230,11237]"
+    },
+    {
+      "src": ",: , [5549,5550]",
+      "dest": ",: , [6690,6691]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "move-tree",
+      "tree": "contract_declaration [3018,7584]",
+      "parent": "source_file [0,12037]",
+      "at": 5
+    },
+    {
+      "action": "insert-tree",
+      "tree": "contract_declaration [3249,3443]",
+      "parent": "source_file [0,12037]",
+      "at": 5
+    },
+    {
+      "action": "insert-tree",
+      "tree": "contract_declaration [3445,4136]",
+      "parent": "source_file [0,12037]",
+      "at": 6
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /*** Interface ***/ [4138,4157]",
+      "parent": "source_file [0,12037]",
+      "at": 7
+    },
+    {
+      "action": "insert-tree",
+      "tree": "contract_declaration [9450,9959]",
+      "parent": "source_file [0,12037]",
+      "at": 10
+    },
+    {
+      "action": "insert-tree",
+      "tree": "contract_declaration [9961,10624]",
+      "parent": "source_file [0,12037]",
+      "at": 11
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /*** External interface ***/ [11804,11832]",
+      "parent": "source_file [0,12037]",
+      "at": 14
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**  * @title Flash loan receiver interface  */ [11834,11881]",
+      "parent": "source_file [0,12037]",
+      "at": 15
+    },
+    {
+      "action": "insert-tree",
+      "tree": "interface_declaration [11882,12036]",
+      "parent": "source_file [0,12037]",
+      "at": 16
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /**      * @notice Implementation address for this contract      */ [3143,3210]",
+      "parent": "contract_body [3041,3247]",
+      "at": 3
+    },
+    {
+      "action": "move-tree",
+      "tree": "state_variable_declaration [8539,8569]",
+      "parent": "contract_body [3041,3247]",
+      "at": 4
+    },
+    {
+      "action": "delete-node",
+      "tree": "contract: contract [8433,8441]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "identifier: CDelegationStorage [8442,8460]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "{: { [8461,8462]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: /**      * @notice Implementation address for this contract      */ [8467,8534]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "}: } [8570,8571]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "contract_body [8461,8571]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "contract_declaration [8433,8571]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "is: is [8602,8604]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "inheritance_specifier [8605,8623]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "is: is [9320,9322]"
+    },
+    {
+      "action": "delete-tree",
+      "tree": "inheritance_specifier [9323,9341]"
+    }
+  ]
+}

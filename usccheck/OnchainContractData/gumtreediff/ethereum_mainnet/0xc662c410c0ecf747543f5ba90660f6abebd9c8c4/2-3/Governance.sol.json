@@ -1,0 +1,2240 @@
+{
+  "matches": [
+    {
+      "src": "{: { [3589,3590]",
+      "dest": "{: { [4060,4061]"
+    },
+    {
+      "src": "identifier: newGovernor [3750,3761]",
+      "dest": "identifier: newGovernor [4221,4232]"
+    },
+    {
+      "src": "variable_declaration_statement [3002,3057]",
+      "dest": "variable_declaration_statement [3329,3384]"
+    },
+    {
+      "src": "call_expression [2800,2819]",
+      "dest": "call_expression [3056,3075]"
+    },
+    {
+      "src": "function_definition [4337,4739]",
+      "dest": "function_definition [4808,5210]"
+    },
+    {
+      "src": "storage: storage [2178,2185]",
+      "dest": "storage: storage [2313,2320]"
+    },
+    {
+      "src": "identifier: effectiveGovernors [4633,4651]",
+      "dest": "identifier: effectiveGovernors [5104,5122]"
+    },
+    {
+      "src": "call_argument [2399,2409]",
+      "dest": "call_argument [2534,2544]"
+    },
+    {
+      "src": "address: address [3560,3567]",
+      "dest": "address: address [4031,4038]"
+    },
+    {
+      "src": "storage: storage [3684,3691]",
+      "dest": "storage: storage [4155,4162]"
+    },
+    {
+      "src": "address: address [2947,2954]",
+      "dest": "address: address [3274,3281]"
+    },
+    {
+      "src": "internal: internal [2968,2976]",
+      "dest": "internal: internal [3295,3303]"
+    },
+    {
+      "src": "emit: emit [4689,4693]",
+      "dest": "emit: emit [5160,5164]"
+    },
+    {
+      "src": "parameter [2444,2464]",
+      "dest": "parameter [2716,2728]"
+    },
+    {
+      "src": "identifier: _isGovernor [4571,4582]",
+      "dest": "identifier: _isGovernor [5042,5053]"
+    },
+    {
+      "src": "function_body [2504,2628]",
+      "dest": "function_body [2768,2884]"
+    },
+    {
+      "src": "call_argument [3983,4018]",
+      "dest": "call_argument [4454,4489]"
+    },
+    {
+      "src": "=: = [3152,3153]",
+      "dest": "=: = [3623,3624]"
+    },
+    {
+      "src": "identifier: testGovernor [2452,2464]",
+      "dest": "identifier: user [2724,2728]"
+    },
+    {
+      "src": "identifier: msg [4262,4265]",
+      "dest": "identifier: msg [4733,4736]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [4499,4519]",
+      "dest": "identifier: GovernanceInfoStruct [4970,4990]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [1477,1497]",
+      "dest": "identifier: GovernanceInfoStruct [1612,1632]"
+    },
+    {
+      "src": "returns: returns [2489,2496]",
+      "dest": "returns: returns [2753,2760]"
+    },
+    {
+      "src": "): ) [3652,3653]",
+      "dest": "): ) [4123,4124]"
+    },
+    {
+      "src": "(: ( [3715,3716]",
+      "dest": "(: ( [4186,4187]"
+    },
+    {
+      "src": "function: function [4337,4345]",
+      "dest": "function: function [4808,4816]"
+    },
+    {
+      "src": "primitive_type [2498,2502]",
+      "dest": "primitive_type [2762,2766]"
+    },
+    {
+      "src": "array_access [3727,3762]",
+      "dest": "array_access [4198,4233]"
+    },
+    {
+      "src": "string [2247,2268]",
+      "dest": "string [2382,2403]"
+    },
+    {
+      "src": "call_argument [2861,2864]",
+      "dest": "call_argument [3174,3177]"
+    },
+    {
+      "src": "expression_statement [2279,2302]",
+      "dest": "expression_statement [2414,2437]"
+    },
+    {
+      "src": "call_argument [3620,3631]",
+      "dest": "call_argument [4091,4102]"
+    },
+    {
+      "src": "identifier: _removeGovernor [4346,4361]",
+      "dest": "identifier: _removeGovernor [4817,4832]"
+    },
+    {
+      "src": ",: , [4602,4603]",
+      "dest": ",: , [5073,5074]"
+    },
+    {
+      "src": "identifier: newGovernor [3620,3631]",
+      "dest": "identifier: newGovernor [4091,4102]"
+    },
+    {
+      "src": "variable_declaration_statement [2514,2569]",
+      "dest": "variable_declaration_statement [2778,2833]"
+    },
+    {
+      "src": "}: } [4740,4741]",
+      "dest": "}: } [5211,5212]"
+    },
+    {
+      "src": "identifier: require [3975,3982]",
+      "dest": "identifier: require [4446,4453]"
+    },
+    {
+      "src": "address: address [4362,4369]",
+      "dest": "address: address [4833,4840]"
+    },
+    {
+      "src": "identifier: governorForRemoval [4446,4464]",
+      "dest": "identifier: governorForRemoval [4917,4935]"
+    },
+    {
+      "src": "identifier: newGovernor [3154,3165]",
+      "dest": "identifier: newGovernor [3625,3636]"
+    },
+    {
+      "src": "parameter [2498,2502]",
+      "dest": "parameter [2762,2766]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [2157,2177]",
+      "dest": "identifier: GovernanceInfoStruct [2292,2312]"
+    },
+    {
+      "src": "): ) [2268,2269]",
+      "dest": "): ) [2403,2404]"
+    },
+    {
+      "src": "=: = [2547,2548]",
+      "dest": "=: = [2811,2812]"
+    },
+    {
+      "src": "]: ] [3761,3762]",
+      "dest": "]: ] [4232,4233]"
+    },
+    {
+      "src": "(: ( [2902,2903]",
+      "dest": "(: ( [3219,3220]"
+    },
+    {
+      "src": "user_defined_type [1477,1497]",
+      "dest": "user_defined_type [1612,1632]"
+    },
+    {
+      "src": "identifier: gub [2279,2282]",
+      "dest": "identifier: gub [2414,2417]"
+    },
+    {
+      "src": "(: ( [4570,4571]",
+      "dest": "(: ( [5041,5042]"
+    },
+    {
+      "src": "address: address [4150,4157]",
+      "dest": "address: address [4621,4628]"
+    },
+    {
+      "src": ",: , [3632,3633]",
+      "dest": ",: , [4103,4104]"
+    },
+    {
+      "src": "): ) [3716,3717]",
+      "dest": "): ) [4187,4188]"
+    },
+    {
+      "src": "return_statement [2578,2622]",
+      "dest": "return_statement [2842,2878]"
+    },
+    {
+      "src": "(: ( [2860,2861]",
+      "dest": "(: ( [3173,3174]"
+    },
+    {
+      "src": "): ) [4601,4602]",
+      "dest": "): ) [5072,5073]"
+    },
+    {
+      "src": "emit_statement [3175,3214]",
+      "dest": "emit_statement [3646,3685]"
+    },
+    {
+      "src": "identifier: newGovernor [3201,3212]",
+      "dest": "identifier: newGovernor [3672,3683]"
+    },
+    {
+      "src": "call_expression [3037,3056]",
+      "dest": "call_expression [3364,3383]"
+    },
+    {
+      "src": "identifier: _isGovernor [2432,2443]",
+      "dest": "identifier: _isGovernor [2704,2715]"
+    },
+    {
+      "src": "false [4674,4679]",
+      "dest": "false [5145,5150]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "emit: emit [2875,2879]",
+      "dest": "emit: emit [3192,3196]"
+    },
+    {
+      "src": "type_name [2444,2451]",
+      "dest": "type_name [2716,2723]"
+    },
+    {
+      "src": "}: } [2416,2417]",
+      "dest": "}: } [2688,2689]"
+    },
+    {
+      "src": "): ) [2818,2819]",
+      "dest": "): ) [3074,3075]"
+    },
+    {
+      "src": "returns: returns [1468,1475]",
+      "dest": "returns: returns [1603,1610]"
+    },
+    {
+      "src": "address: address [2444,2451]",
+      "dest": "address: address [2716,2723]"
+    },
+    {
+      "src": "function_definition [1417,1507]",
+      "dest": "function_definition [1552,1642]"
+    },
+    {
+      "src": "variable_declaration [3911,3943]",
+      "dest": "variable_declaration [4382,4414]"
+    },
+    {
+      "src": "): ) [2210,2211]",
+      "dest": "): ) [2345,2346]"
+    },
+    {
+      "src": "identifier: gub [4094,4097]",
+      "dest": "identifier: gub [4565,4568]"
+    },
+    {
+      "src": ".: . [4129,4130]",
+      "dest": ".: . [4600,4601]"
+    },
+    {
+      "src": "storage: storage [1498,1505]",
+      "dest": "storage: storage [1633,1640]"
+    },
+    {
+      "src": "parameter [2947,2966]",
+      "dest": "parameter [3274,3293]"
+    },
+    {
+      "src": "import: import [662,668]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "): ) [4115,4116]",
+      "dest": "): ) [4586,4587]"
+    },
+    {
+      "src": "\": \" [2247,2248]",
+      "dest": "\": \" [2382,2383]"
+    },
+    {
+      "src": "return: return [2578,2584]",
+      "dest": "return: return [2842,2848]"
+    },
+    {
+      "src": "): ) [4161,4162]",
+      "dest": "): ) [4632,4633]"
+    },
+    {
+      "src": "call_argument [2229,2245]",
+      "dest": "call_argument [2364,2380]"
+    },
+    {
+      "src": "): ) [3964,3965]",
+      "dest": "): ) [4435,4436]"
+    },
+    {
+      "src": "call_argument [4262,4272]",
+      "dest": "call_argument [4733,4743]"
+    },
+    {
+      "src": "call_argument [4583,4601]",
+      "dest": "call_argument [5054,5072]"
+    },
+    {
+      "src": "type_name [2947,2954]",
+      "dest": "type_name [3274,3281]"
+    },
+    {
+      "src": "(: ( [3982,3983]",
+      "dest": "(: ( [4453,4454]"
+    },
+    {
+      "src": "identifier: gub [4126,4129]",
+      "dest": "identifier: gub [4597,4600]"
+    },
+    {
+      "src": "function: function [1417,1425]",
+      "dest": "function: function [1552,1560]"
+    },
+    {
+      "src": "identifier: require [4424,4431]",
+      "dest": "identifier: require [4895,4902]"
+    },
+    {
+      "src": "identifier: gub [4528,4531]",
+      "dest": "identifier: gub [4999,5002]"
+    },
+    {
+      "src": "identifier: sender [3987,3993]",
+      "dest": "identifier: sender [4458,4464]"
+    },
+    {
+      "src": "identifier: gub [2186,2189]",
+      "dest": "identifier: gub [2321,2324]"
+    },
+    {
+      "src": "(: ( [3808,3809]",
+      "dest": "(: ( [4279,4280]"
+    },
+    {
+      "src": "primitive_type [1233,1240]",
+      "dest": "primitive_type [1368,1375]"
+    },
+    {
+      "src": "visibility [2968,2976]",
+      "dest": "visibility [3295,3303]"
+    },
+    {
+      "src": "call_argument [3201,3212]",
+      "dest": "call_argument [3672,3683]"
+    },
+    {
+      "src": "): ) [4488,4489]",
+      "dest": "): ) [4959,4960]"
+    },
+    {
+      "src": "call_expression [2221,2269]",
+      "dest": "call_expression [2356,2404]"
+    },
+    {
+      "src": "=: = [2851,2852]",
+      "dest": "=: = [3164,3165]"
+    },
+    {
+      "src": "{: { [1200,1201]",
+      "dest": "{: { [1335,1336]"
+    },
+    {
+      "src": ".: . [4435,4436]",
+      "dest": ".: . [4906,4907]"
+    },
+    {
+      "src": "(: ( [2228,2229]",
+      "dest": "(: ( [2363,2364]"
+    },
+    {
+      "src": "(: ( [1349,1350]",
+      "dest": "(: ( [1484,1485]"
+    },
+    {
+      "src": "(: ( [4093,4094]",
+      "dest": "(: ( [4564,4565]"
+    },
+    {
+      "src": "event_paramater [1350,1373]",
+      "dest": "event_paramater [1485,1508]"
+    },
+    {
+      "src": "true: true [3765,3769]",
+      "dest": "true: true [4236,4240]"
+    },
+    {
+      "src": "{: { [3820,3821]",
+      "dest": "{: { [4291,4292]"
+    },
+    {
+      "src": "{: { [2504,2505]",
+      "dest": "{: { [2768,2769]"
+    },
+    {
+      "src": "function_definition [2423,2628]",
+      "dest": "function_definition [2695,2884]"
+    },
+    {
+      "src": "function: function [2917,2925]",
+      "dest": "function: function [3244,3252]"
+    },
+    {
+      "src": "member_expression [4094,4115]",
+      "dest": "member_expression [4565,4586]"
+    },
+    {
+      "src": "(: ( [3606,3607]",
+      "dest": "(: ( [4077,4078]"
+    },
+    {
+      "src": "=: = [2295,2296]",
+      "dest": "=: = [2430,2431]"
+    },
+    {
+      "src": "storage: storage [3023,3030]",
+      "dest": "storage: storage [3350,3357]"
+    },
+    {
+      "src": "call_argument [3634,3652]",
+      "dest": "call_argument [4105,4123]"
+    },
+    {
+      "src": "expression_statement [3727,3770]",
+      "dest": "expression_statement [4198,4241]"
+    },
+    {
+      "src": "identifier: LogRemovedGovernor [1331,1349]",
+      "dest": "identifier: LogRemovedGovernor [1466,1484]"
+    },
+    {
+      "src": "internal: internal [2138,2146]",
+      "dest": "internal: internal [2273,2281]"
+    },
+    {
+      "src": "call_argument [3074,3099]",
+      "dest": "call_argument [3462,3487]"
+    },
+    {
+      "src": "bool: bool [2498,2502]",
+      "dest": "bool: bool [2762,2766]"
+    },
+    {
+      "src": "call_expression [4082,4116]",
+      "dest": "call_expression [4553,4587]"
+    },
+    {
+      "src": "true [3765,3769]",
+      "dest": "true [4236,4240]"
+    },
+    {
+      "src": "binary_expression [3983,4018]",
+      "dest": "binary_expression [4454,4489]"
+    },
+    {
+      "src": "variable_declaration_statement [2157,2212]",
+      "dest": "variable_declaration_statement [2292,2347]"
+    },
+    {
+      "src": "identifier: candidateGovernor [4001,4018]",
+      "dest": "identifier: candidateGovernor [4472,4489]"
+    },
+    {
+      "src": "type_name [3663,3683]",
+      "dest": "type_name [4134,4154]"
+    },
+    {
+      "src": "): ) [4045,4046]",
+      "dest": "): ) [4516,4517]"
+    },
+    {
+      "src": "identifier: candidateGovernor [2833,2850]",
+      "dest": "identifier: candidateGovernor [3146,3163]"
+    },
+    {
+      "src": "type_cast_expression [4150,4162]",
+      "dest": "type_cast_expression [4621,4633]"
+    },
+    {
+      "src": "(: ( [4261,4262]",
+      "dest": "(: ( [4732,4733]"
+    },
+    {
+      "src": "address: address [1294,1301]",
+      "dest": "address: address [1429,1436]"
+    },
+    {
+      "src": "storage: storage [4520,4527]",
+      "dest": "storage: storage [4991,4998]"
+    },
+    {
+      "src": "]: ] [2620,2621]",
+      "dest": "]: ] [2876,2877]"
+    },
+    {
+      "src": "visibility [2138,2146]",
+      "dest": "visibility [2273,2281]"
+    },
+    {
+      "src": "primitive_type [1350,1357]",
+      "dest": "primitive_type [1485,1492]"
+    },
+    {
+      "src": "identifier: addGovernor [4082,4093]",
+      "dest": "identifier: addGovernor [4553,4564]"
+    },
+    {
+      "src": "): ) [1444,1445]",
+      "dest": "): ) [1579,1580]"
+    },
+    {
+      "src": "emit_statement [4234,4274]",
+      "dest": "emit_statement [4705,4745]"
+    },
+    {
+      "src": "identifier: msg [4432,4435]",
+      "dest": "identifier: msg [4903,4906]"
+    },
+    {
+      "src": "\": \" [3101,3102]",
+      "dest": "\": \" [3489,3490]"
+    },
+    {
+      "src": "inheritance_specifier [1188,1199]",
+      "dest": "inheritance_specifier [1323,1334]"
+    },
+    {
+      "src": "primitive_type [2947,2954]",
+      "dest": "primitive_type [3274,3281]"
+    },
+    {
+      "src": "variable_declaration [3002,3034]",
+      "dest": "variable_declaration [3329,3361]"
+    },
+    {
+      "src": "\": \" [3118,3119]",
+      "dest": "\": \" [3506,3507]"
+    },
+    {
+      "src": "}: } [2627,2628]",
+      "dest": "}: } [2883,2884]"
+    },
+    {
+      "src": "type_name [1294,1301]",
+      "dest": "type_name [1429,1436]"
+    },
+    {
+      "src": "identifier: _isGovernor [3608,3619]",
+      "dest": "identifier: _isGovernor [4079,4090]"
+    },
+    {
+      "src": "function_definition [2112,2417]",
+      "dest": "function_definition [2247,2689]"
+    },
+    {
+      "src": "function: function [2702,2710]",
+      "dest": "function: function [2958,2966]"
+    },
+    {
+      "src": "member_expression [4126,4147]",
+      "dest": "member_expression [4597,4618]"
+    },
+    {
+      "src": "override_specifier [2480,2488]",
+      "dest": "override_specifier [2744,2752]"
+    },
+    {
+      "src": "type_name [2157,2177]",
+      "dest": "type_name [2292,2312]"
+    },
+    {
+      "src": "}: } [3219,3220]",
+      "dest": "}: } [3690,3691]"
+    },
+    {
+      "src": "comment: /*   Implements Generic Governance, applicable for both proxy and main contract, and possibly others.   Notes:    The use of the same function names by both the Proxy and a delegated implementation    is not possible since calling the implementation functions is done via the default function    of the Proxy. For this reason, for example, the implementation of MainContract (MainGovernance)    exposes mainIsGovernor, which calls the internal _isGovernor method. */ [689,1155]",
+      "dest": "comment: /*   Implements Generic Governance, applicable for both proxy and main contract, and possibly others.   Notes:    The use of the same function names by both the Proxy and a delegated implementation    is not possible since calling the implementation functions is done via the default function    of the Proxy. For this reason, for example, the implementation of MainContract (MainGovernance)    exposes mainIsGovernor, which calls the internal _isGovernor method. */ [689,1155]"
+    },
+    {
+      "src": "internal: internal [3811,3819]",
+      "dest": "internal: internal [4282,4290]"
+    },
+    {
+      "src": "function_definition [3782,4280]",
+      "dest": "function_definition [4253,4751]"
+    },
+    {
+      "src": "): ) [4388,4389]",
+      "dest": "): ) [4859,4860]"
+    },
+    {
+      "src": "event_definition [1380,1411]",
+      "dest": "event_definition [1515,1546]"
+    },
+    {
+      "src": "true [2297,2301]",
+      "dest": "true [2432,2436]"
+    },
+    {
+      "src": "[: [ [4651,4652]",
+      "dest": "[: [ [5122,5123]"
+    },
+    {
+      "src": "variable_declaration [4499,4531]",
+      "dest": "variable_declaration [4970,5002]"
+    },
+    {
+      "src": "parameter [3560,3579]",
+      "dest": "parameter [4031,4050]"
+    },
+    {
+      "src": "return_type_definition [2489,2503]",
+      "dest": "return_type_definition [2753,2767]"
+    },
+    {
+      "src": "function_definition [2702,2911]",
+      "dest": "function_definition [2958,3238]"
+    },
+    {
+      "src": "(: ( [3559,3560]",
+      "dest": "(: ( [4030,4031]"
+    },
+    {
+      "src": "view: view [1455,1459]",
+      "dest": "view: view [1590,1594]"
+    },
+    {
+      "src": "=: = [4532,4533]",
+      "dest": "=: = [5003,5004]"
+    },
+    {
+      "src": "user_defined_type [2765,2785]",
+      "dest": "user_defined_type [3021,3041]"
+    },
+    {
+      "src": "call_expression [4563,4619]",
+      "dest": "call_expression [5034,5090]"
+    },
+    {
+      "src": "identifier: LogRemovedGovernor [4694,4712]",
+      "dest": "identifier: LogRemovedGovernor [5165,5183]"
+    },
+    {
+      "src": "identifier: initialized [2234,2245]",
+      "dest": "identifier: initialized [2369,2380]"
+    },
+    {
+      "src": "user_defined_type [3002,3022]",
+      "dest": "user_defined_type [3329,3349]"
+    },
+    {
+      "src": "expression_statement [3975,4047]",
+      "dest": "expression_statement [4446,4518]"
+    },
+    {
+      "src": "]: ] [4670,4671]",
+      "dest": "]: ] [5141,5142]"
+    },
+    {
+      "src": "identifier: gub [2230,2233]",
+      "dest": "identifier: gub [2365,2368]"
+    },
+    {
+      "src": "variable_declaration_statement [3911,3966]",
+      "dest": "variable_declaration_statement [4382,4437]"
+    },
+    {
+      "src": "call_expression [2549,2568]",
+      "dest": "call_expression [2813,2832]"
+    },
+    {
+      "src": "type_name [2765,2785]",
+      "dest": "type_name [3021,3041]"
+    },
+    {
+      "src": "call_expression [3066,3120]",
+      "dest": "call_expression [3454,3508]"
+    },
+    {
+      "src": "[: [ [2607,2608]",
+      "dest": "[: [ [2871,2872]"
+    },
+    {
+      "src": "=: = [2798,2799]",
+      "dest": "=: = [3054,3055]"
+    },
+    {
+      "src": "=: = [3696,3697]",
+      "dest": "=: = [4167,4168]"
+    },
+    {
+      "src": "call_expression [3946,3965]",
+      "dest": "call_expression [4417,4436]"
+    },
+    {
+      "src": "string [669,686]",
+      "dest": "string [669,686]"
+    },
+    {
+      "src": "(: ( [1232,1233]",
+      "dest": "(: ( [1367,1368]"
+    },
+    {
+      "src": "\": \" [4020,4021]",
+      "dest": "\": \" [4491,4492]"
+    },
+    {
+      "src": "!: ! [2229,2230]",
+      "dest": "!: ! [2364,2365]"
+    },
+    {
+      "src": "\": \" [4466,4467]",
+      "dest": "\": \" [4937,4938]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "\": \" [2267,2268]",
+      "dest": "\": \" [2402,2403]"
+    },
+    {
+      "src": "): ) [3212,3213]",
+      "dest": "): ) [3683,3684]"
+    },
+    {
+      "src": "expression_statement [4629,4680]",
+      "dest": "expression_statement [5100,5151]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "call_argument [4094,4115]",
+      "dest": "call_argument [4565,4586]"
+    },
+    {
+      "src": "): ) [3579,3580]",
+      "dest": "): ) [4050,4051]"
+    },
+    {
+      "src": "string [3634,3652]",
+      "dest": "string [4105,4123]"
+    },
+    {
+      "src": "event_definition [1325,1375]",
+      "dest": "event_definition [1460,1510]"
+    },
+    {
+      "src": "boolean_literal [4674,4679]",
+      "dest": "boolean_literal [5145,5150]"
+    },
+    {
+      "src": "primitive_type [4150,4157]",
+      "dest": "primitive_type [4621,4628]"
+    },
+    {
+      "src": "{: { [4414,4415]",
+      "dest": "{: { [4885,4886]"
+    },
+    {
+      "src": "identifier: gub [3940,3943]",
+      "dest": "identifier: gub [4411,4414]"
+    },
+    {
+      "src": "comment: /*       Remove a governor from office.     */ [4286,4332]",
+      "dest": "comment: /*       Remove a governor from office.     */ [4757,4803]"
+    },
+    {
+      "src": "identifier: removedGovernor [1358,1373]",
+      "dest": "identifier: removedGovernor [1493,1508]"
+    },
+    {
+      "src": "assignment_expression [4126,4162]",
+      "dest": "assignment_expression [4597,4633]"
+    },
+    {
+      "src": "): ) [1373,1374]",
+      "dest": "): ) [1508,1509]"
+    },
+    {
+      "src": "emit_statement [2875,2905]",
+      "dest": "emit_statement [3192,3222]"
+    },
+    {
+      "src": "(: ( [3073,3074]",
+      "dest": "(: ( [3461,3462]"
+    },
+    {
+      "src": "(: ( [2946,2947]",
+      "dest": "(: ( [3273,3274]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [3002,3022]",
+      "dest": "identifier: GovernanceInfoStruct [3329,3349]"
+    },
+    {
+      "src": "variable_declaration [2765,2797]",
+      "dest": "variable_declaration [3021,3053]"
+    },
+    {
+      "src": "(: ( [2566,2567]",
+      "dest": "(: ( [2830,2831]"
+    },
+    {
+      "src": ".: . [2588,2589]",
+      "dest": ".: . [2852,2853]"
+    },
+    {
+      "src": "modifier_invocation [4399,4413]",
+      "dest": "modifier_invocation [4870,4884]"
+    },
+    {
+      "src": "): ) [4618,4619]",
+      "dest": "): ) [5089,5090]"
+    },
+    {
+      "src": "type_name [1477,1497]",
+      "dest": "type_name [1612,1632]"
+    },
+    {
+      "src": "=: = [4148,4149]",
+      "dest": "=: = [4619,4620]"
+    },
+    {
+      "src": "assignment_expression [2829,2865]",
+      "dest": "assignment_expression [3142,3178]"
+    },
+    {
+      "src": "comment: /*       Current code intentionally prevents governance re-initialization.       This may be a problem in an upgrade situation, in a case that the upgrade-to implementation       performs an initialization (for real) and within that calls initGovernance().        Possible workarounds:       1. Clearing the governance info altogether by changing the MAIN_GOVERNANCE_INFO_TAG.          This will remove existing main governance information.       2. Modify the require part in this function, so that it will exit quietly          when trying to re-initialize (uncomment the lines below).     */ [1513,2107]",
+      "dest": "comment: /*       Current code intentionally prevents governance re-initialization.       This may be a problem in an upgrade situation, in a case that the upgrade-to implementation       performs an initialization (for real) and within that calls initGovernance().        Possible workarounds:       1. Clearing the governance info altogether by changing the MAIN_GOVERNANCE_INFO_TAG.          This will remove existing main governance information.       2. Modify the require part in this function, so that it will exit quietly          when trying to re-initialize (uncomment the lines below).     */ [1648,2242]"
+    },
+    {
+      "src": "contract_body [1200,4741]",
+      "dest": "contract_body [1335,5212]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [3663,3683]",
+      "dest": "identifier: GovernanceInfoStruct [4134,4154]"
+    },
+    {
+      "src": "comment: /*       Cancels the nomination of a governor candidate.     */ [2634,2697]",
+      "dest": "comment: /*       Cancels the nomination of a governor candidate.     */ [2890,2953]"
+    },
+    {
+      "src": "identifier: _isGovernor [3075,3086]",
+      "dest": "identifier: _isGovernor [3463,3474]"
+    },
+    {
+      "src": "call_argument [4432,4464]",
+      "dest": "call_argument [4903,4935]"
+    },
+    {
+      "src": "): ) [2409,2410]",
+      "dest": "): ) [2544,2545]"
+    },
+    {
+      "src": "identifier: gub [3997,4000]",
+      "dest": "identifier: gub [4468,4471]"
+    },
+    {
+      "src": "call_expression [3075,3099]",
+      "dest": "call_expression [3463,3487]"
+    },
+    {
+      "src": "(: ( [2728,2729]",
+      "dest": "(: ( [2984,2985]"
+    },
+    {
+      "src": "function_body [3589,3776]",
+      "dest": "function_body [4060,4247]"
+    },
+    {
+      "src": "identifier: LogNewGovernorAccepted [4239,4261]",
+      "dest": "identifier: LogNewGovernorAccepted [4710,4732]"
+    },
+    {
+      "src": "call_expression [3608,3632]",
+      "dest": "call_expression [4079,4103]"
+    },
+    {
+      "src": "comment: // Send a notification about the change of governor. [4173,4225]",
+      "dest": "comment: // Send a notification about the change of governor. [4644,4696]"
+    },
+    {
+      "src": "parameter [1477,1505]",
+      "dest": "parameter [1612,1640]"
+    },
+    {
+      "src": "member_expression [4262,4272]",
+      "dest": "member_expression [4733,4743]"
+    },
+    {
+      "src": "identifier: getGovernanceInfo [1426,1443]",
+      "dest": "identifier: getGovernanceInfo [1561,1578]"
+    },
+    {
+      "src": "): ) [2729,2730]",
+      "dest": "): ) [2985,2986]"
+    },
+    {
+      "src": "state_mutability [1455,1459]",
+      "dest": "state_mutability [1590,1594]"
+    },
+    {
+      "src": "\": \" [4604,4605]",
+      "dest": "\": \" [5075,5076]"
+    },
+    {
+      "src": "call_expression [4534,4553]",
+      "dest": "call_expression [5005,5024]"
+    },
+    {
+      "src": "(: ( [1408,1409]",
+      "dest": "(: ( [1543,1544]"
+    },
+    {
+      "src": ".: . [4632,4633]",
+      "dest": ".: . [5103,5104]"
+    },
+    {
+      "src": "identifier: getGovernanceInfo [3698,3715]",
+      "dest": "identifier: getGovernanceInfo [4169,4186]"
+    },
+    {
+      "src": "string_literal [4604,4618]",
+      "dest": "string_literal [5075,5089]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "identifier: MGovernance [1188,1199]",
+      "dest": "identifier: MGovernance [1323,1334]"
+    },
+    {
+      "src": "contract: contract [1165,1173]",
+      "dest": "contract: contract [1300,1308]"
+    },
+    {
+      "src": "call_argument [3087,3098]",
+      "dest": "call_argument [3475,3486]"
+    },
+    {
+      "src": "identifier: LogNominationCancelled [2880,2902]",
+      "dest": "identifier: LogNominationCancelled [3197,3219]"
+    },
+    {
+      "src": "call_expression [3698,3717]",
+      "dest": "call_expression [4169,4188]"
+    },
+    {
+      "src": "call_argument [4466,4488]",
+      "dest": "call_argument [4937,4959]"
+    },
+    {
+      "src": ".: . [3986,3987]",
+      "dest": ".: . [4457,4458]"
+    },
+    {
+      "src": "): ) [3055,3056]",
+      "dest": "): ) [3382,3383]"
+    },
+    {
+      "src": "call_expression [4424,4489]",
+      "dest": "call_expression [4895,4960]"
+    },
+    {
+      "src": "identifier: onlyGovernance [4399,4413]",
+      "dest": "identifier: onlyGovernance [4870,4884]"
+    },
+    {
+      "src": ".: . [4097,4098]",
+      "dest": ".: . [4568,4569]"
+    },
+    {
+      "src": "comment: /*       The addGovernor is called in two cases:       1. by _acceptGovernance when a new governor accepts its role.       2. by initGovernance to add the initial governor.       The difference is that the init path skips the nominate step       that would fail because of the onlyGovernance modifier.     */ [3226,3534]",
+      "dest": "comment: /*       The addGovernor is called in two cases:       1. by _acceptGovernance when a new governor accepts its role.       2. by initGovernance to add the initial governor.       The difference is that the init path skips the nominate step       that would fail because of the onlyGovernance modifier.     */ [3697,4005]"
+    },
+    {
+      "src": "identifier: newGovernor [3568,3579]",
+      "dest": "identifier: newGovernor [4039,4050]"
+    },
+    {
+      "src": "internal: internal [4390,4398]",
+      "dest": "internal: internal [4861,4869]"
+    },
+    {
+      "src": "variable_declaration [2514,2546]",
+      "dest": "variable_declaration [2778,2810]"
+    },
+    {
+      "src": "address: address [2853,2860]",
+      "dest": "address: address [3166,3173]"
+    },
+    {
+      "src": "=: = [3944,3945]",
+      "dest": "=: = [4415,4416]"
+    },
+    {
+      "src": "expression_statement [4424,4490]",
+      "dest": "expression_statement [4895,4961]"
+    },
+    {
+      "src": "member_expression [4629,4651]",
+      "dest": "member_expression [5100,5122]"
+    },
+    {
+      "src": "view: view [2475,2479]",
+      "dest": "view: view [2739,2743]"
+    },
+    {
+      "src": "(: ( [4712,4713]",
+      "dest": "(: ( [5183,5184]"
+    },
+    {
+      "src": "number_literal: 0x0 [4158,4161]",
+      "dest": "number_literal: 0x0 [4629,4632]"
+    },
+    {
+      "src": "comment: // The new governor was proposed as a candidate by the current governor. [3830,3902]",
+      "dest": "comment: // The new governor was proposed as a candidate by the current governor. [4301,4373]"
+    },
+    {
+      "src": "): ) [3098,3099]",
+      "dest": "): ) [3486,3487]"
+    },
+    {
+      "src": "identifier: require [2221,2228]",
+      "dest": "identifier: require [2356,2363]"
+    },
+    {
+      "src": "string [4020,4045]",
+      "dest": "string [4491,4516]"
+    },
+    {
+      "src": "identifier: getGovernanceInfo [4534,4551]",
+      "dest": "identifier: getGovernanceInfo [5005,5022]"
+    },
+    {
+      "src": "(: ( [3054,3055]",
+      "dest": "(: ( [3381,3382]"
+    },
+    {
+      "src": "}: } [2910,2911]",
+      "dest": "}: } [3237,3238]"
+    },
+    {
+      "src": "assignment_expression [4629,4679]",
+      "dest": "assignment_expression [5100,5150]"
+    },
+    {
+      "src": "emit_statement [4689,4733]",
+      "dest": "emit_statement [5160,5204]"
+    },
+    {
+      "src": "\": \" [685,686]",
+      "dest": "\": \" [685,686]"
+    },
+    {
+      "src": "identifier: gub [2543,2546]",
+      "dest": "identifier: gub [2807,2810]"
+    },
+    {
+      "src": "contract_declaration [1156,4741]",
+      "dest": "contract_declaration [1291,5212]"
+    },
+    {
+      "src": "type_name [1350,1357]",
+      "dest": "type_name [1485,1492]"
+    },
+    {
+      "src": "type_name [4362,4369]",
+      "dest": "type_name [4833,4840]"
+    },
+    {
+      "src": "false: false [4674,4679]",
+      "dest": "false: false [5145,5150]"
+    },
+    {
+      "src": "string [4604,4618]",
+      "dest": "string [5075,5089]"
+    },
+    {
+      "src": "unary_expression [2229,2245]",
+      "dest": "unary_expression [2364,2380]"
+    },
+    {
+      "src": "internal: internal [2731,2739]",
+      "dest": "internal: internal [2987,2995]"
+    },
+    {
+      "src": "event: event [1265,1270]",
+      "dest": "event: event [1400,1405]"
+    },
+    {
+      "src": ",: , [3099,3100]",
+      "dest": ",: , [3487,3488]"
+    },
+    {
+      "src": "unary_expression [3607,3632]",
+      "dest": "unary_expression [4078,4103]"
+    },
+    {
+      "src": "identifier: gub [2585,2588]",
+      "dest": "identifier: gub [2849,2852]"
+    },
+    {
+      "src": "expression_statement [4563,4620]",
+      "dest": "expression_statement [5034,5091]"
+    },
+    {
+      "src": "identifier: addGovernor [2387,2398]",
+      "dest": "identifier: addGovernor [2522,2533]"
+    },
+    {
+      "src": ".: . [2282,2283]",
+      "dest": ".: . [2417,2418]"
+    },
+    {
+      "src": "identifier: onlyGovernance [2740,2754]",
+      "dest": "identifier: onlyGovernance [2996,3010]"
+    },
+    {
+      "src": "\": \" [4487,4488]",
+      "dest": "\": \" [4958,4959]"
+    },
+    {
+      "src": "identifier: nominatedGovernor [1241,1258]",
+      "dest": "identifier: nominatedGovernor [1376,1393]"
+    },
+    {
+      "src": "member_expression [2585,2607]",
+      "dest": "member_expression [2849,2871]"
+    },
+    {
+      "src": "{: { [2992,2993]",
+      "dest": "{: { [3319,3320]"
+    },
+    {
+      "src": "(: ( [3086,3087]",
+      "dest": "(: ( [3474,3475]"
+    },
+    {
+      "src": "identifier: getGovernanceInfo [3946,3963]",
+      "dest": "identifier: getGovernanceInfo [4417,4434]"
+    },
+    {
+      "src": "identifier: governorForRemoval [4370,4388]",
+      "dest": "identifier: governorForRemoval [4841,4859]"
+    },
+    {
+      "src": "): ) [2136,2137]",
+      "dest": "): ) [2271,2272]"
+    },
+    {
+      "src": "visibility [2731,2739]",
+      "dest": "visibility [2987,2995]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [2514,2534]",
+      "dest": "identifier: GovernanceInfoStruct [2778,2798]"
+    },
+    {
+      "src": "virtual: virtual [1460,1467]",
+      "dest": "virtual: virtual [1595,1602]"
+    },
+    {
+      "src": "}: } [3775,3776]",
+      "dest": "}: } [4246,4247]"
+    },
+    {
+      "src": "string [3101,3119]",
+      "dest": "string [3489,3507]"
+    },
+    {
+      "src": "storage: storage [3932,3939]",
+      "dest": "storage: storage [4403,4410]"
+    },
+    {
+      "src": "): ) [3119,3120]",
+      "dest": "): ) [3507,3508]"
+    },
+    {
+      "src": "override: override [2480,2488]",
+      "dest": "override: override [2744,2752]"
+    },
+    {
+      "src": "identifier: governorForRemoval [4713,4731]",
+      "dest": "identifier: governorForRemoval [5184,5202]"
+    },
+    {
+      "src": "user_defined_type [2514,2534]",
+      "dest": "user_defined_type [2778,2798]"
+    },
+    {
+      "src": "type_name [3002,3022]",
+      "dest": "type_name [3329,3349]"
+    },
+    {
+      "src": "function_body [2992,3220]",
+      "dest": "function_body [3319,3691]"
+    },
+    {
+      "src": "identifier: LogNominationCancelled [1386,1408]",
+      "dest": "identifier: LogNominationCancelled [1521,1543]"
+    },
+    {
+      "src": "identifier: gub [2794,2797]",
+      "dest": "identifier: gub [3050,3053]"
+    },
+    {
+      "src": "internal: internal [2466,2474]",
+      "dest": "internal: internal [2730,2738]"
+    },
+    {
+      "src": "): ) [2502,2503]",
+      "dest": "): ) [2766,2767]"
+    },
+    {
+      "src": "!=: != [4443,4445]",
+      "dest": "!=: != [4914,4916]"
+    },
+    {
+      "src": "expression_statement [3130,3166]",
+      "dest": "expression_statement [3601,3637]"
+    },
+    {
+      "src": "identifier: testGovernor [2608,2620]",
+      "dest": "identifier: user [2872,2876]"
+    },
+    {
+      "src": "identifier: newGovernor [3087,3098]",
+      "dest": "identifier: newGovernor [3475,3486]"
+    },
+    {
+      "src": "call_argument [3101,3119]",
+      "dest": "call_argument [3489,3507]"
+    },
+    {
+      "src": "(: ( [1443,1444]",
+      "dest": "(: ( [1578,1579]"
+    },
+    {
+      "src": "member_expression [3727,3749]",
+      "dest": "member_expression [4198,4220]"
+    },
+    {
+      "src": "{: { [2147,2148]",
+      "dest": "{: { [2282,2283]"
+    },
+    {
+      "src": "(: ( [2135,2136]",
+      "dest": "(: ( [2270,2271]"
+    },
+    {
+      "src": "identifier: msg [2399,2402]",
+      "dest": "identifier: msg [2534,2537]"
+    },
+    {
+      "src": "modifier_invocation [2740,2754]",
+      "dest": "modifier_invocation [2996,3010]"
+    },
+    {
+      "src": "(: ( [3963,3964]",
+      "dest": "(: ( [4434,4435]"
+    },
+    {
+      "src": "call_expression [4571,4602]",
+      "dest": "call_expression [5042,5073]"
+    },
+    {
+      "src": "identifier: governorForRemoval [4583,4601]",
+      "dest": "identifier: governorForRemoval [5054,5072]"
+    },
+    {
+      "src": "(: ( [3200,3201]",
+      "dest": "(: ( [3671,3672]"
+    },
+    {
+      "src": "(: ( [4582,4583]",
+      "dest": "(: ( [5053,5054]"
+    },
+    {
+      "src": ".: . [2402,2403]",
+      "dest": ".: . [2537,2538]"
+    },
+    {
+      "src": "expression_statement [2829,2866]",
+      "dest": "expression_statement [3142,3179]"
+    },
+    {
+      "src": "call_argument [4020,4045]",
+      "dest": "call_argument [4491,4516]"
+    },
+    {
+      "src": "identifier: getGovernanceInfo [3037,3054]",
+      "dest": "identifier: getGovernanceInfo [3364,3381]"
+    },
+    {
+      "src": "visibility [2466,2474]",
+      "dest": "visibility [2730,2738]"
+    },
+    {
+      "src": "visibility [3581,3588]",
+      "dest": "visibility [4052,4059]"
+    },
+    {
+      "src": "expression_statement [3066,3121]",
+      "dest": "expression_statement [3454,3509]"
+    },
+    {
+      "src": "variable_declaration [2157,2189]",
+      "dest": "variable_declaration [2292,2324]"
+    },
+    {
+      "src": "true: true [2297,2301]",
+      "dest": "true: true [2432,2436]"
+    },
+    {
+      "src": "member_expression [4432,4442]",
+      "dest": "member_expression [4903,4913]"
+    },
+    {
+      "src": "member_expression [2230,2245]",
+      "dest": "member_expression [2365,2380]"
+    },
+    {
+      "src": "): ) [1505,1506]",
+      "dest": "): ) [1640,1641]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "(: ( [1293,1294]",
+      "dest": "(: ( [1428,1429]"
+    },
+    {
+      "src": "identifier: acceptedGovernor [1302,1318]",
+      "dest": "identifier: acceptedGovernor [1437,1453]"
+    },
+    {
+      "src": "number_literal: 0x0 [2861,2864]",
+      "dest": "number_literal: 0x0 [3174,3177]"
+    },
+    {
+      "src": "identifier: gub [3727,3730]",
+      "dest": "identifier: gub [4198,4201]"
+    },
+    {
+      "src": "identifier: msg [3983,3986]",
+      "dest": "identifier: msg [4454,4457]"
+    },
+    {
+      "src": "identifier: onlyGovernance [2977,2991]",
+      "dest": "identifier: onlyGovernance [3304,3318]"
+    },
+    {
+      "src": "visibility [3811,3819]",
+      "dest": "visibility [4282,4290]"
+    },
+    {
+      "src": "member_expression [3130,3151]",
+      "dest": "member_expression [3601,3622]"
+    },
+    {
+      "src": "type_name [2514,2534]",
+      "dest": "type_name [2778,2798]"
+    },
+    {
+      "src": "\": \" [4617,4618]",
+      "dest": "\": \" [5088,5089]"
+    },
+    {
+      "src": "{: { [2755,2756]",
+      "dest": "{: { [3011,3012]"
+    },
+    {
+      "src": "string_literal [3634,3652]",
+      "dest": "string_literal [4105,4123]"
+    },
+    {
+      "src": "assignment_expression [2279,2301]",
+      "dest": "assignment_expression [2414,2436]"
+    },
+    {
+      "src": "event: event [1206,1211]",
+      "dest": "event: event [1341,1346]"
+    },
+    {
+      "src": "identifier: gub [2829,2832]",
+      "dest": "identifier: gub [3142,3145]"
+    },
+    {
+      "src": "identifier: sender [4436,4442]",
+      "dest": "identifier: sender [4907,4913]"
+    },
+    {
+      "src": "emit: emit [3175,3179]",
+      "dest": "emit: emit [3646,3650]"
+    },
+    {
+      "src": "comment: // Update state. [4057,4073]",
+      "dest": "comment: // Update state. [4528,4544]"
+    },
+    {
+      "src": "call_argument [3607,3632]",
+      "dest": "call_argument [4078,4103]"
+    },
+    {
+      "src": "call_expression [3599,3653]",
+      "dest": "call_expression [4070,4124]"
+    },
+    {
+      "src": "primitive_type [2853,2860]",
+      "dest": "primitive_type [3166,3173]"
+    },
+    {
+      "src": "): ) [4272,4273]",
+      "dest": "): ) [4743,4744]"
+    },
+    {
+      "src": "!: ! [3074,3075]",
+      "dest": "!: ! [3462,3463]"
+    },
+    {
+      "src": "identifier: Governance [1174,1184]",
+      "dest": "identifier: Governance [1309,1319]"
+    },
+    {
+      "src": "\": \" [3634,3635]",
+      "dest": "\": \" [4105,4106]"
+    },
+    {
+      "src": "identifier: require [3599,3606]",
+      "dest": "identifier: require [4070,4077]"
+    },
+    {
+      "src": "\": \" [4044,4045]",
+      "dest": "\": \" [4515,4516]"
+    },
+    {
+      "src": "=: = [3763,3764]",
+      "dest": "=: = [4234,4235]"
+    },
+    {
+      "src": "call_argument [4158,4161]",
+      "dest": "call_argument [4629,4632]"
+    },
+    {
+      "src": "unary_expression [3074,3099]",
+      "dest": "unary_expression [3462,3487]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "(: ( [4361,4362]",
+      "dest": "(: ( [4832,4833]"
+    },
+    {
+      "src": "assignment_expression [3727,3769]",
+      "dest": "assignment_expression [4198,4240]"
+    },
+    {
+      "src": "abstract: abstract [1156,1164]",
+      "dest": "abstract: abstract [1291,1299]"
+    },
+    {
+      "src": "storage: storage [2535,2542]",
+      "dest": "storage: storage [2799,2806]"
+    },
+    {
+      "src": "function_body [2147,2417]",
+      "dest": "function_body [2282,2689]"
+    },
+    {
+      "src": "primitive_type [1294,1301]",
+      "dest": "primitive_type [1429,1436]"
+    },
+    {
+      "src": "member_expression [3983,3993]",
+      "dest": "member_expression [4454,4464]"
+    },
+    {
+      "src": "string_literal [4466,4488]",
+      "dest": "string_literal [4937,4959]"
+    },
+    {
+      "src": "=: = [2190,2191]",
+      "dest": "=: = [2325,2326]"
+    },
+    {
+      "src": "(: ( [4431,4432]",
+      "dest": "(: ( [4902,4903]"
+    },
+    {
+      "src": "identifier: gub [4629,4632]",
+      "dest": "identifier: gub [5100,5103]"
+    },
+    {
+      "src": "is: is [1185,1187]",
+      "dest": "is: is [1320,1322]"
+    },
+    {
+      "src": "call_argument [4713,4731]",
+      "dest": "call_argument [5184,5202]"
+    },
+    {
+      "src": "binary_expression [4432,4464]",
+      "dest": "binary_expression [4903,4935]"
+    },
+    {
+      "src": "assignment_expression [3130,3165]",
+      "dest": "assignment_expression [3601,3636]"
+    },
+    {
+      "src": "identifier: LogNominatedGovernor [1212,1232]",
+      "dest": "identifier: LogNominatedGovernor [1347,1367]"
+    },
+    {
+      "src": "modifier_invocation [2977,2991]",
+      "dest": "modifier_invocation [3304,3318]"
+    },
+    {
+      "src": "storage: storage [2786,2793]",
+      "dest": "storage: storage [3042,3049]"
+    },
+    {
+      "src": "call_argument [4604,4618]",
+      "dest": "call_argument [5075,5089]"
+    },
+    {
+      "src": "event_paramater [1294,1318]",
+      "dest": "event_paramater [1429,1453]"
+    },
+    {
+      "src": "identifier: LogNewGovernorAccepted [1271,1293]",
+      "dest": "identifier: LogNewGovernorAccepted [1406,1428]"
+    },
+    {
+      "src": "identifier: require [3066,3073]",
+      "dest": "identifier: require [3454,3461]"
+    },
+    {
+      "src": "): ) [1258,1259]",
+      "dest": "): ) [1393,1394]"
+    },
+    {
+      "src": "): ) [2903,2904]",
+      "dest": "): ) [3220,3221]"
+    },
+    {
+      "src": "(: ( [3619,3620]",
+      "dest": "(: ( [4090,4091]"
+    },
+    {
+      "src": "identifier: require [4563,4570]",
+      "dest": "identifier: require [5034,5041]"
+    },
+    {
+      "src": "member_expression [2829,2850]",
+      "dest": "member_expression [3142,3163]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "event_definition [1265,1320]",
+      "dest": "event_definition [1400,1455]"
+    },
+    {
+      "src": "(: ( [2497,2498]",
+      "dest": "(: ( [2761,2762]"
+    },
+    {
+      "src": "identifier: _acceptGovernance [3791,3808]",
+      "dest": "identifier: _acceptGovernance [4262,4279]"
+    },
+    {
+      "src": "string_literal [2247,2268]",
+      "dest": "string_literal [2382,2403]"
+    },
+    {
+      "src": "!: ! [3607,3608]",
+      "dest": "!: ! [4078,4079]"
+    },
+    {
+      "src": "identifier: LogNominatedGovernor [3180,3200]",
+      "dest": "identifier: LogNominatedGovernor [3651,3671]"
+    },
+    {
+      "src": "(: ( [2398,2399]",
+      "dest": "(: ( [2533,2534]"
+    },
+    {
+      "src": "event_definition [1206,1260]",
+      "dest": "event_definition [1341,1395]"
+    },
+    {
+      "src": "\": \" [669,670]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "[: [ [3749,3750]",
+      "dest": "[: [ [4220,4221]"
+    },
+    {
+      "src": "primitive_type [3560,3567]",
+      "dest": "primitive_type [4031,4038]"
+    },
+    {
+      "src": "type_name [4499,4519]",
+      "dest": "type_name [4970,4990]"
+    },
+    {
+      "src": "user_defined_type [3663,3683]",
+      "dest": "user_defined_type [4134,4154]"
+    },
+    {
+      "src": "type_name [3560,3567]",
+      "dest": "type_name [4031,4038]"
+    },
+    {
+      "src": "member_expression [3997,4018]",
+      "dest": "member_expression [4468,4489]"
+    },
+    {
+      "src": ".: . [3730,3731]",
+      "dest": ".: . [4201,4202]"
+    },
+    {
+      "src": "user_defined_type [2157,2177]",
+      "dest": "user_defined_type [2292,2312]"
+    },
+    {
+      "src": "type_cast_expression [2853,2865]",
+      "dest": "type_cast_expression [3166,3178]"
+    },
+    {
+      "src": "identifier: sender [2403,2409]",
+      "dest": "identifier: sender [2538,2544]"
+    },
+    {
+      "src": "address: address [1233,1240]",
+      "dest": "address: address [1368,1375]"
+    },
+    {
+      "src": ",: , [4464,4465]",
+      "dest": ",: , [4935,4936]"
+    },
+    {
+      "src": "type_name [1233,1240]",
+      "dest": "type_name [1368,1375]"
+    },
+    {
+      "src": "private: private [3581,3588]",
+      "dest": "private: private [4052,4059]"
+    },
+    {
+      "src": "boolean_literal [2297,2301]",
+      "dest": "boolean_literal [2432,2436]"
+    },
+    {
+      "src": "function: function [3539,3547]",
+      "dest": "function: function [4010,4018]"
+    },
+    {
+      "src": "(: ( [2817,2818]",
+      "dest": "(: ( [3073,3074]"
+    },
+    {
+      "src": "identifier: initialized [2283,2294]",
+      "dest": "identifier: initialized [2418,2429]"
+    },
+    {
+      "src": "function_body [2755,2911]",
+      "dest": "function_body [3011,3238]"
+    },
+    {
+      "src": "identifier: sender [4266,4272]",
+      "dest": "identifier: sender [4737,4743]"
+    },
+    {
+      "src": ",: , [2245,2246]",
+      "dest": ",: , [2380,2381]"
+    },
+    {
+      "src": "=: = [3035,3036]",
+      "dest": "=: = [3362,3363]"
+    },
+    {
+      "src": "(: ( [2209,2210]",
+      "dest": "(: ( [2344,2345]"
+    },
+    {
+      "src": "user_defined_type [3911,3931]",
+      "dest": "user_defined_type [4382,4402]"
+    },
+    {
+      "src": "boolean_literal [3765,3769]",
+      "dest": "boolean_literal [4236,4240]"
+    },
+    {
+      "src": "): ) [2567,2568]",
+      "dest": "): ) [2831,2832]"
+    },
+    {
+      "src": "function_definition [2917,3220]",
+      "dest": "function_definition [3244,3691]"
+    },
+    {
+      "src": "identifier: candidateGovernor [4098,4115]",
+      "dest": "identifier: candidateGovernor [4569,4586]"
+    },
+    {
+      "src": "): ) [4552,4553]",
+      "dest": "): ) [5023,5024]"
+    },
+    {
+      "src": "): ) [2464,2465]",
+      "dest": "): ) [2728,2729]"
+    },
+    {
+      "src": "(: ( [4157,4158]",
+      "dest": "(: ( [4628,4629]"
+    },
+    {
+      "src": "function: function [2423,2431]",
+      "dest": "function: function [2695,2703]"
+    },
+    {
+      "src": "): ) [3809,3810]",
+      "dest": "): ) [4280,4281]"
+    },
+    {
+      "src": ".: . [2832,2833]",
+      "dest": ".: . [3145,3146]"
+    },
+    {
+      "src": "call_argument [2247,2268]",
+      "dest": "call_argument [2382,2403]"
+    },
+    {
+      "src": "identifier: _nominateNewGovernor [2926,2946]",
+      "dest": "identifier: _nominateNewGovernor [3253,3273]"
+    },
+    {
+      "src": "\": \" [3651,3652]",
+      "dest": "\": \" [4122,4123]"
+    },
+    {
+      "src": "user_defined_type [1188,1199]",
+      "dest": "user_defined_type [1323,1334]"
+    },
+    {
+      "src": "}: } [4738,4739]",
+      "dest": "}: } [5209,5210]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "identifier: getGovernanceInfo [2549,2566]",
+      "dest": "identifier: getGovernanceInfo [2813,2830]"
+    },
+    {
+      "src": "}: } [4279,4280]",
+      "dest": "}: } [4750,4751]"
+    },
+    {
+      "src": "event_paramater [1233,1258]",
+      "dest": "event_paramater [1368,1393]"
+    },
+    {
+      "src": "type_name [2498,2502]",
+      "dest": "type_name [2762,2766]"
+    },
+    {
+      "src": "expression_statement [4126,4163]",
+      "dest": "expression_statement [4597,4634]"
+    },
+    {
+      "src": "visibility [1446,1454]",
+      "dest": "visibility [1581,1589]"
+    },
+    {
+      "src": "return_type_definition [1468,1506]",
+      "dest": "return_type_definition [1603,1641]"
+    },
+    {
+      "src": "identifier: newGovernor [2955,2966]",
+      "dest": "identifier: newGovernor [3282,3293]"
+    },
+    {
+      "src": "function: function [3782,3790]",
+      "dest": "function: function [4253,4261]"
+    },
+    {
+      "src": "identifier: getGovernanceInfo [2192,2209]",
+      "dest": "identifier: getGovernanceInfo [2327,2344]"
+    },
+    {
+      "src": ",: , [4018,4019]",
+      "dest": ",: , [4489,4490]"
+    },
+    {
+      "src": "state_mutability [2475,2479]",
+      "dest": "state_mutability [2739,2743]"
+    },
+    {
+      "src": "user_defined_type [4499,4519]",
+      "dest": "user_defined_type [4970,4990]"
+    },
+    {
+      "src": "identifier: addGovernor [3548,3559]",
+      "dest": "identifier: addGovernor [4019,4030]"
+    },
+    {
+      "src": "emit: emit [4234,4238]",
+      "dest": "emit: emit [4705,4709]"
+    },
+    {
+      "src": ".: . [4000,4001]",
+      "dest": ".: . [4471,4472]"
+    },
+    {
+      "src": "variable_declaration_statement [4499,4554]",
+      "dest": "variable_declaration_statement [4970,5025]"
+    },
+    {
+      "src": "(: ( [2443,2444]",
+      "dest": "(: ( [2715,2716]"
+    },
+    {
+      "src": "identifier: candidateGovernor [3134,3151]",
+      "dest": "identifier: candidateGovernor [3605,3622]"
+    },
+    {
+      "src": "string_literal [3101,3119]",
+      "dest": "string_literal [3489,3507]"
+    },
+    {
+      "src": "expression_statement [2387,2411]",
+      "dest": "expression_statement [2522,2546]"
+    },
+    {
+      "src": "): ) [1318,1319]",
+      "dest": "): ) [1453,1454]"
+    },
+    {
+      "src": "(: ( [4551,4552]",
+      "dest": "(: ( [5022,5023]"
+    },
+    {
+      "src": "event: event [1325,1330]",
+      "dest": "event: event [1460,1465]"
+    },
+    {
+      "src": "parameter [4362,4388]",
+      "dest": "parameter [4833,4859]"
+    },
+    {
+      "src": "): ) [3631,3632]",
+      "dest": "): ) [4102,4103]"
+    },
+    {
+      "src": "identifier: effectiveGovernors [3731,3749]",
+      "dest": "identifier: effectiveGovernors [4202,4220]"
+    },
+    {
+      "src": "variable_declaration_statement [2765,2820]",
+      "dest": "variable_declaration_statement [3021,3076]"
+    },
+    {
+      "src": "==: == [3994,3996]",
+      "dest": "==: == [4465,4467]"
+    },
+    {
+      "src": "visibility [4390,4398]",
+      "dest": "visibility [4861,4869]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [3911,3931]",
+      "dest": "identifier: GovernanceInfoStruct [4382,4402]"
+    },
+    {
+      "src": ".: . [3133,3134]",
+      "dest": ".: . [3604,3605]"
+    },
+    {
+      "src": "variable_declaration_statement [3663,3718]",
+      "dest": "variable_declaration_statement [4134,4189]"
+    },
+    {
+      "src": "identifier: governorForRemoval [4652,4670]",
+      "dest": "identifier: governorForRemoval [5123,5141]"
+    },
+    {
+      "src": "identifier: gub [3692,3695]",
+      "dest": "identifier: gub [4163,4166]"
+    },
+    {
+      "src": "): ) [2864,2865]",
+      "dest": "): ) [3177,3178]"
+    },
+    {
+      "src": "function_body [4414,4739]",
+      "dest": "function_body [4885,5210]"
+    },
+    {
+      "src": "comment: // Add the initial governer. [2350,2378]",
+      "dest": "comment: // Add the initial governer. [2485,2513]"
+    },
+    {
+      "src": "type_name [3911,3931]",
+      "dest": "type_name [4382,4402]"
+    },
+    {
+      "src": "identifier: initGovernance [2121,2135]",
+      "dest": "identifier: initGovernance [2256,2270]"
+    },
+    {
+      "src": "source_file [0,4742]",
+      "dest": "source_file [0,5213]"
+    },
+    {
+      "src": "call_expression [3975,4046]",
+      "dest": "call_expression [4446,4517]"
+    },
+    {
+      "src": "identifier: _cancelNomination [2711,2728]",
+      "dest": "identifier: _cancelNomination [2967,2984]"
+    },
+    {
+      "src": "(: ( [1476,1477]",
+      "dest": "(: ( [1611,1612]"
+    },
+    {
+      "src": "=: = [4672,4673]",
+      "dest": "=: = [5143,5144]"
+    },
+    {
+      "src": "call_expression [2387,2410]",
+      "dest": "call_expression [2522,2545]"
+    },
+    {
+      "src": ".: . [2233,2234]",
+      "dest": ".: . [2368,2369]"
+    },
+    {
+      "src": "expression_statement [2221,2270]",
+      "dest": "expression_statement [2356,2405]"
+    },
+    {
+      "src": "expression_statement [4082,4117]",
+      "dest": "expression_statement [4553,4588]"
+    },
+    {
+      "src": "event: event [1380,1385]",
+      "dest": "event: event [1515,1520]"
+    },
+    {
+      "src": "call_argument [4571,4602]",
+      "dest": "call_argument [5042,5073]"
+    },
+    {
+      "src": "import_directive [662,687]",
+      "dest": "import_directive [662,687]"
+    },
+    {
+      "src": "string_literal [4020,4045]",
+      "dest": "string_literal [4491,4516]"
+    },
+    {
+      "src": ".: . [4265,4266]",
+      "dest": ".: . [4736,4737]"
+    },
+    {
+      "src": "member_expression [2279,2294]",
+      "dest": "member_expression [2414,2429]"
+    },
+    {
+      "src": "address: address [1350,1357]",
+      "dest": "address: address [1485,1492]"
+    },
+    {
+      "src": "call_expression [2192,2211]",
+      "dest": "call_expression [2327,2346]"
+    },
+    {
+      "src": "identifier: gub [3031,3034]",
+      "dest": "identifier: gub [3358,3361]"
+    },
+    {
+      "src": "): ) [1409,1410]",
+      "dest": "): ) [1544,1545]"
+    },
+    {
+      "src": "array_access [4629,4671]",
+      "dest": "array_access [5100,5142]"
+    },
+    {
+      "src": "variable_declaration [3663,3695]",
+      "dest": "variable_declaration [4134,4166]"
+    },
+    {
+      "src": "identifier: candidateGovernor [4130,4147]",
+      "dest": "identifier: candidateGovernor [4601,4618]"
+    },
+    {
+      "src": "expression_statement [3599,3654]",
+      "dest": "expression_statement [4070,4125]"
+    },
+    {
+      "src": "identifier: effectiveGovernors [2589,2607]",
+      "dest": "identifier: effectiveGovernors [2853,2871]"
+    },
+    {
+      "src": "function_definition [3539,3776]",
+      "dest": "function_definition [4010,4247]"
+    },
+    {
+      "src": "): ) [4731,4732]",
+      "dest": "): ) [5202,5203]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "identifier: gub [3130,3133]",
+      "dest": "identifier: gub [3601,3604]"
+    },
+    {
+      "src": "array_access [2585,2621]",
+      "dest": "array_access [2849,2877]"
+    },
+    {
+      "src": "string [4466,4488]",
+      "dest": "string [4937,4959]"
+    },
+    {
+      "src": "function: function [2112,2120]",
+      "dest": "function: function [2247,2255]"
+    },
+    {
+      "src": "identifier: GovernanceInfoStruct [2765,2785]",
+      "dest": "identifier: GovernanceInfoStruct [3021,3041]"
+    },
+    {
+      "src": "internal: internal [1446,1454]",
+      "dest": "internal: internal [1581,1589]"
+    },
+    {
+      "src": "member_expression [2399,2409]",
+      "dest": "member_expression [2534,2544]"
+    },
+    {
+      "src": "identifier: getGovernanceInfo [2800,2817]",
+      "dest": "identifier: getGovernanceInfo [3056,3073]"
+    },
+    {
+      "src": "): ) [2966,2967]",
+      "dest": "): ) [3293,3294]"
+    },
+    {
+      "src": "function_body [3820,4280]",
+      "dest": "function_body [4291,4751]"
+    },
+    {
+      "src": "comment: // to ensure addGovernor() won't fail. [2303,2341]",
+      "dest": "comment: // to ensure addGovernor() won't fail. [2438,2476]"
+    },
+    {
+      "src": "primitive_type [4362,4369]",
+      "dest": "primitive_type [4833,4840]"
+    },
+    {
+      "src": "primitive_type [2444,2451]",
+      "dest": "primitive_type [2716,2723]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "insert-tree",
+      "tree": "struct_declaration [1156,1289]",
+      "parent": "source_file [0,5213]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // Emit governance information. [2556,2587]",
+      "parent": "function_body [2282,2689]",
+      "at": 7
+    },
+    {
+      "action": "insert-tree",
+      "tree": "emit_statement [2596,2634]",
+      "parent": "function_body [2282,2689]",
+      "at": 8
+    },
+    {
+      "action": "insert-tree",
+      "tree": "emit_statement [2643,2683]",
+      "parent": "function_body [2282,2689]",
+      "at": 9
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: testGovernor [2452,2464]",
+      "label": "user"
+    },
+    {
+      "action": "insert-node",
+      "tree": "if_statement [3085,3232]",
+      "parent": "function_body [3011,3238]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "expression_statement [3393,3445]",
+      "parent": "function_body [3319,3691]",
+      "at": 2
+    },
+    {
+      "action": "insert-tree",
+      "tree": "expression_statement [3518,3592]",
+      "parent": "function_body [3319,3691]",
+      "at": 4
+    },
+    {
+      "action": "insert-node",
+      "tree": "if: if [3085,3087]",
+      "parent": "if_statement [3085,3232]",
+      "at": 0
+    },
+    {
+      "action": "insert-node",
+      "tree": "(: ( [3088,3089]",
+      "parent": "if_statement [3085,3232]",
+      "at": 1
+    },
+    {
+      "action": "insert-tree",
+      "tree": "binary_expression [3089,3126]",
+      "parent": "if_statement [3085,3232]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "): ) [3126,3127]",
+      "parent": "if_statement [3085,3232]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "block_statement [3128,3232]",
+      "parent": "if_statement [3085,3232]",
+      "at": 4
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: testGovernor [2608,2620]",
+      "label": "user"
+    },
+    {
+      "action": "insert-node",
+      "tree": "{: { [3128,3129]",
+      "parent": "block_statement [3128,3232]",
+      "at": 0
+    },
+    {
+      "action": "move-tree",
+      "tree": "expression_statement [2829,2866]",
+      "parent": "block_statement [3128,3232]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "emit_statement [2875,2905]",
+      "parent": "block_statement [3128,3232]",
+      "at": 2
+    },
+    {
+      "action": "insert-node",
+      "tree": "}: } [3231,3232]",
+      "parent": "block_statement [3128,3232]",
+      "at": 3
+    }
+  ]
+}

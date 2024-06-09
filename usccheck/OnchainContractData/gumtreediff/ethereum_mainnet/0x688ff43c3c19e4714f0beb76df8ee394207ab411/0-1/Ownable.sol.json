@@ -1,0 +1,345 @@
+{
+  "matches": [
+    {
+      "src": "comment: /**  * @title Ownable  * @dev The Ownable contract has an owner address, and provides basic authorization control  * functions, this simplifies the implementation of \"user permissions\". This adds two-phase  * ownership control to OpenZeppelin's Ownable class. In this model, the original owner  * designates a new owner but does not actually transfer ownership. The new owner then accepts  * ownership and completes the transfer.  */ [35,468]",
+      "dest": "comment: /**  * @title Ownable  * @dev The Ownable contract has an owner address, and provides basic authorization control  * functions, this simplifies the implementation of \"user permissions\". This adds two-phase  * ownership control to OpenZeppelin's Ownable class. In this model, the original owner  * designates a new owner but does not actually transfer ownership. The new owner then accepts  * ownership and completes the transfer.  */ [35,468]"
+    },
+    {
+      "src": "type_name [701,705]",
+      "dest": "type_name [701,705]"
+    },
+    {
+      "src": "(: ( [551,552]",
+      "dest": "(: ( [551,552]"
+    },
+    {
+      "src": "call_argument [552,571]",
+      "dest": "call_argument [552,571]"
+    },
+    {
+      "src": "primitive_type [663,670]",
+      "dest": "primitive_type [663,670]"
+    },
+    {
+      "src": "bool: bool [701,705]",
+      "dest": "bool: bool [701,705]"
+    },
+    {
+      "src": "member_expression [560,570]",
+      "dest": "member_expression [560,570]"
+    },
+    {
+      "src": "string_literal [573,621]",
+      "dest": "string_literal [573,621]"
+    },
+    {
+      "src": "source_file [0,751]",
+      "dest": "source_file [0,751]"
+    },
+    {
+      "src": "primitive_type [701,705]",
+      "dest": "primitive_type [701,705]"
+    },
+    {
+      "src": "public: public [680,686]",
+      "dest": "public: public [680,686]"
+    },
+    {
+      "src": "identifier: sender [564,570]",
+      "dest": "identifier: sender [564,570]"
+    },
+    {
+      "src": "pragma_directive [0,32]",
+      "dest": "pragma_directive [0,32]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [15,18]",
+      "dest": "solidity_version_comparison_operator [15,18]"
+    },
+    {
+      "src": "): ) [705,706]",
+      "dest": "): ) [705,706]"
+    },
+    {
+      "src": "}: } [747,748]",
+      "dest": "}: } [747,748]"
+    },
+    {
+      "src": "solidity: solidity [7,15]",
+      "dest": "solidity: solidity [7,15]"
+    },
+    {
+      "src": "function_definition [646,748]",
+      "dest": "function_definition [646,748]"
+    },
+    {
+      "src": "return_statement [717,742]",
+      "dest": "return_statement [717,742]"
+    },
+    {
+      "src": "call_argument [560,570]",
+      "dest": "call_argument [560,570]"
+    },
+    {
+      "src": "return: return [717,723]",
+      "dest": "return: return [717,723]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [24,26]",
+      "dest": "solidity_version_comparison_operator [24,26]"
+    },
+    {
+      "src": "(: ( [700,701]",
+      "dest": "(: ( [700,701]"
+    },
+    {
+      "src": "pragma: pragma [0,6]",
+      "dest": "pragma: pragma [0,6]"
+    },
+    {
+      "src": "address: address [492,499]",
+      "dest": "address: address [492,499]"
+    },
+    {
+      "src": "call_expression [544,622]",
+      "dest": "call_expression [544,622]"
+    },
+    {
+      "src": "type_name [663,670]",
+      "dest": "type_name [663,670]"
+    },
+    {
+      "src": "modifier_definition [513,640]",
+      "dest": "modifier_definition [513,640]"
+    },
+    {
+      "src": "function: function [646,654]",
+      "dest": "function: function [646,654]"
+    },
+    {
+      "src": "): ) [678,679]",
+      "dest": "): ) [678,679]"
+    },
+    {
+      "src": "identifier: _owner [500,506]",
+      "dest": "identifier: _owner [500,506]"
+    },
+    {
+      "src": ".: . [563,564]",
+      "dest": ".: . [563,564]"
+    },
+    {
+      "src": "}: } [749,750]",
+      "dest": "}: } [749,750]"
+    },
+    {
+      "src": "view: view [687,691]",
+      "dest": "view: view [687,691]"
+    },
+    {
+      "src": "{: { [486,487]",
+      "dest": "{: { [486,487]"
+    },
+    {
+      "src": "state_variable_declaration [492,507]",
+      "dest": "state_variable_declaration [492,507]"
+    },
+    {
+      "src": "\": \" [573,574]",
+      "dest": "\": \" [573,574]"
+    },
+    {
+      "src": "): ) [621,622]",
+      "dest": "): ) [621,622]"
+    },
+    {
+      "src": "solidity_version: 0.4.21 [18,24]",
+      "dest": "solidity_version: 0.4.21 [18,24]"
+    },
+    {
+      "src": "expression_statement [632,634]",
+      "dest": "expression_statement [632,634]"
+    },
+    {
+      "src": "(: ( [531,532]",
+      "dest": "(: ( [531,532]"
+    },
+    {
+      "src": "identifier: _owner [735,741]",
+      "dest": "identifier: _owner [735,741]"
+    },
+    {
+      "src": "identifier: Ownable [478,485]",
+      "dest": "identifier: Ownable [478,485]"
+    },
+    {
+      "src": "contract_declaration [469,750]",
+      "dest": "contract_declaration [469,750]"
+    },
+    {
+      "src": "call_argument [573,621]",
+      "dest": "call_argument [573,621]"
+    },
+    {
+      "src": "function_body [707,748]",
+      "dest": "function_body [707,748]"
+    },
+    {
+      "src": "identifier: isOwner [552,559]",
+      "dest": "identifier: isOwner [552,559]"
+    },
+    {
+      "src": "(: ( [559,560]",
+      "dest": "(: ( [559,560]"
+    },
+    {
+      "src": "identifier: isOwner [655,662]",
+      "dest": "identifier: isOwner [655,662]"
+    },
+    {
+      "src": ">=:  >= [15,18]",
+      "dest": ">=:  >= [15,18]"
+    },
+    {
+      "src": "type_name [492,499]",
+      "dest": "type_name [492,499]"
+    },
+    {
+      "src": "): ) [570,571]",
+      "dest": "): ) [570,571]"
+    },
+    {
+      "src": "string [573,621]",
+      "dest": "string [573,621]"
+    },
+    {
+      "src": "parameter [663,678]",
+      "dest": "parameter [663,678]"
+    },
+    {
+      "src": "parameter [701,705]",
+      "dest": "parameter [701,705]"
+    },
+    {
+      "src": "call_expression [552,571]",
+      "dest": "call_expression [552,571]"
+    },
+    {
+      "src": "{: { [707,708]",
+      "dest": "{: { [707,708]"
+    },
+    {
+      "src": "identifier: _ [632,633]",
+      "dest": "identifier: _ [632,633]"
+    },
+    {
+      "src": "\": \" [620,621]",
+      "dest": "\": \" [620,621]"
+    },
+    {
+      "src": "contract: contract [469,477]",
+      "dest": "contract: contract [469,477]"
+    },
+    {
+      "src": "): ) [532,533]",
+      "dest": "): ) [532,533]"
+    },
+    {
+      "src": "identifier: account [724,731]",
+      "dest": "identifier: account [724,731]"
+    },
+    {
+      "src": "primitive_type [492,499]",
+      "dest": "primitive_type [492,499]"
+    },
+    {
+      "src": ",: , [571,572]",
+      "dest": ",: , [571,572]"
+    },
+    {
+      "src": "{: { [534,535]",
+      "dest": "{: { [534,535]"
+    },
+    {
+      "src": "visibility [680,686]",
+      "dest": "visibility [680,686]"
+    },
+    {
+      "src": "}: } [639,640]",
+      "dest": "}: } [639,640]"
+    },
+    {
+      "src": "function_body [534,640]",
+      "dest": "function_body [534,640]"
+    },
+    {
+      "src": "(: ( [662,663]",
+      "dest": "(: ( [662,663]"
+    },
+    {
+      "src": "contract_body [486,750]",
+      "dest": "contract_body [486,750]"
+    },
+    {
+      "src": "address: address [663,670]",
+      "dest": "address: address [663,670]"
+    },
+    {
+      "src": "binary_expression [724,741]",
+      "dest": "binary_expression [724,741]"
+    },
+    {
+      "src": "expression_statement [544,623]",
+      "dest": "expression_statement [544,623]"
+    },
+    {
+      "src": "state_mutability [687,691]",
+      "dest": "state_mutability [687,691]"
+    },
+    {
+      "src": "solidity_version: 0.6.0 [26,31]",
+      "dest": "solidity_version: 0.6.0 [26,31]"
+    },
+    {
+      "src": "identifier: account [671,678]",
+      "dest": "identifier: account [671,678]"
+    },
+    {
+      "src": "==: == [732,734]",
+      "dest": "==: == [732,734]"
+    },
+    {
+      "src": "<:  < [24,26]",
+      "dest": "<:  < [24,26]"
+    },
+    {
+      "src": "identifier: require [544,551]",
+      "dest": "identifier: require [544,551]"
+    },
+    {
+      "src": "identifier: msg [560,563]",
+      "dest": "identifier: msg [560,563]"
+    },
+    {
+      "src": "modifier: modifier [513,521]",
+      "dest": "modifier: modifier [513,521]"
+    },
+    {
+      "src": "return_type_definition [692,706]",
+      "dest": "return_type_definition [692,706]"
+    },
+    {
+      "src": "returns: returns [692,699]",
+      "dest": "returns: returns [692,699]"
+    },
+    {
+      "src": "solidity_pragma_token [7,31]",
+      "dest": "solidity_pragma_token [7,31]"
+    },
+    {
+      "src": "identifier: onlyOwner [522,531]",
+      "dest": "identifier: onlyOwner [522,531]"
+    }
+  ],
+  "actions": []
+}

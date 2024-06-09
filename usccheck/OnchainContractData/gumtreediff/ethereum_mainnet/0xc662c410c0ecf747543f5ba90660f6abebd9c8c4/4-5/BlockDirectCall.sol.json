@@ -1,0 +1,305 @@
+{
+  "matches": [
+    {
+      "src": "contract_declaration [966,1219]",
+      "dest": "contract_declaration [966,1219]"
+    },
+    {
+      "src": "expression_statement [1209,1211]",
+      "dest": "expression_statement [1209,1211]"
+    },
+    {
+      "src": "identifier: this_ [1069,1074]",
+      "dest": "identifier: this_ [1069,1074]"
+    },
+    {
+      "src": "=: = [1075,1076]",
+      "dest": "=: = [1075,1076]"
+    },
+    {
+      "src": "address: address [1159,1166]",
+      "dest": "address: address [1159,1166]"
+    },
+    {
+      "src": "}: } [1216,1217]",
+      "dest": "}: } [1216,1217]"
+    },
+    {
+      "src": "call_argument [1085,1089]",
+      "dest": "call_argument [1085,1089]"
+    },
+    {
+      "src": "(: ( [1129,1130]",
+      "dest": "(: ( [1129,1130]"
+    },
+    {
+      "src": "source_file [0,1220]",
+      "dest": "source_file [0,1220]"
+    },
+    {
+      "src": "identifier: _ [1209,1210]",
+      "dest": "identifier: _ [1209,1210]"
+    },
+    {
+      "src": ",: , [1172,1173]",
+      "dest": ",: , [1172,1173]"
+    },
+    {
+      "src": "}: } [1096,1097]",
+      "dest": "}: } [1096,1097]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "}: } [1218,1219]",
+      "dest": "}: } [1218,1219]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "call_argument [1150,1172]",
+      "dest": "call_argument [1150,1172]"
+    },
+    {
+      "src": "(: ( [1084,1085]",
+      "dest": "(: ( [1084,1085]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "\": \" [1197,1198]",
+      "dest": "\": \" [1197,1198]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "address: address [1006,1013]",
+      "dest": "address: address [1006,1013]"
+    },
+    {
+      "src": "expression_statement [1069,1091]",
+      "dest": "expression_statement [1069,1091]"
+    },
+    {
+      "src": "primitive_type [1159,1166]",
+      "dest": "primitive_type [1159,1166]"
+    },
+    {
+      "src": "identifier: this_ [1024,1029]",
+      "dest": "identifier: this_ [1024,1029]"
+    },
+    {
+      "src": "binary_expression [1150,1172]",
+      "dest": "binary_expression [1150,1172]"
+    },
+    {
+      "src": "identifier: this [1167,1171]",
+      "dest": "identifier: this [1167,1171]"
+    },
+    {
+      "src": "immutable: immutable [1014,1023]",
+      "dest": "immutable: immutable [1014,1023]"
+    },
+    {
+      "src": "): ) [1089,1090]",
+      "dest": "): ) [1089,1090]"
+    },
+    {
+      "src": "string_literal [1174,1198]",
+      "dest": "string_literal [1174,1198]"
+    },
+    {
+      "src": "{: { [1000,1001]",
+      "dest": "{: { [1000,1001]"
+    },
+    {
+      "src": "state_variable_declaration [1006,1030]",
+      "dest": "state_variable_declaration [1006,1030]"
+    },
+    {
+      "src": "function_body [1132,1217]",
+      "dest": "function_body [1132,1217]"
+    },
+    {
+      "src": "expression_statement [1142,1200]",
+      "dest": "expression_statement [1142,1200]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "call_expression [1142,1199]",
+      "dest": "call_expression [1142,1199]"
+    },
+    {
+      "src": "(: ( [1047,1048]",
+      "dest": "(: ( [1047,1048]"
+    },
+    {
+      "src": "identifier: BlockDirectCall [984,999]",
+      "dest": "identifier: BlockDirectCall [984,999]"
+    },
+    {
+      "src": "abstract: abstract [966,974]",
+      "dest": "abstract: abstract [966,974]"
+    },
+    {
+      "src": "identifier: notCalledDirectly [1112,1129]",
+      "dest": "identifier: notCalledDirectly [1112,1129]"
+    },
+    {
+      "src": "primitive_type [1077,1084]",
+      "dest": "primitive_type [1077,1084]"
+    },
+    {
+      "src": "address: address [1077,1084]",
+      "dest": "address: address [1077,1084]"
+    },
+    {
+      "src": "identifier: this_ [1150,1155]",
+      "dest": "identifier: this_ [1150,1155]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "type_name [1006,1013]",
+      "dest": "type_name [1006,1013]"
+    },
+    {
+      "src": "modifier_definition [1103,1217]",
+      "dest": "modifier_definition [1103,1217]"
+    },
+    {
+      "src": "): ) [1130,1131]",
+      "dest": "): ) [1130,1131]"
+    },
+    {
+      "src": "type_cast_expression [1159,1172]",
+      "dest": "type_cast_expression [1159,1172]"
+    },
+    {
+      "src": "): ) [1198,1199]",
+      "dest": "): ) [1198,1199]"
+    },
+    {
+      "src": "type_cast_expression [1077,1090]",
+      "dest": "type_cast_expression [1077,1090]"
+    },
+    {
+      "src": "identifier: require [1142,1149]",
+      "dest": "identifier: require [1142,1149]"
+    },
+    {
+      "src": "{: { [1132,1133]",
+      "dest": "{: { [1132,1133]"
+    },
+    {
+      "src": "contract: contract [975,983]",
+      "dest": "contract: contract [975,983]"
+    },
+    {
+      "src": "): ) [1048,1049]",
+      "dest": "): ) [1048,1049]"
+    },
+    {
+      "src": "primitive_type [1006,1013]",
+      "dest": "primitive_type [1006,1013]"
+    },
+    {
+      "src": "modifier: modifier [1103,1111]",
+      "dest": "modifier: modifier [1103,1111]"
+    },
+    {
+      "src": "function_body [1059,1097]",
+      "dest": "function_body [1059,1097]"
+    },
+    {
+      "src": "): ) [1171,1172]",
+      "dest": "): ) [1171,1172]"
+    },
+    {
+      "src": "(: ( [1149,1150]",
+      "dest": "(: ( [1149,1150]"
+    },
+    {
+      "src": "internal: internal [1050,1058]",
+      "dest": "internal: internal [1050,1058]"
+    },
+    {
+      "src": "!=: != [1156,1158]",
+      "dest": "!=: != [1156,1158]"
+    },
+    {
+      "src": "contract_body [1000,1219]",
+      "dest": "contract_body [1000,1219]"
+    },
+    {
+      "src": "(: ( [1166,1167]",
+      "dest": "(: ( [1166,1167]"
+    },
+    {
+      "src": "{: { [1059,1060]",
+      "dest": "{: { [1059,1060]"
+    },
+    {
+      "src": "call_argument [1174,1198]",
+      "dest": "call_argument [1174,1198]"
+    },
+    {
+      "src": "comment: /*   This contract provides means to block direct call of an external function.   A derived contract (e.g. MainDispatcherBase) should decorate sensitive functions with the   notCalledDirectly modifier, thereby preventing it from being called directly, and allowing only   calling using delegate_call. */ [662,965]",
+      "dest": "comment: /*   This contract provides means to block direct call of an external function.   A derived contract (e.g. MainDispatcherBase) should decorate sensitive functions with the   notCalledDirectly modifier, thereby preventing it from being called directly, and allowing only   calling using delegate_call. */ [662,965]"
+    },
+    {
+      "src": "call_argument [1167,1171]",
+      "dest": "call_argument [1167,1171]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "assignment_expression [1069,1090]",
+      "dest": "assignment_expression [1069,1090]"
+    },
+    {
+      "src": "identifier: this [1085,1089]",
+      "dest": "identifier: this [1085,1089]"
+    },
+    {
+      "src": "constructor_definition [1036,1097]",
+      "dest": "constructor_definition [1036,1097]"
+    },
+    {
+      "src": "string [1174,1198]",
+      "dest": "string [1174,1198]"
+    },
+    {
+      "src": "\": \" [1174,1175]",
+      "dest": "\": \" [1174,1175]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "constructor: constructor [1036,1047]",
+      "dest": "constructor: constructor [1036,1047]"
+    }
+  ],
+  "actions": []
+}

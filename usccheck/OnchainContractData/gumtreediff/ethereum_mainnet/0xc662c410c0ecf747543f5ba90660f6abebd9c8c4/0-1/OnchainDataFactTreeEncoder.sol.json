@@ -1,0 +1,734 @@
+{
+  "matches": [
+    {
+      "src": "identifier: DataAvailabilityFact [710,730]",
+      "dest": "identifier: DataAvailabilityFact [114,134]"
+    },
+    {
+      "src": "primitive_type [2247,2254]",
+      "dest": "primitive_type [1651,1658]"
+    },
+    {
+      "src": "constant: constant [951,959]",
+      "dest": "constant: constant [355,363]"
+    },
+    {
+      "src": ".: . [2406,2407]",
+      "dest": ".: . [1810,1811]"
+    },
+    {
+      "src": "}: } [2658,2659]",
+      "dest": "}: } [2062,2063]"
+    },
+    {
+      "src": "identifier: ONCHAIN_DATA_FACT_ADDITIONAL_WORDS [960,994]",
+      "dest": "identifier: ONCHAIN_DATA_FACT_ADDITIONAL_WORDS [364,398]"
+    },
+    {
+      "src": "internal: internal [1334,1342]",
+      "dest": "internal: internal [738,746]"
+    },
+    {
+      "src": "function: function [1205,1213]",
+      "dest": "function: function [609,617]"
+    },
+    {
+      "src": "uint256: uint256 [1249,1256]",
+      "dest": "uint256: uint256 [653,660]"
+    },
+    {
+      "src": "comment: // The state transition fact is computed as a Merkle tree, as defined in [1376,1448]",
+      "dest": "comment: // The state transition fact is computed as a Merkle tree, as defined in [780,852]"
+    },
+    {
+      "src": "(: ( [1356,1357]",
+      "dest": "(: ( [760,761]"
+    },
+    {
+      "src": "parameter [1249,1281]",
+      "dest": "parameter [653,685]"
+    },
+    {
+      "src": "comment: // [1485,1487]",
+      "dest": "comment: // [889,891]"
+    },
+    {
+      "src": "library_declaration [662,2659]",
+      "dest": "library_declaration [66,2063]"
+    },
+    {
+      "src": "identifier: abi [2291,2294]",
+      "dest": "identifier: abi [1695,1698]"
+    },
+    {
+      "src": "comment: //   the state transition required by this contract. [1685,1737]",
+      "dest": "comment: //   the state transition required by this contract. [1089,1141]"
+    },
+    {
+      "src": "return: return [2611,2617]",
+      "dest": "return: return [2015,2021]"
+    },
+    {
+      "src": "): ) [1364,1365]",
+      "dest": "): ) [768,769]"
+    },
+    {
+      "src": "(: ( [2625,2626]",
+      "dest": "(: ( [2029,2030]"
+    },
+    {
+      "src": "primitive_type [774,781]",
+      "dest": "primitive_type [178,185]"
+    },
+    {
+      "src": "call_expression [2151,2182]",
+      "dest": "call_expression [1555,1586]"
+    },
+    {
+      "src": "identifier: DataAvailabilityFact [1291,1311]",
+      "dest": "identifier: DataAvailabilityFact [695,715]"
+    },
+    {
+      "src": "bytes32: bytes32 [2111,2118]",
+      "dest": "bytes32: bytes32 [1515,1522]"
+    },
+    {
+      "src": "uint256: uint256 [774,781]",
+      "dest": "uint256: uint256 [178,185]"
+    },
+    {
+      "src": "+: + [2459,2460]",
+      "dest": "+: + [1863,1864]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [55,57]"
+    },
+    {
+      "src": "type_name [1357,1364]",
+      "dest": "type_name [761,768]"
+    },
+    {
+      "src": "identifier: onchainDataHash [749,764]",
+      "dest": "identifier: onchainDataHash [153,168]"
+    },
+    {
+      "src": "]: ] [1257,1258]",
+      "dest": "]: ] [661,662]"
+    },
+    {
+      "src": "identifier: programOutput [1268,1281]",
+      "dest": "identifier: programOutput [672,685]"
+    },
+    {
+      "src": "contract_body [697,2659]",
+      "dest": "contract_body [101,2063]"
+    },
+    {
+      "src": ",: , [1281,1282]",
+      "dest": ",: , [685,686]"
+    },
+    {
+      "src": "identifier: programOutput [2081,2094]",
+      "dest": "identifier: programOutput [1485,1498]"
+    },
+    {
+      "src": "identifier: factData [2461,2469]",
+      "dest": "identifier: factData [1865,1873]"
+    },
+    {
+      "src": "bytes32: bytes32 [2618,2625]",
+      "dest": "bytes32: bytes32 [2022,2029]"
+    },
+    {
+      "src": "variable_declaration_statement [2111,2184]",
+      "dest": "variable_declaration_statement [1515,1588]"
+    },
+    {
+      "src": "): ) [2498,2499]",
+      "dest": "): ) [1902,1903]"
+    },
+    {
+      "src": "comment: // Compute the hash without the two additional fields. [1989,2043]",
+      "dest": "comment: // Compute the hash without the two additional fields. [1393,1447]"
+    },
+    {
+      "src": "type_name [741,748]",
+      "dest": "type_name [145,152]"
+    },
+    {
+      "src": "{: { [731,732]",
+      "dest": "{: { [135,136]"
+    },
+    {
+      "src": "primitive_type [1249,1256]",
+      "dest": "primitive_type [653,660]"
+    },
+    {
+      "src": "type_name [2052,2059]",
+      "dest": "type_name [1456,1463]"
+    },
+    {
+      "src": "member_expression [2081,2101]",
+      "dest": "member_expression [1485,1505]"
+    },
+    {
+      "src": "uint256: uint256 [2052,2059]",
+      "dest": "uint256: uint256 [1456,1463]"
+    },
+    {
+      "src": "identifier: OnchainDataFactTreeEncoder [670,696]",
+      "dest": "identifier: OnchainDataFactTreeEncoder [74,100]"
+    },
+    {
+      "src": "struct_member [774,798]",
+      "dest": "struct_member [178,202]"
+    },
+    {
+      "src": "(: ( [2277,2278]",
+      "dest": "(: ( [1681,1682]"
+    },
+    {
+      "src": "[: [ [1256,1257]",
+      "dest": "[: [ [660,661]"
+    },
+    {
+      "src": "): ) [2181,2182]",
+      "dest": "): ) [1585,1586]"
+    },
+    {
+      "src": "): ) [2508,2509]",
+      "dest": "): ) [1912,1913]"
+    },
+    {
+      "src": "function_body [1366,2657]",
+      "dest": "function_body [770,2061]"
+    },
+    {
+      "src": "identifier: mainPublicInputLen [2362,2380]",
+      "dest": "identifier: mainPublicInputLen [1766,1784]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [47,63]"
+    },
+    {
+      "src": "comment: //   The root has two children. [1551,1582]",
+      "dest": "comment: //   The root has two children. [955,986]"
+    },
+    {
+      "src": "parameter [1291,1327]",
+      "dest": "parameter [695,731]"
+    },
+    {
+      "src": "calldata: calldata [1259,1267]",
+      "dest": "calldata: calldata [663,671]"
+    },
+    {
+      "src": "type_name [2111,2118]",
+      "dest": "type_name [1515,1522]"
+    },
+    {
+      "src": "primitive_type [2618,2625]",
+      "dest": "primitive_type [2022,2029]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [47,55]"
+    },
+    {
+      "src": "type_name [1249,1256]",
+      "dest": "type_name [653,660]"
+    },
+    {
+      "src": "identifier: hashResult [2255,2265]",
+      "dest": "identifier: hashResult [1659,1669]"
+    },
+    {
+      "src": ".: . [2094,2095]",
+      "dest": ".: . [1498,1499]"
+    },
+    {
+      "src": "type_name [934,941]",
+      "dest": "type_name [338,345]"
+    },
+    {
+      "src": "(: ( [2167,2168]",
+      "dest": "(: ( [1571,1572]"
+    },
+    {
+      "src": ",: , [2344,2345]",
+      "dest": ",: , [1748,1749]"
+    },
+    {
+      "src": "primitive_type [741,748]",
+      "dest": "primitive_type [145,152]"
+    },
+    {
+      "src": "state_mutability [1343,1347]",
+      "dest": "state_mutability [747,751]"
+    },
+    {
+      "src": "parameter [1357,1364]",
+      "dest": "parameter [761,768]"
+    },
+    {
+      "src": "struct: struct [703,709]",
+      "dest": "struct: struct [107,113]"
+    },
+    {
+      "src": "call_argument [2362,2380]",
+      "dest": "call_argument [1766,1784]"
+    },
+    {
+      "src": "(: ( [2633,2634]",
+      "dest": "(: ( [2037,2038]"
+    },
+    {
+      "src": "internal: internal [942,950]",
+      "dest": "internal: internal [346,354]"
+    },
+    {
+      "src": "identifier: encodeFactWithOnchainData [1214,1239]",
+      "dest": "identifier: encodeFactWithOnchainData [618,643]"
+    },
+    {
+      "src": "}: } [803,804]",
+      "dest": "}: } [207,208]"
+    },
+    {
+      "src": "identifier: mainPublicInputLen [2060,2078]",
+      "dest": "identifier: mainPublicInputLen [1464,1482]"
+    },
+    {
+      "src": "primitive_type [1357,1364]",
+      "dest": "primitive_type [761,768]"
+    },
+    {
+      "src": "bytes32: bytes32 [1357,1364]",
+      "dest": "bytes32: bytes32 [761,768]"
+    },
+    {
+      "src": "identifier: onchainDataSize [2470,2485]",
+      "dest": "identifier: onchainDataSize [1874,1889]"
+    },
+    {
+      "src": "}: } [2656,2657]",
+      "dest": "}: } [2060,2061]"
+    },
+    {
+      "src": "{: { [1366,1367]",
+      "dest": "{: { [770,771]"
+    },
+    {
+      "src": "call_expression [2291,2499]",
+      "dest": "call_expression [1695,1903]"
+    },
+    {
+      "src": "member_expression [2291,2307]",
+      "dest": "member_expression [1695,1711]"
+    },
+    {
+      "src": "comment: // GpsOutputParser. [1457,1476]",
+      "dest": "comment: // GpsOutputParser. [861,880]"
+    },
+    {
+      "src": "identifier: encodePacked [2155,2167]",
+      "dest": "identifier: encodePacked [1559,1571]"
+    },
+    {
+      "src": "type_cast_expression [2626,2645]",
+      "dest": "type_cast_expression [2030,2049]"
+    },
+    {
+      "src": "identifier: onchainDataHash [2407,2422]",
+      "dest": "identifier: onchainDataHash [1811,1826]"
+    },
+    {
+      "src": "identifier: abi [2151,2154]",
+      "dest": "identifier: abi [1555,1558]"
+    },
+    {
+      "src": "call_argument [2325,2344]",
+      "dest": "call_argument [1729,1748]"
+    },
+    {
+      "src": "library: library [662,669]",
+      "dest": "library: library [66,73]"
+    },
+    {
+      "src": "variable_declaration_statement [2052,2102]",
+      "dest": "variable_declaration_statement [1456,1506]"
+    },
+    {
+      "src": "user_defined_type [1291,1311]",
+      "dest": "user_defined_type [695,715]"
+    },
+    {
+      "src": "call_expression [2141,2183]",
+      "dest": "call_expression [1545,1587]"
+    },
+    {
+      "src": "comment: //   The left child is a leaf that includes the main part - the information regarding [1591,1676]",
+      "dest": "comment: //   The left child is a leaf that includes the main part - the information regarding [995,1080]"
+    },
+    {
+      "src": "function_definition [1205,2657]",
+      "dest": "function_definition [609,2061]"
+    },
+    {
+      "src": "number_literal: 1 [2648,2649]",
+      "dest": "number_literal: 1 [2052,2053]"
+    },
+    {
+      "src": "{: { [697,698]",
+      "dest": "{: { [101,102]"
+    },
+    {
+      "src": "member_expression [2151,2167]",
+      "dest": "member_expression [1555,1571]"
+    },
+    {
+      "src": "call_expression [2268,2509]",
+      "dest": "call_expression [1672,1913]"
+    },
+    {
+      "src": "identifier: encodePacked [2295,2307]",
+      "dest": "identifier: encodePacked [1699,1711]"
+    },
+    {
+      "src": "return_statement [2611,2651]",
+      "dest": "return_statement [2015,2055]"
+    },
+    {
+      "src": "visibility [942,950]",
+      "dest": "visibility [346,354]"
+    },
+    {
+      "src": ",: , [2422,2423]",
+      "dest": ",: , [1826,1827]"
+    },
+    {
+      "src": "call_argument [2151,2182]",
+      "dest": "call_argument [1555,1586]"
+    },
+    {
+      "src": "call_argument [2291,2499]",
+      "dest": "call_argument [1695,1903]"
+    },
+    {
+      "src": "call_argument [2626,2649]",
+      "dest": "call_argument [2030,2053]"
+    },
+    {
+      "src": "visibility [1334,1342]",
+      "dest": "visibility [738,746]"
+    },
+    {
+      "src": "primitive_type [2052,2059]",
+      "dest": "primitive_type [1456,1463]"
+    },
+    {
+      "src": "member_expression [2398,2422]",
+      "dest": "member_expression [1802,1826]"
+    },
+    {
+      "src": "identifier: onchainDataSize [782,797]",
+      "dest": "identifier: onchainDataSize [186,201]"
+    },
+    {
+      "src": "identifier: factData [2398,2406]",
+      "dest": "identifier: factData [1802,1810]"
+    },
+    {
+      "src": "identifier: mainPublicInputLen [2440,2458]",
+      "dest": "identifier: mainPublicInputLen [1844,1862]"
+    },
+    {
+      "src": "identifier: length [2095,2101]",
+      "dest": "identifier: length [1499,1505]"
+    },
+    {
+      "src": "binary_expression [2440,2485]",
+      "dest": "binary_expression [1844,1889]"
+    },
+    {
+      "src": "return_type_definition [1348,1365]",
+      "dest": "return_type_definition [752,769]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [40,46]"
+    },
+    {
+      "src": "(: ( [1239,1240]",
+      "dest": "(: ( [643,644]"
+    },
+    {
+      "src": "uint256: uint256 [2626,2633]",
+      "dest": "uint256: uint256 [2030,2037]"
+    },
+    {
+      "src": "variable_declaration [2052,2078]",
+      "dest": "variable_declaration [1456,1482]"
+    },
+    {
+      "src": "variable_declaration_statement [2247,2510]",
+      "dest": "variable_declaration_statement [1651,1914]"
+    },
+    {
+      "src": "primitive_type [2111,2118]",
+      "dest": "primitive_type [1515,1522]"
+    },
+    {
+      "src": "uint256: uint256 [741,748]",
+      "dest": "uint256: uint256 [145,152]"
+    },
+    {
+      "src": ".: . [2294,2295]",
+      "dest": ".: . [1698,1699]"
+    },
+    {
+      "src": "source_file [0,2660]",
+      "dest": "source_file [0,2064]"
+    },
+    {
+      "src": "variable_declaration [2111,2138]",
+      "dest": "variable_declaration [1515,1542]"
+    },
+    {
+      "src": "): ) [2644,2645]",
+      "dest": "): ) [2048,2049]"
+    },
+    {
+      "src": ".: . [2469,2470]",
+      "dest": ".: . [1873,1874]"
+    },
+    {
+      "src": "comment: // OnchainDataFactTreeEncoder format. [892,929]",
+      "dest": "comment: // OnchainDataFactTreeEncoder format. [296,333]"
+    },
+    {
+      "src": "(: ( [2150,2151]",
+      "dest": "(: ( [1554,1555]"
+    },
+    {
+      "src": "comment: // In our case the fact tree looks as follows: [1496,1542]",
+      "dest": "comment: // In our case the fact tree looks as follows: [900,946]"
+    },
+    {
+      "src": "number_literal: 2 [997,998]",
+      "dest": "number_literal: 2 [401,402]"
+    },
+    {
+      "src": "variable_declaration [2247,2265]",
+      "dest": "variable_declaration [1651,1669]"
+    },
+    {
+      "src": "comment: /*       Encodes a GPS fact Merkle tree where the root has two children.       The left child contains the data we care about and the right child contains       on-chain data for the fact.     */ [1005,1200]",
+      "dest": "comment: /*       Encodes a GPS fact Merkle tree where the root has two children.       The left child contains the data we care about and the right child contains       on-chain data for the fact.     */ [409,604]"
+    },
+    {
+      "src": "): ) [2182,2183]",
+      "dest": "): ) [1586,1587]"
+    },
+    {
+      "src": "memory: memory [1312,1318]",
+      "dest": "memory: memory [716,722]"
+    },
+    {
+      "src": ",: , [2380,2381]",
+      "dest": ",: , [1784,1785]"
+    },
+    {
+      "src": "type_name [1249,1258]",
+      "dest": "type_name [653,662]"
+    },
+    {
+      "src": "): ) [1332,1333]",
+      "dest": "): ) [736,737]"
+    },
+    {
+      "src": "call_argument [2168,2181]",
+      "dest": "call_argument [1572,1585]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [40,64]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [55,57]"
+    },
+    {
+      "src": "member_expression [2461,2485]",
+      "dest": "member_expression [1865,1889]"
+    },
+    {
+      "src": "comment: // Add one to the hash to indicate it represents an inner node, rather than a leaf. [2519,2602]",
+      "dest": "comment: // Add one to the hash to indicate it represents an inner node, rather than a leaf. [1923,2006]"
+    },
+    {
+      "src": "=: = [995,996]",
+      "dest": "=: = [399,400]"
+    },
+    {
+      "src": "bytes32: bytes32 [2247,2254]",
+      "dest": "bytes32: bytes32 [1651,1658]"
+    },
+    {
+      "src": "(: ( [2307,2308]",
+      "dest": "(: ( [1711,1712]"
+    },
+    {
+      "src": "identifier: keccak256 [2141,2150]",
+      "dest": "identifier: keccak256 [1545,1554]"
+    },
+    {
+      "src": "struct_member [741,765]",
+      "dest": "struct_member [145,169]"
+    },
+    {
+      "src": "state_variable_declaration [934,999]",
+      "dest": "state_variable_declaration [338,403]"
+    },
+    {
+      "src": "comment: //   contract, so we are only given its hash and length [1837,1892]",
+      "dest": "comment: //   contract, so we are only given its hash and length [1241,1296]"
+    },
+    {
+      "src": "identifier: hashResult [2634,2644]",
+      "dest": "identifier: hashResult [2038,2048]"
+    },
+    {
+      "src": "primitive_type [2626,2633]",
+      "dest": "primitive_type [2030,2037]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]"
+    },
+    {
+      "src": "identifier: keccak256 [2268,2277]",
+      "dest": "identifier: keccak256 [1672,1681]"
+    },
+    {
+      "src": "type_name [774,781]",
+      "dest": "type_name [178,185]"
+    },
+    {
+      "src": "=: = [2266,2267]",
+      "dest": "=: = [1670,1671]"
+    },
+    {
+      "src": "primitive_type [934,941]",
+      "dest": "primitive_type [338,345]"
+    },
+    {
+      "src": "returns: returns [1348,1355]",
+      "dest": "returns: returns [752,759]"
+    },
+    {
+      "src": "=: = [2139,2140]",
+      "dest": "=: = [1543,1544]"
+    },
+    {
+      "src": "type_name [1291,1311]",
+      "dest": "type_name [695,715]"
+    },
+    {
+      "src": "binary_expression [2626,2649]",
+      "dest": "binary_expression [2030,2053]"
+    },
+    {
+      "src": "identifier: factData [1319,1327]",
+      "dest": "identifier: factData [723,731]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [653,659]",
+      "dest": "solidity_version: 0.6.12 [57,63]"
+    },
+    {
+      "src": "=: = [2079,2080]",
+      "dest": "=: = [1483,1484]"
+    },
+    {
+      "src": "call_argument [2634,2644]",
+      "dest": "call_argument [2038,2048]"
+    },
+    {
+      "src": "+: + [2646,2647]",
+      "dest": "+: + [2050,2051]"
+    },
+    {
+      "src": "type_name [2247,2254]",
+      "dest": "type_name [1651,1658]"
+    },
+    {
+      "src": "call_argument [2398,2422]",
+      "dest": "call_argument [1802,1826]"
+    },
+    {
+      "src": "comment: //   The right child contains the onchain-data which shouldn't be accessed by this [1746,1828]",
+      "dest": "comment: //   The right child contains the onchain-data which shouldn't be accessed by this [1150,1232]"
+    },
+    {
+      "src": "uint256: uint256 [934,941]",
+      "dest": "uint256: uint256 [338,345]"
+    },
+    {
+      "src": "identifier: mainPublicInputHash [2119,2138]",
+      "dest": "identifier: mainPublicInputHash [1523,1542]"
+    },
+    {
+      "src": "pure: pure [1343,1347]",
+      "dest": "pure: pure [747,751]"
+    },
+    {
+      "src": "comment: //   (it may be a leaf or an inner node, this has no effect on this contract). [1901,1979]",
+      "dest": "comment: //   (it may be a leaf or an inner node, this has no effect on this contract). [1305,1383]"
+    },
+    {
+      "src": ".: . [2154,2155]",
+      "dest": ".: . [1558,1559]"
+    },
+    {
+      "src": "struct_declaration [703,804]",
+      "dest": "struct_declaration [107,208]"
+    },
+    {
+      "src": "comment: // Compute the hash of the fact Merkle tree. [2194,2238]",
+      "dest": "comment: // Compute the hash of the fact Merkle tree. [1598,1642]"
+    },
+    {
+      "src": "identifier: mainPublicInputHash [2325,2344]",
+      "dest": "identifier: mainPublicInputHash [1729,1748]"
+    },
+    {
+      "src": "call_argument [2440,2485]",
+      "dest": "call_argument [1844,1889]"
+    },
+    {
+      "src": "identifier: programOutput [2168,2181]",
+      "dest": "identifier: programOutput [1572,1585]"
+    },
+    {
+      "src": "comment: // The number of additional words appended to the public input when using the [810,887]",
+      "dest": "comment: // The number of additional words appended to the public input when using the [214,291]"
+    },
+    {
+      "src": "type_cast_expression [2618,2650]",
+      "dest": "type_cast_expression [2022,2054]"
+    },
+    {
+      "src": "): ) [2649,2650]",
+      "dest": "): ) [2053,2054]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "delete-node",
+      "tree": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    }
+  ]
+}

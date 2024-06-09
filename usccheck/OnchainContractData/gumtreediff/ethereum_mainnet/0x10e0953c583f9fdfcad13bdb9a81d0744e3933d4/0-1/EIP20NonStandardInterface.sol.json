@@ -1,0 +1,873 @@
+{
+  "matches": [
+    {
+      "src": "comment: /**      * @notice Gets the balance of the specified address      * @param owner The address from which the balance will be retrieved      * @return The balance      */ [472,640]",
+      "dest": "comment: /**      * @notice Gets the balance of the specified address      * @param owner The address from which the balance will be retrieved      * @return The balance      */ [472,640]"
+    },
+    {
+      "src": "function_definition [645,719]",
+      "dest": "function_definition [645,719]"
+    },
+    {
+      "src": "state_mutability [688,692]",
+      "dest": "state_mutability [688,692]"
+    },
+    {
+      "src": "identifier: transfer [1095,1103]",
+      "dest": "identifier: transfer [1095,1103]"
+    },
+    {
+      "src": "pragma_directive [0,24]",
+      "dest": "pragma_directive [0,24]"
+    },
+    {
+      "src": "solidity: solidity [7,15]",
+      "dest": "solidity: solidity [7,15]"
+    },
+    {
+      "src": "state_mutability [2528,2532]",
+      "dest": "state_mutability [2528,2532]"
+    },
+    {
+      "src": "primitive_type [2683,2690]",
+      "dest": "primitive_type [2683,2690]"
+    },
+    {
+      "src": "uint256: uint256 [2708,2715]",
+      "dest": "uint256: uint256 [2708,2715]"
+    },
+    {
+      "src": "identifier: balance [710,717]",
+      "dest": "identifier: balance [710,717]"
+    },
+    {
+      "src": "address: address [2660,2667]",
+      "dest": "address: address [2660,2667]"
+    },
+    {
+      "src": "primitive_type [1594,1601]",
+      "dest": "primitive_type [1594,1601]"
+    },
+    {
+      "src": "external: external [434,442]",
+      "dest": "external: external [434,442]"
+    },
+    {
+      "src": ",: , [2500,2501]",
+      "dest": ",: , [2500,2501]"
+    },
+    {
+      "src": "): ) [2638,2639]",
+      "dest": "): ) [2638,2639]"
+    },
+    {
+      "src": ",: , [2622,2623]",
+      "dest": ",: , [2622,2623]"
+    },
+    {
+      "src": "parameter [1104,1115]",
+      "dest": "parameter [1104,1115]"
+    },
+    {
+      "src": "identifier: totalSupply [420,431]",
+      "dest": "identifier: totalSupply [420,431]"
+    },
+    {
+      "src": "(: ( [701,702]",
+      "dest": "(: ( [701,702]"
+    },
+    {
+      "src": "solidity_version: 0.5.16 [17,23]",
+      "dest": "solidity_version: 0.5.16 [17,23]"
+    },
+    {
+      "src": "type_name [1581,1588]",
+      "dest": "type_name [1581,1588]"
+    },
+    {
+      "src": "returns: returns [2533,2540]",
+      "dest": "returns: returns [2533,2540]"
+    },
+    {
+      "src": "identifier: spender [2510,2517]",
+      "dest": "identifier: spender [2510,2517]"
+    },
+    {
+      "src": "contract_body [291,2726]",
+      "dest": "contract_body [291,2726]"
+    },
+    {
+      "src": "function: function [1559,1567]",
+      "dest": "function: function [1559,1567]"
+    },
+    {
+      "src": "(: ( [431,432]",
+      "dest": "(: ( [431,432]"
+    },
+    {
+      "src": "): ) [2517,2518]",
+      "dest": "): ) [2517,2518]"
+    },
+    {
+      "src": "identifier: dst [1112,1115]",
+      "dest": "identifier: dst [1112,1115]"
+    },
+    {
+      "src": "event_paramater [2708,2722]",
+      "dest": "event_paramater [2708,2722]"
+    },
+    {
+      "src": ",: , [2602,2603]",
+      "dest": ",: , [2602,2603]"
+    },
+    {
+      "src": "returns: returns [693,700]",
+      "dest": "returns: returns [693,700]"
+    },
+    {
+      "src": "parameter [1594,1605]",
+      "dest": "parameter [1594,1605]"
+    },
+    {
+      "src": "return_type_definition [2533,2560]",
+      "dest": "return_type_definition [2533,2560]"
+    },
+    {
+      "src": "event_paramater [2604,2622]",
+      "dest": "event_paramater [2604,2622]"
+    },
+    {
+      "src": "primitive_type [1581,1588]",
+      "dest": "primitive_type [1581,1588]"
+    },
+    {
+      "src": "type_name [2683,2690]",
+      "dest": "type_name [2683,2690]"
+    },
+    {
+      "src": "parameter [457,464]",
+      "dest": "parameter [457,464]"
+    },
+    {
+      "src": "identifier: spender [2699,2706]",
+      "dest": "identifier: spender [2699,2706]"
+    },
+    {
+      "src": "address: address [2683,2690]",
+      "dest": "address: address [2683,2690]"
+    },
+    {
+      "src": "comment: /**       * @notice Approve `spender` to transfer up to `amount` from `src`       * @dev This will overwrite the approval amount for `spender`       *  and is subject to issues noted [here](https://eips.ethereum.org/EIPS/eip-20#approve)       * @param spender The address of the account which may transfer tokens       * @param amount The number of tokens that are approved       * @return Whether or not the approval succeeded       */ [1638,2074]",
+      "dest": "comment: /**       * @notice Approve `spender` to transfer up to `amount` from `src`       * @dev This will overwrite the approval amount for `spender`       *  and is subject to issues noted [here](https://eips.ethereum.org/EIPS/eip-20#approve)       * @param spender The address of the account which may transfer tokens       * @param amount The number of tokens that are approved       * @return Whether or not the approval succeeded       */ [1638,2074]"
+    },
+    {
+      "src": "function_definition [411,466]",
+      "dest": "function_definition [411,466]"
+    },
+    {
+      "src": "comment: /// [879,882]",
+      "dest": "comment: /// [879,882]"
+    },
+    {
+      "src": "(: ( [1103,1104]",
+      "dest": "(: ( [1103,1104]"
+    },
+    {
+      "src": ",: , [2681,2682]",
+      "dest": ",: , [2681,2682]"
+    },
+    {
+      "src": "interface: interface [255,264]",
+      "dest": "interface: interface [255,264]"
+    },
+    {
+      "src": "identifier: success [2152,2159]",
+      "dest": "identifier: success [2152,2159]"
+    },
+    {
+      "src": "): ) [464,465]",
+      "dest": "): ) [464,465]"
+    },
+    {
+      "src": ",: , [2706,2707]",
+      "dest": ",: , [2706,2707]"
+    },
+    {
+      "src": "type_name [1104,1111]",
+      "dest": "type_name [1104,1111]"
+    },
+    {
+      "src": "primitive_type [2582,2589]",
+      "dest": "primitive_type [2582,2589]"
+    },
+    {
+      "src": ",: , [1115,1116]",
+      "dest": ",: , [1115,1116]"
+    },
+    {
+      "src": "source_file [0,2727]",
+      "dest": "source_file [0,2727]"
+    },
+    {
+      "src": "comment: /// !!!!!!!!!!!!!! [1283,1301]",
+      "dest": "comment: /// !!!!!!!!!!!!!! [1283,1301]"
+    },
+    {
+      "src": ",: , [1605,1606]",
+      "dest": ",: , [1605,1606]"
+    },
+    {
+      "src": "): ) [1131,1132]",
+      "dest": "): ) [1131,1132]"
+    },
+    {
+      "src": "parameter [664,677]",
+      "dest": "parameter [664,677]"
+    },
+    {
+      "src": "comment: /**  * @title EIP20NonStandardInterface  * @dev Version of ERC20 with no return values for `transfer` and `transferFrom`  *  See https://medium.com/coinmonks/missing-return-value-bug-at-least-130-tokens-affected-d67bf08521ca  */ [26,254]",
+      "dest": "comment: /**  * @title EIP20NonStandardInterface  * @dev Version of ERC20 with no return values for `transfer` and `transferFrom`  *  See https://medium.com/coinmonks/missing-return-value-bug-at-least-130-tokens-affected-d67bf08521ca  */ [26,254]"
+    },
+    {
+      "src": "primitive_type [2113,2120]",
+      "dest": "primitive_type [2113,2120]"
+    },
+    {
+      "src": "(: ( [2146,2147]",
+      "dest": "(: ( [2146,2147]"
+    },
+    {
+      "src": "): ) [2722,2723]",
+      "dest": "): ) [2722,2723]"
+    },
+    {
+      "src": "): ) [2127,2128]",
+      "dest": "): ) [2127,2128]"
+    },
+    {
+      "src": "comment: /// !!! NOTICE !!! `transfer` does not return a value, in violation of the ERC-20 specification [756,851]",
+      "dest": "comment: /// !!! NOTICE !!! `transfer` does not return a value, in violation of the ERC-20 specification [756,851]"
+    },
+    {
+      "src": "function: function [2468,2476]",
+      "dest": "function: function [2468,2476]"
+    },
+    {
+      "src": "address: address [1581,1588]",
+      "dest": "address: address [1581,1588]"
+    },
+    {
+      "src": "address: address [2487,2494]",
+      "dest": "address: address [2487,2494]"
+    },
+    {
+      "src": "function_definition [1086,1142]",
+      "dest": "function_definition [1086,1142]"
+    },
+    {
+      "src": "identifier: from [2598,2602]",
+      "dest": "identifier: from [2598,2602]"
+    },
+    {
+      "src": "address: address [664,671]",
+      "dest": "address: address [664,671]"
+    },
+    {
+      "src": "indexed: indexed [2691,2698]",
+      "dest": "indexed: indexed [2691,2698]"
+    },
+    {
+      "src": "type_name [2096,2103]",
+      "dest": "type_name [2096,2103]"
+    },
+    {
+      "src": "type_name [1594,1601]",
+      "dest": "type_name [1594,1601]"
+    },
+    {
+      "src": "returns: returns [2138,2145]",
+      "dest": "returns: returns [2138,2145]"
+    },
+    {
+      "src": "identifier: Transfer [2573,2581]",
+      "dest": "identifier: Transfer [2573,2581]"
+    },
+    {
+      "src": "event: event [2645,2650]",
+      "dest": "event: event [2645,2650]"
+    },
+    {
+      "src": "primitive_type [2502,2509]",
+      "dest": "primitive_type [2502,2509]"
+    },
+    {
+      "src": "type_name [1607,1614]",
+      "dest": "type_name [1607,1614]"
+    },
+    {
+      "src": "uint256: uint256 [1117,1124]",
+      "dest": "uint256: uint256 [1117,1124]"
+    },
+    {
+      "src": "identifier: balanceOf [654,663]",
+      "dest": "identifier: balanceOf [654,663]"
+    },
+    {
+      "src": "event_paramater [2624,2638]",
+      "dest": "event_paramater [2624,2638]"
+    },
+    {
+      "src": "(: ( [663,664]",
+      "dest": "(: ( [663,664]"
+    },
+    {
+      "src": "(: ( [2095,2096]",
+      "dest": "(: ( [2095,2096]"
+    },
+    {
+      "src": "): ) [717,718]",
+      "dest": "): ) [717,718]"
+    },
+    {
+      "src": "comment: /**       * @notice Get the current allowance from `owner` for `spender`       * @param owner The address of the account which owns the tokens to be spent       * @param spender The address of the account which may transfer tokens       * @return The number of tokens allowed to be spent       */ [2167,2463]",
+      "dest": "comment: /**       * @notice Get the current allowance from `owner` for `spender`       * @param owner The address of the account which owns the tokens to be spent       * @param spender The address of the account which may transfer tokens       * @return The number of tokens allowed to be spent       */ [2167,2463]"
+    },
+    {
+      "src": "comment: /// !!!!!!!!!!!!!! [733,751]",
+      "dest": "comment: /// !!!!!!!!!!!!!! [733,751]"
+    },
+    {
+      "src": "indexed: indexed [2590,2597]",
+      "dest": "indexed: indexed [2590,2597]"
+    },
+    {
+      "src": "visibility [2519,2527]",
+      "dest": "visibility [2519,2527]"
+    },
+    {
+      "src": ",: , [2111,2112]",
+      "dest": ",: , [2111,2112]"
+    },
+    {
+      "src": "{: { [291,292]",
+      "dest": "{: { [291,292]"
+    },
+    {
+      "src": "(: ( [456,457]",
+      "dest": "(: ( [456,457]"
+    },
+    {
+      "src": "comment: /// [1148,1151]",
+      "dest": "comment: /// [1148,1151]"
+    },
+    {
+      "src": "): ) [432,433]",
+      "dest": "): ) [432,433]"
+    },
+    {
+      "src": "type_name [2113,2120]",
+      "dest": "type_name [2113,2120]"
+    },
+    {
+      "src": "type_name [457,464]",
+      "dest": "type_name [457,464]"
+    },
+    {
+      "src": "identifier: dst [1602,1605]",
+      "dest": "identifier: dst [1602,1605]"
+    },
+    {
+      "src": "primitive_type [702,709]",
+      "dest": "primitive_type [702,709]"
+    },
+    {
+      "src": "address: address [2604,2611]",
+      "dest": "address: address [2604,2611]"
+    },
+    {
+      "src": "(: ( [2581,2582]",
+      "dest": "(: ( [2581,2582]"
+    },
+    {
+      "src": "address: address [2096,2103]",
+      "dest": "address: address [2096,2103]"
+    },
+    {
+      "src": "primitive_type [457,464]",
+      "dest": "primitive_type [457,464]"
+    },
+    {
+      "src": "address: address [1594,1601]",
+      "dest": "address: address [1594,1601]"
+    },
+    {
+      "src": "visibility [1623,1631]",
+      "dest": "visibility [1623,1631]"
+    },
+    {
+      "src": "parameter [2096,2111]",
+      "dest": "parameter [2096,2111]"
+    },
+    {
+      "src": "primitive_type [2147,2151]",
+      "dest": "primitive_type [2147,2151]"
+    },
+    {
+      "src": "primitive_type [2487,2494]",
+      "dest": "primitive_type [2487,2494]"
+    },
+    {
+      "src": "event_definition [2645,2724]",
+      "dest": "event_definition [2645,2724]"
+    },
+    {
+      "src": "type_name [2582,2589]",
+      "dest": "type_name [2582,2589]"
+    },
+    {
+      "src": "identifier: EIP20NonStandardInterface [265,290]",
+      "dest": "identifier: EIP20NonStandardInterface [265,290]"
+    },
+    {
+      "src": "identifier: spender [2104,2111]",
+      "dest": "identifier: spender [2104,2111]"
+    },
+    {
+      "src": "type_name [2708,2715]",
+      "dest": "type_name [2708,2715]"
+    },
+    {
+      "src": "(: ( [2486,2487]",
+      "dest": "(: ( [2486,2487]"
+    },
+    {
+      "src": "address: address [2582,2589]",
+      "dest": "address: address [2582,2589]"
+    },
+    {
+      "src": "comment: /// !!!!!!!!!!!!!! [856,874]",
+      "dest": "comment: /// !!!!!!!!!!!!!! [856,874]"
+    },
+    {
+      "src": "type_name [664,671]",
+      "dest": "type_name [664,671]"
+    },
+    {
+      "src": "parameter [1117,1131]",
+      "dest": "parameter [1117,1131]"
+    },
+    {
+      "src": "identifier: owner [2676,2681]",
+      "dest": "identifier: owner [2676,2681]"
+    },
+    {
+      "src": "identifier: owner [672,677]",
+      "dest": "identifier: owner [672,677]"
+    },
+    {
+      "src": "primitive_type [1117,1124]",
+      "dest": "primitive_type [1117,1124]"
+    },
+    {
+      "src": "return_type_definition [2138,2160]",
+      "dest": "return_type_definition [2138,2160]"
+    },
+    {
+      "src": "visibility [1133,1141]",
+      "dest": "visibility [1133,1141]"
+    },
+    {
+      "src": "uint256: uint256 [2624,2631]",
+      "dest": "uint256: uint256 [2624,2631]"
+    },
+    {
+      "src": "address: address [1104,1111]",
+      "dest": "address: address [1104,1111]"
+    },
+    {
+      "src": "(: ( [2541,2542]",
+      "dest": "(: ( [2541,2542]"
+    },
+    {
+      "src": "pragma: pragma [0,6]",
+      "dest": "pragma: pragma [0,6]"
+    },
+    {
+      "src": "visibility [434,442]",
+      "dest": "visibility [434,442]"
+    },
+    {
+      "src": "primitive_type [2624,2631]",
+      "dest": "primitive_type [2624,2631]"
+    },
+    {
+      "src": "uint256: uint256 [1607,1614]",
+      "dest": "uint256: uint256 [1607,1614]"
+    },
+    {
+      "src": "identifier: Approval [2651,2659]",
+      "dest": "identifier: Approval [2651,2659]"
+    },
+    {
+      "src": "type_name [2604,2611]",
+      "dest": "type_name [2604,2611]"
+    },
+    {
+      "src": "indexed: indexed [2668,2675]",
+      "dest": "indexed: indexed [2668,2675]"
+    },
+    {
+      "src": "return_type_definition [693,718]",
+      "dest": "return_type_definition [693,718]"
+    },
+    {
+      "src": "parameter [702,717]",
+      "dest": "parameter [702,717]"
+    },
+    {
+      "src": "type_name [2502,2509]",
+      "dest": "type_name [2502,2509]"
+    },
+    {
+      "src": "identifier: src [1589,1592]",
+      "dest": "identifier: src [1589,1592]"
+    },
+    {
+      "src": "comment: /// !!! NOTICE !!! `transferFrom` does not return a value, in violation of the ERC-20 specification [1179,1278]",
+      "dest": "comment: /// !!! NOTICE !!! `transferFrom` does not return a value, in violation of the ERC-20 specification [1179,1278]"
+    },
+    {
+      "src": "comment: /**      * @notice Get the total number of tokens in circulation      * @return The supply of tokens      */ [298,406]",
+      "dest": "comment: /**      * @notice Get the total number of tokens in circulation      * @return The supply of tokens      */ [298,406]"
+    },
+    {
+      "src": "external: external [679,687]",
+      "dest": "external: external [679,687]"
+    },
+    {
+      "src": "comment: /**       * @notice Transfer `amount` tokens from `src` to `dst`       * @param src The address of the source account       * @param dst The address of the destination account       * @param amount The number of tokens to transfer       */ [1315,1554]",
+      "dest": "comment: /**       * @notice Transfer `amount` tokens from `src` to `dst`       * @param src The address of the source account       * @param dst The address of the destination account       * @param amount The number of tokens to transfer       */ [1315,1554]"
+    },
+    {
+      "src": "parameter [1581,1592]",
+      "dest": "parameter [1581,1592]"
+    },
+    {
+      "src": "^:  ^ [15,17]",
+      "dest": "^:  ^ [15,17]"
+    },
+    {
+      "src": "identifier: amount [2121,2127]",
+      "dest": "identifier: amount [2121,2127]"
+    },
+    {
+      "src": "primitive_type [2660,2667]",
+      "dest": "primitive_type [2660,2667]"
+    },
+    {
+      "src": "view: view [688,692]",
+      "dest": "view: view [688,692]"
+    },
+    {
+      "src": "identifier: approve [2088,2095]",
+      "dest": "identifier: approve [2088,2095]"
+    },
+    {
+      "src": "): ) [2159,2160]",
+      "dest": "): ) [2159,2160]"
+    },
+    {
+      "src": "identifier: to [2620,2622]",
+      "dest": "identifier: to [2620,2622]"
+    },
+    {
+      "src": "identifier: amount [1125,1131]",
+      "dest": "identifier: amount [1125,1131]"
+    },
+    {
+      "src": "type_name [702,709]",
+      "dest": "type_name [702,709]"
+    },
+    {
+      "src": "visibility [679,687]",
+      "dest": "visibility [679,687]"
+    },
+    {
+      "src": "parameter [2113,2127]",
+      "dest": "parameter [2113,2127]"
+    },
+    {
+      "src": "bool: bool [2147,2151]",
+      "dest": "bool: bool [2147,2151]"
+    },
+    {
+      "src": "): ) [2559,2560]",
+      "dest": "): ) [2559,2560]"
+    },
+    {
+      "src": "primitive_type [664,671]",
+      "dest": "primitive_type [664,671]"
+    },
+    {
+      "src": "view: view [443,447]",
+      "dest": "view: view [443,447]"
+    },
+    {
+      "src": "identifier: transferFrom [1568,1580]",
+      "dest": "identifier: transferFrom [1568,1580]"
+    },
+    {
+      "src": "primitive_type [1104,1111]",
+      "dest": "primitive_type [1104,1111]"
+    },
+    {
+      "src": "address: address [2502,2509]",
+      "dest": "address: address [2502,2509]"
+    },
+    {
+      "src": "visibility [2129,2137]",
+      "dest": "visibility [2129,2137]"
+    },
+    {
+      "src": "external: external [2129,2137]",
+      "dest": "external: external [2129,2137]"
+    },
+    {
+      "src": "type_name [1117,1124]",
+      "dest": "type_name [1117,1124]"
+    },
+    {
+      "src": "external: external [1623,1631]",
+      "dest": "external: external [1623,1631]"
+    },
+    {
+      "src": "primitive_type [2542,2549]",
+      "dest": "primitive_type [2542,2549]"
+    },
+    {
+      "src": "identifier: amount [2632,2638]",
+      "dest": "identifier: amount [2632,2638]"
+    },
+    {
+      "src": "}: } [2725,2726]",
+      "dest": "}: } [2725,2726]"
+    },
+    {
+      "src": "parameter [2487,2500]",
+      "dest": "parameter [2487,2500]"
+    },
+    {
+      "src": "): ) [1621,1622]",
+      "dest": "): ) [1621,1622]"
+    },
+    {
+      "src": "type_name [2147,2151]",
+      "dest": "type_name [2147,2151]"
+    },
+    {
+      "src": "type_name [2624,2631]",
+      "dest": "type_name [2624,2631]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [15,17]",
+      "dest": "solidity_version_comparison_operator [15,17]"
+    },
+    {
+      "src": "uint256: uint256 [702,709]",
+      "dest": "uint256: uint256 [702,709]"
+    },
+    {
+      "src": "event_paramater [2582,2602]",
+      "dest": "event_paramater [2582,2602]"
+    },
+    {
+      "src": "identifier: amount [1615,1621]",
+      "dest": "identifier: amount [1615,1621]"
+    },
+    {
+      "src": "type_name [2660,2667]",
+      "dest": "type_name [2660,2667]"
+    },
+    {
+      "src": "external: external [2519,2527]",
+      "dest": "external: external [2519,2527]"
+    },
+    {
+      "src": "uint256: uint256 [457,464]",
+      "dest": "uint256: uint256 [457,464]"
+    },
+    {
+      "src": "type_name [2487,2494]",
+      "dest": "type_name [2487,2494]"
+    },
+    {
+      "src": "primitive_type [1607,1614]",
+      "dest": "primitive_type [1607,1614]"
+    },
+    {
+      "src": "parameter [2542,2559]",
+      "dest": "parameter [2542,2559]"
+    },
+    {
+      "src": "function_definition [1559,1632]",
+      "dest": "function_definition [1559,1632]"
+    },
+    {
+      "src": "state_mutability [443,447]",
+      "dest": "state_mutability [443,447]"
+    },
+    {
+      "src": "identifier: allowance [2477,2486]",
+      "dest": "identifier: allowance [2477,2486]"
+    },
+    {
+      "src": "identifier: owner [2495,2500]",
+      "dest": "identifier: owner [2495,2500]"
+    },
+    {
+      "src": "identifier: amount [2716,2722]",
+      "dest": "identifier: amount [2716,2722]"
+    },
+    {
+      "src": "identifier: remaining [2550,2559]",
+      "dest": "identifier: remaining [2550,2559]"
+    },
+    {
+      "src": "comment: /// [1306,1309]",
+      "dest": "comment: /// [1306,1309]"
+    },
+    {
+      "src": "(: ( [2659,2660]",
+      "dest": "(: ( [2659,2660]"
+    },
+    {
+      "src": "function: function [411,419]",
+      "dest": "function: function [411,419]"
+    },
+    {
+      "src": ",: , [1592,1593]",
+      "dest": ",: , [1592,1593]"
+    },
+    {
+      "src": "returns: returns [448,455]",
+      "dest": "returns: returns [448,455]"
+    },
+    {
+      "src": "primitive_type [2708,2715]",
+      "dest": "primitive_type [2708,2715]"
+    },
+    {
+      "src": "primitive_type [2096,2103]",
+      "dest": "primitive_type [2096,2103]"
+    },
+    {
+      "src": "event_paramater [2683,2706]",
+      "dest": "event_paramater [2683,2706]"
+    },
+    {
+      "src": "): ) [677,678]",
+      "dest": "): ) [677,678]"
+    },
+    {
+      "src": "function_definition [2079,2161]",
+      "dest": "function_definition [2079,2161]"
+    },
+    {
+      "src": "primitive_type [2604,2611]",
+      "dest": "primitive_type [2604,2611]"
+    },
+    {
+      "src": "parameter [2502,2517]",
+      "dest": "parameter [2502,2517]"
+    },
+    {
+      "src": "function: function [645,653]",
+      "dest": "function: function [645,653]"
+    },
+    {
+      "src": "parameter [2147,2159]",
+      "dest": "parameter [2147,2159]"
+    },
+    {
+      "src": "parameter [1607,1621]",
+      "dest": "parameter [1607,1621]"
+    },
+    {
+      "src": "event: event [2567,2572]",
+      "dest": "event: event [2567,2572]"
+    },
+    {
+      "src": "uint256: uint256 [2542,2549]",
+      "dest": "uint256: uint256 [2542,2549]"
+    },
+    {
+      "src": "uint256: uint256 [2113,2120]",
+      "dest": "uint256: uint256 [2113,2120]"
+    },
+    {
+      "src": "function: function [1086,1094]",
+      "dest": "function: function [1086,1094]"
+    },
+    {
+      "src": "type_name [2542,2549]",
+      "dest": "type_name [2542,2549]"
+    },
+    {
+      "src": "comment: /// [725,728]",
+      "dest": "comment: /// [725,728]"
+    },
+    {
+      "src": "indexed: indexed [2612,2619]",
+      "dest": "indexed: indexed [2612,2619]"
+    },
+    {
+      "src": "(: ( [1580,1581]",
+      "dest": "(: ( [1580,1581]"
+    },
+    {
+      "src": "event_definition [2567,2640]",
+      "dest": "event_definition [2567,2640]"
+    },
+    {
+      "src": "function_definition [2468,2561]",
+      "dest": "function_definition [2468,2561]"
+    },
+    {
+      "src": "external: external [1133,1141]",
+      "dest": "external: external [1133,1141]"
+    },
+    {
+      "src": "comment: /**       * @notice Transfer `amount` tokens from `msg.sender` to `dst`       * @param dst The address of the destination account       * @param amount The number of tokens to transfer       */ [888,1081]",
+      "dest": "comment: /**       * @notice Transfer `amount` tokens from `msg.sender` to `dst`       * @param dst The address of the destination account       * @param amount The number of tokens to transfer       */ [888,1081]"
+    },
+    {
+      "src": "comment: /// !!!!!!!!!!!!!! [1156,1174]",
+      "dest": "comment: /// !!!!!!!!!!!!!! [1156,1174]"
+    },
+    {
+      "src": "interface_declaration [255,2726]",
+      "dest": "interface_declaration [255,2726]"
+    },
+    {
+      "src": "function: function [2079,2087]",
+      "dest": "function: function [2079,2087]"
+    },
+    {
+      "src": "event_paramater [2660,2681]",
+      "dest": "event_paramater [2660,2681]"
+    },
+    {
+      "src": "solidity_pragma_token [7,23]",
+      "dest": "solidity_pragma_token [7,23]"
+    },
+    {
+      "src": "return_type_definition [448,465]",
+      "dest": "return_type_definition [448,465]"
+    },
+    {
+      "src": "view: view [2528,2532]",
+      "dest": "view: view [2528,2532]"
+    }
+  ],
+  "actions": []
+}

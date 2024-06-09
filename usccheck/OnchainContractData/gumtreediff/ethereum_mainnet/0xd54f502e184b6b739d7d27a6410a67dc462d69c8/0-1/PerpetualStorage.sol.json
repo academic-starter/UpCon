@@ -1,0 +1,369 @@
+{
+  "matches": [
+    {
+      "src": "user_defined_type [945,956]",
+      "dest": "user_defined_type [945,956]"
+    },
+    {
+      "src": "comment: // So that it can be modified during upgrade. [1450,1495]",
+      "dest": "comment: // So that it can be modified during upgrade. [1450,1495]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "comment: // NOLINT: constable-states. [1547,1575]",
+      "dest": "comment: // NOLINT: constable-states. [1547,1575]"
+    },
+    {
+      "src": "state_variable_declaration [1064,1103]",
+      "dest": "state_variable_declaration [1064,1103]"
+    },
+    {
+      "src": "[: [ [1808,1809]",
+      "dest": "[: [ [1808,1809]"
+    },
+    {
+      "src": "number_literal: 5 [1825,1826]",
+      "dest": "number_literal: 5 [1825,1826]"
+    },
+    {
+      "src": "import_directive [662,687]",
+      "dest": "import_directive [662,687]"
+    },
+    {
+      "src": "identifier: sharedStateHash [1264,1279]",
+      "dest": "identifier: sharedStateHash [1264,1279]"
+    },
+    {
+      "src": "comment: // NOLINT: constable-states uninitialized-state. [1010,1058]",
+      "dest": "comment: // NOLINT: constable-states uninitialized-state. [1010,1058]"
+    },
+    {
+      "src": "identifier: configurationDelay [1515,1533]",
+      "dest": "identifier: configurationDelay [1515,1533]"
+    },
+    {
+      "src": "comment: /*   Extends MainStorage, holds Perpetual App specific state (storage) variables.    ALL State variables that are common to all applications, reside in MainStorage,   whereas ALL the Perpetual app specific ones reside here. */ [689,915]",
+      "dest": "comment: /*   Extends MainStorage, holds Perpetual App specific state (storage) variables.    ALL State variables that are common to all applications, reside in MainStorage,   whereas ALL the Perpetual app specific ones reside here. */ [689,915]"
+    },
+    {
+      "src": "primitive_type [1184,1191]",
+      "dest": "primitive_type [1184,1191]"
+    },
+    {
+      "src": "type_name [1184,1191]",
+      "dest": "type_name [1184,1191]"
+    },
+    {
+      "src": "uint256: uint256 [963,970]",
+      "dest": "uint256: uint256 [963,970]"
+    },
+    {
+      "src": "visibility [1828,1835]",
+      "dest": "visibility [1828,1835]"
+    },
+    {
+      "src": "comment: // The delay is held in storage (and not constant) [1395,1445]",
+      "dest": "comment: // The delay is held in storage (and not constant) [1395,1445]"
+    },
+    {
+      "src": "\": \" [685,686]",
+      "dest": "\": \" [685,686]"
+    },
+    {
+      "src": "inheritance_specifier [945,956]",
+      "dest": "inheritance_specifier [945,956]"
+    },
+    {
+      "src": "identifier: globalConfigurationHash [1079,1102]",
+      "dest": "identifier: globalConfigurationHash [1079,1102]"
+    },
+    {
+      "src": "bytes32: bytes32 [1064,1071]",
+      "dest": "bytes32: bytes32 [1064,1071]"
+    },
+    {
+      "src": "comment: // Configuration apply time-lock. [1357,1390]",
+      "dest": "comment: // Configuration apply time-lock. [1357,1390]"
+    },
+    {
+      "src": "identifier: systemAssetType [971,986]",
+      "dest": "identifier: systemAssetType [971,986]"
+    },
+    {
+      "src": "=>: => [1181,1183]",
+      "dest": "=>: => [1181,1183]"
+    },
+    {
+      "src": "binary_expression [1809,1826]",
+      "dest": "binary_expression [1809,1826]"
+    },
+    {
+      "src": "\": \" [669,670]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "string [669,686]",
+      "dest": "string [669,686]"
+    },
+    {
+      "src": "comment: // __endGap complements layout to LAYOUT_LENGTH. [1847,1895]",
+      "dest": "comment: // __endGap complements layout to LAYOUT_LENGTH. [1847,1895]"
+    },
+    {
+      "src": "import: import [662,668]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "primitive_type [963,970]",
+      "dest": "primitive_type [963,970]"
+    },
+    {
+      "src": "comment: // NOLINT: constable-states uninitialized-state. [1303,1351]",
+      "dest": "comment: // NOLINT: constable-states uninitialized-state. [1303,1351]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "uint256: uint256 [1801,1808]",
+      "dest": "uint256: uint256 [1801,1808]"
+    },
+    {
+      "src": "(: ( [1172,1173]",
+      "dest": "(: ( [1172,1173]"
+    },
+    {
+      "src": "bytes32: bytes32 [1184,1191]",
+      "dest": "bytes32: bytes32 [1184,1191]"
+    },
+    {
+      "src": "private: private [1828,1835]",
+      "dest": "private: private [1828,1835]"
+    },
+    {
+      "src": "is: is [942,944]",
+      "dest": "is: is [942,944]"
+    },
+    {
+      "src": "solidity_version: 0.6.11 [653,659]",
+      "dest": "solidity_version: 0.6.11 [653,659]"
+    },
+    {
+      "src": "type_name [963,970]",
+      "dest": "type_name [963,970]"
+    },
+    {
+      "src": "identifier: LAYOUT_LENGTH [1809,1822]",
+      "dest": "identifier: LAYOUT_LENGTH [1809,1822]"
+    },
+    {
+      "src": "identifier: __endGap [1836,1844]",
+      "dest": "identifier: __endGap [1836,1844]"
+    },
+    {
+      "src": "source_file [0,1898]",
+      "dest": "source_file [0,1898]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "contract_body [957,1897]",
+      "dest": "contract_body [957,1897]"
+    },
+    {
+      "src": "mapping: mapping [1165,1172]",
+      "dest": "mapping: mapping [1165,1172]"
+    },
+    {
+      "src": "identifier: configurationHash [1200,1217]",
+      "dest": "identifier: configurationHash [1200,1217]"
+    },
+    {
+      "src": "public: public [1193,1199]",
+      "dest": "public: public [1193,1199]"
+    },
+    {
+      "src": "public: public [1508,1514]",
+      "dest": "public: public [1508,1514]"
+    },
+    {
+      "src": "state_variable_declaration [1165,1218]",
+      "dest": "state_variable_declaration [1165,1218]"
+    },
+    {
+      "src": "{: { [957,958]",
+      "dest": "{: { [957,958]"
+    },
+    {
+      "src": "primitive_type [1256,1263]",
+      "dest": "primitive_type [1256,1263]"
+    },
+    {
+      "src": "): ) [1191,1192]",
+      "dest": "): ) [1191,1192]"
+    },
+    {
+      "src": "type_name [1801,1808]",
+      "dest": "type_name [1801,1808]"
+    },
+    {
+      "src": "]: ] [1826,1827]",
+      "dest": "]: ] [1826,1827]"
+    },
+    {
+      "src": "}: } [1896,1897]",
+      "dest": "}: } [1896,1897]"
+    },
+    {
+      "src": "type_name [1064,1071]",
+      "dest": "type_name [1064,1071]"
+    },
+    {
+      "src": "type_name [1500,1507]",
+      "dest": "type_name [1500,1507]"
+    },
+    {
+      "src": "primitive_type [1500,1507]",
+      "dest": "primitive_type [1500,1507]"
+    },
+    {
+      "src": "visibility [1193,1199]",
+      "dest": "visibility [1193,1199]"
+    },
+    {
+      "src": "primitive_type [1064,1071]",
+      "dest": "primitive_type [1064,1071]"
+    },
+    {
+      "src": "type_name [1256,1263]",
+      "dest": "type_name [1256,1263]"
+    },
+    {
+      "src": "primitive_type [1173,1180]",
+      "dest": "primitive_type [1173,1180]"
+    },
+    {
+      "src": "type_name [1801,1827]",
+      "dest": "type_name [1801,1827]"
+    },
+    {
+      "src": "visibility [1508,1514]",
+      "dest": "visibility [1508,1514]"
+    },
+    {
+      "src": "bytes32: bytes32 [1256,1263]",
+      "dest": "bytes32: bytes32 [1256,1263]"
+    },
+    {
+      "src": "identifier: MainStorage [945,956]",
+      "dest": "identifier: MainStorage [945,956]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "state_variable_declaration [963,987]",
+      "dest": "state_variable_declaration [963,987]"
+    },
+    {
+      "src": "comment: // NOLINTNEXTLINE: naming-convention shadowing-abstract. [1740,1796]",
+      "dest": "comment: // NOLINTNEXTLINE: naming-convention shadowing-abstract. [1740,1796]"
+    },
+    {
+      "src": "-: - [1823,1824]",
+      "dest": "-: - [1823,1824]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "contract_declaration [916,1897]",
+      "dest": "contract_declaration [916,1897]"
+    },
+    {
+      "src": "contract: contract [916,924]",
+      "dest": "contract: contract [916,924]"
+    },
+    {
+      "src": "comment: // NOLINT: constable-states uninitialized-state. [1111,1159]",
+      "dest": "comment: // NOLINT: constable-states uninitialized-state. [1111,1159]"
+    },
+    {
+      "src": "state_variable_declaration [1500,1534]",
+      "dest": "state_variable_declaration [1500,1534]"
+    },
+    {
+      "src": "comment: // Every added MUST be added above the end gap, and the __endGap size must be reduced [1630,1715]",
+      "dest": "comment: // Every added MUST be added above the end gap, and the __endGap size must be reduced [1630,1715]"
+    },
+    {
+      "src": "public: public [1072,1078]",
+      "dest": "public: public [1072,1078]"
+    },
+    {
+      "src": "state_variable_declaration [1256,1280]",
+      "dest": "state_variable_declaration [1256,1280]"
+    },
+    {
+      "src": "state_variable_declaration [1801,1845]",
+      "dest": "state_variable_declaration [1801,1845]"
+    },
+    {
+      "src": "primitive_type [1801,1808]",
+      "dest": "primitive_type [1801,1808]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "type_name [1165,1192]",
+      "dest": "type_name [1165,1192]"
+    },
+    {
+      "src": "comment: // Reserved storage space for Extensibility. [1581,1625]",
+      "dest": "comment: // Reserved storage space for Extensibility. [1581,1625]"
+    },
+    {
+      "src": "identifier: PerpetualStorage [925,941]",
+      "dest": "identifier: PerpetualStorage [925,941]"
+    },
+    {
+      "src": "uint256: uint256 [1500,1507]",
+      "dest": "uint256: uint256 [1500,1507]"
+    },
+    {
+      "src": "comment: // accordingly. [1720,1735]",
+      "dest": "comment: // accordingly. [1720,1735]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "visibility [1072,1078]",
+      "dest": "visibility [1072,1078]"
+    },
+    {
+      "src": "uint256: uint256 [1173,1180]",
+      "dest": "uint256: uint256 [1173,1180]"
+    },
+    {
+      "src": "comment: // NOLINT: uninitialized-state. [1219,1250]",
+      "dest": "comment: // NOLINT: uninitialized-state. [1219,1250]"
+    }
+  ],
+  "actions": []
+}

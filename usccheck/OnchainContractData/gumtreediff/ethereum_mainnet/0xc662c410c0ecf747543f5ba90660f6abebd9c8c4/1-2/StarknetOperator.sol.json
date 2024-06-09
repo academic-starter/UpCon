@@ -1,0 +1,346 @@
+{
+  "matches": [
+    {
+      "src": "=: = [208,209]",
+      "dest": "=: = [804,805]"
+    },
+    {
+      "src": "(: ( [399,400]",
+      "dest": "(: ( [995,996]"
+    },
+    {
+      "src": "string [96,114]",
+      "dest": "string [669,683]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "contract_declaration [117,431]",
+      "dest": "contract_declaration [713,1027]"
+    },
+    {
+      "src": "solidity_pragma_token [47,63]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "source_file [0,432]",
+      "dest": "source_file [0,1028]"
+    },
+    {
+      "src": "visibility [283,291]",
+      "dest": "visibility [879,887]"
+    },
+    {
+      "src": "inheritance_specifier [155,163]",
+      "dest": "inheritance_specifier [751,759]"
+    },
+    {
+      "src": "member_expression [366,399]",
+      "dest": "member_expression [962,995]"
+    },
+    {
+      "src": "): ) [281,282]",
+      "dest": "): ) [877,878]"
+    },
+    {
+      "src": "pragma: pragma [40,46]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "state_variable_declaration [170,253]",
+      "dest": "state_variable_declaration [766,849]"
+    },
+    {
+      "src": "type_name [334,338]",
+      "dest": "type_name [930,934]"
+    },
+    {
+      "src": "=>: => [331,333]",
+      "dest": "=>: => [927,929]"
+    },
+    {
+      "src": "identifier: getOperators [268,280]",
+      "dest": "identifier: getOperators [864,876]"
+    },
+    {
+      "src": "identifier: addressToBoolMapping [379,399]",
+      "dest": "identifier: addressToBoolMapping [975,995]"
+    },
+    {
+      "src": "{: { [164,165]",
+      "dest": "{: { [760,761]"
+    },
+    {
+      "src": "string [73,87]",
+      "dest": "string [692,710]"
+    },
+    {
+      "src": "identifier: OPERATORS_MAPPING_TAG [186,207]",
+      "dest": "identifier: OPERATORS_MAPPING_TAG [782,803]"
+    },
+    {
+      "src": "return_type_definition [306,348]",
+      "dest": "return_type_definition [902,944]"
+    },
+    {
+      "src": "view: view [292,296]",
+      "dest": "view: view [888,892]"
+    },
+    {
+      "src": ".: . [378,379]",
+      "dest": ".: . [974,975]"
+    },
+    {
+      "src": "(: ( [280,281]",
+      "dest": "(: ( [876,877]"
+    },
+    {
+      "src": "address: address [323,330]",
+      "dest": "address: address [919,926]"
+    },
+    {
+      "src": "contract_body [164,431]",
+      "dest": "contract_body [760,1027]"
+    },
+    {
+      "src": "identifier: Operator [155,163]",
+      "dest": "identifier: Operator [751,759]"
+    },
+    {
+      "src": "user_defined_type [155,163]",
+      "dest": "user_defined_type [751,759]"
+    },
+    {
+      "src": "function: function [259,267]",
+      "dest": "function: function [855,863]"
+    },
+    {
+      "src": "identifier: NamedStorage [366,378]",
+      "dest": "identifier: NamedStorage [962,974]"
+    },
+    {
+      "src": "mapping: mapping [315,322]",
+      "dest": "mapping: mapping [911,918]"
+    },
+    {
+      "src": "primitive_type [334,338]",
+      "dest": "primitive_type [930,934]"
+    },
+    {
+      "src": "constant: constant [177,185]",
+      "dest": "constant: constant [773,781]"
+    },
+    {
+      "src": "is: is [152,154]",
+      "dest": "is: is [748,750]"
+    },
+    {
+      "src": "function_definition [259,429]",
+      "dest": "function_definition [855,1025]"
+    },
+    {
+      "src": "string [210,252]",
+      "dest": "string [806,848]"
+    },
+    {
+      "src": "type_name [315,339]",
+      "dest": "type_name [911,935]"
+    },
+    {
+      "src": "): ) [347,348]",
+      "dest": "): ) [943,944]"
+    },
+    {
+      "src": "storage: storage [340,347]",
+      "dest": "storage: storage [936,943]"
+    },
+    {
+      "src": "pragma_directive [40,64]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "(: ( [314,315]",
+      "dest": "(: ( [910,911]"
+    },
+    {
+      "src": "\": \" [210,211]",
+      "dest": "\": \" [806,807]"
+    },
+    {
+      "src": "return: return [359,365]",
+      "dest": "return: return [955,961]"
+    },
+    {
+      "src": "import_directive [89,115]",
+      "dest": "import_directive [662,684]"
+    },
+    {
+      "src": "bool: bool [334,338]",
+      "dest": "bool: bool [930,934]"
+    },
+    {
+      "src": "internal: internal [283,291]",
+      "dest": "internal: internal [879,887]"
+    },
+    {
+      "src": "identifier: OPERATORS_MAPPING_TAG [400,421]",
+      "dest": "identifier: OPERATORS_MAPPING_TAG [996,1017]"
+    },
+    {
+      "src": "): ) [421,422]",
+      "dest": "): ) [1017,1018]"
+    },
+    {
+      "src": "\": \" [86,87]",
+      "dest": "\": \" [709,710]"
+    },
+    {
+      "src": "): ) [338,339]",
+      "dest": "): ) [934,935]"
+    },
+    {
+      "src": "state_mutability [292,296]",
+      "dest": "state_mutability [888,892]"
+    },
+    {
+      "src": "return_statement [359,423]",
+      "dest": "return_statement [955,1019]"
+    },
+    {
+      "src": "\": \" [96,97]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "(: ( [322,323]",
+      "dest": "(: ( [918,919]"
+    },
+    {
+      "src": "}: } [430,431]",
+      "dest": "}: } [1026,1027]"
+    },
+    {
+      "src": "call_expression [366,422]",
+      "dest": "call_expression [962,1018]"
+    },
+    {
+      "src": "\": \" [73,74]",
+      "dest": "\": \" [692,693]"
+    },
+    {
+      "src": "string_literal [210,252]",
+      "dest": "string_literal [806,848]"
+    },
+    {
+      "src": "contract: contract [126,134]",
+      "dest": "contract: contract [722,730]"
+    },
+    {
+      "src": "import: import [66,72]",
+      "dest": "import: import [685,691]"
+    },
+    {
+      "src": "\": \" [251,252]",
+      "dest": "\": \" [847,848]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [57,63]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "abstract: abstract [117,125]",
+      "dest": "abstract: abstract [713,721]"
+    },
+    {
+      "src": "\": \" [113,114]",
+      "dest": "\": \" [682,683]"
+    },
+    {
+      "src": "type_name [170,176]",
+      "dest": "type_name [766,772]"
+    },
+    {
+      "src": "primitive_type [170,176]",
+      "dest": "primitive_type [766,772]"
+    },
+    {
+      "src": "returns: returns [306,313]",
+      "dest": "returns: returns [902,909]"
+    },
+    {
+      "src": "call_argument [400,421]",
+      "dest": "call_argument [996,1017]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [55,57]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "override: override [297,305]",
+      "dest": "override: override [893,901]"
+    },
+    {
+      "src": "{: { [349,350]",
+      "dest": "{: { [945,946]"
+    },
+    {
+      "src": "import_directive [66,88]",
+      "dest": "import_directive [685,711]"
+    },
+    {
+      "src": "parameter [315,347]",
+      "dest": "parameter [911,943]"
+    },
+    {
+      "src": "solidity: solidity [47,55]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "string: string [170,176]",
+      "dest": "string: string [766,772]"
+    },
+    {
+      "src": "import: import [89,95]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "}: } [428,429]",
+      "dest": "}: } [1024,1025]"
+    },
+    {
+      "src": "^:  ^ [55,57]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "identifier: StarknetOperator [135,151]",
+      "dest": "identifier: StarknetOperator [731,747]"
+    },
+    {
+      "src": "override_specifier [297,305]",
+      "dest": "override_specifier [893,901]"
+    },
+    {
+      "src": "primitive_type [323,330]",
+      "dest": "primitive_type [919,926]"
+    },
+    {
+      "src": "function_body [349,429]",
+      "dest": "function_body [945,1025]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "move-tree",
+      "tree": "import_directive [66,88]",
+      "parent": "source_file [0,1028]",
+      "at": 3
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "parent": "source_file [0,1028]",
+      "at": 0
+    }
+  ]
+}

@@ -1,0 +1,2037 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>ACOPool2.sol</h5><pre class="pre-scrollable">pragma solidity ^0.6.6;
+pragma experimental ABIEncoderV2;
+
+import './Ownable.sol';
+import './ACOAssetHelper.sol';
+import './ACOPoolLib.sol';
+import './ERC20.sol';
+import './IACOFactory.sol';
+import './IACOPoolFactory2.sol';
+import './IACOAssetConverterHelper.sol';
+import './IACOToken.sol';
+import './IChiToken.sol';
+import './IACOPool2.sol';
+import './ILendingPool.sol';
+
+<span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="source_file/comment"><span class="cupd">/**
+ * @title ACOPool2
+ * @dev A pool contract to trade ACO tokens.
+ * 
+ * The SC errors are defined as code to shrunk the SC bytes size and work around the EIP170.
+ * The codes are explained in the table below:
+ ********************************************************************************************
+ * CODE | FUNCTION                            | DESCRIPTION						            *
+ *------------------------------------------------------------------------------------------*
+ * E00  | init                                | SC is already initialized                   *
+ *------------------------------------------------------------------------------------------*
+ * E01  | init                                | Underlying and strike asset are the same    *
+ *------------------------------------------------------------------------------------------*
+ * E10  | _deposit                            | Invalid collateral amount                   *
+ *------------------------------------------------------------------------------------------*
+ * E11  | _deposit                            | Invalid destination address                 *
+ *------------------------------------------------------------------------------------------*
+ * E12  | _deposit                            | Invalid deposit for lending pool token      *
+ *------------------------------------------------------------------------------------------*
+ * E13  | _deposit                            | The minimum shares were not satisfied       *
+ *------------------------------------------------------------------------------------------*
+ * E20  | _withdrawWithLocked                 | Invalid shares amount                       *
+ *------------------------------------------------------------------------------------------*
+ * E21  | _withdrawWithLocked                 | Invalid withdraw for lending pool token     *
+ *------------------------------------------------------------------------------------------*
+ * E30  | _withdrawNoLocked                   | Invalid shares amount                       *
+ *------------------------------------------------------------------------------------------*
+ * E31  | _withdrawNoLocked                   | Invalid withdraw for lending pool token     *
+ *------------------------------------------------------------------------------------------*
+ * E40  | _swap                               | Swap deadline reached                       *
+ *------------------------------------------------------------------------------------------*
+ * E41  | _swap                               | Invalid destination address                 *
+ *------------------------------------------------------------------------------------------*
+ * E42  | _internalSelling                    | The maximum payment restriction was reached *
+ *------------------------------------------------------------------------------------------*
+ * E43  | _internalSelling                    | Insufficient ether amount                   *
+ *------------------------------------------------------------------------------------------*
+ * E44  | _internalSelling                    | Ether is not expected                       *
+ *------------------------------------------------------------------------------------------*
+ * E45  | _internalSelling                    | The maximum number of open ACOs was reached *
+ *------------------------------------------------------------------------------------------*
+ * E50  | _quote                              | Invalid token amount                        *
+ *------------------------------------------------------------------------------------------*
+ * E51  | _quote                              | Invalid ACO token                           *
+ *------------------------------------------------------------------------------------------*
+ * E60  | restoreCollateral                   | No balance to restore                       *
+ *------------------------------------------------------------------------------------------*
+ * E70  | lendCollateral                      | Lend is not available for this pool         *
+ *------------------------------------------------------------------------------------------*
+ * E80  | withdrawStuckToken                  | The token is forbidden to withdraw          *
+ *------------------------------------------------------------------------------------------*
+ * E81  | _setAcoPermissionConfig             | Invalid below tolerance percentage          *
+ *------------------------------------------------------------------------------------------*
+ * E82  | _setAcoPermissionConfig             | Invalid minimum below tolerance percentage  *
+ *------------------------------------------------------------------------------------------*
+ * E83  | _setAcoPermissionConfig             | Invalid minimum above tolerance percentage  *
+ *------------------------------------------------------------------------------------------*</span><span class="cupd">
+</span><span class="cupd"> * E84  | _setAcoPermissionConfig             | Invalid expiration range                    *
+ *---------------------------------------</span>-<span class="cupd">--------------------------------------------------*
+ * E85  | _setBaseVolatility                  | Invalid base volatility                     *
+ *-------------------------------------</span>-<span class="cupd">----------------------------------------------------*
+ * E86  | _setStrategy                        | Invalid strategy address                    *
+ *-----------------------------------</span>-<span class="cupd">------------------------------------------------------*
+ * E87  | _setPoolAdmin                       | Invalid pool admin address                  *
+ *---------------------------------</span>-<span class="cupd">--------------------------------------------------------*
+ * E88  | _setProtocolConfig                  | No price on the Oracle                      *
+ *------------------------------</span>-<span class="cupd">-</span><span class="cupd">----------------------------------------------------------*
+ * E89  | _setProtocolConfig                  | Invalid fee destination address             *
+ *-----------------------------</span>-<span class="cupd">------------------------------------------------------------*
+ * E90  | _setProtocolConfig                  | Invalid fee value                           *
+ *---------------------------</span>-<span class="cupd">--------------------------------------------------------------*
+ * E91  | _setProtocolConfig                  | Invalid penalty percentage                  *
+ *-------------------------</span>-<span class="cupd">----------------------------------------------------------------*
+ * E92  | _setProtocolConfig                  | Invalid underlying price adjust percentage  *
+ *-----------------------</span>-<span class="cupd">------------------------------------------------------------------*
+ * E93  | _setProtocolConfig                  | Invalid maximum number of open ACOs allowed *
+ *---------------------</span><span class="cupd">---------------------------------------------------------------------*
+ * E98  | _onlyPoolAdmin                      | Only the pool admin can call the method     *
+ *------------------------------------------------------------------------------------------*
+ * E99  | _onlyProtocolOwner                  | Only the pool factory can call the method   *
+ ****************</span>****************************************************************************
+ */</span>
+contract <span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-2" data-title="contract_declaration/identifier"><span class="cupd">ACOPool2</span></span> is <span class="marker" id="mapping-3"></span><span class="token mv" id="move-src-3" data-title="contract_declaration/inheritance_specifier">Ownable</span><span class="marker" id="mapping-4"></span><span class="token del" data-title="contract_declaration/,">,</span> <span class="marker" id="mapping-5"></span><span class="token mv" id="move-src-4" data-title="contract_declaration/inheritance_specifier">ERC20</span> {
+    
+    <span class="marker" id="mapping-6"></span><span class="token mv" id="move-src-5" data-title="contract_body/state_variable_declaration">uint256 internal constant PERCENTAGE_PRECISION = 100000;</span>
+
+    <span class="marker" id="mapping-7"></span><span class="token mv" id="move-src-6" data-title="contract_body/event_definition">event SetValidAcoCreator(address indexed creator, bool indexed previousPermission, bool indexed newPermission);</span>
+    
+    <span class="marker" id="mapping-8"></span><span class="token mv" id="move-src-7" data-title="contract_body/event_definition">event SetForbiddenAcoCreator(address indexed creator, bool indexed previousStatus, bool indexed newStatus);</span>
+    
+    <span class="marker" id="mapping-9"></span><span class="token mv" id="move-src-8" data-title="contract_body/event_definition">event SetProtocolConfig(IACOPool2.PoolProtocolConfig oldConfig, IACOPool2.PoolProtocolConfig newConfig);</span>
+	
+	<span class="marker" id="mapping-10"></span><span class="token mv" id="move-src-9" data-title="contract_body/event_definition">event SetAcoPermissionConfig(IACOPool2.PoolAcoPermissionConfig oldConfig, IACOPool2.PoolAcoPermissionConfig newConfig);</span>
+
+    <span class="marker" id="mapping-11"></span><span class="token mv" id="move-src-10" data-title="contract_body/event_definition">event SetBaseVolatility(uint256 indexed oldBaseVolatility, uint256 indexed newBaseVolatility);</span>
+
+	<span class="marker" id="mapping-12"></span><span class="token mv" id="move-src-11" data-title="contract_body/event_definition">event SetStrategy(address indexed oldStrategy, address indexed newStrategy);</span>
+	
+    <span class="marker" id="mapping-13"></span><span class="token mv" id="move-src-12" data-title="contract_body/event_definition">event SetPoolAdmin(address indexed oldAdmin, address indexed newAdmin);</span>
+
+    <span class="marker" id="mapping-14"></span><span class="token mv" id="move-src-13" data-title="contract_body/event_definition">event RestoreCollateral(uint256 amountOut, uint256 collateralRestored);</span>
+
+    <span class="marker" id="mapping-15"></span><span class="token mv" id="move-src-14" data-title="contract_body/event_definition">event LendCollateral(uint256 collateralAmount);</span>
+
+	<span class="marker" id="mapping-16"></span><span class="token mv" id="move-src-15" data-title="contract_body/event_definition">event ACORedeem(address indexed acoToken, uint256 valueSold, uint256 collateralLocked, uint256 collateralRedeemed);</span>
+
+    <span class="marker" id="mapping-17"></span><span class="token mv" id="move-src-16" data-title="contract_body/event_definition">event Deposit(address indexed account, uint256 shares, uint256 collateralAmount);</span>
+
+    <span class="marker" id="mapping-18"></span><span class="token mv" id="move-src-17" data-title="contract_body/event_definition">event Withdraw(
+		address indexed account, 
+		uint256 shares, 
+		bool noLocked, 
+		uint256 underlyingWithdrawn, 
+		uint256 strikeAssetWithdrawn, 
+		address[] acos, 
+		uint256[] acosAmount
+	);</span>
+
+	<span class="marker" id="mapping-19"></span><span class="token mv" id="move-src-18" data-title="contract_body/event_definition">event Swap(
+        address indexed account, 
+        address indexed acoToken, 
+        uint256 tokenAmount, 
+        uint256 price, 
+        uint256 protocolFee,
+        uint256 underlyingPrice,
+		uint256 volatility
+    );</span>
+
+    <span class="marker" id="mapping-20"></span><span class="token mv" id="move-src-19" data-title="contract_body/state_variable_declaration">IACOFactory public acoFactory;</span>
+	<span class="marker" id="mapping-21"></span><span class="token mv" id="move-src-20" data-title="contract_body/state_variable_declaration">IChiToken public chiToken;</span>
+	<span class="marker" id="mapping-22"></span><span class="token mv" id="move-src-21" data-title="contract_body/state_variable_declaration">ILendingPool public lendingPool;</span>
+    <span class="marker" id="mapping-23"></span><span class="token mv" id="move-src-22" data-title="contract_body/state_variable_declaration">address public underlying;</span>
+    <span class="marker" id="mapping-24"></span><span class="token mv" id="move-src-23" data-title="contract_body/state_variable_declaration">address public strikeAsset;</span>
+    <span class="marker" id="mapping-25"></span><span class="token mv" id="move-src-24" data-title="contract_body/state_variable_declaration">bool public isCall;</span>
+
+    <span class="marker" id="mapping-26"></span><span class="token mv" id="move-src-25" data-title="contract_body/state_variable_declaration">address public poolAdmin;</span>
+	<span class="marker" id="mapping-27"></span><span class="token mv" id="move-src-26" data-title="contract_body/state_variable_declaration">address public strategy;</span>
+    <span class="marker" id="mapping-28"></span><span class="token mv" id="move-src-27" data-title="contract_body/state_variable_declaration">uint256 public baseVolatility;</span>
+    
+    <span class="marker" id="mapping-29"></span><span class="token mv" id="move-src-28" data-title="contract_body/state_variable_declaration">IACOPool2.PoolAcoPermissionConfig public acoPermissionConfig;</span>
+    <span class="marker" id="mapping-30"></span><span class="token mv" id="move-src-29" data-title="contract_body/state_variable_declaration">IACOPool2.PoolProtocolConfig public protocolConfig;</span>
+    
+    <span class="marker" id="mapping-31"></span><span class="token mv" id="move-src-30" data-title="contract_body/state_variable_declaration">address[] public acoTokens;</span>
+    <span class="marker" id="mapping-32"></span><span class="token mv" id="move-src-31" data-title="contract_body/state_variable_declaration">address[] public openAcos;</span>
+
+    <span class="marker" id="mapping-33"></span><span class="token mv" id="move-src-32" data-title="contract_body/state_variable_declaration">mapping(address =&gt; bool) public forbiddenAcoCreators;</span>
+    <span class="marker" id="mapping-34"></span><span class="token mv" id="move-src-33" data-title="contract_body/state_variable_declaration">mapping(address =&gt; bool) public validAcoCreators;</span>
+    <span class="marker" id="mapping-35"></span><span class="token mv" id="move-src-34" data-title="contract_body/state_variable_declaration">mapping(address =&gt; IACOPool2.AcoData) public acoData;</span>
+
+    <span class="marker" id="mapping-36"></span><span class="token mv" id="move-src-35" data-title="contract_body/state_variable_declaration">address internal lendingToken;</span>
+	<span class="marker" id="mapping-37"></span><span class="token mv" id="move-src-36" data-title="contract_body/state_variable_declaration">uint256 internal underlyingPrecision;</span>
+
+	<span class="marker" id="mapping-38"></span><span class="token mv" id="move-src-37" data-title="contract_body/modifier_definition">modifier discountCHI {
+        uint256 gasStart = gasleft();
+        _;
+        uint256 gasSpent = 21000 + gasStart - gasleft() + 16 * msg.data.length;
+        chiToken.freeFromUpTo(msg.sender, (gasSpent + 14154) / 41947);
+    }</span>
+
+    function init(IACOPool2.InitData calldata initData) external {
+		require(underlying == address(0) &amp;&amp; strikeAsset == address(0), "E00");
+        require(initData.underlying != initData.strikeAsset, "E01");
+        
+        super.init();
+
+        acoFactory = IACOFactory(initData.acoFactory);
+        <span class="marker" id="mapping-39"></span><span class="token del" data-title="function_body/expression_statement">chiToken = IChiToken(initData.chiToken);</span>
+        lendingPool = ILendingPool(initData.lendingPool);
+        underlying = initData.underlying;
+        strikeAsset = initData.strikeAsset;
+        isCall = initData.isCall;
+		
+		_setProtocolConfig(initData.protocolConfig);
+		_setPoolAdmin(initData.admin);
+		_setAcoPermissionConfig(initData.<span class="marker" id="mapping-40"></span><span class="token upd" id="move-src-38" data-title="member_expression/identifier"><span class="cupd">acoPermissionConfig</span></span>);
+        _setBaseVolatility(initData.baseVolatility);
+        _setStrategy(initData.strategy);
+		
+		if (!initData.isCall) {
+		    lendingToken = ILendingPool(initData.lendingPool).getReserveData(initData.strikeAsset).aTokenAddress;
+            _setAuthorizedSpender(initData.strikeAsset, initData.lendingPool);
+        }
+		underlyingPrecision = 10 ** uint256(ACOAssetHelper._getAssetDecimals(initData.underlying));
+    }
+
+    receive() external payable {
+    }
+
+    function name() public override view returns(string memory) {
+        return ACOPoolLib.name(underlying, strikeAsset, isCall);
+    }
+
+	function symbol() public override view returns(string memory) {
+        return name();
+    }
+
+    function decimals() public override view returns(uint8) {
+        return ACOAssetHelper._getAssetDecimals(collateral());
+    }
+
+    function numberOfAcoTokensNegotiated() external view returns(uint256) {
+        return acoTokens.length;
+    }
+
+    function numberOfOpenAcoTokens() external view returns(uint256) {
+        return openAcos.length;
+    }
+
+	<span class="marker" id="mapping-41"></span><span class="token mv" id="move-src-39" data-title="contract_body/function_definition">function collateral() public view returns(address) {
+        return (isCall ? underlying : strikeAsset);
+    }</span>
+
+    function canSwap(address acoToken) external view returns(bool) {
+        (address _underlying, address _strikeAsset, bool _isCall, uint256 _strikePrice, uint256 _expiryTime) = _getAcoData(acoToken);
+		if (_acoBasicDataIsValid(acoToken, _underlying, _strikeAsset, _isCall)) {
+            uint256 price = _getPrice(_underlying, _strikeAsset, protocolConfig.assetConverter);
+            return ACOPoolLib.acoStrikeAndExpirationIsValid(_strikePrice, _expiryTime, price, <span class="marker" id="mapping-42"></span><span class="token upd" id="move-src-40" data-title="call_argument/identifier"><span class="cupd">acoPermissionConfig</span></span>);
+        }
+        return false;
+    }
+
+	function quote(address acoToken, uint256 tokenAmount) external view returns(
+        uint256 swapPrice, 
+        uint256 protocolFee, 
+        uint256 underlyingPrice, 
+        uint256 volatility
+    ) {
+        IACOPool2.PoolProtocolConfig storage _protocolConfig = protocolConfig;
+        (swapPrice, protocolFee, underlyingPrice, volatility,) = _quote(acoToken, tokenAmount, _protocolConfig);
+    }
+
+	function getDepositShares(uint256 collateralAmount) external view returns(uint256) {
+        (,,uint256 collateralBalance,) = _getCollateralNormalized(true);
+
+        if (collateralBalance == 0) {
+            return collateralAmount;
+        } else {
+            return collateralAmount.mul(totalSupply()).div(collateralBalance);
+        }
+    }
+
+	function getWithdrawNoLockedData(uint256 shares) external view returns(
+        uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn,
+		bool isPossible
+    ) {
+        uint256 _totalSupply = totalSupply();
+		if (shares &gt; 0 &amp;&amp; shares &lt;= _totalSupply) {
+			
+			(uint256 underlyingBalance, 
+             uint256 strikeAssetBalance, 
+             uint256 collateralBalance, 
+             uint256 collateralLockedRedeemable) = _getCollateralNormalized(false);
+             
+            (underlyingWithdrawn, strikeAssetWithdrawn, isPossible) = ACOPoolLib.getBaseWithdrawNoLockedData(
+                shares,
+                _totalSupply,
+                isCall,
+                underlyingBalance, 
+                strikeAssetBalance, 
+                collateralBalance, 
+                collateralLockedRedeemable
+            );
+		}
+    }
+
+	function getWithdrawWithLocked(uint256 shares) external view returns(
+        uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn,
+		address[] memory acos,
+		uint256[] memory acosAmount
+    ) {
+        uint256 _totalSupply = totalSupply();	
+        if (shares &gt; 0 &amp;&amp; shares &lt;= _totalSupply) {
+        
+            (underlyingWithdrawn, strikeAssetWithdrawn) = ACOPoolLib.getBaseAssetsWithdrawWithLocked(shares, underlying, strikeAsset, isCall, _totalSupply, lendingToken);
+		
+            acos = new address[](openAcos.length);
+            acosAmount = new uint256[](openAcos.length);
+			for (uint256 i = 0; i &lt; openAcos.length; ++i) {
+				address acoToken = openAcos[i];
+				uint256 tokens = IACOToken(acoToken).currentCollateralizedTokens(address(this));
+				
+				acos[i] = acoToken;
+				acosAmount[i] = tokens.mul(shares).div(_totalSupply);
+			}
+		}
+    }
+
+	function getGeneralData() external view returns(
+        uint256 underlyingBalance,
+		uint256 strikeAssetBalance,
+		uint256 collateralLocked,
+        uint256 collateralOnOpenPosition,
+        uint256 collateralLockedRedeemable,
+		uint256 poolSupply
+    ) {
+        poolSupply = totalSupply();
+        (underlyingBalance, strikeAssetBalance,, collateralLocked, collateralOnOpenPosition, collateralLockedRedeemable) = _getCollateralData(true);
+    }
+    
+    function setAcoPermissionConfig(IACOPool2.<span class="marker" id="mapping-43"></span><span class="token upd" id="move-src-41" data-title="user_defined_type/identifier"><span class="cupd">PoolAcoPermissionConfig</span></span> calldata newConfig) external {
+        _onlyPoolAdmin();
+        _setAcoPermissionConfig(newConfig);
+    }
+
+	function setBaseVolatility(uint256 newBaseVolatility) external {
+        _onlyPoolAdmin();
+		_setBaseVolatility(newBaseVolatility);
+	}
+	
+	function setStrategy(address newStrategy) external {
+        _onlyPoolAdmin();
+		_setStrategy(newStrategy);
+	}
+	
+	function setPoolAdmin(address newAdmin) external {
+	    _onlyPoolAdmin();
+		_setPoolAdmin(newAdmin);
+	}
+
+	function setValidAcoCreator(address acoCreator, bool newPermission) external {
+        _onlyProtocolOwner();
+        emit SetValidAcoCreator(acoCreator, validAcoCreators[acoCreator], newPermission);
+        validAcoCreators[acoCreator] = newPermission;
+    }
+    
+    function setForbiddenAcoCreator(address acoCreator, bool isForbidden) external {
+        _onlyProtocolOwner();
+        emit SetForbiddenAcoCreator(acoCreator, forbiddenAcoCreators[acoCreator], isForbidden);
+        forbiddenAcoCreators[acoCreator] = isForbidden;
+    }
+    
+    function setProtocolConfig(IACOPool2.PoolProtocolConfig calldata newConfig) external {
+        _onlyProtocolOwner();
+        _setProtocolConfig(newConfig);
+    }
+
+    function withdrawStuckToken(address token, address destination) external {
+        _onlyProtocolOwner();
+        require(token != underlying &amp;&amp; token != strikeAsset &amp;&amp; !acoData[token].open &amp;&amp; (isCall || token != lendingToken), "E80");
+        uint256 _balance = ACOAssetHelper._getAssetBalanceOf(token, address(this));
+        if (_balance &gt; 0) {
+            ACOAssetHelper._transferAsset(token, destination, _balance);
+        }
+    }
+
+	function deposit(
+	    uint256 collateralAmount, 
+	    uint256 minShares, 
+	    address to, 
+	    bool isLendingToken
+    ) external payable returns(uint256) {
+        return _deposit(collateralAmount, minShares, to, isLendingToken);
+    }
+
+	<span class="marker" id="mapping-44"></span><span class="token del" data-title="contract_body/function_definition">function depositWithGasToken(
+	    uint256 collateralAmount, 
+	    uint256 minShares, 
+	    address to, 
+	    bool isLendingToken
+    ) discountCHI external payable returns(uint256) {
+        return _deposit(collateralAmount, minShares, to, isLendingToken);
+    }</span>
+
+    function withdrawWithLocked(uint256 shares, address account, bool withdrawLendingToken) external returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn,
+		address[] memory acos,
+		uint256[] memory acosAmount
+	) {
+        (underlyingWithdrawn, strikeAssetWithdrawn, acos, acosAmount) = _withdrawWithLocked(shares, account, withdrawLendingToken);
+    }
+
+	<span class="marker" id="mapping-45"></span><span class="token del" data-title="contract_body/function_definition">function withdrawWithLockedWithGasToken(<span class="marker" id="mapping-46"></span><span class="token del" data-title="function_definition/parameter"><span class="marker" id="mapping-47"></span><span class="token mv" id="move-src-42" data-title="parameter/type_name">uint256</span> shares</span>, <span class="marker" id="mapping-48"></span><span class="token del" data-title="function_definition/parameter">address account</span>, <span class="marker" id="mapping-49"></span><span class="token del" data-title="function_definition/parameter"><span class="marker" id="mapping-50"></span><span class="token mv" id="move-src-43" data-title="parameter/type_name">bool</span> withdrawLendingToken</span>) <span class="marker" id="mapping-51"></span><span class="token del" data-title="function_definition/modifier_invocation">discountCHI</span> <span class="marker" id="mapping-52"></span><span class="token del" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-53"></span><span class="token del" data-title="function_definition/return_type_definition">returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn,
+		address[] memory acos,
+		uint256[] memory acosAmount
+	)</span> <span class="marker" id="mapping-54"></span><span class="token del" data-title="function_definition/function_body">{
+        (underlyingWithdrawn, strikeAssetWithdrawn, acos, acosAmount) = _withdrawWithLocked(shares, account, withdrawLendingToken);
+    }</span></span>
+
+	function withdrawNoLocked(
+	    uint256 shares, 
+	    uint256 minCollateral, 
+	    address account, 
+	    bool withdrawLendingToken
+    ) external returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn
+	) {
+        (underlyingWithdrawn, strikeAssetWithdrawn) = _withdrawNoLocked(shares, minCollateral, account, withdrawLendingToken);
+    }
+
+	<span class="marker" id="mapping-55"></span><span class="token del" data-title="contract_body/function_definition">function withdrawNoLockedWithGasToken(
+	    uint256 shares, 
+	    uint256 minCollateral, 
+	    address account, 
+	    bool withdrawLendingToken
+    ) discountCHI external returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn
+	) {
+        (underlyingWithdrawn, strikeAssetWithdrawn) = _withdrawNoLocked(shares, minCollateral, account, withdrawLendingToken);
+    }</span>
+
+	function swap(
+        address acoToken, 
+        uint256 tokenAmount, 
+        uint256 restriction, 
+        address to, 
+        uint256 deadline
+    ) external payable {
+        _swap(acoToken, tokenAmount, restriction, to, deadline);
+    }
+
+    <span class="marker" id="mapping-56"></span><span class="token del" data-title="contract_body/function_definition">function swapWithGasToken(
+        address acoToken, 
+        uint256 tokenAmount, 
+        uint256 restriction, 
+        address to, 
+        uint256 deadline
+    ) discountCHI external payable {
+        _swap(acoToken, tokenAmount, restriction, to, deadline);
+    }</span>
+
+    function redeemACOTokens() public {
+        for (uint256 i = openAcos.length; i &gt; 0; --i) {
+            address acoToken = openAcos[i - 1];
+            redeemACOToken(acoToken);
+        }
+    }
+
+	function redeemACOToken(address acoToken) public {
+		IACOPool2.AcoData storage data = acoData[acoToken];
+		if (data.open &amp;&amp; IACOToken(acoToken).expiryTime() &lt;= block.timestamp) {
+			
+            data.open = false;
+			uint256 lastIndex = openAcos.length - 1;
+    		uint256 index = data.openIndex;
+    		if (lastIndex != index) {
+    		    address last = openAcos[lastIndex];
+    			openAcos[index] = last;
+    			acoData[last].openIndex = index;
+    		}
+    		data.openIndex = 0;
+            openAcos.pop();
+
+            if (IACOToken(acoToken).currentCollateralizedTokens(address(this)) &gt; 0) {	
+			    data.collateralRedeemed = IACOToken(acoToken).redeem();
+			    if (!isCall) {
+			        _depositOnLendingPool(data.collateralRedeemed);
+			    }
+            }
+			
+			emit ACORedeem(acoToken, data.valueSold, data.collateralLocked, data.collateralRedeemed);
+		}
+    }
+
+	function restoreCollateral() external {
+        _onlyPoolAdmin();
+        
+        uint256 balanceOut;
+        address assetIn;
+        address assetOut;
+        if (isCall) {
+            balanceOut = _getPoolBalanceOf(strikeAsset);
+            assetIn = underlying;
+            assetOut = strikeAsset;
+        } else {
+            balanceOut = _getPoolBalanceOf(underlying);
+            assetIn = strikeAsset;
+            assetOut = underlying;
+        }
+        require(balanceOut &gt; 0, "E60");
+        
+		uint256 etherAmount = 0;
+        if (ACOAssetHelper._isEther(assetOut)) {
+			etherAmount = balanceOut;
+        }
+        uint256 collateralRestored = IACOAssetConverterHelper(protocolConfig.assetConverter).swapExactAmountOut{value: etherAmount}(assetOut, assetIn, balanceOut);
+        if (!isCall) {
+            _depositOnLendingPool(collateralRestored);
+        }
+
+        emit RestoreCollateral(balanceOut, collateralRestored);
+    }
+
+	function lendCollateral() external {
+		require(!isCall, "E70");
+	    uint256 strikeAssetBalance = _getPoolBalanceOf(strikeAsset);
+	    if (strikeAssetBalance &gt; 0) {
+	        _depositOnLendingPool(strikeAssetBalance);
+	        emit LendCollateral(strikeAssetBalance);
+	    }
+    }
+
+    function _getAcoData(address acoToken) internal view returns(
+        address _underlying, 
+        address _strikeAsset, 
+        bool _isCall, 
+        uint256 strikePrice, 
+        uint256 expiryTime
+    ) {
+        (_underlying, _strikeAsset, _isCall, strikePrice, expiryTime) = acoFactory.acoTokenData(acoToken);
+    }
+
+	function _quote(
+	    address acoToken, 
+	    uint256 tokenAmount, 
+	    IACOPool2.PoolProtocolConfig storage _protocolConfig
+    ) internal view returns(
+        uint256 swapPrice, 
+        uint256 protocolFee, 
+        uint256 underlyingPrice, 
+        uint256 volatility, 
+        uint256 collateralAmount
+    ) {
+        require(tokenAmount &gt; 0, "E50");
+        
+        ACOPoolLib.AcoData memory _acoData = _getAcoDataForQuote(acoToken, tokenAmount);
+        
+		require(_acoBasicDataIsValid(acoToken, _acoData.underlying, _acoData.strikeAsset, _acoData.isCall), "E51");
+		
+		underlyingPrice = _getPrice(_acoData.underlying, _acoData.strikeAsset, _protocolConfig.assetConverter);
+		
+		(swapPrice, protocolFee, volatility, collateralAmount) = ACOPoolLib.quote(ACOPoolLib.QuoteData(
+    		lendingToken,
+    		strategy,
+    		baseVolatility,
+    		_protocolConfig.fee,
+    		underlyingPrice,
+    		underlyingPrecision,
+    		_acoData,
+    		<span class="marker" id="mapping-57"></span><span class="token upd" id="move-src-44" data-title="call_argument/identifier"><span class="cupd">acoPermissionConfig</span></span>));
+    }
+    
+    function _getAcoDataForQuote(address acoToken, uint256 tokenAmount) internal view returns(ACOPoolLib.AcoData memory _acoData) {
+        (address _underlying, address _strikeAsset, bool _isCall, uint256 strikePrice, uint256 expiryTime) = _getAcoData(acoToken);
+        _acoData = ACOPoolLib.AcoData(_isCall, strikePrice, expiryTime, tokenAmount, _underlying, _strikeAsset); 
+    }
+    
+	function _deposit(
+	    uint256 collateralAmount, 
+	    uint256 minShares, 
+	    address to,
+	    bool isLendingToken
+    ) internal returns(uint256 shares) {
+        require(collateralAmount &gt; 0, "E10");
+        require(to != address(0) &amp;&amp; to != address(this), "E11");
+        require(!isLendingToken || !isCall, "E12");
+		
+		(,,uint256 collateralBalance,) = _getCollateralNormalized(true);
+
+		address _collateral = collateral();
+		if (ACOAssetHelper._isEther(_collateral)) {
+            collateralBalance = collateralBalance.sub(msg.value);
+		}
+        
+        if (collateralBalance == 0) {
+            shares = collateralAmount;
+        } else {
+            shares = collateralAmount.mul(totalSupply()).div(collateralBalance);
+        }
+        require(shares &gt;= minShares, "E13");
+
+        if (isLendingToken) {
+            ACOAssetHelper._receiveAsset(lendingToken, collateralAmount);
+        } else {
+            ACOAssetHelper._receiveAsset(_collateral, collateralAmount);
+            if (!isCall) {
+                _depositOnLendingPool(collateralAmount);
+            }
+        }
+        
+        super._mintAction(to, shares);
+        
+        emit Deposit(to, shares, collateralAmount);
+    }
+
+	function _withdrawWithLocked(uint256 shares, address account, bool withdrawLendingToken) internal returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn,
+		address[] memory acos,
+		uint256[] memory acosAmount
+	) {
+        require(shares &gt; 0, "E20");
+        require(!withdrawLendingToken || !isCall, "E21");
+        
+		redeemACOTokens();
+		
+        uint256 _totalSupply = totalSupply();
+        _callBurn(account, shares);
+        
+		(underlyingWithdrawn, strikeAssetWithdrawn) = ACOPoolLib.getAmountToLockedWithdraw(shares, _totalSupply, lendingToken, underlying, strikeAsset, isCall);
+		
+		(acos, acosAmount) = _transferOpenPositions(shares, _totalSupply);
+
+		_transferWithdrawnAssets(underlyingWithdrawn, strikeAssetWithdrawn, withdrawLendingToken);
+
+        emit Withdraw(account, shares, false, underlyingWithdrawn, strikeAssetWithdrawn, acos, acosAmount);
+    }
+    
+    function _withdrawNoLocked(
+        uint256 shares, 
+        uint256 minCollateral, 
+        address account, 
+        bool withdrawLendingToken
+    ) internal returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn
+	) {
+        require(shares &gt; 0, "E30");
+        bool _isCall = isCall;
+        require(!withdrawLendingToken || !_isCall, "E31");
+        
+		redeemACOTokens();
+		
+        uint256 _totalSupply = totalSupply();
+        _callBurn(account, shares);
+        
+        (underlyingWithdrawn, strikeAssetWithdrawn) = _getAmountToNoLockedWithdraw(shares, _totalSupply, minCollateral, _isCall);
+        
+        _transferWithdrawnAssets(underlyingWithdrawn, strikeAssetWithdrawn, withdrawLendingToken);
+		
+        emit Withdraw(account, shares, true, underlyingWithdrawn, strikeAssetWithdrawn, new address[](0), new uint256[](0));
+    }
+
+    function _transferWithdrawnAssets(
+        uint256 underlyingWithdrawn, 
+        uint256 strikeAssetWithdrawn, 
+        bool withdrawLendingToken
+    ) internal {
+        if (strikeAssetWithdrawn &gt; 0) {
+            if (withdrawLendingToken) {
+    		    ACOAssetHelper._transferAsset(lendingToken, msg.sender, strikeAssetWithdrawn);
+    		} else if (isCall) {
+    		    ACOAssetHelper._transferAsset(strikeAsset, msg.sender, strikeAssetWithdrawn);
+    		} else {
+    		    _withdrawOnLendingPool(strikeAssetWithdrawn, msg.sender);
+    		}
+        }
+        if (underlyingWithdrawn &gt; 0) {
+		    ACOAssetHelper._transferAsset(underlying, msg.sender, underlyingWithdrawn);
+        }
+    }
+
+	function _getCollateralNormalized(bool isDeposit) internal view returns(
+        uint256 underlyingBalance, 
+        uint256 strikeAssetBalance, 
+        uint256 collateralBalance,
+        uint256 collateralLockedRedeemable
+    ) {
+        uint256 collateralLocked;
+        uint256 collateralOnOpenPosition;
+        (underlyingBalance, strikeAssetBalance, collateralBalance, collateralLocked, collateralOnOpenPosition, collateralLockedRedeemable) = _getCollateralData(isDeposit);
+	        
+        collateralBalance = collateralBalance.add(collateralLocked).sub(collateralOnOpenPosition);
+    }
+    
+    function _getCollateralData(bool isDeposit) internal view returns(
+        uint256 underlyingBalance, 
+        uint256 strikeAssetBalance, 
+        uint256 collateralBalance,
+        uint256 collateralLocked,
+        uint256 collateralOnOpenPosition,
+        uint256 collateralLockedRedeemable
+    ) {
+        IACOPool2.PoolProtocolConfig storage _protocolConfig = protocolConfig;
+	    uint256 underlyingPrice = _getPrice(underlying, strikeAsset, _protocolConfig.assetConverter);
+        (underlyingBalance, strikeAssetBalance, collateralBalance, collateralLocked, collateralOnOpenPosition, collateralLockedRedeemable) = ACOPoolLib.getCollateralData(
+            ACOPoolLib.OpenPositionData(
+                isDeposit,
+    	        isCall,
+    	        underlyingPrice,
+    	        baseVolatility,
+    	        _protocolConfig.underlyingPriceAdjustPercentage,
+    	        _protocolConfig.withdrawOpenPositionPenalty,
+    	        _protocolConfig.fee,
+    	        underlyingPrecision,
+    	        underlying,
+    	        strikeAsset,
+    	        strategy,
+    	        address(acoFactory),
+    	        lendingToken),
+	        openAcos);
+    }
+    
+    function _getAmountToNoLockedWithdraw(
+        uint256 shares, 
+        uint256 _totalSupply, 
+        uint256 minCollateral,
+        bool _isCall
+    ) internal view returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn
+	) {
+        (uint256 underlyingBalance, 
+         uint256 strikeAssetBalance, 
+         uint256 collateralBalance,) = _getCollateralNormalized(false);
+
+        (underlyingWithdrawn, strikeAssetWithdrawn) = ACOPoolLib.getAmountToNoLockedWithdraw(shares, _totalSupply, underlyingBalance, strikeAssetBalance, collateralBalance, minCollateral, _isCall);
+    }
+
+	function _callBurn(address account, uint256 tokenAmount) internal {
+        if (account == msg.sender) {
+            super._burnAction(account, tokenAmount);
+        } else {
+            super._burnFrom(account, tokenAmount);
+        }
+    }
+
+	function _swap(
+        address acoToken, 
+        uint256 tokenAmount, 
+        uint256 restriction, 
+        address to, 
+        uint256 deadline
+    ) internal {
+        require(block.timestamp &lt;= deadline, "E40");
+        require(to != address(0) &amp;&amp; to != acoToken &amp;&amp; to != address(this), "E41");
+        
+        IACOPool2.PoolProtocolConfig storage _protocolConfig = protocolConfig;
+        (uint256 swapPrice, uint256 protocolFee, uint256 underlyingPrice, uint256 volatility, uint256 collateralAmount) = _quote(acoToken, tokenAmount, _protocolConfig);
+        
+        _internalSelling(to, acoToken, collateralAmount, tokenAmount, restriction, swapPrice, protocolFee);
+
+        if (protocolFee &gt; 0) {
+            ACOAssetHelper._transferAsset(strikeAsset, _protocolConfig.feeDestination, protocolFee);
+        }
+        
+        emit Swap(to, acoToken, tokenAmount, swapPrice, protocolFee, underlyingPrice, volatility);
+    }
+
+    function _internalSelling(
+        address to,
+        address acoToken, 
+        uint256 collateralAmount, 
+        uint256 tokenAmount,
+        uint256 maxPayment,
+        uint256 swapPrice,
+        uint256 protocolFee
+    ) internal {
+        require(swapPrice &lt;= maxPayment, "E42");
+        
+        address _strikeAsset = strikeAsset;
+        uint256 extra = 0;
+        if (ACOAssetHelper._isEther(_strikeAsset)) {
+            require(msg.value &gt;= swapPrice, "E43");
+            extra = msg.value.sub(swapPrice);
+        } else {
+            require(msg.value == 0, "E44");
+            ACOAssetHelper._callTransferFromERC20(_strikeAsset, msg.sender, address(this), swapPrice);
+        }
+        
+        uint256 remaining = swapPrice.sub(protocolFee);
+        
+        if (!isCall) {
+            _withdrawOnLendingPool(collateralAmount.sub(remaining), address(this));
+        }
+        
+		address _collateral = collateral();
+        IACOPool2.AcoData storage data = acoData[acoToken];
+		if (ACOAssetHelper._isEther(_collateral)) {
+			tokenAmount = IACOToken(acoToken).mintPayable{value: collateralAmount}();
+		} else {
+			if (!data.open) {
+				_setAuthorizedSpender(_collateral, acoToken);    
+			}
+			tokenAmount = IACOToken(acoToken).mint(collateralAmount);
+		}
+
+		if (!data.open) {
+            require(openAcos.length &lt; protocolConfig.maximumOpenAco, "E45");
+			acoData[acoToken] = IACOPool2.AcoData(true, remaining, collateralAmount, 0, acoTokens.length, openAcos.length);
+            acoTokens.push(acoToken);    
+            openAcos.push(acoToken);   
+        } else {
+			data.collateralLocked = collateralAmount.add(data.collateralLocked);
+			data.valueSold = remaining.add(data.valueSold);
+		}
+        
+        ACOAssetHelper._callTransferERC20(acoToken, to, tokenAmount);
+        
+        if (extra &gt; 0) {
+            ACOAssetHelper._transferAsset(_strikeAsset, msg.sender, extra);    
+        }
+    }
+
+	function _transferOpenPositions(uint256 shares, uint256 _totalSupply) internal returns(
+        address[] memory acos, 
+        uint256[] memory acosAmount
+    ) {
+        uint256 size = openAcos.length;
+        acos = new address[](size);
+        acosAmount = new uint256[](size);
+		for (uint256 i = 0; i &lt; size; ++i) {
+			address acoToken = openAcos[i];
+			uint256 tokens = IACOToken(acoToken).currentCollateralizedTokens(address(this));
+			
+			acos[i] = acoToken;
+			acosAmount[i] = tokens.mul(shares).div(_totalSupply);
+			
+            if (acosAmount[i] &gt; 0) {
+			    IACOToken(acoToken).transferCollateralOwnership(msg.sender, acosAmount[i]);
+            }
+		}
+	}
+
+    function _depositOnLendingPool(uint256 amount) internal {
+        lendingPool.deposit(strikeAsset, amount, address(this), protocolConfig.lendingPoolReferral);
+    }
+
+    function _withdrawOnLendingPool(uint256 amount, address to) internal {
+        lendingPool.withdraw(strikeAsset, amount, to);
+    }
+
+	function _acoBasicDataIsValid(address acoToken, address _underlying, address _strikeAsset, bool _isCall) internal view returns(bool) {
+		if (_underlying == underlying &amp;&amp; _strikeAsset == strikeAsset &amp;&amp; _isCall == isCall) {
+		    address creator = acoFactory.creators(acoToken);
+		    return (!forbiddenAcoCreators[creator] &amp;&amp; (validAcoCreators[address(0)] || validAcoCreators[creator])); 
+	    } else {
+	        return false;
+	    }
+	}
+
+	function _getPoolBalanceOf(address asset) internal view returns(uint256) {
+        return ACOAssetHelper._getAssetBalanceOf(asset, address(this));
+    }
+	
+	function _getPrice(address _underlying, address _strikeAsset, address assetConverter) internal view returns(uint256) {
+	    return IACOAssetConverterHelper(assetConverter).getPrice(_underlying, _strikeAsset);
+	}
+
+	function _setAuthorizedSpender(address asset, address spender) internal {
+        ACOAssetHelper._callApproveERC20(asset, spender, ACOAssetHelper.MAX_UINT);
+    }
+
+    function _setAcoPermissionConfig(IACOPool2.<span class="marker" id="mapping-58"></span><span class="token upd" id="move-src-45" data-title="user_defined_type/identifier"><span class="cupd">PoolAcoPermissionConfig</span></span> memory newConfig) internal {
+        require(newConfig.tolerancePriceBelowMax &lt; <span class="marker" id="mapping-59"></span><span class="token del" data-title="binary_expression/identifier">PERCENTAGE_PRECISION</span> &amp;&amp; newConfig.tolerancePriceBelowMin &lt; <span class="marker" id="mapping-60"></span><span class="token del" data-title="binary_expression/identifier">PERCENTAGE_PRECISION</span>, <span class="marker" id="mapping-61"></span><span class="token mv" id="move-src-46" data-title="call_expression/call_argument">"E81"</span>);
+        require(newConfig.tolerancePriceBelowMin <span class="marker" id="mapping-62"></span><span class="token del" data-title="binary_expression/<=">&lt;=</span> newConfig.tolerancePriceBelowMax || newConfig.tolerancePriceBelowMax <span class="marker" id="mapping-63"></span><span class="token del" data-title="binary_expression/==">==</span> <span class="marker" id="mapping-64"></span><span class="token del" data-title="binary_expression/number_literal">0</span>, "E82");
+        require(newConfig.tolerancePriceAboveMin <span class="marker" id="mapping-65"></span><span class="token del" data-title="binary_expression/<=">&lt;=</span> newConfig.tolerancePriceAboveMax || newConfig.tolerancePriceAboveMax <span class="marker" id="mapping-66"></span><span class="token del" data-title="binary_expression/==">==</span> <span class="marker" id="mapping-67"></span><span class="token del" data-title="binary_expression/number_literal">0</span>, "E83");
+        require(newConfig.minExpiration &lt;= newConfig.maxExpiration, "E84");
+        
+        emit <span class="marker" id="mapping-68"></span><span class="token upd" id="move-src-47" data-title="emit_statement/identifier"><span class="cupd">SetAcoPermissionConfig</span></span>(<span class="marker" id="mapping-69"></span><span class="token upd" id="move-src-48" data-title="call_argument/identifier"><span class="cupd">acoPermissionConfig</span></span>, newConfig);
+        
+        <span class="marker" id="mapping-70"></span><span class="token upd" id="move-src-49" data-title="assignment_expression/identifier"><span class="cupd">acoPermissionConfig</span></span> = newConfig;
+    }
+
+    function _setBaseVolatility(uint256 newBaseVolatility) internal {
+        require(newBaseVolatility &gt; 0, "E85");
+        emit SetBaseVolatility(baseVolatility, newBaseVolatility);
+        baseVolatility = newBaseVolatility;
+    }
+    
+    function _setStrategy(address newStrategy) internal {
+        require(IACOPoolFactory2(owner()).strategyPermitted(newStrategy), "E86");
+        emit SetStrategy(address(strategy), newStrategy);
+        strategy = newStrategy;
+    }
+
+    function _setPoolAdmin(address newAdmin) internal {
+        require(newAdmin != address(0), "E87");
+        emit SetPoolAdmin(poolAdmin, newAdmin);
+        poolAdmin = newAdmin;
+    }
+
+    function _setProtocolConfig(IACOPool2.PoolProtocolConfig memory newConfig) internal {
+        address _underlying = underlying;
+        address _strikeAsset = strikeAsset;
+		require(IACOAssetConverterHelper(newConfig.assetConverter).getPrice(_underlying, _strikeAsset) &gt; 0, "E88");
+        require(newConfig.feeDestination != address(0), "E89");
+        require(newConfig.fee &lt;= 12500, "E90");
+        require(newConfig.withdrawOpenPositionPenalty &lt;= PERCENTAGE_PRECISION, "E91");
+        require(newConfig.underlyingPriceAdjustPercentage &lt; PERCENTAGE_PRECISION, "E92");
+        require(newConfig.maximumOpenAco &gt; 0, "E93");
+        		
+		if (isCall) {
+            if (!ACOAssetHelper._isEther(_strikeAsset)) {
+                _setAuthorizedSpender(_strikeAsset, newConfig.assetConverter);
+            }
+        } else if (!ACOAssetHelper._isEther(_underlying)) {
+            _setAuthorizedSpender(_underlying, newConfig.assetConverter);
+        }
+        
+        emit SetProtocolConfig(protocolConfig, newConfig);
+        
+        protocolConfig = newConfig;
+    }
+    
+    function _onlyPoolAdmin() internal view {
+        require(poolAdmin == msg.sender, "E98");
+    }
+    
+    function _onlyProtocolOwner() internal view {
+        require(owner() == msg.sender, "E99");
+    }
+}</pre></div><div class="col-6"><h5>ACOPool2.sol</h5><pre class="pre-scrollable">pragma solidity ^0.6.6;
+pragma experimental ABIEncoderV2;
+
+import './Ownable.sol';
+import './ACOAssetHelper.sol';
+import './ACOPoolLib.sol';
+import './ERC20.sol';
+import './IACOFactory.sol';
+import './IACOPoolFactory2.sol';
+import './IACOAssetConverterHelper.sol';
+import './IACOToken.sol';
+import './IChiToken.sol';
+import './IACOPool2.sol';
+import './ILendingPool.sol';
+
+<span class="marker" id="mapping-71"></span><span class="token upd" id="move-dst-1" data-title="source_file/comment"><span class="cupd">/**
+ * @title ACOPool2
+ * @dev A pool contract to trade ACO tokens.
+ * 
+ * The SC errors are defined as code to shrunk the SC bytes size and work around the EIP170.
+ * The codes are explained in the table below:
+ ********************************************************************************************
+ * CODE | FUNCTION                            | DESCRIPTION						            *
+ *------------------------------------------------------------------------------------------*
+ * E00  | init                                | SC is already initialized                   *
+ *------------------------------------------------------------------------------------------*
+ * E01  | init                                | Underlying and strike asset are the same    *
+ *------------------------------------------------------------------------------------------*
+ * E10  | _deposit                            | Invalid collateral amount                   *
+ *------------------------------------------------------------------------------------------*
+ * E11  | _deposit                            | Invalid destination address                 *
+ *------------------------------------------------------------------------------------------*
+ * E12  | _deposit                            | Invalid deposit for lending pool token      *
+ *------------------------------------------------------------------------------------------*
+ * E13  | _deposit                            | The minimum shares were not satisfied       *
+ *------------------------------------------------------------------------------------------*
+ * E20  | _withdrawWithLocked                 | Invalid shares amount                       *
+ *------------------------------------------------------------------------------------------*
+ * E21  | _withdrawWithLocked                 | Invalid withdraw for lending pool token     *
+ *------------------------------------------------------------------------------------------*
+ * E30  | _withdrawNoLocked                   | Invalid shares amount                       *
+ *------------------------------------------------------------------------------------------*
+ * E31  | _withdrawNoLocked                   | Invalid withdraw for lending pool token     *
+ *------------------------------------------------------------------------------------------*
+ * E40  | _swap                               | Swap deadline reached                       *
+ *------------------------------------------------------------------------------------------*
+ * E41  | _swap                               | Invalid destination address                 *
+ *------------------------------------------------------------------------------------------*
+ * E42  | _internalSelling                    | The maximum payment restriction was reached *
+ *------------------------------------------------------------------------------------------*
+ * E43  | _internalSelling                    | Insufficient ether amount                   *
+ *------------------------------------------------------------------------------------------*
+ * E44  | _internalSelling                    | Ether is not expected                       *
+ *------------------------------------------------------------------------------------------*
+ * E45  | _internalSelling                    | The maximum number of open ACOs was reached *
+ *------------------------------------------------------------------------------------------*
+ * E50  | _quote                              | Invalid token amount                        *
+ *------------------------------------------------------------------------------------------*
+ * E51  | _quote                              | Invalid ACO token                           *
+ *------------------------------------------------------------------------------------------*
+ * E60  | restoreCollateral                   | No balance to restore                       *
+ *------------------------------------------------------------------------------------------*
+ * E70  | lendCollateral                      | Lend is not available for this pool         *
+ *------------------------------------------------------------------------------------------*
+ * E80  | withdrawStuckToken                  | The token is forbidden to withdraw          *
+ *------------------------------------------------------------------------------------------*
+ * E81  | _setAcoPermissionConfig             | Invalid below tolerance percentage          *
+ *------------------------------------------------------------------------------------------*
+ * E82  | _setAcoPermissionConfig             | Invalid minimum below tolerance percentage  *
+ *------------------------------------------------------------------------------------------*
+ * E83  | _setAcoPermissionConfig             | Invalid minimum above tolerance percentage  *
+ *------------------------------------------------------------------------------------------*</span>
+ * E84  | _s<span class="cupd">e</span>tAcoPermissionConfig             | Invalid minimum strike price value          *
+ *------------------------------------------------------------------------------------------*<span class="cupd">
+ * E85  | _setAcoPermissionConfig             | Invalid expiration range                    *
+ *-------------------------------------</span>-<span class="cupd">----------------------------------------------------*
+ * E86  | _setBaseVolatility                  | Invalid base volatility                     *
+ *-----------------------------------</span>-<span class="cupd">------------------------------------------------------*
+ * E87  | _setStrategy                        | Invalid strategy address                    *
+ *---------------------------------</span>-<span class="cupd">--------------------------------------------------------*
+ * E88  | _setPoolAdmin                       | Invalid pool admin address                  *
+ *-------------------------------</span>-<span class="cupd">----------------------------------------------------------*
+ * E89  | _setProtocolConfig                  | No price on the Oracle                      *
+ *----------------------------</span><span class="cupd">-</span>-<span class="cupd">------------------------------------------------------------*
+ * E90  | _setProtocolConfig                  | Invalid fee destination address             *
+ *---------------------------</span>-<span class="cupd">--------------------------------------------------------------*
+ * E91  | _setProtocolConfig                  | Invalid fee value                           *
+ *-------------------------</span>-<span class="cupd">----------------------------------------------------------------*
+ * E92  | _setProtocolConfig                  | Invalid penalty percentage                  *
+ *-----------------------</span>-<span class="cupd">------------------------------------------------------------------*
+ * E93  | _setProtocolConfig                  | Invalid underlying price adjust percentage  *
+ *---------------------</span>-<span class="cupd">--------------------------------------------------------------------*
+ * E94  | _setProtocolConfig                  | Invalid maximum number of open ACOs allowed *
+ *-------------------</span>-----------------------------------------------------------------------*
+ * E97  | _privateValidation                  | The pool is public or it is a pool admin    *
+ *-----------------<span class="cupd">-------------------------------------------------------------------------*
+ * E98  | _onlyPoolAdmin                      | Only the pool admin can call the method     *
+ *------------------------------------------------------------------------------------------*
+ * E99  | _onlyProtocolOwner                  | Only the pool factory can call the method   *
+ ************</span>********************************************************************************
+ */</span>
+<span class="marker" id="mapping-72"></span><span class="token add" data-title="source_file/contract_declaration">contract ACOPool2 is <span class="marker" id="mapping-73"></span><span class="token mv" id="move-dst-3" data-title="contract_declaration/inheritance_specifier">Ownable</span>, <span class="marker" id="mapping-74"></span><span class="token mv" id="move-dst-4" data-title="contract_declaration/inheritance_specifier">ERC20</span> <span class="marker" id="mapping-75"></span><span class="token add" data-title="contract_declaration/contract_body">{
+    
+    <span class="marker" id="mapping-76"></span><span class="token mv" id="move-dst-5" data-title="contract_body/state_variable_declaration">uint256 internal constant PERCENTAGE_PRECISION = 100000;</span>
+
+    <span class="marker" id="mapping-77"></span><span class="token mv" id="move-dst-6" data-title="contract_body/event_definition">event SetValidAcoCreator(address indexed creator, bool indexed previousPermission, bool indexed newPermission);</span>
+    
+    <span class="marker" id="mapping-78"></span><span class="token mv" id="move-dst-7" data-title="contract_body/event_definition">event SetForbiddenAcoCreator(address indexed creator, bool indexed previousStatus, bool indexed newStatus);</span>
+    
+    <span class="marker" id="mapping-79"></span><span class="token mv" id="move-dst-8" data-title="contract_body/event_definition">event SetProtocolConfig(IACOPool2.PoolProtocolConfig oldConfig, IACOPool2.PoolProtocolConfig newConfig);</span>
+	
+	<span class="marker" id="mapping-80"></span><span class="token mv" id="move-dst-9" data-title="contract_body/event_definition">event SetAcoPermissionConfig(IACOPool2.PoolAcoPermissionConfig oldConfig, IACOPool2.PoolAcoPermissionConfig newConfig);</span>
+
+    <span class="marker" id="mapping-81"></span><span class="token mv" id="move-dst-10" data-title="contract_body/event_definition">event SetBaseVolatility(uint256 indexed oldBaseVolatility, uint256 indexed newBaseVolatility);</span>
+
+	<span class="marker" id="mapping-82"></span><span class="token mv" id="move-dst-11" data-title="contract_body/event_definition">event SetStrategy(address indexed oldStrategy, address indexed newStrategy);</span>
+	
+    <span class="marker" id="mapping-83"></span><span class="token mv" id="move-dst-12" data-title="contract_body/event_definition">event SetPoolAdmin(address indexed oldAdmin, address indexed newAdmin);</span>
+
+    <span class="marker" id="mapping-84"></span><span class="token mv" id="move-dst-13" data-title="contract_body/event_definition">event RestoreCollateral(uint256 amountOut, uint256 collateralRestored);</span>
+
+    <span class="marker" id="mapping-85"></span><span class="token mv" id="move-dst-14" data-title="contract_body/event_definition">event LendCollateral(uint256 collateralAmount);</span>
+
+	<span class="marker" id="mapping-86"></span><span class="token mv" id="move-dst-15" data-title="contract_body/event_definition">event ACORedeem(address indexed acoToken, uint256 valueSold, uint256 collateralLocked, uint256 collateralRedeemed);</span>
+
+    <span class="marker" id="mapping-87"></span><span class="token mv" id="move-dst-16" data-title="contract_body/event_definition">event Deposit(address indexed account, uint256 shares, uint256 collateralAmount);</span>
+
+    <span class="marker" id="mapping-88"></span><span class="token mv" id="move-dst-17" data-title="contract_body/event_definition">event Withdraw(
+		address indexed account, 
+		uint256 shares, 
+		bool noLocked, 
+		uint256 underlyingWithdrawn, 
+		uint256 strikeAssetWithdrawn, 
+		address[] acos, 
+		uint256[] acosAmount
+	);</span>
+
+	<span class="marker" id="mapping-89"></span><span class="token mv" id="move-dst-18" data-title="contract_body/event_definition">event Swap(
+        address indexed account, 
+        address indexed acoToken, 
+        uint256 tokenAmount, 
+        uint256 price, 
+        uint256 protocolFee,
+        uint256 underlyingPrice,
+		uint256 volatility
+    );</span>
+
+    <span class="marker" id="mapping-90"></span><span class="token mv" id="move-dst-19" data-title="contract_body/state_variable_declaration">IACOFactory public acoFactory;</span>
+	<span class="marker" id="mapping-91"></span><span class="token mv" id="move-dst-20" data-title="contract_body/state_variable_declaration">IChiToken public chiToken;</span>
+	<span class="marker" id="mapping-92"></span><span class="token mv" id="move-dst-21" data-title="contract_body/state_variable_declaration">ILendingPool public lendingPool;</span>
+    <span class="marker" id="mapping-93"></span><span class="token mv" id="move-dst-22" data-title="contract_body/state_variable_declaration">address public underlying;</span>
+    <span class="marker" id="mapping-94"></span><span class="token mv" id="move-dst-23" data-title="contract_body/state_variable_declaration">address public strikeAsset;</span>
+    <span class="marker" id="mapping-95"></span><span class="token mv" id="move-dst-24" data-title="contract_body/state_variable_declaration">bool public isCall;</span>
+
+    <span class="marker" id="mapping-96"></span><span class="token mv" id="move-dst-25" data-title="contract_body/state_variable_declaration">address public poolAdmin;</span>
+	<span class="marker" id="mapping-97"></span><span class="token mv" id="move-dst-26" data-title="contract_body/state_variable_declaration">address public strategy;</span>
+    <span class="marker" id="mapping-98"></span><span class="token mv" id="move-dst-27" data-title="contract_body/state_variable_declaration">uint256 public baseVolatility;</span>
+    
+    <span class="marker" id="mapping-99"></span><span class="token mv" id="move-dst-28" data-title="contract_body/state_variable_declaration">IACOPool2.PoolAcoPermissionConfig public acoPermissionConfig;</span>
+    <span class="marker" id="mapping-100"></span><span class="token mv" id="move-dst-29" data-title="contract_body/state_variable_declaration">IACOPool2.PoolProtocolConfig public protocolConfig;</span>
+    
+    <span class="marker" id="mapping-101"></span><span class="token mv" id="move-dst-30" data-title="contract_body/state_variable_declaration">address[] public acoTokens;</span>
+    <span class="marker" id="mapping-102"></span><span class="token mv" id="move-dst-31" data-title="contract_body/state_variable_declaration">address[] public openAcos;</span>
+
+    <span class="marker" id="mapping-103"></span><span class="token mv" id="move-dst-32" data-title="contract_body/state_variable_declaration">mapping(address =&gt; bool) public forbiddenAcoCreators;</span>
+    <span class="marker" id="mapping-104"></span><span class="token mv" id="move-dst-33" data-title="contract_body/state_variable_declaration">mapping(address =&gt; bool) public validAcoCreators;</span>
+    <span class="marker" id="mapping-105"></span><span class="token mv" id="move-dst-34" data-title="contract_body/state_variable_declaration">mapping(address =&gt; IACOPool2.AcoData) public acoData;</span>
+
+    <span class="marker" id="mapping-106"></span><span class="token mv" id="move-dst-35" data-title="contract_body/state_variable_declaration">address internal lendingToken;</span>
+	<span class="marker" id="mapping-107"></span><span class="token mv" id="move-dst-36" data-title="contract_body/state_variable_declaration">uint256 internal underlyingPrecision;</span>
+	
+	<span class="marker" id="mapping-108"></span><span class="token mv" id="move-dst-37" data-title="contract_body/modifier_definition">modifier discountCHI {
+        uint256 gasStart = gasleft();
+        _;
+        uint256 gasSpent = 21000 + gasStart - gasleft() + 16 * msg.data.length;
+        chiToken.freeFromUpTo(msg.sender, (gasSpent + 14154) / 41947);
+    }</span>
+    
+    <span class="marker" id="mapping-109"></span><span class="token add" data-title="contract_body/function_definition">function name() public override virtual view returns(string memory) {
+        return "";
+    }</span>
+
+	<span class="marker" id="mapping-110"></span><span class="token add" data-title="contract_body/function_definition">function symbol() public override virtual view returns(string memory) {
+        return "";
+    }</span>
+
+    <span class="marker" id="mapping-111"></span><span class="token add" data-title="contract_body/function_definition">function decimals() public override virtual view returns(uint8) {
+        return 0;
+    }</span>
+}</span></span>
+
+contract <span class="marker" id="mapping-112"></span><span class="token upd" id="move-dst-2" data-title="contract_declaration/identifier"><span class="cupd">ACOPool2</span>V2</span> is <span class="marker" id="mapping-113"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">ACOPool2</span> {
+    
+	<span class="marker" id="mapping-114"></span><span class="token add" data-title="contract_body/event_definition">event SetAcoPermissionConfigV2(IACOPool2.PoolAcoPermissionConfigV2 oldConfig, IACOPool2.PoolAcoPermissionConfigV2 newConfig);</span>
+	
+    <span class="marker" id="mapping-115"></span><span class="token add" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-116"></span><span class="token mv" id="move-dst-43" data-title="state_variable_declaration/type_name">bool</span> <span class="marker" id="mapping-117"></span><span class="token add" data-title="state_variable_declaration/visibility">public</span> isPrivate;</span>
+    <span class="marker" id="mapping-118"></span><span class="token add" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-119"></span><span class="token mv" id="move-dst-42" data-title="state_variable_declaration/type_name">uint256</span> <span class="marker" id="mapping-120"></span><span class="token add" data-title="state_variable_declaration/visibility">public</span> poolId;</span>
+    <span class="marker" id="mapping-121"></span><span class="token add" data-title="contract_body/state_variable_declaration">IACOPool2.PoolAcoPermissionConfigV2 public acoPermissionConfigV2;</span>
+
+    function init(IACOPool2.InitData calldata initData) external {
+		require(underlying == address(0) &amp;&amp; strikeAsset == address(0), "E00");
+        require(initData.underlying != initData.strikeAsset, "E01");
+        
+        super.init();
+
+        acoFactory = IACOFactory(initData.acoFactory);
+        lendingPool = ILendingPool(initData.lendingPool);
+        underlying = initData.underlying;
+        strikeAsset = initData.strikeAsset;
+        isCall = initData.isCall;
+        <span class="marker" id="mapping-122"></span><span class="token add" data-title="function_body/expression_statement">isPrivate = initData.isPrivate;</span>
+        <span class="marker" id="mapping-123"></span><span class="token add" data-title="function_body/expression_statement">poolId = initData.poolId;</span>
+		
+		_setProtocolConfig(initData.protocolConfig);
+		_setPoolAdmin(initData.admin);
+		_setAcoPermissionConfig(initData.<span class="marker" id="mapping-124"></span><span class="token upd" id="move-dst-38" data-title="member_expression/identifier"><span class="cupd">acoPermissionConfig</span>V2</span>);
+        _setBaseVolatility(initData.baseVolatility);
+        _setStrategy(initData.strategy);
+		
+		if (!initData.isCall) {
+		    lendingToken = ILendingPool(initData.lendingPool).getReserveData(initData.strikeAsset).aTokenAddress;
+            _setAuthorizedSpender(initData.strikeAsset, initData.lendingPool);
+        }
+		underlyingPrecision = 10 ** uint256(ACOAssetHelper._getAssetDecimals(initData.underlying));
+    }
+    
+    receive() external payable {
+    }
+
+    function name() public override view returns(string memory) {
+        return ACOPoolLib.name(underlying, strikeAsset, isCall<span class="marker" id="mapping-125"></span><span class="token add" data-title="call_expression/,">,</span> <span class="marker" id="mapping-126"></span><span class="token add" data-title="call_expression/call_argument">poolId</span>);
+    }
+
+	function symbol() public override view returns(string memory) {
+        return name();
+    }
+
+    function decimals() public override view returns(uint8) {
+        return ACOAssetHelper._getAssetDecimals(collateral());
+    }
+
+	<span class="marker" id="mapping-127"></span><span class="token mv" id="move-dst-39" data-title="contract_body/function_definition">function collateral() public view returns(address) {
+        return (isCall ? underlying : strikeAsset);
+    }</span>
+
+    function numberOfAcoTokensNegotiated() external view returns(uint256) {
+        return acoTokens.length;
+    }
+
+    function numberOfOpenAcoTokens() external view returns(uint256) {
+        return openAcos.length;
+    }
+
+    function canSwap(address acoToken) external view returns(bool) {
+        (address _underlying, address _strikeAsset, bool _isCall, uint256 _strikePrice, uint256 _expiryTime) = _getAcoData(acoToken);
+		if (_acoBasicDataIsValid(acoToken, _underlying, _strikeAsset, _isCall)) {
+            uint256 price = _getPrice(_underlying, _strikeAsset, protocolConfig.assetConverter);
+            return ACOPoolLib.acoStrikeAndExpirationIsValid(_strikePrice, _expiryTime, price, <span class="marker" id="mapping-128"></span><span class="token upd" id="move-dst-40" data-title="call_argument/identifier"><span class="cupd">acoPermissionConfig</span>V2</span>);
+        }
+        return false;
+    }
+
+	function quote(address acoToken, uint256 tokenAmount) external view returns(
+        uint256 swapPrice, 
+        uint256 protocolFee, 
+        uint256 underlyingPrice, 
+        uint256 volatility
+    ) {
+        IACOPool2.PoolProtocolConfig storage _protocolConfig = protocolConfig;
+        (swapPrice, protocolFee, underlyingPrice, volatility,) = _quote(acoToken, tokenAmount, _protocolConfig);
+    }
+
+	function getDepositShares(uint256 collateralAmount) external view returns(uint256) {
+        (,,uint256 collateralBalance,) = _getCollateralNormalized(true);
+
+        if (collateralBalance == 0) {
+            return collateralAmount;
+        } else {
+            return collateralAmount.mul(totalSupply()).div(collateralBalance);
+        }
+    }
+
+	function getWithdrawNoLockedData(uint256 shares) external view returns(
+        uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn,
+		bool isPossible
+    ) {
+        uint256 _totalSupply = totalSupply();
+		if (shares &gt; 0 &amp;&amp; shares &lt;= _totalSupply) {
+			
+			(uint256 underlyingBalance, 
+             uint256 strikeAssetBalance, 
+             uint256 collateralBalance, 
+             uint256 collateralLockedRedeemable) = _getCollateralNormalized(false);
+             
+            (underlyingWithdrawn, strikeAssetWithdrawn, isPossible) = ACOPoolLib.getBaseWithdrawNoLockedData(
+                shares,
+                _totalSupply,
+                isCall,
+                underlyingBalance, 
+                strikeAssetBalance, 
+                collateralBalance, 
+                collateralLockedRedeemable
+            );
+		}
+    }
+
+	function getWithdrawWithLocked(uint256 shares) external view returns(
+        uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn,
+		address[] memory acos,
+		uint256[] memory acosAmount
+    ) {
+        uint256 _totalSupply = totalSupply();	
+        if (shares &gt; 0 &amp;&amp; shares &lt;= _totalSupply) {
+        
+            (underlyingWithdrawn, strikeAssetWithdrawn) = ACOPoolLib.getBaseAssetsWithdrawWithLocked(shares, underlying, strikeAsset, isCall, _totalSupply, lendingToken);
+		
+            acos = new address[](openAcos.length);
+            acosAmount = new uint256[](openAcos.length);
+			for (uint256 i = 0; i &lt; openAcos.length; ++i) {
+				address acoToken = openAcos[i];
+				uint256 tokens = IACOToken(acoToken).currentCollateralizedTokens(address(this));
+				
+				acos[i] = acoToken;
+				acosAmount[i] = tokens.mul(shares).div(_totalSupply);
+			}
+		}
+    }
+
+	function getGeneralData() external view returns(
+        uint256 underlyingBalance,
+		uint256 strikeAssetBalance,
+		uint256 collateralLocked,
+        uint256 collateralOnOpenPosition,
+        uint256 collateralLockedRedeemable,
+		uint256 poolSupply
+    ) {
+        poolSupply = totalSupply();
+        (underlyingBalance, strikeAssetBalance,, collateralLocked, collateralOnOpenPosition, collateralLockedRedeemable) = _getCollateralData(true);
+    }
+    
+    function setAcoPermissionConfig(IACOPool2.<span class="marker" id="mapping-129"></span><span class="token upd" id="move-dst-41" data-title="user_defined_type/identifier"><span class="cupd">PoolAcoPermissionConfig</span>V2</span> calldata newConfig) external {
+        _onlyPoolAdmin();
+        _setAcoPermissionConfig(newConfig);
+    }
+
+	function setBaseVolatility(uint256 newBaseVolatility) external {
+        _onlyPoolAdmin();
+		_setBaseVolatility(newBaseVolatility);
+	}
+	
+	function setStrategy(address newStrategy) external {
+        _onlyPoolAdmin();
+		_setStrategy(newStrategy);
+	}
+	
+	function setPoolAdmin(address newAdmin) external {
+	    _onlyPoolAdmin();
+		_setPoolAdmin(newAdmin);
+	}
+
+	function setValidAcoCreator(address acoCreator, bool newPermission) external {
+        _onlyProtocolOwner();
+        emit SetValidAcoCreator(acoCreator, validAcoCreators[acoCreator], newPermission);
+        validAcoCreators[acoCreator] = newPermission;
+    }
+    
+    function setForbiddenAcoCreator(address acoCreator, bool isForbidden) external {
+        _onlyProtocolOwner();
+        emit SetForbiddenAcoCreator(acoCreator, forbiddenAcoCreators[acoCreator], isForbidden);
+        forbiddenAcoCreators[acoCreator] = isForbidden;
+    }
+    
+    function setProtocolConfig(IACOPool2.PoolProtocolConfig calldata newConfig) external {
+        _onlyProtocolOwner();
+        _setProtocolConfig(newConfig);
+    }
+
+    function withdrawStuckToken(address token, address destination) external {
+        _onlyProtocolOwner();
+        require(token != underlying &amp;&amp; token != strikeAsset &amp;&amp; !acoData[token].open &amp;&amp; (isCall || token != lendingToken), "E80");
+        uint256 _balance = ACOAssetHelper._getAssetBalanceOf(token, address(this));
+        if (_balance &gt; 0) {
+            ACOAssetHelper._transferAsset(token, destination, _balance);
+        }
+    }
+
+	function deposit(
+	    uint256 collateralAmount, 
+	    uint256 minShares, 
+	    address to, 
+	    bool isLendingToken
+    ) external payable returns(uint256) {
+        return _deposit(collateralAmount, minShares, to, isLendingToken);
+    }
+    
+    function withdrawWithLocked(uint256 shares, address account, bool withdrawLendingToken) external returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn,
+		address[] memory acos,
+		uint256[] memory acosAmount
+	) {
+        (underlyingWithdrawn, strikeAssetWithdrawn, acos, acosAmount) = _withdrawWithLocked(shares, account, withdrawLendingToken);
+    }
+
+	function withdrawNoLocked(
+	    uint256 shares, 
+	    uint256 minCollateral, 
+	    address account, 
+	    bool withdrawLendingToken
+    ) external returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn
+	) {
+        (underlyingWithdrawn, strikeAssetWithdrawn) = _withdrawNoLocked(shares, minCollateral, account, withdrawLendingToken);
+    }
+
+	function swap(
+        address acoToken, 
+        uint256 tokenAmount, 
+        uint256 restriction, 
+        address to, 
+        uint256 deadline
+    ) external payable {
+        _swap(acoToken, tokenAmount, restriction, to, deadline);
+    }
+
+    function redeemACOTokens() public {
+        for (uint256 i = openAcos.length; i &gt; 0; --i) {
+            address acoToken = openAcos[i - 1];
+            redeemACOToken(acoToken);
+        }
+    }
+
+	function redeemACOToken(address acoToken) public {
+		IACOPool2.AcoData storage data = acoData[acoToken];
+		if (data.open &amp;&amp; IACOToken(acoToken).expiryTime() &lt;= block.timestamp) {
+			
+            data.open = false;
+			uint256 lastIndex = openAcos.length - 1;
+    		uint256 index = data.openIndex;
+    		if (lastIndex != index) {
+    		    address last = openAcos[lastIndex];
+    			openAcos[index] = last;
+    			acoData[last].openIndex = index;
+    		}
+    		data.openIndex = 0;
+            openAcos.pop();
+
+            if (IACOToken(acoToken).currentCollateralizedTokens(address(this)) &gt; 0) {	
+			    data.collateralRedeemed = IACOToken(acoToken).redeem();
+			    if (!isCall) {
+			        _depositOnLendingPool(data.collateralRedeemed);
+			    }
+            }
+			
+			emit ACORedeem(acoToken, data.valueSold, data.collateralLocked, data.collateralRedeemed);
+		}
+    }
+
+	function restoreCollateral() external {
+        _onlyPoolAdmin();
+        
+        uint256 balanceOut;
+        address assetIn;
+        address assetOut;
+        if (isCall) {
+            balanceOut = _getPoolBalanceOf(strikeAsset);
+            assetIn = underlying;
+            assetOut = strikeAsset;
+        } else {
+            balanceOut = _getPoolBalanceOf(underlying);
+            assetIn = strikeAsset;
+            assetOut = underlying;
+        }
+        require(balanceOut &gt; 0, "E60");
+        
+		uint256 etherAmount = 0;
+        if (ACOAssetHelper._isEther(assetOut)) {
+			etherAmount = balanceOut;
+        }
+        uint256 collateralRestored = IACOAssetConverterHelper(protocolConfig.assetConverter).swapExactAmountOut{value: etherAmount}(assetOut, assetIn, balanceOut);
+        if (!isCall) {
+            _depositOnLendingPool(collateralRestored);
+        }
+
+        emit RestoreCollateral(balanceOut, collateralRestored);
+    }
+
+	function lendCollateral() external {
+		require(!isCall, "E70");
+	    uint256 strikeAssetBalance = _getPoolBalanceOf(strikeAsset);
+	    if (strikeAssetBalance &gt; 0) {
+	        _depositOnLendingPool(strikeAssetBalance);
+	        emit LendCollateral(strikeAssetBalance);
+	    }
+    }
+
+    function _getAcoData(address acoToken) internal view returns(
+        address _underlying, 
+        address _strikeAsset, 
+        bool _isCall, 
+        uint256 strikePrice, 
+        uint256 expiryTime
+    ) {
+        (_underlying, _strikeAsset, _isCall, strikePrice, expiryTime) = acoFactory.acoTokenData(acoToken);
+    }
+
+	function _quote(
+	    address acoToken, 
+	    uint256 tokenAmount, 
+	    IACOPool2.PoolProtocolConfig storage _protocolConfig
+    ) internal view returns(
+        uint256 swapPrice, 
+        uint256 protocolFee, 
+        uint256 underlyingPrice, 
+        uint256 volatility, 
+        uint256 collateralAmount
+    ) {
+        require(tokenAmount &gt; 0, "E50");
+        
+        ACOPoolLib.AcoData memory _acoData = _getAcoDataForQuote(acoToken, tokenAmount);
+        
+		require(_acoBasicDataIsValid(acoToken, _acoData.underlying, _acoData.strikeAsset, _acoData.isCall), "E51");
+		
+		underlyingPrice = _getPrice(_acoData.underlying, _acoData.strikeAsset, _protocolConfig.assetConverter);
+		
+		(swapPrice, protocolFee, volatility, collateralAmount) = ACOPoolLib.quote(ACOPoolLib.QuoteData(
+    		lendingToken,
+    		strategy,
+    		baseVolatility,
+    		_protocolConfig.fee,
+    		underlyingPrice,
+    		underlyingPrecision,
+    		_acoData,
+    		<span class="marker" id="mapping-130"></span><span class="token upd" id="move-dst-44" data-title="call_argument/identifier"><span class="cupd">acoPermissionConfig</span>V2</span>));
+    }
+    
+    function _getAcoDataForQuote(address acoToken, uint256 tokenAmount) internal view returns(ACOPoolLib.AcoData memory _acoData) {
+        (address _underlying, address _strikeAsset, bool _isCall, uint256 strikePrice, uint256 expiryTime) = _getAcoData(acoToken);
+        _acoData = ACOPoolLib.AcoData(_isCall, strikePrice, expiryTime, tokenAmount, _underlying, _strikeAsset); 
+    }
+    
+	function _deposit(
+	    uint256 collateralAmount, 
+	    uint256 minShares, 
+	    address to,
+	    bool isLendingToken
+    ) internal returns(uint256 shares) {
+        <span class="marker" id="mapping-131"></span><span class="token add" data-title="function_body/expression_statement">_privateValidation();</span>
+        require(collateralAmount &gt; 0, "E10");
+        require(to != address(0) &amp;&amp; to != address(this), "E11");
+        require(!isLendingToken || !isCall, "E12");
+		
+		(,,uint256 collateralBalance,) = _getCollateralNormalized(true);
+
+		address _collateral = collateral();
+		if (ACOAssetHelper._isEther(_collateral)) {
+            collateralBalance = collateralBalance.sub(msg.value);
+		}
+        
+        if (collateralBalance == 0) {
+            shares = collateralAmount;
+        } else {
+            shares = collateralAmount.mul(totalSupply()).div(collateralBalance);
+        }
+        require(shares &gt;= minShares, "E13");
+
+        if (isLendingToken) {
+            ACOAssetHelper._receiveAsset(lendingToken, collateralAmount);
+        } else {
+            ACOAssetHelper._receiveAsset(_collateral, collateralAmount);
+            if (!isCall) {
+                _depositOnLendingPool(collateralAmount);
+            }
+        }
+        
+        super._mintAction(to, shares);
+        
+        emit Deposit(to, shares, collateralAmount);
+    }
+
+	function _withdrawWithLocked(uint256 shares, address account, bool withdrawLendingToken) internal returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn,
+		address[] memory acos,
+		uint256[] memory acosAmount
+	) {
+        require(shares &gt; 0, "E20");
+        require(!withdrawLendingToken || !isCall, "E21");
+        
+		redeemACOTokens();
+		
+        uint256 _totalSupply = totalSupply();
+        _callBurn(account, shares);
+        
+		(underlyingWithdrawn, strikeAssetWithdrawn) = ACOPoolLib.getAmountToLockedWithdraw(shares, _totalSupply, lendingToken, underlying, strikeAsset, isCall);
+		
+		(acos, acosAmount) = _transferOpenPositions(shares, _totalSupply);
+
+		_transferWithdrawnAssets(underlyingWithdrawn, strikeAssetWithdrawn, withdrawLendingToken);
+
+        emit Withdraw(account, shares, false, underlyingWithdrawn, strikeAssetWithdrawn, acos, acosAmount);
+    }
+    
+    function _withdrawNoLocked(
+        uint256 shares, 
+        uint256 minCollateral, 
+        address account, 
+        bool withdrawLendingToken
+    ) internal returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn
+	) {
+        require(shares &gt; 0, "E30");
+        bool _isCall = isCall;
+        require(!withdrawLendingToken || !_isCall, "E31");
+        
+		redeemACOTokens();
+		
+        uint256 _totalSupply = totalSupply();
+        _callBurn(account, shares);
+        
+        (underlyingWithdrawn, strikeAssetWithdrawn) = _getAmountToNoLockedWithdraw(shares, _totalSupply, minCollateral, _isCall);
+        
+        _transferWithdrawnAssets(underlyingWithdrawn, strikeAssetWithdrawn, withdrawLendingToken);
+		
+        emit Withdraw(account, shares, true, underlyingWithdrawn, strikeAssetWithdrawn, new address[](0), new uint256[](0));
+    }
+
+    function _transferWithdrawnAssets(
+        uint256 underlyingWithdrawn, 
+        uint256 strikeAssetWithdrawn, 
+        bool withdrawLendingToken
+    ) internal {
+        if (strikeAssetWithdrawn &gt; 0) {
+            if (withdrawLendingToken) {
+    		    ACOAssetHelper._transferAsset(lendingToken, msg.sender, strikeAssetWithdrawn);
+    		} else if (isCall) {
+    		    ACOAssetHelper._transferAsset(strikeAsset, msg.sender, strikeAssetWithdrawn);
+    		} else {
+    		    _withdrawOnLendingPool(strikeAssetWithdrawn, msg.sender);
+    		}
+        }
+        if (underlyingWithdrawn &gt; 0) {
+		    ACOAssetHelper._transferAsset(underlying, msg.sender, underlyingWithdrawn);
+        }
+    }
+
+	function _getCollateralNormalized(bool isDeposit) internal view returns(
+        uint256 underlyingBalance, 
+        uint256 strikeAssetBalance, 
+        uint256 collateralBalance,
+        uint256 collateralLockedRedeemable
+    ) {
+        uint256 collateralLocked;
+        uint256 collateralOnOpenPosition;
+        (underlyingBalance, strikeAssetBalance, collateralBalance, collateralLocked, collateralOnOpenPosition, collateralLockedRedeemable) = _getCollateralData(isDeposit);
+	        
+        collateralBalance = collateralBalance.add(collateralLocked).sub(collateralOnOpenPosition);
+    }
+    
+    function _getCollateralData(bool isDeposit) internal view returns(
+        uint256 underlyingBalance, 
+        uint256 strikeAssetBalance, 
+        uint256 collateralBalance,
+        uint256 collateralLocked,
+        uint256 collateralOnOpenPosition,
+        uint256 collateralLockedRedeemable
+    ) {
+        IACOPool2.PoolProtocolConfig storage _protocolConfig = protocolConfig;
+	    uint256 underlyingPrice = _getPrice(underlying, strikeAsset, _protocolConfig.assetConverter);
+        (underlyingBalance, strikeAssetBalance, collateralBalance, collateralLocked, collateralOnOpenPosition, collateralLockedRedeemable) = ACOPoolLib.getCollateralData(
+            ACOPoolLib.OpenPositionData(
+                isDeposit,
+    	        isCall,
+    	        underlyingPrice,
+    	        baseVolatility,
+    	        _protocolConfig.underlyingPriceAdjustPercentage,
+    	        _protocolConfig.withdrawOpenPositionPenalty,
+    	        _protocolConfig.fee,
+    	        underlyingPrecision,
+    	        underlying,
+    	        strikeAsset,
+    	        strategy,
+    	        address(acoFactory),
+    	        lendingToken),
+	        openAcos);
+    }
+    
+    function _getAmountToNoLockedWithdraw(
+        uint256 shares, 
+        uint256 _totalSupply, 
+        uint256 minCollateral,
+        bool _isCall
+    ) internal view returns (
+		uint256 underlyingWithdrawn,
+		uint256 strikeAssetWithdrawn
+	) {
+        (uint256 underlyingBalance, 
+         uint256 strikeAssetBalance, 
+         uint256 collateralBalance,) = _getCollateralNormalized(false);
+
+        (underlyingWithdrawn, strikeAssetWithdrawn) = ACOPoolLib.getAmountToNoLockedWithdraw(shares, _totalSupply, underlyingBalance, strikeAssetBalance, collateralBalance, minCollateral, _isCall);
+    }
+
+	function _callBurn(address account, uint256 tokenAmount) internal {
+        if (account == msg.sender) {
+            super._burnAction(account, tokenAmount);
+        } else {
+            super._burnFrom(account, tokenAmount);
+        }
+    }
+
+	function _swap(
+        address acoToken, 
+        uint256 tokenAmount, 
+        uint256 restriction, 
+        address to, 
+        uint256 deadline
+    ) internal {
+        require(block.timestamp &lt;= deadline, "E40");
+        require(to != address(0) &amp;&amp; to != acoToken &amp;&amp; to != address(this), "E41");
+        
+        IACOPool2.PoolProtocolConfig storage _protocolConfig = protocolConfig;
+        (uint256 swapPrice, uint256 protocolFee, uint256 underlyingPrice, uint256 volatility, uint256 collateralAmount) = _quote(acoToken, tokenAmount, _protocolConfig);
+        
+        _internalSelling(to, acoToken, collateralAmount, tokenAmount, restriction, swapPrice, protocolFee);
+
+        if (protocolFee &gt; 0) {
+            ACOAssetHelper._transferAsset(strikeAsset, _protocolConfig.feeDestination, protocolFee);
+        }
+        
+        emit Swap(to, acoToken, tokenAmount, swapPrice, protocolFee, underlyingPrice, volatility);
+    }
+
+    function _internalSelling(
+        address to,
+        address acoToken, 
+        uint256 collateralAmount, 
+        uint256 tokenAmount,
+        uint256 maxPayment,
+        uint256 swapPrice,
+        uint256 protocolFee
+    ) internal {
+        require(swapPrice &lt;= maxPayment, "E42");
+        
+        address _strikeAsset = strikeAsset;
+        uint256 extra = 0;
+        if (ACOAssetHelper._isEther(_strikeAsset)) {
+            require(msg.value &gt;= swapPrice, "E43");
+            extra = msg.value.sub(swapPrice);
+        } else {
+            require(msg.value == 0, "E44");
+            ACOAssetHelper._callTransferFromERC20(_strikeAsset, msg.sender, address(this), swapPrice);
+        }
+        
+        uint256 remaining = swapPrice.sub(protocolFee);
+        
+        if (!isCall) {
+            _withdrawOnLendingPool(collateralAmount.sub(remaining), address(this));
+        }
+        
+		address _collateral = collateral();
+        IACOPool2.AcoData storage data = acoData[acoToken];
+		if (ACOAssetHelper._isEther(_collateral)) {
+			tokenAmount = IACOToken(acoToken).mintPayable{value: collateralAmount}();
+		} else {
+			if (!data.open) {
+				_setAuthorizedSpender(_collateral, acoToken);    
+			}
+			tokenAmount = IACOToken(acoToken).mint(collateralAmount);
+		}
+
+		if (!data.open) {
+            require(openAcos.length &lt; protocolConfig.maximumOpenAco, "E45");
+			acoData[acoToken] = IACOPool2.AcoData(true, remaining, collateralAmount, 0, acoTokens.length, openAcos.length);
+            acoTokens.push(acoToken);    
+            openAcos.push(acoToken);   
+        } else {
+			data.collateralLocked = collateralAmount.add(data.collateralLocked);
+			data.valueSold = remaining.add(data.valueSold);
+		}
+        
+        ACOAssetHelper._callTransferERC20(acoToken, to, tokenAmount);
+        
+        if (extra &gt; 0) {
+            ACOAssetHelper._transferAsset(_strikeAsset, msg.sender, extra);    
+        }
+    }
+
+	function _transferOpenPositions(uint256 shares, uint256 _totalSupply) internal returns(
+        address[] memory acos, 
+        uint256[] memory acosAmount
+    ) {
+        uint256 size = openAcos.length;
+        acos = new address[](size);
+        acosAmount = new uint256[](size);
+		for (uint256 i = 0; i &lt; size; ++i) {
+			address acoToken = openAcos[i];
+			uint256 tokens = IACOToken(acoToken).currentCollateralizedTokens(address(this));
+			
+			acos[i] = acoToken;
+			acosAmount[i] = tokens.mul(shares).div(_totalSupply);
+			
+            if (acosAmount[i] &gt; 0) {
+			    IACOToken(acoToken).transferCollateralOwnership(msg.sender, acosAmount[i]);
+            }
+		}
+	}
+
+    function _depositOnLendingPool(uint256 amount) internal {
+        lendingPool.deposit(strikeAsset, amount, address(this), protocolConfig.lendingPoolReferral);
+    }
+
+    function _withdrawOnLendingPool(uint256 amount, address to) internal {
+        lendingPool.withdraw(strikeAsset, amount, to);
+    }
+
+	function _acoBasicDataIsValid(address acoToken, address _underlying, address _strikeAsset, bool _isCall) internal view returns(bool) {
+		if (_underlying == underlying &amp;&amp; _strikeAsset == strikeAsset &amp;&amp; _isCall == isCall) {
+		    address creator = acoFactory.creators(acoToken);
+		    return (!forbiddenAcoCreators[creator] &amp;&amp; (validAcoCreators[address(0)] || validAcoCreators[creator])); 
+	    } else {
+	        return false;
+	    }
+	}
+
+	function _getPoolBalanceOf(address asset) internal view returns(uint256) {
+        return ACOAssetHelper._getAssetBalanceOf(asset, address(this));
+    }
+	
+	function _getPrice(address _underlying, address _strikeAsset, address assetConverter) internal view returns(uint256) {
+	    return IACOAssetConverterHelper(assetConverter).getPrice(_underlying, _strikeAsset);
+	}
+
+	function _setAuthorizedSpender(address asset, address spender) internal {
+        ACOAssetHelper._callApproveERC20(asset, spender, ACOAssetHelper.MAX_UINT);
+    }
+
+    function _setAcoPermissionConfig(IACOPool2.<span class="marker" id="mapping-132"></span><span class="token upd" id="move-dst-45" data-title="user_defined_type/identifier"><span class="cupd">PoolAcoPermissionConfig</span>V2</span> memory newConfig) internal {
+        require(newConfig.tolerancePriceBelowMax &lt; <span class="marker" id="mapping-133"></span><span class="token add" data-title="binary_expression/type_cast_expression">int256(PERCENTAGE_PRECISION)</span> &amp;&amp; newConfig.tolerancePriceBelowMin &lt; <span class="marker" id="mapping-134"></span><span class="token add" data-title="binary_expression/type_cast_expression">int256(PERCENTAGE_PRECISION)</span>, <span class="marker" id="mapping-135"></span><span class="token add" data-title="call_expression/call_argument">"E81"</span>);
+        require(newConfig.tolerancePriceBelowMin <span class="marker" id="mapping-136"></span><span class="token add" data-title="binary_expression/<">&lt;</span> newConfig.tolerancePriceBelowMax || newConfig.tolerancePriceBelowMax <span class="marker" id="mapping-137"></span><span class="token add" data-title="binary_expression/<">&lt;</span> <span class="marker" id="mapping-138"></span><span class="token add" data-title="binary_expression/type_cast_expression">int256(0)</span>, "E82");
+        require(newConfig.tolerancePriceAboveMin <span class="marker" id="mapping-139"></span><span class="token add" data-title="binary_expression/<">&lt;</span> newConfig.tolerancePriceAboveMax || newConfig.tolerancePriceAboveMax <span class="marker" id="mapping-140"></span><span class="token add" data-title="binary_expression/<">&lt;</span> <span class="marker" id="mapping-141"></span><span class="token add" data-title="binary_expression/type_cast_expression">int256(0)</span>, "E83");
+        <span class="marker" id="mapping-142"></span><span class="token add" data-title="function_body/expression_statement">require(newConfig.minStrikePrice &lt; newConfig.maxStrikePrice || newConfig.maxStrikePrice == 0, "E84");</span>
+        require(newConfig.minExpiration &lt;= newConfig.maxExpiration, "E85");
+        
+        emit <span class="marker" id="mapping-143"></span><span class="token upd" id="move-dst-47" data-title="emit_statement/identifier"><span class="cupd">SetAcoPermissionConfig</span>V2</span>(<span class="marker" id="mapping-144"></span><span class="token upd" id="move-dst-48" data-title="call_argument/identifier"><span class="cupd">acoPermissionConfig</span>V2</span>, newConfig);
+        
+        <span class="marker" id="mapping-145"></span><span class="token upd" id="move-dst-49" data-title="assignment_expression/identifier"><span class="cupd">acoPermissionConfig</span>V2</span> = newConfig;
+    }
+
+    function _setBaseVolatility(uint256 newBaseVolatility) internal {
+        require(newBaseVolatility &gt; 0, "E86");
+        emit SetBaseVolatility(baseVolatility, newBaseVolatility);
+        baseVolatility = newBaseVolatility;
+    }
+    
+    function _setStrategy(address newStrategy) internal {
+        require(IACOPoolFactory2(owner()).strategyPermitted(newStrategy), "E87");
+        emit SetStrategy(address(strategy), newStrategy);
+        strategy = newStrategy;
+    }
+
+    function _setPoolAdmin(address newAdmin) internal {
+        require(newAdmin != address(0), "E88");
+        emit SetPoolAdmin(poolAdmin, newAdmin);
+        poolAdmin = newAdmin;
+    }
+
+    function _setProtocolConfig(IACOPool2.PoolProtocolConfig memory newConfig) internal {
+        address _underlying = underlying;
+        address _strikeAsset = strikeAsset;
+		require(IACOAssetConverterHelper(newConfig.assetConverter).getPrice(_underlying, _strikeAsset) &gt; 0, "E89");
+        require(newConfig.feeDestination != address(0), "E90");
+        require(newConfig.fee &lt;= 12500, "E91");
+        require(newConfig.withdrawOpenPositionPenalty &lt;= PERCENTAGE_PRECISION, "E92");
+        require(newConfig.underlyingPriceAdjustPercentage &lt; PERCENTAGE_PRECISION, "E93");
+        require(newConfig.maximumOpenAco &gt; 0, "E94");
+        		
+		if (isCall) {
+            if (!ACOAssetHelper._isEther(_strikeAsset)) {
+                _setAuthorizedSpender(_strikeAsset, newConfig.assetConverter);
+            }
+        } else if (!ACOAssetHelper._isEther(_underlying)) {
+            _setAuthorizedSpender(_underlying, newConfig.assetConverter);
+        }
+        
+        emit SetProtocolConfig(protocolConfig, newConfig);
+        
+        protocolConfig = newConfig;
+    }
+    
+    <span class="marker" id="mapping-146"></span><span class="token add" data-title="contract_body/function_definition">function _privateValidation() <span class="marker" id="mapping-147"></span><span class="token add" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-148"></span><span class="token add" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-149"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-150"></span><span class="token add" data-title="function_body/expression_statement"><span class="marker" id="mapping-151"></span><span class="token add" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-152"></span><span class="token add" data-title="call_expression/call_argument">!isPrivate || poolAdmin == msg.sender</span>, <span class="marker" id="mapping-153"></span><span class="token mv" id="move-dst-46" data-title="call_expression/call_argument">"E97"</span>)</span>;</span>
+    }</span></span>
+    
+    function _onlyPoolAdmin() internal view {
+        require(poolAdmin == msg.sender, "E98");
+    }
+    
+    function _onlyProtocolOwner() internal view {
+        require(owner() == msg.sender, "E99");
+    }
+}</pre></div></div></div></body></html>

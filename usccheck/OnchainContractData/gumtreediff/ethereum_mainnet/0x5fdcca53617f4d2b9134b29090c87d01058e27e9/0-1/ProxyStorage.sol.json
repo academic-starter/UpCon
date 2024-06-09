@@ -1,0 +1,345 @@
+{
+  "matches": [
+    {
+      "src": "(: ( [1564,1565]",
+      "dest": "(: ( [1494,1495]"
+    },
+    {
+      "src": "bytes32: bytes32 [1128,1135]",
+      "dest": "bytes32: bytes32 [994,1001]"
+    },
+    {
+      "src": "): ) [1135,1136]",
+      "dest": "): ) [1001,1002]"
+    },
+    {
+      "src": "primitive_type [1256,1263]",
+      "dest": "primitive_type [1186,1193]"
+    },
+    {
+      "src": "identifier: enabledTime [1274,1285]",
+      "dest": "identifier: enabledTime [1204,1215]"
+    },
+    {
+      "src": "\": \" [650,651]",
+      "dest": "\": \" [691,692]"
+    },
+    {
+      "src": "identifier: GovernanceStorage [846,863]",
+      "dest": "identifier: GovernanceStorage [887,904]"
+    },
+    {
+      "src": "pragma: pragma [596,602]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "): ) [1263,1264]",
+      "dest": "): ) [1193,1194]"
+    },
+    {
+      "src": "visibility [1265,1273]",
+      "dest": "visibility [1195,1203]"
+    },
+    {
+      "src": "contract_body [864,1605]",
+      "dest": "contract_body [905,1535]"
+    },
+    {
+      "src": "contract_declaration [821,1605]",
+      "dest": "contract_declaration [862,1535]"
+    },
+    {
+      "src": "internal: internal [1265,1273]",
+      "dest": "internal: internal [1195,1203]"
+    },
+    {
+      "src": "is: is [843,845]",
+      "dest": "is: is [884,886]"
+    },
+    {
+      "src": "internal: internal [1582,1590]",
+      "dest": "internal: internal [1512,1520]"
+    },
+    {
+      "src": "type_name [1128,1135]",
+      "dest": "type_name [994,1001]"
+    },
+    {
+      "src": "pragma_directive [596,619]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "solidity: solidity [603,611]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "identifier: initialized [1591,1602]",
+      "dest": "identifier: initialized [1521,1532]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [611,613]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "user_defined_type [846,863]",
+      "dest": "user_defined_type [887,904]"
+    },
+    {
+      "src": "}: } [1604,1605]",
+      "dest": "}: } [1534,1535]"
+    },
+    {
+      "src": "primitive_type [1576,1580]",
+      "dest": "primitive_type [1506,1510]"
+    },
+    {
+      "src": "bool: bool [1576,1580]",
+      "dest": "bool: bool [1506,1510]"
+    },
+    {
+      "src": "primitive_type [1245,1252]",
+      "dest": "primitive_type [1175,1182]"
+    },
+    {
+      "src": "comment: // Stores the hash of the initialization vector of the added implementation. [871,947]",
+      "dest": "comment: // NOLINTNEXTLINE: naming-convention uninitialized-state. [912,969]"
+    },
+    {
+      "src": "source_file [0,1606]",
+      "dest": "source_file [0,1536]"
+    },
+    {
+      "src": "state_variable_declaration [1556,1603]",
+      "dest": "state_variable_declaration [1486,1533]"
+    },
+    {
+      "src": "type_name [1108,1136]",
+      "dest": "type_name [974,1002]"
+    },
+    {
+      "src": "^:  ^ [611,613]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "mapping: mapping [1108,1115]",
+      "dest": "mapping: mapping [974,981]"
+    },
+    {
+      "src": "=>: => [1573,1575]",
+      "dest": "=>: => [1503,1505]"
+    },
+    {
+      "src": "primitive_type [1565,1572]",
+      "dest": "primitive_type [1495,1502]"
+    },
+    {
+      "src": "comment: // (i.e. using different key salting schemes for different initialization levels). [1469,1551]",
+      "dest": "comment: // (i.e. using different key salting schemes for different initialization levels). [1399,1481]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "\": \" [628,629]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "solidity_pragma_token [603,618]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "identifier: initializationHash [1146,1164]",
+      "dest": "identifier: initializationHash_DEPRECATED [1012,1041]"
+    },
+    {
+      "src": "comment: // The time after which we can switch to the implementation. [1171,1231]",
+      "dest": "comment: // The time after which we can switch to the implementation. [1048,1108]"
+    },
+    {
+      "src": "): ) [1580,1581]",
+      "dest": "): ) [1510,1511]"
+    },
+    {
+      "src": "import: import [621,627]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "state_variable_declaration [1108,1165]",
+      "dest": "state_variable_declaration [974,1042]"
+    },
+    {
+      "src": "visibility [1137,1145]",
+      "dest": "visibility [1003,1011]"
+    },
+    {
+      "src": "comment: // Upon upgradeTo the implementation, the initialization vector is verified [952,1027]",
+      "dest": "comment: // Hash(implementation, data, finalize) => time. [1113,1161]"
+    },
+    {
+      "src": "identifier: ProxyStorage [830,842]",
+      "dest": "identifier: ProxyStorage [871,883]"
+    },
+    {
+      "src": "import_directive [621,652]",
+      "dest": "import_directive [662,693]"
+    },
+    {
+      "src": "contract: contract [821,829]",
+      "dest": "contract: contract [862,870]"
+    },
+    {
+      "src": "internal: internal [1137,1145]",
+      "dest": "internal: internal [1003,1011]"
+    },
+    {
+      "src": "mapping: mapping [1236,1243]",
+      "dest": "mapping: mapping [1166,1173]"
+    },
+    {
+      "src": "bytes32: bytes32 [1565,1572]",
+      "dest": "bytes32: bytes32 [1495,1502]"
+    },
+    {
+      "src": "(: ( [1116,1117]",
+      "dest": "(: ( [982,983]"
+    },
+    {
+      "src": "visibility [1582,1590]",
+      "dest": "visibility [1512,1520]"
+    },
+    {
+      "src": "string [628,651]",
+      "dest": "string [669,692]"
+    },
+    {
+      "src": "state_variable_declaration [1236,1286]",
+      "dest": "state_variable_declaration [1166,1216]"
+    },
+    {
+      "src": "address: address [1117,1124]",
+      "dest": "address: address [983,990]"
+    },
+    {
+      "src": "type_name [1256,1263]",
+      "dest": "type_name [1186,1193]"
+    },
+    {
+      "src": "primitive_type [1117,1124]",
+      "dest": "primitive_type [983,990]"
+    },
+    {
+      "src": "comment: // A central storage of the flags whether implementation has been initialized. [1292,1370]",
+      "dest": "comment: // A central storage of the flags whether implementation has been initialized. [1222,1300]"
+    },
+    {
+      "src": "comment: /*   Holds the Proxy-specific state variables.   This contract is inherited by the GovernanceStorage (and indirectly by MainStorage)   to prevent collision hazard. */ [654,820]",
+      "dest": "comment: /*   Holds the Proxy-specific state variables.   This contract is inherited by the GovernanceStorage (and indirectly by MainStorage)   to prevent collision hazard. */ [695,861]"
+    },
+    {
+      "src": "type_name [1576,1580]",
+      "dest": "type_name [1506,1510]"
+    },
+    {
+      "src": "=>: => [1125,1127]",
+      "dest": "=>: => [991,993]"
+    },
+    {
+      "src": "mapping: mapping [1556,1563]",
+      "dest": "mapping: mapping [1486,1493]"
+    },
+    {
+      "src": "solidity_version: 0.5.2 [613,618]",
+      "dest": "solidity_version: 0.6.11 [653,659]"
+    },
+    {
+      "src": "type_name [1556,1581]",
+      "dest": "type_name [1486,1511]"
+    },
+    {
+      "src": "inheritance_specifier [846,863]",
+      "dest": "inheritance_specifier [887,904]"
+    },
+    {
+      "src": "comment: // Note - it can be used flexibly enough to accommodate multiple levels of initialization [1375,1464]",
+      "dest": "comment: // Note - it can be used flexibly enough to accommodate multiple levels of initialization [1305,1394]"
+    },
+    {
+      "src": "primitive_type [1128,1135]",
+      "dest": "primitive_type [994,1001]"
+    },
+    {
+      "src": "uint256: uint256 [1256,1263]",
+      "dest": "uint256: uint256 [1186,1193]"
+    },
+    {
+      "src": "type_name [1236,1264]",
+      "dest": "type_name [1166,1194]"
+    },
+    {
+      "src": "(: ( [1244,1245]",
+      "dest": "(: ( [1174,1175]"
+    },
+    {
+      "src": "=>: => [1253,1255]",
+      "dest": "=>: => [1183,1185]"
+    },
+    {
+      "src": "{: { [864,865]",
+      "dest": "{: { [905,906]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "comment: /*   Copyright 2019,2020 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "label": "/*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */"
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "parent": "source_file [0,1536]",
+      "at": 1
+    },
+    {
+      "action": "move-tree",
+      "tree": "comment: // Upon upgradeTo the implementation, the initialization vector is verified [952,1027]",
+      "parent": "contract_body [905,1535]",
+      "at": 5
+    },
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.5.2 [613,618]",
+      "label": "0.6.11"
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: // Stores the hash of the initialization vector of the added implementation. [871,947]",
+      "label": "// NOLINTNEXTLINE: naming-convention uninitialized-state."
+    },
+    {
+      "action": "update-node",
+      "tree": "comment: // Upon upgradeTo the implementation, the initialization vector is verified [952,1027]",
+      "label": "// Hash(implementation, data, finalize) => time."
+    },
+    {
+      "action": "update-node",
+      "tree": "identifier: initializationHash [1146,1164]",
+      "label": "initializationHash_DEPRECATED"
+    },
+    {
+      "action": "insert-node",
+      "tree": "bytes32: bytes32 [1175,1182]",
+      "parent": "primitive_type [1175,1182]",
+      "at": 0
+    },
+    {
+      "action": "delete-node",
+      "tree": "comment: // to be identical to the one submitted when adding the implementation. [1032,1103]"
+    },
+    {
+      "action": "delete-node",
+      "tree": "address: address [1245,1252]"
+    }
+  ]
+}

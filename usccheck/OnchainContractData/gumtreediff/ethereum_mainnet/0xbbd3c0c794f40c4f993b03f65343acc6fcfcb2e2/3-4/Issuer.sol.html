@@ -1,0 +1,740 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>Issuer.sol</h5><pre class="pre-scrollable">// SPDX-License-Identifier: AGPL-3.0-or-later
+
+pragma solidity ^0.7.0;
+
+
+import "NuCypherToken.sol";
+import "Math.sol";
+import "Upgradeable.sol";
+import "AdditionalMath.sol";
+import "SafeERC20.sol";
+
+
+<span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="source_file/comment"><span class="cupd">/**
+* @</span><span class="cupd">notice Contract for calculation of issued tokens
+* @dev |v3.</span>3<span class="cupd">.1|
+*/</span></span>
+abstract contract Issuer is Upgradeable {
+    using SafeERC20 for NuCypherToken;
+    using AdditionalMath for uint32;
+
+    event Donated(address indexed sender, uint256 value);
+    /// Issuer is initialized with a reserved reward
+    event Initialized(uint256 reservedReward);
+
+    uint128 constant MAX_UINT128 = uint128(0) - 1;
+
+    NuCypherToken public immutable token;
+    uint128 public immutable totalSupply;
+
+    // d * k2
+    uint256 public immutable mintingCoefficient;
+    // k1
+    uint256 public immutable lockDurationCoefficient1;
+    // k2
+    uint256 public immutable lockDurationCoefficient2;
+    uint32 public immutable secondsPerPeriod;
+    // kmax
+    uint16 public immutable maximumRewardedPeriods;
+
+    uint256 public immutable firstPhaseMaxIssuance;
+    uint256 public immutable firstPhaseTotalSupply;
+
+    /**
+    * Current supply is used in the minting formula and is stored to prevent different calculation
+    * for stakers which get reward in the same period. There are two values -
+    * supply for previous period (used in formula) and supply for current period which accumulates value
+    * before end of period.
+    */
+    uint128 public previousPeriodSupply;
+    uint128 public currentPeriodSupply;
+    uint16 public currentMintingPeriod;
+
+    <span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-2" data-title="contract_body/comment"><span class="cupd">/**
+    * @notice Constructor sets address of token contract and coefficients for minting
+    * @dev Minting formula for one sub-stake in one period for the first phase
+    firstPhaseMaxIssuance * (lockedValue / totalLockedValue) * (k1 + min(allLockedPeriods, kmax)) / k2
+    * @dev Minting formula for one sub-stake in one period for the second phase
+    (totalSupply - currentSupply) / d * (lockedValue / totalLockedValue) * (k1 + min(allLockedPeriods, kmax)) / k2
+    if allLockedPeriods &gt; maximumRewardedPeriods then allLockedPeriods = maximumRewardedPeriods
+    * @param _token Token contract
+    * @param _</span><span class="cupd">hours</span><span class="cupd">PerPeriod Size of period in hours
+    * @param _issuanceDecayCoefficient (d) Coefficient which modifies the rate at which the maximum issuance decays,
+    * only applicable to Phase 2. d = 365 * half-life / LOG2 where default half-life = 2.
+    * See Equation 10 in Staking Protocol &amp; Economics paper
+    * @param _lockDurationCoefficient1 (k1) Numerator of the coefficient which modifies the extent 
+    * to which a stake's lock duration affects the subsidy it receives. Affects stakers differently. 
+    * Applicable to Phase 1 and Phase 2. k1 = k2 * small_stake_multiplier where default small_stake_multiplier = 0.5.  
+    * See Equation 8 in Staking Protocol &amp; Economics paper.
+    * @param _lockDurationCoefficient2 (k2) Denominator of the coefficient which modifies the extent
+    * to which a stake's lock duration affects the subsidy it receives. Affects stakers differently.
+    * Applicable to Phase 1 and Phase 2. k2 = maximum_rewarded_periods / (1 - small_stake_multiplier)
+    * where default maximum_rewarded_periods = 365 and default small_stake_multiplier = 0.5.
+    * See Equation 8 in Staking Protocol &amp; Economics paper.
+    * @param _maximumRewardedPeriods (kmax) Number of periods beyond which a stake's lock duration
+    * no longer increases the subsidy it receives. kmax = reward_saturation * 365 where default reward_saturation = 1.
+    * See Equation 8 in Staking Protocol &amp; Economics paper.
+    * @param _firstPhaseTotalSupply Total supply for the first phase
+    * @param _firstPhaseMaxIssuance (Imax) Maximum number of new tokens minted per period during Phase 1.
+    * See Equation 7 in Staking Protocol &amp; Economics paper.
+    */</span></span>
+    constructor(
+        NuCypherToken _token,
+        <span class="marker" id="mapping-3"></span><span class="token mv" id="move-src-3" data-title="constructor_definition/parameter">uint32 _hoursPerPeriod</span>,
+        <span class="marker" id="mapping-4"></span><span class="token mv" id="move-src-4" data-title="constructor_definition/parameter">uint256 _issuanceDecayCoefficient</span>,
+        <span class="marker" id="mapping-5"></span><span class="token mv" id="move-src-5" data-title="constructor_definition/parameter">uint256 _lockDurationCoefficient1</span>,
+        <span class="marker" id="mapping-6"></span><span class="token mv" id="move-src-6" data-title="constructor_definition/parameter">uint256 _lockDurationCoefficient2</span>,
+        <span class="marker" id="mapping-7"></span><span class="token mv" id="move-src-7" data-title="constructor_definition/parameter">uint16 _maximumRewardedPeriods</span>,
+        <span class="marker" id="mapping-8"></span><span class="token mv" id="move-src-8" data-title="constructor_definition/parameter">uint256 _firstPhaseTotalSupply</span>,
+        uint256 _firstPhaseMaxIssuance
+    ) {
+        uint256 localTotalSupply = _token.totalSupply();
+        require(<span class="marker" id="mapping-9"></span><span class="token mv" id="move-src-9" data-title="call_argument/binary_expression">localTotalSupply &gt; 0 &amp;&amp;
+            _issuanceDecayCoefficient != 0 &amp;&amp;
+            _hoursPerPeriod != 0 &amp;&amp;
+            <span class="marker" id="mapping-10"></span><span class="token mv" id="move-src-10" data-title="binary_expression/binary_expression">_lockDurationCoefficient1 != 0</span> &amp;&amp;
+            <span class="marker" id="mapping-11"></span><span class="token mv" id="move-src-11" data-title="binary_expression/binary_expression">_lockDurationCoefficient2 != 0</span> &amp;&amp;
+            <span class="marker" id="mapping-12"></span><span class="token mv" id="move-src-12" data-title="binary_expression/binary_expression">_maximumRewardedPeriods != 0</span></span>);
+        require(localTotalSupply &lt;= uint256(MAX_UINT128), "Token contract has supply more than supported");
+
+        uint256 maxLockDurationCoefficient = _maximumRewardedPeriods + _lockDurationCoefficient1;
+        uint256 localMintingCoefficient = _issuanceDecayCoefficient * _lockDurationCoefficient2;
+        require(maxLockDurationCoefficient &gt; _maximumRewardedPeriods &amp;&amp;
+            localMintingCoefficient / _issuanceDecayCoefficient ==  _lockDurationCoefficient2 &amp;&amp;
+            // worst case for `totalLockedValue * d * k2`, when totalLockedValue == totalSupply
+            localTotalSupply * localMintingCoefficient / localTotalSupply == localMintingCoefficient &amp;&amp;
+            // worst case for `(totalSupply - currentSupply) * lockedValue * (k1 + min(allLockedPeriods, kmax))`,
+            // when currentSupply == 0, lockedValue == totalSupply
+            localTotalSupply * localTotalSupply * maxLockDurationCoefficient / localTotalSupply / localTotalSupply ==
+                maxLockDurationCoefficient,
+            "Specified parameters cause overflow");
+
+        require(maxLockDurationCoefficient &lt;= _lockDurationCoefficient2,
+            "Resulting locking duration coefficient must be less than 1");
+        require(_firstPhaseTotalSupply &lt;= localTotalSupply, "Too many tokens for the first phase");
+        require(_firstPhaseMaxIssuance &lt;= _firstPhaseTotalSupply, "Reward for the first phase is too high");
+
+        token = _token;
+        secondsPerPeriod = _hoursPerPeriod.mul32(1 hours);
+        lockDurationCoefficient1 = _lockDurationCoefficient1;
+        lockDurationCoefficient2 = _lockDurationCoefficient2;
+        maximumRewardedPeriods = _maximumRewardedPeriods;
+        firstPhaseTotalSupply = _firstPhaseTotalSupply;
+        firstPhaseMaxIssuance = _firstPhaseMaxIssuance;
+        totalSupply = uint128(localTotalSupply);
+        mintingCoefficient = localMintingCoefficient;
+    }
+
+    /**
+    * @dev Checks contract initialization
+    */
+    modifier isInitialized()
+    {
+        require(currentMintingPeriod != 0);
+        _;
+    }
+
+    /**
+    * @return Number of current period
+    */
+    function getCurrentPeriod() public view returns (uint16) {
+        return uint16(block.timestamp / secondsPerPeriod);
+    }
+
+    /**
+    * @notice Initialize reserved tokens for reward
+    */
+    function initialize(uint256 _reservedReward, address _sourceOfFunds) external onlyOwner {
+        require(currentMintingPeriod == 0);
+        // Reserved reward must be sufficient for at least one period of the first phase
+        require(firstPhaseMaxIssuance &lt;= _reservedReward);
+        currentMintingPeriod = getCurrentPeriod();
+        currentPeriodSupply = totalSupply - uint128(_reservedReward);
+        previousPeriodSupply = currentPeriodSupply;
+        token.safeTransferFrom(_sourceOfFunds, address(this), _reservedReward);
+        emit Initialized(_reservedReward);
+    }
+
+    /**
+    * @notice Function to mint tokens for one period.
+    * @param _currentPeriod Current period number.
+    * @param _lockedValue The amount of tokens that were locked by user in specified period.
+    * @param _totalLockedValue The amount of tokens that were locked by all users in specified period.
+    * @param _allLockedPeriods The max amount of periods during which tokens will be locked after specified period.
+    * @return amount Amount of minted tokens.
+    */
+    function mint(
+        uint16 _currentPeriod,
+        uint256 _lockedValue,
+        uint256 _totalLockedValue,
+        uint16 _allLockedPeriods
+    )
+        internal returns (uint256 amount)
+    {
+        if (currentPeriodSupply == totalSupply) {
+            return 0;
+        }
+
+        if (_currentPeriod &gt; currentMintingPeriod) {
+            previousPeriodSupply = currentPeriodSupply;
+            currentMintingPeriod = _currentPeriod;
+        }
+
+        uint256 currentReward;
+        uint256 coefficient;
+
+        // first phase
+        // firstPhaseMaxIssuance * lockedValue * (k1 + min(allLockedPeriods, kmax)) / (totalLockedValue * k2)
+        if (previousPeriodSupply + firstPhaseMaxIssuance &lt;= firstPhaseTotalSupply) {
+            currentReward = firstPhaseMaxIssuance;
+            coefficient = lockDurationCoefficient2;
+        // second phase
+        // (totalSupply - currentSupply) * lockedValue * (k1 + min(allLockedPeriods, kmax)) / (totalLockedValue * d * k2)
+        } else {
+            currentReward = totalSupply - previousPeriodSupply;
+            coefficient = mintingCoefficient;
+        }
+
+        uint256 allLockedPeriods =
+            AdditionalMath.min16(_allLockedPeriods, maximumRewardedPeriods) + lockDurationCoefficient1;
+        amount = (uint256(currentReward) * _lockedValue * allLockedPeriods) /
+            (_totalLockedValue * coefficient);
+
+        // rounding the last reward
+        uint256 maxReward = getReservedReward();
+        if (amount == 0) {
+            amount = 1;
+        } else if (amount &gt; maxReward) {
+            amount = maxReward;
+        }
+
+        currentPeriodSupply += uint128(amount);
+    }
+
+    /**
+    * @notice Return tokens for future minting
+    * @param _amount Amount of tokens
+    */
+    function unMint(uint256 _amount) internal {
+        previousPeriodSupply -= uint128(_amount);
+        currentPeriodSupply -= uint128(_amount);
+    }
+
+    /**
+    * @notice Donate sender's tokens. Amount of tokens will be returned for future minting
+    * @param _value Amount to donate
+    */
+    function donate(uint256 _value) external isInitialized {
+        token.safeTransferFrom(msg.sender, address(this), _value);
+        unMint(_value);
+        emit Donated(msg.sender, _value);
+    }
+
+    /**
+    * @notice Returns the number of tokens that can be minted
+    */
+    function getReservedReward() public view returns (uint256) {
+        return totalSupply - currentPeriodSupply;
+    }
+
+    /// @dev the `onlyWhileUpgrading` modifier works through a call to the parent `verifyState`
+    function verifyState(address _testTarget) public override virtual {
+        super.verifyState(_testTarget);
+        require(uint16(delegateGet(_testTarget, this.currentMintingPeriod.selector)) == currentMintingPeriod);
+        require(uint128(delegateGet(_testTarget, this.previousPeriodSupply.selector)) == previousPeriodSupply);
+        require(uint128(delegateGet(_testTarget, this.currentPeriodSupply.selector)) == currentPeriodSupply);
+    }
+
+}
+</pre></div><div class="col-6"><h5>Issuer.sol</h5><pre class="pre-scrollable">// SPDX-License-Identifier: AGPL-3.0-or-later
+
+pragma solidity ^0.7.0;
+
+
+import "NuCypherToken.sol";
+import "Math.sol";
+import "Upgradeable.sol";
+import "AdditionalMath.sol";
+import "SafeERC20.sol";
+
+
+<span class="marker" id="mapping-13"></span><span class="token upd" id="move-dst-1" data-title="source_file/comment"><span class="cupd">/**
+* @</span>title Issuer
+* @<span class="cupd">notice Contract for calculation of issued tokens
+* @dev |v3.</span>4<span class="cupd">.1|
+*/</span></span>
+abstract contract Issuer is Upgradeable {
+    using SafeERC20 for NuCypherToken;
+    using AdditionalMath for uint32;
+
+    event Donated(address indexed sender, uint256 value);
+    /// Issuer is initialized with a reserved reward
+    event Initialized(uint256 reservedReward);
+
+    uint128 constant MAX_UINT128 = uint128(0) - 1;
+
+    NuCypherToken public immutable token;
+    uint128 public immutable totalSupply;
+
+    // d * k2
+    uint256 public immutable mintingCoefficient;
+    // k1
+    uint256 public immutable lockDurationCoefficient1;
+    // k2
+    uint256 public immutable lockDurationCoefficient2;
+
+    <span class="marker" id="mapping-14"></span><span class="token add" data-title="contract_body/state_variable_declaration">uint32 public immutable genesisSecondsPerPeriod;</span>
+    uint32 public immutable secondsPerPeriod;
+
+    // kmax
+    uint16 public immutable maximumRewardedPeriods;
+
+    uint256 public immutable firstPhaseMaxIssuance;
+    uint256 public immutable firstPhaseTotalSupply;
+
+    /**
+    * Current supply is used in the minting formula and is stored to prevent different calculation
+    * for stakers which get reward in the same period. There are two values -
+    * supply for previous period (used in formula) and supply for current period which accumulates value
+    * before end of period.
+    */
+    uint128 public previousPeriodSupply;
+    uint128 public currentPeriodSupply;
+    uint16 public currentMintingPeriod;
+
+    <span class="marker" id="mapping-15"></span><span class="token upd" id="move-dst-2" data-title="contract_body/comment"><span class="cupd">/**
+    * @notice Constructor sets address of token contract and coefficients for minting
+    * @dev Minting formula for one sub-stake in one period for the first phase
+    firstPhaseMaxIssuance * (lockedValue / totalLockedValue) * (k1 + min(allLockedPeriods, kmax)) / k2
+    * @dev Minting formula for one sub-stake in one period for the second phase
+    (totalSupply - currentSupply) / d * (lockedValue / totalLockedValue) * (k1 + min(allLockedPeriods, kmax)) / k2
+    if allLockedPeriods &gt; maximumRewardedPeriods then allLockedPeriods = maximumRewardedPeriods
+    * @param _token Token contract
+    * @param _</span>genesisHoursPerPeriod Size of period in <span class="cupd">hours</span> at genesis
+    * @param _hours<span class="cupd">PerPeriod Size of period in hours
+    * @param _issuanceDecayCoefficient (d) Coefficient which modifies the rate at which the maximum issuance decays,
+    * only applicable to Phase 2. d = 365 * half-life / LOG2 where default half-life = 2.
+    * See Equation 10 in Staking Protocol &amp; Economics paper
+    * @param _lockDurationCoefficient1 (k1) Numerator of the coefficient which modifies the extent 
+    * to which a stake's lock duration affects the subsidy it receives. Affects stakers differently. 
+    * Applicable to Phase 1 and Phase 2. k1 = k2 * small_stake_multiplier where default small_stake_multiplier = 0.5.  
+    * See Equation 8 in Staking Protocol &amp; Economics paper.
+    * @param _lockDurationCoefficient2 (k2) Denominator of the coefficient which modifies the extent
+    * to which a stake's lock duration affects the subsidy it receives. Affects stakers differently.
+    * Applicable to Phase 1 and Phase 2. k2 = maximum_rewarded_periods / (1 - small_stake_multiplier)
+    * where default maximum_rewarded_periods = 365 and default small_stake_multiplier = 0.5.
+    * See Equation 8 in Staking Protocol &amp; Economics paper.
+    * @param _maximumRewardedPeriods (kmax) Number of periods beyond which a stake's lock duration
+    * no longer increases the subsidy it receives. kmax = reward_saturation * 365 where default reward_saturation = 1.
+    * See Equation 8 in Staking Protocol &amp; Economics paper.
+    * @param _firstPhaseTotalSupply Total supply for the first phase
+    * @param _firstPhaseMaxIssuance (Imax) Maximum number of new tokens minted per period during Phase 1.
+    * See Equation 7 in Staking Protocol &amp; Economics paper.
+    */</span></span>
+    constructor(
+        NuCypherToken _token,
+        <span class="marker" id="mapping-16"></span><span class="token add" data-title="constructor_definition/parameter">uint32 _genesisHoursPerPeriod</span>,
+        <span class="marker" id="mapping-17"></span><span class="token mv" id="move-dst-3" data-title="constructor_definition/parameter">uint32 _hoursPerPeriod</span>,
+        <span class="marker" id="mapping-18"></span><span class="token mv" id="move-dst-4" data-title="constructor_definition/parameter">uint256 _issuanceDecayCoefficient</span>,
+        <span class="marker" id="mapping-19"></span><span class="token mv" id="move-dst-5" data-title="constructor_definition/parameter">uint256 _lockDurationCoefficient1</span>,
+        <span class="marker" id="mapping-20"></span><span class="token mv" id="move-dst-6" data-title="constructor_definition/parameter">uint256 _lockDurationCoefficient2</span>,
+        <span class="marker" id="mapping-21"></span><span class="token mv" id="move-dst-7" data-title="constructor_definition/parameter">uint16 _maximumRewardedPeriods</span>,
+        <span class="marker" id="mapping-22"></span><span class="token mv" id="move-dst-8" data-title="constructor_definition/parameter">uint256 _firstPhaseTotalSupply</span><span class="marker" id="mapping-23"></span><span class="token add" data-title="constructor_definition/,">,</span>
+        uint256 _firstPhaseMaxIssuance
+    ) {
+        uint256 localTotalSupply = _token.totalSupply();
+        require(<span class="marker" id="mapping-24"></span><span class="token add" data-title="call_argument/binary_expression"><span class="marker" id="mapping-25"></span><span class="token add" data-title="binary_expression/binary_expression"><span class="marker" id="mapping-26"></span><span class="token mv" id="move-dst-9" data-title="binary_expression/binary_expression">localTotalSupply &gt; 0 &amp;&amp;
+            _issuanceDecayCoefficient != 0 &amp;&amp;
+            _hoursPerPeriod != 0 &amp;&amp;
+            <span class="marker" id="mapping-27"></span><span class="token add" data-title="binary_expression/binary_expression">_genesisHoursPerPeriod != 0</span> &amp;&amp;
+            <span class="marker" id="mapping-28"></span><span class="token add" data-title="binary_expression/binary_expression">_genesisHoursPerPeriod &lt;= _hoursPerPeriod</span> &amp;&amp;
+            <span class="marker" id="mapping-29"></span><span class="token mv" id="move-dst-10" data-title="binary_expression/binary_expression">_lockDurationCoefficient1 != 0</span></span> &amp;&amp;
+            <span class="marker" id="mapping-30"></span><span class="token mv" id="move-dst-11" data-title="binary_expression/binary_expression">_lockDurationCoefficient2 != 0</span></span> &amp;&amp;
+            <span class="marker" id="mapping-31"></span><span class="token mv" id="move-dst-12" data-title="binary_expression/binary_expression">_maximumRewardedPeriods != 0</span></span>);
+        require(localTotalSupply &lt;= uint256(MAX_UINT128), "Token contract has supply more than supported");
+
+        uint256 maxLockDurationCoefficient = _maximumRewardedPeriods + _lockDurationCoefficient1;
+        uint256 localMintingCoefficient = _issuanceDecayCoefficient * _lockDurationCoefficient2;
+        require(maxLockDurationCoefficient &gt; _maximumRewardedPeriods &amp;&amp;
+            localMintingCoefficient / _issuanceDecayCoefficient ==  _lockDurationCoefficient2 &amp;&amp;
+            // worst case for `totalLockedValue * d * k2`, when totalLockedValue == totalSupply
+            localTotalSupply * localMintingCoefficient / localTotalSupply == localMintingCoefficient &amp;&amp;
+            // worst case for `(totalSupply - currentSupply) * lockedValue * (k1 + min(allLockedPeriods, kmax))`,
+            // when currentSupply == 0, lockedValue == totalSupply
+            localTotalSupply * localTotalSupply * maxLockDurationCoefficient / localTotalSupply / localTotalSupply ==
+                maxLockDurationCoefficient,
+            "Specified parameters cause overflow");
+
+        require(maxLockDurationCoefficient &lt;= _lockDurationCoefficient2,
+            "Resulting locking duration coefficient must be less than 1");
+        require(_firstPhaseTotalSupply &lt;= localTotalSupply, "Too many tokens for the first phase");
+        require(_firstPhaseMaxIssuance &lt;= _firstPhaseTotalSupply, "Reward for the first phase is too high");
+
+        token = _token;
+        secondsPerPeriod = _hoursPerPeriod.mul32(1 hours);
+        <span class="marker" id="mapping-32"></span><span class="token add" data-title="function_body/expression_statement">genesisSecondsPerPeriod = _genesisHoursPerPeriod.mul32(1 hours);</span>
+        lockDurationCoefficient1 = _lockDurationCoefficient1;
+        lockDurationCoefficient2 = _lockDurationCoefficient2;
+        maximumRewardedPeriods = _maximumRewardedPeriods;
+        firstPhaseTotalSupply = _firstPhaseTotalSupply;
+        firstPhaseMaxIssuance = _firstPhaseMaxIssuance;
+        totalSupply = uint128(localTotalSupply);
+        mintingCoefficient = localMintingCoefficient;
+    }
+
+    /**
+    * @dev Checks contract initialization
+    */
+    modifier isInitialized()
+    {
+        require(currentMintingPeriod != 0);
+        _;
+    }
+
+    /**
+    * @return Number of current period
+    */
+    function getCurrentPeriod() public view returns (uint16) {
+        return uint16(block.timestamp / secondsPerPeriod);
+    }
+
+    <span class="marker" id="mapping-33"></span><span class="token add" data-title="contract_body/comment">/**
+    * @return Recalculate period value using new basis
+    */</span>
+    <span class="marker" id="mapping-34"></span><span class="token add" data-title="contract_body/function_definition">function recalculatePeriod(uint16 _period) internal view returns (uint16) {
+        return uint16(uint256(_period) * genesisSecondsPerPeriod / secondsPerPeriod);
+    }</span>
+
+    /**
+    * @notice Initialize reserved tokens for reward
+    */
+    function initialize(uint256 _reservedReward, address _sourceOfFunds) external onlyOwner {
+        require(currentMintingPeriod == 0);
+        // Reserved reward must be sufficient for at least one period of the first phase
+        require(firstPhaseMaxIssuance &lt;= _reservedReward);
+        currentMintingPeriod = getCurrentPeriod();
+        currentPeriodSupply = totalSupply - uint128(_reservedReward);
+        previousPeriodSupply = currentPeriodSupply;
+        token.safeTransferFrom(_sourceOfFunds, address(this), _reservedReward);
+        emit Initialized(_reservedReward);
+    }
+
+    /**
+    * @notice Function to mint tokens for one period.
+    * @param _currentPeriod Current period number.
+    * @param _lockedValue The amount of tokens that were locked by user in specified period.
+    * @param _totalLockedValue The amount of tokens that were locked by all users in specified period.
+    * @param _allLockedPeriods The max amount of periods during which tokens will be locked after specified period.
+    * @return amount Amount of minted tokens.
+    */
+    function mint(
+        uint16 _currentPeriod,
+        uint256 _lockedValue,
+        uint256 _totalLockedValue,
+        uint16 _allLockedPeriods
+    )
+        internal returns (uint256 amount)
+    {
+        if (currentPeriodSupply == totalSupply) {
+            return 0;
+        }
+
+        if (_currentPeriod &gt; currentMintingPeriod) {
+            previousPeriodSupply = currentPeriodSupply;
+            currentMintingPeriod = _currentPeriod;
+        }
+
+        uint256 currentReward;
+        uint256 coefficient;
+
+        // first phase
+        // firstPhaseMaxIssuance * lockedValue * (k1 + min(allLockedPeriods, kmax)) / (totalLockedValue * k2)
+        if (previousPeriodSupply + firstPhaseMaxIssuance &lt;= firstPhaseTotalSupply) {
+            currentReward = firstPhaseMaxIssuance;
+            coefficient = lockDurationCoefficient2;
+        // second phase
+        // (totalSupply - currentSupply) * lockedValue * (k1 + min(allLockedPeriods, kmax)) / (totalLockedValue * d * k2)
+        } else {
+            currentReward = totalSupply - previousPeriodSupply;
+            coefficient = mintingCoefficient;
+        }
+
+        uint256 allLockedPeriods =
+            AdditionalMath.min16(_allLockedPeriods, maximumRewardedPeriods) + lockDurationCoefficient1;
+        amount = (uint256(currentReward) * _lockedValue * allLockedPeriods) /
+            (_totalLockedValue * coefficient);
+
+        // rounding the last reward
+        uint256 maxReward = getReservedReward();
+        if (amount == 0) {
+            amount = 1;
+        } else if (amount &gt; maxReward) {
+            amount = maxReward;
+        }
+
+        currentPeriodSupply += uint128(amount);
+    }
+
+    /**
+    * @notice Return tokens for future minting
+    * @param _amount Amount of tokens
+    */
+    function unMint(uint256 _amount) internal {
+        previousPeriodSupply -= uint128(_amount);
+        currentPeriodSupply -= uint128(_amount);
+    }
+
+    /**
+    * @notice Donate sender's tokens. Amount of tokens will be returned for future minting
+    * @param _value Amount to donate
+    */
+    function donate(uint256 _value) external isInitialized {
+        token.safeTransferFrom(msg.sender, address(this), _value);
+        unMint(_value);
+        emit Donated(msg.sender, _value);
+    }
+
+    /**
+    * @notice Returns the number of tokens that can be minted
+    */
+    function getReservedReward() public view returns (uint256) {
+        return totalSupply - currentPeriodSupply;
+    }
+
+    /// @dev the `onlyWhileUpgrading` modifier works through a call to the parent `verifyState`
+    function verifyState(address _testTarget) public override virtual {
+        super.verifyState(_testTarget);
+        require(uint16(delegateGet(_testTarget, this.currentMintingPeriod.selector)) == currentMintingPeriod);
+        require(uint128(delegateGet(_testTarget, this.previousPeriodSupply.selector)) == previousPeriodSupply);
+        require(uint128(delegateGet(_testTarget, this.currentPeriodSupply.selector)) == currentPeriodSupply);
+    }
+
+    <span class="marker" id="mapping-35"></span><span class="token add" data-title="contract_body/comment">/// @dev the `onlyWhileUpgrading` modifier works through a call to the parent `finishUpgrade`</span>
+    <span class="marker" id="mapping-36"></span><span class="token add" data-title="contract_body/function_definition">function finishUpgrade(address _target) public override virtual {
+        super.finishUpgrade(_target);
+        // recalculate currentMintingPeriod if needed
+        if (currentMintingPeriod &gt; getCurrentPeriod()) {
+            currentMintingPeriod = recalculatePeriod(currentMintingPeriod);
+        }
+    }</span>
+
+}
+</pre></div></div></div></body></html>

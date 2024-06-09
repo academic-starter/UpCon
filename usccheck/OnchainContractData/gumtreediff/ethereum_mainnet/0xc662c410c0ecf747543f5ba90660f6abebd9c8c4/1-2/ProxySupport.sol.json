@@ -1,0 +1,1690 @@
+{
+  "matches": [
+    {
+      "src": "contract_body [621,3028]",
+      "dest": "contract_body [1217,3624]"
+    },
+    {
+      "src": "(: ( [1471,1472]",
+      "dest": "(: ( [2067,2068]"
+    },
+    {
+      "src": "address: address [1775,1782]",
+      "dest": "address: address [2371,2378]"
+    },
+    {
+      "src": "bytes: bytes [1795,1800]",
+      "dest": "bytes: bytes [2391,2396]"
+    },
+    {
+      "src": "visibility [1493,1501]",
+      "dest": "visibility [2089,2097]"
+    },
+    {
+      "src": "number_literal: 32 [1550,1552]",
+      "dest": "number_literal: 32 [2146,2148]"
+    },
+    {
+      "src": "identifier: abi [2845,2848]",
+      "dest": "identifier: abi [3441,3444]"
+    },
+    {
+      "src": "\": \" [149,150]",
+      "dest": "\": \" [715,716]"
+    },
+    {
+      "src": "user_defined_type [584,599]",
+      "dest": "user_defined_type [1180,1195]"
+    },
+    {
+      "src": "primitive_type [795,799]",
+      "dest": "primitive_type [1391,1395]"
+    },
+    {
+      "src": "call_expression [1555,1574]",
+      "dest": "call_expression [2151,2170]"
+    },
+    {
+      "src": "type_cast_expression [3000,3018]",
+      "dest": "type_cast_expression [3596,3614]"
+    },
+    {
+      "src": "call_expression [1635,1698]",
+      "dest": "call_expression [2231,2294]"
+    },
+    {
+      "src": "call_argument [2235,2255]",
+      "dest": "call_argument [2831,2851]"
+    },
+    {
+      "src": "calldata: calldata [1801,1809]",
+      "dest": "calldata: calldata [2397,2405]"
+    },
+    {
+      "src": "(: ( [2867,2868]",
+      "dest": "(: ( [3463,3464]"
+    },
+    {
+      "src": "call_argument [2939,2957]",
+      "dest": "call_argument [3535,3553]"
+    },
+    {
+      "src": "identifier: eicOffset [1538,1547]",
+      "dest": "identifier: eicOffset [2134,2143]"
+    },
+    {
+      "src": "bytes: bytes [1920,1925]",
+      "dest": "bytes: bytes [2516,2521]"
+    },
+    {
+      "src": "identifier: eicOffset [1839,1848]",
+      "dest": "identifier: eicOffset [2435,2444]"
+    },
+    {
+      "src": "call_argument [2894,2901]",
+      "dest": "call_argument [3490,3497]"
+    },
+    {
+      "src": "): ) [2150,2151]",
+      "dest": "): ) [2746,2747]"
+    },
+    {
+      "src": "): ) [2649,2650]",
+      "dest": "): ) [3245,3246]"
+    },
+    {
+      "src": "import: import [142,148]",
+      "dest": "import: import [708,714]"
+    },
+    {
+      "src": "call_argument [1676,1697]",
+      "dest": "call_argument [2272,2293]"
+    },
+    {
+      "src": "virtual: virtual [778,785]",
+      "dest": "virtual: virtual [1374,1381]"
+    },
+    {
+      "src": "return_statement [811,824]",
+      "dest": "return_statement [1407,1420]"
+    },
+    {
+      "src": "uint256: uint256 [1584,1591]",
+      "dest": "uint256: uint256 [2180,2187]"
+    },
+    {
+      "src": "call_expression [2400,2433]",
+      "dest": "call_expression [2996,3029]"
+    },
+    {
+      "src": "string [1676,1697]",
+      "dest": "string [2272,2293]"
+    },
+    {
+      "src": "false: false [818,823]",
+      "dest": "false: false [1414,1419]"
+    },
+    {
+      "src": "bytes: bytes [2552,2557]",
+      "dest": "bytes: bytes [3148,3153]"
+    },
+    {
+      "src": "*: * [1553,1554]",
+      "dest": "*: * [2149,2150]"
+    },
+    {
+      "src": "expression_statement [2922,2959]",
+      "dest": "expression_statement [3518,3555]"
+    },
+    {
+      "src": "function_definition [744,830]",
+      "dest": "function_definition [1340,1426]"
+    },
+    {
+      "src": "solidity_pragma_token [47,63]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "string [149,174]",
+      "dest": "string [715,736]"
+    },
+    {
+      "src": "]: ] [1848,1849]",
+      "dest": "]: ] [2444,2445]"
+    },
+    {
+      "src": "identifier: returndata [2976,2986]",
+      "dest": "identifier: returndata [3572,3582]"
+    },
+    {
+      "src": "\": \" [1696,1697]",
+      "dest": "\": \" [2292,2293]"
+    },
+    {
+      "src": "binary_expression [2235,2255]",
+      "dest": "binary_expression [2831,2851]"
+    },
+    {
+      "src": "function: function [744,752]",
+      "dest": "function: function [1340,1348]"
+    },
+    {
+      "src": "comment: // NOLINTNEXTLINE: low-level-calls, controlled-delegatecall. [2684,2744]",
+      "dest": "comment: // NOLINTNEXTLINE: low-level-calls, controlled-delegatecall. [3280,3340]"
+    },
+    {
+      "src": ".: . [2243,2244]",
+      "dest": ".: . [2839,2840]"
+    },
+    {
+      "src": "binary_expression [1550,1574]",
+      "dest": "binary_expression [2146,2170]"
+    },
+    {
+      "src": "): ) [2574,2575]",
+      "dest": "): ) [3170,3171]"
+    },
+    {
+      "src": "parameter [1472,1491]",
+      "dest": "parameter [2068,2087]"
+    },
+    {
+      "src": "(: ( [2648,2649]",
+      "dest": "(: ( [3244,3245]"
+    },
+    {
+      "src": "identifier: expectedBaseSize [1755,1771]",
+      "dest": "identifier: expectedBaseSize [2351,2367]"
+    },
+    {
+      "src": "(: ( [761,762]",
+      "dest": "(: ( [1357,1358]"
+    },
+    {
+      "src": "return: return [811,817]",
+      "dest": "return: return [1407,1413]"
+    },
+    {
+      "src": "}: } [2473,2474]",
+      "dest": "}: } [3069,3070]"
+    },
+    {
+      "src": "import: import [91,97]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [57,63]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "call_expression [2106,2151]",
+      "dest": "call_expression [2702,2747]"
+    },
+    {
+      "src": "expression_statement [1635,1699]",
+      "dest": "expression_statement [2231,2295]"
+    },
+    {
+      "src": "call_argument [2946,2956]",
+      "dest": "call_argument [3542,3552]"
+    },
+    {
+      "src": "member_expression [2614,2648]",
+      "dest": "member_expression [3210,3244]"
+    },
+    {
+      "src": "(: ( [2975,2976]",
+      "dest": "(: ( [3571,3572]"
+    },
+    {
+      "src": "(: ( [2195,2196]",
+      "dest": "(: ( [2791,2792]"
+    },
+    {
+      "src": "variable_declaration_statement [1708,1785]",
+      "dest": "variable_declaration_statement [2304,2381]"
+    },
+    {
+      "src": ",: , [2650,2651]",
+      "dest": ",: , [3246,3247]"
+    },
+    {
+      "src": "): ) [2211,2212]",
+      "dest": "): ) [2807,2808]"
+    },
+    {
+      "src": "call_argument [1774,1783]",
+      "dest": "call_argument [2370,2379]"
+    },
+    {
+      "src": "identifier: selector [2884,2892]",
+      "dest": "identifier: selector [3480,3488]"
+    },
+    {
+      "src": "call_argument [3000,3018]",
+      "dest": "call_argument [3596,3614]"
+    },
+    {
+      "src": "expression_statement [2360,2387]",
+      "dest": "expression_statement [2956,2983]"
+    },
+    {
+      "src": ".: . [2872,2873]",
+      "dest": ".: . [3468,3469]"
+    },
+    {
+      "src": "calldata: calldata [2558,2566]",
+      "dest": "calldata: calldata [3154,3162]"
+    },
+    {
+      "src": "): ) [2901,2902]",
+      "dest": "): ) [3497,3498]"
+    },
+    {
+      "src": "(: ( [2518,2519]",
+      "dest": "(: ( [3114,3115]"
+    },
+    {
+      "src": "identifier: externalInitializerAddr [2795,2818]",
+      "dest": "identifier: externalInitializerAddr [3391,3414]"
+    },
+    {
+      "src": "): ) [2090,2091]",
+      "dest": "): ) [2686,2687]"
+    },
+    {
+      "src": "identifier: numOfSubContracts [1555,1572]",
+      "dest": "identifier: numOfSubContracts [2151,2168]"
+    },
+    {
+      "src": "(: ( [1739,1740]",
+      "dest": "(: ( [2335,2336]"
+    },
+    {
+      "src": "=: = [1548,1549]",
+      "dest": "=: = [2144,2145]"
+    },
+    {
+      "src": "(: ( [1572,1573]",
+      "dest": "(: ( [2168,2169]"
+    },
+    {
+      "src": "call_expression [2227,2280]",
+      "dest": "call_expression [2823,2876]"
+    },
+    {
+      "src": "visibility [2584,2591]",
+      "dest": "visibility [3180,3187]"
+    },
+    {
+      "src": "(: ( [2831,2832]",
+      "dest": "(: ( [3427,3428]"
+    },
+    {
+      "src": "call_expression [2922,2958]",
+      "dest": "call_expression [3518,3554]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [55,57]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "member_expression [1643,1654]",
+      "dest": "member_expression [2239,2250]"
+    },
+    {
+      "src": "type_name [1708,1715]",
+      "dest": "type_name [2304,2311]"
+    },
+    {
+      "src": "identifier: data [1833,1837]",
+      "dest": "identifier: data [2429,2433]"
+    },
+    {
+      "src": "function_definition [2486,3026]",
+      "dest": "function_definition [3082,3622]"
+    },
+    {
+      "src": "type_name [2754,2758]",
+      "dest": "type_name [3350,3354]"
+    },
+    {
+      "src": "identifier: eicAddress [2064,2074]",
+      "dest": "identifier: eicAddress [2660,2670]"
+    },
+    {
+      "src": "identifier: callExternalInitializer [2495,2518]",
+      "dest": "identifier: callExternalInitializer [3091,3114]"
+    },
+    {
+      "src": "variable_declaration_statement [1530,1575]",
+      "dest": "variable_declaration_statement [2126,2171]"
+    },
+    {
+      "src": "calldata: calldata [1478,1486]",
+      "dest": "calldata: calldata [2074,2082]"
+    },
+    {
+      "src": "type_name [1584,1591]",
+      "dest": "type_name [2180,2187]"
+    },
+    {
+      "src": "{: { [2092,2093]",
+      "dest": "{: { [2688,2689]"
+    },
+    {
+      "src": "type_alias [633,642]",
+      "dest": "type_alias [1229,1238]"
+    },
+    {
+      "src": "}: } [3027,3028]",
+      "dest": "}: } [3623,3624]"
+    },
+    {
+      "src": "): ) [762,763]",
+      "dest": "): ) [1358,1359]"
+    },
+    {
+      "src": "boolean_literal [818,823]",
+      "dest": "boolean_literal [1414,1419]"
+    },
+    {
+      "src": "block_statement [2213,2291]",
+      "dest": "block_statement [2809,2887]"
+    },
+    {
+      "src": "identifier: initData [2377,2385]",
+      "dest": "identifier: initData [2973,2981]"
+    },
+    {
+      "src": "(: ( [2085,2086]",
+      "dest": "(: ( [2681,2682]"
+    },
+    {
+      "src": "number_literal: 0 [2997,2998]",
+      "dest": "number_literal: 0 [3593,3594]"
+    },
+    {
+      "src": "bytes: bytes [1472,1477]",
+      "dest": "bytes: bytes [2068,2073]"
+    },
+    {
+      "src": "\": \" [2652,2653]",
+      "dest": "\": \" [3248,3249]"
+    },
+    {
+      "src": "(: ( [794,795]",
+      "dest": "(: ( [1390,1391]"
+    },
+    {
+      "src": "primitive_type [2754,2758]",
+      "dest": "primitive_type [3350,3354]"
+    },
+    {
+      "src": "[: [ [1837,1838]",
+      "dest": "[: [ [2433,2434]"
+    },
+    {
+      "src": "primitive_type [2939,2945]",
+      "dest": "primitive_type [3535,3541]"
+    },
+    {
+      "src": "{: { [2596,2597]",
+      "dest": "{: { [3192,3193]"
+    },
+    {
+      "src": "uint256: uint256 [1530,1537]",
+      "dest": "uint256: uint256 [2126,2133]"
+    },
+    {
+      "src": "primitive_type [1920,1925]",
+      "dest": "primitive_type [2516,2521]"
+    },
+    {
+      "src": "): ) [2957,2958]",
+      "dest": "): ) [3553,3554]"
+    },
+    {
+      "src": "address: address [647,654]",
+      "dest": "address: address [1243,1250]"
+    },
+    {
+      "src": "): ) [1491,1492]",
+      "dest": "): ) [2087,2088]"
+    },
+    {
+      "src": "call_argument [2976,2998]",
+      "dest": "call_argument [3572,3594]"
+    },
+    {
+      "src": "identifier: initialize [2873,2883]",
+      "dest": "identifier: initialize [3469,3479]"
+    },
+    {
+      "src": "slice_access [1946,1969]",
+      "dest": "slice_access [2542,2565]"
+    },
+    {
+      "src": "[: [ [1744,1745]",
+      "dest": "[: [ [2340,2341]"
+    },
+    {
+      "src": ":: : [1754,1755]",
+      "dest": ":: : [2350,2351]"
+    },
+    {
+      "src": "identifier: Governance [572,582]",
+      "dest": "identifier: Governance [1168,1178]"
+    },
+    {
+      "src": "\": \" [2257,2258]",
+      "dest": "\": \" [2853,2854]"
+    },
+    {
+      "src": "user_defined_type [572,582]",
+      "dest": "user_defined_type [1168,1178]"
+    },
+    {
+      "src": "(: ( [2613,2614]",
+      "dest": "(: ( [3209,3210]"
+    },
+    {
+      "src": "): ) [2089,2090]",
+      "dest": "): ) [2685,2686]"
+    },
+    {
+      "src": "identifier: initData [2235,2243]",
+      "dest": "identifier: initData [2831,2839]"
+    },
+    {
+      "src": "{: { [2297,2298]",
+      "dest": "{: { [2893,2894]"
+    },
+    {
+      "src": "block_statement [2297,2474]",
+      "dest": "block_statement [2893,3070]"
+    },
+    {
+      "src": "call_argument [2845,2902]",
+      "dest": "call_argument [3441,3498]"
+    },
+    {
+      "src": "type_name [2768,2773]",
+      "dest": "type_name [3364,3369]"
+    },
+    {
+      "src": ",: , [2550,2551]",
+      "dest": ",: , [3146,3147]"
+    },
+    {
+      "src": "address: address [2519,2526]",
+      "dest": "address: address [3115,3122]"
+    },
+    {
+      "src": "identifier: decode [1733,1739]",
+      "dest": "identifier: decode [2329,2335]"
+    },
+    {
+      "src": "): ) [799,800]",
+      "dest": "): ) [1395,1396]"
+    },
+    {
+      "src": "=: = [1831,1832]",
+      "dest": "=: = [2427,2428]"
+    },
+    {
+      "src": "\": \" [73,74]",
+      "dest": "\": \" [745,746]"
+    },
+    {
+      "src": "identifier: success [2759,2766]",
+      "dest": "identifier: success [3355,3362]"
+    },
+    {
+      "src": "type_name [2519,2526]",
+      "dest": "type_name [3115,3122]"
+    },
+    {
+      "src": "]: ] [1771,1772]",
+      "dest": "]: ] [2367,2368]"
+    },
+    {
+      "src": "}: } [3025,3026]",
+      "dest": "}: } [3621,3622]"
+    },
+    {
+      "src": "[: [ [1950,1951]",
+      "dest": "[: [ [2546,2547]"
+    },
+    {
+      "src": "}: } [2479,2480]",
+      "dest": "}: } [3075,3076]"
+    },
+    {
+      "src": "identifier: eicData [2567,2574]",
+      "dest": "identifier: eicData [3163,3170]"
+    },
+    {
+      "src": "address: address [1708,1715]",
+      "dest": "address: address [2304,2311]"
+    },
+    {
+      "src": "calldata: calldata [1926,1934]",
+      "dest": "calldata: calldata [2522,2530]"
+    },
+    {
+      "src": "identifier: initializeContractState [2400,2423]",
+      "dest": "identifier: initializeContractState [2996,3019]"
+    },
+    {
+      "src": "abstract: abstract [538,546]",
+      "dest": "abstract: abstract [1134,1142]"
+    },
+    {
+      "src": ",: , [599,600]",
+      "dest": ",: , [1195,1196]"
+    },
+    {
+      "src": "external: external [764,772]",
+      "dest": "external: external [1360,1368]"
+    },
+    {
+      "src": "{: { [1520,1521]",
+      "dest": "{: { [2116,2117]"
+    },
+    {
+      "src": "identifier: returndata [2781,2791]",
+      "dest": "identifier: returndata [3377,3387]"
+    },
+    {
+      "src": "string [2652,2672]",
+      "dest": "string [3248,3268]"
+    },
+    {
+      "src": "identifier: eicAddress [1716,1726]",
+      "dest": "identifier: eicAddress [2312,2322]"
+    },
+    {
+      "src": "expression_statement [2227,2281]",
+      "dest": "expression_statement [2823,2877]"
+    },
+    {
+      "src": "number_literal: 32 [1623,1625]",
+      "dest": "number_literal: 32 [2219,2221]"
+    },
+    {
+      "src": "expression_statement [2400,2434]",
+      "dest": "expression_statement [2996,3030]"
+    },
+    {
+      "src": "comment: // EIC Provided - Pass initData to EIC and the skip standard init flow. [1980,2051]",
+      "dest": "comment: // EIC Provided - Pass initData to EIC and the skip standard init flow. [2576,2647]"
+    },
+    {
+      "src": "): ) [2462,2463]",
+      "dest": "): ) [3058,3059]"
+    },
+    {
+      "src": "if_statement [2060,2182]",
+      "dest": "if_statement [2656,2778]"
+    },
+    {
+      "src": "identifier: isInitialized [2196,2209]",
+      "dest": "identifier: isInitialized [2792,2805]"
+    },
+    {
+      "src": "identifier: initData [1935,1943]",
+      "dest": "identifier: initData [2531,2539]"
+    },
+    {
+      "src": ".: . [2986,2987]",
+      "dest": ".: . [3582,3583]"
+    },
+    {
+      "src": "!=: != [2075,2077]",
+      "dest": "!=: != [2671,2673]"
+    },
+    {
+      "src": "identifier: encodeWithSelector [2849,2867]",
+      "dest": "identifier: encodeWithSelector [3445,3463]"
+    },
+    {
+      "src": "identifier: isContract [2638,2648]",
+      "dest": "identifier: isContract [3234,3244]"
+    },
+    {
+      "src": "identifier: data [1946,1950]",
+      "dest": "identifier: data [2542,2546]"
+    },
+    {
+      "src": "type_name [795,799]",
+      "dest": "type_name [1391,1395]"
+    },
+    {
+      "src": "identifier: expectedBaseSize [1658,1674]",
+      "dest": "identifier: expectedBaseSize [2254,2270]"
+    },
+    {
+      "src": "identifier: ContractInitializer [601,620]",
+      "dest": "identifier: ContractInitializer [1197,1216]"
+    },
+    {
+      "src": "primitive_type [647,654]",
+      "dest": "primitive_type [1243,1250]"
+    },
+    {
+      "src": "identifier: subContractAddresses [1888,1908]",
+      "dest": "identifier: subContractAddresses [2484,2504]"
+    },
+    {
+      "src": "{: { [2213,2214]",
+      "dest": "{: { [2809,2810]"
+    },
+    {
+      "src": ".: . [2637,2638]",
+      "dest": ".: . [3233,3234]"
+    },
+    {
+      "src": "private: private [2584,2591]",
+      "dest": "private: private [3180,3187]"
+    },
+    {
+      "src": "(: ( [1774,1775]",
+      "dest": "(: ( [2370,2371]"
+    },
+    {
+      "src": "identifier: require [2606,2613]",
+      "dest": "identifier: require [3202,3209]"
+    },
+    {
+      "src": "call_expression [2968,3019]",
+      "dest": "call_expression [3564,3615]"
+    },
+    {
+      "src": "{: { [801,802]",
+      "dest": "{: { [1397,1398]"
+    },
+    {
+      "src": "(: ( [2209,2210]",
+      "dest": "(: ( [2805,2806]"
+    },
+    {
+      "src": "identifier: initData [2142,2150]",
+      "dest": "identifier: initData [2738,2746]"
+    },
+    {
+      "src": "(: ( [2423,2424]",
+      "dest": "(: ( [3019,3020]"
+    },
+    {
+      "src": "): ) [2432,2433]",
+      "dest": "): ) [3028,3029]"
+    },
+    {
+      "src": "identifier: expectedBaseSize [1592,1608]",
+      "dest": "identifier: expectedBaseSize [2188,2204]"
+    },
+    {
+      "src": "function_body [801,830]",
+      "dest": "function_body [1397,1426]"
+    },
+    {
+      "src": "block_statement [2092,2182]",
+      "dest": "block_statement [2688,2778]"
+    },
+    {
+      "src": "binary_expression [1643,1674]",
+      "dest": "binary_expression [2239,2270]"
+    },
+    {
+      "src": "(: ( [2129,2130]",
+      "dest": "(: ( [2725,2726]"
+    },
+    {
+      "src": "expression_statement [2968,3020]",
+      "dest": "expression_statement [3564,3616]"
+    },
+    {
+      "src": "): ) [1783,1784]",
+      "dest": "): ) [2379,2380]"
+    },
+    {
+      "src": "(: ( [2234,2235]",
+      "dest": "(: ( [2830,2831]"
+    },
+    {
+      "src": "address: address [2078,2085]",
+      "dest": "address: address [2674,2681]"
+    },
+    {
+      "src": "identifier: BlockDirectCall [584,599]",
+      "dest": "identifier: BlockDirectCall [1180,1195]"
+    },
+    {
+      "src": "call_expression [2196,2211]",
+      "dest": "call_expression [2792,2807]"
+    },
+    {
+      "src": "(: ( [2376,2377]",
+      "dest": "(: ( [2972,2973]"
+    },
+    {
+      "src": "identifier: ProxySupport [556,568]",
+      "dest": "identifier: ProxySupport [1152,1164]"
+    },
+    {
+      "src": "return: return [2165,2171]",
+      "dest": "return: return [2761,2767]"
+    },
+    {
+      "src": "function: function [2486,2494]",
+      "dest": "function: function [3082,3090]"
+    },
+    {
+      "src": ",: , [2766,2767]",
+      "dest": ",: , [3362,3363]"
+    },
+    {
+      "src": ",: , [1772,1773]",
+      "dest": ",: , [2368,2369]"
+    },
+    {
+      "src": "}: } [2290,2291]",
+      "dest": "}: } [2886,2887]"
+    },
+    {
+      "src": "identifier: eicData [2894,2901]",
+      "dest": "identifier: eicData [3490,3497]"
+    },
+    {
+      "src": "(: ( [2063,2064]",
+      "dest": "(: ( [2659,2660]"
+    },
+    {
+      "src": "call_argument [1643,1674]",
+      "dest": "call_argument [2239,2270]"
+    },
+    {
+      "src": "primitive_type [1584,1591]",
+      "dest": "primitive_type [2180,2187]"
+    },
+    {
+      "src": "identifier: eicOffset [1611,1620]",
+      "dest": "identifier: eicOffset [2207,2216]"
+    },
+    {
+      "src": "type_name [1920,1925]",
+      "dest": "type_name [2516,2521]"
+    },
+    {
+      "src": "member_expression [2795,2831]",
+      "dest": "member_expression [3391,3427]"
+    },
+    {
+      "src": "member_expression [2976,2993]",
+      "dest": "member_expression [3572,3589]"
+    },
+    {
+      "src": "variable_declaration [1795,1830]",
+      "dest": "variable_declaration [2391,2426]"
+    },
+    {
+      "src": "identifier: expectedBaseSize [1951,1967]",
+      "dest": "identifier: expectedBaseSize [2547,2563]"
+    },
+    {
+      "src": "identifier: eicOffset [1745,1754]",
+      "dest": "identifier: eicOffset [2341,2350]"
+    },
+    {
+      "src": "identifier: returndata [3007,3017]",
+      "dest": "identifier: returndata [3603,3613]"
+    },
+    {
+      "src": "parameter [2519,2550]",
+      "dest": "parameter [3115,3146]"
+    },
+    {
+      "src": "\": \" [98,99]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "call_expression [2795,2912]",
+      "dest": "call_expression [3391,3508]"
+    },
+    {
+      "src": "binary_expression [2976,2998]",
+      "dest": "binary_expression [3572,3594]"
+    },
+    {
+      "src": "string_literal [2257,2279]",
+      "dest": "string_literal [2853,2875]"
+    },
+    {
+      "src": "for: for [643,646]",
+      "dest": "for: for [1239,1242]"
+    },
+    {
+      "src": "call_expression [2845,2902]",
+      "dest": "call_expression [3441,3498]"
+    },
+    {
+      "src": "call_expression [2447,2463]",
+      "dest": "call_expression [3043,3059]"
+    },
+    {
+      "src": "}: } [2181,2182]",
+      "dest": "}: } [2777,2778]"
+    },
+    {
+      "src": "=: = [1727,1728]",
+      "dest": "=: = [2323,2324]"
+    },
+    {
+      "src": "identifier: success [2930,2937]",
+      "dest": "identifier: success [3526,3533]"
+    },
+    {
+      "src": "variable_declaration_statement [1920,1970]",
+      "dest": "variable_declaration_statement [2516,2566]"
+    },
+    {
+      "src": "identifier: returndata [2946,2956]",
+      "dest": "identifier: returndata [3542,3552]"
+    },
+    {
+      "src": "call_argument [2868,2892]",
+      "dest": "call_argument [3464,3488]"
+    },
+    {
+      "src": "call_argument [2614,2650]",
+      "dest": "call_argument [3210,3246]"
+    },
+    {
+      "src": "identifier: data [1487,1491]",
+      "dest": "identifier: data [2083,2087]"
+    },
+    {
+      "src": "variable_declaration [1530,1547]",
+      "dest": "variable_declaration [2126,2143]"
+    },
+    {
+      "src": "memory: memory [2774,2780]",
+      "dest": "memory: memory [3370,3376]"
+    },
+    {
+      "src": "string [119,140]",
+      "dest": "string [694,706]"
+    },
+    {
+      "src": "identifier: eicAddress [2130,2140]",
+      "dest": "identifier: eicAddress [2726,2736]"
+    },
+    {
+      "src": "^:  ^ [55,57]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "identifier: subContractAddresses [1810,1830]",
+      "dest": "identifier: subContractAddresses [2406,2426]"
+    },
+    {
+      "src": "=: = [2793,2794]",
+      "dest": "=: = [3389,3390]"
+    },
+    {
+      "src": "primitive_type [1775,1782]",
+      "dest": "primitive_type [2371,2378]"
+    },
+    {
+      "src": "function_body [2596,3026]",
+      "dest": "function_body [3192,3622]"
+    },
+    {
+      "src": "}: } [829,830]",
+      "dest": "}: } [1425,1426]"
+    },
+    {
+      "src": "comment: // Contract was not initialized yet. [2311,2347]",
+      "dest": "comment: // Contract was not initialized yet. [2907,2943]"
+    },
+    {
+      "src": "): ) [1908,1909]",
+      "dest": "): ) [2504,2505]"
+    },
+    {
+      "src": "variable_declaration_statement [2753,2913]",
+      "dest": "variable_declaration_statement [3349,3509]"
+    },
+    {
+      "src": "): ) [1697,1698]",
+      "dest": "): ) [2293,2294]"
+    },
+    {
+      "src": "==: == [2251,2253]",
+      "dest": "==: == [2847,2849]"
+    },
+    {
+      "src": "call_expression [1860,1909]",
+      "dest": "call_expression [2456,2505]"
+    },
+    {
+      "src": "): ) [2911,2912]",
+      "dest": "): ) [3507,3508]"
+    },
+    {
+      "src": "primitive_type [3000,3006]",
+      "dest": "primitive_type [3596,3602]"
+    },
+    {
+      "src": "primitive_type [2078,2085]",
+      "dest": "primitive_type [2674,2681]"
+    },
+    {
+      "src": "import: import [66,72]",
+      "dest": "import: import [738,744]"
+    },
+    {
+      "src": "inheritance_specifier [601,620]",
+      "dest": "inheritance_specifier [1197,1216]"
+    },
+    {
+      "src": "\": \" [2278,2279]",
+      "dest": "\": \" [2874,2875]"
+    },
+    {
+      "src": "call_argument [1888,1908]",
+      "dest": "call_argument [2484,2504]"
+    },
+    {
+      "src": "identifier: notCalledDirectly [1502,1519]",
+      "dest": "identifier: notCalledDirectly [2098,2115]"
+    },
+    {
+      "src": "=: = [1944,1945]",
+      "dest": "=: = [2540,2541]"
+    },
+    {
+      "src": "): ) [3018,3019]",
+      "dest": "): ) [3614,3615]"
+    },
+    {
+      "src": "variable_declaration_tuple [2753,2792]",
+      "dest": "variable_declaration_tuple [3349,3388]"
+    },
+    {
+      "src": "string: string [3000,3006]",
+      "dest": "string: string [3596,3602]"
+    },
+    {
+      "src": "identifier: length [2244,2250]",
+      "dest": "identifier: length [2840,2846]"
+    },
+    {
+      "src": "call_expression [1729,1784]",
+      "dest": "call_expression [2325,2380]"
+    },
+    {
+      "src": "if: if [2060,2062]",
+      "dest": "if: if [2656,2658]"
+    },
+    {
+      "src": ".: . [2818,2819]",
+      "dest": ".: . [3414,3415]"
+    },
+    {
+      "src": "call_argument [2424,2432]",
+      "dest": "call_argument [3020,3028]"
+    },
+    {
+      "src": "primitive_type [2519,2526]",
+      "dest": "primitive_type [3115,3122]"
+    },
+    {
+      "src": "call_argument [2652,2672]",
+      "dest": "call_argument [3248,3268]"
+    },
+    {
+      "src": "): ) [2956,2957]",
+      "dest": "): ) [3552,3553]"
+    },
+    {
+      "src": "contract_declaration [538,3028]",
+      "dest": "contract_declaration [1134,3624]"
+    },
+    {
+      "src": ",: , [2255,2256]",
+      "dest": ",: , [2851,2852]"
+    },
+    {
+      "src": "source_file [0,3029]",
+      "dest": "source_file [0,3625]"
+    },
+    {
+      "src": "comment: /*       The initialize() function serves as an alternative constructor for a proxied deployment.        Flow and notes:       1. This function cannot be called directly on the deployed contract, but only via          delegate call.       2. If an EIC is provided - init is passed onto EIC and the standard init flow is skipped.          This true for both first intialization or a later one.       3. The data passed to this function is as follows:          [sub_contracts addresses, eic address, initData].           When calling on an initialized contract (no EIC scenario), initData.length must be 0.     */ [836,1447]",
+      "dest": "comment: /*       The initialize() function serves as an alternative constructor for a proxied deployment.        Flow and notes:       1. This function cannot be called directly on the deployed contract, but only via          delegate call.       2. If an EIC is provided - init is passed onto EIC and the standard init flow is skipped.          This true for both first intialization or a later one.       3. The data passed to this function is as follows:          [sub_contracts addresses, eic address, initData].           When calling on an initialized contract (no EIC scenario), initData.length must be 0.     */ [1432,2043]"
+    },
+    {
+      "src": "identifier: data [1740,1744]",
+      "dest": "identifier: data [2336,2340]"
+    },
+    {
+      "src": "): ) [2279,2280]",
+      "dest": "): ) [2875,2876]"
+    },
+    {
+      "src": ",: , [2892,2893]",
+      "dest": ",: , [3488,3489]"
+    },
+    {
+      "src": "(: ( [3006,3007]",
+      "dest": "(: ( [3602,3603]"
+    },
+    {
+      "src": "visibility [764,772]",
+      "dest": "visibility [1360,1368]"
+    },
+    {
+      "src": "expression_statement [2106,2152]",
+      "dest": "expression_statement [2702,2748]"
+    },
+    {
+      "src": "(: ( [1887,1888]",
+      "dest": "(: ( [2483,2484]"
+    },
+    {
+      "src": ".: . [1732,1733]",
+      "dest": ".: . [2328,2329]"
+    },
+    {
+      "src": "identifier: data [1643,1647]",
+      "dest": "identifier: data [2239,2243]"
+    },
+    {
+      "src": "\": \" [139,140]",
+      "dest": "\": \" [705,706]"
+    },
+    {
+      "src": "if_statement [2192,2474]",
+      "dest": "if_statement [2788,3070]"
+    },
+    {
+      "src": "identifier: Addresses [633,642]",
+      "dest": "identifier: Addresses [1229,1238]"
+    },
+    {
+      "src": ",: , [1674,1675]",
+      "dest": ",: , [2270,2271]"
+    },
+    {
+      "src": "using_directive [627,655]",
+      "dest": "using_directive [1223,1251]"
+    },
+    {
+      "src": "=: = [1609,1610]",
+      "dest": "=: = [2205,2206]"
+    },
+    {
+      "src": ".: . [2883,2884]",
+      "dest": ".: . [3479,3480]"
+    },
+    {
+      "src": "state_mutability [773,777]",
+      "dest": "state_mutability [1369,1373]"
+    },
+    {
+      "src": "using: using [627,632]",
+      "dest": "using: using [1223,1228]"
+    },
+    {
+      "src": "variable_declaration_statement [1584,1626]",
+      "dest": "variable_declaration_statement [2180,2222]"
+    },
+    {
+      "src": "type_name [1472,1477]",
+      "dest": "type_name [2068,2073]"
+    },
+    {
+      "src": "number_literal: 0 [2254,2255]",
+      "dest": "number_literal: 0 [2850,2851]"
+    },
+    {
+      "src": "if: if [2192,2194]",
+      "dest": "if: if [2788,2790]"
+    },
+    {
+      "src": "==: == [2994,2996]",
+      "dest": "==: == [3590,3592]"
+    },
+    {
+      "src": "call_argument [2930,2937]",
+      "dest": "call_argument [3526,3533]"
+    },
+    {
+      "src": "binary_expression [1611,1625]",
+      "dest": "binary_expression [2207,2221]"
+    },
+    {
+      "src": "import_directive [66,90]",
+      "dest": "import_directive [738,771]"
+    },
+    {
+      "src": "member_expression [2868,2892]",
+      "dest": "member_expression [3464,3488]"
+    },
+    {
+      "src": "false [818,823]",
+      "dest": "false [1414,1419]"
+    },
+    {
+      "src": "identifier: require [1635,1642]",
+      "dest": "identifier: require [2231,2238]"
+    },
+    {
+      "src": "call_argument [2377,2385]",
+      "dest": "call_argument [2973,2981]"
+    },
+    {
+      "src": "modifier_invocation [1502,1519]",
+      "dest": "modifier_invocation [2098,2115]"
+    },
+    {
+      "src": "import_directive [112,141]",
+      "dest": "import_directive [687,707]"
+    },
+    {
+      "src": "number_literal: 0x0 [2086,2089]",
+      "dest": "number_literal: 0x0 [2682,2685]"
+    },
+    {
+      "src": "type_name [1530,1537]",
+      "dest": "type_name [2126,2133]"
+    },
+    {
+      "src": "identifier: this [2868,2872]",
+      "dest": "identifier: this [3464,3468]"
+    },
+    {
+      "src": "external: external [1493,1501]",
+      "dest": "external: external [2089,2097]"
+    },
+    {
+      "src": "primitive_type [1795,1800]",
+      "dest": "primitive_type [2391,2396]"
+    },
+    {
+      "src": "call_argument [2142,2150]",
+      "dest": "call_argument [2738,2746]"
+    },
+    {
+      "src": "string_literal [1676,1697]",
+      "dest": "string_literal [2272,2293]"
+    },
+    {
+      "src": "primitive_type [2768,2773]",
+      "dest": "primitive_type [3364,3369]"
+    },
+    {
+      "src": "type_cast_expression [2078,2090]",
+      "dest": "type_cast_expression [2674,2686]"
+    },
+    {
+      "src": "(: ( [1642,1643]",
+      "dest": "(: ( [2238,2239]"
+    },
+    {
+      "src": "identifier: delegatecall [2819,2831]",
+      "dest": "identifier: delegatecall [3415,3427]"
+    },
+    {
+      "src": "member_expression [2845,2867]",
+      "dest": "member_expression [3441,3463]"
+    },
+    {
+      "src": "comment: // The two function below (isFrozen & initialize) needed to bind to the Proxy. [661,739]",
+      "dest": "comment: // The two function below (isFrozen & initialize) needed to bind to the Proxy. [1257,1335]"
+    },
+    {
+      "src": "identifier: require [2922,2929]",
+      "dest": "identifier: require [3518,3525]"
+    },
+    {
+      "src": "identifier: initData [2424,2432]",
+      "dest": "identifier: initData [3020,3028]"
+    },
+    {
+      "src": "comment: /**   This contract contains the code commonly needed for a contract to be deployed behind   an upgradability proxy.   It perform the required semantics of the proxy pattern,   but in a generic manner.   Instantiation of the Governance and of the ContractInitializer, that are the app specific   part of initialization, has to be done by the using contract. */ [177,537]",
+      "dest": "comment: /**   This contract contains the code commonly needed for a contract to be deployed behind   an upgradability proxy.   It perform the required semantics of the proxy pattern,   but in a generic manner.   Instantiation of the Governance and of the ContractInitializer, that are the app specific   part of initialization, has to be done by the using contract. */ [773,1133]"
+    },
+    {
+      "src": "primitive_type [2552,2557]",
+      "dest": "primitive_type [3148,3153]"
+    },
+    {
+      "src": "type_name [647,654]",
+      "dest": "type_name [1243,1250]"
+    },
+    {
+      "src": "]: ] [1968,1969]",
+      "dest": "]: ] [2564,2565]"
+    },
+    {
+      "src": "string_literal [2652,2672]",
+      "dest": "string_literal [3248,3268]"
+    },
+    {
+      "src": "identifier: initialize [1461,1471]",
+      "dest": "identifier: initialize [2057,2067]"
+    },
+    {
+      "src": "\": \" [88,89]",
+      "dest": "\": \" [769,770]"
+    },
+    {
+      "src": "inheritance_specifier [584,599]",
+      "dest": "inheritance_specifier [1180,1195]"
+    },
+    {
+      "src": ":: : [1838,1839]",
+      "dest": ":: : [2434,2435]"
+    },
+    {
+      "src": "member_expression [1729,1739]",
+      "dest": "member_expression [2325,2335]"
+    },
+    {
+      "src": "parameter [795,799]",
+      "dest": "parameter [1391,1395]"
+    },
+    {
+      "src": ",: , [582,583]",
+      "dest": ",: , [1178,1179]"
+    },
+    {
+      "src": "): ) [1573,1574]",
+      "dest": "): ) [2169,2170]"
+    },
+    {
+      "src": "function_definition [1452,2480]",
+      "dest": "function_definition [2048,3076]"
+    },
+    {
+      "src": ":: : [1967,1968]",
+      "dest": ":: : [2563,2564]"
+    },
+    {
+      "src": "variable_declaration [2754,2766]",
+      "dest": "variable_declaration [3350,3362]"
+    },
+    {
+      "src": "call_argument [3007,3017]",
+      "dest": "call_argument [3603,3613]"
+    },
+    {
+      "src": "user_defined_type [601,620]",
+      "dest": "user_defined_type [1197,1216]"
+    },
+    {
+      "src": "is: is [569,571]",
+      "dest": "is: is [1165,1167]"
+    },
+    {
+      "src": "(: ( [2461,2462]",
+      "dest": "(: ( [3057,3058]"
+    },
+    {
+      "src": "parameter [2552,2574]",
+      "dest": "parameter [3148,3170]"
+    },
+    {
+      "src": "\": \" [1676,1677]",
+      "dest": "\": \" [2272,2273]"
+    },
+    {
+      "src": "\": \" [173,174]",
+      "dest": "\": \" [735,736]"
+    },
+    {
+      "src": "primitive_type [1472,1477]",
+      "dest": "primitive_type [2068,2073]"
+    },
+    {
+      "src": "string [2257,2279]",
+      "dest": "string [2853,2875]"
+    },
+    {
+      "src": "bool: bool [2754,2758]",
+      "dest": "bool: bool [3350,3354]"
+    },
+    {
+      "src": "expression_statement [2447,2464]",
+      "dest": "expression_statement [3043,3060]"
+    },
+    {
+      "src": "return_statement [2165,2172]",
+      "dest": "return_statement [2761,2768]"
+    },
+    {
+      "src": "type_cast_expression [2939,2957]",
+      "dest": "type_cast_expression [3535,3553]"
+    },
+    {
+      "src": ">=: >= [1655,1657]",
+      "dest": ">=: >= [2251,2253]"
+    },
+    {
+      "src": "member_expression [2868,2883]",
+      "dest": "member_expression [3464,3479]"
+    },
+    {
+      "src": ".: . [1647,1648]",
+      "dest": ".: . [2243,2244]"
+    },
+    {
+      "src": "type_name [2552,2557]",
+      "dest": "type_name [3148,3153]"
+    },
+    {
+      "src": "): ) [2791,2792]",
+      "dest": "): ) [3387,3388]"
+    },
+    {
+      "src": "function_body [1520,2480]",
+      "dest": "function_body [2116,3076]"
+    },
+    {
+      "src": "(: ( [2753,2754]",
+      "dest": "(: ( [3349,3350]"
+    },
+    {
+      "src": "variable_declaration [1920,1943]",
+      "dest": "variable_declaration [2516,2539]"
+    },
+    {
+      "src": "identifier: abi [1729,1732]",
+      "dest": "identifier: abi [2325,2328]"
+    },
+    {
+      "src": "view: view [773,777]",
+      "dest": "view: view [1369,1373]"
+    },
+    {
+      "src": "call_argument [2086,2089]",
+      "dest": "call_argument [2682,2685]"
+    },
+    {
+      "src": "(: ( [2929,2930]",
+      "dest": "(: ( [3525,3526]"
+    },
+    {
+      "src": "bytes: bytes [2768,2773]",
+      "dest": "bytes: bytes [3364,3369]"
+    },
+    {
+      "src": "identifier: require [2968,2975]",
+      "dest": "identifier: require [3564,3571]"
+    },
+    {
+      "src": ".: . [2848,2849]",
+      "dest": ".: . [3444,3445]"
+    },
+    {
+      "src": "\": \" [119,120]",
+      "dest": "\": \" [694,695]"
+    },
+    {
+      "src": "identifier: length [1648,1654]",
+      "dest": "identifier: length [2244,2250]"
+    },
+    {
+      "src": "expression_statement [2606,2674]",
+      "dest": "expression_statement [3202,3270]"
+    },
+    {
+      "src": "call_expression [2614,2650]",
+      "dest": "call_expression [3210,3246]"
+    },
+    {
+      "src": "call_argument [2257,2279]",
+      "dest": "call_argument [2853,2875]"
+    },
+    {
+      "src": ",: , [2998,2999]",
+      "dest": ",: , [3594,3595]"
+    },
+    {
+      "src": "inheritance_specifier [572,582]",
+      "dest": "inheritance_specifier [1168,1178]"
+    },
+    {
+      "src": "parenthesized_expression [1774,1783]",
+      "dest": "parenthesized_expression [2370,2379]"
+    },
+    {
+      "src": ",: , [2937,2938]",
+      "dest": ",: , [3533,3534]"
+    },
+    {
+      "src": "pragma_directive [40,64]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "import_directive [142,175]",
+      "dest": "import_directive [708,737]"
+    },
+    {
+      "src": "expression_statement [1860,1910]",
+      "dest": "expression_statement [2456,2506]"
+    },
+    {
+      "src": "identifier: require [2227,2234]",
+      "dest": "identifier: require [2823,2830]"
+    },
+    {
+      "src": "\": \" [2671,2672]",
+      "dest": "\": \" [3267,3268]"
+    },
+    {
+      "src": "slice_access [1833,1849]",
+      "dest": "slice_access [2429,2445]"
+    },
+    {
+      "src": "call_expression [2360,2386]",
+      "dest": "call_expression [2956,2982]"
+    },
+    {
+      "src": "): ) [3017,3018]",
+      "dest": "): ) [3613,3614]"
+    },
+    {
+      "src": ",: , [2140,2141]",
+      "dest": ",: , [2736,2737]"
+    },
+    {
+      "src": "binary_expression [2064,2090]",
+      "dest": "binary_expression [2660,2686]"
+    },
+    {
+      "src": "slice_access [1740,1772]",
+      "dest": "slice_access [2336,2368]"
+    },
+    {
+      "src": "identifier: isFrozen [753,761]",
+      "dest": "identifier: isFrozen [1349,1357]"
+    },
+    {
+      "src": "function: function [1452,1460]",
+      "dest": "function: function [2048,2056]"
+    },
+    {
+      "src": "): ) [2672,2673]",
+      "dest": "): ) [3268,3269]"
+    },
+    {
+      "src": "string: string [2939,2945]",
+      "dest": "string: string [3535,3541]"
+    },
+    {
+      "src": "primitive_type [1530,1537]",
+      "dest": "primitive_type [2126,2133]"
+    },
+    {
+      "src": "import_directive [91,111]",
+      "dest": "import_directive [662,686]"
+    },
+    {
+      "src": "variable_declaration [2768,2791]",
+      "dest": "variable_declaration [3364,3387]"
+    },
+    {
+      "src": "return_type_definition [786,800]",
+      "dest": "return_type_definition [1382,1396]"
+    },
+    {
+      "src": "identifier: length [2987,2993]",
+      "dest": "identifier: length [3583,3589]"
+    },
+    {
+      "src": "identifier: callExternalInitializer [2106,2129]",
+      "dest": "identifier: callExternalInitializer [2702,2725]"
+    },
+    {
+      "src": "bool: bool [795,799]",
+      "dest": "bool: bool [1391,1395]"
+    },
+    {
+      "src": "variable_declaration [1708,1726]",
+      "dest": "variable_declaration [2304,2322]"
+    },
+    {
+      "src": "identifier: externalInitializerAddr [2614,2637]",
+      "dest": "identifier: externalInitializerAddr [3210,3233]"
+    },
+    {
+      "src": "import: import [112,118]",
+      "dest": "import: import [687,693]"
+    },
+    {
+      "src": "call_argument [1740,1772]",
+      "dest": "call_argument [2336,2368]"
+    },
+    {
+      "src": "identifier: externalInitializerAddr [2527,2550]",
+      "dest": "identifier: externalInitializerAddr [3123,3146]"
+    },
+    {
+      "src": "\": \" [109,110]",
+      "dest": "\": \" [684,685]"
+    },
+    {
+      "src": "identifier: initGovernance [2447,2461]",
+      "dest": "identifier: initGovernance [3043,3057]"
+    },
+    {
+      "src": "pragma: pragma [40,46]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "variable_declaration [1584,1608]",
+      "dest": "variable_declaration [2180,2204]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "+: + [1621,1622]",
+      "dest": "+: + [2217,2218]"
+    },
+    {
+      "src": "type_name [1795,1800]",
+      "dest": "type_name [2391,2396]"
+    },
+    {
+      "src": "else: else [2292,2296]",
+      "dest": "else: else [2888,2892]"
+    },
+    {
+      "src": "returns: returns [786,793]",
+      "dest": "returns: returns [1382,1389]"
+    },
+    {
+      "src": "primitive_type [1708,1715]",
+      "dest": "primitive_type [2304,2311]"
+    },
+    {
+      "src": "{: { [621,622]",
+      "dest": "{: { [1217,1218]"
+    },
+    {
+      "src": "contract: contract [547,555]",
+      "dest": "contract: contract [1143,1151]"
+    },
+    {
+      "src": "identifier: processSubContractAddresses [1860,1887]",
+      "dest": "identifier: processSubContractAddresses [2456,2483]"
+    },
+    {
+      "src": "call_expression [2606,2673]",
+      "dest": "call_expression [3202,3269]"
+    },
+    {
+      "src": "string [73,89]",
+      "dest": "string [745,770]"
+    },
+    {
+      "src": "): ) [1782,1783]",
+      "dest": "): ) [2378,2379]"
+    },
+    {
+      "src": "): ) [2385,2386]",
+      "dest": "): ) [2981,2982]"
+    },
+    {
+      "src": "(: ( [2945,2946]",
+      "dest": "(: ( [3541,3542]"
+    },
+    {
+      "src": "string [98,110]",
+      "dest": "string [669,685]"
+    },
+    {
+      "src": "solidity: solidity [47,55]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "variable_declaration_statement [1795,1850]",
+      "dest": "variable_declaration_statement [2391,2446]"
+    },
+    {
+      "src": "member_expression [2235,2250]",
+      "dest": "member_expression [2831,2846]"
+    },
+    {
+      "src": "call_argument [2130,2140]",
+      "dest": "call_argument [2726,2736]"
+    },
+    {
+      "src": "identifier: validateInitData [2360,2376]",
+      "dest": "identifier: validateInitData [2956,2972]"
+    },
+    {
+      "src": "): ) [2210,2211]",
+      "dest": "): ) [2806,2807]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "move-tree",
+      "tree": "import_directive [66,90]",
+      "parent": "source_file [0,3625]",
+      "at": 5
+    },
+    {
+      "action": "insert-node",
+      "tree": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "parent": "source_file [0,3625]",
+      "at": 0
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "matches": [
+    {
+      "src": "contract_declaration [882,2585]",
+      "dest": "contract_declaration [882,2601]"
+    },
+    {
+      "src": "number_literal: 0xc21dbb3089fcb2c4f4c6a67854ab4db2b0f233ea4b21b21f912d52d18fc5db1f [2516,2582]",
+      "dest": "number_literal: 0xc21dbb3089fcb2c4f4c6a67854ab4db2b0f233ea4b21b21f912d52d18fc5db1f [2532,2598]"
+    },
+    {
+      "src": "comment: // We need to keep this variable stored outside of the commonly used space. [1522,1597]",
+      "dest": "comment: // We need to keep this variable stored outside of the commonly used space. [1526,1601]"
+    },
+    {
+      "src": "comment: // so that it's not overrun by the logical implementation (the proxied contract). [1602,1683]",
+      "dest": "comment: // so that it's not overrun by the logical implementation (the proxied contract). [1606,1687]"
+    },
+    {
+      "src": "comment: // Storage slot to hold the upgrade delay (time-lock). [2255,2309]",
+      "dest": "comment: // Storage slot to hold the upgrade delay (time-lock). [2267,2321]"
+    },
+    {
+      "src": "visibility [1696,1704]",
+      "dest": "visibility [1700,1708]"
+    },
+    {
+      "src": "comment: // Once the value stored in this slot is set to non-zero [1869,1925]",
+      "dest": "comment: // Once the value stored in this slot is set to non-zero [1877,1933]"
+    },
+    {
+      "src": "source_file [0,2586]",
+      "dest": "source_file [0,2602]"
+    },
+    {
+      "src": "}: } [2584,2585]",
+      "dest": "}: } [2600,2601]"
+    },
+    {
+      "src": "primitive_type [2467,2474]",
+      "dest": "primitive_type [2479,2486]"
+    },
+    {
+      "src": "identifier: CALL_PROXY_IMPL_SLOT [1714,1734]",
+      "dest": "identifier: CALL_PROXY_IMPL_SLOT [1718,1738]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "visibility [2137,2145]",
+      "dest": "visibility [2145,2153]"
+    },
+    {
+      "src": "bytes32: bytes32 [1688,1695]",
+      "dest": "bytes32: bytes32 [1692,1699]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "identifier: UPGRADE_DELAY_SLOT [2491,2509]",
+      "dest": "identifier: UPGRADE_DELAY_SLOT [2503,2521]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "state_variable_declaration [1225,1344]",
+      "dest": "state_variable_declaration [1225,1348]"
+    },
+    {
+      "src": "comment: // Storage slot with the address of the call-proxy current implementation. [1350,1424]",
+      "dest": "comment: // Storage slot with the address of the call-proxy current implementation. [1354,1428]"
+    },
+    {
+      "src": "number_literal: 0x7d433c6f837e8f93009937c466c82efbb5ba621fae36886d0cac433c5d0aa7d2 [2182,2248]",
+      "dest": "number_literal: 0x7d433c6f837e8f93009937c466c82efbb5ba621fae36886d0cac433c5d0aa7d2 [2194,2260]"
+    },
+    {
+      "src": "primitive_type [1225,1232]",
+      "dest": "primitive_type [1225,1232]"
+    },
+    {
+      "src": "internal: internal [2137,2145]",
+      "dest": "internal: internal [2145,2153]"
+    },
+    {
+      "src": "state_variable_declaration [2467,2583]",
+      "dest": "state_variable_declaration [2479,2599]"
+    },
+    {
+      "src": "type_name [1225,1232]",
+      "dest": "type_name [1225,1232]"
+    },
+    {
+      "src": "constant: constant [1705,1713]",
+      "dest": "constant: constant [1709,1717]"
+    },
+    {
+      "src": "visibility [2475,2481]",
+      "dest": "visibility [2487,2493]"
+    },
+    {
+      "src": "comment: // Storage slot with the address of the current implementation. [910,973]",
+      "dest": "comment: // Storage slot with the address of the current implementation. [910,973]"
+    },
+    {
+      "src": "comment: // The address of the slot is keccak256(\"StarkWare2019.implemntation-slot\"). [978,1054]",
+      "dest": "comment: // The address of the slot is keccak256(\"StarkWare2019.implemntation-slot\"). [978,1054]"
+    },
+    {
+      "src": "comment: // The current implementation is then referred to as Finalized. [1979,2042]",
+      "dest": "comment: // The current implementation is then referred to as Finalized. [1987,2050]"
+    },
+    {
+      "src": "state_variable_declaration [2129,2249]",
+      "dest": "state_variable_declaration [2137,2261]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "type_name [2129,2136]",
+      "dest": "type_name [2137,2144]"
+    },
+    {
+      "src": "internal: internal [1233,1241]",
+      "dest": "internal: internal [1233,1241]"
+    },
+    {
+      "src": "contract_body [904,2585]",
+      "dest": "contract_body [904,2601]"
+    },
+    {
+      "src": "contract: contract [882,890]",
+      "dest": "contract: contract [882,890]"
+    },
+    {
+      "src": "comment: // This storage slot stores the finalization flag. [1814,1864]",
+      "dest": "comment: // This storage slot stores the finalization flag. [1822,1872]"
+    },
+    {
+      "src": "type_name [1688,1695]",
+      "dest": "type_name [1692,1699]"
+    },
+    {
+      "src": "primitive_type [1688,1695]",
+      "dest": "primitive_type [1692,1699]"
+    },
+    {
+      "src": "constant: constant [2146,2154]",
+      "dest": "constant: constant [2154,2162]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "comment: // We need to keep this variable stored outside of the commonly used space, [1059,1134]",
+      "dest": "comment: // We need to keep this variable stored outside of the commonly used space, [1059,1134]"
+    },
+    {
+      "src": "=: = [1735,1736]",
+      "dest": "=: = [1739,1740]"
+    },
+    {
+      "src": "comment: // the proxy blocks implementation upgrades. [1930,1974]",
+      "dest": "comment: // the proxy blocks implementation upgrades. [1938,1982]"
+    },
+    {
+      "src": "=: = [2176,2177]",
+      "dest": "=: = [2184,2185]"
+    },
+    {
+      "src": "=: = [2510,2511]",
+      "dest": "=: = [2522,2523]"
+    },
+    {
+      "src": "state_variable_declaration [1688,1808]",
+      "dest": "state_variable_declaration [1692,1816]"
+    },
+    {
+      "src": "primitive_type [2129,2136]",
+      "dest": "primitive_type [2137,2144]"
+    },
+    {
+      "src": "comment: // Web3.solidityKeccak(['string'], [\"StarkWare2019.finalization-flag-slot\"]). [2047,2124]",
+      "dest": "comment: // Web3.solidityKeccak(['string'], [\"StarkWare2019.finalization-flag-slot\"]). [2055,2132]"
+    },
+    {
+      "src": "identifier: StorageSlots [891,903]",
+      "dest": "identifier: StorageSlots [891,903]"
+    },
+    {
+      "src": "constant: constant [1242,1250]",
+      "dest": "constant: constant [1242,1250]"
+    },
+    {
+      "src": "comment: // so that it's not overrun by the logical implementation (the proxied contract). [1139,1220]",
+      "dest": "comment: // so that it's not overrun by the logical implementation (the proxied contract). [1139,1220]"
+    },
+    {
+      "src": "number_literal: 0x7184681641399eb4ad2fdb92114857ee6ff239f94ad635a1779978947b8843be [1741,1807]",
+      "dest": "number_literal: 0x7184681641399eb4ad2fdb92114857ee6ff239f94ad635a1779978947b8843be [1749,1815]"
+    },
+    {
+      "src": "=: = [1271,1272]",
+      "dest": "=: = [1271,1272]"
+    },
+    {
+      "src": "type_name [2467,2474]",
+      "dest": "type_name [2479,2486]"
+    },
+    {
+      "src": "bytes32: bytes32 [2129,2136]",
+      "dest": "bytes32: bytes32 [2137,2144]"
+    },
+    {
+      "src": "identifier: IMPLEMENTATION_SLOT [1251,1270]",
+      "dest": "identifier: IMPLEMENTATION_SLOT [1251,1270]"
+    },
+    {
+      "src": "identifier: FINALIZED_STATE_SLOT [2155,2175]",
+      "dest": "identifier: FINALIZED_STATE_SLOT [2163,2183]"
+    },
+    {
+      "src": "{: { [904,905]",
+      "dest": "{: { [904,905]"
+    },
+    {
+      "src": "comment: // The intention of this slot is to allow modification using an EIC. [2314,2382]",
+      "dest": "comment: // The intention of this slot is to allow modification using an EIC. [2326,2394]"
+    },
+    {
+      "src": "number_literal: 0x177667240aeeea7e35eabe3a35e18306f336219e1386f7710a6bf8783f761b24 [1277,1343]",
+      "dest": "number_literal: 0x177667240aeeea7e35eabe3a35e18306f336219e1386f7710a6bf8783f761b24 [1281,1347]"
+    },
+    {
+      "src": "bytes32: bytes32 [2467,2474]",
+      "dest": "bytes32: bytes32 [2479,2486]"
+    },
+    {
+      "src": "comment: /**   StorageSlots holds the arbitrary storage slots used throughout the Proxy pattern.   Storage address slots are a mechanism to define an arbitrary location, that will not be   overlapped by the logical contracts. */ [662,881]",
+      "dest": "comment: /**   StorageSlots holds the arbitrary storage slots used throughout the Proxy pattern.   Storage address slots are a mechanism to define an arbitrary location, that will not be   overlapped by the logical contracts. */ [662,881]"
+    },
+    {
+      "src": "comment: // Web3.solidityKeccak(['string'], ['StarkWare.Upgradibility.Delay.Slot']). [2387,2462]",
+      "dest": "comment: // Web3.solidityKeccak(['string'], ['StarkWare.Upgradibility.Delay.Slot']). [2399,2474]"
+    },
+    {
+      "src": "solidity_version: 0.6.11 [653,659]",
+      "dest": "solidity_version: 0.6.11 [653,659]"
+    },
+    {
+      "src": "comment: // The address of the slot is keccak256(\"'StarkWare2020.CallProxy.Implemntation.Slot'\"). [1429,1517]",
+      "dest": "comment: // The address of the slot is keccak256(\"'StarkWare2020.CallProxy.Implemntation.Slot'\"). [1433,1521]"
+    },
+    {
+      "src": "internal: internal [1696,1704]",
+      "dest": "internal: internal [1700,1708]"
+    },
+    {
+      "src": "bytes32: bytes32 [1225,1232]",
+      "dest": "bytes32: bytes32 [1225,1232]"
+    },
+    {
+      "src": "public: public [2475,2481]",
+      "dest": "public: public [2487,2493]"
+    },
+    {
+      "src": "constant: constant [2482,2490]",
+      "dest": "constant: constant [2494,2502]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "visibility [1233,1241]",
+      "dest": "visibility [1233,1241]"
+    }
+  ],
+  "actions": []
+}

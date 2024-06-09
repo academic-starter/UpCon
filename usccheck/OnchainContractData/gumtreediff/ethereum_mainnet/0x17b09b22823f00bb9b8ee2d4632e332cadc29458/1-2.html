@@ -1,0 +1,1800 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>0xfdfd80d93b0428075ae5904e6f40f56bbba2f0e0.etherscan.io-ForeignBridgeErcToErc.sol</h5><pre class="pre-scrollable">// File: openzeppelin-solidity/contracts/math/SafeMath.sol
+
+pragma solidity ^0.4.24;
+
+/**
+ * @title SafeMath
+ * @dev Math operations with safety checks that revert on error
+ */
+library SafeMath {
+
+  /**
+  * @dev Multiplies two numbers, reverts on overflow.
+  */
+  function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+    // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+    // benefit is lost if 'b' is also tested.
+    // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+    if (a == 0) {
+      return 0;
+    }
+
+    uint256 c = a * b;
+    require(c / a == b);
+
+    return c;
+  }
+
+  /**
+  * @dev Integer division of two numbers truncating the quotient, reverts on division by zero.
+  */
+  function div(uint256 a, uint256 b) internal pure returns (uint256) {
+    require(b &gt; 0); // Solidity only automatically asserts when dividing by 0
+    uint256 c = a / b;
+    // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+    return c;
+  }
+
+  /**
+  * @dev Subtracts two numbers, reverts on overflow (i.e. if subtrahend is greater than minuend).
+  */
+  function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+    require(b &lt;= a);
+    uint256 c = a - b;
+
+    return c;
+  }
+
+  /**
+  * @dev Adds two numbers, reverts on overflow.
+  */
+  function add(uint256 a, uint256 b) internal pure returns (uint256) {
+    uint256 c = a + b;
+    require(c &gt;= a);
+
+    return c;
+  }
+
+  /**
+  * @dev Divides two numbers and returns the remainder (unsigned integer modulo),
+  * reverts when dividing by zero.
+  */
+  function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+    require(b != 0);
+    return a % b;
+  }
+}
+
+<span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="source_file/comment"><span class="cupd">// File: contracts/</span><span class="cupd">IBridgeValidators.sol</span></span>
+
+pragma solidity 0.4.24;
+
+interface IBridgeValidators {
+    function initialize(uint256 _requiredSignatures, address[] _initialValidators, address _owner) <span class="marker" id="mapping-2"></span><span class="token del" data-title="visibility/public">public</span> returns(bool);
+    function isValidator(address _validator) <span class="marker" id="mapping-3"></span><span class="token del" data-title="visibility/public">public</span> view returns(bool);
+    function requiredSignatures() <span class="marker" id="mapping-4"></span><span class="token del" data-title="visibility/public">public</span> view returns(uint256);
+    function owner() <span class="marker" id="mapping-5"></span><span class="token del" data-title="visibility/public">public</span> view returns(address);
+}
+
+<span class="marker" id="mapping-6"></span><span class="token upd" id="move-src-2" data-title="source_file/comment"><span class="cupd">// File: contracts/</span><span class="cupd">IForeignBridgeValidators.sol</span></span>
+
+pragma solidity 0.4.24;
+
+interface IForeignBridgeValidators {
+    function isValidator(address _validator) <span class="marker" id="mapping-7"></span><span class="token del" data-title="visibility/public">public</span> view returns(bool);
+    function requiredSignatures() <span class="marker" id="mapping-8"></span><span class="token del" data-title="visibility/public">public</span> view returns(uint256);
+    function setValidators(address[] _validators) <span class="marker" id="mapping-9"></span><span class="token del" data-title="visibility/public">public</span> returns(bool);
+}
+
+// File: contracts/libraries/Message.sol
+
+pragma solidity 0.4.24;
+
+
+
+
+library Message {
+    function addressArrayContains(address[] array, address value) internal pure returns (bool) {
+        for (uint256 i = 0; i &lt; array.length; i++) {
+            if (array[i] == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // layout of message :: bytes:
+    // offset  0: 32 bytes :: uint256 - message length
+    // offset 32: 20 bytes :: address - recipient address
+    // offset 52: 32 bytes :: uint256 - value
+    // offset 84: 32 bytes :: bytes32 - transaction hash
+    // offset 104: 20 bytes :: address - contract address to prevent double spending
+
+    // bytes 1 to 32 are 0 because message length is stored as little endian.
+    // mload always reads 32 bytes.
+    // so we can and have to start reading recipient at offset 20 instead of 32.
+    // if we were to read at 32 the address would contain part of value and be corrupted.
+    // when reading from offset 20 mload will read 12 zero bytes followed
+    // by the 20 recipient address bytes and correctly convert it into an address.
+    // this saves some storage/gas over the alternative solution
+    // which is padding address to 32 bytes and reading recipient at offset 32.
+    // for more details see discussion in:
+    <span class="marker" id="mapping-10"></span><span class="token upd" id="move-src-3" data-title="contract_body/comment"><span class="cupd">// https://github.com/paritytech/parity-bridge/i</span><span class="cupd">s</span><span class="cupd">s</span><span class="cupd">ues/61</span></span>
+    function parseMessage(bytes message)
+        internal
+        pure
+        returns(address recipient, uint256 amount, bytes32 txHash, address contractAddress)
+    {
+        require(isMessageValid(message));
+        assembly {
+            recipient := and(mload(add(message, 20)), 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF)
+            amount := mload(add(message, 52))
+            txHash := mload(add(message, 84))
+            contractAddress := mload(add(message, 104))
+        }
+    }
+
+    function parseNewSetMessage(bytes message)
+        internal
+        returns(address[] memory newSet, bytes32 txHash, address contractAddress)
+    {
+        uint256 msgLength;
+        uint256 position;
+        address newSetMember;
+        assembly {
+            msgLength := mload(message)
+            txHash := mload(add(message, 32))
+            contractAddress := mload(add(message, 52))
+            position := 72
+        }
+        uint256 newSetLength = (msgLength - position) / 20 + 1;
+        newSet = new address[](newSetLength);
+        uint256 i = 0;
+        while (position &lt;= msgLength) {
+            assembly {
+                newSetMember := mload(add(message, position))
+            }
+            newSet[i] = newSetMember;
+            position += 20;
+            i++;
+        }
+        return (newSet, txHash, contractAddress);
+    }
+
+    function isMessageValid(bytes _msg) internal pure returns(bool) {
+        return _msg.length == requiredMessageLength();
+    }
+
+    function requiredMessageLength() internal pure returns(uint256) {
+        return 104;
+    }
+
+    function recoverAddressFromSignedMessage(bytes signature, bytes message, bool knownLength) internal pure returns (address) {
+        require(signature.length == 65);
+        bytes32 r;
+        bytes32 s;
+        bytes1 v;
+        // solium-disable-next-line security/no-inline-assembly
+        assembly {
+            r := mload(add(signature, 0x20))
+            s := mload(add(signature, 0x40))
+            v := mload(add(signature, 0x60))
+        }
+        if (knownLength) {
+            return ecrecover(hashMessage(message), uint8(v), r, s);
+        } else {
+            return ecrecover(hashMessageOfUnknownLength(message), uint8(v), r, s);
+        }
+    }
+
+    function hashMessage(bytes message) internal pure returns (bytes32) {
+        bytes memory prefix = "\x19Ethereum Signed Message:\n";
+        // message is always 84 length
+        string memory msgLength = "104";
+        return keccak256(abi.encodePacked(prefix, msgLength, message));
+    }
+
+    function hashMessageOfUnknownLength(bytes message) internal pure returns (bytes32) {
+        bytes memory prefix = "\x19Ethereum Signed Message:\n";
+        uint256 lengthOffset;
+        uint256 length;
+        assembly {
+          // The first word of a string is its length
+          length := mload(message)
+          // The beginning of the base-10 message length in the prefix
+          lengthOffset := add(prefix, 57)
+        }
+        uint256 lengthLength = 0;
+        // The divisor to get the next left-most message length digit
+        uint256 divisor = 100000;
+        // Move one digit of the message length to the right at a time
+        while (divisor != 0) {
+          // The place value at the divisor
+          uint256 digit = length / divisor;
+          if (digit == 0) {
+            // Skip leading zeros
+            if (lengthLength == 0) {
+              divisor /= 10;
+              continue;
+            }
+          }
+          // Found a non-zero digit or non-leading zero digit
+          lengthLength++;
+          // Remove this digit from the message length's current value
+          length -= digit * divisor;
+          // Shift our base-10 divisor over
+          divisor /= 10;
+          // Convert the digit to its ASCII representation (man ascii)
+          digit += 0x30;
+          // Move to the next character and write the digit
+          lengthOffset++;
+          assembly {
+            mstore8(lengthOffset, digit)
+          }
+        }
+        // The null string requires exactly 1 zero (unskip 1 leading 0)
+        if (lengthLength == 0) {
+          lengthLength = 1 + 0x19 + 1;
+        } else {
+          lengthLength += 1 + 0x19;
+        }
+        // Truncate the tailing zeros from the prefix
+        assembly {
+          mstore(prefix, lengthLength)
+        }
+        return keccak256(prefix, message);
+    }
+
+    function hasEnoughValidSignatures(
+        bytes _message,
+        uint8[] _vs,
+        bytes32[] _rs,
+        bytes32[] _ss,
+        IBridgeValidators _validatorContract) internal view
+    {
+        uint256 requiredSignatures = _validatorContract.requiredSignatures();
+        require(_vs.length &gt;= requiredSignatures);
+        bytes32 hash = hashMessage(_message);
+        address[] memory encounteredAddresses = new address[](requiredSignatures);
+
+        for (uint256 i = 0; i &lt; requiredSignatures; i++) {
+            address recoveredAddress = ecrecover(hash, _vs[i], _rs[i], _ss[i]);
+            require(_validatorContract.isValidator(recoveredAddress));
+            if (addressArrayContains(encounteredAddresses, recoveredAddress)) {
+                revert();
+            }
+            encounteredAddresses[i] = recoveredAddress;
+        }
+    }
+
+    function hasEnoughValidSignaturesForeignBridgeValidator(
+        bytes _message,
+        uint8[] _vs,
+        bytes32[] _rs,
+        bytes32[] _ss,
+        IForeignBridgeValidators _validatorContract) internal view
+    {
+        uint256 requiredSignatures = _validatorContract.requiredSignatures();
+        require(_vs.length &gt;= requiredSignatures);
+        bytes32 hash = hashMessage(_message);
+        address[] memory encounteredAddresses = new address[](requiredSignatures);
+
+        for (uint256 i = 0; i &lt; requiredSignatures; i++) {
+            address recoveredAddress = ecrecover(hash, _vs[i], _rs[i], _ss[i]);
+            require(_validatorContract.isValidator(recoveredAddress));
+            if (addressArrayContains(encounteredAddresses, recoveredAddress)) {
+                revert();
+            }
+            encounteredAddresses[i] = recoveredAddress;
+        }
+    }
+
+    function hasEnoughValidNewSetSignaturesForeignBridgeValidator(
+        bytes _message,
+        uint8[] _vs,
+        bytes32[] _rs,
+        bytes32[] _ss,
+        IForeignBridgeValidators _validatorContract) internal view
+    {
+        uint256 requiredSignatures = _validatorContract.requiredSignatures();
+        require(_vs.length &gt;= requiredSignatures);
+        bytes32 hash = hashMessageOfUnknownLength(_message);
+        address[] memory encounteredAddresses = new address[](requiredSignatures);
+
+        for (uint256 i = 0; i &lt; requiredSignatures; i++) {
+            address recoveredAddress = ecrecover(hash, _vs[i], _rs[i], _ss[i]);
+            require(_validatorContract.isValidator(recoveredAddress));
+            if (addressArrayContains(encounteredAddresses, recoveredAddress)) {
+                revert();
+            }
+            encounteredAddresses[i] = recoveredAddress;
+        }
+    }
+
+    function recover(bytes32 hash, bytes sig) internal pure returns (address) {
+        bytes32 r;
+        bytes32 s;
+        uint8 v;
+
+        // Check the signature length
+        if (sig.length != 65) {
+          return (address(0));
+        }
+
+        // Divide the signature in r, s and v variables
+        assembly {
+          r := mload(add(sig, 32))
+          s := mload(add(sig, 64))
+          v := byte(0, mload(add(sig, 96)))
+        }
+
+        // Version of signature should be 27 or 28, but 0 and 1 are also possible versions
+        if (v &lt; 27) {
+          v += 27;
+        }
+
+        // If the version is correct return the signer address
+        if (v != 27 &amp;&amp; v != 28) {
+          return (address(0));
+        } else {
+          return ecrecover(hash, v, r, s);
+        }
+    }
+}
+
+<span class="marker" id="mapping-11"></span><span class="token upd" id="move-src-4" data-title="source_file/comment"><span class="cupd">// File: contracts/</span><span class="cupd">IOwnedUpgradeabilityProxy.sol</span></span>
+
+pragma solidity 0.4.24;
+
+
+interface IOwnedUpgradeabilityProxy {
+    function proxyOwner() <span class="marker" id="mapping-12"></span><span class="token del" data-title="visibility/public">public</span> view returns (address);
+}
+
+// File: contracts/upgradeable_contracts/OwnedUpgradeability.sol
+
+pragma solidity 0.4.24;
+
+
+
+contract OwnedUpgradeability {
+
+    function upgradeabilityAdmin() public view returns (address) {
+        return IOwnedUpgradeabilityProxy(this).proxyOwner();
+    }
+
+    // Avoid using onlyProxyOwner name to prevent issues with implementation from proxy contract
+    modifier onlyIfOwnerOfProxy() {
+        require(msg.sender == upgradeabilityAdmin());
+        _;
+    }
+}
+
+// File: contracts/upgradeability/EternalStorage.sol
+
+pragma solidity 0.4.24;
+
+
+/**
+ * @title EternalStorage
+ * @dev This contract holds all the necessary state variables to carry out the storage of any contract.
+ */
+contract EternalStorage {
+
+    mapping(bytes32 =&gt; uint256) internal uintStorage;
+    mapping(bytes32 =&gt; string) internal stringStorage;
+    mapping(bytes32 =&gt; address) internal addressStorage;
+    mapping(bytes32 =&gt; bytes) internal bytesStorage;
+    mapping(bytes32 =&gt; bool) internal boolStorage;
+    mapping(bytes32 =&gt; int256) internal intStorage;
+
+
+    mapping(bytes32 =&gt; uint256[]) internal uintArrayStorage;
+    mapping(bytes32 =&gt; string[]) internal stringArrayStorage;
+    mapping(bytes32 =&gt; address[]) internal addressArrayStorage;
+    //mapping(bytes32 =&gt; bytes[]) internal bytesArrayStorage;
+    mapping(bytes32 =&gt; bool[]) internal boolArrayStorage;
+    mapping(bytes32 =&gt; int256[]) internal intArrayStorage;
+    mapping(bytes32 =&gt; bytes32[]) internal bytes32ArrayStorage;
+}
+
+// File: contracts/upgradeable_contracts/EternalOwnable.sol
+
+pragma solidity 0.4.24;
+
+
+
+/**
+ * @title EternalOwnable
+ * @dev This contract has an owner address providing basic authorization control
+ */
+contract EternalOwnable is EternalStorage {
+    /**
+    * @dev Event to show ownership has been transferred
+    * @param previousOwner representing the address of the previous owner
+    * @param newOwner representing the address of the new owner
+    */
+    event EternalOwnershipTransferred(address previousOwner, address newOwner);
+
+    /**
+    * @dev Throws if called by any account other than the owner.
+    */
+    modifier onlyOwner() {
+        require(msg.sender == owner());
+        _;
+    }
+
+    /**
+    * @dev Tells the address of the owner
+    * @return the address of the owner
+    */
+    function owner() public view returns (address) {
+        return addressStorage[keccak256(abi.encodePacked("owner"))];
+    }
+
+    /**
+    * @dev Allows the current owner to transfer control of the contract to a newOwner.
+    * @param newOwner the address to transfer ownership to.
+    */
+    function transferOwnership(address newOwner) public onlyOwner {
+        require(newOwner != address(0));
+        setOwner(newOwner);
+    }
+
+    /**
+    * @dev Sets a new owner address
+    */
+    function setOwner(address newOwner) internal {
+        emit EternalOwnershipTransferred(owner(), newOwner);
+        addressStorage[keccak256(abi.encodePacked("owner"))] = newOwner;
+    }
+}
+
+// File: openzeppelin-solidity/contracts/token/ERC20/IERC20.sol
+
+pragma solidity ^0.4.24;
+
+/**
+ * @title ERC20 interface
+ * @dev see https://github.com/ethereum/EIPs/issues/20
+ */
+interface IERC20 {
+  function totalSupply() external view returns (uint256);
+
+  function balanceOf(address who) external view returns (uint256);
+
+  function allowance(address owner, address spender)
+    external view returns (uint256);
+
+  function transfer(address to, uint256 value) external returns (bool);
+
+  function approve(address spender, uint256 value)
+    external returns (bool);
+
+  function transferFrom(address from, address to, uint256 value)
+    external returns (bool);
+
+  event Transfer(
+    address indexed from,
+    address indexed to,
+    uint256 value
+  );
+
+  event Approval(
+    address indexed owner,
+    address indexed spender,
+    uint256 value
+  );
+}
+
+// File: contracts/upgradeable_contracts/BasicBridge.sol
+
+pragma solidity 0.4.24;
+
+
+
+
+
+
+
+
+contract BasicBridge is EternalStorage, EternalOwnable, OwnedUpgradeability {
+    using SafeMath for uint256;
+
+    event GasPriceChanged(uint256 gasPrice);
+    event RequiredBlockConfirmationChanged(uint256 requiredBlockConfirmations);
+    event DailyLimitChanged(uint256 newLimit);
+    event ExecutionDailyLimitChanged(uint256 newLimit);
+
+    function getBridgeInterfacesVersion() public pure returns(uint64 major, uint64 minor, uint64 patch) {
+        return (2, 2, 0);
+    }
+
+    function setGasPrice(uint256 _gasPrice) public onlyOwner {
+        require(_gasPrice &gt; 0);
+        uintStorage[keccak256(abi.encodePacked("gasPrice"))] = _gasPrice;
+        emit GasPriceChanged(_gasPrice);
+    }
+
+    function gasPrice() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("gasPrice"))];
+    }
+
+    function setRequiredBlockConfirmations(uint256 _blockConfirmations) public onlyOwner {
+        require(_blockConfirmations &gt; 0);
+        uintStorage[keccak256(abi.encodePacked("requiredBlockConfirmations"))] = _blockConfirmations;
+        emit RequiredBlockConfirmationChanged(_blockConfirmations);
+    }
+
+    function requiredBlockConfirmations() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("requiredBlockConfirmations"))];
+    }
+
+    function deployedAtBlock() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("deployedAtBlock"))];
+    }
+
+    function setTotalSpentPerDay(uint256 _day, uint256 _value) internal {
+        uintStorage[keccak256(abi.encodePacked("totalSpentPerDay", _day))] = _value;
+    }
+
+    function totalSpentPerDay(uint256 _day) public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("totalSpentPerDay", _day))];
+    }
+
+    function setTotalExecutedPerDay(uint256 _day, uint256 _value) internal {
+        uintStorage[keccak256(abi.encodePacked("totalExecutedPerDay", _day))] = _value;
+    }
+
+    function totalExecutedPerDay(uint256 _day) public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("totalExecutedPerDay", _day))];
+    }
+
+    function minPerTx() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("minPerTx"))];
+    }
+
+    function maxPerTx() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("maxPerTx"))];
+    }
+
+    function executionMaxPerTx() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("executionMaxPerTx"))];
+    }
+
+    function setInitialize(bool _status) internal {
+        boolStorage[keccak256(abi.encodePacked("isInitialized"))] = _status;
+    }
+
+    function isInitialized() public view returns(bool) {
+        return boolStorage[keccak256(abi.encodePacked("isInitialized"))];
+    }
+
+    function getCurrentDay() public view returns(uint256) {
+        return now / 1 days;
+    }
+
+    function setDailyLimit(uint256 _dailyLimit) public onlyOwner {
+        uintStorage[keccak256(abi.encodePacked("dailyLimit"))] = _dailyLimit;
+        emit DailyLimitChanged(_dailyLimit);
+    }
+
+    function dailyLimit() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("dailyLimit"))];
+    }
+
+    function setExecutionDailyLimit(uint256 _dailyLimit) public onlyOwner {
+        uintStorage[keccak256(abi.encodePacked("executionDailyLimit"))] = _dailyLimit;
+        emit ExecutionDailyLimitChanged(_dailyLimit);
+    }
+
+    function executionDailyLimit() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("executionDailyLimit"))];
+    }
+
+    function setExecutionMaxPerTx(uint256 _maxPerTx) external onlyOwner {
+        require(_maxPerTx &lt; executionDailyLimit());
+        uintStorage[keccak256(abi.encodePacked("executionMaxPerTx"))] = _maxPerTx;
+    }
+
+    function setMaxPerTx(uint256 _maxPerTx) external onlyOwner {
+        require(_maxPerTx &lt; dailyLimit());
+        uintStorage[keccak256(abi.encodePacked("maxPerTx"))] = _maxPerTx;
+    }
+
+    function setMinPerTx(uint256 _minPerTx) external onlyOwner {
+        require(_minPerTx &lt; dailyLimit() &amp;&amp; _minPerTx &lt; maxPerTx());
+        uintStorage[keccak256(abi.encodePacked("minPerTx"))] = _minPerTx;
+    }
+
+    function withinLimit(uint256 _amount) public view returns(bool) {
+        uint256 nextLimit = totalSpentPerDay(getCurrentDay()).add(_amount);
+        return dailyLimit() &gt;= nextLimit &amp;&amp; _amount &lt;= maxPerTx() &amp;&amp; _amount &gt;= minPerTx();
+    }
+
+    function withinExecutionLimit(uint256 _amount) public view returns(bool) {
+        uint256 nextLimit = totalExecutedPerDay(getCurrentDay()).add(_amount);
+        return executionDailyLimit() &gt;= nextLimit &amp;&amp; _amount &lt;= executionMaxPerTx();
+    }
+
+    function claimTokens(address _token, address _to) public onlyIfOwnerOfProxy {
+        require(_to != address(0));
+        if (_token == address(0)) {
+            _to.transfer(address(this).balance);
+            return;
+        }
+
+        IERC20 token = IERC20(_token);
+        uint256 balance = token.balanceOf(this);
+        require(token.transfer(_to, balance));
+    }
+
+
+    function isContract(address _addr) internal view returns (bool)
+    {
+        uint length;
+        assembly { length := extcodesize(_addr) }
+        return length &gt; 0;
+    }
+}
+
+// File: contracts/upgradeable_contracts/BasicForeignBridge.sol
+
+pragma solidity 0.4.24;
+
+
+
+
+contract BasicForeignBridge is EternalStorage {
+    using SafeMath for uint256;
+    /// triggered when relay of deposit from HomeBridge is complete
+    event RelayedMessage(address recipient, uint value, bytes32 transactionHash);
+
+    function onExecuteMessage(address, uint256) internal returns(bool);
+
+    function setRelayedMessages(bytes32 _txHash, bool _status) internal {
+        boolStorage[keccak256(abi.encodePacked("relayedMessages", _txHash))] = _status;
+    }
+
+    function relayedMessages(bytes32 _txHash) public view returns(bool) {
+        return boolStorage[keccak256(abi.encodePacked("relayedMessages", _txHash))];
+    }
+
+    function messageWithinLimits(uint256) internal view returns(bool);
+
+    function onFailedMessage(address, uint256, bytes32) internal;
+}
+
+// File: contracts/upgradeable_contracts/Validatable.sol
+
+pragma solidity 0.4.24;
+
+
+
+
+contract Validatable is EternalStorage {
+    function validatorContract() public view returns(IBridgeValidators) {
+        return IBridgeValidators(addressStorage[keccak256(abi.encodePacked("validatorContract"))]);
+    }
+
+    modifier onlyValidator() {
+        require(validatorContract().isValidator(msg.sender));
+        _;
+    }
+
+    function requiredSignatures() public view returns(uint256) {
+        return validatorContract().requiredSignatures();
+    }
+}
+
+// File: contracts/ERC677Receiver.sol
+
+pragma solidity 0.4.24;
+
+
+contract ERC677Receiver {
+  function onTokenTransfer(address _from, uint _value, bytes _data) external returns(bool);
+}
+
+// File: contracts/upgradeable_contracts/erc20_to_erc20/ForeignBridgeErcToErc.sol
+
+pragma solidity 0.4.24;
+
+
+
+
+
+
+
+
+
+contract ForeignBridgeErcToErc is ERC677Receiver, BasicBridge, BasicForeignBridge, Validatable {
+
+    event RelayedMessage(address recipient, uint value, bytes32 transactionHash);
+
+    function initialize(
+        address _validatorContract,
+        address _erc20token,
+        uint256 _requiredBlockConfirmations,
+        uint256 _gasPrice,
+        uint256 _maxPerTx,
+        uint256 _homeDailyLimit,
+        uint256 _homeMaxPerTx,
+        address _owner
+    ) public returns(bool) {
+        require(!isInitialized());
+        require(_validatorContract != address(0) &amp;&amp; isContract(_validatorContract));
+        require(_requiredBlockConfirmations != 0);
+        require(_gasPrice &gt; 0);
+        require(_homeMaxPerTx &lt; _homeDailyLimit);
+        require(_owner != address(0));
+        addressStorage[keccak256(abi.encodePacked("validatorContract"))] = _validatorContract;
+        setErc20token(_erc20token);
+        uintStorage[keccak256(abi.encodePacked("deployedAtBlock"))] = block.number;
+        uintStorage[keccak256(abi.encodePacked("requiredBlockConfirmations"))] = _requiredBlockConfirmations;
+        uintStorage[keccak256(abi.encodePacked("gasPrice"))] = _gasPrice;
+        uintStorage[keccak256(abi.encodePacked("maxPerTx"))] = _maxPerTx;
+        uintStorage[keccak256(abi.encodePacked("executionDailyLimit"))] = _homeDailyLimit;
+        uintStorage[keccak256(abi.encodePacked("executionMaxPerTx"))] = _homeMaxPerTx;
+        setOwner(_owner);
+        setInitialize(true);
+        return isInitialized();
+    }
+
+    function getBridgeMode() public pure returns(bytes4 _data) {
+        return bytes4(keccak256(abi.encodePacked("erc-to-erc-core")));
+    }
+
+    <span class="marker" id="mapping-13"></span><span class="token del" data-title="contract_body/function_definition">function claimTokens(address _token, address _to) public onlyIfOwnerOfProxy {
+        require(_token != address(erc20token()));
+        super.claimTokens(_token, _to);
+    }</span>
+
+    function erc20token() public view returns(IERC20) {
+        return IERC20(addressStorage[keccak256(abi.encodePacked("erc20token"))]);
+    }
+
+    function executeSignatures(uint8[] vs, bytes32[] rs, bytes32[] ss, bytes message) external {
+        require(Message.isMessageValid(message));
+        Message.hasEnoughValidSignatures(message, vs, rs, ss, validatorContract());
+        address recipient;
+        uint256 amount;
+        bytes32 txHash;
+        address contractAddress;
+        (recipient, amount, txHash, contractAddress) = Message.parseMessage(message);
+        if (messageWithinLimits(amount)) {
+            require(contractAddress == address(this));
+            require(!relayedMessages(txHash));
+            setRelayedMessages(txHash, true);
+            require(onExecuteMessage(recipient, amount));
+            emit RelayedMessage(recipient, amount, txHash);
+        } else {
+            onFailedMessage(recipient, amount, txHash);
+        }
+    }
+
+    function onExecuteMessage(address _recipient, uint256 _amount) internal returns(bool) {
+        setTotalExecutedPerDay(getCurrentDay(), totalExecutedPerDay(getCurrentDay()).add(_amount));
+        return erc20token().transfer(_recipient, _amount);
+    }
+
+    function setErc20token(address _token) private {
+        require(_token != address(0) &amp;&amp; isContract(_token));
+        addressStorage[keccak256(abi.encodePacked("erc20token"))] = _token;
+    }
+
+    function messageWithinLimits(uint256 _amount) internal view returns(bool) {
+        return withinExecutionLimit(_amount);
+    }
+
+    function onTokenTransfer(address /*_from*/, uint256 /*_value*/, bytes /*_data*/) external returns(bool) {
+        require(msg.sender == address(erc20token()));
+        return <span class="marker" id="mapping-14"></span><span class="token del" data-title="boolean_literal/false">false</span>;
+    }
+
+    function onFailedMessage(address, uint256, bytes32) internal {
+        revert();
+    }
+}</pre></div><div class="col-6"><h5>0x8b49a7e6796e7421fe37d6f4472be804e8c8e2ea.etherscan.io-ForeignBridgeErcToErc.sol</h5><pre class="pre-scrollable">// File: openzeppelin-solidity/contracts/math/SafeMath.sol
+
+pragma solidity ^0.4.24;
+
+/**
+ * @title SafeMath
+ * @dev Math operations with safety checks that revert on error
+ */
+library SafeMath {
+
+  /**
+  * @dev Multiplies two numbers, reverts on overflow.
+  */
+  function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+    // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+    // benefit is lost if 'b' is also tested.
+    // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+    if (a == 0) {
+      return 0;
+    }
+
+    uint256 c = a * b;
+    require(c / a == b);
+
+    return c;
+  }
+
+  /**
+  * @dev Integer division of two numbers truncating the quotient, reverts on division by zero.
+  */
+  function div(uint256 a, uint256 b) internal pure returns (uint256) {
+    require(b &gt; 0); // Solidity only automatically asserts when dividing by 0
+    uint256 c = a / b;
+    // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+    return c;
+  }
+
+  /**
+  * @dev Subtracts two numbers, reverts on overflow (i.e. if subtrahend is greater than minuend).
+  */
+  function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+    require(b &lt;= a);
+    uint256 c = a - b;
+
+    return c;
+  }
+
+  /**
+  * @dev Adds two numbers, reverts on overflow.
+  */
+  function add(uint256 a, uint256 b) internal pure returns (uint256) {
+    uint256 c = a + b;
+    require(c &gt;= a);
+
+    return c;
+  }
+
+  /**
+  * @dev Divides two numbers and returns the remainder (unsigned integer modulo),
+  * reverts when dividing by zero.
+  */
+  function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+    require(b != 0);
+    return a % b;
+  }
+}
+
+<span class="marker" id="mapping-15"></span><span class="token upd" id="move-dst-1" data-title="source_file/comment"><span class="cupd">// File: contracts/</span>interfaces/<span class="cupd">IBridgeValidators.sol</span></span>
+
+pragma solidity 0.4.24;
+
+interface IBridgeValidators {
+    function initialize(uint256 _requiredSignatures, address[] _initialValidators, address _owner) <span class="marker" id="mapping-16"></span><span class="token add" data-title="visibility/external">external</span> returns(bool);
+    function isValidator(address _validator) <span class="marker" id="mapping-17"></span><span class="token add" data-title="visibility/external">external</span> view returns(bool);
+    function requiredSignatures() <span class="marker" id="mapping-18"></span><span class="token add" data-title="visibility/external">external</span> view returns(uint256);
+    function owner() <span class="marker" id="mapping-19"></span><span class="token add" data-title="visibility/external">external</span> view returns(address);
+}
+
+<span class="marker" id="mapping-20"></span><span class="token upd" id="move-dst-2" data-title="source_file/comment"><span class="cupd">// File: contracts/</span>interfaces/<span class="cupd">IForeignBridgeValidators.sol</span></span>
+
+pragma solidity 0.4.24;
+
+interface IForeignBridgeValidators {
+    function isValidator(address _validator) <span class="marker" id="mapping-21"></span><span class="token add" data-title="visibility/external">external</span> view returns(bool);
+    function requiredSignatures() <span class="marker" id="mapping-22"></span><span class="token add" data-title="visibility/external">external</span> view returns(uint256);
+    function setValidators(address[] _validators) <span class="marker" id="mapping-23"></span><span class="token add" data-title="visibility/external">external</span> returns(bool);
+}
+
+// File: contracts/libraries/Message.sol
+
+pragma solidity 0.4.24;
+
+
+
+library Message {
+    function addressArrayContains(address[] array, address value) internal pure returns (bool) {
+        for (uint256 i = 0; i &lt; array.length; i++) {
+            if (array[i] == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // layout of message :: bytes:
+    // offset  0: 32 bytes :: uint256 - message length
+    // offset 32: 20 bytes :: address - recipient address
+    // offset 52: 32 bytes :: uint256 - value
+    // offset 84: 32 bytes :: bytes32 - transaction hash
+    // offset 104: 20 bytes :: address - contract address to prevent double spending
+
+    // bytes 1 to 32 are 0 because message length is stored as little endian.
+    // mload always reads 32 bytes.
+    // so we can and have to start reading recipient at offset 20 instead of 32.
+    // if we were to read at 32 the address would contain part of value and be corrupted.
+    // when reading from offset 20 mload will read 12 zero bytes followed
+    // by the 20 recipient address bytes and correctly convert it into an address.
+    // this saves some storage/gas over the alternative solution
+    // which is padding address to 32 bytes and reading recipient at offset 32.
+    // for more details see discussion in:
+    <span class="marker" id="mapping-24"></span><span class="token upd" id="move-dst-3" data-title="contract_body/comment"><span class="cupd">// https://github.com/paritytech/parity-bridge/i</span>nterface<span class="cupd">s</span>/I<span class="cupd">s</span>s<span class="cupd">ues/61</span></span>
+    function parseMessage(bytes message)
+        internal
+        pure
+        returns(address recipient, uint256 amount, bytes32 txHash, address contractAddress)
+    {
+        require(isMessageValid(message));
+        assembly {
+            recipient := and(mload(add(message, 20)), 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF)
+            amount := mload(add(message, 52))
+            txHash := mload(add(message, 84))
+            contractAddress := mload(add(message, 104))
+        }
+    }
+
+    function parseNewSetMessage(bytes message)
+        internal
+        returns(address[] memory newSet, bytes32 txHash, address contractAddress)
+    {
+        uint256 msgLength;
+        uint256 position;
+        address newSetMember;
+        assembly {
+            msgLength := mload(message)
+            txHash := mload(add(message, 32))
+            contractAddress := mload(add(message, 52))
+            position := 72
+        }
+        uint256 newSetLength = (msgLength - position) / 20 + 1;
+        newSet = new address[](newSetLength);
+        uint256 i = 0;
+        while (position &lt;= msgLength) {
+            assembly {
+                newSetMember := mload(add(message, position))
+            }
+            newSet[i] = newSetMember;
+            position += 20;
+            i++;
+        }
+        return (newSet, txHash, contractAddress);
+    }
+
+    function isMessageValid(bytes _msg) internal pure returns(bool) {
+        return _msg.length == requiredMessageLength();
+    }
+
+    function requiredMessageLength() internal pure returns(uint256) {
+        return 104;
+    }
+
+    function recoverAddressFromSignedMessage(bytes signature, bytes message, bool knownLength) internal pure returns (address) {
+        require(signature.length == 65);
+        bytes32 r;
+        bytes32 s;
+        bytes1 v;
+        // solium-disable-next-line security/no-inline-assembly
+        assembly {
+            r := mload(add(signature, 0x20))
+            s := mload(add(signature, 0x40))
+            v := mload(add(signature, 0x60))
+        }
+        if (knownLength) {
+            return ecrecover(hashMessage(message), uint8(v), r, s);
+        } else {
+            return ecrecover(hashMessageOfUnknownLength(message), uint8(v), r, s);
+        }
+    }
+
+    function hashMessage(bytes message) internal pure returns (bytes32) {
+        bytes memory prefix = "\x19Ethereum Signed Message:\n";
+        // message is always 84 length
+        string memory msgLength = "104";
+        return keccak256(abi.encodePacked(prefix, msgLength, message));
+    }
+
+    function hashMessageOfUnknownLength(bytes message) internal pure returns (bytes32) {
+        bytes memory prefix = "\x19Ethereum Signed Message:\n";
+        uint256 lengthOffset;
+        uint256 length;
+        assembly {
+          // The first word of a string is its length
+          length := mload(message)
+          // The beginning of the base-10 message length in the prefix
+          lengthOffset := add(prefix, 57)
+        }
+        uint256 lengthLength = 0;
+        // The divisor to get the next left-most message length digit
+        uint256 divisor = 100000;
+        // Move one digit of the message length to the right at a time
+        while (divisor != 0) {
+          // The place value at the divisor
+          uint256 digit = length / divisor;
+          if (digit == 0) {
+            // Skip leading zeros
+            if (lengthLength == 0) {
+              divisor /= 10;
+              continue;
+            }
+          }
+          // Found a non-zero digit or non-leading zero digit
+          lengthLength++;
+          // Remove this digit from the message length's current value
+          length -= digit * divisor;
+          // Shift our base-10 divisor over
+          divisor /= 10;
+          // Convert the digit to its ASCII representation (man ascii)
+          digit += 0x30;
+          // Move to the next character and write the digit
+          lengthOffset++;
+          assembly {
+            mstore8(lengthOffset, digit)
+          }
+        }
+        // The null string requires exactly 1 zero (unskip 1 leading 0)
+        if (lengthLength == 0) {
+          lengthLength = 1 + 0x19 + 1;
+        } else {
+          lengthLength += 1 + 0x19;
+        }
+        // Truncate the tailing zeros from the prefix
+        assembly {
+          mstore(prefix, lengthLength)
+        }
+        return keccak256(prefix, message);
+    }
+
+    function hasEnoughValidSignatures(
+        bytes _message,
+        uint8[] _vs,
+        bytes32[] _rs,
+        bytes32[] _ss,
+        IBridgeValidators _validatorContract) internal view
+    {
+        uint256 requiredSignatures = _validatorContract.requiredSignatures();
+        require(_vs.length &gt;= requiredSignatures);
+        bytes32 hash = hashMessage(_message);
+        address[] memory encounteredAddresses = new address[](requiredSignatures);
+
+        for (uint256 i = 0; i &lt; requiredSignatures; i++) {
+            address recoveredAddress = ecrecover(hash, _vs[i], _rs[i], _ss[i]);
+            require(_validatorContract.isValidator(recoveredAddress));
+            if (addressArrayContains(encounteredAddresses, recoveredAddress)) {
+                revert();
+            }
+            encounteredAddresses[i] = recoveredAddress;
+        }
+    }
+
+    function hasEnoughValidSignaturesForeignBridgeValidator(
+        bytes _message,
+        uint8[] _vs,
+        bytes32[] _rs,
+        bytes32[] _ss,
+        IForeignBridgeValidators _validatorContract) internal view
+    {
+        uint256 requiredSignatures = _validatorContract.requiredSignatures();
+        require(_vs.length &gt;= requiredSignatures);
+        bytes32 hash = hashMessage(_message);
+        address[] memory encounteredAddresses = new address[](requiredSignatures);
+
+        for (uint256 i = 0; i &lt; requiredSignatures; i++) {
+            address recoveredAddress = ecrecover(hash, _vs[i], _rs[i], _ss[i]);
+            require(_validatorContract.isValidator(recoveredAddress));
+            if (addressArrayContains(encounteredAddresses, recoveredAddress)) {
+                revert();
+            }
+            encounteredAddresses[i] = recoveredAddress;
+        }
+    }
+
+    function hasEnoughValidNewSetSignaturesForeignBridgeValidator(
+        bytes _message,
+        uint8[] _vs,
+        bytes32[] _rs,
+        bytes32[] _ss,
+        IForeignBridgeValidators _validatorContract) internal view
+    {
+        uint256 requiredSignatures = _validatorContract.requiredSignatures();
+        require(_vs.length &gt;= requiredSignatures);
+        bytes32 hash = hashMessageOfUnknownLength(_message);
+        address[] memory encounteredAddresses = new address[](requiredSignatures);
+
+        for (uint256 i = 0; i &lt; requiredSignatures; i++) {
+            address recoveredAddress = ecrecover(hash, _vs[i], _rs[i], _ss[i]);
+            require(_validatorContract.isValidator(recoveredAddress));
+            if (addressArrayContains(encounteredAddresses, recoveredAddress)) {
+                revert();
+            }
+            encounteredAddresses[i] = recoveredAddress;
+        }
+    }
+
+    function recover(bytes32 hash, bytes sig) internal pure returns (address) {
+        bytes32 r;
+        bytes32 s;
+        uint8 v;
+
+        // Check the signature length
+        if (sig.length != 65) {
+          return (address(0));
+        }
+
+        // Divide the signature in r, s and v variables
+        assembly {
+          r := mload(add(sig, 32))
+          s := mload(add(sig, 64))
+          v := byte(0, mload(add(sig, 96)))
+        }
+
+        // Version of signature should be 27 or 28, but 0 and 1 are also possible versions
+        if (v &lt; 27) {
+          v += 27;
+        }
+
+        // If the version is correct return the signer address
+        if (v != 27 &amp;&amp; v != 28) {
+          return (address(0));
+        } else {
+          return ecrecover(hash, v, r, s);
+        }
+    }
+}
+
+<span class="marker" id="mapping-25"></span><span class="token upd" id="move-dst-4" data-title="source_file/comment"><span class="cupd">// File: contracts/</span>interfaces/<span class="cupd">IOwnedUpgradeabilityProxy.sol</span></span>
+
+pragma solidity 0.4.24;
+
+interface IOwnedUpgradeabilityProxy {
+    function proxyOwner() <span class="marker" id="mapping-26"></span><span class="token add" data-title="visibility/external">external</span> view returns (address);
+}
+
+// File: contracts/upgradeable_contracts/OwnedUpgradeability.sol
+
+pragma solidity 0.4.24;
+
+
+contract OwnedUpgradeability {
+
+    function upgradeabilityAdmin() public view returns (address) {
+        return IOwnedUpgradeabilityProxy(this).proxyOwner();
+    }
+
+    // Avoid using onlyProxyOwner name to prevent issues with implementation from proxy contract
+    modifier onlyIfOwnerOfProxy() {
+        require(msg.sender == upgradeabilityAdmin());
+        _;
+    }
+}
+
+// File: contracts/upgradeability/EternalStorage.sol
+
+pragma solidity 0.4.24;
+
+/**
+ * @title EternalStorage
+ * @dev This contract holds all the necessary state variables to carry out the storage of any contract.
+ */
+contract EternalStorage {
+
+    mapping(bytes32 =&gt; uint256) internal uintStorage;
+    mapping(bytes32 =&gt; string) internal stringStorage;
+    mapping(bytes32 =&gt; address) internal addressStorage;
+    mapping(bytes32 =&gt; bytes) internal bytesStorage;
+    mapping(bytes32 =&gt; bool) internal boolStorage;
+    mapping(bytes32 =&gt; int256) internal intStorage;
+
+
+    mapping(bytes32 =&gt; uint256[]) internal uintArrayStorage;
+    mapping(bytes32 =&gt; string[]) internal stringArrayStorage;
+    mapping(bytes32 =&gt; address[]) internal addressArrayStorage;
+    //mapping(bytes32 =&gt; bytes[]) internal bytesArrayStorage;
+    mapping(bytes32 =&gt; bool[]) internal boolArrayStorage;
+    mapping(bytes32 =&gt; int256[]) internal intArrayStorage;
+    mapping(bytes32 =&gt; bytes32[]) internal bytes32ArrayStorage;
+}
+
+// File: contracts/upgradeable_contracts/EternalOwnable.sol
+
+pragma solidity 0.4.24;
+
+
+/**
+ * @title EternalOwnable
+ * @dev This contract has an owner address providing basic authorization control
+ */
+contract EternalOwnable is EternalStorage {
+    /**
+    * @dev Event to show ownership has been transferred
+    * @param previousOwner representing the address of the previous owner
+    * @param newOwner representing the address of the new owner
+    */
+    event EternalOwnershipTransferred(address previousOwner, address newOwner);
+
+    /**
+    * @dev Throws if called by any account other than the owner.
+    */
+    modifier onlyOwner() {
+        require(msg.sender == owner());
+        _;
+    }
+
+    /**
+    * @dev Tells the address of the owner
+    * @return the address of the owner
+    */
+    function owner() public view returns (address) {
+        return addressStorage[keccak256(abi.encodePacked("owner"))];
+    }
+
+    /**
+    * @dev Allows the current owner to transfer control of the contract to a newOwner.
+    * @param newOwner the address to transfer ownership to.
+    */
+    function transferOwnership(address newOwner) public onlyOwner {
+        require(newOwner != address(0));
+        setOwner(newOwner);
+    }
+
+    /**
+    * @dev Sets a new owner address
+    */
+    function setOwner(address newOwner) internal {
+        emit EternalOwnershipTransferred(owner(), newOwner);
+        addressStorage[keccak256(abi.encodePacked("owner"))] = newOwner;
+    }
+}
+
+// File: openzeppelin-solidity/contracts/token/ERC20/IERC20.sol
+
+pragma solidity ^0.4.24;
+
+/**
+ * @title ERC20 interface
+ * @dev see https://github.com/ethereum/EIPs/issues/20
+ */
+interface IERC20 {
+  function totalSupply() external view returns (uint256);
+
+  function balanceOf(address who) external view returns (uint256);
+
+  function allowance(address owner, address spender)
+    external view returns (uint256);
+
+  function transfer(address to, uint256 value) external returns (bool);
+
+  function approve(address spender, uint256 value)
+    external returns (bool);
+
+  function transferFrom(address from, address to, uint256 value)
+    external returns (bool);
+
+  event Transfer(
+    address indexed from,
+    address indexed to,
+    uint256 value
+  );
+
+  event Approval(
+    address indexed owner,
+    address indexed spender,
+    uint256 value
+  );
+}
+
+// File: contracts/upgradeable_contracts/BasicBridge.sol
+
+pragma solidity 0.4.24;
+
+
+
+
+
+
+
+contract BasicBridge is EternalStorage, EternalOwnable, OwnedUpgradeability {
+    using SafeMath for uint256;
+
+    event GasPriceChanged(uint256 gasPrice);
+    event RequiredBlockConfirmationChanged(uint256 requiredBlockConfirmations);
+    event DailyLimitChanged(uint256 newLimit);
+    event ExecutionDailyLimitChanged(uint256 newLimit);
+
+    function getBridgeInterfacesVersion() public pure returns(uint64 major, uint64 minor, uint64 patch) {
+        return (2, 2, 0);
+    }
+
+    function setGasPrice(uint256 _gasPrice) public onlyOwner {
+        require(_gasPrice &gt; 0);
+        uintStorage[keccak256(abi.encodePacked("gasPrice"))] = _gasPrice;
+        emit GasPriceChanged(_gasPrice);
+    }
+
+    function gasPrice() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("gasPrice"))];
+    }
+
+    function setRequiredBlockConfirmations(uint256 _blockConfirmations) public onlyOwner {
+        require(_blockConfirmations &gt; 0);
+        uintStorage[keccak256(abi.encodePacked("requiredBlockConfirmations"))] = _blockConfirmations;
+        emit RequiredBlockConfirmationChanged(_blockConfirmations);
+    }
+
+    function requiredBlockConfirmations() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("requiredBlockConfirmations"))];
+    }
+
+    function deployedAtBlock() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("deployedAtBlock"))];
+    }
+
+    function setTotalSpentPerDay(uint256 _day, uint256 _value) internal {
+        uintStorage[keccak256(abi.encodePacked("totalSpentPerDay", _day))] = _value;
+    }
+
+    function totalSpentPerDay(uint256 _day) public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("totalSpentPerDay", _day))];
+    }
+
+    function setTotalExecutedPerDay(uint256 _day, uint256 _value) internal {
+        uintStorage[keccak256(abi.encodePacked("totalExecutedPerDay", _day))] = _value;
+    }
+
+    function totalExecutedPerDay(uint256 _day) public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("totalExecutedPerDay", _day))];
+    }
+
+    function minPerTx() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("minPerTx"))];
+    }
+
+    function maxPerTx() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("maxPerTx"))];
+    }
+
+    function executionMaxPerTx() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("executionMaxPerTx"))];
+    }
+
+    function setInitialize(bool _status) internal {
+        boolStorage[keccak256(abi.encodePacked("isInitialized"))] = _status;
+    }
+
+    function isInitialized() public view returns(bool) {
+        return boolStorage[keccak256(abi.encodePacked("isInitialized"))];
+    }
+
+    function getCurrentDay() public view returns(uint256) {
+        return now / 1 days;
+    }
+
+    function setDailyLimit(uint256 _dailyLimit) public onlyOwner {
+        uintStorage[keccak256(abi.encodePacked("dailyLimit"))] = _dailyLimit;
+        emit DailyLimitChanged(_dailyLimit);
+    }
+
+    function dailyLimit() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("dailyLimit"))];
+    }
+
+    function setExecutionDailyLimit(uint256 _dailyLimit) public onlyOwner {
+        uintStorage[keccak256(abi.encodePacked("executionDailyLimit"))] = _dailyLimit;
+        emit ExecutionDailyLimitChanged(_dailyLimit);
+    }
+
+    function executionDailyLimit() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("executionDailyLimit"))];
+    }
+
+    function setExecutionMaxPerTx(uint256 _maxPerTx) external onlyOwner {
+        require(_maxPerTx &lt; executionDailyLimit());
+        uintStorage[keccak256(abi.encodePacked("executionMaxPerTx"))] = _maxPerTx;
+    }
+
+    function setMaxPerTx(uint256 _maxPerTx) external onlyOwner {
+        require(_maxPerTx &lt; dailyLimit());
+        uintStorage[keccak256(abi.encodePacked("maxPerTx"))] = _maxPerTx;
+    }
+
+    function setMinPerTx(uint256 _minPerTx) external onlyOwner {
+        require(_minPerTx &lt; dailyLimit() &amp;&amp; _minPerTx &lt; maxPerTx());
+        uintStorage[keccak256(abi.encodePacked("minPerTx"))] = _minPerTx;
+    }
+
+    function withinLimit(uint256 _amount) public view returns(bool) {
+        uint256 nextLimit = totalSpentPerDay(getCurrentDay()).add(_amount);
+        return dailyLimit() &gt;= nextLimit &amp;&amp; _amount &lt;= maxPerTx() &amp;&amp; _amount &gt;= minPerTx();
+    }
+
+    function withinExecutionLimit(uint256 _amount) public view returns(bool) {
+        uint256 nextLimit = totalExecutedPerDay(getCurrentDay()).add(_amount);
+        return executionDailyLimit() &gt;= nextLimit &amp;&amp; _amount &lt;= executionMaxPerTx();
+    }
+
+    function claimTokens(address _token, address _to) public onlyIfOwnerOfProxy {
+        require(_to != address(0));
+        if (_token == address(0)) {
+            _to.transfer(address(this).balance);
+            return;
+        }
+
+        IERC20 token = IERC20(_token);
+        uint256 balance = token.balanceOf(this);
+        require(token.transfer(_to, balance));
+    }
+
+
+    function isContract(address _addr) internal view returns (bool)
+    {
+        uint length;
+        assembly { length := extcodesize(_addr) }
+        return length &gt; 0;
+    }
+}
+
+// File: contracts/upgradeable_contracts/BasicForeignBridge.sol
+
+pragma solidity 0.4.24;
+
+
+
+
+contract BasicForeignBridge is EternalStorage {
+    using SafeMath for uint256;
+
+    /// triggered when relay of deposit from HomeBridge is complete
+    event RelayedMessage(address recipient, uint value, bytes32 transactionHash);
+
+    function onExecuteMessage(address, uint256) internal returns(bool);
+
+    function setRelayedMessages(bytes32 _txHash, bool _status) internal {
+        boolStorage[keccak256(abi.encodePacked("relayedMessages", _txHash))] = _status;
+    }
+
+    function relayedMessages(bytes32 _txHash) public view returns(bool) {
+        return boolStorage[keccak256(abi.encodePacked("relayedMessages", _txHash))];
+    }
+
+    function messageWithinLimits(uint256) internal view returns(bool);
+
+    function onFailedMessage(address, uint256, bytes32) internal;
+}
+
+// File: contracts/upgradeable_contracts/Validatable.sol
+
+pragma solidity 0.4.24;
+
+
+
+contract Validatable is EternalStorage {
+    function validatorContract() public view returns(IBridgeValidators) {
+        return IBridgeValidators(addressStorage[keccak256(abi.encodePacked("validatorContract"))]);
+    }
+
+    modifier onlyValidator() {
+        require(validatorContract().isValidator(msg.sender));
+        _;
+    }
+
+    function requiredSignatures() public view returns(uint256) {
+        return validatorContract().requiredSignatures();
+    }
+}
+
+// File: contracts/ERC677Receiver.sol
+
+pragma solidity 0.4.24;
+
+contract ERC677Receiver {
+  function onTokenTransfer(address _from, uint _value, bytes _data) external returns(bool);
+}
+
+// File: contracts/upgradeable_contracts/erc20_to_erc20/ForeignBridgeErcToErc.sol
+
+pragma solidity 0.4.24;
+
+
+
+
+
+
+
+
+contract ForeignBridgeErcToErc is ERC677Receiver, BasicBridge, BasicForeignBridge, Validatable {
+
+    event RelayedMessage(address recipient, uint value, bytes32 transactionHash);
+
+    function initialize(
+        address _validatorContract,
+        address _erc20token,
+        uint256 _requiredBlockConfirmations,
+        uint256 _gasPrice,
+        uint256 _maxPerTx,
+        uint256 _homeDailyLimit,
+        uint256 _homeMaxPerTx,
+        address _owner
+    ) public returns(bool) {
+        require(!isInitialized());
+        require(_validatorContract != address(0) &amp;&amp; isContract(_validatorContract));
+        require(_requiredBlockConfirmations != 0);
+        require(_gasPrice &gt; 0);
+        require(_homeMaxPerTx &lt; _homeDailyLimit);
+        require(_owner != address(0));
+        addressStorage[keccak256(abi.encodePacked("validatorContract"))] = _validatorContract;
+        setErc20token(_erc20token);
+        uintStorage[keccak256(abi.encodePacked("deployedAtBlock"))] = block.number;
+        uintStorage[keccak256(abi.encodePacked("requiredBlockConfirmations"))] = _requiredBlockConfirmations;
+        uintStorage[keccak256(abi.encodePacked("gasPrice"))] = _gasPrice;
+        uintStorage[keccak256(abi.encodePacked("maxPerTx"))] = _maxPerTx;
+        uintStorage[keccak256(abi.encodePacked("executionDailyLimit"))] = _homeDailyLimit;
+        uintStorage[keccak256(abi.encodePacked("executionMaxPerTx"))] = _homeMaxPerTx;
+        setOwner(_owner);
+        setInitialize(true);
+        return isInitialized();
+    }
+
+    function getBridgeMode() public pure returns(bytes4 _data) {
+        return bytes4(keccak256(abi.encodePacked("erc-to-erc-core")));
+    }
+
+    function erc20token() public view returns(IERC20) {
+        return IERC20(addressStorage[keccak256(abi.encodePacked("erc20token"))]);
+    }
+
+    function executeSignatures(uint8[] vs, bytes32[] rs, bytes32[] ss, bytes message) external {
+        require(Message.isMessageValid(message));
+        Message.hasEnoughValidSignatures(message, vs, rs, ss, validatorContract());
+        address recipient;
+        uint256 amount;
+        bytes32 txHash;
+        address contractAddress;
+        (recipient, amount, txHash, contractAddress) = Message.parseMessage(message);
+        if (messageWithinLimits(amount)) {
+            require(contractAddress == address(this));
+            require(!relayedMessages(txHash));
+            setRelayedMessages(txHash, true);
+            require(onExecuteMessage(recipient, amount));
+            emit RelayedMessage(recipient, amount, txHash);
+        } else {
+            onFailedMessage(recipient, amount, txHash);
+        }
+    }
+
+    function onExecuteMessage(address _recipient, uint256 _amount) internal returns(bool) {
+        setTotalExecutedPerDay(getCurrentDay(), totalExecutedPerDay(getCurrentDay()).add(_amount));
+        return erc20token().transfer(_recipient, _amount);
+    }
+
+    function setErc20token(address _token) private {
+        require(_token != address(0) &amp;&amp; isContract(_token));
+        addressStorage[keccak256(abi.encodePacked("erc20token"))] = _token;
+    }
+
+    function messageWithinLimits(uint256 _amount) internal view returns(bool) {
+        return withinExecutionLimit(_amount);
+    }
+
+    function onTokenTransfer(address /*_from*/, uint256 /*_value*/, bytes /*_data*/) external returns(bool) {
+        require(msg.sender == address(erc20token()));
+        return <span class="marker" id="mapping-27"></span><span class="token add" data-title="boolean_literal/true">true</span>;
+    }
+
+    function onFailedMessage(address, uint256, bytes32) internal {
+        revert();
+    }
+}</pre></div></div></div></body></html>

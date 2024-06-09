@@ -1,0 +1,600 @@
+{
+  "matches": [
+    {
+      "src": "event: event [127,132]",
+      "dest": "event: event [723,728]"
+    },
+    {
+      "src": "virtual: virtual [597,604]",
+      "dest": "virtual: virtual [1193,1200]"
+    },
+    {
+      "src": "identifier: isOperator [231,241]",
+      "dest": "identifier: isOperator [827,837]"
+    },
+    {
+      "src": "^:  ^ [55,57]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "(: ( [241,242]",
+      "dest": "(: ( [837,838]"
+    },
+    {
+      "src": "{: { [331,332]",
+      "dest": "{: { [927,928]"
+    },
+    {
+      "src": "identifier: testedOperator [250,264]",
+      "dest": "identifier: testedOperator [846,860]"
+    },
+    {
+      "src": "return_type_definition [286,300]",
+      "dest": "return_type_definition [882,896]"
+    },
+    {
+      "src": "identifier: sender [364,370]",
+      "dest": "identifier: sender [960,966]"
+    },
+    {
+      "src": "call_argument [349,371]",
+      "dest": "call_argument [945,967]"
+    },
+    {
+      "src": "public: public [266,272]",
+      "dest": "public: public [862,868]"
+    },
+    {
+      "src": ",: , [371,372]",
+      "dest": ",: , [967,968]"
+    },
+    {
+      "src": "contract_declaration [93,650]",
+      "dest": "contract_declaration [689,1246]"
+    },
+    {
+      "src": "=>: => [630,632]",
+      "dest": "=>: => [1226,1228]"
+    },
+    {
+      "src": "\": \" [373,374]",
+      "dest": "\": \" [969,970]"
+    },
+    {
+      "src": "member_expression [360,370]",
+      "dest": "member_expression [956,966]"
+    },
+    {
+      "src": "event_definition [173,216]",
+      "dest": "event_definition [769,812]"
+    },
+    {
+      "src": "identifier: removedOperator [519,534]",
+      "dest": "identifier: removedOperator [1115,1130]"
+    },
+    {
+      "src": "modifier: modifier [307,315]",
+      "dest": "modifier: modifier [903,911]"
+    },
+    {
+      "src": "function: function [483,491]",
+      "dest": "function: function [1079,1087]"
+    },
+    {
+      "src": "event: event [173,178]",
+      "dest": "event: event [769,774]"
+    },
+    {
+      "src": "\": \" [89,90]",
+      "dest": "\": \" [685,686]"
+    },
+    {
+      "src": "identifier: isOperator [349,359]",
+      "dest": "identifier: isOperator [945,955]"
+    },
+    {
+      "src": "address: address [150,157]",
+      "dest": "address: address [746,753]"
+    },
+    {
+      "src": "(: ( [294,295]",
+      "dest": "(: ( [890,891]"
+    },
+    {
+      "src": "type_name [295,299]",
+      "dest": "type_name [891,895]"
+    },
+    {
+      "src": "identifier: MOperator [111,120]",
+      "dest": "identifier: MOperator [707,716]"
+    },
+    {
+      "src": "primitive_type [295,299]",
+      "dest": "primitive_type [891,895]"
+    },
+    {
+      "src": "address: address [439,446]",
+      "dest": "address: address [1035,1042]"
+    },
+    {
+      "src": "visibility [460,468]",
+      "dest": "visibility [1056,1064]"
+    },
+    {
+      "src": "identifier: _ [399,400]",
+      "dest": "identifier: _ [995,996]"
+    },
+    {
+      "src": "event_paramater [150,166]",
+      "dest": "event_paramater [746,762]"
+    },
+    {
+      "src": "identifier: LogOperatorAdded [133,149]",
+      "dest": "identifier: LogOperatorAdded [729,745]"
+    },
+    {
+      "src": "virtual: virtual [278,285]",
+      "dest": "virtual: virtual [874,881]"
+    },
+    {
+      "src": "function: function [413,421]",
+      "dest": "function: function [1009,1017]"
+    },
+    {
+      "src": "primitive_type [439,446]",
+      "dest": "primitive_type [1035,1042]"
+    },
+    {
+      "src": "(: ( [438,439]",
+      "dest": "(: ( [1034,1035]"
+    },
+    {
+      "src": "contract: contract [102,110]",
+      "dest": "contract: contract [698,706]"
+    },
+    {
+      "src": "identifier: operator [158,166]",
+      "dest": "identifier: operator [754,762]"
+    },
+    {
+      "src": "mapping: mapping [614,621]",
+      "dest": "mapping: mapping [1210,1217]"
+    },
+    {
+      "src": "returns: returns [286,293]",
+      "dest": "returns: returns [882,889]"
+    },
+    {
+      "src": "(: ( [580,581]",
+      "dest": "(: ( [1176,1177]"
+    },
+    {
+      "src": "identifier: msg [360,363]",
+      "dest": "identifier: msg [956,959]"
+    },
+    {
+      "src": "pragma_directive [40,64]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "string_literal [373,388]",
+      "dest": "string_literal [969,984]"
+    },
+    {
+      "src": "bool: bool [295,299]",
+      "dest": "bool: bool [891,895]"
+    },
+    {
+      "src": "parameter [295,299]",
+      "dest": "parameter [891,895]"
+    },
+    {
+      "src": "virtual: virtual [469,476]",
+      "dest": "virtual: virtual [1065,1072]"
+    },
+    {
+      "src": "view: view [273,277]",
+      "dest": "view: view [869,873]"
+    },
+    {
+      "src": "returns: returns [605,612]",
+      "dest": "returns: returns [1201,1208]"
+    },
+    {
+      "src": "identifier: newOperator [447,458]",
+      "dest": "identifier: newOperator [1043,1054]"
+    },
+    {
+      "src": "address: address [198,205]",
+      "dest": "address: address [794,801]"
+    },
+    {
+      "src": "function_definition [559,648]",
+      "dest": "function_definition [1155,1244]"
+    },
+    {
+      "src": "): ) [646,647]",
+      "dest": "): ) [1242,1243]"
+    },
+    {
+      "src": "type_name [150,157]",
+      "dest": "type_name [746,753]"
+    },
+    {
+      "src": "expression_statement [341,390]",
+      "dest": "expression_statement [937,986]"
+    },
+    {
+      "src": "call_expression [349,371]",
+      "dest": "call_expression [945,967]"
+    },
+    {
+      "src": "event_definition [127,168]",
+      "dest": "event_definition [723,764]"
+    },
+    {
+      "src": "}: } [649,650]",
+      "dest": "}: } [1245,1246]"
+    },
+    {
+      "src": "function: function [222,230]",
+      "dest": "function: function [818,826]"
+    },
+    {
+      "src": "): ) [264,265]",
+      "dest": "): ) [860,861]"
+    },
+    {
+      "src": "(: ( [197,198]",
+      "dest": "(: ( [793,794]"
+    },
+    {
+      "src": "parameter [439,458]",
+      "dest": "parameter [1035,1054]"
+    },
+    {
+      "src": "(: ( [359,360]",
+      "dest": "(: ( [955,956]"
+    },
+    {
+      "src": "call_argument [360,370]",
+      "dest": "call_argument [956,966]"
+    },
+    {
+      "src": ".: . [363,364]",
+      "dest": ".: . [959,960]"
+    },
+    {
+      "src": "primitive_type [622,629]",
+      "dest": "primitive_type [1218,1225]"
+    },
+    {
+      "src": "address: address [622,629]",
+      "dest": "address: address [1218,1225]"
+    },
+    {
+      "src": "): ) [370,371]",
+      "dest": "): ) [966,967]"
+    },
+    {
+      "src": "virtual: virtual [545,552]",
+      "dest": "virtual: virtual [1141,1148]"
+    },
+    {
+      "src": "solidity_version: 0.6.12 [57,63]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "visibility [536,544]",
+      "dest": "visibility [1132,1140]"
+    },
+    {
+      "src": "): ) [637,638]",
+      "dest": "): ) [1233,1234]"
+    },
+    {
+      "src": "abstract: abstract [93,101]",
+      "dest": "abstract: abstract [689,697]"
+    },
+    {
+      "src": "}: } [406,407]",
+      "dest": "}: } [1002,1003]"
+    },
+    {
+      "src": "modifier_definition [307,407]",
+      "dest": "modifier_definition [903,1003]"
+    },
+    {
+      "src": "parameter [511,534]",
+      "dest": "parameter [1107,1130]"
+    },
+    {
+      "src": "string [373,388]",
+      "dest": "string [969,984]"
+    },
+    {
+      "src": "address: address [242,249]",
+      "dest": "address: address [838,845]"
+    },
+    {
+      "src": "contract_body [121,650]",
+      "dest": "contract_body [717,1246]"
+    },
+    {
+      "src": "): ) [534,535]",
+      "dest": "): ) [1130,1131]"
+    },
+    {
+      "src": "parameter [614,646]",
+      "dest": "parameter [1210,1242]"
+    },
+    {
+      "src": "primitive_type [633,637]",
+      "dest": "primitive_type [1229,1233]"
+    },
+    {
+      "src": "function_definition [222,301]",
+      "dest": "function_definition [818,897]"
+    },
+    {
+      "src": "import_directive [66,91]",
+      "dest": "import_directive [662,687]"
+    },
+    {
+      "src": "address: address [511,518]",
+      "dest": "address: address [1107,1114]"
+    },
+    {
+      "src": "(: ( [621,622]",
+      "dest": "(: ( [1217,1218]"
+    },
+    {
+      "src": "function_body [331,407]",
+      "dest": "function_body [927,1003]"
+    },
+    {
+      "src": "identifier: registerOperator [422,438]",
+      "dest": "identifier: registerOperator [1018,1034]"
+    },
+    {
+      "src": "solidity: solidity [47,55]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "identifier: LogOperatorRemoved [179,197]",
+      "dest": "identifier: LogOperatorRemoved [775,793]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [55,57]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "\": \" [73,74]",
+      "dest": "\": \" [669,670]"
+    },
+    {
+      "src": "): ) [458,459]",
+      "dest": "): ) [1054,1055]"
+    },
+    {
+      "src": "string [73,90]",
+      "dest": "string [669,686]"
+    },
+    {
+      "src": "identifier: require [341,348]",
+      "dest": "identifier: require [937,944]"
+    },
+    {
+      "src": "visibility [266,272]",
+      "dest": "visibility [862,868]"
+    },
+    {
+      "src": "function_definition [413,477]",
+      "dest": "function_definition [1009,1073]"
+    },
+    {
+      "src": "internal: internal [583,591]",
+      "dest": "internal: internal [1179,1187]"
+    },
+    {
+      "src": "function_definition [483,553]",
+      "dest": "function_definition [1079,1149]"
+    },
+    {
+      "src": "primitive_type [150,157]",
+      "dest": "primitive_type [746,753]"
+    },
+    {
+      "src": "type_name [633,637]",
+      "dest": "type_name [1229,1233]"
+    },
+    {
+      "src": "source_file [0,651]",
+      "dest": "source_file [0,1247]"
+    },
+    {
+      "src": "external: external [460,468]",
+      "dest": "external: external [1056,1064]"
+    },
+    {
+      "src": "type_name [198,205]",
+      "dest": "type_name [794,801]"
+    },
+    {
+      "src": "primitive_type [511,518]",
+      "dest": "primitive_type [1107,1114]"
+    },
+    {
+      "src": "call_argument [373,388]",
+      "dest": "call_argument [969,984]"
+    },
+    {
+      "src": "type_name [242,249]",
+      "dest": "type_name [838,845]"
+    },
+    {
+      "src": "state_mutability [592,596]",
+      "dest": "state_mutability [1188,1192]"
+    },
+    {
+      "src": "primitive_type [242,249]",
+      "dest": "primitive_type [838,845]"
+    },
+    {
+      "src": "): ) [581,582]",
+      "dest": "): ) [1177,1178]"
+    },
+    {
+      "src": "identifier: onlyOperator [316,328]",
+      "dest": "identifier: onlyOperator [912,924]"
+    },
+    {
+      "src": "pragma: pragma [40,46]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "state_mutability [273,277]",
+      "dest": "state_mutability [869,873]"
+    },
+    {
+      "src": "): ) [329,330]",
+      "dest": "): ) [925,926]"
+    },
+    {
+      "src": "function: function [559,567]",
+      "dest": "function: function [1155,1163]"
+    },
+    {
+      "src": "parameter [242,264]",
+      "dest": "parameter [838,860]"
+    },
+    {
+      "src": "return_type_definition [605,647]",
+      "dest": "return_type_definition [1201,1243]"
+    },
+    {
+      "src": "bool: bool [633,637]",
+      "dest": "bool: bool [1229,1233]"
+    },
+    {
+      "src": "type_name [511,518]",
+      "dest": "type_name [1107,1114]"
+    },
+    {
+      "src": "(: ( [149,150]",
+      "dest": "(: ( [745,746]"
+    },
+    {
+      "src": "primitive_type [198,205]",
+      "dest": "primitive_type [794,801]"
+    },
+    {
+      "src": "): ) [388,389]",
+      "dest": "): ) [984,985]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [0,39]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "type_name [614,638]",
+      "dest": "type_name [1210,1234]"
+    },
+    {
+      "src": "): ) [166,167]",
+      "dest": "): ) [762,763]"
+    },
+    {
+      "src": "(: ( [613,614]",
+      "dest": "(: ( [1209,1210]"
+    },
+    {
+      "src": "identifier: operator [206,214]",
+      "dest": "identifier: operator [802,810]"
+    },
+    {
+      "src": "(: ( [348,349]",
+      "dest": "(: ( [944,945]"
+    },
+    {
+      "src": "(: ( [510,511]",
+      "dest": "(: ( [1106,1107]"
+    },
+    {
+      "src": "): ) [299,300]",
+      "dest": "): ) [895,896]"
+    },
+    {
+      "src": "(: ( [328,329]",
+      "dest": "(: ( [924,925]"
+    },
+    {
+      "src": "type_name [439,446]",
+      "dest": "type_name [1035,1042]"
+    },
+    {
+      "src": "view: view [592,596]",
+      "dest": "view: view [1188,1192]"
+    },
+    {
+      "src": "solidity_pragma_token [47,63]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "\": \" [387,388]",
+      "dest": "\": \" [983,984]"
+    },
+    {
+      "src": "): ) [214,215]",
+      "dest": "): ) [810,811]"
+    },
+    {
+      "src": "identifier: unregisterOperator [492,510]",
+      "dest": "identifier: unregisterOperator [1088,1106]"
+    },
+    {
+      "src": "call_expression [341,389]",
+      "dest": "call_expression [937,985]"
+    },
+    {
+      "src": "expression_statement [399,401]",
+      "dest": "expression_statement [995,997]"
+    },
+    {
+      "src": "external: external [536,544]",
+      "dest": "external: external [1132,1140]"
+    },
+    {
+      "src": "{: { [121,122]",
+      "dest": "{: { [717,718]"
+    },
+    {
+      "src": "visibility [583,591]",
+      "dest": "visibility [1179,1187]"
+    },
+    {
+      "src": "storage: storage [639,646]",
+      "dest": "storage: storage [1235,1242]"
+    },
+    {
+      "src": "import: import [66,72]",
+      "dest": "import: import [662,668]"
+    },
+    {
+      "src": "identifier: getOperators [568,580]",
+      "dest": "identifier: getOperators [1164,1176]"
+    },
+    {
+      "src": "event_paramater [198,214]",
+      "dest": "event_paramater [794,810]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "insert-node",
+      "tree": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "parent": "source_file [0,1247]",
+      "at": 0
+    }
+  ]
+}

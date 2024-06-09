@@ -1,0 +1,1350 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>0x343aab4fd083a27482f7a726961056fc4777143e.etherscan.io-EternalStorageProxy.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-1"></span><span class="token mv" id="move-src-1" data-title="source_file/comment">// File: contracts/upgradeability/EternalStorage.sol</span>
+
+<span class="marker" id="mapping-2"></span><span class="token mv" id="move-src-2" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+<span class="marker" id="mapping-3"></span><span class="token mv" id="move-src-3" data-title="source_file/comment">/**
+ * @title EternalStorage
+ * @dev This contract holds all the necessary state variables to carry out the storage of any contract.
+ */</span>
+<span class="marker" id="mapping-4"></span><span class="token mv" id="move-src-4" data-title="source_file/contract_declaration">contract EternalStorage {
+
+    mapping(bytes32 =&gt; uint256) internal uintStorage;
+    mapping(bytes32 =&gt; string) internal stringStorage;
+    mapping(bytes32 =&gt; address) internal addressStorage;
+    mapping(bytes32 =&gt; bytes) internal bytesStorage;
+    mapping(bytes32 =&gt; bool) internal boolStorage;
+    mapping(bytes32 =&gt; int256) internal intStorage;
+
+
+    mapping(bytes32 =&gt; uint256[]) internal uintArrayStorage;
+    mapping(bytes32 =&gt; string[]) internal stringArrayStorage;
+    mapping(bytes32 =&gt; address[]) internal addressArrayStorage;
+    //mapping(bytes32 =&gt; bytes[]) internal bytesArrayStorage;
+    mapping(bytes32 =&gt; bool[]) internal boolArrayStorage;
+    mapping(bytes32 =&gt; int256[]) internal intArrayStorage;
+    mapping(bytes32 =&gt; bytes32[]) internal bytes32ArrayStorage;
+}</span>
+
+<span class="marker" id="mapping-5"></span><span class="token upd" id="move-src-5" data-title="source_file/comment"><span class="cupd">// File: </span><span class="cupd">contracts/</span>upgr<span class="cupd">a</span>d<span class="cupd">e</span><span class="cupd">a</span>bili<span class="cupd">t</span>y/Proxy<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-6"></span><span class="token mv" id="move-src-6" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+<span class="marker" id="mapping-7"></span><span class="token upd" id="move-src-7" data-title="source_file/comment"><span class="cupd">/**
+ * @title</span> Prox<span class="cupd">y
+ * @de</span>v Give<span class="cupd">s </span>t<span class="cupd">h</span><span class="cupd">e</span><span class="cupd"> </span><span class="cupd">p</span>o<span class="cupd">s</span>sibi<span class="cupd">l</span>i<span class="cupd">t</span>y to<span class="cupd"> </span>dele<span class="cupd">g</span>ate <span class="cupd">any</span> ca<span class="cupd">ll</span> t<span class="cupd">o</span><span class="cupd"> </span>a <span class="cupd">fo</span>reign im<span class="cupd">p</span>lem<span class="cupd">e</span>nta<span class="cupd">ti</span>o<span class="cupd">n</span><span class="cupd">.</span><span class="cupd">
+</span> */</span>
+<span class="marker" id="mapping-8"></span><span class="token del" data-title="source_file/contract_declaration">contract Proxy <span class="marker" id="mapping-9"></span><span class="token del" data-title="contract_declaration/contract_body">{
+
+  /**
+  * @dev Tells the address of the implementation where every call will be delegated.
+  * @return address of the implementation to which it will be delegated
+  */
+    <span class="marker" id="mapping-10"></span><span class="token mv" id="move-src-8" data-title="contract_body/function_definition">function <span class="marker" id="mapping-11"></span><span class="token upd" id="move-src-9" data-title="function_definition/identifier">implementati<span class="cupd">o</span>n</span>() public view returns (address);</span>
+
+    <span class="marker" id="mapping-12"></span><span class="token del" data-title="contract_body/function_definition">function setImplementation(<span class="marker" id="mapping-13"></span><span class="token mv" id="move-src-10" data-title="function_definition/parameter">address <span class="marker" id="mapping-14"></span><span class="token upd" id="move-src-11" data-title="parameter/identifier"><span class="cupd">_</span>newImplemen<span class="cupd">t</span>ation</span></span>) <span class="marker" id="mapping-15"></span><span class="token mv" id="move-src-12" data-title="function_definition/visibility">external</span>;</span>
+
+  /**
+  * @dev Fallback function allowing to perform a delegatecall to the given implementation.
+  * This function will return whatever the implementation call returns
+  */
+    <span class="marker" id="mapping-16"></span><span class="token del" data-title="contract_body/fallback_receive_definition">function () <span class="marker" id="mapping-17"></span><span class="token del" data-title="fallback_receive_definition/state_mutability">payable</span> <span class="marker" id="mapping-18"></span><span class="token mv" id="move-src-13" data-title="fallback_receive_definition/visibility">public</span> <span class="marker" id="mapping-19"></span><span class="token del" data-title="fallback_receive_definition/function_body">{
+        <span class="marker" id="mapping-20"></span><span class="token mv" id="move-src-14" data-title="function_body/variable_declaration_statement">address <span class="marker" id="mapping-21"></span><span class="token upd" id="move-src-15" data-title="variable_declaration/identifier">_impl</span> <span class="marker" id="mapping-22"></span><span class="token del" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-23"></span><span class="token del" data-title="variable_declaration_statement/call_expression">implementation()</span>;</span>
+        <span class="marker" id="mapping-24"></span><span class="token mv" id="move-src-16" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-25"></span><span class="token upd" id="move-src-17" data-title="binary_expression/identifier">_impl</span> != address(0));</span>
+
+        <span class="marker" id="mapping-26"></span><span class="token mv" id="move-src-18" data-title="function_body/variable_declaration_statement">address <span class="marker" id="mapping-27"></span><span class="token upd" id="move-src-19" data-title="variable_declaration/identifier">_<span class="cupd">i</span>nnerImpl</span>;</span>
+        <span class="marker" id="mapping-28"></span><span class="token del" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-29"></span><span class="token del" data-title="variable_declaration_statement/variable_declaration"><span class="marker" id="mapping-30"></span><span class="token mv" id="move-src-20" data-title="variable_declaration/type_name">bytes4</span> sig</span>;</span>
+        <span class="marker" id="mapping-31"></span><span class="token mv" id="move-src-21" data-title="function_body/variable_declaration_statement">address <span class="marker" id="mapping-32"></span><span class="token upd" id="move-src-22" data-title="variable_declaration/identifier"><span class="cupd">t</span>his<span class="cupd">Address</span></span> <span class="marker" id="mapping-33"></span><span class="token del" data-title="variable_declaration_statement/=">=</span> <span class="marker" id="mapping-34"></span><span class="token del" data-title="variable_declaration_statement/type_cast_expression">address(this)</span>;</span>
+        <span class="marker" id="mapping-35"></span><span class="token del" data-title="function_body/if_statement">if (_impl.call(0x5c60da1b)) { // bytes(keccak256("implementation()"))
+            _innerImpl = Proxy(_impl).implementation();
+            this.setImplementation(_innerImpl);
+            sig = 0xd784d426; // bytes4(keccak256("setImplementation(address)"))
+        }</span>
+
+        <span class="marker" id="mapping-36"></span><span class="token del" data-title="function_body/assembly_statement">assembly {
+            /*
+                0x40 is the "free memory slot", meaning a pointer to next slot of empty memory. mload(0x40)
+                loads the data in the free memory slot, so `ptr` is a pointer to the next slot of empty
+                memory. It's needed because we're going to write the return data of delegatecall to the
+                free memory slot.
+            */
+            <span class="marker" id="mapping-37"></span><span class="token del" data-title="assembly_statement/yul_variable_declaration">let <span class="marker" id="mapping-38"></span><span class="token del" data-title="yul_variable_declaration/yul_identifier">ptr</span> := <span class="marker" id="mapping-39"></span><span class="token del" data-title="yul_variable_declaration/yul_function_call"><span class="marker" id="mapping-40"></span><span class="token mv" id="move-src-23" data-title="yul_function_call/yul_evm_builtin">mload</span>(0x40)</span></span>
+            /*
+                `calldatacopy` is copy calldatasize bytes from calldata
+                First argument is the destination to which data is copied(ptr)
+                Second argument specifies the start position of the copied data.
+                    Since calldata is sort of its own unique location in memory,
+                    0 doesn't refer to 0 in memory or 0 in storage - it just refers to the zeroth byte of calldata.
+                    That's always going to be the zeroth byte of the function selector.
+                Third argument, calldatasize, specifies how much data will be copied.
+                    calldata is naturally calldatasize bytes long (same thing as msg.data.length)
+            */
+            <span class="marker" id="mapping-41"></span><span class="token del" data-title="assembly_statement/yul_function_call">calldatacopy(ptr, 0, calldatasize)</span>
+            /*
+                delegatecall params explained:
+                gas: the amount of gas to provide for the call. `gas` is an Opcode that gives
+                    us the amount of gas still available to execution
+
+                _impl: address of the contract to delegate to
+
+                ptr: to pass copied data
+
+                calldatasize: loads the size of `bytes memory data`, same as msg.data.length
+
+                0, 0: These are for the `out` and `outsize` params. Because the output could be dynamic,
+                        these are set to 0, 0 so the output data will not be written to memory. The output
+                        data will be read using `returndatasize` and `returdatacopy` instead.
+
+                result: This will be 0 if the call fails and 1 if it succeeds
+            */
+            <span class="marker" id="mapping-42"></span><span class="token del" data-title="assembly_statement/yul_variable_declaration">let result := delegatecall(gas, _impl, ptr, calldatasize, 0, 0)</span>
+            /*
+
+            */
+            /*
+                ptr current points to the value stored at 0x40,
+                because we assigned it like ptr := mload(0x40).
+                Because we use 0x40 as a free memory pointer,
+                we want to make sure that the next time we want to allocate memory,
+                we aren't overwriting anything important.
+                So, by adding ptr and returndatasize,
+                we get a memory location beyond the end of the data we will be copying to ptr.
+                We place this in at 0x40, and any reads from 0x40 will now read from free memory
+            */
+            <span class="marker" id="mapping-43"></span><span class="token del" data-title="assembly_statement/yul_function_call"><span class="marker" id="mapping-44"></span><span class="token mv" id="move-src-24" data-title="yul_function_call/yul_evm_builtin">mstore</span>(0x40, <span class="marker" id="mapping-45"></span><span class="token del" data-title="yul_function_call/yul_function_call"><span class="marker" id="mapping-46"></span><span class="token mv" id="move-src-25" data-title="yul_function_call/yul_evm_builtin">add</span>(<span class="marker" id="mapping-47"></span><span class="token del" data-title="yul_function_call/yul_path">ptr</span>, <span class="marker" id="mapping-48"></span><span class="token del" data-title="yul_function_call/yul_function_call">returndatasize</span>)</span>)</span>
+            /*
+                `returndatacopy` is an Opcode that copies the last return data to a slot. `ptr` is the
+                    slot it will copy to, 0 means copy from the beginning of the return data, and size is
+                    the amount of data to copy.
+                `returndatasize` is an Opcode that gives us the size of the last return data. In this case, that is the size of the data returned from delegatecall
+            */
+            <span class="marker" id="mapping-49"></span><span class="token del" data-title="assembly_statement/yul_function_call">returndatacopy(ptr, 0, returndatasize)</span>
+
+            <span class="marker" id="mapping-50"></span><span class="token del" data-title="assembly_statement/yul_variable_declaration">let retdatasize := returndatasize</span>
+
+            <span class="marker" id="mapping-51"></span><span class="token del" data-title="assembly_statement/yul_switch_statement">switch <span class="marker" id="mapping-52"></span><span class="token mv" id="move-src-26" data-title="yul_switch_statement/yul_path">sig</span>
+            case 0 <span class="marker" id="mapping-53"></span><span class="token del" data-title="yul_switch_statement/yul_block">{}</span>
+            default <span class="marker" id="mapping-54"></span><span class="token del" data-title="yul_switch_statement/yul_block">{
+                <span class="marker" id="mapping-55"></span><span class="token del" data-title="yul_block/yul_variable_declaration">let <span class="marker" id="mapping-56"></span><span class="token del" data-title="yul_variable_declaration/yul_identifier">x</span> := <span class="marker" id="mapping-57"></span><span class="token del" data-title="yul_variable_declaration/yul_function_call"><span class="marker" id="mapping-58"></span><span class="token mv" id="move-src-27" data-title="yul_function_call/yul_evm_builtin">mload</span>(0x40)</span></span>
+                <span class="marker" id="mapping-59"></span><span class="token mv" id="move-src-28" data-title="yul_block/yul_function_call"><span class="marker" id="mapping-60"></span><span class="token del" data-title="yul_evm_builtin/mstore">mstore</span>(<span class="marker" id="mapping-61"></span><span class="token del" data-title="yul_function_call/yul_path">x</span><span class="marker" id="mapping-62"></span><span class="token mv" id="move-src-29" data-title="yul_function_call/,">,</span> sig)</span>
+                <span class="marker" id="mapping-63"></span><span class="token del" data-title="yul_block/yul_function_call"><span class="marker" id="mapping-64"></span><span class="token del" data-title="yul_function_call/yul_evm_builtin">mstore</span>(<span class="marker" id="mapping-65"></span><span class="token del" data-title="yul_function_call/yul_function_call"><span class="marker" id="mapping-66"></span><span class="token mv" id="move-src-30" data-title="yul_function_call/yul_evm_builtin">add</span>(<span class="marker" id="mapping-67"></span><span class="token del" data-title="yul_function_call/yul_path">x</span>, 0x04)</span>, <span class="marker" id="mapping-68"></span><span class="token del" data-title="yul_function_call/yul_path">_impl</span>)</span>
+                <span class="marker" id="mapping-69"></span><span class="token del" data-title="yul_block/yul_variable_declaration">let success := call(gas, thisAddress, 0, x, 0x24, x, 0x0)</span>
+            }</span></span>
+
+            /*
+                if `result` is 0, revert.
+                if `result` is 1, return `size` amount of data from `ptr`. This is the data that was
+                copied to `ptr` from the delegatecall return data
+            */
+            <span class="marker" id="mapping-70"></span><span class="token del" data-title="assembly_statement/yul_switch_statement">switch result
+            case 0 { revert(ptr, retdatasize) }
+            default { return(ptr, retdatasize) }</span>
+        }</span>
+    }</span></span>
+}</span></span>
+
+<span class="marker" id="mapping-71"></span><span class="token upd" id="move-src-31" data-title="source_file/comment"><span class="cupd">// File: contracts/</span>upg<span class="cupd">r</span>a<span class="cupd">d</span><span class="cupd">e</span><span class="cupd">a</span>bi<span class="cupd">li</span>ty/Upgra<span class="cupd">d</span>e<span class="cupd">a</span>bili<span class="cupd">t</span>ySt<span class="cupd">or</span>age<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-72"></span><span class="token mv" id="move-src-32" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+<span class="marker" id="mapping-73"></span><span class="token upd" id="move-src-33" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+ * @<span class="cupd">t</span>i<span class="cupd">tl</span><span class="cupd">e</span> UpgradeabilityStorage
+ * @dev Thi<span class="cupd">s contra</span>ct<span class="cupd"> </span>holds all <span class="cupd">t</span>h<span class="cupd">e</span> neces<span class="cupd">s</span>ary st<span class="cupd">a</span>te<span class="cupd"> </span>v<span class="cupd">a</span><span class="cupd">r</span>iable<span class="cupd">s </span>t<span class="cupd">o</span> su<span class="cupd">p</span>port the upgrade functionality
+ */</span>
+<span class="marker" id="mapping-74"></span><span class="token del" data-title="source_file/contract_declaration">contract UpgradeabilityStorage <span class="marker" id="mapping-75"></span><span class="token del" data-title="contract_declaration/contract_body">{
+    // Version name of the current implementation
+    <span class="marker" id="mapping-76"></span><span class="token del" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-77"></span><span class="token mv" id="move-src-34" data-title="state_variable_declaration/type_name">uint256</span> <span class="marker" id="mapping-78"></span><span class="token mv" id="move-src-35" data-title="state_variable_declaration/visibility">internal</span> _version;</span>
+
+    // Address of the current implementation
+    <span class="marker" id="mapping-79"></span><span class="token del" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-80"></span><span class="token mv" id="move-src-36" data-title="state_variable_declaration/type_name">address</span> <span class="marker" id="mapping-81"></span><span class="token mv" id="move-src-37" data-title="state_variable_declaration/visibility">internal</span> _implementation;</span>
+
+    /**
+    * @dev Tells the version name of the current implementation
+    * @return string representing the name of the current version
+    */
+    <span class="marker" id="mapping-82"></span><span class="token mv" id="move-src-38" data-title="contract_body/function_definition">function <span class="marker" id="mapping-83"></span><span class="token upd" id="move-src-39" data-title="function_definition/identifier">ve<span class="cupd">r</span>sion</span>() public view returns (uint256) {
+        return <span class="marker" id="mapping-84"></span><span class="token del" data-title="return_statement/identifier">_version</span>;
+    }</span>
+
+    /**
+    * @dev Tells the address of the current implementation
+    * @return address of the current implementation
+    */
+    <span class="marker" id="mapping-85"></span><span class="token mv" id="move-src-40" data-title="contract_body/function_definition">function <span class="marker" id="mapping-86"></span><span class="token upd" id="move-src-41" data-title="function_definition/identifier">im<span class="cupd">p</span>lementati<span class="cupd">o</span>n</span>() public view returns (address) <span class="marker" id="mapping-87"></span><span class="token del" data-title="function_definition/function_body">{
+        return _implementation;
+    }</span></span>
+
+    <span class="marker" id="mapping-88"></span><span class="token del" data-title="contract_body/function_definition">function setImplementation(<span class="marker" id="mapping-89"></span><span class="token mv" id="move-src-42" data-title="function_definition/parameter">address <span class="marker" id="mapping-90"></span><span class="token upd" id="move-src-43" data-title="parameter/identifier"><span class="cupd">_</span>newImplemen<span class="cupd">t</span>ati<span class="cupd">o</span>n</span></span>) <span class="marker" id="mapping-91"></span><span class="token mv" id="move-src-44" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-92"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-93"></span><span class="token mv" id="move-src-45" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-94"></span><span class="token mv" id="move-src-46" data-title="binary_expression/member_expression">msg.sender</span> == address(this));</span>
+        <span class="marker" id="mapping-95"></span><span class="token del" data-title="function_body/expression_statement">_implementation = _newImplementation;</span>
+    }</span></span>
+}</span></span>
+
+<span class="marker" id="mapping-96"></span><span class="token upd" id="move-src-47" data-title="source_file/comment"><span class="cupd">// File: contracts/</span>upg<span class="cupd">ra</span>d<span class="cupd">e</span><span class="cupd">a</span>bility/Up<span class="cupd">g</span>rad<span class="cupd">e</span>abilityProxy<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-97"></span><span class="token mv" id="move-src-48" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+
+
+<span class="marker" id="mapping-98"></span><span class="token upd" id="move-src-49" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span><span class="cupd">
+</span> * <span class="cupd">@</span>t<span class="cupd">i</span>t<span class="cupd">l</span>e<span class="cupd"> UpgradeabilityProx</span>y
+ * @dev T<span class="cupd">h</span>is<span class="cupd"> </span>contract represents a proxy where the implementation address to which it will delegate can be upgraded
+ */</span>
+<span class="marker" id="mapping-99"></span><span class="token del" data-title="source_file/contract_declaration">contract UpgradeabilityProxy is <span class="marker" id="mapping-100"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">Proxy</span>, <span class="marker" id="mapping-101"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">UpgradeabilityStorage</span> <span class="marker" id="mapping-102"></span><span class="token del" data-title="contract_declaration/contract_body">{
+    /**
+    * @dev This event will be emitted every time the implementation gets upgraded
+    * @param version representing the version name of the upgraded implementation
+    * @param implementation representing the address of the upgraded implementation
+    */
+    <span class="marker" id="mapping-103"></span><span class="token mv" id="move-src-50" data-title="contract_body/event_definition">event <span class="marker" id="mapping-104"></span><span class="token upd" id="move-src-51" data-title="event_definition/identifier">Upg<span class="cupd">r</span><span class="cupd">a</span>d<span class="cupd">ed</span></span>(uint256 <span class="marker" id="mapping-105"></span><span class="token upd" id="move-src-52" data-title="event_paramater/identifier">ve<span class="cupd">r</span>sion</span><span class="marker" id="mapping-106"></span><span class="token del" data-title="event_definition/,">,</span> <span class="marker" id="mapping-107"></span><span class="token mv" id="move-src-53" data-title="event_definition/event_paramater">address <span class="marker" id="mapping-108"></span><span class="token del" data-title="event_paramater/indexed">indexed</span> <span class="marker" id="mapping-109"></span><span class="token upd" id="move-src-54" data-title="event_paramater/identifier"><span class="cupd">i</span>m<span class="cupd">p</span>l<span class="cupd">e</span>me<span class="cupd">nt</span>ation</span></span>);</span>
+
+    /**
+    * @dev Upgrades the implementation address
+    * @param version representing the version name of the new implementation to be set
+    * @param implementation representing the address of the new implementation to be set
+    */
+    <span class="marker" id="mapping-110"></span><span class="token del" data-title="contract_body/function_definition">function _upgradeTo(<span class="marker" id="mapping-111"></span><span class="token mv" id="move-src-55" data-title="function_definition/parameter">uint256 <span class="marker" id="mapping-112"></span><span class="token upd" id="move-src-56" data-title="parameter/identifier">ve<span class="cupd">r</span>sion</span></span>, <span class="marker" id="mapping-113"></span><span class="token mv" id="move-src-57" data-title="function_definition/parameter">address <span class="marker" id="mapping-114"></span><span class="token upd" id="move-src-58" data-title="parameter/identifier">implemen<span class="cupd">t</span>ation</span></span>) <span class="marker" id="mapping-115"></span><span class="token mv" id="move-src-59" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-116"></span><span class="token del" data-title="function_definition/function_body">{
+        require(_implementation != implementation);
+        require(version &gt; _version);
+        _version = version;
+        _implementation = implementation;
+        emit Upgraded(version, implementation);
+    }</span></span>
+}</span></span>
+
+<span class="marker" id="mapping-117"></span><span class="token upd" id="move-src-60" data-title="source_file/comment"><span class="cupd">// File: contracts/upgradeab</span>i<span class="cupd">l</span>i<span class="cupd">t</span>y<span class="cupd">/</span><span class="cupd">Upgradeability</span>OwnerStorage<span class="cupd">.sol</span></span>
+
+pragma solidity 0.4.24;
+
+
+<span class="marker" id="mapping-118"></span><span class="token mv" id="move-src-61" data-title="source_file/comment"><span class="marker" id="mapping-119"></span><span class="token upd" id="move-src-62" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+ * @<span class="cupd">t</span>i<span class="cupd">tl</span><span class="cupd">e</span> <span class="cupd">Upgradea</span>b<span class="cupd">i</span>lityOw<span class="cupd">n</span>erStorage
+ * @dev Thi<span class="cupd">s contra</span>ct ke<span class="cupd">e</span>p<span class="cupd">s</span> track of <span class="cupd">t</span>he u<span class="cupd">p</span><span class="cupd">g</span>ra<span class="cupd">de</span>a<span class="cupd">b</span>ility owner
+ */</span></span>
+contract <span class="marker" id="mapping-120"></span><span class="token upd" id="move-src-63" data-title="contract_declaration/identifier"><span class="cupd">Upgradeability</span>OwnerStorage</span> {
+    <span class="marker" id="mapping-121"></span><span class="token mv" id="move-src-64" data-title="contract_body/comment"><span class="marker" id="mapping-122"></span><span class="token upd" id="move-src-65" data-title="contract_body/comment"><span class="cupd">// </span><span class="cupd">Owner </span><span class="cupd">o</span>f<span class="cupd"> </span><span class="cupd">t</span><span class="cupd">h</span><span class="cupd">e</span><span class="cupd"> </span><span class="cupd">contract</span></span></span>
+    <span class="marker" id="mapping-123"></span><span class="token del" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-124"></span><span class="token mv" id="move-src-66" data-title="state_variable_declaration/type_name">address</span> <span class="marker" id="mapping-125"></span><span class="token mv" id="move-src-67" data-title="state_variable_declaration/visibility">private</span> _upgradeabilityOwner;</span>
+
+    <span class="marker" id="mapping-126"></span><span class="token del" data-title="contract_body/comment">/**
+    * @dev Tells the address of the owner
+    * @return the address of the owner
+    */</span>
+    function <span class="marker" id="mapping-127"></span><span class="token upd" id="move-src-68" data-title="function_definition/identifier"><span class="cupd">upgradeability</span>Owner</span>() public view returns (address) {
+        return <span class="marker" id="mapping-128"></span><span class="token del" data-title="return_statement/identifier">_upgradeabilityOwner</span>;
+    }
+
+    <span class="marker" id="mapping-129"></span><span class="token del" data-title="contract_body/comment">/**
+    * @dev Sets the address of the owner
+    */</span>
+    <span class="marker" id="mapping-130"></span><span class="token del" data-title="contract_body/function_definition">function setUpgradeabilityOwner(<span class="marker" id="mapping-131"></span><span class="token mv" id="move-src-69" data-title="function_definition/parameter">address <span class="marker" id="mapping-132"></span><span class="token upd" id="move-src-70" data-title="parameter/identifier">newUpgradeabilityOwner</span></span>) <span class="marker" id="mapping-133"></span><span class="token mv" id="move-src-71" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-134"></span><span class="token del" data-title="function_definition/function_body">{
+        _upgradeabilityOwner = newUpgradeabilityOwner;
+    }</span></span>
+}
+
+<span class="marker" id="mapping-135"></span><span class="token mv" id="move-src-72" data-title="source_file/comment"><span class="marker" id="mapping-136"></span><span class="token upd" id="move-src-73" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>F<span class="cupd">i</span><span class="cupd">le</span>:<span class="cupd"> </span><span class="cupd">contract</span><span class="cupd">s</span>/upg<span class="cupd">r</span><span class="cupd">ad</span><span class="cupd">e</span>ab<span class="cupd">i</span>l<span class="cupd">i</span>ty/Ow<span class="cupd">n</span>edUp<span class="cupd">g</span>r<span class="cupd">a</span>de<span class="cupd">a</span>b<span class="cupd">i</span>l<span class="cupd">i</span><span class="cupd">t</span>yP<span class="cupd">ro</span>xy.sol</span></span>
+
+pragma solidity 0.4.24;
+
+
+
+
+<span class="marker" id="mapping-137"></span><span class="token mv" id="move-src-74" data-title="source_file/comment"><span class="marker" id="mapping-138"></span><span class="token upd" id="move-src-75" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+ * @<span class="cupd">t</span>i<span class="cupd">tl</span><span class="cupd">e</span> O<span class="cupd">w</span><span class="cupd">n</span>ed<span class="cupd">U</span>pgra<span class="cupd">d</span>ea<span class="cupd">b</span><span class="cupd">il</span><span class="cupd">it</span>yProxy
+ * @dev Thi<span class="cupd">s contra</span>ct<span class="cupd"> </span>comb<span class="cupd">i</span>nes<span class="cupd"> </span>an upgradeability proxy with <span class="cupd">b</span>asic au<span class="cupd">t</span>horization control functionalities
+ */</span></span>
+contract <span class="marker" id="mapping-139"></span><span class="token upd" id="move-src-76" data-title="contract_declaration/identifier"><span class="cupd">Own</span>edUpgr<span class="cupd">a</span>dea<span class="cupd">b</span>ilityProxy</span> is <span class="marker" id="mapping-140"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">UpgradeabilityOwnerStorage</span><span class="marker" id="mapping-141"></span><span class="token del" data-title="contract_declaration/,">,</span> <span class="marker" id="mapping-142"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">UpgradeabilityProxy</span> {
+  <span class="marker" id="mapping-143"></span><span class="token upd" id="move-src-77" data-title="contract_body/comment"><span class="cupd">/**
+ </span><span class="cupd"> * @dev Event to show ownership has been transferred
+</span><span class="cupd">  * @param previousOwner representing the address of the previous owner</span><span class="cupd">
+  * @param newOwner representing the address of the new owner</span><span class="cupd">
+</span>  */</span>
+    event <span class="marker" id="mapping-144"></span><span class="token upd" id="move-src-78" data-title="event_definition/identifier">P<span class="cupd">r</span>oxy<span class="cupd">OwnershipTransferred</span></span>(address previousOwner, address newOwner);
+
+    <span class="marker" id="mapping-145"></span><span class="token mv" id="move-src-79" data-title="contract_body/comment"><span class="marker" id="mapping-146"></span><span class="token upd" id="move-src-80" data-title="contract_body/comment"><span class="cupd">/**
+    * @dev</span><span class="cupd"> the</span> cons<span class="cupd">t</span>ructor <span class="cupd">s</span>e<span class="cupd">t</span><span class="cupd">s</span><span class="cupd"> the </span>original <span class="cupd">owner</span> o<span class="cupd">f</span><span class="cupd"> </span><span class="cupd">the</span> con<span class="cupd">t</span>rac<span class="cupd">t</span> <span class="cupd">t</span><span class="cupd">o the</span> s<span class="cupd">e</span>n<span class="cupd">der</span> account<span class="cupd">.
+ </span> <span class="cupd">  </span>*/</span></span>
+    <span class="marker" id="mapping-147"></span><span class="token del" data-title="contract_body/constructor_definition">constructor() public <span class="marker" id="mapping-148"></span><span class="token mv" id="move-src-81" data-title="constructor_definition/function_body">{
+        <span class="marker" id="mapping-149"></span><span class="token mv" id="move-src-82" data-title="expression_statement/call_expression"><span class="marker" id="mapping-150"></span><span class="token del" data-title="call_expression/identifier">setUpgradeabilityOwner</span>(msg.sender)</span>;
+    }</span></span>
+
+    /**
+    * @dev Throws if called by any account other than the owner.
+    */
+    modifier <span class="marker" id="mapping-151"></span><span class="token upd" id="move-src-83" data-title="modifier_definition/identifier"><span class="cupd">only</span>Proxy<span class="cupd">Owner</span></span>() {
+        require(msg.sender == <span class="marker" id="mapping-152"></span><span class="token upd" id="move-src-84" data-title="call_expression/identifier">pr<span class="cupd">o</span>xyO<span class="cupd">wner</span></span>());
+        _;
+    }
+
+    <span class="marker" id="mapping-153"></span><span class="token mv" id="move-src-85" data-title="contract_body/comment"><span class="marker" id="mapping-154"></span><span class="token upd" id="move-src-86" data-title="contract_body/comment"><span class="cupd">/**
+    * @dev</span> T<span class="cupd">el</span><span class="cupd">ls the</span> ad<span class="cupd">d</span><span class="cupd">r</span><span class="cupd">e</span>s<span class="cupd">s</span><span class="cupd"> </span><span class="cupd">of the</span> <span class="cupd">p</span><span class="cupd">r</span>ox<span class="cupd">y</span> <span class="cupd">o</span><span class="cupd">wne</span><span class="cupd">r
+    *</span><span class="cupd"> </span><span class="cupd">@</span>re<span class="cupd">t</span>u<span class="cupd">rn the addres</span><span class="cupd">s</span> <span class="cupd">of</span> <span class="cupd">t</span>he<span class="cupd"> </span>pro<span class="cupd">xy own</span><span class="cupd">e</span><span class="cupd">r
+ </span><span class="cupd">  </span> */</span></span>
+    function <span class="marker" id="mapping-155"></span><span class="token upd" id="move-src-87" data-title="function_definition/identifier">pr<span class="cupd">o</span>xyO<span class="cupd">wner</span></span>() public view returns (address) {
+        return <span class="marker" id="mapping-156"></span><span class="token del" data-title="return_statement/call_expression">upgradeabilityOwner()</span>;
+    }
+
+    <span class="marker" id="mapping-157"></span><span class="token mv" id="move-src-88" data-title="contract_body/comment"><span class="marker" id="mapping-158"></span><span class="token upd" id="move-src-89" data-title="contract_body/comment"><span class="cupd">/**
+    * @dev</span> Allows t<span class="cupd">h</span>e curre<span class="cupd">n</span>t owner to tra<span class="cupd">n</span>sfe<span class="cupd">r</span> control of the cont<span class="cupd">r</span>ac<span class="cupd">t</span> to a<span class="cupd"> ne</span>wOwner<span class="cupd">.</span>
+    * @param <span class="cupd">n</span>ew<span class="cupd">Owne</span>r Th<span class="cupd">e addres</span>s <span class="cupd">t</span>o transf<span class="cupd">e</span>r ownersh<span class="cupd">i</span>p t<span class="cupd">o</span>.
+ <span class="cupd">  </span> */</span></span>
+    function <span class="marker" id="mapping-159"></span><span class="token upd" id="move-src-90" data-title="function_definition/identifier"><span class="cupd">transfer</span>Proxy<span class="cupd">Ownership</span></span>(address newOwner) public <span class="marker" id="mapping-160"></span><span class="token upd" id="move-src-91" data-title="modifier_invocation/identifier"><span class="cupd">only</span>Proxy<span class="cupd">Owner</span></span> {
+        require(newOwner != address(0));
+        <span class="marker" id="mapping-161"></span><span class="token del" data-title="function_body/emit_statement">emit ProxyOwnershipTransferred(<span class="marker" id="mapping-162"></span><span class="token del" data-title="emit_statement/call_argument">proxyOwner()</span>, <span class="marker" id="mapping-163"></span><span class="token mv" id="move-src-92" data-title="emit_statement/call_argument">newOwner</span>);</span>
+        <span class="marker" id="mapping-164"></span><span class="token upd" id="move-src-93" data-title="call_expression/identifier"><span class="cupd">set</span>Upgradeability<span class="cupd">Owner</span></span>(newOwner);
+    }
+
+    <span class="marker" id="mapping-165"></span><span class="token del" data-title="contract_body/comment">/**
+    * @dev Allows the upgradeability owner to upgrade the current version of the proxy.
+    * @param version representing the version name of the new implementation to be set.
+    * @param implementation representing the address of the new implementation to be set.
+    */</span>
+    function <span class="marker" id="mapping-166"></span><span class="token upd" id="move-src-94" data-title="function_definition/identifier">upgradeTo</span>(<span class="marker" id="mapping-167"></span><span class="token mv" id="move-src-95" data-title="function_definition/parameter">uint256 <span class="marker" id="mapping-168"></span><span class="token upd" id="move-src-96" data-title="parameter/identifier">version</span></span><span class="marker" id="mapping-169"></span><span class="token del" data-title="function_definition/,">,</span> <span class="marker" id="mapping-170"></span><span class="token mv" id="move-src-97" data-title="function_definition/parameter">address <span class="marker" id="mapping-171"></span><span class="token del" data-title="parameter/identifier">implementation</span></span>) <span class="marker" id="mapping-172"></span><span class="token mv" id="move-src-98" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-173"></span><span class="token del" data-title="function_definition/modifier_invocation">onlyProxyOwner</span> {
+        <span class="marker" id="mapping-174"></span><span class="token del" data-title="expression_statement/call_expression">_upgradeTo(version, implementation)</span>;
+    }
+
+    <span class="marker" id="mapping-175"></span><span class="token del" data-title="contract_body/comment">/**
+    * @dev Allows the upgradeability owner to upgrade the current version of the proxy and call the new implementation
+    * to initialize whatever is needed through a low level call.
+    * @param version representing the version name of the new implementation to be set.
+    * @param implementation representing the address of the new implementation to be set.
+    * @param data represents the msg.data to bet sent in the low level call. This parameter may include the function
+    * signature of the implementation to be called with the needed payload
+    */</span>
+    <span class="marker" id="mapping-176"></span><span class="token mv" id="move-src-99" data-title="contract_body/function_definition">function <span class="marker" id="mapping-177"></span><span class="token upd" id="move-src-100" data-title="function_definition/identifier">upgr<span class="cupd">a</span>de<span class="cupd">To</span>AndCall</span>(<span class="marker" id="mapping-178"></span><span class="token mv" id="move-src-101" data-title="function_definition/parameter">uint256 <span class="marker" id="mapping-179"></span><span class="token upd" id="move-src-102" data-title="parameter/identifier">version</span></span>, <span class="marker" id="mapping-180"></span><span class="token mv" id="move-src-103" data-title="function_definition/parameter">address <span class="marker" id="mapping-181"></span><span class="token del" data-title="parameter/identifier">implementation</span></span><span class="marker" id="mapping-182"></span><span class="token del" data-title="function_definition/,">,</span> <span class="marker" id="mapping-183"></span><span class="token mv" id="move-src-104" data-title="function_definition/parameter">bytes <span class="marker" id="mapping-184"></span><span class="token del" data-title="parameter/identifier">data</span></span>) <span class="marker" id="mapping-185"></span><span class="token del" data-title="function_definition/state_mutability">payable</span> public <span class="marker" id="mapping-186"></span><span class="token upd" id="move-src-105" data-title="modifier_invocation/identifier"><span class="cupd">only</span><span class="cupd">Proxy</span>Owner</span> {
+        <span class="marker" id="mapping-187"></span><span class="token upd" id="move-src-106" data-title="call_expression/identifier"><span class="cupd">u</span>pg<span class="cupd">r</span>adeTo</span>(<span class="marker" id="mapping-188"></span><span class="token del" data-title="call_expression/call_argument">version</span><span class="marker" id="mapping-189"></span><span class="token del" data-title="call_expression/,">,</span> <span class="marker" id="mapping-190"></span><span class="token del" data-title="call_expression/call_argument">implementation</span>);
+        <span class="marker" id="mapping-191"></span><span class="token mv" id="move-src-107" data-title="function_body/expression_statement"><span class="marker" id="mapping-192"></span><span class="token del" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-193"></span><span class="token del" data-title="call_expression/call_argument"><span class="marker" id="mapping-194"></span><span class="token del" data-title="call_argument/call_expression"><span class="marker" id="mapping-195"></span><span class="token mv" id="move-src-108" data-title="call_expression/call_expression"><span class="marker" id="mapping-196"></span><span class="token mv" id="move-src-109" data-title="member_expression/member_expression">address(this).<span class="marker" id="mapping-197"></span><span class="token upd" id="move-src-110" data-title="member_expression/identifier">c<span class="cupd">al</span>l</span></span><span class="marker" id="mapping-198"></span><span class="token mv" id="move-src-111" data-title="member_expression/.">.</span><span class="marker" id="mapping-199"></span><span class="token upd" id="move-src-112" data-title="member_expression/identifier">value</span>(<span class="marker" id="mapping-200"></span><span class="token del" data-title="call_argument/member_expression">msg.value</span>)</span>(<span class="marker" id="mapping-201"></span><span class="token del" data-title="call_expression/call_argument">data</span>)</span></span>)</span>;</span>
+    }</span>
+}
+
+<span class="marker" id="mapping-202"></span><span class="token upd" id="move-src-113" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>F<span class="cupd">i</span><span class="cupd">le</span>:<span class="cupd"> </span>co<span class="cupd">nt</span><span class="cupd">r</span><span class="cupd">ac</span><span class="cupd">t</span><span class="cupd">s</span><span class="cupd">/</span>up<span class="cupd">g</span>radeab<span class="cupd">i</span>li<span class="cupd">t</span>y<span class="cupd">/</span>E<span class="cupd">t</span><span class="cupd">er</span>nalStorag<span class="cupd">e</span><span class="cupd">P</span>roxy.sol</span>
+
+<span class="marker" id="mapping-203"></span><span class="token mv" id="move-src-114" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+
+
+<span class="marker" id="mapping-204"></span><span class="token upd" id="move-src-115" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+ * @<span class="cupd">t</span>i<span class="cupd">tl</span><span class="cupd">e</span> <span class="cupd">E</span>t<span class="cupd">e</span>r<span class="cupd">n</span>al<span class="cupd">S</span>torageProxy
+ * @dev T<span class="cupd">h</span>i<span class="cupd">s</span> proxy holds the sto<span class="cupd">r</span>age of the token co<span class="cupd">nt</span>ract <span class="cupd">a</span>nd<span class="cupd"> </span>del<span class="cupd">e</span>gates every <span class="cupd">c</span>all to <span class="cupd">t</span>h<span class="cupd">e</span> current implementa<span class="cupd">ti</span>on <span class="cupd">s</span>et.
+ * Besides, it allows to <span class="cupd">up</span>gra<span class="cupd">d</span>e the tok<span class="cupd">e</span>n's <span class="cupd">b</span>ehaviour tow<span class="cupd">a</span>rds furth<span class="cupd">e</span>r implementations, an<span class="cupd">d</span> p<span class="cupd">ro</span><span class="cupd">v</span><span class="cupd">i</span>des basic
+ * <span class="cupd">a</span>uthorization control functionalities
+ */</span>
+<span class="marker" id="mapping-205"></span><span class="token del" data-title="source_file/contract_declaration">contract EternalStorageProxy is <span class="marker" id="mapping-206"></span><span class="token del" data-title="contract_declaration/inheritance_specifier">OwnedUpgradeabilityProxy</span>, <span class="marker" id="mapping-207"></span><span class="token mv" id="move-src-116" data-title="contract_declaration/inheritance_specifier">EternalStorage</span> <span class="marker" id="mapping-208"></span><span class="token del" data-title="contract_declaration/contract_body">{}</span></span></pre></div><div class="col-6"><h5>0xfdfd80d93b0428075ae5904e6f40f56bbba2f0e0.etherscan.io-ForeignBridgeErcToErc.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-209"></span><span class="token upd" id="move-dst-5" data-title="source_file/comment"><span class="cupd">// File: </span>openzeppelin-solidity/<span class="cupd">contracts/</span>m<span class="cupd">a</span>th/Saf<span class="cupd">e</span>M<span class="cupd">a</span><span class="cupd">t</span>h<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-210"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity ^0.4.24;</span>
+
+<span class="marker" id="mapping-211"></span><span class="token upd" id="move-dst-7" data-title="source_file/comment"><span class="cupd">/**
+ * @title</span> SafeMat<span class="cupd">h
+ * @de</span>v <span class="cupd">Ma</span><span class="cupd">t</span>h<span class="cupd"> </span>opera<span class="cupd">t</span>i<span class="cupd">o</span>ns<span class="cupd"> </span><span class="cupd">w</span>i<span class="cupd">t</span>h s<span class="cupd">a</span><span class="cupd">f</span><span class="cupd">ety</span> chec<span class="cupd">ks</span> <span class="cupd">t</span>h<span class="cupd">a</span><span class="cupd">t </span>r<span class="cupd">e</span>v<span class="cupd">e</span>r<span class="cupd">t </span><span class="cupd">o</span>n err<span class="cupd">o</span>r<span class="cupd">
+</span> */</span>
+<span class="marker" id="mapping-212"></span><span class="token add" data-title="source_file/library_declaration">library SafeMath {
+
+  /**
+  * @dev Multiplies two numbers, reverts on overflow.
+  */
+  function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+    // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+    // benefit is lost if 'b' is also tested.
+    // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+    if (a == 0) {
+      return 0;
+    }
+
+    uint256 c = a * b;
+    require(c / a == b);
+
+    return c;
+  }
+
+  /**
+  * @dev Integer division of two numbers truncating the quotient, reverts on division by zero.
+  */
+  function div(uint256 a, uint256 b) internal pure returns (uint256) {
+    require(b &gt; 0); // Solidity only automatically asserts when dividing by 0
+    uint256 c = a / b;
+    // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+    return c;
+  }
+
+  /**
+  * @dev Subtracts two numbers, reverts on overflow (i.e. if subtrahend is greater than minuend).
+  */
+  function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+    require(b &lt;= a);
+    uint256 c = a - b;
+
+    return c;
+  }
+
+  /**
+  * @dev Adds two numbers, reverts on overflow.
+  */
+  function add(uint256 a, uint256 b) internal pure returns (uint256) {
+    uint256 c = a + b;
+    require(c &gt;= a);
+
+    return c;
+  }
+
+  /**
+  * @dev Divides two numbers and returns the remainder (unsigned integer modulo),
+  * reverts when dividing by zero.
+  */
+  function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+    require(b != 0);
+    return a % b;
+  }
+}</span>
+
+<span class="marker" id="mapping-213"></span><span class="token upd" id="move-dst-31" data-title="source_file/comment"><span class="cupd">// File: contracts/</span>IB<span class="cupd">r</span>i<span class="cupd">d</span>g<span class="cupd">e</span>V<span class="cupd">a</span><span class="cupd">li</span><span class="cupd">d</span><span class="cupd">a</span><span class="cupd">t</span><span class="cupd">or</span>s<span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-214"></span><span class="token mv" id="move-dst-6" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+<span class="marker" id="mapping-215"></span><span class="token add" data-title="source_file/interface_declaration">interface IBridgeValidators <span class="marker" id="mapping-216"></span><span class="token add" data-title="interface_declaration/contract_body">{
+    <span class="marker" id="mapping-217"></span><span class="token add" data-title="contract_body/function_definition">function initialize(uint256 _requiredSignatures, address[] _initialValidators, address _owner) public returns(bool);</span>
+    <span class="marker" id="mapping-218"></span><span class="token add" data-title="contract_body/function_definition">function isValidator(address _validator) public view returns(bool);</span>
+    <span class="marker" id="mapping-219"></span><span class="token add" data-title="contract_body/function_definition">function requiredSignatures() public view returns(uint256);</span>
+    <span class="marker" id="mapping-220"></span><span class="token mv" id="move-dst-8" data-title="contract_body/function_definition">function <span class="marker" id="mapping-221"></span><span class="token upd" id="move-dst-9" data-title="function_definition/identifier"><span class="cupd">o</span>wner</span>() public view returns(address);</span>
+}</span></span>
+
+<span class="marker" id="mapping-222"></span><span class="token upd" id="move-dst-33" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>F<span class="cupd">i</span><span class="cupd">le</span>:<span class="cupd"> </span><span class="cupd">contract</span>s/IF<span class="cupd">o</span>r<span class="cupd">e</span>ig<span class="cupd">n</span>B<span class="cupd">r</span>idg<span class="cupd">e</span>V<span class="cupd">a</span>l<span class="cupd">i</span>d<span class="cupd">a</span><span class="cupd">to</span>r<span class="cupd">s</span>.s<span class="cupd">o</span>l</span>
+
+<span class="marker" id="mapping-223"></span><span class="token mv" id="move-dst-32" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+<span class="marker" id="mapping-224"></span><span class="token add" data-title="source_file/interface_declaration">interface IForeignBridgeValidators {
+    function isValidator(address _validator) public view returns(bool);
+    function requiredSignatures() public view returns(uint256);
+    function setValidators(address[] _validators) public returns(bool);
+}</span>
+
+<span class="marker" id="mapping-225"></span><span class="token upd" id="move-dst-47" data-title="source_file/comment"><span class="cupd">// File: contracts/</span>lib<span class="cupd">ra</span>ri<span class="cupd">e</span>s/Mess<span class="cupd">a</span><span class="cupd">g</span><span class="cupd">e</span><span class="cupd">.sol</span></span>
+
+<span class="marker" id="mapping-226"></span><span class="token mv" id="move-dst-2" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+
+
+<span class="marker" id="mapping-227"></span><span class="token add" data-title="source_file/library_declaration">library Message <span class="marker" id="mapping-228"></span><span class="token add" data-title="library_declaration/contract_body">{
+    <span class="marker" id="mapping-229"></span><span class="token add" data-title="contract_body/function_definition">function addressArrayContains(address[] array, address value) internal pure returns (bool) {
+        for (uint256 i = 0; i &lt; array.length; i++) {
+            if (array[i] == value) {
+                return true;
+            }
+        }
+        return false;
+    }</span>
+    // layout of message :: bytes:
+    // offset  0: 32 bytes :: uint256 - message length
+    // offset 32: 20 bytes :: address - recipient address
+    // offset 52: 32 bytes :: uint256 - value
+    // offset 84: 32 bytes :: bytes32 - transaction hash
+    // offset 104: 20 bytes :: address - contract address to prevent double spending
+
+    // bytes 1 to 32 are 0 because message length is stored as little endian.
+    // mload always reads 32 bytes.
+    // so we can and have to start reading recipient at offset 20 instead of 32.
+    // if we were to read at 32 the address would contain part of value and be corrupted.
+    // when reading from offset 20 mload will read 12 zero bytes followed
+    // by the 20 recipient address bytes and correctly convert it into an address.
+    // this saves some storage/gas over the alternative solution
+    // which is padding address to 32 bytes and reading recipient at offset 32.
+    // for more details see discussion in:
+    // https://github.com/paritytech/parity-bridge/issues/61
+    <span class="marker" id="mapping-230"></span><span class="token add" data-title="contract_body/function_definition">function parseMessage(<span class="marker" id="mapping-231"></span><span class="token add" data-title="function_definition/parameter">bytes message</span>)
+        <span class="marker" id="mapping-232"></span><span class="token add" data-title="function_definition/visibility">internal</span>
+        <span class="marker" id="mapping-233"></span><span class="token add" data-title="function_definition/state_mutability">pure</span>
+        <span class="marker" id="mapping-234"></span><span class="token add" data-title="function_definition/return_type_definition">returns(address recipient, uint256 amount, bytes32 txHash, address contractAddress)</span>
+    <span class="marker" id="mapping-235"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-236"></span><span class="token add" data-title="function_body/expression_statement">require(isMessageValid(message));</span>
+        <span class="marker" id="mapping-237"></span><span class="token add" data-title="function_body/assembly_statement">assembly {
+            <span class="marker" id="mapping-238"></span><span class="token add" data-title="assembly_statement/yul_assignment">recipient := and(mload(add(message, 20)), 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF)</span>
+            <span class="marker" id="mapping-239"></span><span class="token add" data-title="assembly_statement/yul_assignment"><span class="marker" id="mapping-240"></span><span class="token add" data-title="yul_assignment/yul_path">amount</span> := <span class="marker" id="mapping-241"></span><span class="token add" data-title="yul_assignment/yul_function_call"><span class="marker" id="mapping-242"></span><span class="token mv" id="move-dst-23" data-title="yul_function_call/yul_evm_builtin">mload</span>(<span class="marker" id="mapping-243"></span><span class="token add" data-title="yul_function_call/yul_function_call">add(message, 52)</span>)</span></span>
+            <span class="marker" id="mapping-244"></span><span class="token add" data-title="assembly_statement/yul_assignment"><span class="marker" id="mapping-245"></span><span class="token add" data-title="yul_assignment/yul_path">txHash</span> := <span class="marker" id="mapping-246"></span><span class="token add" data-title="yul_assignment/yul_function_call"><span class="marker" id="mapping-247"></span><span class="token mv" id="move-dst-27" data-title="yul_function_call/yul_evm_builtin">mload</span>(<span class="marker" id="mapping-248"></span><span class="token add" data-title="yul_function_call/yul_function_call">add(message, 84)</span>)</span></span>
+            <span class="marker" id="mapping-249"></span><span class="token add" data-title="assembly_statement/yul_assignment"><span class="marker" id="mapping-250"></span><span class="token add" data-title="yul_assignment/yul_path">contractAddress</span> := <span class="marker" id="mapping-251"></span><span class="token add" data-title="yul_assignment/yul_function_call"><span class="marker" id="mapping-252"></span><span class="token add" data-title="yul_function_call/yul_evm_builtin">mload</span>(<span class="marker" id="mapping-253"></span><span class="token add" data-title="yul_function_call/yul_function_call"><span class="marker" id="mapping-254"></span><span class="token mv" id="move-dst-25" data-title="yul_function_call/yul_evm_builtin">add</span>(<span class="marker" id="mapping-255"></span><span class="token add" data-title="yul_function_call/yul_path">message</span>, 104)</span>)</span></span>
+        }</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-256"></span><span class="token add" data-title="contract_body/function_definition">function parseNewSetMessage(<span class="marker" id="mapping-257"></span><span class="token add" data-title="function_definition/parameter">bytes message</span>)
+        <span class="marker" id="mapping-258"></span><span class="token add" data-title="function_definition/visibility">internal</span>
+        <span class="marker" id="mapping-259"></span><span class="token add" data-title="function_definition/return_type_definition">returns(address[] memory newSet, bytes32 txHash, address contractAddress)</span>
+    <span class="marker" id="mapping-260"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-261"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 msgLength;</span>
+        <span class="marker" id="mapping-262"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 position;</span>
+        <span class="marker" id="mapping-263"></span><span class="token mv" id="move-dst-14" data-title="function_body/variable_declaration_statement">address <span class="marker" id="mapping-264"></span><span class="token upd" id="move-dst-15" data-title="variable_declaration/identifier">newSetMember</span>;</span>
+        <span class="marker" id="mapping-265"></span><span class="token add" data-title="function_body/assembly_statement">assembly {
+            <span class="marker" id="mapping-266"></span><span class="token add" data-title="assembly_statement/yul_assignment">msgLength := mload(message)</span>
+            <span class="marker" id="mapping-267"></span><span class="token add" data-title="assembly_statement/yul_assignment">txHash := mload(add(message, 32))</span>
+            <span class="marker" id="mapping-268"></span><span class="token add" data-title="assembly_statement/yul_assignment"><span class="marker" id="mapping-269"></span><span class="token add" data-title="yul_assignment/yul_path">contractAddress</span> := <span class="marker" id="mapping-270"></span><span class="token add" data-title="yul_assignment/yul_function_call"><span class="marker" id="mapping-271"></span><span class="token add" data-title="yul_function_call/yul_evm_builtin">mload</span>(<span class="marker" id="mapping-272"></span><span class="token add" data-title="yul_function_call/yul_function_call"><span class="marker" id="mapping-273"></span><span class="token mv" id="move-dst-30" data-title="yul_function_call/yul_evm_builtin">add</span>(<span class="marker" id="mapping-274"></span><span class="token add" data-title="yul_function_call/yul_path">message</span>, 52)</span>)</span></span>
+            <span class="marker" id="mapping-275"></span><span class="token add" data-title="assembly_statement/yul_assignment">position := 72</span>
+        }</span>
+        <span class="marker" id="mapping-276"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 newSetLength = (msgLength - position) / 20 + 1;</span>
+        <span class="marker" id="mapping-277"></span><span class="token add" data-title="function_body/expression_statement">newSet = new address[](newSetLength);</span>
+        <span class="marker" id="mapping-278"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 i = 0;</span>
+        <span class="marker" id="mapping-279"></span><span class="token add" data-title="function_body/while_statement">while (position &lt;= msgLength) {
+            assembly {
+                newSetMember := mload(add(message, position))
+            }
+            newSet[i] = newSetMember;
+            position += 20;
+            i++;
+        }</span>
+        <span class="marker" id="mapping-280"></span><span class="token add" data-title="function_body/return_statement">return (newSet, txHash, contractAddress);</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-281"></span><span class="token add" data-title="contract_body/function_definition">function isMessageValid(bytes _msg) internal pure returns(bool) {
+        return _msg.length == requiredMessageLength();
+    }</span>
+
+    <span class="marker" id="mapping-282"></span><span class="token add" data-title="contract_body/function_definition">function requiredMessageLength() internal pure returns(uint256) {
+        return 104;
+    }</span>
+
+    <span class="marker" id="mapping-283"></span><span class="token add" data-title="contract_body/function_definition">function recoverAddressFromSignedMessage(bytes signature, bytes message, bool knownLength) internal pure returns (address) {
+        require(signature.length == 65);
+        bytes32 r;
+        bytes32 s;
+        bytes1 v;
+        // solium-disable-next-line security/no-inline-assembly
+        assembly {
+            r := mload(add(signature, 0x20))
+            s := mload(add(signature, 0x40))
+            v := mload(add(signature, 0x60))
+        }
+        if (knownLength) {
+            return ecrecover(hashMessage(message), uint8(v), r, s);
+        } else {
+            return ecrecover(hashMessageOfUnknownLength(message), uint8(v), r, s);
+        }
+    }</span>
+
+    <span class="marker" id="mapping-284"></span><span class="token add" data-title="contract_body/function_definition">function hashMessage(bytes message) internal pure returns (bytes32) {
+        bytes memory prefix = "\x19Ethereum Signed Message:\n";
+        // message is always 84 length
+        string memory msgLength = "104";
+        return keccak256(abi.encodePacked(prefix, msgLength, message));
+    }</span>
+
+    <span class="marker" id="mapping-285"></span><span class="token add" data-title="contract_body/function_definition">function hashMessageOfUnknownLength(<span class="marker" id="mapping-286"></span><span class="token add" data-title="function_definition/parameter">bytes message</span>) <span class="marker" id="mapping-287"></span><span class="token add" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-288"></span><span class="token add" data-title="function_definition/state_mutability">pure</span> <span class="marker" id="mapping-289"></span><span class="token add" data-title="function_definition/return_type_definition">returns (bytes32)</span> <span class="marker" id="mapping-290"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-291"></span><span class="token add" data-title="function_body/variable_declaration_statement">bytes memory prefix = "\x19Ethereum Signed Message:\n";</span>
+        <span class="marker" id="mapping-292"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 lengthOffset;</span>
+        <span class="marker" id="mapping-293"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 length;</span>
+        <span class="marker" id="mapping-294"></span><span class="token add" data-title="function_body/assembly_statement">assembly {
+          // The first word of a string is its length
+          length := mload(message)
+          // The beginning of the base-10 message length in the prefix
+          lengthOffset := add(prefix, 57)
+        }</span>
+        <span class="marker" id="mapping-295"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 lengthLength = 0;</span>
+        // The divisor to get the next left-most message length digit
+        <span class="marker" id="mapping-296"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 divisor = 100000;</span>
+        // Move one digit of the message length to the right at a time
+        <span class="marker" id="mapping-297"></span><span class="token add" data-title="function_body/while_statement">while (divisor != 0) {
+          // The place value at the divisor
+          uint256 digit = length / divisor;
+          if (digit == 0) {
+            // Skip leading zeros
+            if (lengthLength == 0) {
+              divisor /= 10;
+              continue;
+            }
+          }
+          // Found a non-zero digit or non-leading zero digit
+          lengthLength++;
+          // Remove this digit from the message length's current value
+          length -= digit * divisor;
+          // Shift our base-10 divisor over
+          divisor /= 10;
+          // Convert the digit to its ASCII representation (man ascii)
+          digit += 0x30;
+          // Move to the next character and write the digit
+          lengthOffset++;
+          assembly {
+            mstore8(lengthOffset, digit)
+          }
+        }</span>
+        // The null string requires exactly 1 zero (unskip 1 leading 0)
+        <span class="marker" id="mapping-298"></span><span class="token add" data-title="function_body/if_statement">if (lengthLength == 0) {
+          lengthLength = 1 + 0x19 + 1;
+        } else {
+          lengthLength += 1 + 0x19;
+        }</span>
+        // Truncate the tailing zeros from the prefix
+        <span class="marker" id="mapping-299"></span><span class="token add" data-title="function_body/assembly_statement">assembly {
+          <span class="marker" id="mapping-300"></span><span class="token add" data-title="assembly_statement/yul_function_call"><span class="marker" id="mapping-301"></span><span class="token mv" id="move-dst-24" data-title="yul_function_call/yul_evm_builtin">mstore</span>(<span class="marker" id="mapping-302"></span><span class="token add" data-title="yul_function_call/yul_path">prefix</span>, <span class="marker" id="mapping-303"></span><span class="token add" data-title="yul_function_call/yul_path">lengthLength</span>)</span>
+        }</span>
+        <span class="marker" id="mapping-304"></span><span class="token add" data-title="function_body/return_statement">return keccak256(prefix, message);</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-305"></span><span class="token add" data-title="contract_body/function_definition">function hasEnoughValidSignatures(
+        bytes _message,
+        uint8[] _vs,
+        bytes32[] _rs,
+        bytes32[] _ss,
+        IBridgeValidators _validatorContract) internal view
+    {
+        uint256 requiredSignatures = _validatorContract.requiredSignatures();
+        require(_vs.length &gt;= requiredSignatures);
+        bytes32 hash = hashMessage(_message);
+        address[] memory encounteredAddresses = new address[](requiredSignatures);
+
+        for (uint256 i = 0; i &lt; requiredSignatures; i++) {
+            address recoveredAddress = ecrecover(hash, _vs[i], _rs[i], _ss[i]);
+            require(_validatorContract.isValidator(recoveredAddress));
+            if (addressArrayContains(encounteredAddresses, recoveredAddress)) {
+                revert();
+            }
+            encounteredAddresses[i] = recoveredAddress;
+        }
+    }</span>
+
+    <span class="marker" id="mapping-306"></span><span class="token add" data-title="contract_body/function_definition">function hasEnoughValidSignaturesForeignBridgeValidator(
+        bytes _message,
+        uint8[] _vs,
+        bytes32[] _rs,
+        bytes32[] _ss,
+        IForeignBridgeValidators _validatorContract) internal view
+    {
+        uint256 requiredSignatures = _validatorContract.requiredSignatures();
+        require(_vs.length &gt;= requiredSignatures);
+        bytes32 hash = hashMessage(_message);
+        address[] memory encounteredAddresses = new address[](requiredSignatures);
+
+        for (uint256 i = 0; i &lt; requiredSignatures; i++) {
+            address recoveredAddress = ecrecover(hash, _vs[i], _rs[i], _ss[i]);
+            require(_validatorContract.isValidator(recoveredAddress));
+            if (addressArrayContains(encounteredAddresses, recoveredAddress)) {
+                revert();
+            }
+            encounteredAddresses[i] = recoveredAddress;
+        }
+    }</span>
+
+    <span class="marker" id="mapping-307"></span><span class="token add" data-title="contract_body/function_definition">function hasEnoughValidNewSetSignaturesForeignBridgeValidator(
+        bytes _message,
+        uint8[] _vs,
+        bytes32[] _rs,
+        bytes32[] _ss,
+        IForeignBridgeValidators _validatorContract) internal view
+    {
+        uint256 requiredSignatures = _validatorContract.requiredSignatures();
+        require(_vs.length &gt;= requiredSignatures);
+        bytes32 hash = hashMessageOfUnknownLength(_message);
+        address[] memory encounteredAddresses = new address[](requiredSignatures);
+
+        for (uint256 i = 0; i &lt; requiredSignatures; i++) {
+            address recoveredAddress = ecrecover(hash, _vs[i], _rs[i], _ss[i]);
+            require(_validatorContract.isValidator(recoveredAddress));
+            if (addressArrayContains(encounteredAddresses, recoveredAddress)) {
+                revert();
+            }
+            encounteredAddresses[i] = recoveredAddress;
+        }
+    }</span>
+
+    <span class="marker" id="mapping-308"></span><span class="token add" data-title="contract_body/function_definition">function recover(<span class="marker" id="mapping-309"></span><span class="token add" data-title="function_definition/parameter">bytes32 hash</span>, <span class="marker" id="mapping-310"></span><span class="token add" data-title="function_definition/parameter">bytes sig</span>) <span class="marker" id="mapping-311"></span><span class="token add" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-312"></span><span class="token add" data-title="function_definition/state_mutability">pure</span> <span class="marker" id="mapping-313"></span><span class="token add" data-title="function_definition/return_type_definition">returns (address)</span> <span class="marker" id="mapping-314"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-315"></span><span class="token add" data-title="function_body/variable_declaration_statement">bytes32 r;</span>
+        <span class="marker" id="mapping-316"></span><span class="token add" data-title="function_body/variable_declaration_statement">bytes32 s;</span>
+        <span class="marker" id="mapping-317"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint8 v;</span>
+
+        // Check the signature length
+        <span class="marker" id="mapping-318"></span><span class="token add" data-title="function_body/if_statement">if (sig.length != 65) {
+          return (address(0));
+        }</span>
+
+        // Divide the signature in r, s and v variables
+        <span class="marker" id="mapping-319"></span><span class="token add" data-title="function_body/assembly_statement">assembly {
+          <span class="marker" id="mapping-320"></span><span class="token add" data-title="assembly_statement/yul_assignment"><span class="marker" id="mapping-321"></span><span class="token add" data-title="yul_assignment/yul_path">r</span> := <span class="marker" id="mapping-322"></span><span class="token add" data-title="yul_assignment/yul_function_call"><span class="marker" id="mapping-323"></span><span class="token add" data-title="yul_function_call/yul_evm_builtin">mload</span>(<span class="marker" id="mapping-324"></span><span class="token add" data-title="yul_function_call/yul_function_call"><span class="marker" id="mapping-325"></span><span class="token add" data-title="yul_function_call/yul_evm_builtin">add</span>(<span class="marker" id="mapping-326"></span><span class="token mv" id="move-dst-26" data-title="yul_function_call/yul_path">sig</span>, 32)</span>)</span></span>
+          <span class="marker" id="mapping-327"></span><span class="token add" data-title="assembly_statement/yul_assignment"><span class="marker" id="mapping-328"></span><span class="token add" data-title="yul_assignment/yul_path">s</span> := <span class="marker" id="mapping-329"></span><span class="token add" data-title="yul_assignment/yul_function_call"><span class="marker" id="mapping-330"></span><span class="token add" data-title="yul_function_call/yul_evm_builtin">mload</span>(<span class="marker" id="mapping-331"></span><span class="token mv" id="move-dst-28" data-title="yul_function_call/yul_function_call"><span class="marker" id="mapping-332"></span><span class="token add" data-title="yul_evm_builtin/add">add</span>(sig<span class="marker" id="mapping-333"></span><span class="token mv" id="move-dst-29" data-title="yul_function_call/,">,</span> <span class="marker" id="mapping-334"></span><span class="token add" data-title="yul_function_call/yul_decimal_number">64</span>)</span>)</span></span>
+          <span class="marker" id="mapping-335"></span><span class="token add" data-title="assembly_statement/yul_assignment">v := byte(0, mload(add(sig, 96)))</span>
+        }</span>
+
+        // Version of signature should be 27 or 28, but 0 and 1 are also possible versions
+        <span class="marker" id="mapping-336"></span><span class="token add" data-title="function_body/if_statement">if (v &lt; 27) {
+          v += 27;
+        }</span>
+
+        // If the version is correct return the signer address
+        <span class="marker" id="mapping-337"></span><span class="token add" data-title="function_body/if_statement">if (v != 27 &amp;&amp; v != 28) {
+          return (address(0));
+        } else {
+          return ecrecover(hash, v, r, s);
+        }</span>
+    }</span></span>
+}</span></span>
+
+<span class="marker" id="mapping-338"></span><span class="token upd" id="move-dst-49" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>File:<span class="cupd"> </span>con<span class="cupd">t</span>rac<span class="cupd">t</span>s/IOwn<span class="cupd">e</span>d<span class="cupd">UpgradeabilityProxy</span>.<span class="cupd">s</span><span class="cupd">o</span>l</span>
+
+<span class="marker" id="mapping-339"></span><span class="token mv" id="move-dst-48" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+<span class="marker" id="mapping-340"></span><span class="token add" data-title="source_file/interface_declaration">interface IOwnedUpgradeabilityProxy <span class="marker" id="mapping-341"></span><span class="token add" data-title="interface_declaration/contract_body">{
+    <span class="marker" id="mapping-342"></span><span class="token mv" id="move-dst-40" data-title="contract_body/function_definition">function <span class="marker" id="mapping-343"></span><span class="token upd" id="move-dst-41" data-title="function_definition/identifier"><span class="cupd">p</span>r<span class="cupd">o</span>xyOwner</span>() public view returns (address);</span>
+}</span></span>
+
+<span class="marker" id="mapping-344"></span><span class="token upd" id="move-dst-60" data-title="source_file/comment"><span class="cupd">// File: contracts/upgradeab</span><span class="cupd">l</span>e_con<span class="cupd">t</span>racts<span class="cupd">/</span>Owned<span class="cupd">Upgradeability</span><span class="cupd">.sol</span></span>
+
+pragma solidity 0.4.24;
+
+
+
+contract <span class="marker" id="mapping-345"></span><span class="token upd" id="move-dst-63" data-title="contract_declaration/identifier">Owned<span class="cupd">Upgradeability</span></span> {
+
+    function <span class="marker" id="mapping-346"></span><span class="token upd" id="move-dst-68" data-title="function_definition/identifier"><span class="cupd">upgradeability</span>Admin</span>() public view returns (address) {
+        return <span class="marker" id="mapping-347"></span><span class="token add" data-title="return_statement/call_expression">IOwnedUpgradeabilityProxy(this).proxyOwner()</span>;
+    }
+
+    <span class="marker" id="mapping-348"></span><span class="token mv" id="move-dst-65" data-title="contract_body/comment"><span class="marker" id="mapping-349"></span><span class="token upd" id="move-dst-65" data-title="contract_body/comment"><span class="cupd">// </span>Avoid using onlyProxy<span class="cupd">Owner </span>name t<span class="cupd">o</span><span class="cupd"> </span>preven<span class="cupd">t</span> issues wit<span class="cupd">h</span> impl<span class="cupd">e</span>mentation<span class="cupd"> </span>from proxy <span class="cupd">contract</span></span></span>
+    <span class="marker" id="mapping-350"></span><span class="token add" data-title="contract_body/modifier_definition">modifier onlyIfOwnerOfProxy() {
+        require(msg.sender == upgradeabilityAdmin());
+        _;
+    }</span>
+}
+
+<span class="marker" id="mapping-351"></span><span class="token mv" id="move-dst-1" data-title="source_file/comment">// File: contracts/upgradeability/EternalStorage.sol</span>
+
+pragma solidity 0.4.24;
+
+
+<span class="marker" id="mapping-352"></span><span class="token mv" id="move-dst-3" data-title="source_file/comment">/**
+ * @title EternalStorage
+ * @dev This contract holds all the necessary state variables to carry out the storage of any contract.
+ */</span>
+<span class="marker" id="mapping-353"></span><span class="token mv" id="move-dst-4" data-title="source_file/contract_declaration">contract EternalStorage {
+
+    mapping(bytes32 =&gt; uint256) internal uintStorage;
+    mapping(bytes32 =&gt; string) internal stringStorage;
+    mapping(bytes32 =&gt; address) internal addressStorage;
+    mapping(bytes32 =&gt; bytes) internal bytesStorage;
+    mapping(bytes32 =&gt; bool) internal boolStorage;
+    mapping(bytes32 =&gt; int256) internal intStorage;
+
+
+    mapping(bytes32 =&gt; uint256[]) internal uintArrayStorage;
+    mapping(bytes32 =&gt; string[]) internal stringArrayStorage;
+    mapping(bytes32 =&gt; address[]) internal addressArrayStorage;
+    //mapping(bytes32 =&gt; bytes[]) internal bytesArrayStorage;
+    mapping(bytes32 =&gt; bool[]) internal boolArrayStorage;
+    mapping(bytes32 =&gt; int256[]) internal intArrayStorage;
+    mapping(bytes32 =&gt; bytes32[]) internal bytes32ArrayStorage;
+}</span>
+
+<span class="marker" id="mapping-354"></span><span class="token mv" id="move-dst-62" data-title="source_file/comment"><span class="marker" id="mapping-355"></span><span class="token upd" id="move-dst-62" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>F<span class="cupd">i</span><span class="cupd">le</span>:<span class="cupd"> </span>contracts/u<span class="cupd">pgradeab</span><span class="cupd">l</span><span class="cupd">e</span>_<span class="cupd">contract</span><span class="cupd">s</span>/E<span class="cupd">t</span><span class="cupd">e</span><span class="cupd">r</span>n<span class="cupd">a</span>lOwn<span class="cupd">ab</span><span class="cupd">l</span>e.sol</span></span>
+
+<span class="marker" id="mapping-356"></span><span class="token mv" id="move-dst-114" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+
+<span class="marker" id="mapping-357"></span><span class="token mv" id="move-dst-73" data-title="source_file/comment"><span class="marker" id="mapping-358"></span><span class="token upd" id="move-dst-73" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+ * @<span class="cupd">t</span>i<span class="cupd">tl</span><span class="cupd">e</span> EternalOwnable
+ * @dev Thi<span class="cupd">s contra</span>ct <span class="cupd">h</span>as an ow<span class="cupd">n</span>e<span class="cupd">r </span>ad<span class="cupd">d</span>ress pr<span class="cupd">o</span>v<span class="cupd">i</span><span class="cupd">d</span><span class="cupd">i</span>ng<span class="cupd"> </span>basi<span class="cupd">c</span> auth<span class="cupd">o</span>riz<span class="cupd">a</span>tion c<span class="cupd">o</span><span class="cupd">nt</span>rol
+ */</span></span>
+contract <span class="marker" id="mapping-359"></span><span class="token upd" id="move-dst-76" data-title="contract_declaration/identifier">Eternal<span class="cupd">Own</span><span class="cupd">a</span><span class="cupd">b</span>le</span> is <span class="marker" id="mapping-360"></span><span class="token mv" id="move-dst-116" data-title="contract_declaration/inheritance_specifier">EternalStorage</span> {
+    <span class="marker" id="mapping-361"></span><span class="token upd" id="move-dst-77" data-title="contract_body/comment"><span class="cupd">/**
+ </span>  <span class="cupd"> * @dev Event to show ownership has been transferred
+</span>  <span class="cupd">  * @param previousOwner representing the address of the previous owner</span>
+ <span class="cupd">   * @param newOwner representing the address of the new owner</span>
+<span class="cupd">  </span>  */</span>
+    event <span class="marker" id="mapping-362"></span><span class="token upd" id="move-dst-78" data-title="event_definition/identifier">Ete<span class="cupd">r</span>nal<span class="cupd">OwnershipTransferred</span></span>(address previousOwner, address newOwner);
+
+    /**
+    * @dev Throws if called by any account other than the owner.
+    */
+    modifier <span class="marker" id="mapping-363"></span><span class="token upd" id="move-dst-83" data-title="modifier_definition/identifier"><span class="cupd">only</span><span class="cupd">Owner</span></span>() {
+        require(msg.sender == <span class="marker" id="mapping-364"></span><span class="token upd" id="move-dst-84" data-title="call_expression/identifier"><span class="cupd">o</span><span class="cupd">wner</span></span>());
+        _;
+    }
+
+    <span class="marker" id="mapping-365"></span><span class="token mv" id="move-dst-80" data-title="contract_body/comment"><span class="marker" id="mapping-366"></span><span class="token upd" id="move-dst-80" data-title="contract_body/comment"><span class="cupd">/**
+    * @dev</span> Tells<span class="cupd"> the</span> ad<span class="cupd">d</span><span class="cupd">r</span><span class="cupd">e</span>s<span class="cupd">s</span> of<span class="cupd"> the </span><span class="cupd">owner</span><span class="cupd"></span>
+    * @<span class="cupd">r</span>eturn<span class="cupd"> th</span>e a<span class="cupd">d</span>dre<span class="cupd">s</span><span class="cupd">s</span> <span class="cupd">of th</span>e <span class="cupd">o</span><span class="cupd">wne</span><span class="cupd">r
+ </span><span class="cupd">  </span> */</span></span>
+    function <span class="marker" id="mapping-367"></span><span class="token upd" id="move-dst-87" data-title="function_definition/identifier"><span class="cupd">o</span><span class="cupd">wner</span></span>() public view returns (address) {
+        return <span class="marker" id="mapping-368"></span><span class="token add" data-title="return_statement/array_access">addressStorage[keccak256(abi.encodePacked("owner"))]</span>;
+    }
+
+    <span class="marker" id="mapping-369"></span><span class="token mv" id="move-dst-86" data-title="contract_body/comment"><span class="marker" id="mapping-370"></span><span class="token upd" id="move-dst-86" data-title="contract_body/comment"><span class="cupd">/**
+    * @dev</span> <span class="cupd">Al</span>lo<span class="cupd">ws the</span> c<span class="cupd">u</span>r<span class="cupd">r</span>ent owner to tra<span class="cupd">n</span>sfe<span class="cupd">r</span> <span class="cupd">c</span>ontrol <span class="cupd">of the</span> con<span class="cupd">t</span>ract <span class="cupd">t</span><span class="cupd">o</span> a n<span class="cupd">e</span>wO<span class="cupd">wne</span>r<span class="cupd">.
+    *</span> @<span class="cupd">p</span>aram<span class="cupd"> </span>newOw<span class="cupd">n</span><span class="cupd">er the addres</span>s<span class="cupd"> </span><span class="cupd">to</span> tran<span class="cupd">s</span><span class="cupd">f</span><span class="cupd">er own</span>ersh<span class="cupd">i</span>p t<span class="cupd">o.
+</span> <span class="cupd">  </span> */</span></span>
+    function <span class="marker" id="mapping-371"></span><span class="token upd" id="move-dst-90" data-title="function_definition/identifier"><span class="cupd">transfer</span><span class="cupd">Ownership</span></span>(address newOwner) public <span class="marker" id="mapping-372"></span><span class="token upd" id="move-dst-91" data-title="modifier_invocation/identifier"><span class="cupd">only</span><span class="cupd">Owner</span></span> {
+        require(newOwner != address(0));
+        <span class="marker" id="mapping-373"></span><span class="token upd" id="move-dst-93" data-title="call_expression/identifier"><span class="cupd">set</span><span class="cupd">Owner</span></span>(newOwner);
+    }
+
+    <span class="marker" id="mapping-374"></span><span class="token mv" id="move-dst-89" data-title="contract_body/comment"><span class="marker" id="mapping-375"></span><span class="token upd" id="move-dst-89" data-title="contract_body/comment"><span class="cupd">/**
+    * @dev</span> <span class="cupd">S</span><span class="cupd">e</span><span class="cupd">t</span><span class="cupd">s</span><span class="cupd"> </span><span class="cupd">a</span><span class="cupd"> ne</span><span class="cupd">w</span> <span class="cupd">o</span><span class="cupd">wner</span><span class="cupd"> address</span><span class="cupd"></span><span class="cupd">
+</span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd">  </span>*/</span></span>
+    function <span class="marker" id="mapping-376"></span><span class="token upd" id="move-dst-94" data-title="function_definition/identifier">setOwner</span>(<span class="marker" id="mapping-377"></span><span class="token add" data-title="function_definition/parameter">address newOwner</span>) <span class="marker" id="mapping-378"></span><span class="token mv" id="move-dst-71" data-title="function_definition/visibility">internal</span> {
+        <span class="marker" id="mapping-379"></span><span class="token add" data-title="function_body/emit_statement">emit EternalOwnershipTransferred(<span class="marker" id="mapping-380"></span><span class="token add" data-title="emit_statement/call_argument">owner()</span>, <span class="marker" id="mapping-381"></span><span class="token mv" id="move-dst-92" data-title="emit_statement/call_argument">newOwner</span>);</span>
+        <span class="marker" id="mapping-382"></span><span class="token add" data-title="expression_statement/assignment_expression">addressStorage[keccak256(abi.encodePacked("owner"))] = newOwner</span>;
+    }
+}
+
+<span class="marker" id="mapping-383"></span><span class="token mv" id="move-dst-75" data-title="source_file/comment"><span class="marker" id="mapping-384"></span><span class="token upd" id="move-dst-75" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>F<span class="cupd">i</span><span class="cupd">le</span>:<span class="cupd"> </span>ope<span class="cupd">n</span>z<span class="cupd">e</span><span class="cupd">p</span>p<span class="cupd">e</span>l<span class="cupd">i</span>n-so<span class="cupd">li</span>di<span class="cupd">ty</span>/<span class="cupd">contract</span>s/t<span class="cupd">o</span>k<span class="cupd">e</span><span class="cupd">n</span>/ERC20/IERC20.<span class="cupd">s</span><span class="cupd">o</span>l</span></span>
+
+<span class="marker" id="mapping-385"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity ^0.4.24;</span>
+
+<span class="marker" id="mapping-386"></span><span class="token upd" id="move-dst-113" data-title="source_file/comment"><span class="cupd">/</span>**<span class="cupd"></span>
+ * @<span class="cupd">t</span>i<span class="cupd">tl</span><span class="cupd">e</span> ERC20 <span class="cupd">in</span>t<span class="cupd">e</span>r<span class="cupd">fa</span>ce
+ * @dev see<span class="cupd"> </span>ht<span class="cupd">t</span>p<span class="cupd">s</span>:<span class="cupd">/</span><span class="cupd">/</span><span class="cupd">g</span>ithub.c<span class="cupd">o</span>m<span class="cupd">/</span>e<span class="cupd">th</span><span class="cupd">e</span>reum/<span class="cupd">E</span>IPs/issues/20
+ */</span>
+<span class="marker" id="mapping-387"></span><span class="token add" data-title="source_file/interface_declaration">interface IERC20 {
+  function totalSupply() external view returns (uint256);
+
+  function balanceOf(address who) external view returns (uint256);
+
+  function allowance(address owner, address spender)
+    external view returns (uint256);
+
+  function transfer(address to, uint256 value) external returns (bool);
+
+  function approve(address spender, uint256 value)
+    external returns (bool);
+
+  function transferFrom(address from, address to, uint256 value)
+    external returns (bool);
+
+  event Transfer(
+    address indexed from,
+    address indexed to,
+    uint256 value
+  );
+
+  event Approval(
+    address indexed owner,
+    address indexed spender,
+    uint256 value
+  );
+}</span>
+
+<span class="marker" id="mapping-388"></span><span class="token upd" id="move-dst-115" data-title="source_file/comment"><span class="cupd">/</span>/<span class="cupd"> </span>F<span class="cupd">i</span><span class="cupd">le</span>:<span class="cupd"> </span>con<span class="cupd">t</span><span class="cupd">r</span><span class="cupd">a</span>c<span class="cupd">t</span><span class="cupd">s</span>/u<span class="cupd">p</span><span class="cupd">g</span><span class="cupd">ra</span><span class="cupd">d</span><span class="cupd">e</span><span class="cupd">a</span>b<span class="cupd">l</span><span class="cupd">e</span>_<span class="cupd">c</span><span class="cupd">on</span><span class="cupd">t</span><span class="cupd">ra</span>c<span class="cupd">t</span><span class="cupd">s</span>/B<span class="cupd">a</span><span class="cupd">s</span><span class="cupd">i</span>cB<span class="cupd">r</span><span class="cupd">id</span>g<span class="cupd">e</span>.<span class="cupd">s</span><span class="cupd">o</span>l</span>
+
+<span class="marker" id="mapping-389"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+
+
+
+
+
+
+<span class="marker" id="mapping-390"></span><span class="token add" data-title="source_file/contract_declaration">contract BasicBridge is <span class="marker" id="mapping-391"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">EternalStorage</span>, <span class="marker" id="mapping-392"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">EternalOwnable</span>, <span class="marker" id="mapping-393"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">OwnedUpgradeability</span> <span class="marker" id="mapping-394"></span><span class="token add" data-title="contract_declaration/contract_body">{
+    <span class="marker" id="mapping-395"></span><span class="token add" data-title="contract_body/using_directive">using <span class="marker" id="mapping-396"></span><span class="token add" data-title="using_directive/type_alias">SafeMath</span> for <span class="marker" id="mapping-397"></span><span class="token mv" id="move-dst-34" data-title="using_directive/type_name">uint256</span>;</span>
+
+    <span class="marker" id="mapping-398"></span><span class="token mv" id="move-dst-50" data-title="contract_body/event_definition">event <span class="marker" id="mapping-399"></span><span class="token upd" id="move-dst-51" data-title="event_definition/identifier">GasP<span class="cupd">r</span>iceCh<span class="cupd">a</span>ng<span class="cupd">ed</span></span>(uint256 <span class="marker" id="mapping-400"></span><span class="token upd" id="move-dst-52" data-title="event_paramater/identifier">gasP<span class="cupd">r</span>ice</span>);</span>
+    <span class="marker" id="mapping-401"></span><span class="token add" data-title="contract_body/event_definition">event RequiredBlockConfirmationChanged(uint256 requiredBlockConfirmations);</span>
+    <span class="marker" id="mapping-402"></span><span class="token add" data-title="contract_body/event_definition">event DailyLimitChanged(uint256 newLimit);</span>
+    <span class="marker" id="mapping-403"></span><span class="token add" data-title="contract_body/event_definition">event ExecutionDailyLimitChanged(uint256 newLimit);</span>
+
+    <span class="marker" id="mapping-404"></span><span class="token add" data-title="contract_body/function_definition">function getBridgeInterfacesVersion() public pure returns(uint64 major, uint64 minor, uint64 patch) {
+        return (2, 2, 0);
+    }</span>
+
+    <span class="marker" id="mapping-405"></span><span class="token add" data-title="contract_body/function_definition">function setGasPrice(<span class="marker" id="mapping-406"></span><span class="token mv" id="move-dst-55" data-title="function_definition/parameter">uint256 <span class="marker" id="mapping-407"></span><span class="token upd" id="move-dst-56" data-title="parameter/identifier">_gasP<span class="cupd">r</span>ice</span></span>) <span class="marker" id="mapping-408"></span><span class="token add" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-409"></span><span class="token add" data-title="function_definition/modifier_invocation">onlyOwner</span> <span class="marker" id="mapping-410"></span><span class="token add" data-title="function_definition/function_body">{
+        require(_gasPrice &gt; 0);
+        uintStorage[keccak256(abi.encodePacked("gasPrice"))] = _gasPrice;
+        emit GasPriceChanged(_gasPrice);
+    }</span></span>
+
+    <span class="marker" id="mapping-411"></span><span class="token mv" id="move-dst-38" data-title="contract_body/function_definition">function <span class="marker" id="mapping-412"></span><span class="token upd" id="move-dst-39" data-title="function_definition/identifier">gasP<span class="cupd">r</span>ice</span>() public view returns(uint256) {
+        return <span class="marker" id="mapping-413"></span><span class="token add" data-title="return_statement/array_access">uintStorage[keccak256(abi.encodePacked("gasPrice"))]</span>;
+    }</span>
+
+    <span class="marker" id="mapping-414"></span><span class="token add" data-title="contract_body/function_definition">function setRequiredBlockConfirmations(uint256 _blockConfirmations) public onlyOwner {
+        require(_blockConfirmations &gt; 0);
+        uintStorage[keccak256(abi.encodePacked("requiredBlockConfirmations"))] = _blockConfirmations;
+        emit RequiredBlockConfirmationChanged(_blockConfirmations);
+    }</span>
+
+    <span class="marker" id="mapping-415"></span><span class="token add" data-title="contract_body/function_definition">function requiredBlockConfirmations() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("requiredBlockConfirmations"))];
+    }</span>
+
+    <span class="marker" id="mapping-416"></span><span class="token add" data-title="contract_body/function_definition">function deployedAtBlock() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("deployedAtBlock"))];
+    }</span>
+
+    <span class="marker" id="mapping-417"></span><span class="token add" data-title="contract_body/function_definition">function setTotalSpentPerDay(<span class="marker" id="mapping-418"></span><span class="token mv" id="move-dst-95" data-title="function_definition/parameter">uint256 <span class="marker" id="mapping-419"></span><span class="token upd" id="move-dst-96" data-title="parameter/identifier">_day</span></span>, <span class="marker" id="mapping-420"></span><span class="token add" data-title="function_definition/parameter">uint256 _value</span>) <span class="marker" id="mapping-421"></span><span class="token mv" id="move-dst-59" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-422"></span><span class="token add" data-title="function_definition/function_body">{
+        uintStorage[keccak256(abi.encodePacked("totalSpentPerDay", _day))] = _value;
+    }</span></span>
+
+    <span class="marker" id="mapping-423"></span><span class="token add" data-title="contract_body/function_definition">function totalSpentPerDay(<span class="marker" id="mapping-424"></span><span class="token add" data-title="function_definition/parameter">uint256 _day</span>) <span class="marker" id="mapping-425"></span><span class="token mv" id="move-dst-98" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-426"></span><span class="token add" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-427"></span><span class="token add" data-title="function_definition/return_type_definition">returns(uint256)</span> <span class="marker" id="mapping-428"></span><span class="token add" data-title="function_definition/function_body">{
+        return uintStorage[keccak256(abi.encodePacked("totalSpentPerDay", _day))];
+    }</span></span>
+
+    <span class="marker" id="mapping-429"></span><span class="token add" data-title="contract_body/function_definition">function setTotalExecutedPerDay(<span class="marker" id="mapping-430"></span><span class="token mv" id="move-dst-101" data-title="function_definition/parameter">uint256 <span class="marker" id="mapping-431"></span><span class="token upd" id="move-dst-102" data-title="parameter/identifier">_day</span></span>, <span class="marker" id="mapping-432"></span><span class="token add" data-title="function_definition/parameter">uint256 _value</span>) <span class="marker" id="mapping-433"></span><span class="token add" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-434"></span><span class="token add" data-title="function_definition/function_body">{
+        uintStorage[keccak256(abi.encodePacked("totalExecutedPerDay", _day))] = _value;
+    }</span></span>
+
+    <span class="marker" id="mapping-435"></span><span class="token add" data-title="contract_body/function_definition">function totalExecutedPerDay(uint256 _day) public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("totalExecutedPerDay", _day))];
+    }</span>
+
+    <span class="marker" id="mapping-436"></span><span class="token add" data-title="contract_body/function_definition">function minPerTx() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("minPerTx"))];
+    }</span>
+
+    <span class="marker" id="mapping-437"></span><span class="token add" data-title="contract_body/function_definition">function maxPerTx() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("maxPerTx"))];
+    }</span>
+
+    <span class="marker" id="mapping-438"></span><span class="token add" data-title="contract_body/function_definition">function executionMaxPerTx() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("executionMaxPerTx"))];
+    }</span>
+
+    <span class="marker" id="mapping-439"></span><span class="token add" data-title="contract_body/function_definition">function setInitialize(bool _status) internal {
+        boolStorage[keccak256(abi.encodePacked("isInitialized"))] = _status;
+    }</span>
+
+    <span class="marker" id="mapping-440"></span><span class="token add" data-title="contract_body/function_definition">function isInitialized() public view returns(bool) {
+        return boolStorage[keccak256(abi.encodePacked("isInitialized"))];
+    }</span>
+
+    <span class="marker" id="mapping-441"></span><span class="token add" data-title="contract_body/function_definition">function getCurrentDay() public view returns(uint256) {
+        return now / 1 days;
+    }</span>
+
+    <span class="marker" id="mapping-442"></span><span class="token add" data-title="contract_body/function_definition">function setDailyLimit(uint256 _dailyLimit) public onlyOwner {
+        uintStorage[keccak256(abi.encodePacked("dailyLimit"))] = _dailyLimit;
+        emit DailyLimitChanged(_dailyLimit);
+    }</span>
+
+    <span class="marker" id="mapping-443"></span><span class="token add" data-title="contract_body/function_definition">function dailyLimit() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("dailyLimit"))];
+    }</span>
+
+    <span class="marker" id="mapping-444"></span><span class="token add" data-title="contract_body/function_definition">function setExecutionDailyLimit(uint256 _dailyLimit) public onlyOwner {
+        uintStorage[keccak256(abi.encodePacked("executionDailyLimit"))] = _dailyLimit;
+        emit ExecutionDailyLimitChanged(_dailyLimit);
+    }</span>
+
+    <span class="marker" id="mapping-445"></span><span class="token add" data-title="contract_body/function_definition">function executionDailyLimit() public view returns(uint256) {
+        return uintStorage[keccak256(abi.encodePacked("executionDailyLimit"))];
+    }</span>
+
+    <span class="marker" id="mapping-446"></span><span class="token add" data-title="contract_body/function_definition">function setExecutionMaxPerTx(<span class="marker" id="mapping-447"></span><span class="token add" data-title="function_definition/parameter">uint256 _maxPerTx</span>) <span class="marker" id="mapping-448"></span><span class="token mv" id="move-dst-12" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-449"></span><span class="token add" data-title="function_definition/modifier_invocation">onlyOwner</span> <span class="marker" id="mapping-450"></span><span class="token add" data-title="function_definition/function_body">{
+        require(_maxPerTx &lt; executionDailyLimit());
+        uintStorage[keccak256(abi.encodePacked("executionMaxPerTx"))] = _maxPerTx;
+    }</span></span>
+
+    <span class="marker" id="mapping-451"></span><span class="token add" data-title="contract_body/function_definition">function setMaxPerTx(uint256 _maxPerTx) external onlyOwner {
+        require(_maxPerTx &lt; dailyLimit());
+        uintStorage[keccak256(abi.encodePacked("maxPerTx"))] = _maxPerTx;
+    }</span>
+
+    <span class="marker" id="mapping-452"></span><span class="token add" data-title="contract_body/function_definition">function setMinPerTx(uint256 _minPerTx) external onlyOwner {
+        require(_minPerTx &lt; dailyLimit() &amp;&amp; _minPerTx &lt; maxPerTx());
+        uintStorage[keccak256(abi.encodePacked("minPerTx"))] = _minPerTx;
+    }</span>
+
+    <span class="marker" id="mapping-453"></span><span class="token add" data-title="contract_body/function_definition">function withinLimit(uint256 _amount) public view returns(bool) {
+        uint256 nextLimit = totalSpentPerDay(getCurrentDay()).add(_amount);
+        return dailyLimit() &gt;= nextLimit &amp;&amp; _amount &lt;= maxPerTx() &amp;&amp; _amount &gt;= minPerTx();
+    }</span>
+
+    <span class="marker" id="mapping-454"></span><span class="token add" data-title="contract_body/function_definition">function withinExecutionLimit(uint256 _amount) public view returns(bool) {
+        uint256 nextLimit = totalExecutedPerDay(getCurrentDay()).add(_amount);
+        return executionDailyLimit() &gt;= nextLimit &amp;&amp; _amount &lt;= executionMaxPerTx();
+    }</span>
+
+    <span class="marker" id="mapping-455"></span><span class="token mv" id="move-dst-99" data-title="contract_body/function_definition">function <span class="marker" id="mapping-456"></span><span class="token upd" id="move-dst-100" data-title="function_definition/identifier">cl<span class="cupd">a</span>im<span class="cupd">To</span>kens</span>(<span class="marker" id="mapping-457"></span><span class="token mv" id="move-dst-42" data-title="function_definition/parameter">address <span class="marker" id="mapping-458"></span><span class="token upd" id="move-dst-43" data-title="parameter/identifier"><span class="cupd">_</span><span class="cupd">t</span><span class="cupd">o</span>ken</span></span>, <span class="marker" id="mapping-459"></span><span class="token mv" id="move-dst-10" data-title="function_definition/parameter">address <span class="marker" id="mapping-460"></span><span class="token upd" id="move-dst-11" data-title="parameter/identifier"><span class="cupd">_</span><span class="cupd">t</span>o</span></span>) public <span class="marker" id="mapping-461"></span><span class="token upd" id="move-dst-105" data-title="modifier_invocation/identifier"><span class="cupd">only</span>IfOwnerOf<span class="cupd">Proxy</span></span> {
+        <span class="marker" id="mapping-462"></span><span class="token mv" id="move-dst-16" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-463"></span><span class="token upd" id="move-dst-17" data-title="binary_expression/identifier">_to</span> != address(0));</span>
+        <span class="marker" id="mapping-464"></span><span class="token add" data-title="function_body/if_statement">if (<span class="marker" id="mapping-465"></span><span class="token add" data-title="if_statement/binary_expression">_token == address(0)</span>) <span class="marker" id="mapping-466"></span><span class="token add" data-title="if_statement/block_statement">{
+            <span class="marker" id="mapping-467"></span><span class="token mv" id="move-dst-107" data-title="block_statement/expression_statement"><span class="marker" id="mapping-468"></span><span class="token mv" id="move-dst-108" data-title="expression_statement/call_expression"><span class="marker" id="mapping-469"></span><span class="token upd" id="move-dst-112" data-title="member_expression/identifier">_to</span><span class="marker" id="mapping-470"></span><span class="token mv" id="move-dst-111" data-title="member_expression/.">.</span><span class="marker" id="mapping-471"></span><span class="token add" data-title="member_expression/identifier">transfer</span>(<span class="marker" id="mapping-472"></span><span class="token mv" id="move-dst-109" data-title="call_argument/member_expression">address(this).<span class="marker" id="mapping-473"></span><span class="token upd" id="move-dst-110" data-title="member_expression/identifier">b<span class="cupd">al</span>ance</span></span>)</span>;</span>
+            <span class="marker" id="mapping-474"></span><span class="token add" data-title="block_statement/return_statement">return;</span>
+        }</span></span>
+
+        <span class="marker" id="mapping-475"></span><span class="token add" data-title="function_body/variable_declaration_statement">IERC20 token = IERC20(_token);</span>
+        <span class="marker" id="mapping-476"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 balance = token.balanceOf(this);</span>
+        <span class="marker" id="mapping-477"></span><span class="token upd" id="move-dst-106" data-title="call_expression/identifier">req<span class="cupd">u</span>i<span class="cupd">r</span>e</span>(<span class="marker" id="mapping-478"></span><span class="token add" data-title="call_expression/call_argument">token.transfer(_to, balance)</span>);
+    }</span>
+
+
+    <span class="marker" id="mapping-479"></span><span class="token add" data-title="contract_body/function_definition">function isContract(address _addr) internal view returns (bool)
+    {
+        uint length;
+        assembly { length := extcodesize(_addr) }
+        return length &gt; 0;
+    }</span>
+}</span></span>
+
+<span class="marker" id="mapping-480"></span><span class="token add" data-title="source_file/comment">// File: contracts/upgradeable_contracts/BasicForeignBridge.sol</span>
+
+<span class="marker" id="mapping-481"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+
+
+<span class="marker" id="mapping-482"></span><span class="token add" data-title="source_file/contract_declaration">contract BasicForeignBridge is <span class="marker" id="mapping-483"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">EternalStorage</span> <span class="marker" id="mapping-484"></span><span class="token add" data-title="contract_declaration/contract_body">{
+    <span class="marker" id="mapping-485"></span><span class="token add" data-title="contract_body/using_directive">using SafeMath for uint256;</span>
+    /// triggered when relay of deposit from HomeBridge is complete
+    <span class="marker" id="mapping-486"></span><span class="token add" data-title="contract_body/event_definition">event RelayedMessage(<span class="marker" id="mapping-487"></span><span class="token mv" id="move-dst-53" data-title="event_definition/event_paramater">address <span class="marker" id="mapping-488"></span><span class="token upd" id="move-dst-54" data-title="event_paramater/identifier">rec<span class="cupd">i</span><span class="cupd">p</span>i<span class="cupd">e</span><span class="cupd">nt</span></span></span>, <span class="marker" id="mapping-489"></span><span class="token add" data-title="event_definition/event_paramater">uint value</span>, <span class="marker" id="mapping-490"></span><span class="token add" data-title="event_definition/event_paramater">bytes32 transactionHash</span>);</span>
+
+    <span class="marker" id="mapping-491"></span><span class="token add" data-title="contract_body/function_definition">function onExecuteMessage(<span class="marker" id="mapping-492"></span><span class="token mv" id="move-dst-103" data-title="function_definition/parameter">address</span>, <span class="marker" id="mapping-493"></span><span class="token add" data-title="function_definition/parameter">uint256</span>) <span class="marker" id="mapping-494"></span><span class="token mv" id="move-dst-35" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-495"></span><span class="token add" data-title="function_definition/return_type_definition">returns(bool)</span>;</span>
+
+    <span class="marker" id="mapping-496"></span><span class="token add" data-title="contract_body/function_definition">function setRelayedMessages(bytes32 _txHash, bool _status) internal {
+        boolStorage[keccak256(abi.encodePacked("relayedMessages", _txHash))] = _status;
+    }</span>
+
+    <span class="marker" id="mapping-497"></span><span class="token add" data-title="contract_body/function_definition">function relayedMessages(bytes32 _txHash) public view returns(bool) {
+        return boolStorage[keccak256(abi.encodePacked("relayedMessages", _txHash))];
+    }</span>
+
+    <span class="marker" id="mapping-498"></span><span class="token add" data-title="contract_body/function_definition">function messageWithinLimits(<span class="marker" id="mapping-499"></span><span class="token add" data-title="function_definition/parameter">uint256</span>) <span class="marker" id="mapping-500"></span><span class="token mv" id="move-dst-37" data-title="function_definition/visibility">internal</span> <span class="marker" id="mapping-501"></span><span class="token add" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-502"></span><span class="token add" data-title="function_definition/return_type_definition">returns(bool)</span>;</span>
+
+    <span class="marker" id="mapping-503"></span><span class="token add" data-title="contract_body/function_definition">function onFailedMessage(<span class="marker" id="mapping-504"></span><span class="token mv" id="move-dst-97" data-title="function_definition/parameter">address</span>, <span class="marker" id="mapping-505"></span><span class="token add" data-title="function_definition/parameter">uint256</span>, <span class="marker" id="mapping-506"></span><span class="token add" data-title="function_definition/parameter">bytes32</span>) <span class="marker" id="mapping-507"></span><span class="token add" data-title="function_definition/visibility">internal</span>;</span>
+}</span></span>
+
+<span class="marker" id="mapping-508"></span><span class="token add" data-title="source_file/comment">// File: contracts/upgradeable_contracts/Validatable.sol</span>
+
+<span class="marker" id="mapping-509"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+
+
+<span class="marker" id="mapping-510"></span><span class="token add" data-title="source_file/contract_declaration">contract Validatable is <span class="marker" id="mapping-511"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">EternalStorage</span> <span class="marker" id="mapping-512"></span><span class="token add" data-title="contract_declaration/contract_body">{
+    <span class="marker" id="mapping-513"></span><span class="token add" data-title="contract_body/function_definition">function validatorContract() public view returns(IBridgeValidators) {
+        return IBridgeValidators(addressStorage[keccak256(abi.encodePacked("validatorContract"))]);
+    }</span>
+
+    <span class="marker" id="mapping-514"></span><span class="token add" data-title="contract_body/modifier_definition">modifier onlyValidator() <span class="marker" id="mapping-515"></span><span class="token mv" id="move-dst-81" data-title="modifier_definition/function_body">{
+        <span class="marker" id="mapping-516"></span><span class="token add" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-517"></span><span class="token add" data-title="call_expression/call_argument"><span class="marker" id="mapping-518"></span><span class="token mv" id="move-dst-82" data-title="call_argument/call_expression"><span class="marker" id="mapping-519"></span><span class="token add" data-title="call_expression/member_expression">validatorContract().isValidator</span>(msg.sender)</span></span>)</span>;
+        <span class="marker" id="mapping-520"></span><span class="token add" data-title="function_body/expression_statement">_;</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-521"></span><span class="token add" data-title="contract_body/function_definition">function requiredSignatures() public view returns(uint256) {
+        return validatorContract().requiredSignatures();
+    }</span>
+}</span></span>
+
+<span class="marker" id="mapping-522"></span><span class="token add" data-title="source_file/comment">// File: contracts/ERC677Receiver.sol</span>
+
+<span class="marker" id="mapping-523"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+<span class="marker" id="mapping-524"></span><span class="token add" data-title="source_file/contract_declaration">contract ERC677Receiver <span class="marker" id="mapping-525"></span><span class="token add" data-title="contract_declaration/contract_body">{
+  <span class="marker" id="mapping-526"></span><span class="token add" data-title="contract_body/function_definition">function onTokenTransfer(<span class="marker" id="mapping-527"></span><span class="token mv" id="move-dst-69" data-title="function_definition/parameter">address <span class="marker" id="mapping-528"></span><span class="token upd" id="move-dst-70" data-title="parameter/identifier">_from</span></span>, <span class="marker" id="mapping-529"></span><span class="token add" data-title="function_definition/parameter">uint _value</span>, <span class="marker" id="mapping-530"></span><span class="token add" data-title="function_definition/parameter">bytes _data</span>) <span class="marker" id="mapping-531"></span><span class="token add" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-532"></span><span class="token add" data-title="function_definition/return_type_definition">returns(bool)</span>;</span>
+}</span></span>
+
+<span class="marker" id="mapping-533"></span><span class="token add" data-title="source_file/comment">// File: contracts/upgradeable_contracts/erc20_to_erc20/ForeignBridgeErcToErc.sol</span>
+
+<span class="marker" id="mapping-534"></span><span class="token add" data-title="source_file/pragma_directive">pragma solidity 0.4.24;</span>
+
+
+
+
+
+
+
+
+
+<span class="marker" id="mapping-535"></span><span class="token add" data-title="source_file/contract_declaration">contract ForeignBridgeErcToErc is <span class="marker" id="mapping-536"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">ERC677Receiver</span>, <span class="marker" id="mapping-537"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">BasicBridge</span>, <span class="marker" id="mapping-538"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">BasicForeignBridge</span>, <span class="marker" id="mapping-539"></span><span class="token add" data-title="contract_declaration/inheritance_specifier">Validatable</span> <span class="marker" id="mapping-540"></span><span class="token add" data-title="contract_declaration/contract_body">{
+
+    <span class="marker" id="mapping-541"></span><span class="token add" data-title="contract_body/event_definition">event RelayedMessage(<span class="marker" id="mapping-542"></span><span class="token add" data-title="event_definition/event_paramater"><span class="marker" id="mapping-543"></span><span class="token mv" id="move-dst-66" data-title="event_paramater/type_name">address</span> recipient</span>, <span class="marker" id="mapping-544"></span><span class="token add" data-title="event_definition/event_paramater">uint value</span>, <span class="marker" id="mapping-545"></span><span class="token add" data-title="event_definition/event_paramater">bytes32 transactionHash</span>);</span>
+
+    <span class="marker" id="mapping-546"></span><span class="token add" data-title="contract_body/function_definition">function initialize(
+        <span class="marker" id="mapping-547"></span><span class="token add" data-title="function_definition/parameter"><span class="marker" id="mapping-548"></span><span class="token mv" id="move-dst-36" data-title="parameter/type_name">address</span> _validatorContract</span>,
+        <span class="marker" id="mapping-549"></span><span class="token add" data-title="function_definition/parameter">address _erc20token</span>,
+        <span class="marker" id="mapping-550"></span><span class="token add" data-title="function_definition/parameter">uint256 _requiredBlockConfirmations</span>,
+        <span class="marker" id="mapping-551"></span><span class="token add" data-title="function_definition/parameter">uint256 _gasPrice</span>,
+        <span class="marker" id="mapping-552"></span><span class="token add" data-title="function_definition/parameter">uint256 _maxPerTx</span>,
+        <span class="marker" id="mapping-553"></span><span class="token add" data-title="function_definition/parameter">uint256 _homeDailyLimit</span>,
+        <span class="marker" id="mapping-554"></span><span class="token add" data-title="function_definition/parameter">uint256 _homeMaxPerTx</span>,
+        <span class="marker" id="mapping-555"></span><span class="token add" data-title="function_definition/parameter">address _owner</span>
+    ) <span class="marker" id="mapping-556"></span><span class="token add" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-557"></span><span class="token add" data-title="function_definition/return_type_definition">returns(bool)</span> <span class="marker" id="mapping-558"></span><span class="token add" data-title="function_definition/function_body">{
+        require(!isInitialized());
+        require(_validatorContract != address(0) &amp;&amp; isContract(_validatorContract));
+        require(_requiredBlockConfirmations != 0);
+        require(_gasPrice &gt; 0);
+        require(_homeMaxPerTx &lt; _homeDailyLimit);
+        require(_owner != address(0));
+        addressStorage[keccak256(abi.encodePacked("validatorContract"))] = _validatorContract;
+        setErc20token(_erc20token);
+        uintStorage[keccak256(abi.encodePacked("deployedAtBlock"))] = block.number;
+        uintStorage[keccak256(abi.encodePacked("requiredBlockConfirmations"))] = _requiredBlockConfirmations;
+        uintStorage[keccak256(abi.encodePacked("gasPrice"))] = _gasPrice;
+        uintStorage[keccak256(abi.encodePacked("maxPerTx"))] = _maxPerTx;
+        uintStorage[keccak256(abi.encodePacked("executionDailyLimit"))] = _homeDailyLimit;
+        uintStorage[keccak256(abi.encodePacked("executionMaxPerTx"))] = _homeMaxPerTx;
+        setOwner(_owner);
+        setInitialize(true);
+        return isInitialized();
+    }</span></span>
+
+    <span class="marker" id="mapping-559"></span><span class="token add" data-title="contract_body/function_definition">function getBridgeMode() <span class="marker" id="mapping-560"></span><span class="token mv" id="move-dst-13" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-561"></span><span class="token add" data-title="function_definition/state_mutability">pure</span> <span class="marker" id="mapping-562"></span><span class="token add" data-title="function_definition/return_type_definition">returns(<span class="marker" id="mapping-563"></span><span class="token add" data-title="return_type_definition/parameter"><span class="marker" id="mapping-564"></span><span class="token mv" id="move-dst-20" data-title="parameter/type_name">bytes4</span> _data</span>)</span> <span class="marker" id="mapping-565"></span><span class="token add" data-title="function_definition/function_body">{
+        return bytes4(keccak256(abi.encodePacked("erc-to-erc-core")));
+    }</span></span>
+
+    <span class="marker" id="mapping-566"></span><span class="token add" data-title="contract_body/function_definition">function claimTokens(<span class="marker" id="mapping-567"></span><span class="token add" data-title="function_definition/parameter">address _token</span>, <span class="marker" id="mapping-568"></span><span class="token mv" id="move-dst-57" data-title="function_definition/parameter">address <span class="marker" id="mapping-569"></span><span class="token upd" id="move-dst-58" data-title="parameter/identifier">_<span class="cupd">t</span>o</span></span>) <span class="marker" id="mapping-570"></span><span class="token add" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-571"></span><span class="token add" data-title="function_definition/modifier_invocation">onlyIfOwnerOfProxy</span> <span class="marker" id="mapping-572"></span><span class="token add" data-title="function_definition/function_body">{
+        require(_token != address(erc20token()));
+        super.claimTokens(_token, _to);
+    }</span></span>
+
+    <span class="marker" id="mapping-573"></span><span class="token add" data-title="contract_body/function_definition">function erc20token() public view returns(IERC20) {
+        return IERC20(addressStorage[keccak256(abi.encodePacked("erc20token"))]);
+    }</span>
+
+    <span class="marker" id="mapping-574"></span><span class="token add" data-title="contract_body/function_definition">function executeSignatures(<span class="marker" id="mapping-575"></span><span class="token add" data-title="function_definition/parameter">uint8[] vs</span>, <span class="marker" id="mapping-576"></span><span class="token add" data-title="function_definition/parameter">bytes32[] rs</span>, <span class="marker" id="mapping-577"></span><span class="token add" data-title="function_definition/parameter">bytes32[] ss</span>, <span class="marker" id="mapping-578"></span><span class="token add" data-title="function_definition/parameter">bytes message</span>) <span class="marker" id="mapping-579"></span><span class="token add" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-580"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-581"></span><span class="token add" data-title="function_body/expression_statement">require(Message.isMessageValid(message));</span>
+        <span class="marker" id="mapping-582"></span><span class="token add" data-title="function_body/expression_statement">Message.hasEnoughValidSignatures(message, vs, rs, ss, validatorContract());</span>
+        <span class="marker" id="mapping-583"></span><span class="token mv" id="move-dst-18" data-title="function_body/variable_declaration_statement">address <span class="marker" id="mapping-584"></span><span class="token upd" id="move-dst-19" data-title="variable_declaration/identifier">rec<span class="cupd">i</span>pient</span>;</span>
+        <span class="marker" id="mapping-585"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 amount;</span>
+        <span class="marker" id="mapping-586"></span><span class="token add" data-title="function_body/variable_declaration_statement">bytes32 txHash;</span>
+        <span class="marker" id="mapping-587"></span><span class="token mv" id="move-dst-21" data-title="function_body/variable_declaration_statement">address <span class="marker" id="mapping-588"></span><span class="token upd" id="move-dst-22" data-title="variable_declaration/identifier">con<span class="cupd">t</span>ract<span class="cupd">Address</span></span>;</span>
+        <span class="marker" id="mapping-589"></span><span class="token add" data-title="function_body/expression_statement">(recipient, amount, txHash, contractAddress) = Message.parseMessage(message);</span>
+        <span class="marker" id="mapping-590"></span><span class="token add" data-title="function_body/if_statement">if (<span class="marker" id="mapping-591"></span><span class="token add" data-title="if_statement/call_expression">messageWithinLimits(amount)</span>) <span class="marker" id="mapping-592"></span><span class="token add" data-title="if_statement/block_statement">{
+            <span class="marker" id="mapping-593"></span><span class="token mv" id="move-dst-45" data-title="block_statement/expression_statement">require(<span class="marker" id="mapping-594"></span><span class="token add" data-title="binary_expression/identifier">contractAddress</span> == address(this));</span>
+            <span class="marker" id="mapping-595"></span><span class="token add" data-title="block_statement/expression_statement">require(!relayedMessages(txHash));</span>
+            <span class="marker" id="mapping-596"></span><span class="token add" data-title="block_statement/expression_statement">setRelayedMessages(txHash, true);</span>
+            <span class="marker" id="mapping-597"></span><span class="token add" data-title="block_statement/expression_statement">require(onExecuteMessage(recipient, amount));</span>
+            <span class="marker" id="mapping-598"></span><span class="token add" data-title="block_statement/emit_statement">emit RelayedMessage(recipient, amount, txHash);</span>
+        }</span> else <span class="marker" id="mapping-599"></span><span class="token add" data-title="if_statement/block_statement">{
+            onFailedMessage(recipient, amount, txHash);
+        }</span></span>
+    }</span></span>
+
+    <span class="marker" id="mapping-600"></span><span class="token add" data-title="contract_body/function_definition">function onExecuteMessage(address _recipient, uint256 _amount) internal returns(bool) {
+        setTotalExecutedPerDay(getCurrentDay(), totalExecutedPerDay(getCurrentDay()).add(_amount));
+        return erc20token().transfer(_recipient, _amount);
+    }</span>
+
+    <span class="marker" id="mapping-601"></span><span class="token add" data-title="contract_body/function_definition">function setErc20token(<span class="marker" id="mapping-602"></span><span class="token add" data-title="function_definition/parameter">address _token</span>) <span class="marker" id="mapping-603"></span><span class="token mv" id="move-dst-67" data-title="function_definition/visibility">private</span> <span class="marker" id="mapping-604"></span><span class="token add" data-title="function_definition/function_body">{
+        require(_token != address(0) &amp;&amp; isContract(_token));
+        addressStorage[keccak256(abi.encodePacked("erc20token"))] = _token;
+    }</span></span>
+
+    <span class="marker" id="mapping-605"></span><span class="token add" data-title="contract_body/function_definition">function messageWithinLimits(uint256 _amount) internal view returns(bool) {
+        return withinExecutionLimit(_amount);
+    }</span>
+
+    <span class="marker" id="mapping-606"></span><span class="token add" data-title="contract_body/function_definition">function onTokenTransfer(<span class="marker" id="mapping-607"></span><span class="token add" data-title="function_definition/parameter">address</span> /*_from*/, <span class="marker" id="mapping-608"></span><span class="token add" data-title="function_definition/parameter">uint256</span> /*_value*/, <span class="marker" id="mapping-609"></span><span class="token mv" id="move-dst-104" data-title="function_definition/parameter">bytes</span> /*_data*/) <span class="marker" id="mapping-610"></span><span class="token mv" id="move-dst-44" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-611"></span><span class="token add" data-title="function_definition/return_type_definition">returns(bool)</span> <span class="marker" id="mapping-612"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-613"></span><span class="token add" data-title="function_body/expression_statement"><span class="marker" id="mapping-614"></span><span class="token add" data-title="expression_statement/call_expression">require(<span class="marker" id="mapping-615"></span><span class="token add" data-title="call_expression/call_argument"><span class="marker" id="mapping-616"></span><span class="token add" data-title="call_argument/binary_expression"><span class="marker" id="mapping-617"></span><span class="token mv" id="move-dst-46" data-title="binary_expression/member_expression">msg.sender</span> == <span class="marker" id="mapping-618"></span><span class="token add" data-title="binary_expression/type_cast_expression">address(erc20token())</span></span></span>)</span>;</span>
+        <span class="marker" id="mapping-619"></span><span class="token add" data-title="function_body/return_statement">return false;</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-620"></span><span class="token add" data-title="contract_body/function_definition">function onFailedMessage(address, uint256, bytes32) internal {
+        revert();
+    }</span>
+}</span></span></pre></div></div></div></body></html>

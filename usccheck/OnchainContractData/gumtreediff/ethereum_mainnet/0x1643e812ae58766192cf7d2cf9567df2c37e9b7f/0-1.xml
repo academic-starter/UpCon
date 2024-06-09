@@ -1,0 +1,385 @@
+<?xml version="1.0" ?>
+<matches>
+  <match src="primitive_type [1533,1540]" dest="primitive_type [2395,2402]"/>
+  <match src="identifier: onlyOwner [2461,2470]" dest="identifier: onlyOwner [2093,2102]"/>
+  <match src="type_name [1009,1016]" dest="type_name [677,684]"/>
+  <match src="function_body [2471,2651]" dest="function_body [2103,2283]"/>
+  <match src="bool: bool [1043,1047]" dest="bool: bool [711,715]"/>
+  <match src="identifier: IERC20 [2499,2505]" dest="identifier: IERC20 [2131,2137]"/>
+  <match src="member_expression [2548,2570]" dest="member_expression [2180,2202]"/>
+  <match src="visibility [1025,1033]" dest="visibility [693,701]"/>
+  <match src="expression_statement [2022,2060]" dest="expression_statement [1654,1692]"/>
+  <match src="primitive_type [1043,1047]" dest="primitive_type [711,715]"/>
+  <match src="): ) [1047,1048]" dest="): ) [715,716]"/>
+  <match src="{: { [755,756]" dest="{: { [2503,2504]"/>
+  <match src="uint256: uint256 [957,964]" dest="uint256: uint256 [625,632]"/>
+  <match src="primitive_type [990,997]" dest="primitive_type [658,665]"/>
+  <match src="primitive_type [1310,1317]" dest="primitive_type [967,974]"/>
+  <match src="identifier: ClaimedERC20 [1278,1290]" dest="identifier: ClaimedERC20 [935,947]"/>
+  <match src="type_cast_expression [2523,2536]" dest="type_cast_expression [2155,2168]"/>
+  <match src="return_type_definition [948,965]" dest="return_type_definition [616,633]"/>
+  <match src="type_name [1857,1872]" dest="type_name [1489,1504]"/>
+  <match src="identifier: recipient [2428,2437]" dest="identifier: recipient [2060,2069]"/>
+  <match src="identifier: amount [2000,2006]" dest="identifier: amount [1632,1638]"/>
+  <match src="primitive_type [917,924]" dest="primitive_type [585,592]"/>
+  <match src="function_definition [898,966]" dest="function_definition [566,634]"/>
+  <match src="solidity_version_comparison_operator [48,50]" dest="solidity_version_comparison_operator [526,528]"/>
+  <match src="identifier: msg [774,777]" dest="identifier: msg [2522,2525]"/>
+  <match src="identifier: IERC20 [2548,2554]" dest="identifier: IERC20 [2180,2186]"/>
+  <match src="type_name [2412,2427]" dest="type_name [2044,2059]"/>
+  <match src="): ) [2511,2512]" dest="): ) [2143,2144]"/>
+  <match src="identifier: amount [2636,2642]" dest="identifier: amount [2268,2274]"/>
+  <match src="(: ( [2029,2030]" dest="(: ( [1661,1662]"/>
+  <match src="string [2008,2010]" dest="string [1640,1642]"/>
+  <match src="event_paramater [1185,1199]" dest="event_paramater [842,856]"/>
+  <match src="string_literal [795,844]" dest="string_literal [2549,2598]"/>
+  <match src="): ) [1339,1340]" dest="): ) [996,997]"/>
+  <match src="call_argument [2629,2634]" dest="call_argument [2261,2266]"/>
+  <match src="}: } [2655,2656]" dest="}: } [2623,2624]"/>
+  <match src="primitive_type [2412,2427]" dest="primitive_type [2044,2059]"/>
+  <match src="&quot;: &quot; [2008,2009]" dest="&quot;: &quot; [1640,1641]"/>
+  <match src="): ) [2560,2561]" dest="): ) [2192,2193]"/>
+  <match src="(: ( [989,990]" dest="(: ( [657,658]"/>
+  <match src="identifier: amount [2094,2100]" dest="identifier: amount [1726,1732]"/>
+  <match src="binary_expression [774,793]" dest="binary_expression [2522,2547]"/>
+  <match src="identifier: token [2506,2511]" dest="identifier: token [2138,2143]"/>
+  <match src="(: ( [1856,1857]" dest="(: ( [1488,1489]"/>
+  <match src="comment: /**      * @dev Transfer all contract amount of specified tokent to recipient. Only owner can use it      *      * Emits an {ClaimedERC20} event.      *      * @param recipient Account for transfer ERC20 token      * @param token Address of ERC20 token      */ [2119,2386]" dest="comment: /**      * @dev Transfer all contract amount of specified tokent to recipient. Only owner can use it      *      * Emits an {ClaimedERC20} event.      *      * @param recipient Account for transfer ERC20 token      * @param token Address of ERC20 token      */ [1751,2018]"/>
+  <match src="event: event [1152,1157]" dest="event: event [809,814]"/>
+  <match src="identifier: require [2022,2029]" dest="identifier: require [1654,1661]"/>
+  <match src="): ) [2100,2101]" dest="): ) [1732,1733]"/>
+  <match src="==: == [785,787]" dest="==: == [2533,2535]"/>
+  <match src="}: } [864,865]" dest="}: } [2618,2619]"/>
+  <match src="): ) [2642,2643]" dest="): ) [2274,2275]"/>
+  <match src="primitive_type [957,964]" dest="primitive_type [625,632]"/>
+  <match src="identifier: token [2447,2452]" dest="identifier: token [2079,2084]"/>
+  <match src="solidity: solidity [40,48]" dest="solidity: solidity [518,526]"/>
+  <match src="function: function [972,980]" dest="function: function [640,648]"/>
+  <match src="(: ( [1532,1533]" dest="(: ( [2369,2370]"/>
+  <match src="): ) [964,965]" dest="): ) [632,633]"/>
+  <match src="member_expression [774,784]" dest="member_expression [2522,2532]"/>
+  <match src="variable_declaration_statement [1913,1952]" dest="variable_declaration_statement [1545,1584]"/>
+  <match src="comment: /**      * @dev Transfer all contract ETH to recipient. Only owner can use it      *      * Emits an {Claimed} event.      *      * @param recipient Account for transfer ETH      */ [1649,1836]" dest="comment: /**      * @dev Transfer all contract ETH to recipient. Only owner can use it      *      * Emits an {Claimed} event.      *      * @param recipient Account for transfer ETH      */ [1281,1468]"/>
+  <match src="(: ( [2411,2412]" dest="(: ( [2043,2044]"/>
+  <match src="): ) [2535,2536]" dest="): ) [2167,2168]"/>
+  <match src="call_expression [2548,2561]" dest="call_expression [2180,2193]"/>
+  <match src="parameter [957,964]" dest="parameter [625,632]"/>
+  <match src="modifier_definition [736,865]" dest="modifier_definition [2484,2619]"/>
+  <match src="): ) [1974,1975]" dest="): ) [1606,1607]"/>
+  <match src="primitive_type [1291,1298]" dest="primitive_type [948,955]"/>
+  <match src="modifier_invocation [2461,2470]" dest="modifier_invocation [2093,2102]"/>
+  <match src="identifier: transfer [981,989]" dest="identifier: transfer [649,657]"/>
+  <match src="(: ( [2554,2555]" dest="(: ( [2186,2187]"/>
+  <match src="call_argument [2083,2092]" dest="call_argument [1715,1724]"/>
+  <match src=",: , [793,794]" dest=",: , [2547,2548]"/>
+  <match src="type_name [1043,1047]" dest="type_name [711,715]"/>
+  <match src="parameter [1533,1547]" dest="parameter [2395,2402]"/>
+  <match src="source_file [0,2656]" dest="source_file [0,2624]"/>
+  <match src=".: . [2561,2562]" dest=".: . [2193,2194]"/>
+  <match src="uint256: uint256 [1185,1192]" dest="uint256: uint256 [842,849]"/>
+  <match src="identifier: token [1318,1323]" dest="identifier: token [975,980]"/>
+  <match src="solidity_version: 0.8.4 [50,55]" dest="solidity_version: 0.8.4 [528,533]"/>
+  <match src="call_argument [795,844]" dest="call_argument [2549,2598]"/>
+  <match src="}: } [1638,1639]" dest="}: } [2473,2474]"/>
+  <match src="contract_declaration [1058,2656]" dest="contract_declaration [726,2624]"/>
+  <match src="&quot;: &quot; [795,796]" dest="&quot;: &quot; [2549,2550]"/>
+  <match src="call_expression [766,845]" dest="call_expression [2514,2599]"/>
+  <match src="(: ( [2617,2618]" dest="(: ( [2249,2250]"/>
+  <match src="payable: payable [1865,1872]" dest="payable: payable [1497,1504]"/>
+  <match src="call_argument [2582,2588]" dest="call_argument [2214,2220]"/>
+  <match src="type_name [2482,2489]" dest="type_name [2114,2121]"/>
+  <match src="interface_declaration [874,1052]" dest="interface_declaration [542,720]"/>
+  <match src="identifier: this [1938,1942]" dest="identifier: this [1570,1574]"/>
+  <match src="type_name [1963,1967]" dest="type_name [1595,1599]"/>
+  <match src="identifier: recipient [998,1007]" dest="identifier: recipient [666,675]"/>
+  <match src="^:  ^ [48,50]" dest="^:  ^ [526,528]"/>
+  <match src="identifier: onlyOwner [745,754]" dest="identifier: onlyOwner [2493,2502]"/>
+  <match src="identifier: require [766,773]" dest="identifier: require [2514,2521]"/>
+  <match src="identifier: balance [1944,1951]" dest="identifier: balance [1576,1583]"/>
+  <match src="identifier: Claimed [1158,1165]" dest="identifier: Claimed [815,822]"/>
+  <match src="call_argument [2531,2535]" dest="call_argument [2163,2167]"/>
+  <match src="pragma_directive [33,56]" dest="pragma_directive [511,534]"/>
+  <match src="primitive_type [129,136]" dest="primitive_type [290,297]"/>
+  <match src="member_expression [1978,1992]" dest="member_expression [1610,1624]"/>
+  <match src="type_name [1310,1317]" dest="type_name [967,974]"/>
+  <match src="}: } [2650,2651]" dest="}: } [2282,2283]"/>
+  <match src="identifier: value [1993,1998]" dest="identifier: value [1625,1630]"/>
+  <match src="expression_statement [2548,2590]" dest="expression_statement [2180,2222]"/>
+  <match src="call_argument [2094,2100]" dest="call_argument [1726,1732]"/>
+  <match src="identifier: amount [2490,2496]" dest="identifier: amount [2122,2128]"/>
+  <match src="function_definition [972,1049]" dest="function_definition [640,717]"/>
+  <match src="=: = [1928,1929]" dest="=: = [1560,1561]"/>
+  <match src="parameter [1857,1882]" dest="parameter [1489,1514]"/>
+  <match src="variable_declaration [1963,1972]" dest="variable_declaration [1595,1604]"/>
+  <match src="call_argument [774,793]" dest="call_argument [2522,2547]"/>
+  <match src="emit_statement [2070,2102]" dest="emit_statement [1702,1734]"/>
+  <match src="identifier: account [925,932]" dest="identifier: account [593,600]"/>
+  <match src="call_argument [2008,2010]" dest="call_argument [1640,1642]"/>
+  <match src="): ) [1882,1883]" dest="): ) [1514,1515]"/>
+  <match src="{: { [1556,1557]" dest="{: { [2404,2405]"/>
+  <match src="identifier: recipient [2571,2580]" dest="identifier: recipient [2203,2212]"/>
+  <match src="variable_declaration_statement [2482,2538]" dest="variable_declaration_statement [2114,2170]"/>
+  <match src="comment: /**      * @dev Initializes contact with owner address      *      * Emits an {OwnerChanged} event.      *      * @param _owner contract owner      */ [1351,1507]" dest="comment: /**      * @dev Storage slot with the admin of the contract.      *      * Equals `bytes32(uint256(keccak256(&quot;eip1967.proxy.admin&quot;)) - 1)`.      */ [1008,1159]"/>
+  <match src="function: function [898,906]" dest="function: function [566,574]"/>
+  <match src="identifier: recipient [1299,1308]" dest="identifier: recipient [956,965]"/>
+  <match src="variable_declaration [2482,2496]" dest="variable_declaration [2114,2128]"/>
+  <match src="uint256: uint256 [1913,1920]" dest="uint256: uint256 [1545,1552]"/>
+  <match src="primitive_type [2523,2530]" dest="primitive_type [2155,2162]"/>
+  <match src="function_body [755,865]" dest="function_body [2503,2619]"/>
+  <match src="call_expression [1978,2011]" dest="call_expression [1610,1643]"/>
+  <match src="(: ( [2530,2531]" dest="(: ( [2162,2163]"/>
+  <match src=",: , [2092,2093]" dest=",: , [1724,1725]"/>
+  <match src="&quot;: &quot; [2009,2010]" dest="&quot;: &quot; [1641,1642]"/>
+  <match src="event_paramater [1310,1323]" dest="event_paramater [967,980]"/>
+  <match src="address: address [1930,1937]" dest="address: address [1562,1569]"/>
+  <match src="primitive_type [1166,1173]" dest="primitive_type [823,830]"/>
+  <match src="function: function [2392,2400]" dest="function: function [2024,2032]"/>
+  <match src="address: address [2439,2446]" dest="address: address [2071,2078]"/>
+  <match src="emit_statement [2600,2644]" dest="emit_statement [2232,2276]"/>
+  <match src="event_definition [1152,1201]" dest="event_definition [809,858]"/>
+  <match src="address: address [2412,2419]" dest="address: address [2044,2051]"/>
+  <match src="call_argument [1938,1942]" dest="call_argument [1570,1574]"/>
+  <match src="): ) [2452,2453]" dest="): ) [2084,2085]"/>
+  <match src="type_name [129,136]" dest="type_name [290,297]"/>
+  <match src="address: address [1857,1864]" dest="address: address [1489,1496]"/>
+  <match src="(: ( [2522,2523]" dest="(: ( [2154,2155]"/>
+  <match src="identifier: IERC20 [884,890]" dest="identifier: IERC20 [552,558]"/>
+  <match src="address: address [1166,1173]" dest="address: address [823,830]"/>
+  <match src="emit: emit [2070,2074]" dest="emit: emit [1702,1706]"/>
+  <match src="type_cast_expression [1930,1943]" dest="type_cast_expression [1562,1575]"/>
+  <match src="identifier: amount [1017,1023]" dest="identifier: amount [685,691]"/>
+  <match src="visibility [2454,2460]" dest="visibility [2086,2092]"/>
+  <match src="primitive_type [1857,1872]" dest="primitive_type [1489,1504]"/>
+  <match src="function_body [1902,2109]" dest="function_body [1534,1741]"/>
+  <match src="identifier: amount [1921,1927]" dest="identifier: amount [1553,1559]"/>
+  <match src="identifier: sent [1968,1972]" dest="identifier: sent [1600,1604]"/>
+  <match src="struct_field_assignment [1993,2006]" dest="struct_field_assignment [1625,1638]"/>
+  <match src="address: address [917,924]" dest="address: address [585,592]"/>
+  <match src="(: ( [2082,2083]" dest="(: ( [1714,1715]"/>
+  <match src="primitive_type [1930,1937]" dest="primitive_type [1562,1569]"/>
+  <match src="parameter [990,1007]" dest="parameter [658,675]"/>
+  <match src=".: . [1987,1988]" dest=".: . [1619,1620]"/>
+  <match src="identifier: recipient [2083,2092]" dest="identifier: recipient [1715,1724]"/>
+  <match src="identifier: this [2531,2535]" dest="identifier: this [2163,2167]"/>
+  <match src="primitive_type [2482,2489]" dest="primitive_type [2114,2121]"/>
+  <match src="identifier: transfer [2562,2570]" dest="identifier: transfer [2194,2202]"/>
+  <match src=".: . [777,778]" dest=".: . [2525,2526]"/>
+  <match src="(: ( [956,957]" dest="(: ( [624,625]"/>
+  <match src="=: = [2497,2498]" dest="=: = [2129,2130]"/>
+  <match src="identifier: amount [1193,1199]" dest="identifier: amount [850,856]"/>
+  <match src="call_argument [2571,2580]" dest="call_argument [2203,2212]"/>
+  <match src="identifier: amount [1333,1339]" dest="identifier: amount [990,996]"/>
+  <match src="(: ( [1962,1963]" dest="(: ( [1594,1595]"/>
+  <match src="): ) [844,845]" dest="): ) [2598,2599]"/>
+  <match src="identifier: amount [2582,2588]" dest="identifier: amount [2214,2220]"/>
+  <match src="comment: /**     * @dev Emitted when ETH has claimed.     */ [1093,1146]" dest="comment: /**     * @dev Emitted when ETH has claimed.     */ [750,803]"/>
+  <match src="parameter [917,932]" dest="parameter [585,600]"/>
+  <match src="identifier: token [2555,2560]" dest="identifier: token [2187,2192]"/>
+  <match src="call_argument [2030,2034]" dest="call_argument [1662,1666]"/>
+  <match src="payable: payable [2420,2427]" dest="payable: payable [2052,2059]"/>
+  <match src="external: external [1025,1033]" dest="external: external [693,701]"/>
+  <match src="modifier: modifier [736,744]" dest="modifier: modifier [2484,2492]"/>
+  <match src="(: ( [916,917]" dest="(: ( [584,585]"/>
+  <match src="public: public [1885,1891]" dest="public: public [1517,1523]"/>
+  <match src="event_definition [1272,1341]" dest="event_definition [929,998]"/>
+  <match src="type_name [1533,1540]" dest="type_name [2395,2402]"/>
+  <match src="identifier: _ [856,857]" dest="identifier: _ [2610,2611]"/>
+  <match src="): ) [932,933]" dest="): ) [600,601]"/>
+  <match src="}: } [2108,2109]" dest="}: } [1740,1741]"/>
+  <match src="returns: returns [948,955]" dest="returns: returns [616,623]"/>
+  <match src="address: address [1533,1540]" dest="address: address [2395,2402]"/>
+  <match src="function_definition [1842,2109]" dest="function_definition [1474,1741]"/>
+  <match src="}: } [1051,1052]" dest="}: } [719,720]"/>
+  <match src="type_name [1325,1332]" dest="type_name [982,989]"/>
+  <match src="call_argument [2506,2511]" dest="call_argument [2138,2143]"/>
+  <match src="event_paramater [1291,1308]" dest="event_paramater [948,965]"/>
+  <match src=".: . [2512,2513]" dest=".: . [2144,2145]"/>
+  <match src="(: ( [2007,2008]" dest="(: ( [1639,1640]"/>
+  <match src="function: function [1842,1850]" dest="function: function [1474,1482]"/>
+  <match src="returns: returns [1034,1041]" dest="returns: returns [702,709]"/>
+  <match src="primitive_type [1325,1332]" dest="primitive_type [982,989]"/>
+  <match src=",: , [1323,1324]" dest=",: , [980,981]"/>
+  <match src="identifier: ClaimedERC20 [2605,2617]" dest="identifier: ClaimedERC20 [2237,2249]"/>
+  <match src="identifier: claimERC20 [2401,2411]" dest="identifier: claimERC20 [2033,2043]"/>
+  <match src="call_expression [2499,2512]" dest="call_expression [2131,2144]"/>
+  <match src="identifier: recipient [2618,2627]" dest="identifier: recipient [2250,2259]"/>
+  <match src="call_argument [2636,2642]" dest="call_argument [2268,2274]"/>
+  <match src="function_definition [1513,1639]" dest="function_definition [2351,2474]"/>
+  <match src=".: . [1943,1944]" dest=".: . [1575,1576]"/>
+  <match src="view: view [943,947]" dest="view: view [611,615]"/>
+  <match src="(: ( [2505,2506]" dest="(: ( [2137,2138]"/>
+  <match src="primitive_type [1913,1920]" dest="primitive_type [1545,1552]"/>
+  <match src="address: address [1310,1317]" dest="address: address [967,974]"/>
+  <match src="expression_statement [856,858]" dest="expression_statement [2610,2612]"/>
+  <match src="event: event [1272,1277]" dest="event: event [929,934]"/>
+  <match src="=: = [1976,1977]" dest="=: = [1608,1609]"/>
+  <match src="{: { [891,892]" dest="{: { [559,560]"/>
+  <match src="address: address [1291,1298]" dest="address: address [948,955]"/>
+  <match src=",: , [2580,2581]" dest=",: , [2212,2213]"/>
+  <match src="identifier: balanceOf [2513,2522]" dest="identifier: balanceOf [2145,2154]"/>
+  <match src="type_name [1185,1192]" dest="type_name [842,849]"/>
+  <match src="member_expression [2499,2522]" dest="member_expression [2131,2154]"/>
+  <match src="parameter [1009,1023]" dest="parameter [677,691]"/>
+  <match src="visibility [1549,1555]" dest="visibility [2372,2380]"/>
+  <match src="uint256: uint256 [1325,1332]" dest="uint256: uint256 [982,989]"/>
+  <match src="(: ( [1937,1938]" dest="(: ( [1569,1570]"/>
+  <match src=",: , [1183,1184]" dest=",: , [840,841]"/>
+  <match src="function: function [1513,1521]" dest="function: function [2351,2359]"/>
+  <match src="parameter [1043,1047]" dest="parameter [711,715]"/>
+  <match src=",: , [1972,1973]" dest=",: , [1604,1605]"/>
+  <match src="type_name [1291,1298]" dest="type_name [948,955]"/>
+  <match src="identifier: initialize [1522,1532]" dest="identifier: _getAdmin [2360,2369]"/>
+  <match src="&quot;: &quot; [2036,2037]" dest="&quot;: &quot; [1668,1669]"/>
+  <match src="uint256: uint256 [2482,2489]" dest="uint256: uint256 [2114,2121]"/>
+  <match src="parameter [2439,2452]" dest="parameter [2071,2084]"/>
+  <match src="identifier: token [2629,2634]" dest="identifier: token [2261,2266]"/>
+  <match src="call_argument [2555,2560]" dest="call_argument [2187,2192]"/>
+  <match src="string_literal [2008,2010]" dest="string_literal [1640,1642]"/>
+  <match src="variable_declaration_statement [1962,2012]" dest="variable_declaration_statement [1594,1644]"/>
+  <match src="variable_declaration_tuple [1962,1975]" dest="variable_declaration_tuple [1594,1607]"/>
+  <match src="string [795,844]" dest="string [2549,2598]"/>
+  <match src="(: ( [2570,2571]" dest="(: ( [2202,2203]"/>
+  <match src="{: { [1902,1903]" dest="{: { [1534,1535]"/>
+  <match src="{: { [1086,1087]" dest="{: { [743,744]"/>
+  <match src="call_argument [2036,2058]" dest="call_argument [1668,1690]"/>
+  <match src="type_name [917,924]" dest="type_name [585,592]"/>
+  <match src=",: , [1007,1008]" dest=",: , [675,676]"/>
+  <match src="solidity_pragma_token [40,55]" dest="solidity_pragma_token [518,533]"/>
+  <match src="function_body [1556,1639]" dest="function_body [2404,2474]"/>
+  <match src="identifier: call [1988,1992]" dest="identifier: call [1620,1624]"/>
+  <match src="identifier: onlyOwner [1892,1901]" dest="identifier: onlyOwner [1524,1533]"/>
+  <match src="bool: bool [1963,1967]" dest="bool: bool [1595,1599]"/>
+  <match src="identifier: balanceOf [907,916]" dest="identifier: balanceOf [575,584]"/>
+  <match src="contract_body [1086,2656]" dest="contract_body [743,2624]"/>
+  <match src="call_argument [2523,2536]" dest="call_argument [2155,2168]"/>
+  <match src="identifier: Claimed [2075,2082]" dest="identifier: Claimed [1707,1714]"/>
+  <match src="modifier_invocation [1892,1901]" dest="modifier_invocation [1524,1533]"/>
+  <match src="(: ( [1165,1166]" dest="(: ( [822,823]"/>
+  <match src="state_mutability [943,947]" dest="state_mutability [611,615]"/>
+  <match src="identifier: sender [778,784]" dest="identifier: sender [2526,2532]"/>
+  <match src="): ) [2010,2011]" dest="): ) [1642,1643]"/>
+  <match src="public: public [2454,2460]" dest="public: public [2086,2092]"/>
+  <match src="{: { [1992,1993]" dest="{: { [1624,1625]"/>
+  <match src="visibility [1885,1891]" dest="visibility [1517,1523]"/>
+  <match src="identifier: sent [2030,2034]" dest="identifier: sent [1662,1666]"/>
+  <match src=",: , [2627,2628]" dest=",: , [2259,2260]"/>
+  <match src=",: , [2437,2438]" dest=",: , [2069,2070]"/>
+  <match src="identifier: recipient [1978,1987]" dest="identifier: recipient [1610,1619]"/>
+  <match src="pragma: pragma [33,39]" dest="pragma: pragma [511,517]"/>
+  <match src=":: : [1998,1999]" dest=":: : [1630,1631]"/>
+  <match src="return_type_definition [1034,1048]" dest="return_type_definition [702,716]"/>
+  <match src="address: address [990,997]" dest="address: address [658,665]"/>
+  <match src="string [2036,2058]" dest="string [1668,1690]"/>
+  <match src="call_argument [2618,2627]" dest="call_argument [2250,2259]"/>
+  <match src="visibility [934,942]" dest="visibility [602,610]"/>
+  <match src="parameter [2412,2437]" dest="parameter [2044,2069]"/>
+  <match src="identifier: claim [1851,1856]" dest="identifier: claim [1483,1488]"/>
+  <match src="): ) [1023,1024]" dest="): ) [691,692]"/>
+  <match src="&quot;: &quot; [843,844]" dest="&quot;: &quot; [2597,2598]"/>
+  <match src="primitive_type [2439,2446]" dest="primitive_type [2071,2078]"/>
+  <match src="type_name [990,997]" dest="type_name [658,665]"/>
+  <match src="(: ( [1042,1043]" dest="(: ( [710,711]"/>
+  <match src="event_paramater [1325,1339]" dest="event_paramater [982,996]"/>
+  <match src="(: ( [1290,1291]" dest="(: ( [947,948]"/>
+  <match src="member_expression [1930,1951]" dest="member_expression [1562,1583]"/>
+  <match src="primitive_type [1185,1192]" dest="primitive_type [842,849]"/>
+  <match src="): ) [1199,1200]" dest="): ) [856,857]"/>
+  <match src="type_name [957,964]" dest="type_name [625,632]"/>
+  <match src="call_expression [2499,2537]" dest="call_expression [2131,2169]"/>
+  <match src="): ) [1547,1548]" dest="): ) [2370,2371]"/>
+  <match src="variable_declaration [1913,1927]" dest="variable_declaration [1545,1559]"/>
+  <match src="interface: interface [874,883]" dest="interface: interface [542,551]"/>
+  <match src="}: } [2006,2007]" dest="}: } [1638,1639]"/>
+  <match src="{: { [2471,2472]" dest="{: { [2103,2104]"/>
+  <match src="(: ( [773,774]" dest="(: ( [2521,2522]"/>
+  <match src="primitive_type [1009,1016]" dest="primitive_type [677,684]"/>
+  <match src="primitive_type [1963,1967]" dest="primitive_type [1595,1599]"/>
+  <match src="identifier: recipient [1873,1882]" dest="identifier: recipient [1505,1514]"/>
+  <match src="): ) [2058,2059]" dest="): ) [1690,1691]"/>
+  <match src="string_literal [2036,2058]" dest="string_literal [1668,1690]"/>
+  <match src="): ) [1942,1943]" dest="): ) [1574,1575]"/>
+  <match src="comment: /**     * @dev Emitted when ERC20 has claimed.     */ [1211,1266]" dest="comment: /**     * @dev Emitted when ERC20 has claimed.     */ [868,923]"/>
+  <match src="expression_statement [766,846]" dest="expression_statement [2514,2600]"/>
+  <match src="call_expression [2548,2589]" dest="call_expression [2180,2221]"/>
+  <match src=",: , [2034,2035]" dest=",: , [1666,1667]"/>
+  <match src="comment: // SPDX-License-Identifier: MIT [0,31]" dest="comment: // SPDX-License-Identifier: MIT [0,31]"/>
+  <match src="address: address [2523,2530]" dest="address: address [2155,2162]"/>
+  <match src="contract_body [891,1052]" dest="contract_body [559,720]"/>
+  <match src="address: address [129,136]" dest="address: address [290,297]"/>
+  <match src=",: , [2634,2635]" dest=",: , [2266,2267]"/>
+  <match src="type_name [1166,1173]" dest="type_name [823,830]"/>
+  <match src="identifier: Claimer [1067,1074]" dest="identifier: Claimer [735,742]"/>
+  <match src="&quot;: &quot; [2057,2058]" dest="&quot;: &quot; [1689,1690]"/>
+  <match src="uint256: uint256 [1009,1016]" dest="uint256: uint256 [677,684]"/>
+  <match src="identifier: recipient [1174,1183]" dest="identifier: recipient [831,840]"/>
+  <match src="contract: contract [1058,1066]" dest="contract: contract [726,734]"/>
+  <match src="struct_expression [1978,2007]" dest="struct_expression [1610,1639]"/>
+  <match src="): ) [2588,2589]" dest="): ) [2220,2221]"/>
+  <match src="): ) [2536,2537]" dest="): ) [2168,2169]"/>
+  <match src="emit: emit [2600,2604]" dest="emit: emit [2232,2236]"/>
+  <match src="function_definition [2392,2651]" dest="function_definition [2024,2283]"/>
+  <match src="event_paramater [1166,1183]" dest="event_paramater [823,840]"/>
+  <match src=",: , [1308,1309]" dest=",: , [965,966]"/>
+  <match src="type_name [1913,1920]" dest="type_name [1545,1552]"/>
+  <match src="external: external [934,942]" dest="external: external [602,610]"/>
+  <match src="type_name [2439,2446]" dest="type_name [2071,2078]"/>
+  <match src="call_expression [2022,2059]" dest="call_expression [1654,1691]"/>
+</matches>
+<actions>
+  <insert-node tree="comment: // File: contracts/StorageSlot.sol [33,67]" parent="source_file [0,2624]" at="1"/>
+  <insert-node tree="comment: /**  * @dev Copied from https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.1.0/contracts/utils/StorageSlot.sol  */ [73,201]" parent="source_file [0,2624]" at="2"/>
+  <insert-tree tree="pragma_directive [205,227]" parent="source_file [0,2624]" at="3"/>
+  <insert-node tree="library_declaration [233,473]" parent="source_file [0,2624]" at="4"/>
+  <insert-node tree="comment: // File: contracts/Claimer.sol [477,507]" parent="source_file [0,2624]" at="5"/>
+  <insert-node tree="library: library [233,240]" parent="library_declaration [233,473]" at="0"/>
+  <insert-node tree="identifier: StorageSlot [241,252]" parent="library_declaration [233,473]" at="1"/>
+  <insert-node tree="contract_body [253,473]" parent="library_declaration [233,473]" at="2"/>
+  <move-tree tree="function_definition [1513,1639]" parent="contract_body [743,2624]" at="10"/>
+  <insert-node tree="{: { [253,254]" parent="contract_body [253,473]" at="0"/>
+  <insert-node tree="struct_declaration [260,311]" parent="contract_body [253,473]" at="1"/>
+  <insert-tree tree="function_definition [319,470]" parent="contract_body [253,473]" at="2"/>
+  <insert-node tree="}: } [472,473]" parent="contract_body [253,473]" at="3"/>
+  <update-node tree="comment: /**      * @dev Initializes contact with owner address      *      * Emits an {OwnerChanged} event.      *      * @param _owner contract owner      */ [1351,1507]" label="/**      * @dev Storage slot with the admin of the contract.      *      * Equals `bytes32(uint256(keccak256(&quot;eip1967.proxy.admin&quot;)) - 1)`.      */"/>
+  <insert-tree tree="state_variable_declaration [1165,1271]" parent="contract_body [743,2624]" at="6"/>
+  <insert-node tree="comment: /**      * @dev Returns the current admin.      */ [2293,2345]" parent="contract_body [743,2624]" at="11"/>
+  <move-tree tree="modifier_definition [736,865]" parent="contract_body [743,2624]" at="13"/>
+  <insert-node tree="struct: struct [260,266]" parent="struct_declaration [260,311]" at="0"/>
+  <insert-node tree="identifier: AddressSlot [267,278]" parent="struct_declaration [260,311]" at="1"/>
+  <insert-node tree="{: { [279,280]" parent="struct_declaration [260,311]" at="2"/>
+  <insert-node tree="struct_member [290,304]" parent="struct_declaration [260,311]" at="3"/>
+  <insert-node tree="}: } [310,311]" parent="struct_declaration [260,311]" at="4"/>
+  <update-node tree="identifier: initialize [1522,1532]" label="_getAdmin"/>
+  <insert-tree tree="state_mutability [2381,2385]" parent="function_definition [2351,2474]" at="5"/>
+  <insert-node tree="return_type_definition [2386,2403]" parent="function_definition [2351,2474]" at="6"/>
+  <move-tree tree="type_name [129,136]" parent="struct_member [290,304]" at="0"/>
+  <insert-node tree="identifier: value [298,303]" parent="struct_member [290,304]" at="1"/>
+  <insert-node tree="internal: internal [2372,2380]" parent="visibility [2372,2380]" at="0"/>
+  <insert-node tree="returns: returns [2386,2393]" parent="return_type_definition [2386,2403]" at="0"/>
+  <insert-node tree="(: ( [2394,2395]" parent="return_type_definition [2386,2403]" at="1"/>
+  <move-tree tree="parameter [1533,1547]" parent="return_type_definition [2386,2403]" at="2"/>
+  <insert-node tree="): ) [2402,2403]" parent="return_type_definition [2386,2403]" at="3"/>
+  <insert-tree tree="return_statement [2415,2467]" parent="function_body [2404,2474]" at="1"/>
+  <insert-tree tree="call_expression [2536,2547]" parent="binary_expression [2522,2547]" at="2"/>
+  <delete-node tree="contract: contract [60,68]"/>
+  <delete-node tree="identifier: Ownable [69,76]"/>
+  <delete-node tree="{: { [77,78]"/>
+  <delete-tree tree="event_definition [84,121]"/>
+  <delete-tree tree="visibility [137,143]"/>
+  <delete-node tree="identifier: owner [144,149]"/>
+  <delete-node tree="state_variable_declaration [129,150]"/>
+  <delete-node tree="comment: /**      * @dev Initializes contact owner      *      * Emits an {OwnerChanged} event.      *      * @param _owner contract owner      */ [158,301]"/>
+  <delete-tree tree="function_definition [307,426]"/>
+  <delete-node tree="comment: /**      * @dev Updates contract owner      *      * Emits an {OwnerChanged} event.      */ [434,529]"/>
+  <delete-tree tree="function_definition [535,663]"/>
+  <delete-node tree="comment: /**      * @dev Permits actions only from owner      */ [673,730]"/>
+  <delete-node tree="}: } [867,868]"/>
+  <delete-node tree="contract_body [77,868]"/>
+  <delete-node tree="contract_declaration [60,868]"/>
+  <delete-node tree="is: is [1075,1077]"/>
+  <delete-tree tree="inheritance_specifier [1078,1085]"/>
+  <delete-node tree="public: public [1549,1555]"/>
+  <delete-node tree="identifier: _owner [1541,1547]"/>
+  <delete-tree tree="expression_statement [1567,1596]"/>
+  <delete-tree tree="expression_statement [1606,1632]"/>
+  <delete-node tree="identifier: owner [788,793]"/>
+</actions>

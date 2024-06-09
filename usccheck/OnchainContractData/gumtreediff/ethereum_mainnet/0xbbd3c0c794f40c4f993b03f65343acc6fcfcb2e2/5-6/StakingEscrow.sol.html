@@ -1,0 +1,1062 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>StakingEscrow.sol</h5><pre class="pre-scrollable">// SPDX-License-Identifier: AGPL-3.0-or-later
+
+pragma solidity ^<span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.</span>7<span class="cupd">.0</span></span>;
+
+
+import "IERC900History.sol";
+import "NuCypherToken.sol";
+import "Bits.sol";
+import "Snapshot.sol";
+import "Upgradeable.sol";
+import "Math.sol";
+import "SafeERC20.sol";
+
+
+/**
+* @notice WorkLock interface
+*/
+interface WorkLockInterface {
+    function token() external view returns (NuCypherToken);
+}
+
+
+/**
+* @title StakingEscrowStub
+* @notice Stub is used to deploy main StakingEscrow after all other contract and make some variables immutable
+* @dev |v1.1.0|
+*/
+contract StakingEscrowStub is Upgradeable {
+    NuCypherToken public immutable token;
+    // only to deploy WorkLock
+    uint32 public immutable secondsPerPeriod = 1;
+    uint16 public immutable minLockedPeriods = 0;
+    uint256 public immutable minAllowableLockedTokens;
+    uint256 public immutable maxAllowableLockedTokens;
+
+    /**
+    * @notice Predefines some variables for use when deploying other contracts
+    * @param _token Token contract
+    * @param _minAllowableLockedTokens Min amount of tokens that can be locked
+    * @param _maxAllowableLockedTokens Max amount of tokens that can be locked
+    */
+    constructor(
+        NuCypherToken _token,
+        uint256 _minAllowableLockedTokens,
+        uint256 _maxAllowableLockedTokens
+    ) {
+        require(_token.totalSupply() &gt; 0 &amp;&amp;
+            _maxAllowableLockedTokens != 0);
+
+        token = _token;
+        minAllowableLockedTokens = _minAllowableLockedTokens;
+        maxAllowableLockedTokens = _maxAllowableLockedTokens;
+    }
+
+    /// @dev the `onlyWhileUpgrading` modifier works through a call to the parent `verifyState`
+    function verifyState(address _testTarget) public override virtual {
+        super.verifyState(_testTarget);
+
+        // we have to use real values even though this is a stub
+        require(<span class="marker" id="mapping-2"></span><span class="token mv" id="move-src-2" data-title="binary_expression/type_cast_expression"><span class="marker" id="mapping-3"></span><span class="token mv" id="move-src-3" data-title="type_cast_expression/primitive_type">address</span>(delegateGet(_testTarget, this.token.selector))</span> == address(token));
+    }
+}
+
+
+<span class="marker" id="mapping-4"></span><span class="token upd" id="move-src-4" data-title="source_file/comment"><span class="cupd">/**
+* @title StakingEscrow
+* @notice Contract holds and locks stakers tokens.
+* Each staker that locks their tokens will receive some compensation
+* @dev |v6.</span>1<span class="cupd">.</span>1<span class="cupd">|
+*/</span></span>
+contract StakingEscrow is Upgradeable, IERC900History {
+
+    using Bits for uint256;
+    <span class="marker" id="mapping-5"></span><span class="token del" data-title="contract_body/using_directive">using <span class="marker" id="mapping-6"></span><span class="token del" data-title="using_directive/type_alias">SafeMath</span> for <span class="marker" id="mapping-7"></span><span class="token mv" id="move-src-5" data-title="using_directive/type_name">uint256</span>;</span>
+    <span class="marker" id="mapping-8"></span><span class="token del" data-title="contract_body/using_directive">using Snapshot for uint128[];</span>
+    using SafeERC20 for NuCypherToken;
+
+    /**
+    * @notice Signals that tokens were deposited
+    * @param staker Staker address
+    * @param value Amount deposited (in NuNits)
+    */
+    event Deposited(address indexed staker, uint256 value);
+
+    /**
+    * @notice Signals that NU tokens were withdrawn to the staker
+    * @param staker Staker address
+    * @param value Amount withdraws (in NuNits)
+    */
+    event Withdrawn(address indexed staker, uint256 value);
+
+    /**
+    * @notice Signals that the staker was slashed
+    * @param staker Staker address
+    * @param penalty Slashing penalty
+    * @param investigator Investigator address
+    * @param reward Value of reward provided to investigator (in NuNits)
+    */
+    event Slashed(address indexed staker, uint256 penalty, address indexed investigator, uint256 reward);
+
+    <span class="marker" id="mapping-9"></span><span class="token del" data-title="contract_body/struct_declaration">struct SubStakeInfo {
+        <span class="marker" id="mapping-10"></span><span class="token del" data-title="struct_declaration/struct_member">uint16 firstPeriod;</span>
+        <span class="marker" id="mapping-11"></span><span class="token del" data-title="struct_declaration/struct_member">uint16 lastPeriod;</span>
+        <span class="marker" id="mapping-12"></span><span class="token mv" id="move-src-6" data-title="struct_declaration/struct_member">uint16 <span class="marker" id="mapping-13"></span><span class="token upd" id="move-src-7" data-title="struct_member/identifier">unlockingDuration</span>;</span>
+        <span class="marker" id="mapping-14"></span><span class="token del" data-title="struct_declaration/struct_member">uint128 lockedValue;</span>
+    }</span>
+
+    <span class="marker" id="mapping-15"></span><span class="token del" data-title="contract_body/struct_declaration">struct Downtime {
+        uint16 startPeriod;
+        uint16 endPeriod;
+    }</span>
+
+    struct StakerInfo {
+        uint256 value;
+        <span class="marker" id="mapping-16"></span><span class="token del" data-title="struct_declaration/struct_member">uint16 currentCommittedPeriod;</span>
+        uint16 <span class="marker" id="mapping-17"></span><span class="token upd" id="move-src-8" data-title="struct_member/identifier">nextCommittedPeriod</span>;
+        uint16 lastCommittedPeriod;
+        <span class="marker" id="mapping-18"></span><span class="token mv" id="move-src-9" data-title="struct_declaration/struct_member">uint16 stub1;</span> <span class="marker" id="mapping-19"></span><span class="token mv" id="move-src-10" data-title="struct_declaration/comment">// former slot for lockReStakeUntilPeriod</span>
+        <span class="marker" id="mapping-20"></span><span class="token mv" id="move-src-11" data-title="struct_declaration/struct_member"><span class="marker" id="mapping-21"></span><span class="token mv" id="move-src-12" data-title="struct_member/type_name">uint256</span> <span class="marker" id="mapping-22"></span><span class="token upd" id="move-src-13" data-title="struct_member/identifier">completedWork</span>;</span>
+        uint16 <span class="marker" id="mapping-23"></span><span class="token upd" id="move-src-14" data-title="struct_member/identifier">workerStartPeriod</span>; <span class="marker" id="mapping-24"></span><span class="token mv" id="move-src-15" data-title="struct_declaration/comment"><span class="marker" id="mapping-25"></span><span class="token upd" id="move-src-16" data-title="struct_declaration/comment"><span class="cupd">// </span>p<span class="cupd">er</span>i<span class="cupd">o</span>d<span class="cupd"> </span>wh<span class="cupd">en</span> w<span class="cupd">o</span>rk<span class="cupd">e</span><span class="cupd">r</span><span class="cupd"> </span>was<span class="cupd"> </span><span class="cupd">b</span>o<span class="cupd">n</span>ded</span></span>
+        address <span class="marker" id="mapping-26"></span><span class="token upd" id="move-src-17" data-title="struct_member/identifier">worker</span>;
+        uint256 flags; // uint256 to acquire whole slot and minimize operations on it
+
+        <span class="marker" id="mapping-27"></span><span class="token mv" id="move-src-18" data-title="struct_declaration/struct_member">uint256 <span class="marker" id="mapping-28"></span><span class="token upd" id="move-src-19" data-title="struct_member/identifier">re<span class="cupd">s</span>ervedSlot1</span>;</span>
+        <span class="marker" id="mapping-29"></span><span class="token mv" id="move-src-20" data-title="struct_declaration/struct_member">uint256 <span class="marker" id="mapping-30"></span><span class="token upd" id="move-src-21" data-title="struct_member/identifier">r<span class="cupd">es</span><span class="cupd">e</span>rv<span class="cupd">e</span>dSlot2</span>;</span>
+        uint256 <span class="marker" id="mapping-31"></span><span class="token upd" id="move-src-22" data-title="struct_member/identifier">r<span class="cupd">es</span><span class="cupd">e</span>rv<span class="cupd">e</span>dSlot3</span>;
+        uint256 reservedSlot4;
+        uint256 reservedSlot5;
+
+        <span class="marker" id="mapping-32"></span><span class="token del" data-title="struct_declaration/struct_member">Downtime[] pastDowntime;</span>
+        <span class="marker" id="mapping-33"></span><span class="token del" data-title="struct_declaration/struct_member">SubStakeInfo[] subStakes;</span>
+        uint128[] <span class="marker" id="mapping-34"></span><span class="token upd" id="move-src-23" data-title="struct_member/identifier">hi<span class="cupd">st</span>ory</span>;
+
+    }
+
+    // indices for flags (0-4 were in use, skip it in future)
+<span class="marker" id="mapping-35"></span><span class="token mv" id="move-src-24" data-title="contract_body/comment"><span class="marker" id="mapping-36"></span><span class="token upd" id="move-src-25" data-title="contract_body/comment"><span class="cupd">/</span>/<span class="cupd">    </span>u<span class="cupd">i</span><span class="cupd">n</span><span class="cupd">t</span>8<span class="cupd"> </span><span class="cupd">in</span><span class="cupd">ter</span>nal<span class="cupd"> </span>c<span class="cupd">o</span>n<span class="cupd">sta</span>n<span class="cupd">t</span><span class="cupd"> S</span>NAPSHO<span class="cupd">T</span>S_DISABLED_INDEX<span class="cupd"> </span>= 3;</span></span>
+
+    NuCypherToken public immutable token;
+    WorkLockInterface public immutable workLock;
+
+    uint128 <span class="marker" id="mapping-37"></span><span class="token mv" id="move-src-26" data-title="state_variable_declaration/visibility">public</span> <span class="marker" id="mapping-38"></span><span class="token upd" id="move-src-27" data-title="state_variable_declaration/identifier">previou<span class="cupd">s</span>PeriodSupply</span>; <span class="marker" id="mapping-39"></span><span class="token mv" id="move-src-28" data-title="contract_body/comment"><span class="marker" id="mapping-40"></span><span class="token upd" id="move-src-29" data-title="contract_body/comment"><span class="cupd">/</span>/<span class="cupd"> </span><span class="cupd">o</span><span class="cupd">u</span><span class="cupd">t</span><span class="cupd">d</span><span class="cupd">a</span><span class="cupd">t</span><span class="cupd">e</span>d</span></span>
+    uint128 public currentPeriodSupply; <span class="marker" id="mapping-41"></span><span class="token mv" id="move-src-30" data-title="contract_body/comment"><span class="marker" id="mapping-42"></span><span class="token upd" id="move-src-31" data-title="contract_body/comment"><span class="cupd">// </span>o<span class="cupd">u</span><span class="cupd">t</span>d<span class="cupd">a</span>ted</span></span>
+    uint16 <span class="marker" id="mapping-43"></span><span class="token del" data-title="visibility/public">public</span> <span class="marker" id="mapping-44"></span><span class="token upd" id="move-src-32" data-title="state_variable_declaration/identifier">currentMintingPeriod</span>; <span class="marker" id="mapping-45"></span><span class="token mv" id="move-src-33" data-title="contract_body/comment"><span class="marker" id="mapping-46"></span><span class="token upd" id="move-src-34" data-title="contract_body/comment"><span class="cupd">// </span><span class="cupd">o</span>u<span class="cupd">t</span>dat<span class="cupd">e</span>d</span></span>
+
+    mapping (address =&gt; StakerInfo) public stakerInfo;
+    address[] public stakers;
+    mapping (address =&gt; address) <span class="marker" id="mapping-47"></span><span class="token del" data-title="visibility/public">public</span> <span class="marker" id="mapping-48"></span><span class="token upd" id="move-src-35" data-title="state_variable_declaration/identifier"><span class="cupd">st</span>akerFromWorker</span>;  <span class="marker" id="mapping-49"></span><span class="token mv" id="move-src-36" data-title="contract_body/comment"><span class="marker" id="mapping-50"></span><span class="token upd" id="move-src-37" data-title="contract_body/comment"><span class="cupd">// </span>o<span class="cupd">u</span><span class="cupd">t</span>da<span class="cupd">t</span>ed</span></span>
+
+    mapping (uint16 =&gt; uint256) <span class="marker" id="mapping-51"></span><span class="token upd" id="move-src-38" data-title="state_variable_declaration/identifier"><span class="cupd">stub</span>1</span>; // former slot for lockedPerPeriod
+    uint128[] <span class="marker" id="mapping-52"></span><span class="token del" data-title="visibility/public">public</span> <span class="marker" id="mapping-53"></span><span class="token upd" id="move-src-39" data-title="state_variable_declaration/identifier">balanceHi<span class="cupd">st</span>ory</span>;  <span class="marker" id="mapping-54"></span><span class="token mv" id="move-src-40" data-title="contract_body/comment"><span class="marker" id="mapping-55"></span><span class="token upd" id="move-src-41" data-title="contract_body/comment"><span class="cupd">// </span><span class="cupd">o</span><span class="cupd">u</span><span class="cupd">t</span>da<span class="cupd">t</span><span class="cupd">e</span>d</span></span>
+
+    <span class="marker" id="mapping-56"></span><span class="token mv" id="move-src-42" data-title="contract_body/state_variable_declaration">address <span class="marker" id="mapping-57"></span><span class="token upd" id="move-src-43" data-title="state_variable_declaration/identifier"><span class="cupd">stub</span>2</span>;</span> <span class="marker" id="mapping-58"></span><span class="token mv" id="move-src-44" data-title="contract_body/comment">// former slot for PolicyManager</span>
+    address <span class="marker" id="mapping-59"></span><span class="token upd" id="move-src-45" data-title="state_variable_declaration/identifier"><span class="cupd">stub</span>3</span>; <span class="marker" id="mapping-60"></span><span class="token mv" id="move-src-46" data-title="contract_body/comment">// former slot for Adjudicator</span>
+    address <span class="marker" id="mapping-61"></span><span class="token upd" id="move-src-47" data-title="state_variable_declaration/identifier"><span class="cupd">stub</span>4</span>; // former slot for WorkLock
+
+    mapping (uint16 =&gt; uint256) <span class="marker" id="mapping-62"></span><span class="token mv" id="move-src-48" data-title="state_variable_declaration/visibility">public</span> <span class="marker" id="mapping-63"></span><span class="token upd" id="move-src-49" data-title="state_variable_declaration/identifier">lockedPerPeriod</span>; <span class="marker" id="mapping-64"></span><span class="token mv" id="move-src-50" data-title="contract_body/comment"><span class="marker" id="mapping-65"></span><span class="token upd" id="move-src-51" data-title="contract_body/comment"><span class="cupd">// </span><span class="cupd">o</span>u<span class="cupd">t</span>d<span class="cupd">a</span>ted</span></span>
+
+    <span class="marker" id="mapping-66"></span><span class="token mv" id="move-src-52" data-title="contract_body/comment"><span class="marker" id="mapping-67"></span><span class="token upd" id="move-src-53" data-title="contract_body/comment"><span class="cupd">/</span>**<span class="cupd">
+</span>    * @notice Constructor sets address o<span class="cupd">f</span> t<span class="cupd">o</span>ken cont<span class="cupd">r</span>act and para<span class="cupd">me</span>te<span class="cupd">r</span>s<span class="cupd"> </span>for <span class="cupd">s</span>taking
+    * @param _t<span class="cupd">o</span>ken NuCypher <span class="cupd">t</span>oken<span class="cupd"> </span>c<span class="cupd">o</span>nt<span class="cupd">r</span>act<span class="cupd">
+</span>    * @p<span class="cupd">a</span>r<span class="cupd">a</span>m _workLock WorkLock co<span class="cupd">n</span>tra<span class="cupd">c</span>t. Z<span class="cupd">e</span>ro addre<span class="cupd">s</span>s if <span class="cupd">t</span>here is n<span class="cupd">o</span> WorkLock
+    */</span></span>
+    constructor(
+        NuCypherToken _token,
+        WorkLockInterface _workLock
+    ) {
+        require(<span class="marker" id="mapping-68"></span><span class="token mv" id="move-src-54" data-title="binary_expression/binary_expression">_token.totalSupply() &gt; 0</span> &amp;&amp;
+            (address(_workLock) == address(0) || _workLock.token() == _token),
+            "Input addresses must be deployed contracts"
+        );
+
+        token = _token;
+        workLock = _workLock;
+    }
+
+    /**
+    * @dev Checks the existence of a staker in the contract
+    */
+    modifier onlyStaker()
+    {
+        require(stakerInfo[msg.sender].value &gt; 0, "Caller must be a staker");
+        _;
+    }
+
+    /**
+    * @dev Checks caller is WorkLock contract
+    */
+    modifier onlyWorkLock()
+    {
+        require(msg.sender == address(workLock), "Caller must be the WorkLock contract");
+        _;
+    }
+
+    //------------------------Main getters------------------------
+    /**
+    * @notice Get all tokens belonging to the staker
+    */
+    function getAllTokens(address _staker) external view returns (uint256) {
+        return stakerInfo[_staker].value;
+    }
+
+<span class="marker" id="mapping-69"></span><span class="token mv" id="move-src-55" data-title="contract_body/comment"><span class="marker" id="mapping-70"></span><span class="token upd" id="move-src-56" data-title="contract_body/comment"><span class="cupd">// </span><span class="cupd"> </span><span class="cupd"> </span> /**</span></span>
+<span class="marker" id="mapping-71"></span><span class="token mv" id="move-src-57" data-title="contract_body/comment"><span class="marker" id="mapping-72"></span><span class="token upd" id="move-src-58" data-title="contract_body/comment"><span class="cupd">/</span>/<span class="cupd">    </span><span class="cupd">* @notice </span>G<span class="cupd">et</span><span class="cupd"> a</span>ll<span class="cupd"> </span><span class="cupd">f</span>l<span class="cupd">a</span>g<span class="cupd">s for </span><span class="cupd">t</span><span class="cupd">he</span><span class="cupd"> </span><span class="cupd">s</span><span class="cupd">t</span><span class="cupd">a</span><span class="cupd">k</span><span class="cupd">e</span>r</span></span>
+<span class="marker" id="mapping-73"></span><span class="token mv" id="move-src-59" data-title="contract_body/comment"><span class="marker" id="mapping-74"></span><span class="token upd" id="move-src-60" data-title="contract_body/comment"><span class="cupd">/</span>/<span class="cupd">    </span><span class="cupd">*</span>/</span></span>
+<span class="marker" id="mapping-75"></span><span class="token mv" id="move-src-61" data-title="contract_body/comment"><span class="marker" id="mapping-76"></span><span class="token upd" id="move-src-62" data-title="contract_body/comment"><span class="cupd">/</span>/<span class="cupd">    </span>fu<span class="cupd">n</span><span class="cupd">c</span><span class="cupd">t</span><span class="cupd">i</span><span class="cupd">o</span><span class="cupd">n</span><span class="cupd"> </span>g<span class="cupd">e</span><span class="cupd">t</span>Flag<span class="cupd">s</span>(<span class="cupd">a</span>dd<span class="cupd">r</span><span class="cupd">e</span>ss<span class="cupd"> </span>_s<span class="cupd">t</span>a<span class="cupd">ke</span>r)</span></span>
+<span class="marker" id="mapping-77"></span><span class="token mv" id="move-src-63" data-title="contract_body/comment"><span class="marker" id="mapping-78"></span><span class="token upd" id="move-src-64" data-title="contract_body/comment"><span class="cupd">/</span>/<span class="cupd">     </span><span class="cupd"> </span><span class="cupd"> </span> <span class="cupd">e</span>x<span class="cupd">t</span>e<span class="cupd">rn</span><span class="cupd">a</span><span class="cupd">l</span><span class="cupd"> </span>vi<span class="cupd">e</span>w<span class="cupd"> </span>r<span class="cupd">e</span>tur<span class="cupd">ns </span>(</span></span>
+<span class="marker" id="mapping-79"></span><span class="token mv" id="move-src-65" data-title="contract_body/comment"><span class="marker" id="mapping-80"></span><span class="token upd" id="move-src-66" data-title="contract_body/comment"><span class="cupd">/</span>/<span class="cupd">     </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd"> </span><span class="cupd">   </span>b<span class="cupd">o</span>o<span class="cupd">l</span><span class="cupd"> </span><span class="cupd">s</span><span class="cupd">n</span><span class="cupd">a</span><span class="cupd">p</span><span class="cupd">s</span><span class="cupd">h</span><span class="cupd">o</span><span class="cupd">t</span>s</span></span>
+<span class="marker" id="mapping-81"></span><span class="token mv" id="move-src-67" data-title="contract_body/comment"><span class="marker" id="mapping-82"></span><span class="token upd" id="move-src-68" data-title="contract_body/comment"><span class="cupd">/</span>/<span class="cupd">     </span><span class="cupd"> </span><span class="cupd"> </span> )</span></span>
+<span class="marker" id="mapping-83"></span><span class="token del" data-title="contract_body/comment">//    {</span>
+<span class="marker" id="mapping-84"></span><span class="token del" data-title="contract_body/comment">//        StakerInfo storage info = stakerInfo[_staker];</span>
+<span class="marker" id="mapping-85"></span><span class="token del" data-title="contract_body/comment">//        snapshots = !info.flags.bitSet(SNAPSHOTS_DISABLED_INDEX);</span>
+<span class="marker" id="mapping-86"></span><span class="token del" data-title="contract_body/comment">//    }</span>
+
+    /**
+    * @notice Get work that completed by the staker
+    */
+    function getCompletedWork(address _staker) external view returns (uint256) {
+        return token.totalSupply();
+    }
+
+
+    //------------------------Main methods------------------------
+    /**
+    * @notice Stub for WorkLock
+    * @param _staker Staker
+    * @param _measureWork Value for `measureWork` parameter
+    * @return Work that was previously done
+    */
+    function setWorkMeasurement(address _staker, bool _measureWork)
+        external onlyWorkLock returns (uint256)
+    {
+        return 0;
+    }
+
+    /**
+    * @notice Deposit tokens from WorkLock contract
+    * @param _staker Staker address
+    * @param _value Amount of tokens to deposit
+    * @param _unlockingDuration Amount of periods during which tokens will be unlocked when wind down is enabled
+    */
+    function depositFromWorkLock(
+        address _staker,
+        uint256 _value,
+        uint16 _unlockingDuration
+    )
+        external onlyWorkLock
+    {
+        require(_value != 0, "Amount of tokens to deposit must be specified");
+        StakerInfo storage info = stakerInfo[_staker];
+        // initial stake of the staker
+        if (info.value == 0 &amp;&amp; info.lastCommittedPeriod == 0) {
+            stakers.push(_staker);
+        }
+        token.safeTransferFrom(msg.sender, address(this), _value);
+        info.value += _value;
+
+        emit Deposited(_staker, _value);
+    }
+
+    //-------------------------Slashing-------------------------
+    /**
+    * @notice Slash the staker's stake and reward the investigator
+    * @param _staker Staker's address
+    * @param _penalty Penalty
+    * @param _investigator Investigator
+    * @param _reward Reward for the investigator
+    */
+    function slashStaker(
+        address _staker,
+        uint256 _penalty,
+        address _investigator,
+        uint256 _reward
+    )
+        <span class="marker" id="mapping-87"></span><span class="token del" data-title="function_definition/visibility">internal</span>
+    {
+        require(_penalty &gt; 0, "Penalty must be specified");
+        StakerInfo storage info = stakerInfo[_staker];
+        if (info.value &lt;= _penalty) {
+            _penalty = info.value;
+        }
+        info.value -= _penalty;
+        if (_reward &gt; _penalty) {
+            _reward = _penalty;
+        }
+
+        emit Slashed(_staker, _penalty, _investigator, _reward);
+        if (_reward &gt; 0) {
+            token.safeTransfer(_investigator, _reward);
+        }
+    }
+
+    //-------------Additional getters for stakers info-------------
+    /**
+    * @notice Return the length of the array of stakers
+    */
+    function getStakersLength() external view virtual returns (uint256) {
+        return stakers.length;
+    }
+
+    <span class="marker" id="mapping-88"></span><span class="token del" data-title="contract_body/comment">/**
+    * @notice Return the length of the array of sub stakes
+    */</span>
+    <span class="marker" id="mapping-89"></span><span class="token del" data-title="contract_body/function_definition">function getSubStakesLength(<span class="marker" id="mapping-90"></span><span class="token mv" id="move-src-69" data-title="function_definition/parameter">address _staker</span>) <span class="marker" id="mapping-91"></span><span class="token mv" id="move-src-70" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-92"></span><span class="token del" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-93"></span><span class="token mv" id="move-src-71" data-title="function_definition/return_type_definition">returns (uint256)</span> <span class="marker" id="mapping-94"></span><span class="token del" data-title="function_definition/function_body">{
+        return stakerInfo[_staker].subStakes.length;
+    }</span></span>
+
+    <span class="marker" id="mapping-95"></span><span class="token del" data-title="contract_body/comment">/**
+    * @notice Return the information about sub stake
+    */</span>
+    <span class="marker" id="mapping-96"></span><span class="token del" data-title="contract_body/function_definition">function getSubStakeInfo(<span class="marker" id="mapping-97"></span><span class="token del" data-title="function_definition/parameter">address _staker</span>, <span class="marker" id="mapping-98"></span><span class="token mv" id="move-src-72" data-title="function_definition/parameter">uint256 <span class="marker" id="mapping-99"></span><span class="token upd" id="move-src-73" data-title="parameter/identifier"><span class="cupd">_</span>index</span></span>)
+    // TODO change to structure when ABIEncoderV2 is released (#1501)
+//        public view returns (SubStakeInfo)
+        // TODO "virtual" only for tests, probably will be removed after #1512
+        <span class="marker" id="mapping-100"></span><span class="token mv" id="move-src-74" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-101"></span><span class="token del" data-title="function_definition/state_mutability">view</span> virtual <span class="marker" id="mapping-102"></span><span class="token del" data-title="function_definition/return_type_definition">returns (
+            uint16 firstPeriod,
+            uint16 lastPeriod,
+            uint16 unlockingDuration,
+            uint128 lockedValue
+        )</span>
+    <span class="marker" id="mapping-103"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-104"></span><span class="token mv" id="move-src-75" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-105"></span><span class="token upd" id="move-src-76" data-title="user_defined_type/identifier"><span class="cupd">S</span>ubS<span class="cupd">take</span><span class="cupd">Info</span></span> storage info = <span class="marker" id="mapping-106"></span><span class="token del" data-title="variable_declaration_statement/array_access"><span class="marker" id="mapping-107"></span><span class="token del" data-title="array_access/member_expression"><span class="marker" id="mapping-108"></span><span class="token mv" id="move-src-77" data-title="member_expression/array_access">stakerInfo[_staker]</span>.subStakes</span>[_index]</span>;</span>
+        <span class="marker" id="mapping-109"></span><span class="token del" data-title="function_body/expression_statement">firstPeriod = info.firstPeriod;</span>
+        <span class="marker" id="mapping-110"></span><span class="token del" data-title="function_body/expression_statement">lastPeriod = info.lastPeriod;</span>
+        <span class="marker" id="mapping-111"></span><span class="token del" data-title="function_body/expression_statement">unlockingDuration = info.unlockingDuration;</span>
+        <span class="marker" id="mapping-112"></span><span class="token del" data-title="function_body/expression_statement">lockedValue = info.lockedValue;</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-113"></span><span class="token del" data-title="contract_body/comment">/**
+    * @notice Return the length of the array of past downtime
+    */</span>
+    <span class="marker" id="mapping-114"></span><span class="token del" data-title="contract_body/function_definition">function getPastDowntimeLength(<span class="marker" id="mapping-115"></span><span class="token mv" id="move-src-78" data-title="function_definition/parameter">address _staker</span>) <span class="marker" id="mapping-116"></span><span class="token mv" id="move-src-79" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-117"></span><span class="token mv" id="move-src-80" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-118"></span><span class="token mv" id="move-src-81" data-title="function_definition/return_type_definition">returns (uint256)</span> <span class="marker" id="mapping-119"></span><span class="token del" data-title="function_definition/function_body">{
+        return stakerInfo[_staker].pastDowntime.length;
+    }</span></span>
+
+    <span class="marker" id="mapping-120"></span><span class="token del" data-title="contract_body/comment">/**
+    * @notice Return the information about past downtime
+    */</span>
+    <span class="marker" id="mapping-121"></span><span class="token del" data-title="contract_body/function_definition">function  getPastDowntime(<span class="marker" id="mapping-122"></span><span class="token del" data-title="function_definition/parameter">address _staker</span>, <span class="marker" id="mapping-123"></span><span class="token mv" id="move-src-82" data-title="function_definition/parameter"><span class="marker" id="mapping-124"></span><span class="token mv" id="move-src-83" data-title="parameter/type_name">uint256</span> <span class="marker" id="mapping-125"></span><span class="token upd" id="move-src-84" data-title="parameter/identifier"><span class="cupd">_</span>index</span></span>)
+    // TODO change to structure when ABIEncoderV2 is released (#1501)
+//        public view returns (Downtime)
+        <span class="marker" id="mapping-126"></span><span class="token mv" id="move-src-85" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-127"></span><span class="token del" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-128"></span><span class="token del" data-title="function_definition/return_type_definition">returns (uint16 startPeriod, uint16 endPeriod)</span>
+    <span class="marker" id="mapping-129"></span><span class="token del" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-130"></span><span class="token mv" id="move-src-86" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-131"></span><span class="token upd" id="move-src-87" data-title="user_defined_type/identifier">Down<span class="cupd">t</span>ime</span> storage <span class="marker" id="mapping-132"></span><span class="token upd" id="move-src-88" data-title="variable_declaration/identifier">downtime</span> = <span class="marker" id="mapping-133"></span><span class="token del" data-title="variable_declaration_statement/array_access"><span class="marker" id="mapping-134"></span><span class="token del" data-title="array_access/member_expression"><span class="marker" id="mapping-135"></span><span class="token mv" id="move-src-89" data-title="member_expression/array_access">stakerInfo[_staker]</span>.pastDowntime</span>[_index]</span>;</span>
+        <span class="marker" id="mapping-136"></span><span class="token del" data-title="function_body/expression_statement">startPeriod = downtime.startPeriod;</span>
+        <span class="marker" id="mapping-137"></span><span class="token del" data-title="function_body/expression_statement">endPeriod = downtime.endPeriod;</span>
+    }</span></span>
+
+    //------------------ ERC900 connectors ----------------------
+
+    function totalStakedForAt(address _owner, uint256 _blockNumber) public view override returns (uint256) {
+        <span class="marker" id="mapping-138"></span><span class="token del" data-title="function_body/if_statement">if (isUpgrade == UPGRADE_TRUE) {
+            return stakerInfo[_owner].history.getValueAt(_blockNumber);
+        }</span>
+        return 0;
+    }
+
+    function totalStakedAt(uint256 _blockNumber) public view override returns (uint256) {
+        <span class="marker" id="mapping-139"></span><span class="token del" data-title="function_body/if_statement">if (isUpgrade == UPGRADE_TRUE) {
+            return balanceHistory.getValueAt(_blockNumber);
+        }</span>
+        return token.totalSupply();
+    }
+
+    function supportsHistory() external pure override returns (bool) {
+        return true;
+    }
+
+    //------------------------Upgradeable------------------------
+    /**
+    * @dev Get StakerInfo structure by delegatecall
+    */
+    function delegateGetStakerInfo(address _target, bytes32 _staker)
+        internal returns (StakerInfo memory result)
+    {
+        bytes32 memoryAddress = delegateGetData(_target, this.stakerInfo.selector, 1, _staker, 0);
+        assembly {
+            result := memoryAddress
+        }
+    }
+
+    /// @dev the `onlyWhileUpgrading` modifier works through a call to the parent `verifyState`
+    function verifyState(address _testTarget) public override virtual {
+        super.verifyState(_testTarget);
+
+        require(delegateGet(_testTarget, this.getStakersLength.selector) == stakers.length);
+        if (stakers.length == 0) {
+            return;
+        }
+        address stakerAddress = stakers[0];
+        require(address(uint160(delegateGet(_testTarget, this.stakers.selector, 0))) == stakerAddress);
+        StakerInfo storage info = stakerInfo[stakerAddress];
+        bytes32 staker = bytes32(uint256(<span class="marker" id="mapping-140"></span><span class="token mv" id="move-src-90" data-title="type_cast_expression/call_argument">stakerAddress</span>));
+        StakerInfo memory infoToCheck = delegateGetStakerInfo(_testTarget, staker);
+        require(
+            <span class="marker" id="mapping-141"></span><span class="token mv" id="move-src-91" data-title="call_argument/binary_expression">infoToCheck.value == info.value &amp;&amp;
+            infoToCheck.<span class="marker" id="mapping-142"></span><span class="token upd" id="move-src-92" data-title="member_expression/identifier">f<span class="cupd">l</span><span class="cupd">a</span>gs</span> == <span class="marker" id="mapping-143"></span><span class="token mv" id="move-src-93" data-title="binary_expression/member_expression">info.flags</span></span>
+        );
+    }
+
+}
+</pre></div><div class="col-6"><h5>StakingEscrow.sol</h5><pre class="pre-scrollable">// SPDX-License-Identifier: AGPL-3.0-or-later
+
+pragma solidity ^<span class="marker" id="mapping-144"></span><span class="token upd" id="move-dst-1" data-title="solidity_pragma_token/solidity_version"><span class="cupd">0.</span>8<span class="cupd">.0</span></span>;
+
+
+import "IERC900History.sol";
+import "NuCypherToken.sol";
+import "Bits.sol";
+import "Upgradeable.sol";
+import "Math.sol";
+import "SafeERC20.sol";
+import "IStaking.sol";
+
+
+/**
+* @notice WorkLock interface
+*/
+interface WorkLockInterface {
+    function token() external view returns (NuCypherToken);
+}
+
+
+/**
+* @title StakingEscrowStub
+* @notice Stub is used to deploy main StakingEscrow after all other contract and make some variables immutable
+* @dev |v1.1.0|
+*/
+contract StakingEscrowStub is Upgradeable {
+    NuCypherToken public immutable token;
+    // only to deploy WorkLock
+    uint32 public immutable secondsPerPeriod = 1;
+    uint16 public immutable minLockedPeriods = 0;
+    uint256 public immutable minAllowableLockedTokens;
+    uint256 public immutable maxAllowableLockedTokens;
+
+    /**
+    * @notice Predefines some variables for use when deploying other contracts
+    * @param _token Token contract
+    * @param _minAllowableLockedTokens Min amount of tokens that can be locked
+    * @param _maxAllowableLockedTokens Max amount of tokens that can be locked
+    */
+    constructor(
+        NuCypherToken _token,
+        uint256 _minAllowableLockedTokens,
+        uint256 _maxAllowableLockedTokens
+    ) {
+        require(_token.totalSupply() &gt; 0 &amp;&amp;
+            _maxAllowableLockedTokens != 0);
+
+        token = _token;
+        minAllowableLockedTokens = _minAllowableLockedTokens;
+        maxAllowableLockedTokens = _maxAllowableLockedTokens;
+    }
+
+    /// @dev the `onlyWhileUpgrading` modifier works through a call to the parent `verifyState`
+    function verifyState(address _testTarget) public override virtual {
+        super.verifyState(_testTarget);
+
+        // we have to use real values even though this is a stub
+        require(<span class="marker" id="mapping-145"></span><span class="token add" data-title="binary_expression/type_cast_expression"><span class="marker" id="mapping-146"></span><span class="token mv" id="move-dst-3" data-title="type_cast_expression/primitive_type">address</span>(<span class="marker" id="mapping-147"></span><span class="token add" data-title="type_cast_expression/call_argument"><span class="marker" id="mapping-148"></span><span class="token mv" id="move-dst-2" data-title="call_argument/type_cast_expression"><span class="marker" id="mapping-149"></span><span class="token add" data-title="type_cast_expression/primitive_type">uint160</span>(delegateGet(_testTarget, this.token.selector))</span></span>)</span> == address(token));
+    }
+}
+
+
+<span class="marker" id="mapping-150"></span><span class="token upd" id="move-dst-4" data-title="source_file/comment"><span class="cupd">/**
+* @title StakingEscrow
+* @notice Contract holds and locks stakers tokens.
+* Each staker that locks their tokens will receive some compensation
+* @dev |v6.</span>2<span class="cupd">.</span>2<span class="cupd">|
+*/</span></span>
+contract StakingEscrow is Upgradeable, IERC900History {
+
+    using Bits for uint256;
+    using SafeERC20 for NuCypherToken;
+
+    /**
+    * @notice Signals that tokens were deposited
+    * @param staker Staker address
+    * @param value Amount deposited (in NuNits)
+    */
+    event Deposited(address indexed staker, uint256 value);
+
+    /**
+    * @notice Signals that NU tokens were withdrawn to the staker
+    * @param staker Staker address
+    * @param value Amount withdraws (in NuNits)
+    */
+    event Withdrawn(address indexed staker, uint256 value);
+
+    /**
+    * @notice Signals that the staker was slashed
+    * @param staker Staker address
+    * @param penalty Slashing penalty
+    * @param investigator Investigator address
+    * @param reward Value of reward provided to investigator (in NuNits)
+    */
+    event Slashed(address indexed staker, uint256 penalty, address indexed investigator, uint256 reward);
+
+    <span class="marker" id="mapping-151"></span><span class="token mv" id="move-dst-25" data-title="contract_body/comment"><span class="marker" id="mapping-152"></span><span class="token upd" id="move-dst-25" data-title="contract_body/comment"><span class="cupd">/</span>**<span class="cupd">
+   </span> * @not<span class="cupd">i</span>ce Sig<span class="cupd">n</span>als <span class="cupd">t</span>hat<span class="cupd"> </span>vest<span class="cupd">in</span>g parame<span class="cupd">ter</span>s<span class="cupd"> </span>were set f<span class="cupd">o</span>r the <span class="cupd">sta</span>ker
+    * @param s<span class="cupd">t</span>aker<span class="cupd"> S</span>taker address
+    * @param release<span class="cupd">T</span>imestamp<span class="cupd"> </span>Release timestamp
+    * @param releaseRate Release rate
+    */</span></span>
+    <span class="marker" id="mapping-153"></span><span class="token add" data-title="contract_body/event_definition">event VestingSet(<span class="marker" id="mapping-154"></span><span class="token add" data-title="event_definition/event_paramater">address indexed staker</span>, <span class="marker" id="mapping-155"></span><span class="token add" data-title="event_definition/event_paramater"><span class="marker" id="mapping-156"></span><span class="token mv" id="move-dst-5" data-title="event_paramater/type_name">uint256</span> releaseTimestamp</span>, <span class="marker" id="mapping-157"></span><span class="token add" data-title="event_definition/event_paramater">uint256 releaseRate</span>);</span>
+
+    <span class="marker" id="mapping-158"></span><span class="token mv" id="move-dst-29" data-title="contract_body/comment"><span class="marker" id="mapping-159"></span><span class="token upd" id="move-dst-29" data-title="contract_body/comment"><span class="cupd">/</span>**<span class="cupd">
+</span>    * @n<span class="cupd">o</span>tice Signals that the staker req<span class="cupd">u</span>es<span class="cupd">t</span>e<span class="cupd">d</span> merge with T st<span class="cupd">a</span>king con<span class="cupd">t</span>ract
+    * @param stak<span class="cupd">e</span>r Staker address
+    * @param stakingProvider Staking provider address
+    */</span></span>
+    <span class="marker" id="mapping-160"></span><span class="token add" data-title="contract_body/event_definition">event MergeRequested(address indexed staker, address indexed stakingProvider);</span>
+
+    struct StakerInfo {
+        uint256 value;
+
+        <span class="marker" id="mapping-161"></span><span class="token mv" id="move-dst-9" data-title="struct_declaration/struct_member">uint16 stub1;</span> <span class="marker" id="mapping-162"></span><span class="token mv" id="move-dst-16" data-title="struct_declaration/comment"><span class="marker" id="mapping-163"></span><span class="token upd" id="move-dst-16" data-title="struct_declaration/comment"><span class="cupd">// </span>form<span class="cupd">er</span> sl<span class="cupd">o</span>t<span class="cupd"> </span>for curr<span class="cupd">en</span>tC<span class="cupd">o</span>mmitt<span class="cupd">e</span>dPe<span class="cupd">r</span>iod<span class="cupd"> </span>//<span class="cupd"> </span>TODO com<span class="cupd">b</span>i<span class="cupd">n</span>e slots?</span></span>
+        uint16 <span class="marker" id="mapping-164"></span><span class="token upd" id="move-dst-8" data-title="struct_member/identifier">stub2</span>; <span class="marker" id="mapping-165"></span><span class="token add" data-title="struct_declaration/comment">// former slot for nextCommittedPeriod</span>
+        uint16 lastCommittedPeriod; <span class="marker" id="mapping-166"></span><span class="token add" data-title="struct_declaration/comment">// used only in depositFromWorkLock</span>
+        uint16 <span class="marker" id="mapping-167"></span><span class="token upd" id="move-dst-14" data-title="struct_member/identifier">stub4</span>; <span class="marker" id="mapping-168"></span><span class="token mv" id="move-dst-10" data-title="struct_declaration/comment">// former slot for lockReStakeUntilPeriod</span>
+        <span class="marker" id="mapping-169"></span><span class="token mv" id="move-dst-18" data-title="struct_declaration/struct_member">uint256 <span class="marker" id="mapping-170"></span><span class="token upd" id="move-dst-19" data-title="struct_member/identifier"><span class="cupd">s</span>tub5</span>;</span> <span class="marker" id="mapping-171"></span><span class="token add" data-title="struct_declaration/comment">// former slot for completedWork</span>
+        <span class="marker" id="mapping-172"></span><span class="token mv" id="move-dst-6" data-title="struct_declaration/struct_member">uint16 <span class="marker" id="mapping-173"></span><span class="token upd" id="move-dst-7" data-title="struct_member/identifier">stub6</span>;</span> <span class="marker" id="mapping-174"></span><span class="token add" data-title="struct_declaration/comment">// former slot for workerStartPeriod</span>
+        address <span class="marker" id="mapping-175"></span><span class="token upd" id="move-dst-17" data-title="struct_member/identifier">stub7</span>; <span class="marker" id="mapping-176"></span><span class="token add" data-title="struct_declaration/comment">// former slot for worker</span>
+
+        uint256 flags; // uint256 to acquire whole slot and minimize operations on it
+
+        uint256 <span class="marker" id="mapping-177"></span><span class="token upd" id="move-dst-22" data-title="struct_member/identifier">v<span class="cupd">es</span>tingR<span class="cupd">e</span>l<span class="cupd">e</span>aseTimestamp</span>;
+        <span class="marker" id="mapping-178"></span><span class="token mv" id="move-dst-20" data-title="struct_declaration/struct_member">uint256 <span class="marker" id="mapping-179"></span><span class="token upd" id="move-dst-21" data-title="struct_member/identifier">v<span class="cupd">es</span>tingR<span class="cupd">e</span>l<span class="cupd">e</span>aseRate</span>;</span>
+        <span class="marker" id="mapping-180"></span><span class="token add" data-title="struct_declaration/struct_member">address stakingProvider;</span>
+
+        uint256 reservedSlot4;
+        uint256 reservedSlot5;
+
+        <span class="marker" id="mapping-181"></span><span class="token mv" id="move-dst-11" data-title="struct_declaration/struct_member"><span class="marker" id="mapping-182"></span><span class="token add" data-title="struct_member/type_name"><span class="marker" id="mapping-183"></span><span class="token mv" id="move-dst-12" data-title="type_name/type_name">uint256</span>[]</span> <span class="marker" id="mapping-184"></span><span class="token upd" id="move-dst-13" data-title="struct_member/identifier">stub8</span>;</span> <span class="marker" id="mapping-185"></span><span class="token add" data-title="struct_declaration/comment">// former slot for pastDowntime</span>
+        <span class="marker" id="mapping-186"></span><span class="token add" data-title="struct_declaration/struct_member">uint256[] stub9;</span> <span class="marker" id="mapping-187"></span><span class="token add" data-title="struct_declaration/comment">// former slot for subStakes</span>
+        uint128[] <span class="marker" id="mapping-188"></span><span class="token upd" id="move-dst-23" data-title="struct_member/identifier"><span class="cupd">st</span>ub10</span>; <span class="marker" id="mapping-189"></span><span class="token add" data-title="struct_declaration/comment">// former slot for history</span>
+
+    }
+
+    // indices for flags (0-4 were in use, skip it in future)
+<span class="marker" id="mapping-190"></span><span class="token mv" id="move-dst-31" data-title="contract_body/comment"><span class="marker" id="mapping-191"></span><span class="token upd" id="move-dst-31" data-title="contract_body/comment"><span class="cupd">// </span>   <span class="cupd">u</span>in<span class="cupd">t</span>8 intern<span class="cupd">a</span>l constant SOME_FLAG_INDEX = 5;</span></span>
+
+    NuCypherToken public immutable token;
+    WorkLockInterface public immutable workLock;
+    <span class="marker" id="mapping-192"></span><span class="token add" data-title="contract_body/state_variable_declaration"><span class="marker" id="mapping-193"></span><span class="token add" data-title="state_variable_declaration/type_name">IStaking</span> <span class="marker" id="mapping-194"></span><span class="token mv" id="move-dst-26" data-title="state_variable_declaration/visibility">public</span> immutable tStaking;</span>
+
+    uint128 <span class="marker" id="mapping-195"></span><span class="token add" data-title="state_variable_declaration/visibility">private</span> <span class="marker" id="mapping-196"></span><span class="token upd" id="move-dst-27" data-title="state_variable_declaration/identifier"><span class="cupd">s</span>tub1</span>; <span class="marker" id="mapping-197"></span><span class="token mv" id="move-dst-34" data-title="contract_body/comment"><span class="marker" id="mapping-198"></span><span class="token upd" id="move-dst-34" data-title="contract_body/comment"><span class="cupd">// </span>f<span class="cupd">o</span>rmer slo<span class="cupd">t</span> for pr<span class="cupd">e</span>viousPeriodSupply</span></span>
+    uint128 public currentPeriodSupply; <span class="marker" id="mapping-199"></span><span class="token mv" id="move-dst-37" data-title="contract_body/comment"><span class="marker" id="mapping-200"></span><span class="token upd" id="move-dst-37" data-title="contract_body/comment"><span class="cupd">// </span>res<span class="cupd">u</span>l<span class="cupd">t</span>ing <span class="cupd">t</span>oken supply</span></span>
+    uint16 <span class="marker" id="mapping-201"></span><span class="token add" data-title="visibility/private">private</span> <span class="marker" id="mapping-202"></span><span class="token upd" id="move-dst-32" data-title="state_variable_declaration/identifier">stub2</span>; <span class="marker" id="mapping-203"></span><span class="token mv" id="move-dst-41" data-title="contract_body/comment"><span class="marker" id="mapping-204"></span><span class="token upd" id="move-dst-41" data-title="contract_body/comment"><span class="cupd">// </span>f<span class="cupd">o</span>rmer slot for c<span class="cupd">u</span>rren<span class="cupd">t</span>Min<span class="cupd">t</span>ingP<span class="cupd">e</span>riod</span></span>
+
+    mapping (address =&gt; StakerInfo) public stakerInfo;
+    address[] public stakers;
+    mapping (address =&gt; address) <span class="marker" id="mapping-205"></span><span class="token add" data-title="visibility/private">private</span> <span class="marker" id="mapping-206"></span><span class="token upd" id="move-dst-35" data-title="state_variable_declaration/identifier"><span class="cupd">st</span>ub3</span>; <span class="marker" id="mapping-207"></span><span class="token mv" id="move-dst-51" data-title="contract_body/comment"><span class="marker" id="mapping-208"></span><span class="token upd" id="move-dst-51" data-title="contract_body/comment"><span class="cupd">// </span>f<span class="cupd">o</span>rmer slo<span class="cupd">t</span> for st<span class="cupd">a</span>kerFromWorker</span></span>
+
+    mapping (uint16 =&gt; uint256) <span class="marker" id="mapping-209"></span><span class="token add" data-title="state_variable_declaration/visibility">private</span> <span class="marker" id="mapping-210"></span><span class="token upd" id="move-dst-38" data-title="state_variable_declaration/identifier"><span class="cupd">stub</span>4</span>; // former slot for lockedPerPeriod
+    uint128[] <span class="marker" id="mapping-211"></span><span class="token add" data-title="visibility/private">private</span> <span class="marker" id="mapping-212"></span><span class="token upd" id="move-dst-39" data-title="state_variable_declaration/identifier"><span class="cupd">st</span>ub5</span>;  <span class="marker" id="mapping-213"></span><span class="token mv" id="move-dst-53" data-title="contract_body/comment"><span class="marker" id="mapping-214"></span><span class="token upd" id="move-dst-53" data-title="contract_body/comment"><span class="cupd">/</span>/<span class="cupd"> </span><span class="cupd">f</span><span class="cupd">o</span><span class="cupd">r</span><span class="cupd">me</span><span class="cupd">r</span><span class="cupd"> </span><span class="cupd">s</span>l<span class="cupd">o</span><span class="cupd">t</span><span class="cupd"> </span>f<span class="cupd">o</span><span class="cupd">r</span><span class="cupd"> </span>b<span class="cupd">a</span>l<span class="cupd">a</span><span class="cupd">n</span><span class="cupd">c</span><span class="cupd">e</span>Hi<span class="cupd">s</span><span class="cupd">t</span><span class="cupd">o</span>ry</span></span>
+
+    address <span class="marker" id="mapping-215"></span><span class="token add" data-title="state_variable_declaration/visibility">private</span> <span class="marker" id="mapping-216"></span><span class="token upd" id="move-dst-45" data-title="state_variable_declaration/identifier"><span class="cupd">stub</span>6</span>; <span class="marker" id="mapping-217"></span><span class="token mv" id="move-dst-44" data-title="contract_body/comment">// former slot for PolicyManager</span>
+    address <span class="marker" id="mapping-218"></span><span class="token add" data-title="state_variable_declaration/visibility">private</span> <span class="marker" id="mapping-219"></span><span class="token upd" id="move-dst-47" data-title="state_variable_declaration/identifier"><span class="cupd">stub</span>7</span>; <span class="marker" id="mapping-220"></span><span class="token mv" id="move-dst-46" data-title="contract_body/comment">// former slot for Adjudicator</span>
+    <span class="marker" id="mapping-221"></span><span class="token mv" id="move-dst-42" data-title="contract_body/state_variable_declaration">address <span class="marker" id="mapping-222"></span><span class="token add" data-title="state_variable_declaration/visibility">private</span> <span class="marker" id="mapping-223"></span><span class="token upd" id="move-dst-43" data-title="state_variable_declaration/identifier"><span class="cupd">stub</span>8</span>;</span> // former slot for WorkLock
+
+    mapping (uint16 =&gt; uint256) <span class="marker" id="mapping-224"></span><span class="token add" data-title="state_variable_declaration/visibility">private</span> <span class="marker" id="mapping-225"></span><span class="token upd" id="move-dst-49" data-title="state_variable_declaration/identifier">stub9</span>; <span class="marker" id="mapping-226"></span><span class="token mv" id="move-dst-56" data-title="contract_body/comment"><span class="marker" id="mapping-227"></span><span class="token upd" id="move-dst-56" data-title="contract_body/comment"><span class="cupd">// </span>last<span class="cupd"> </span>former<span class="cupd"> </span>slot for lockedPerPeriod</span></span>
+
+    <span class="marker" id="mapping-228"></span><span class="token mv" id="move-dst-58" data-title="contract_body/comment"><span class="marker" id="mapping-229"></span><span class="token upd" id="move-dst-58" data-title="contract_body/comment"><span class="cupd">/</span>**<span class="cupd">
+   </span> <span class="cupd">* @notice </span>Constructor s<span class="cupd">et</span>s<span class="cupd"> a</span>ddress<span class="cupd"> </span>o<span class="cupd">f</span> token contr<span class="cupd">a</span>ct and parameter<span class="cupd">s for </span>s<span class="cupd">t</span>aking
+    * @param _token NuCyp<span class="cupd">he</span>r<span class="cupd"> </span>token contract
+    * @param _workLock WorkLock contract. Zero addre<span class="cupd">s</span>s if <span class="cupd">t</span>here is no WorkLock
+    * @p<span class="cupd">a</span>ram _tSta<span class="cupd">k</span>ing T tok<span class="cupd">e</span>n staking contract
+    */</span></span>
+    constructor(
+        NuCypherToken _token,
+        WorkLockInterface _workLock<span class="marker" id="mapping-230"></span><span class="token add" data-title="constructor_definition/,">,</span>
+        <span class="marker" id="mapping-231"></span><span class="token add" data-title="constructor_definition/parameter">IStaking _tStaking</span>
+    ) {
+        require(<span class="marker" id="mapping-232"></span><span class="token add" data-title="binary_expression/binary_expression"><span class="marker" id="mapping-233"></span><span class="token add" data-title="binary_expression/call_expression"><span class="marker" id="mapping-234"></span><span class="token add" data-title="call_expression/member_expression"><span class="marker" id="mapping-235"></span><span class="token add" data-title="member_expression/binary_expression"><span class="marker" id="mapping-236"></span><span class="token mv" id="move-dst-54" data-title="binary_expression/binary_expression">_token.totalSupply() &gt; 0</span> &amp;&amp;
+            _tStaking</span>.stakedNu</span>(<span class="marker" id="mapping-237"></span><span class="token add" data-title="call_expression/call_argument">address(0)</span>)</span> == 0</span> &amp;&amp;
+            (address(_workLock) == address(0) || _workLock.token() == _token),
+            "Input addresses must be deployed contracts"
+        );
+
+        token = _token;
+        workLock = _workLock;
+        <span class="marker" id="mapping-238"></span><span class="token add" data-title="function_body/expression_statement">tStaking = _tStaking;</span>
+    }
+
+    /**
+    * @dev Checks the existence of a staker in the contract
+    */
+    modifier onlyStaker()
+    {
+        require(stakerInfo[msg.sender].value &gt; 0, "Caller must be a staker");
+        _;
+    }
+
+    <span class="marker" id="mapping-239"></span><span class="token mv" id="move-dst-60" data-title="contract_body/comment"><span class="marker" id="mapping-240"></span><span class="token upd" id="move-dst-60" data-title="contract_body/comment"><span class="cupd">/</span>**<span class="cupd">
+   </span> <span class="cupd">*</span> @dev Checks caller is T staking contract
+    */</span></span>
+    <span class="marker" id="mapping-241"></span><span class="token add" data-title="contract_body/modifier_definition">modifier onlyTStakingContract()
+    {
+        require(msg.sender == address(tStaking), "Caller must be the T staking contract");
+        _;
+    }</span>
+
+    /**
+    * @dev Checks caller is WorkLock contract
+    */
+    modifier onlyWorkLock()
+    {
+        require(msg.sender == address(workLock), "Caller must be the WorkLock contract");
+        _;
+    }
+
+    //------------------------Main getters------------------------
+    /**
+    * @notice Get all tokens belonging to the staker
+    */
+    function getAllTokens(address _staker) external view returns (uint256) {
+        return stakerInfo[_staker].value;
+    }
+
+    /**
+    * @notice Get work that completed by the staker
+    */
+    function getCompletedWork(address _staker) external view returns (uint256) {
+        return token.totalSupply();
+    }
+
+
+    //------------------------Main methods------------------------
+    /**
+    * @notice Stub for WorkLock
+    * @param _staker Staker
+    * @param _measureWork Value for `measureWork` parameter
+    * @return Work that was previously done
+    */
+    function setWorkMeasurement(address _staker, bool _measureWork)
+        external onlyWorkLock returns (uint256)
+    {
+        return 0;
+    }
+
+    /**
+    * @notice Deposit tokens from WorkLock contract
+    * @param _staker Staker address
+    * @param _value Amount of tokens to deposit
+    * @param _unlockingDuration Amount of periods during which tokens will be unlocked when wind down is enabled
+    */
+    function depositFromWorkLock(
+        address _staker,
+        uint256 _value,
+        uint16 _unlockingDuration
+    )
+        external onlyWorkLock
+    {
+        require(_value != 0, "Amount of tokens to deposit must be specified");
+        StakerInfo storage info = stakerInfo[_staker];
+        // initial stake of the staker
+        if (info.value == 0 &amp;&amp; info.lastCommittedPeriod == 0) {
+            stakers.push(_staker);
+        }
+        token.safeTransferFrom(msg.sender, address(this), _value);
+        info.value += _value;
+
+        emit Deposited(_staker, _value);
+    }
+
+    <span class="marker" id="mapping-242"></span><span class="token mv" id="move-dst-62" data-title="contract_body/comment"><span class="marker" id="mapping-243"></span><span class="token upd" id="move-dst-62" data-title="contract_body/comment"><span class="cupd">/</span>**<span class="cupd">
+   </span> * @<span class="cupd">n</span>oti<span class="cupd">c</span>e Wi<span class="cupd">t</span>hdraw ava<span class="cupd">i</span>lable am<span class="cupd">o</span>u<span class="cupd">n</span>t<span class="cupd"> </span>of NU tok<span class="cupd">e</span>ns <span class="cupd">t</span>o <span class="cupd">s</span>t<span class="cupd">a</span>ke<span class="cupd">r</span>
+    * @param _valu<span class="cupd">e</span><span class="cupd"> </span>Amoun<span class="cupd">t</span> of to<span class="cupd">ke</span>ns to withdraw
+    */</span></span>
+    <span class="marker" id="mapping-244"></span><span class="token add" data-title="contract_body/function_definition">function withdraw(<span class="marker" id="mapping-245"></span><span class="token mv" id="move-dst-72" data-title="function_definition/parameter">uint256 <span class="marker" id="mapping-246"></span><span class="token upd" id="move-dst-73" data-title="parameter/identifier"><span class="cupd">_</span>value</span></span>) <span class="marker" id="mapping-247"></span><span class="token mv" id="move-dst-74" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-248"></span><span class="token add" data-title="function_definition/modifier_invocation">onlyStaker</span> <span class="marker" id="mapping-249"></span><span class="token add" data-title="function_definition/function_body">{
+        require(_value &gt; 0, "Value must be specified");
+        StakerInfo storage info = stakerInfo[msg.sender];
+        require(
+            _value + tStaking.stakedNu(info.stakingProvider) &lt;= info.value,
+            "Not enough tokens unstaked in T staking contract"
+        );
+        require(
+            _value + getUnvestedTokens(msg.sender) &lt;= info.value,
+            "Not enough tokens released during vesting"
+        );
+        info.value -= _value;
+
+        token.safeTransfer(msg.sender, _value);
+        emit Withdrawn(msg.sender, _value);
+    }</span></span>
+
+    <span class="marker" id="mapping-250"></span><span class="token mv" id="move-dst-64" data-title="contract_body/comment"><span class="marker" id="mapping-251"></span><span class="token upd" id="move-dst-64" data-title="contract_body/comment"><span class="cupd">/</span>**<span class="cupd">
+    </span>*<span class="cupd"> </span>@notice<span class="cupd"> </span>R<span class="cupd">e</span><span class="cupd">t</span>u<span class="cupd">rn</span>s <span class="cupd">a</span>mount of not re<span class="cupd">l</span>eased<span class="cupd"> </span>y<span class="cupd">e</span>t<span class="cupd"> </span>tok<span class="cupd">e</span><span class="cupd">ns </span>for staker
+    */</span></span>
+    <span class="marker" id="mapping-252"></span><span class="token add" data-title="contract_body/function_definition">function getUnvestedTokens(<span class="marker" id="mapping-253"></span><span class="token mv" id="move-dst-78" data-title="function_definition/parameter">address _staker</span>) <span class="marker" id="mapping-254"></span><span class="token mv" id="move-dst-48" data-title="function_definition/visibility">public</span> <span class="marker" id="mapping-255"></span><span class="token mv" id="move-dst-80" data-title="function_definition/state_mutability">view</span> <span class="marker" id="mapping-256"></span><span class="token mv" id="move-dst-81" data-title="function_definition/return_type_definition">returns (uint256)</span> <span class="marker" id="mapping-257"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-258"></span><span class="token mv" id="move-dst-75" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-259"></span><span class="token upd" id="move-dst-76" data-title="user_defined_type/identifier"><span class="cupd">S</span><span class="cupd">take</span>r<span class="cupd">Info</span></span> storage info = <span class="marker" id="mapping-260"></span><span class="token mv" id="move-dst-77" data-title="variable_declaration_statement/array_access">stakerInfo[_staker]</span>;</span>
+        <span class="marker" id="mapping-261"></span><span class="token add" data-title="function_body/if_statement">if (info.vestingReleaseTimestamp &lt;= block.timestamp) {
+            return 0;
+        }</span>
+        <span class="marker" id="mapping-262"></span><span class="token add" data-title="function_body/if_statement">if (info.vestingReleaseRate == 0) {
+            // this value includes all not withdrawn reward
+            return info.value;
+        }</span>
+        <span class="marker" id="mapping-263"></span><span class="token add" data-title="function_body/variable_declaration_statement">uint256 unvestedTokens = (info.vestingReleaseTimestamp - block.timestamp) * info.vestingReleaseRate;</span>
+        <span class="marker" id="mapping-264"></span><span class="token add" data-title="function_body/return_statement">return info.value &lt; unvestedTokens ? info.value : unvestedTokens;</span>
+    }</span></span>
+
+    <span class="marker" id="mapping-265"></span><span class="token mv" id="move-dst-66" data-title="contract_body/comment"><span class="marker" id="mapping-266"></span><span class="token upd" id="move-dst-66" data-title="contract_body/comment"><span class="cupd">/</span>**<span class="cupd">
+    </span>*<span class="cupd"> </span>@notice<span class="cupd"> </span>Setup<span class="cupd"> </span>vesting<span class="cupd"> </span>parameters<span class="cupd">
+  </span>  * @param _stakers Array <span class="cupd">o</span>f stakers
+    * @param _re<span class="cupd">l</span>easeTimestamp<span class="cupd"> </span>Array of time<span class="cupd">s</span>tamps whe<span class="cupd">n</span> st<span class="cupd">a</span>ke will be released
+    * @<span class="cupd">p</span>aram _relea<span class="cupd">s</span>eRate Array of release rates
+    * @dev If release rate is 0 t<span class="cupd">h</span>en all value will be l<span class="cupd">o</span>cked before release <span class="cupd">t</span>imestamp
+    */</span></span>
+    <span class="marker" id="mapping-267"></span><span class="token add" data-title="contract_body/function_definition">function setupVesting(
+        <span class="marker" id="mapping-268"></span><span class="token add" data-title="function_definition/parameter">address[] calldata _stakers</span>,
+        <span class="marker" id="mapping-269"></span><span class="token add" data-title="function_definition/parameter">uint256[] calldata _releaseTimestamp</span>,
+        <span class="marker" id="mapping-270"></span><span class="token mv" id="move-dst-82" data-title="function_definition/parameter"><span class="marker" id="mapping-271"></span><span class="token add" data-title="parameter/type_name"><span class="marker" id="mapping-272"></span><span class="token mv" id="move-dst-83" data-title="type_name/type_name">uint256</span>[]</span> <span class="marker" id="mapping-273"></span><span class="token add" data-title="parameter/calldata">calldata</span> <span class="marker" id="mapping-274"></span><span class="token upd" id="move-dst-84" data-title="parameter/identifier"><span class="cupd">_</span>releaseRate</span></span>
+    ) <span class="marker" id="mapping-275"></span><span class="token mv" id="move-dst-85" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-276"></span><span class="token add" data-title="function_definition/modifier_invocation">onlyOwner</span> <span class="marker" id="mapping-277"></span><span class="token add" data-title="function_definition/function_body">{
+        require(_stakers.length == _releaseTimestamp.length &amp;&amp;
+            _releaseTimestamp.length == _releaseRate.length,
+            "Input arrays must have same number of elements"
+        );
+        for (uint256 i = 0; i &lt; _stakers.length; i++) {
+            address staker = _stakers[i];
+            StakerInfo storage info = stakerInfo[staker];
+            require(info.vestingReleaseTimestamp == 0, "Vesting parameters can be set only once");
+            info.vestingReleaseTimestamp = _releaseTimestamp[i];
+            info.vestingReleaseRate = _releaseRate[i];
+            require(getUnvestedTokens(staker) &gt; 0, "Vesting parameters must be set properly");
+            emit VestingSet(staker, info.vestingReleaseTimestamp, info.vestingReleaseRate);
+        }
+    }</span></span>
+
+    <span class="marker" id="mapping-278"></span><span class="token mv" id="move-dst-68" data-title="contract_body/comment"><span class="marker" id="mapping-279"></span><span class="token upd" id="move-dst-68" data-title="contract_body/comment"><span class="cupd">/</span>**<span class="cupd">
+    </span>*<span class="cupd"> </span>@notice<span class="cupd"> </span>Request migration to threshold network
+    * @param _staker Staker address
+    * @param _stakingProvider Staking provider address
+    * @return Amount of tokens
+    */</span></span>
+    <span class="marker" id="mapping-280"></span><span class="token add" data-title="contract_body/function_definition">function requestMerge(<span class="marker" id="mapping-281"></span><span class="token mv" id="move-dst-69" data-title="function_definition/parameter">address _staker</span>, <span class="marker" id="mapping-282"></span><span class="token add" data-title="function_definition/parameter">address _stakingProvider</span>)
+        <span class="marker" id="mapping-283"></span><span class="token mv" id="move-dst-70" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-284"></span><span class="token add" data-title="function_definition/modifier_invocation">onlyTStakingContract</span> <span class="marker" id="mapping-285"></span><span class="token mv" id="move-dst-71" data-title="function_definition/return_type_definition">returns (uint256)</span>
+    <span class="marker" id="mapping-286"></span><span class="token add" data-title="function_definition/function_body">{
+        <span class="marker" id="mapping-287"></span><span class="token mv" id="move-dst-86" data-title="function_body/variable_declaration_statement"><span class="marker" id="mapping-288"></span><span class="token upd" id="move-dst-87" data-title="user_defined_type/identifier">S<span class="cupd">t</span>akerInfo</span> storage <span class="marker" id="mapping-289"></span><span class="token upd" id="move-dst-88" data-title="variable_declaration/identifier">info</span> = <span class="marker" id="mapping-290"></span><span class="token mv" id="move-dst-89" data-title="variable_declaration_statement/array_access">stakerInfo[_staker]</span>;</span>
+        <span class="marker" id="mapping-291"></span><span class="token add" data-title="function_body/expression_statement">require(
+            info.stakingProvider == address(0) ||
+            info.stakingProvider == _stakingProvider ||
+            tStaking.stakedNu(info.stakingProvider) == 0,
+            "Staking provider already set for the staker"
+        );</span>
+        <span class="marker" id="mapping-292"></span><span class="token add" data-title="function_body/if_statement">if (info.stakingProvider != _stakingProvider) {
+            info.stakingProvider = _stakingProvider;
+            emit MergeRequested(_staker, _stakingProvider);
+        }</span>
+        <span class="marker" id="mapping-293"></span><span class="token add" data-title="function_body/return_statement">return info.value;</span>
+    }</span></span>
+
+    //-------------------------Slashing-------------------------
+    /**
+    * @notice Slash the staker's stake and reward the investigator
+    * @param _staker Staker's address
+    * @param _penalty Penalty
+    * @param _investigator Investigator
+    * @param _reward Reward for the investigator
+    */
+    function slashStaker(
+        address _staker,
+        uint256 _penalty,
+        address _investigator,
+        uint256 _reward
+    )
+        <span class="marker" id="mapping-294"></span><span class="token mv" id="move-dst-79" data-title="function_definition/visibility">external</span> <span class="marker" id="mapping-295"></span><span class="token add" data-title="function_definition/modifier_invocation">onlyTStakingContract</span>
+    {
+        require(_penalty &gt; 0, "Penalty must be specified");
+        StakerInfo storage info = stakerInfo[_staker];
+        if (info.value &lt;= _penalty) {
+            _penalty = info.value;
+        }
+        info.value -= _penalty;
+        if (_reward &gt; _penalty) {
+            _reward = _penalty;
+        }
+
+        emit Slashed(_staker, _penalty, _investigator, _reward);
+        if (_reward &gt; 0) {
+            token.safeTransfer(_investigator, _reward);
+        }
+    }
+
+    //-------------Additional getters for stakers info-------------
+    /**
+    * @notice Return the length of the array of stakers
+    */
+    function getStakersLength() external view virtual returns (uint256) {
+        return stakers.length;
+    }
+
+    //------------------ ERC900 connectors ----------------------
+
+    function totalStakedForAt(address _owner, uint256 _blockNumber) public view override returns (uint256) {
+        return 0;
+    }
+
+    function totalStakedAt(uint256 _blockNumber) public view override returns (uint256) {
+        return token.totalSupply();
+    }
+
+    function supportsHistory() external pure override returns (bool) {
+        return true;
+    }
+
+    //------------------------Upgradeable------------------------
+    /**
+    * @dev Get StakerInfo structure by delegatecall
+    */
+    function delegateGetStakerInfo(address _target, bytes32 _staker)
+        internal returns (StakerInfo memory result)
+    {
+        bytes32 memoryAddress = delegateGetData(_target, this.stakerInfo.selector, 1, _staker, 0);
+        assembly {
+            result := memoryAddress
+        }
+    }
+
+    /// @dev the `onlyWhileUpgrading` modifier works through a call to the parent `verifyState`
+    function verifyState(address _testTarget) public override virtual {
+        super.verifyState(_testTarget);
+
+        require(delegateGet(_testTarget, this.getStakersLength.selector) == stakers.length);
+        if (stakers.length == 0) {
+            return;
+        }
+        address stakerAddress = stakers[0];
+        require(address(uint160(delegateGet(_testTarget, this.stakers.selector, 0))) == stakerAddress);
+        StakerInfo storage info = stakerInfo[stakerAddress];
+        bytes32 staker = bytes32(uint256(<span class="marker" id="mapping-296"></span><span class="token add" data-title="type_cast_expression/call_argument"><span class="marker" id="mapping-297"></span><span class="token add" data-title="call_argument/type_cast_expression"><span class="marker" id="mapping-298"></span><span class="token add" data-title="type_cast_expression/primitive_type">uint160</span>(<span class="marker" id="mapping-299"></span><span class="token mv" id="move-dst-90" data-title="type_cast_expression/call_argument">stakerAddress</span>)</span></span>));
+        StakerInfo memory infoToCheck = delegateGetStakerInfo(_testTarget, staker);
+        require(<span class="marker" id="mapping-300"></span><span class="token add" data-title="call_argument/binary_expression"><span class="marker" id="mapping-301"></span><span class="token add" data-title="binary_expression/member_expression"><span class="marker" id="mapping-302"></span><span class="token add" data-title="member_expression/binary_expression"><span class="marker" id="mapping-303"></span><span class="token add" data-title="binary_expression/binary_expression"><span class="marker" id="mapping-304"></span><span class="token add" data-title="binary_expression/member_expression"><span class="marker" id="mapping-305"></span><span class="token add" data-title="member_expression/binary_expression"><span class="marker" id="mapping-306"></span><span class="token add" data-title="binary_expression/binary_expression"><span class="marker" id="mapping-307"></span><span class="token add" data-title="binary_expression/member_expression"><span class="marker" id="mapping-308"></span><span class="token add" data-title="member_expression/binary_expression"><span class="marker" id="mapping-309"></span><span class="token mv" id="move-dst-91" data-title="binary_expression/binary_expression">infoToCheck.value == info.value &amp;&amp;
+            infoToCheck.<span class="marker" id="mapping-310"></span><span class="token upd" id="move-dst-92" data-title="member_expression/identifier">vestingRe<span class="cupd">l</span>e<span class="cupd">a</span>seTimestamp</span> == <span class="marker" id="mapping-311"></span><span class="token add" data-title="binary_expression/member_expression">info.vestingReleaseTimestamp</span></span> &amp;&amp;
+            infoToCheck</span>.vestingReleaseRate</span> == <span class="marker" id="mapping-312"></span><span class="token add" data-title="binary_expression/member_expression">info.vestingReleaseRate</span></span> &amp;&amp;
+            infoToCheck</span>.stakingProvider</span> == <span class="marker" id="mapping-313"></span><span class="token add" data-title="binary_expression/member_expression">info.stakingProvider</span></span> &amp;&amp;
+            infoToCheck</span>.flags</span> == <span class="marker" id="mapping-314"></span><span class="token mv" id="move-dst-93" data-title="binary_expression/member_expression">info.flags</span></span>
+        );
+    }
+
+}
+</pre></div></div></div></body></html>

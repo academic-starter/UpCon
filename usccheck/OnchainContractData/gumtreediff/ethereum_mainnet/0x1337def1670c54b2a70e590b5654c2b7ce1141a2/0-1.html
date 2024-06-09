@@ -1,0 +1,2243 @@
+<html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GumTree</title><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"><style type="text/css">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+.add {
+	border: 1px solid black;
+	background-color: MediumSeaGreen;
+}
+
+.del {
+	border: 1px solid black;
+	background-color: IndianRed;
+}
+
+.mv {
+	border: 1px solid black;
+	background-color: Plum;
+}
+
+.upd {
+	border: 1px solid black;
+	background-color: DarkOrange;
+	font-weight: bold;
+}
+
+.cupd {
+	font-weight: normal;
+	color: DimGray;
+}
+
+.selected {
+	background-color: Gold;
+}
+
+.marker {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pre-scrollable {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;
+	color: black;
+	max-height: 90vh;
+	background-color: white;
+	border: 1px solid black;
+	font-family: "Hack, Inconsolata", "Consolas", "Liberation Sans Regular", "DejaVu Sans Mono", monospace;
+}
+
+.tooltip-inner {
+    max-width: none;
+}
+</style><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+$(function(){
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    $("body").keypress(function (event) {
+        switch (event.which) {
+            case 116:
+                $('html, body').animate({scrollTop: 0}, 100);
+                break;
+            case 98:
+                $("html, body").animate({ scrollTop: $(document).height() }, 100);
+                break;
+            case 113:
+                window.location = "/quit";
+                break;
+            case 108:
+                window.location = "/list";
+                break;
+        }
+    });
+});
+</script><script type="text/javascript">/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011-2015 Jean-Rémy Falleri <jr.falleri@gmail.com>
+ * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
+ */
+
+currentMapping = 0;
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+
+function getMappedElement(eltId) {
+	if (eltId.startsWith("move-src")) {
+		return eltId.replace("src","dst");  	 	
+  	}
+  	else {
+  		return eltId.replace("dst","src");
+  	}
+}
+
+function nextMapping() {
+	if (currentMapping == 0) {
+		currentMapping = 1;
+		return "#mapping-" + currentMapping.toString();
+	} else {
+		currentMapping++;
+		
+		if ($("#mapping-" + currentMapping.toString()).length > 0) {
+			return "#mapping-" + currentMapping.toString();
+		} else {
+			currentMapping = 1;
+			return "#mapping-" + currentMapping.toString();		
+		}		
+	}
+}
+
+function isSrc(eltId) {
+	return eltId.startsWith("move-src");
+}
+
+$(function() {
+    $("body").keypress(function (event) {
+        switch(event.which) {
+            case 110:
+                const mapping = $(nextMapping());
+                const pre = mapping.closest("pre");
+                pre.animate({scrollTop: pre.scrollTop() + mapping.position().top - 200}, 100);
+                break;
+        }
+    });
+
+    // highlight
+    $("span.mv.token, span.token.upd").click(function(event) {
+        if ($(this).hasClass("selected")) {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+        } else {
+            $("span.mv.token, span.token.upd").removeClass("selected");
+            const refElt = $("#" + getMappedElement($(this).attr("id")));
+            $(this).addClass("selected");
+            refElt.addClass("selected");
+            const pre = refElt.closest("pre");
+            console.log(pre);
+            pre.animate({scrollTop: pre.scrollTop() + refElt.position().top - 200}, 100);
+        }
+        event.stopPropagation();
+    });
+    
+    $("span.add.token, span.token.del").click(function(event) {
+        $("span.mv.token, span.token.upd").removeClass("selected");
+        event.stopPropagation();
+    });
+
+    // tooltip
+    $("span.token").hover(
+    	function (event) {
+    		$(this).tooltip('show');
+    		event.stopPropagation();
+    	},
+    	function (event) {
+    		$(this).tooltip('hide');
+    		event.stopPropagation();
+    	}
+    );
+});
+</script></head><body><div class="container-fluid"><div class="row"><div class="col"><div class="btn-toolbar justify-content-end"><div class="btn-group mr-2"><button class="btn btn-primary btn-sm" id="legend" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<span class='del'>&nbsp;&nbsp;</span> deleted<br><span class='add'>&nbsp;&nbsp;</span> added<br><span class='mv'>&nbsp;&nbsp;</span> moved<br><span class='upd';>&nbsp;&nbsp;</span> updated<br>">Legend</button><button class="btn btn-primary btn-sm" id="shortcuts" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<b>q</b> quit<br><b>l</b> list<br><b>n</b> next<br><b>t</b> top<br><b>b</b> bottom">Shortcuts</button></div><div class="btn-group"><a href="/list" class="btn btn-default btn-sm btn-primary">Back</a><a href="/quit" class="btn btn-default btn-sm btn-danger">Quit</a></div></div></div></div><div class="row"><div class="col-6"><h5>0xb3342953e58b63378d5d2acfd26aec38f47ded17.etherscan.io-StakeManager.sol</h5><pre class="pre-scrollable">pragma solidity ^0.6.6;
+
+/**
+ * @title SafeMath
+ * @dev Unsigned math operations with safety checks that revert on error
+ * 
+ * @dev Default OpenZeppelin
+ */
+library SafeMath {
+    /**
+     * @dev Multiplies two unsigned integers, reverts on overflow.
+     */
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+        // benefit is lost if 'b' is also tested.
+        // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b);
+
+        return c;
+    }
+
+    /**
+     * @dev Integer division of two unsigned integers truncating the quotient, reverts on division by zero.
+     */
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Solidity only automatically asserts when dividing by 0
+        require(b &gt; 0);
+        uint256 c = a / b;
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+        return c;
+    }
+
+    /**
+     * @dev Subtracts two unsigned integers, reverts on overflow (i.e. if subtrahend is greater than minuend).
+     */
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b &lt;= a);
+        uint256 c = a - b;
+
+        return c;
+    }
+
+    /**
+     * @dev Adds two unsigned integers, reverts on overflow.
+     */
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c &gt;= a);
+
+        return c;
+    }
+
+    /**
+     * @dev Divides two unsigned integers and returns the remainder (unsigned integer modulo),
+     * reverts when dividing by zero.
+     */
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b != 0);
+        return a % b;
+    }
+}
+
+
+/**
+ * @title Expire Traker
+ * @dev Keeps track of expired NFTs.
+**/
+contract ExpireTracker {
+    
+    using SafeMath for uint64;
+    using SafeMath for uint256;
+
+    <span class="marker" id="mapping-1"></span><span class="token upd" id="move-src-1" data-title="contract_body/comment"><span class="cupd">// 1 </span>day<span class="cupd"> for each step.</span></span>
+    uint64 public constant BUCKET_STEP = <span class="marker" id="mapping-2"></span><span class="token upd" id="move-src-2" data-title="state_variable_declaration/number_literal">86400</span>;
+
+    // indicates where to start from 
+    // points where TokenInfo with (expiredAt / BUCKET_STEP) == index
+    mapping(uint64 =&gt; Bucket) public checkPoints;
+
+    struct Bucket {
+        uint96 head;
+        uint96 tail;
+    }
+
+    // points first active nft
+    uint96 public head;
+    // points last active nft
+    uint96 public tail;
+
+    // maps expireId to deposit info
+    mapping(uint96 =&gt; ExpireMetadata) public infos; 
+    
+    // pack data to reduce gas
+    struct ExpireMetadata {
+        uint96 next; // zero if there is no further information
+        uint96 prev;
+        uint64 expiresAt;
+    }
+
+    function expired() internal view returns(bool) {
+        if(infos[head].expiresAt == 0) {
+            return false;
+        }
+
+        if(infos[head].expiresAt &lt;= uint64(now)){
+            return true;
+        }
+
+        return false;
+    }
+
+    // using typecasted expireId to save gas
+    function push(uint96 expireId, uint64 expiresAt) 
+      internal 
+    {
+        require(expireId != 0, "info id 0 cannot be supported");
+        uint64 bucket = uint64( (expiresAt.div(BUCKET_STEP)).mul(BUCKET_STEP) );
+        if (head == 0) {
+            // all the nfts are expired. so just add
+            head = expireId;
+            tail = expireId; 
+            checkPoints[bucket] = Bucket(expireId, expireId);
+            infos[expireId] = ExpireMetadata(0,0,expiresAt);
+            
+            return;
+        }
+            
+        // there is active nft. we need to find where to push
+        // first check if this expires faster than head
+        if (infos[head].expiresAt &gt;= expiresAt) {
+            // pushing nft is going to expire first
+            // update head
+            infos[expireId] = ExpireMetadata(head,0,expiresAt);
+            infos[head].prev = expireId;
+            head = expireId;
+            
+            // update head of bucket
+            Bucket storage b = checkPoints[bucket];
+            b.head = expireId;
+                
+            if(b.tail == 0) {
+                // if tail is zero, this bucket was empty should fill tail with expireId
+                b.tail = expireId;
+            }
+                
+            // this case can end now
+            return;
+        }
+          
+        // then check if depositing nft will last more than latest
+        if (infos[tail].expiresAt &lt;= expiresAt) {
+            // push nft at tail
+            infos[expireId] = ExpireMetadata(0,tail,expiresAt);
+            infos[tail].next = expireId;
+            tail = expireId;
+            
+            // update tail of bucket
+            Bucket storage b = checkPoints[bucket];
+            b.tail = expireId;
+            
+            if(b.head == 0){
+              // if head is zero, this bucket was empty should fill head with expireId
+              b.head = expireId;
+            }
+            
+            // this case is done now
+            return;
+        }
+          
+        // so our nft is somewhere in between
+        if (checkPoints[bucket].head != 0) {
+            //bucket is not empty
+            //we just need to find our neighbor in the bucket
+            uint96 cursor = checkPoints[bucket].head;
+        
+            // iterate until we find our nft's next
+            while(infos[cursor].expiresAt &lt; expiresAt){
+                cursor = infos[cursor].next;
+            }
+        
+            infos[expireId] = ExpireMetadata(cursor, infos[cursor].prev, expiresAt);
+            infos[infos[cursor].prev].next = expireId;
+            infos[cursor].prev = expireId;
+        
+            //now update bucket's head/tail data
+            Bucket storage b = checkPoints[bucket];
+            
+            if (infos[b.head].prev == expireId){
+                b.head = expireId;
+            }
+            
+            if (infos[b.tail].next == expireId){
+                b.tail = expireId;
+            }
+        } else {
+            //bucket is empty
+            //should find which bucket has depositing nft's closest neighbor
+            // step 1 find prev bucket
+            uint64 prevCursor = bucket - BUCKET_STEP;
+            
+            while(checkPoints[prevCursor].tail == 0){
+              prevCursor = uint64( prevCursor.sub(BUCKET_STEP) );
+            }
+    
+            uint96 prev = checkPoints[prevCursor].tail;
+            uint96 next = infos[prev].next;
+    
+            // step 2 link prev buckets tail - nft - next buckets head
+            infos[expireId] = ExpireMetadata(next,prev,expiresAt);
+            infos[prev].next = expireId;
+            infos[next].prev = expireId;
+    
+            checkPoints[bucket].head = expireId;
+            checkPoints[bucket].tail = expireId;
+        }
+    }
+
+    function pop(uint96 expireId) internal {
+        uint64 expiresAt = infos[expireId].expiresAt;
+        uint64 bucket = uint64( (expiresAt.div(BUCKET_STEP)).mul(BUCKET_STEP) );
+        // check if bucket is empty
+        <span class="marker" id="mapping-3"></span><span class="token upd" id="move-src-3" data-title="function_body/comment"><span class="cupd">// if bucket is empty, </span>reverts</span>
+        <span class="marker" id="mapping-4"></span><span class="token mv" id="move-src-4" data-title="function_body/expression_statement">require(<span class="marker" id="mapping-5"></span><span class="token mv" id="move-src-5" data-title="call_argument/binary_expression">checkPoints[bucket].head <span class="marker" id="mapping-6"></span><span class="token del" data-title="binary_expression/!=">!=</span> 0</span>, "Info does not exist:Bucket empty");</span>
+        // if bucket is not empty, iterate through
+        // if expiresAt of current cursor is larger than expiresAt of parameter, reverts
+        for(uint96 cursor = checkPoints[bucket].head; infos[cursor].expiresAt &lt;= expiresAt; cursor = infos[cursor].next) {
+            ExpireMetadata memory info = infos[cursor];
+            // if expiresAt is same of paramter, check if expireId is same
+            if(info.expiresAt == expiresAt &amp;&amp; cursor == expireId) {
+                // if yes, delete it
+                // if cursor was head, move head to cursor.next
+                if(head == cursor) {
+                    head = info.next;
+                }
+                // if cursor was tail, move tail to cursor.prev
+                if(tail == cursor) {
+                    tail = info.prev;
+                }
+                // if cursor was head of bucket
+                if(checkPoints[bucket].head == cursor){
+                    // and cursor.next is still in same bucket, move head to cursor.next
+                    if(infos[info.next].expiresAt.div(BUCKET_STEP) == bucket.div(BUCKET_STEP)) {
+                        checkPoints[bucket].head == info.next;
+                    } else {
+                        // delete whole checkpoint if bucket is now empty
+                        delete checkPoints[bucket];
+                    }
+                } else if(checkPoints[bucket].tail == cursor){
+                    // since bucket.tail == bucket.haed == cursor case is handled at the above,
+                    // we only have to handle bucket.tail == cursor != bucket.head
+                    checkPoints[bucket].tail = info.prev;
+                }
+                // now we handled all tail/head situation, we have to connect prev and next
+                infos[info.prev].next = info.next;
+                infos[info.next].prev = info.prev;
+                // delete info and end
+                delete infos[cursor];
+                return;
+            }
+            // if not, continue -&gt; since there can be same expires at with multiple expireId
+        }
+        revert("Info does not exist");
+    }
+
+    uint256[50] private __gap;
+}
+
+interface IArmorMaster {
+    function registerModule(bytes32 _key, address _module) external;
+    function getModule(bytes32 _key) external view returns(address);
+    function keep() external;
+}
+
+/**
+ * @title Ownable
+ * @dev The Ownable contract has an owner address, and provides basic authorization control
+ * functions, this simplifies the implementation of "user permissions".
+ * 
+ * @dev Completely default OpenZeppelin.
+ */
+contract Ownable {
+    address private _owner;
+    address private _pendingOwner;
+
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+    /**
+     * @dev The Ownable constructor sets the original `owner` of the contract to the sender
+     * account.
+     */
+    function initializeOwnable() internal {
+        require(_owner == address(0), "already initialized");
+        _owner = msg.sender;
+        emit OwnershipTransferred(address(0), msg.sender);
+    }
+
+
+    /**
+     * @return the address of the owner.
+     */
+    function owner() public view returns (address) {
+        return _owner;
+    }
+
+    /**
+     * @dev Throws if called by any account other than the owner.
+     */
+    modifier onlyOwner() {
+        require(isOwner(), "msg.sender is not owner");
+        _;
+    }
+
+    /**
+     * @return true if `msg.sender` is the owner of the contract.
+     */
+    function isOwner() public view returns (bool) {
+        return msg.sender == _owner;
+
+    }
+
+    /**
+     * @dev Allows the current owner to transfer control of the contract to a newOwner.
+     * @param newOwner The address to transfer ownership to.
+     */
+    function transferOwnership(address newOwner) public onlyOwner {
+        _pendingOwner = newOwner;
+    }
+
+    function receiveOwnership() public {
+        require(msg.sender == _pendingOwner, "only pending owner can call this function");
+        _transferOwnership(_pendingOwner);
+        _pendingOwner = address(0);
+    }
+
+    /**
+     * @dev Transfers control of the contract to a newOwner.
+     * @param newOwner The address to transfer ownership to.
+     */
+    function _transferOwnership(address newOwner) internal {
+        require(newOwner != address(0));
+        emit OwnershipTransferred(_owner, newOwner);
+        _owner = newOwner;
+    }
+
+    uint256[50] private __gap;
+}
+
+library Bytes32 {
+    function toString(bytes32 x) internal pure returns (string memory) {
+        bytes memory bytesString = new bytes(32);
+        uint charCount = 0;
+        for (uint256 j = 0; j &lt; 32; j++) {
+            byte char = byte(bytes32(uint(x) * 2 ** (8 * j)));
+            if (char != 0) {
+                bytesString[charCount] = char;
+                charCount++;
+            }
+        }
+        bytes memory bytesStringTrimmed = new bytes(charCount);
+        for (uint256 j = 0; j &lt; charCount; j++) {
+            bytesStringTrimmed[j] = bytesString[j];
+        }
+        return string(bytesStringTrimmed);
+    }
+}
+
+/**
+ * @dev Each arCore contract is a module to enable simple communication and interoperability. ArmorMaster.sol is master.
+**/
+contract ArmorModule {
+    IArmorMaster internal _master;
+
+    using Bytes32 for bytes32;
+
+    modifier onlyOwner() {
+        require(msg.sender == Ownable(address(_master)).owner(), "only owner can call this function");
+        _;
+    }
+
+    modifier doKeep() {
+        _master.keep();
+        _;
+    }
+
+    modifier onlyModule(bytes32 _module) {
+        string memory message = string(abi.encodePacked("only module ", _module.toString()," can call this function"));
+        require(msg.sender == getModule(_module), message);
+        _;
+    }
+
+    /**
+     * @dev Used when multiple can call.
+    **/
+    modifier onlyModules(bytes32 _moduleOne, bytes32 _moduleTwo) {
+        string memory message = string(abi.encodePacked("only module ", _moduleOne.toString()," or ", _moduleTwo.toString()," can call this function"));
+        require(msg.sender == getModule(_moduleOne) || msg.sender == getModule(_moduleTwo), message);
+        _;
+    }
+
+    function initializeModule(address _armorMaster) internal {
+        require(address(_master) == address(0), "already initialized");
+        require(_armorMaster != address(0), "master cannot be zero address");
+        _master = IArmorMaster(_armorMaster);
+    }
+
+    function changeMaster(address _newMaster) external onlyOwner {
+        _master = IArmorMaster(_newMaster);
+    }
+
+    function getModule(bytes32 _key) internal view returns(address) {
+        return _master.getModule(_key);
+    }
+}
+
+/**
+ * @dev Interface of the ERC20 standard as defined in the EIP.
+ */
+interface IERC20 {
+    /**
+     * @dev Returns the amount of tokens in existence.
+     */
+    function totalSupply() external view returns (uint256);
+
+    /**
+     * @dev Returns the amount of tokens owned by `account`.
+     */
+    function balanceOf(address account) external view returns (uint256);
+
+    /**
+     * @dev Moves `amount` tokens from the caller's account to `recipient`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transfer(address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Returns the remaining number of tokens that `spender` will be
+     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+     * zero by default.
+     *
+     * This value changes when {approve} or {transferFrom} are called.
+     */
+    function allowance(address owner, address spender) external view returns (uint256);
+
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+     * that someone may use both the old and the new allowance by unfortunate
+     * transaction ordering. One possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and set the
+     * desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address spender, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Moves `amount` tokens from `sender` to `recipient` using the
+     * allowance mechanism. `amount` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+     * another (`to`).
+     *
+     * Note that `value` may be zero.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    /**
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+     * a call to {approve}. `value` is the new allowance.
+     */
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}
+
+/**
+ * @dev Interface of the ERC165 standard, as defined in the
+ * https://eips.ethereum.org/EIPS/eip-165[EIP].
+ *
+ * Implementers can declare support of contract interfaces, which can then be
+ * queried by others ({ERC165Checker}).
+ *
+ * For an implementation, see {ERC165}.
+ */
+interface IERC165 {
+    /**
+     * @dev Returns true if this contract implements the interface defined by
+     * `interfaceId`. See the corresponding
+     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]
+     * to learn more about how these ids are created.
+     *
+     * This function call must use less than 30 000 gas.
+     */
+    function supportsInterface(bytes4 interfaceId) external view returns (bool);
+}
+
+/**
+ * @dev Required interface of an ERC721 compliant contract.
+ */
+interface IERC721 is IERC165 {
+    /**
+     * @dev Emitted when `tokenId` token is transferred from `from` to `to`.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
+
+    /**
+     * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.
+     */
+    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
+
+    /**
+     * @dev Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.
+     */
+    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
+
+    /**
+     * @dev Returns the number of tokens in ``owner``'s account.
+     */
+    function balanceOf(address owner) external view returns (uint256 balance);
+
+    /**
+     * @dev Returns the owner of the `tokenId` token.
+     *
+     * Requirements:
+     *
+     * - `tokenId` must exist.
+     */
+    function ownerOf(uint256 tokenId) external view returns (address owner);
+
+    /**
+     * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients
+     * are aware of the ERC721 protocol to prevent tokens from being forever locked.
+     *
+     * Requirements:
+     *
+     * - `from` cannot be the zero address.
+     * - `to` cannot be the zero address.
+     * - `tokenId` token must exist and be owned by `from`.
+     * - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}.
+     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
+     *
+     * Emits a {Transfer} event.
+     */
+    function safeTransferFrom(address from, address to, uint256 tokenId) external;
+
+    /**
+     * @dev Transfers `tokenId` token from `from` to `to`.
+     *
+     * WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible.
+     *
+     * Requirements:
+     *
+     * - `from` cannot be the zero address.
+     * - `to` cannot be the zero address.
+     * - `tokenId` token must be owned by `from`.
+     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(address from, address to, uint256 tokenId) external;
+
+    /**
+     * @dev Gives permission to `to` to transfer `tokenId` token to another account.
+     * The approval is cleared when the token is transferred.
+     *
+     * Only a single account can be approved at a time, so approving the zero address clears previous approvals.
+     *
+     * Requirements:
+     *
+     * - The caller must own the token or be an approved operator.
+     * - `tokenId` must exist.
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address to, uint256 tokenId) external;
+
+    /**
+     * @dev Returns the account approved for `tokenId` token.
+     *
+     * Requirements:
+     *
+     * - `tokenId` must exist.
+     */
+    function getApproved(uint256 tokenId) external view returns (address operator);
+
+    /**
+     * @dev Approve or remove `operator` as an operator for the caller.
+     * Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller.
+     *
+     * Requirements:
+     *
+     * - The `operator` cannot be the caller.
+     *
+     * Emits an {ApprovalForAll} event.
+     */
+    function setApprovalForAll(address operator, bool _approved) external;
+
+    /**
+     * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.
+     *
+     * See {setApprovalForAll}
+     */
+    function isApprovedForAll(address owner, address operator) external view returns (bool);
+
+    /**
+      * @dev Safely transfers `tokenId` token from `from` to `to`.
+      *
+      * Requirements:
+      *
+     * - `from` cannot be the zero address.
+     * - `to` cannot be the zero address.
+      * - `tokenId` token must exist and be owned by `from`.
+      * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.
+      * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
+      *
+      * Emits a {Transfer} event.
+      */
+    function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) external;
+}
+
+interface IarNFT is IERC721 {
+    function getToken(uint256 _tokenId) external returns (uint256, uint8, uint256, uint16, uint256, address, bytes4, uint256, uint256, uint256);
+    function submitClaim(uint256 _tokenId) external;
+    function redeemClaim(uint256 _tokenId) external;
+}
+
+interface IRewardDistributionRecipient {
+    function notifyRewardAmount(uint256 reward) payable external;
+}
+
+interface IRewardManager is IRewardDistributionRecipient {
+  function initialize(address _rewardToken, address _stakeManager) external;
+  function stake(address _user, uint256 _coverPrice, uint256 _nftId) external;
+  function withdraw(address _user, uint256 _coverPrice, uint256 _nftId) external;
+  function getReward(address payable _user) external;
+}
+
+interface IPlanManager {
+  // Event to notify frontend of plan update.
+  event PlanUpdate(address indexed user, address[] protocols, uint256[] amounts, uint256 endTime);
+  function initialize(address _armorManager) external;
+  function changePrice(address _scAddress, uint256 _pricePerAmount) external;
+  function updatePlan(address[] calldata _protocols, uint256[] calldata _coverAmounts) external;
+  function checkCoverage(address _user, address _protocol, uint256 _hacktime, uint256 _amount) external view returns (uint256, bool);
+  function coverageLeft(address _protocol) external view returns(uint256);
+  function getCurrentPlan(address _user) external view returns(uint128 start, uint128 end);
+  function updateExpireTime(address _user) external;
+  function planRedeemed(<span class="marker" id="mapping-7"></span><span class="token mv" id="move-src-6" data-title="parameter/type_name">address</span> <span class="marker" id="mapping-8"></span><span class="token upd" id="move-src-7" data-title="parameter/identifier"><span class="cupd">_use</span>er</span>, uint256 _planIndex, address _protocol) external;
+}
+
+interface IClaimManager {
+    function initialize(address _armorMaster) external;
+    function transferNft(address _to, uint256 _nftId) external;
+}
+
+interface IStakeManager {
+    function totalStakedAmount(address protocol) external view returns(uint256);
+    function protocolAddress(uint64 id) external view returns(address);
+    function protocolId(address protocol) external view returns(uint64);
+    function initialize(address _armorMaster) external;
+    function allowedCover(address _newProtocol, uint256 _newTotalCover) external view returns (bool);
+    function subtractTotal(uint256 _nftId, address _protocol, uint256 _subtractAmount) external;
+}
+
+interface IUtilizationFarm is IRewardDistributionRecipient {
+  function initialize(address _rewardToken, address _stakeManager) external;
+  function stake(address _user, uint256 _coverPrice) external;
+  function withdraw(address _user, uint256 _coverPrice) external;
+  function getReward(address payable _user) external;
+}
+
+<span class="marker" id="mapping-9"></span><span class="token mv" id="move-src-8" data-title="source_file/comment">// SPDX-License-Identifier: (c) Armor.Fi DAO, 2021</span>
+
+/**
+ * @dev Encompasses all functions taken by stakers.
+**/
+contract StakeManager is ArmorModule, ExpireTracker, IStakeManager {
+    
+    using SafeMath for uint;
+    
+    bytes4 public constant ETH_SIG = bytes4(0x45544800);
+    
+    // Whether or not utilization farming is on.
+    bool ufOn;
+    
+    // Amount of time--in seconds--a user must wait to withdraw an NFT.
+    uint256 withdrawalDelay;
+    
+    // Protocols that staking is allowed for. We may not allow all NFTs.
+    mapping (address =&gt; bool) public allowedProtocol;
+    mapping (address =&gt; uint64) public override protocolId;
+    mapping (uint64 =&gt; address) public override protocolAddress;
+    uint64 protocolCount;
+    
+    // The total amount of cover that is currently being staked. scAddress =&gt; cover amount
+    mapping (address =&gt; uint256) public override totalStakedAmount;
+    
+    // Mapping to keep track of which NFT is owned by whom. NFT ID =&gt; owner address.
+    mapping (uint256 =&gt; address) public nftOwners;
+
+    // When the NFT can be withdrawn. NFT ID =&gt; Unix timestamp.
+    mapping (uint256 =&gt; uint256) public pendingWithdrawals;
+
+    // Track if the NFT was submitted, in which case total staked has already been lowered.
+    mapping (uint256 =&gt; bool) public submitted;
+
+    // Event launched when an NFT is staked.
+    event StakedNFT(address indexed user, address indexed protocol, uint256 nftId, uint256 sumAssured, uint256 secondPrice, uint16 coverPeriod, uint256 timestamp);
+
+    // Event launched when an NFT expires.
+    event RemovedNFT(address indexed user, address indexed protocol, uint256 nftId, uint256 sumAssured, uint256 secondPrice, uint16 coverPeriod, uint256 timestamp);
+
+    event ExpiredNFT(address indexed user, uint256 nftId, uint256 timestamp);
+    
+    // Event launched when an NFT expires.
+    event WithdrawRequest(address indexed user, uint256 nftId, uint256 timestamp, uint256 withdrawTimestamp);
+    
+    /**
+     * @dev Construct the contract with the yNft contract.
+    **/
+    function initialize(address _armorMaster)
+      public
+      override
+    {
+        initializeModule(_armorMaster);
+        // Let's be explicit.
+        withdrawalDelay = 7 days;
+        ufOn = true;
+    }
+
+    /**
+     * @dev Keep function can be called by anyone to remove any NFTs that have expired. Also run when calling many functions.
+     *      This is external because the doKeep modifier calls back to ArmorMaster, which then calls back to here (and elsewhere).
+    **/
+    function keep() external {
+        <span class="marker" id="mapping-10"></span><span class="token upd" id="move-src-9" data-title="function_body/comment"><span class="cupd">// Restrict each keep to </span>3<span class="cupd"> removals max.</span></span>
+        for (uint256 i = 0; i &lt; <span class="marker" id="mapping-11"></span><span class="token upd" id="move-src-10" data-title="binary_expression/number_literal">3</span>; i++) {
+            
+            if (infos[head].expiresAt != 0 &amp;&amp; infos[head].expiresAt &lt;= now) _removeExpiredNft(head);
+            else return;
+            
+        }
+    }
+    
+    /**
+     * @dev stakeNft allows a user to submit their NFT to the contract and begin getting returns.
+     *      This yNft cannot be withdrawn!
+     * @param _nftId The ID of the NFT being staked.
+    **/
+    function stakeNft(uint256 _nftId)
+      public
+      doKeep
+    {
+        _stake(_nftId, msg.sender);
+    }
+
+    /**
+     * @dev stakeNft allows a user to submit their NFT to the contract and begin getting returns.
+     * @param _nftIds The ID of the NFT being staked.
+    **/
+    function batchStakeNft(uint256[] memory _nftIds)
+      public
+      doKeep
+    {
+        // Loop through all submitted NFT IDs and stake them.
+        for (uint256 i = 0; i &lt; _nftIds.length; i++) {
+            _stake(_nftIds[i], msg.sender);
+        }
+    }
+
+    /**
+     * @dev A user may call to withdraw their NFT. This may have a delay added to it.
+     * @param _nftId ID of the NFT to withdraw.
+    **/
+    function withdrawNft(uint256 _nftId)
+      external
+      doKeep
+    {
+        <span class="marker" id="mapping-12"></span><span class="token mv" id="move-src-11" data-title="function_body/expression_statement">require(nftOwners[_nftId] == msg.sender, "Sender does not own this NFT.");</span>
+        
+        // Check when this NFT is allowed to be withdrawn. If 0, set it.
+        uint256 withdrawalTime = pendingWithdrawals[_nftId];
+        
+        if (withdrawalTime == 0) {
+            withdrawalTime = block.timestamp + withdrawalDelay;
+            pendingWithdrawals[_nftId] = withdrawalTime;
+            emit WithdrawRequest(msg.sender, _nftId, block.timestamp, withdrawalTime);
+            <span class="marker" id="mapping-13"></span><span class="token del" data-title="block_statement/return_statement">return;</span>
+        } else <span class="marker" id="mapping-14"></span><span class="token mv" id="move-src-12" data-title="if_statement/if_statement">if (<span class="marker" id="mapping-15"></span><span class="token mv" id="move-src-13" data-title="if_statement/binary_expression">withdrawalTime <span class="marker" id="mapping-16"></span><span class="token del" data-title="binary_expression/>">&gt;</span> block.timestamp</span>) {
+            return;
+        }</span>
+        
+        <span class="marker" id="mapping-17"></span><span class="token mv" id="move-src-14" data-title="function_body/expression_statement">_removeNft(_nftId);</span>
+        <span class="marker" id="mapping-18"></span><span class="token mv" id="move-src-15" data-title="function_body/expression_statement">IClaimManager(getModule("CLAIM")).transferNft(<span class="marker" id="mapping-19"></span><span class="token del" data-title="call_argument/member_expression">msg.sender</span>, _nftId);</span>
+        <span class="marker" id="mapping-20"></span><span class="token mv" id="move-src-16" data-title="function_body/expression_statement">delete pendingWithdrawals[_nftId];</span>
+    }
+
+    /**
+     * @dev Subtract from total staked. Used by ClaimManager in case NFT is submitted.
+     * @param _protocol Address of the protocol to subtract from.
+     * @param _subtractAmount Amount of staked to subtract.
+    **/
+    function subtractTotal(uint256 _nftId, address _protocol, uint256 _subtractAmount)
+      external
+      override
+      onlyModule("CLAIM")
+    {
+        totalStakedAmount[_protocol] = totalStakedAmount[_protocol].sub(_subtractAmount);
+        submitted[_nftId] = true;
+    }
+
+    /**
+     * @dev Check whether a new TOTAL cover is allowed.
+     * @param _protocol Address of the smart contract protocol being protected.
+     * @param _totalBorrowedAmount The new total amount that would be being borrowed.
+     * returns Whether or not this new total borrowed amount would be able to be covered.
+    **/
+    function allowedCover(address _protocol, uint256 _totalBorrowedAmount)
+      external
+      override
+      view
+    returns (bool)
+    {
+        return _totalBorrowedAmount &lt;= totalStakedAmount[_protocol];
+    }
+    
+    /**
+     * @dev Internal function for staking--this allows us to skip updating stake multiple times during a batch stake.
+     * @param _nftId The ID of the NFT being staked. == coverId
+     * @param _user The user who is staking the NFT.
+    **/
+    function _stake(uint256 _nftId, address _user)
+      internal
+    {
+        (/*coverId*/,  uint8 coverStatus, uint256 sumAssured, uint16 coverPeriod, uint256 validUntil, address scAddress, 
+         bytes4 coverCurrency, /*premiumNXM*/, uint256 coverPrice, /*claimId*/) = IarNFT(getModule("ARNFT")).getToken(_nftId);
+        
+        _checkNftValid(validUntil, scAddress, coverCurrency, coverStatus);
+        
+        // coverPrice must be determined by dividing by length.
+        uint256 secondPrice = coverPrice / (uint256(coverPeriod) * 1 days);
+
+        // Update PlanManager to use the correct price for the protocol.
+        // Find price per amount here to update plan manager correctly.
+        uint256 pricePerEth = secondPrice / sumAssured;
+        
+        IPlanManager(getModule("PLAN")).changePrice(scAddress, pricePerEth);
+        
+        IarNFT(getModule("ARNFT")).transferFrom(_user, getModule("CLAIM"), _nftId);
+
+        ExpireTracker.push(uint96(_nftId), uint64(validUntil));
+        // Save owner of NFT.
+        nftOwners[_nftId] = _user;
+
+        uint256 weiSumAssured = sumAssured * (10 ** 18);
+        _addCovers(_user, _nftId, weiSumAssured, secondPrice, scAddress);
+        
+        // Add to utilization farming.
+        if (ufOn) IUtilizationFarm(getModule("UFS")).stake(_user, secondPrice);
+        
+        emit StakedNFT(_user, scAddress, _nftId, weiSumAssured, secondPrice, coverPeriod, block.timestamp);
+    }
+    
+    /**
+     * @dev removeExpiredNft is called on many different interactions to the system overall.
+     * @param _nftId The ID of the expired NFT.
+    **/
+    function _removeExpiredNft(uint256 _nftId)
+      internal
+    {
+        address user = nftOwners[_nftId];
+        _removeNft(_nftId);
+        emit ExpiredNFT(user, _nftId, block.timestamp);
+    }
+
+    /**
+     * @dev Internal main removal functionality.
+    **/
+    function _removeNft(uint256 _nftId)
+      internal
+    {
+        (/*coverId*/, /*status*/, uint256 sumAssured, uint16 coverPeriod, /*uint256 validuntil*/, address scAddress, 
+         /*coverCurrency*/, /*premiumNXM*/, uint256 coverPrice, /*claimId*/) = IarNFT(getModule("ARNFT")).getToken(_nftId);
+        address user = nftOwners[_nftId];
+        require(user != address(0), "NFT does not belong here.");
+
+        ExpireTracker.pop(uint96(_nftId));
+
+        uint256 weiSumAssured = sumAssured * (10 ** 18);
+        uint256 secondPrice = coverPrice / (uint256(coverPeriod) * 1 days);
+        _subtractCovers(user, _nftId, weiSumAssured, secondPrice, scAddress);
+        
+        // Exit from utilization farming.
+        if (ufOn) IUtilizationFarm(getModule("UFS")).withdraw(user, secondPrice);
+
+        <span class="marker" id="mapping-21"></span><span class="token del" data-title="function_body/comment">// Returns the caller some gas as well as ensure this function cannot be called again.</span>
+        <span class="marker" id="mapping-22"></span><span class="token mv" id="move-src-17" data-title="function_body/expression_statement">delete nftOwners[_nftId];</span>
+
+        emit RemovedNFT(user, scAddress, _nftId, weiSumAssured, secondPrice, coverPeriod, block.timestamp);
+    }
+    
+    /**
+     * @dev Add to the cover amount for the user and contract overall.
+     * @param _user The user who submitted.
+     * @param _nftId ID of the NFT being staked (used for events on RewardManager).
+     * @param _coverAmount The amount of cover being added.
+     * @param _coverPrice Price paid by the user for the NFT per second.
+     * @param _protocol Address of the protocol that is having cover added.
+    **/
+    function _addCovers(address _user, uint256 _nftId, uint256 _coverAmount, uint256 _coverPrice, address _protocol)
+      internal
+    {
+        IRewardManager(getModule("REWARD")).stake(_user, _coverPrice, _nftId);
+        totalStakedAmount[_protocol] = totalStakedAmount[_protocol].add(_coverAmount);
+    }
+    
+    /**
+     * @dev Subtract from the cover amount for the user and contract overall.
+     * @param _user The user who is having the token removed.
+     * @param _nftId ID of the NFT being used--must check if it has been submitted.
+     * @param _coverAmount The amount of cover being removed.
+     * @param _coverPrice Price that the user was paying per second.
+     * @param _protocol The protocol that this NFT protected.
+    **/
+    function _subtractCovers(address _user, uint256 _nftId, uint256 _coverAmount, uint256 _coverPrice, address _protocol)
+      internal
+    {
+        IRewardManager(getModule("REWARD")).withdraw(_user, _coverPrice, _nftId);
+        if (!submitted[_nftId]) totalStakedAmount[_protocol] = totalStakedAmount[_protocol].sub(_coverAmount);
+    }
+    
+    /**
+     * @dev Check that the NFT should be allowed to be added. We check expiry and claimInProgress.
+     * @param _validUntil The expiration time of this NFT.
+     * @param _scAddress The smart contract protocol that the NFt is protecting.
+     * @param _coverCurrency The currency that this NFT is protected in (must be ETH_SIG).
+     * @param _coverStatus status of cover, only accepts Active
+    **/
+    function _checkNftValid(uint256 _validUntil, address _scAddress, bytes4 _coverCurrency, uint8 _coverStatus)
+      internal
+      view
+    {
+        require(_validUntil &gt; now + <span class="marker" id="mapping-23"></span><span class="token upd" id="move-src-18" data-title="binary_expression/number_literal">86400</span>, "NFT is expired or within 1 day of expiry.");
+        <span class="marker" id="mapping-24"></span><span class="token del" data-title="function_body/comment">// TODO: should change this to check status not claimId once we can through Nexus.</span>
+        require(_coverStatus == 0, "arNFT claim is already in progress.");
+        require(allowedProtocol[_scAddress], "Protocol is not allowed to be staked.");
+        require(_coverCurrency == ETH_SIG, "Only Ether arNFTs may be staked.");
+    }
+    
+    /**
+     * @dev Allow the owner (DAO soon) to allow or disallow a protocol from being used in Armor.
+     * @param _protocol The address of the protocol to allow or disallow.
+     * @param _allow Whether to allow or disallow the protocol.
+    **/
+    function allowProtocol(address _protocol, bool _allow)
+      external
+      doKeep
+      onlyOwner
+    {
+        if(protocolId[_protocol] == 0){
+            protocolId[_protocol] = ++protocolCount;
+            protocolAddress[protocolCount] = _protocol;
+        }
+        allowedProtocol[_protocol] = _allow;
+    }
+    
+    /**
+     * @dev Allow the owner to change the amount of delay to withdraw an NFT.
+     * @param _withdrawalDelay The amount of time--in seconds--to delay an NFT withdrawal.
+    **/
+    function changeWithdrawalDelay(uint256 _withdrawalDelay)
+      external
+      doKeep
+      onlyOwner
+    {
+        withdrawalDelay = _withdrawalDelay;
+    }
+    
+    /**
+     * @dev Toggle whether utilization farming should be on or off.
+    **/
+    function toggleUF()
+      external
+      onlyOwner
+    {
+        ufOn = !ufOn;
+    }
+}</pre></div><div class="col-6"><h5>0x33077454edf44cd111b9a0677db74fdd6452fe16.etherscan.io-StakeManager.sol</h5><pre class="pre-scrollable"><span class="marker" id="mapping-25"></span><span class="token mv" id="move-dst-8" data-title="source_file/comment">// SPDX-License-Identifier: (c) Armor.Fi DAO, 2021</span>
+
+pragma solidity ^0.6.6;
+
+/**
+ * @title SafeMath
+ * @dev Unsigned math operations with safety checks that revert on error
+ * 
+ * @dev Default OpenZeppelin
+ */
+library SafeMath {
+    /**
+     * @dev Multiplies two unsigned integers, reverts on overflow.
+     */
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+        // benefit is lost if 'b' is also tested.
+        // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b);
+
+        return c;
+    }
+
+    /**
+     * @dev Integer division of two unsigned integers truncating the quotient, reverts on division by zero.
+     */
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Solidity only automatically asserts when dividing by 0
+        require(b &gt; 0);
+        uint256 c = a / b;
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+        return c;
+    }
+
+    /**
+     * @dev Subtracts two unsigned integers, reverts on overflow (i.e. if subtrahend is greater than minuend).
+     */
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b &lt;= a);
+        uint256 c = a - b;
+
+        return c;
+    }
+
+    /**
+     * @dev Adds two unsigned integers, reverts on overflow.
+     */
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c &gt;= a);
+
+        return c;
+    }
+
+    /**
+     * @dev Divides two unsigned integers and returns the remainder (unsigned integer modulo),
+     * reverts when dividing by zero.
+     */
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b != 0);
+        return a % b;
+    }
+}
+
+
+/**
+ * @title Expire Traker
+ * @dev Keeps track of expired NFTs.
+**/
+contract ExpireTracker {
+    
+    using SafeMath for uint64;
+    using SafeMath for uint256;
+
+    <span class="marker" id="mapping-26"></span><span class="token upd" id="move-dst-1" data-title="contract_body/comment"><span class="cupd">// 1 </span>week<span class="cupd"> for each step.</span></span>
+    uint64 public constant BUCKET_STEP = <span class="marker" id="mapping-27"></span><span class="token upd" id="move-dst-2" data-title="state_variable_declaration/number_literal">3 <span class="marker" id="mapping-28"></span><span class="token add" data-title="number_literal/number_unit">days</span></span>;
+
+    // indicates where to start from 
+    // points where TokenInfo with (expiredAt / BUCKET_STEP) == index
+    mapping(uint64 =&gt; Bucket) public checkPoints;
+
+    struct Bucket {
+        uint96 head;
+        uint96 tail;
+    }
+
+    // points first active nft
+    uint96 public head;
+    // points last active nft
+    uint96 public tail;
+
+    // maps expireId to deposit info
+    mapping(uint96 =&gt; ExpireMetadata) public infos; 
+    
+    // pack data to reduce gas
+    struct ExpireMetadata {
+        uint96 next; // zero if there is no further information
+        uint96 prev;
+        uint64 expiresAt;
+    }
+
+    function expired() internal view returns(bool) {
+        if(infos[head].expiresAt == 0) {
+            return false;
+        }
+
+        if(infos[head].expiresAt &lt;= uint64(now)){
+            return true;
+        }
+
+        return false;
+    }
+
+    // using typecasted expireId to save gas
+    function push(uint96 expireId, uint64 expiresAt) 
+      internal 
+    {
+        require(expireId != 0, "info id 0 cannot be supported");
+        uint64 bucket = uint64( (expiresAt.div(BUCKET_STEP)).mul(BUCKET_STEP) );
+        if (head == 0) {
+            // all the nfts are expired. so just add
+            head = expireId;
+            tail = expireId; 
+            checkPoints[bucket] = Bucket(expireId, expireId);
+            infos[expireId] = ExpireMetadata(0,0,expiresAt);
+            
+            return;
+        }
+            
+        // there is active nft. we need to find where to push
+        // first check if this expires faster than head
+        if (infos[head].expiresAt &gt;= expiresAt) {
+            // pushing nft is going to expire first
+            // update head
+            infos[expireId] = ExpireMetadata(head,0,expiresAt);
+            infos[head].prev = expireId;
+            head = expireId;
+            
+            // update head of bucket
+            Bucket storage b = checkPoints[bucket];
+            b.head = expireId;
+                
+            if(b.tail == 0) {
+                // if tail is zero, this bucket was empty should fill tail with expireId
+                b.tail = expireId;
+            }
+                
+            // this case can end now
+            return;
+        }
+          
+        // then check if depositing nft will last more than latest
+        if (infos[tail].expiresAt &lt;= expiresAt) {
+            // push nft at tail
+            infos[expireId] = ExpireMetadata(0,tail,expiresAt);
+            infos[tail].next = expireId;
+            tail = expireId;
+            
+            // update tail of bucket
+            Bucket storage b = checkPoints[bucket];
+            b.tail = expireId;
+            
+            if(b.head == 0){
+              // if head is zero, this bucket was empty should fill head with expireId
+              b.head = expireId;
+            }
+            
+            // this case is done now
+            return;
+        }
+          
+        // so our nft is somewhere in between
+        if (checkPoints[bucket].head != 0) {
+            //bucket is not empty
+            //we just need to find our neighbor in the bucket
+            uint96 cursor = checkPoints[bucket].head;
+        
+            // iterate until we find our nft's next
+            while(infos[cursor].expiresAt &lt; expiresAt){
+                cursor = infos[cursor].next;
+            }
+        
+            infos[expireId] = ExpireMetadata(cursor, infos[cursor].prev, expiresAt);
+            infos[infos[cursor].prev].next = expireId;
+            infos[cursor].prev = expireId;
+        
+            //now update bucket's head/tail data
+            Bucket storage b = checkPoints[bucket];
+            
+            if (infos[b.head].prev == expireId){
+                b.head = expireId;
+            }
+            
+            if (infos[b.tail].next == expireId){
+                b.tail = expireId;
+            }
+        } else {
+            //bucket is empty
+            //should find which bucket has depositing nft's closest neighbor
+            // step 1 find prev bucket
+            uint64 prevCursor = bucket - BUCKET_STEP;
+            
+            while(checkPoints[prevCursor].tail == 0){
+              prevCursor = uint64( prevCursor.sub(BUCKET_STEP) );
+            }
+    
+            uint96 prev = checkPoints[prevCursor].tail;
+            uint96 next = infos[prev].next;
+    
+            // step 2 link prev buckets tail - nft - next buckets head
+            infos[expireId] = ExpireMetadata(next,prev,expiresAt);
+            infos[prev].next = expireId;
+            infos[next].prev = expireId;
+    
+            checkPoints[bucket].head = expireId;
+            checkPoints[bucket].tail = expireId;
+        }
+    }
+
+    function pop(uint96 expireId) internal {
+        uint64 expiresAt = infos[expireId].expiresAt;
+        uint64 bucket = uint64( (expiresAt.div(BUCKET_STEP)).mul(BUCKET_STEP) );
+        // check if bucket is empty
+        <span class="marker" id="mapping-29"></span><span class="token upd" id="move-dst-3" data-title="function_body/comment"><span class="cupd">// if bucket is empty, </span>end</span>
+        <span class="marker" id="mapping-30"></span><span class="token mv" id="move-dst-12" data-title="function_body/if_statement">if(<span class="marker" id="mapping-31"></span><span class="token mv" id="move-dst-5" data-title="if_statement/binary_expression">checkPoints[bucket].head <span class="marker" id="mapping-32"></span><span class="token add" data-title="binary_expression/==">==</span> 0</span>){
+            return;
+        }</span>
+        // if bucket is not empty, iterate through
+        // if expiresAt of current cursor is larger than expiresAt of parameter, reverts
+        for(uint96 cursor = checkPoints[bucket].head; infos[cursor].expiresAt &lt;= expiresAt; cursor = infos[cursor].next) {
+            ExpireMetadata memory info = infos[cursor];
+            // if expiresAt is same of paramter, check if expireId is same
+            if(info.expiresAt == expiresAt &amp;&amp; cursor == expireId) {
+                // if yes, delete it
+                // if cursor was head, move head to cursor.next
+                if(head == cursor) {
+                    head = info.next;
+                }
+                // if cursor was tail, move tail to cursor.prev
+                if(tail == cursor) {
+                    tail = info.prev;
+                }
+                // if cursor was head of bucket
+                if(checkPoints[bucket].head == cursor){
+                    // and cursor.next is still in same bucket, move head to cursor.next
+                    if(infos[info.next].expiresAt.div(BUCKET_STEP) == bucket.div(BUCKET_STEP)) {
+                        checkPoints[bucket].head == info.next;
+                    } else {
+                        // delete whole checkpoint if bucket is now empty
+                        delete checkPoints[bucket];
+                    }
+                } else if(checkPoints[bucket].tail == cursor){
+                    // since bucket.tail == bucket.haed == cursor case is handled at the above,
+                    // we only have to handle bucket.tail == cursor != bucket.head
+                    checkPoints[bucket].tail = info.prev;
+                }
+                // now we handled all tail/head situation, we have to connect prev and next
+                infos[info.prev].next = info.next;
+                infos[info.next].prev = info.prev;
+                // delete info and end
+                delete infos[cursor];
+                return;
+            }
+            // if not, continue -&gt; since there can be same expires at with multiple expireId
+        }
+        revert("Info does not exist");
+    }
+
+    uint256[50] private __gap;
+}
+
+interface IArmorMaster {
+    function registerModule(bytes32 _key, address _module) external;
+    function getModule(bytes32 _key) external view returns(address);
+    function keep() external;
+}
+
+/**
+ * @title Ownable
+ * @dev The Ownable contract has an owner address, and provides basic authorization control
+ * functions, this simplifies the implementation of "user permissions".
+ * 
+ * @dev Completely default OpenZeppelin.
+ */
+contract Ownable {
+    address private _owner;
+    address private _pendingOwner;
+
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+    /**
+     * @dev The Ownable constructor sets the original `owner` of the contract to the sender
+     * account.
+     */
+    function initializeOwnable() internal {
+        require(_owner == address(0), "already initialized");
+        _owner = msg.sender;
+        emit OwnershipTransferred(address(0), msg.sender);
+    }
+
+
+    /**
+     * @return the address of the owner.
+     */
+    function owner() public view returns (address) {
+        return _owner;
+    }
+
+    /**
+     * @dev Throws if called by any account other than the owner.
+     */
+    modifier onlyOwner() {
+        require(isOwner(), "msg.sender is not owner");
+        _;
+    }
+
+    /**
+     * @return true if `msg.sender` is the owner of the contract.
+     */
+    function isOwner() public view returns (bool) {
+        return msg.sender == _owner;
+
+    }
+
+    /**
+     * @dev Allows the current owner to transfer control of the contract to a newOwner.
+     * @param newOwner The address to transfer ownership to.
+     */
+    function transferOwnership(address newOwner) public onlyOwner {
+        _pendingOwner = newOwner;
+    }
+
+    function receiveOwnership() public {
+        require(msg.sender == _pendingOwner, "only pending owner can call this function");
+        _transferOwnership(_pendingOwner);
+        _pendingOwner = address(0);
+    }
+
+    /**
+     * @dev Transfers control of the contract to a newOwner.
+     * @param newOwner The address to transfer ownership to.
+     */
+    function _transferOwnership(address newOwner) internal {
+        require(newOwner != address(0));
+        emit OwnershipTransferred(_owner, newOwner);
+        _owner = newOwner;
+    }
+
+    uint256[50] private __gap;
+}
+
+library Bytes32 {
+    function toString(bytes32 x) internal pure returns (string memory) {
+        bytes memory bytesString = new bytes(32);
+        uint charCount = 0;
+        for (uint256 j = 0; j &lt; 32; j++) {
+            byte char = byte(bytes32(uint(x) * 2 ** (8 * j)));
+            if (char != 0) {
+                bytesString[charCount] = char;
+                charCount++;
+            }
+        }
+        bytes memory bytesStringTrimmed = new bytes(charCount);
+        for (uint256 j = 0; j &lt; charCount; j++) {
+            bytesStringTrimmed[j] = bytesString[j];
+        }
+        return string(bytesStringTrimmed);
+    }
+}
+
+/**
+ * @dev Each arCore contract is a module to enable simple communication and interoperability. ArmorMaster.sol is master.
+**/
+contract ArmorModule {
+    IArmorMaster internal _master;
+
+    using Bytes32 for bytes32;
+
+    modifier onlyOwner() {
+        require(msg.sender == Ownable(address(_master)).owner(), "only owner can call this function");
+        _;
+    }
+
+    modifier doKeep() {
+        _master.keep();
+        _;
+    }
+
+    modifier onlyModule(bytes32 _module) {
+        string memory message = string(abi.encodePacked("only module ", _module.toString()," can call this function"));
+        require(msg.sender == getModule(_module), message);
+        _;
+    }
+
+    /**
+     * @dev Used when multiple can call.
+    **/
+    modifier onlyModules(bytes32 _moduleOne, bytes32 _moduleTwo) {
+        string memory message = string(abi.encodePacked("only module ", _moduleOne.toString()," or ", _moduleTwo.toString()," can call this function"));
+        require(msg.sender == getModule(_moduleOne) || msg.sender == getModule(_moduleTwo), message);
+        _;
+    }
+
+    function initializeModule(address _armorMaster) internal {
+        require(address(_master) == address(0), "already initialized");
+        require(_armorMaster != address(0), "master cannot be zero address");
+        _master = IArmorMaster(_armorMaster);
+    }
+
+    function changeMaster(address _newMaster) external onlyOwner {
+        _master = IArmorMaster(_newMaster);
+    }
+
+    function getModule(bytes32 _key) internal view returns(address) {
+        return _master.getModule(_key);
+    }
+}
+
+/**
+ * @dev Interface of the ERC20 standard as defined in the EIP.
+ */
+interface IERC20 {
+    /**
+     * @dev Returns the amount of tokens in existence.
+     */
+    function totalSupply() external view returns (uint256);
+
+    /**
+     * @dev Returns the amount of tokens owned by `account`.
+     */
+    function balanceOf(address account) external view returns (uint256);
+
+    /**
+     * @dev Moves `amount` tokens from the caller's account to `recipient`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transfer(address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Returns the remaining number of tokens that `spender` will be
+     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+     * zero by default.
+     *
+     * This value changes when {approve} or {transferFrom} are called.
+     */
+    function allowance(address owner, address spender) external view returns (uint256);
+
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+     * that someone may use both the old and the new allowance by unfortunate
+     * transaction ordering. One possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and set the
+     * desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address spender, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Moves `amount` tokens from `sender` to `recipient` using the
+     * allowance mechanism. `amount` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+     * another (`to`).
+     *
+     * Note that `value` may be zero.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    /**
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+     * a call to {approve}. `value` is the new allowance.
+     */
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}
+
+/**
+ * @dev Interface of the ERC165 standard, as defined in the
+ * https://eips.ethereum.org/EIPS/eip-165[EIP].
+ *
+ * Implementers can declare support of contract interfaces, which can then be
+ * queried by others ({ERC165Checker}).
+ *
+ * For an implementation, see {ERC165}.
+ */
+interface IERC165 {
+    /**
+     * @dev Returns true if this contract implements the interface defined by
+     * `interfaceId`. See the corresponding
+     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]
+     * to learn more about how these ids are created.
+     *
+     * This function call must use less than 30 000 gas.
+     */
+    function supportsInterface(bytes4 interfaceId) external view returns (bool);
+}
+
+/**
+ * @dev Required interface of an ERC721 compliant contract.
+ */
+interface IERC721 is IERC165 {
+    /**
+     * @dev Emitted when `tokenId` token is transferred from `from` to `to`.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
+
+    /**
+     * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.
+     */
+    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
+
+    /**
+     * @dev Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.
+     */
+    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
+
+    /**
+     * @dev Returns the number of tokens in ``owner``'s account.
+     */
+    function balanceOf(address owner) external view returns (uint256 balance);
+
+    /**
+     * @dev Returns the owner of the `tokenId` token.
+     *
+     * Requirements:
+     *
+     * - `tokenId` must exist.
+     */
+    function ownerOf(uint256 tokenId) external view returns (address owner);
+
+    /**
+     * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients
+     * are aware of the ERC721 protocol to prevent tokens from being forever locked.
+     *
+     * Requirements:
+     *
+     * - `from` cannot be the zero address.
+     * - `to` cannot be the zero address.
+     * - `tokenId` token must exist and be owned by `from`.
+     * - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}.
+     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
+     *
+     * Emits a {Transfer} event.
+     */
+    function safeTransferFrom(address from, address to, uint256 tokenId) external;
+
+    /**
+     * @dev Transfers `tokenId` token from `from` to `to`.
+     *
+     * WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible.
+     *
+     * Requirements:
+     *
+     * - `from` cannot be the zero address.
+     * - `to` cannot be the zero address.
+     * - `tokenId` token must be owned by `from`.
+     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(address from, address to, uint256 tokenId) external;
+
+    /**
+     * @dev Gives permission to `to` to transfer `tokenId` token to another account.
+     * The approval is cleared when the token is transferred.
+     *
+     * Only a single account can be approved at a time, so approving the zero address clears previous approvals.
+     *
+     * Requirements:
+     *
+     * - The caller must own the token or be an approved operator.
+     * - `tokenId` must exist.
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address to, uint256 tokenId) external;
+
+    /**
+     * @dev Returns the account approved for `tokenId` token.
+     *
+     * Requirements:
+     *
+     * - `tokenId` must exist.
+     */
+    function getApproved(uint256 tokenId) external view returns (address operator);
+
+    /**
+     * @dev Approve or remove `operator` as an operator for the caller.
+     * Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller.
+     *
+     * Requirements:
+     *
+     * - The `operator` cannot be the caller.
+     *
+     * Emits an {ApprovalForAll} event.
+     */
+    function setApprovalForAll(address operator, bool _approved) external;
+
+    /**
+     * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.
+     *
+     * See {setApprovalForAll}
+     */
+    function isApprovedForAll(address owner, address operator) external view returns (bool);
+
+    /**
+      * @dev Safely transfers `tokenId` token from `from` to `to`.
+      *
+      * Requirements:
+      *
+     * - `from` cannot be the zero address.
+     * - `to` cannot be the zero address.
+      * - `tokenId` token must exist and be owned by `from`.
+      * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.
+      * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
+      *
+      * Emits a {Transfer} event.
+      */
+    function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) external;
+}
+
+interface IarNFT is IERC721 {
+    function getToken(uint256 _tokenId) external returns (uint256, uint8, uint256, uint16, uint256, address, bytes4, uint256, uint256, uint256);
+    function submitClaim(uint256 _tokenId) external;
+    function redeemClaim(uint256 _tokenId) external;
+}
+
+interface IRewardDistributionRecipient {
+    function notifyRewardAmount(uint256 reward) payable external;
+}
+
+interface IRewardManager is IRewardDistributionRecipient {
+  function initialize(address _rewardToken, address _stakeManager) external;
+  function stake(address _user, uint256 _coverPrice, uint256 _nftId) external;
+  function withdraw(address _user, uint256 _coverPrice, uint256 _nftId) external;
+  function getReward(address payable _user) external;
+}
+
+interface IPlanManager {
+  // Event to notify frontend of plan update.
+  event PlanUpdate(address indexed user, address[] protocols, uint256[] amounts, uint256 endTime);
+  function initialize(address _armorManager) external;
+  function changePrice(address _scAddress, uint256 _pricePerAmount) external;
+  function updatePlan(address[] calldata _protocols, uint256[] calldata _coverAmounts) external;
+  function checkCoverage(address _user, address _protocol, uint256 _hacktime, uint256 _amount) external view returns (uint256, bool);
+  function coverageLeft(address _protocol) external view returns(uint256);
+  function getCurrentPlan(address _user) external view returns(uint128 start, uint128 end);
+  function updateExpireTime(address _user<span class="marker" id="mapping-33"></span><span class="token add" data-title="function_definition/,">,</span> <span class="marker" id="mapping-34"></span><span class="token add" data-title="function_definition/parameter">uint256 _expiry</span>) external;
+  function planRedeemed(<span class="marker" id="mapping-35"></span><span class="token add" data-title="parameter/type_name">address</span> <span class="marker" id="mapping-36"></span><span class="token upd" id="move-dst-7" data-title="parameter/identifier"><span class="cupd">_use</span>r</span>, uint256 _planIndex, address _protocol) external;
+  <span class="marker" id="mapping-37"></span><span class="token add" data-title="contract_body/function_definition">function totalUsedCover(address _scAddress) external view returns (uint256);</span>
+}
+
+interface IClaimManager {
+    function initialize(address _armorMaster) external;
+    function transferNft(address _to, uint256 _nftId) external;
+    <span class="marker" id="mapping-38"></span><span class="token add" data-title="contract_body/function_definition">function exchangeWithdrawal(uint256 _amount) external;</span>
+}
+
+interface IStakeManager {
+    function totalStakedAmount(address protocol) external view returns(uint256);
+    function protocolAddress(uint64 id) external view returns(address);
+    function protocolId(address protocol) external view returns(uint64);
+    function initialize(address _armorMaster) external;
+    function allowedCover(address _newProtocol, uint256 _newTotalCover) external view returns (bool);
+    function subtractTotal(uint256 _nftId, address _protocol, uint256 _subtractAmount) external;
+}
+
+interface IUtilizationFarm is IRewardDistributionRecipient {
+  function initialize(address _rewardToken, address _stakeManager) external;
+  function stake(address _user, uint256 _coverPrice) external;
+  function withdraw(address _user, uint256 _coverPrice) external;
+  function getReward(address payable _user) external;
+}
+
+/**
+ * @dev Encompasses all functions taken by stakers.
+**/
+contract StakeManager is ArmorModule, ExpireTracker, IStakeManager {
+    
+    using SafeMath for uint;
+    
+    bytes4 public constant ETH_SIG = bytes4(0x45544800);
+    
+    // Whether or not utilization farming is on.
+    bool ufOn;
+    
+    // Amount of time--in seconds--a user must wait to withdraw an NFT.
+    uint256 withdrawalDelay;
+    
+    // Protocols that staking is allowed for. We may not allow all NFTs.
+    mapping (address =&gt; bool) public allowedProtocol;
+    mapping (address =&gt; uint64) public override protocolId;
+    mapping (uint64 =&gt; address) public override protocolAddress;
+    uint64 protocolCount;
+    
+    // The total amount of cover that is currently being staked. scAddress =&gt; cover amount
+    mapping (address =&gt; uint256) public override totalStakedAmount;
+    
+    // Mapping to keep track of which NFT is owned by whom. NFT ID =&gt; owner address.
+    mapping (uint256 =&gt; address) public nftOwners;
+
+    // When the NFT can be withdrawn. NFT ID =&gt; Unix timestamp.
+    mapping (uint256 =&gt; uint256) public pendingWithdrawals;
+
+    // Track if the NFT was submitted, in which case total staked has already been lowered.
+    mapping (uint256 =&gt; bool) public submitted;
+
+    // Event launched when an NFT is staked.
+    event StakedNFT(address indexed user, address indexed protocol, uint256 nftId, uint256 sumAssured, uint256 secondPrice, uint16 coverPeriod, uint256 timestamp);
+
+    // Event launched when an NFT expires.
+    event RemovedNFT(address indexed user, address indexed protocol, uint256 nftId, uint256 sumAssured, uint256 secondPrice, uint16 coverPeriod, uint256 timestamp);
+
+    event ExpiredNFT(address indexed user, uint256 nftId, uint256 timestamp);
+    
+    // Event launched when an NFT expires.
+    event WithdrawRequest(address indexed user, uint256 nftId, uint256 timestamp, uint256 withdrawTimestamp);
+    
+    /**
+     * @dev Construct the contract with the yNft contract.
+    **/
+    function initialize(address _armorMaster)
+      public
+      override
+    {
+        initializeModule(_armorMaster);
+        // Let's be explicit.
+        withdrawalDelay = 7 days;
+        ufOn = true;
+    }
+
+    /**
+     * @dev Keep function can be called by anyone to remove any NFTs that have expired. Also run when calling many functions.
+     *      This is external because the doKeep modifier calls back to ArmorMaster, which then calls back to here (and elsewhere).
+    **/
+    function keep() external {
+        <span class="marker" id="mapping-39"></span><span class="token upd" id="move-dst-9" data-title="function_body/comment"><span class="cupd">// Restrict each keep to </span>2<span class="cupd"> removals max.</span></span>
+        for (uint256 i = 0; i &lt; <span class="marker" id="mapping-40"></span><span class="token upd" id="move-dst-10" data-title="binary_expression/number_literal">2</span>; i++) {
+            if (infos[head].expiresAt != 0 &amp;&amp; infos[head].expiresAt &lt;= now) _removeExpiredNft(head);
+            else return;
+        }
+    }
+    
+    /**
+     * @dev stakeNft allows a user to submit their NFT to the contract and begin getting returns.
+     *      This yNft cannot be withdrawn!
+     * @param _nftId The ID of the NFT being staked.
+    **/
+    function stakeNft(uint256 _nftId)
+      public
+      doKeep
+    {
+        _stake(_nftId, msg.sender);
+    }
+
+    /**
+     * @dev stakeNft allows a user to submit their NFT to the contract and begin getting returns.
+     * @param _nftIds The ID of the NFT being staked.
+    **/
+    function batchStakeNft(uint256[] memory _nftIds)
+      public
+      doKeep
+    {
+        // Loop through all submitted NFT IDs and stake them.
+        for (uint256 i = 0; i &lt; _nftIds.length; i++) {
+            _stake(_nftIds[i], msg.sender);
+        }
+    }
+
+    /**
+     * @dev A user may call to withdraw their NFT. This may have a delay added to it.
+     * @param _nftId ID of the NFT to withdraw.
+    **/
+    function withdrawNft(uint256 _nftId)
+      external
+      doKeep
+    {
+        // Check when this NFT is allowed to be withdrawn. If 0, set it.
+        uint256 withdrawalTime = pendingWithdrawals[_nftId];
+        
+        if (withdrawalTime == 0) {
+            <span class="marker" id="mapping-41"></span><span class="token mv" id="move-dst-11" data-title="block_statement/expression_statement">require(nftOwners[_nftId] == msg.sender, "Sender does not own this NFT.");</span>
+            
+            <span class="marker" id="mapping-42"></span><span class="token add" data-title="block_statement/variable_declaration_statement">(/*coverId*/,  uint8 coverStatus, uint256 sumAssured, /*uint16 coverPeriod*/, /*uint256 validUntil*/, address scAddress, 
+            /*bytes4 coverCurrency*/, /*premiumNXM*/, /*uint256 coverPrice*/, /*claimId*/) = IarNFT( getModule("ARNFT") ).getToken(_nftId);</span>
+            
+            <span class="marker" id="mapping-43"></span><span class="token add" data-title="block_statement/variable_declaration_statement">uint256 totalUsedCover = IPlanManager( getModule("PLAN") ).totalUsedCover(scAddress);</span>
+            <span class="marker" id="mapping-44"></span><span class="token add" data-title="block_statement/variable_declaration_statement">bool withdrawable = totalUsedCover &lt;= totalStakedAmount[scAddress].sub(sumAssured * 1e18);</span>
+            <span class="marker" id="mapping-45"></span><span class="token mv" id="move-dst-4" data-title="block_statement/expression_statement">require(<span class="marker" id="mapping-46"></span><span class="token add" data-title="call_argument/binary_expression">coverStatus == 0 &amp;&amp; withdrawable</span>, "May not withdraw NFT if it will bring staked amount below borrowed amount.");</span>
+            
+            withdrawalTime = block.timestamp + withdrawalDelay;
+            pendingWithdrawals[_nftId] = withdrawalTime;
+            <span class="marker" id="mapping-47"></span><span class="token mv" id="move-dst-14" data-title="block_statement/expression_statement">_removeNft(_nftId);</span>
+            
+            emit WithdrawRequest(msg.sender, _nftId, block.timestamp, withdrawalTime);
+        } else <span class="marker" id="mapping-48"></span><span class="token add" data-title="if_statement/if_statement">if (<span class="marker" id="mapping-49"></span><span class="token mv" id="move-dst-13" data-title="if_statement/binary_expression">withdrawalTime <span class="marker" id="mapping-50"></span><span class="token add" data-title="binary_expression/<=">&lt;=</span> block.timestamp</span>) <span class="marker" id="mapping-51"></span><span class="token add" data-title="if_statement/block_statement">{
+            <span class="marker" id="mapping-52"></span><span class="token add" data-title="block_statement/variable_declaration_statement">(/*coverId*/,  uint8 coverStatus, /*uint256 sumAssured*/, /*uint16 coverPeriod*/, /*uint256 validUntil*/, /*address scAddress*/, 
+            /*bytes4 coverCurrency*/, /*premiumNXM*/, /*uint256 coverPrice*/, /*claimId*/) = IarNFT(getModule("ARNFT")).getToken(_nftId);</span>
+            
+            <span class="marker" id="mapping-53"></span><span class="token add" data-title="block_statement/expression_statement">require(coverStatus == 0, "May not withdraw while claim is occurring.");</span>
+            
+            <span class="marker" id="mapping-54"></span><span class="token add" data-title="block_statement/variable_declaration_statement"><span class="marker" id="mapping-55"></span><span class="token add" data-title="variable_declaration_statement/variable_declaration"><span class="marker" id="mapping-56"></span><span class="token mv" id="move-dst-6" data-title="variable_declaration/type_name">address</span> nftOwner</span> = <span class="marker" id="mapping-57"></span><span class="token add" data-title="variable_declaration_statement/array_access">nftOwners[_nftId]</span>;</span>
+            <span class="marker" id="mapping-58"></span><span class="token mv" id="move-dst-15" data-title="block_statement/expression_statement">IClaimManager(getModule("CLAIM")).transferNft(<span class="marker" id="mapping-59"></span><span class="token add" data-title="call_argument/identifier">nftOwner</span>, _nftId);</span>
+            <span class="marker" id="mapping-60"></span><span class="token mv" id="move-dst-16" data-title="block_statement/expression_statement">delete pendingWithdrawals[_nftId];</span>
+            <span class="marker" id="mapping-61"></span><span class="token add" data-title="block_statement/expression_statement">delete nftOwners[_nftId];</span>
+        }</span></span>
+        
+    }
+
+    /**
+     * @dev Subtract from total staked. Used by ClaimManager in case NFT is submitted.
+     * @param _protocol Address of the protocol to subtract from.
+     * @param _subtractAmount Amount of staked to subtract.
+    **/
+    function subtractTotal(uint256 _nftId, address _protocol, uint256 _subtractAmount)
+      external
+      override
+      onlyModule("CLAIM")
+    {
+        totalStakedAmount[_protocol] = totalStakedAmount[_protocol].sub(_subtractAmount);
+        submitted[_nftId] = true;
+    }
+
+    /**
+     * @dev Check whether a new TOTAL cover is allowed.
+     * @param _protocol Address of the smart contract protocol being protected.
+     * @param _totalBorrowedAmount The new total amount that would be being borrowed.
+     * returns Whether or not this new total borrowed amount would be able to be covered.
+    **/
+    function allowedCover(address _protocol, uint256 _totalBorrowedAmount)
+      external
+      override
+      view
+    returns (bool)
+    {
+        return _totalBorrowedAmount &lt;= totalStakedAmount[_protocol];
+    }
+    
+    /**
+     * @dev Internal function for staking--this allows us to skip updating stake multiple times during a batch stake.
+     * @param _nftId The ID of the NFT being staked. == coverId
+     * @param _user The user who is staking the NFT.
+    **/
+    function _stake(uint256 _nftId, address _user)
+      internal
+    {
+        (/*coverId*/,  uint8 coverStatus, uint256 sumAssured, uint16 coverPeriod, uint256 validUntil, address scAddress, 
+         bytes4 coverCurrency, /*premiumNXM*/, uint256 coverPrice, /*claimId*/) = IarNFT( getModule("ARNFT") ).getToken(_nftId);
+        
+        _checkNftValid(validUntil, scAddress, coverCurrency, coverStatus);
+        
+        // coverPrice must be determined by dividing by length.
+        uint256 secondPrice = coverPrice / (uint256(coverPeriod) * 1 days);
+
+        // Update PlanManager to use the correct price for the protocol.
+        // Find price per amount here to update plan manager correctly.
+        uint256 pricePerEth = secondPrice / sumAssured;
+        
+        IPlanManager(getModule("PLAN")).changePrice(scAddress, pricePerEth);
+        
+        IarNFT(getModule("ARNFT")).transferFrom(_user, getModule("CLAIM"), _nftId);
+
+        ExpireTracker.push(uint96(_nftId), uint64(validUntil));
+        // Save owner of NFT.
+        nftOwners[_nftId] = _user;
+
+        uint256 weiSumAssured = sumAssured * (10 ** 18);
+        _addCovers(_user, _nftId, weiSumAssured, secondPrice, scAddress);
+        
+        // Add to utilization farming.
+        if (ufOn) IUtilizationFarm(getModule("UFS")).stake(_user, secondPrice);
+        
+        emit StakedNFT(_user, scAddress, _nftId, weiSumAssured, secondPrice, coverPeriod, block.timestamp);
+    }
+    
+    /**
+     * @dev removeExpiredNft is called on many different interactions to the system overall.
+     * @param _nftId The ID of the expired NFT.
+    **/
+    function _removeExpiredNft(uint256 _nftId)
+      internal
+    {
+        address user = nftOwners[_nftId];
+        _removeNft(_nftId);
+        <span class="marker" id="mapping-62"></span><span class="token mv" id="move-dst-17" data-title="function_body/expression_statement">delete nftOwners[_nftId];</span>
+        emit ExpiredNFT(user, _nftId, block.timestamp);
+    }
+
+    /**
+     * @dev Internal main removal functionality.
+    **/
+    function _removeNft(uint256 _nftId)
+      internal
+    {
+        (/*coverId*/, /*status*/, uint256 sumAssured, uint16 coverPeriod, /*uint256 validuntil*/, address scAddress, 
+         /*coverCurrency*/, /*premiumNXM*/, uint256 coverPrice, /*claimId*/) = IarNFT(getModule("ARNFT")).getToken(_nftId);
+        address user = nftOwners[_nftId];
+        require(user != address(0), "NFT does not belong to this contract.");
+
+        ExpireTracker.pop(uint96(_nftId));
+
+        uint256 weiSumAssured = sumAssured * (10 ** 18);
+        uint256 secondPrice = coverPrice / (uint256(coverPeriod) * 1 days);
+        _subtractCovers(user, _nftId, weiSumAssured, secondPrice, scAddress);
+        
+        // Exit from utilization farming.
+        if (ufOn) IUtilizationFarm(getModule("UFS")).withdraw(user, secondPrice);
+
+        emit RemovedNFT(user, scAddress, _nftId, weiSumAssured, secondPrice, coverPeriod, block.timestamp);
+    }
+    
+    /**
+     * @dev Add to the cover amount for the user and contract overall.
+     * @param _user The user who submitted.
+     * @param _nftId ID of the NFT being staked (used for events on RewardManager).
+     * @param _coverAmount The amount of cover being added.
+     * @param _coverPrice Price paid by the user for the NFT per second.
+     * @param _protocol Address of the protocol that is having cover added.
+    **/
+    function _addCovers(address _user, uint256 _nftId, uint256 _coverAmount, uint256 _coverPrice, address _protocol)
+      internal
+    {
+        IRewardManager(getModule("REWARD")).stake(_user, _coverPrice, _nftId);
+        totalStakedAmount[_protocol] = totalStakedAmount[_protocol].add(_coverAmount);
+    }
+    
+    /**
+     * @dev Subtract from the cover amount for the user and contract overall.
+     * @param _user The user who is having the token removed.
+     * @param _nftId ID of the NFT being used--must check if it has been submitted.
+     * @param _coverAmount The amount of cover being removed.
+     * @param _coverPrice Price that the user was paying per second.
+     * @param _protocol The protocol that this NFT protected.
+    **/
+    function _subtractCovers(address _user, uint256 _nftId, uint256 _coverAmount, uint256 _coverPrice, address _protocol)
+      internal
+    {
+        IRewardManager(getModule("REWARD")).withdraw(_user, _coverPrice, _nftId);
+        if (!submitted[_nftId]) totalStakedAmount[_protocol] = totalStakedAmount[_protocol].sub(_coverAmount);
+    }
+    
+    /**
+     * @dev Check that the NFT should be allowed to be added. We check expiry and claimInProgress.
+     * @param _validUntil The expiration time of this NFT.
+     * @param _scAddress The smart contract protocol that the NFt is protecting.
+     * @param _coverCurrency The currency that this NFT is protected in (must be ETH_SIG).
+     * @param _coverStatus status of cover, only accepts Active
+    **/
+    function _checkNftValid(uint256 _validUntil, address _scAddress, bytes4 _coverCurrency, uint8 _coverStatus)
+      internal
+      view
+    {
+        require(_validUntil &gt; now + <span class="marker" id="mapping-63"></span><span class="token upd" id="move-dst-18" data-title="binary_expression/number_literal">20 <span class="marker" id="mapping-64"></span><span class="token add" data-title="number_literal/number_unit">days</span></span>, "NFT is expired or within 20 days of expiry.");
+        require(_coverStatus == 0, "arNFT claim is already in progress.");
+        require(allowedProtocol[_scAddress], "Protocol is not allowed to be staked.");
+        require(_coverCurrency == ETH_SIG, "Only Ether arNFTs may be staked.");
+    }
+    
+    /**
+     * @dev Allow the owner (DAO soon) to allow or disallow a protocol from being used in Armor.
+     * @param _protocol The address of the protocol to allow or disallow.
+     * @param _allow Whether to allow or disallow the protocol.
+    **/
+    function allowProtocol(address _protocol, bool _allow)
+      external
+      doKeep
+      onlyOwner
+    {
+        if(protocolId[_protocol] == 0){
+            protocolId[_protocol] = ++protocolCount;
+            protocolAddress[protocolCount] = _protocol;
+        }
+        allowedProtocol[_protocol] = _allow;
+    }
+    
+    /**
+     * @dev Allow the owner to change the amount of delay to withdraw an NFT.
+     * @param _withdrawalDelay The amount of time--in seconds--to delay an NFT withdrawal.
+    **/
+    function changeWithdrawalDelay(uint256 _withdrawalDelay)
+      external
+      doKeep
+      onlyOwner
+    {
+        withdrawalDelay = _withdrawalDelay;
+    }
+    
+    /**
+     * @dev Toggle whether utilization farming should be on or off.
+    **/
+    function toggleUF()
+      external
+      onlyOwner
+    {
+        ufOn = !ufOn;
+    }
+}</pre></div></div></div></body></html>

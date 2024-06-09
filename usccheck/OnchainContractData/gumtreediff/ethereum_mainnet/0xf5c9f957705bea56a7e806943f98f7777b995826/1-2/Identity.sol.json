@@ -1,0 +1,156 @@
+{
+  "matches": [
+    {
+      "src": "identifier: identify [840,848]",
+      "dest": "identifier: identify [840,848]"
+    },
+    {
+      "src": "function: function [831,839]",
+      "dest": "function: function [831,839]"
+    },
+    {
+      "src": "^:  ^ [651,653]",
+      "dest": "^:  ^ [651,653]"
+    },
+    {
+      "src": "identifier: Identity [672,680]",
+      "dest": "identifier: Identity [672,680]"
+    },
+    {
+      "src": "pure: pure [860,864]",
+      "dest": "pure: pure [860,864]"
+    },
+    {
+      "src": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]",
+      "dest": "comment: // SPDX-License-Identifier: Apache-2.0. [596,635]"
+    },
+    {
+      "src": "interface: interface [662,671]",
+      "dest": "interface: interface [662,671]"
+    },
+    {
+      "src": "interface_declaration [662,891]",
+      "dest": "interface_declaration [662,891]"
+    },
+    {
+      "src": "solidity_version: 0.6.11 [653,659]",
+      "dest": "solidity_version: 0.6.12 [653,659]"
+    },
+    {
+      "src": "{: { [681,682]",
+      "dest": "{: { [681,682]"
+    },
+    {
+      "src": "(: ( [848,849]",
+      "dest": "(: ( [848,849]"
+    },
+    {
+      "src": "memory: memory [881,887]",
+      "dest": "memory: memory [881,887]"
+    },
+    {
+      "src": "return_type_definition [865,888]",
+      "dest": "return_type_definition [865,888]"
+    },
+    {
+      "src": "returns: returns [865,872]",
+      "dest": "returns: returns [865,872]"
+    },
+    {
+      "src": "}: } [890,891]",
+      "dest": "}: } [890,891]"
+    },
+    {
+      "src": "solidity_pragma_token [643,659]",
+      "dest": "solidity_pragma_token [643,659]"
+    },
+    {
+      "src": "): ) [887,888]",
+      "dest": "): ) [887,888]"
+    },
+    {
+      "src": "parameter [874,887]",
+      "dest": "parameter [874,887]"
+    },
+    {
+      "src": "(: ( [873,874]",
+      "dest": "(: ( [873,874]"
+    },
+    {
+      "src": "visibility [851,859]",
+      "dest": "visibility [851,859]"
+    },
+    {
+      "src": "pragma_directive [636,660]",
+      "dest": "pragma_directive [636,660]"
+    },
+    {
+      "src": "function_definition [831,889]",
+      "dest": "function_definition [831,889]"
+    },
+    {
+      "src": "comment: /*       Allows a caller, typically another contract,       to ensure that the provided address is of the expected type and version.     */ [687,826]",
+      "dest": "comment: /*       Allows a caller, typically another contract,       to ensure that the provided address is of the expected type and version.     */ [687,826]"
+    },
+    {
+      "src": "external: external [851,859]",
+      "dest": "external: external [851,859]"
+    },
+    {
+      "src": "state_mutability [860,864]",
+      "dest": "state_mutability [860,864]"
+    },
+    {
+      "src": "source_file [0,892]",
+      "dest": "source_file [0,892]"
+    },
+    {
+      "src": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "dest": "comment: /*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]"
+    },
+    {
+      "src": "contract_body [681,891]",
+      "dest": "contract_body [681,891]"
+    },
+    {
+      "src": "pragma: pragma [636,642]",
+      "dest": "pragma: pragma [636,642]"
+    },
+    {
+      "src": "solidity_version_comparison_operator [651,653]",
+      "dest": "solidity_version_comparison_operator [651,653]"
+    },
+    {
+      "src": "type_name [874,880]",
+      "dest": "type_name [874,880]"
+    },
+    {
+      "src": "string: string [874,880]",
+      "dest": "string: string [874,880]"
+    },
+    {
+      "src": "solidity: solidity [643,651]",
+      "dest": "solidity: solidity [643,651]"
+    },
+    {
+      "src": "): ) [849,850]",
+      "dest": "): ) [849,850]"
+    },
+    {
+      "src": "primitive_type [874,880]",
+      "dest": "primitive_type [874,880]"
+    }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "comment: /*   Copyright 2019-2021 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */ [0,595]",
+      "label": "/*   Copyright 2019-2022 StarkWare Industries Ltd.    Licensed under the Apache License, Version 2.0 (the \"License\").   You may not use this file except in compliance with the License.   You may obtain a copy of the License at    https://www.starkware.co/open-source-license/    Unless required by applicable law or agreed to in writing,   software distributed under the License is distributed on an \"AS IS\" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions   and limitations under the License. */"
+    },
+    {
+      "action": "update-node",
+      "tree": "solidity_version: 0.6.11 [653,659]",
+      "label": "0.6.12"
+    }
+  ]
+}
